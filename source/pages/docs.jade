@@ -43,6 +43,10 @@ block content
           a(href="#/parsing/now") Now
         li
           a(href="#/parsing/array") Javascript Array
+        li
+          a(href="#/parsing/asp-net") ASP.NET json dates
+        li
+          a(href="#/parsing/clone") Cloning
       h2
         a(href="#/manipulation")
           span Manipulation
@@ -86,7 +90,7 @@ block content
         li
           a(href="#/display/diff") Difference
         li
-          a(href="#/display/native") Native Date
+          a(href="#/display/toDate") Native Javascript Date
         li
           a(href="#/display/valueOf") Value
         li
@@ -145,6 +149,12 @@ block content
           a(href="#/custom/calendar") Calendar
         li
           a(href="#/custom/ordinal") Ordinal
+      h2
+        a(href="#/plugins")
+          span Plugins
+      ul
+        li
+          a(href="#/plugins/strftime") strftime
     #docs
       h1 Moment.js Documentation
       p A lightweight javascript date library for parsing, manipulating, and formatting dates.
@@ -354,14 +364,50 @@ block content
         | var day = moment(Date.UTC.apply({}, array));
 
 
+      a(name="/parsing/asp-net")
+      h3
+        span ASP.NET style json dates
+      p ASP.NET returns dates in json in the following formats. 
+        code /Date(1198908717056)/
+        |  or 
+        code /Date(1198908717056-0700)/
+      p If a string that matches this format is passed in, it will be parsed correctly.
+      pre moment("/Date(1198908717056-0700)/").valueOf(); // 1198908717056
+
+
+      a(name="/parsing/clone")
+      h3
+        span Cloning
+      p All moments are mutable. If you want a clone of a moment, you can do so explicitly or implicitly.
+      p Calling 
+        code moment()
+        |  on a moment will clone it.
+      pre var a = moment([2012]);\n
+        | var b = moment(a);
+        | a.year(2000);
+        | b.year(); // 2012
+      p Additionally, you can call 
+        code moment.fn.clone
+        |  to clone a moment.
+      pre var a = moment([2012]);\n
+        | var b = a.clone();
+        | a.year(2000);
+        | b.year(); // 2012
+
+
       a(name="/manipulation")
       h2
         span Manipulation
       p Once you have a Moment.js wrapper object, you may want to manipulate it in some way. There are a number of 
         code moment.fn
-        | methods to help with this.
+        |  methods to help with this.
       p All manipulation methods are chainable, so you can do crazy things like this.
       pre moment().add('days', 7).subtract('months', 1).year(2009).hours(0).minutes(0).seconds(0);
+      p It should be noted that moments are mutable. Calling any of the manipulation methods will change the original moment.
+      p If you want to create a copy and manipulate it, you should use 
+        code moment.fn.clone
+        |  before manipulating the moment. 
+        a(href="#/parsing/clone") More info on cloning.
 
 
       a(name="/manipulation/add")
@@ -510,11 +556,16 @@ block content
       h3
         span Start of Day
       pre moment().sod(); // set the time to last midnight
+      p This is essentially the same as the following.
+      pre moment().hours(0).minutes(0).seconds(0).milliseconds(0);
+
 
       a(name="/manipulation/eod")
       h3
         span End of Day
       pre moment().eod(); // set the time to 11:59:59.999 pm tonight
+      p This is essentially the same as the following.
+      pre moment().hours(23).minutes(59).seconds(59).milliseconds(999);
 
 
       a(name="/display")
@@ -714,6 +765,13 @@ block content
         a(href="http://jsperf.com/momentjs-vs-xaprb") moment.js vs xaprb
         |  performance tests, and here is the
         a(href="http://www.xaprb.com/blog/2005/12/12/javascript-closures-for-runtime-efficiency/") article describing his methods.
+      p If you are more comfortable working with strftime instead of LDML-like parsing tokens, you can use Ben Oakes' plugin 
+        code moment-strftime
+        |  .
+      p It is available on npm.
+      pre npm install moment-strftime
+      p The repository is located at 
+        a(href="https://github.com/benjaminoakes/moment-strftime") benjaminoakes/moment-strftime
 
 
       a(name="/display/from")
@@ -885,20 +943,26 @@ block content
         | a.diff(b, 'years', true) // 1.5
 
 
+      a(name="/display/toDate")
       a(name="/display/native")
       h3
-        span Native Date
+        span Native Javascript Date
       p To get the native Date object that Moment.js wraps, use 
-        code moment.fn.native
+        code moment.fn.toDate
         | .
-      pre moment([2007, 0, 29]).native(); // returns native Date object
+      pre moment([2007, 0, 29]).toDate(); // returns native Date object
+      p Note: 
+        code moment.fn.native
+        |  has been replaced by 
+        code moment.fn.toDate
+        |  and will be depreciated in the future.
 
 
       a(name="/display/valueOf")
       h3
         span Value
       p
-        code moment.fn.valueOf
+        code moment.fn.valueOf 
         | simply outputs the unix timestamp.
       pre moment(1318874398806).valueOf(); // 1318874398806
 
@@ -1254,4 +1318,24 @@ block content
         | };
       p For more information on ordinal numbers, see 
         a(href="http://en.wikipedia.org/wiki/Ordinal_number_%28linguistics%29") wikipedia
+
+
+      a(name="/plugins")
+      h2
+        span Plugins
+      p Some people have made plugins for moment.js that may be useful to you.
+
+
+      a(name="/plugins/strftime")
+      h3
+        span strftime
+      p If you are more comfortable working with strftime instead of LDML-like parsing tokens, you can use Ben Oakes' plugin 
+        code moment-strftime
+        |  .
+      p It is available on npm.
+      pre npm install moment-strftime
+      p The repository is located at 
+        a(href="https://github.com/benjaminoakes/moment-strftime") benjaminoakes/moment-strftime
+
+
       .footer
