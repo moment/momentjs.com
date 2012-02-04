@@ -1,5 +1,6 @@
 TESTJS = libs/nodeunit/nodeunit.js libs/moment/test/non-lang/*.js libs/moment/test/lang/*.js source/js/test.js
 LANGALL = libs/moment/lang/*.js
+SNIPPET = libs/snippet/jquery.snippet.js
 
 all: jsmin html css
 
@@ -12,8 +13,8 @@ js:
 
 jsmin: js
 	uglifyjs -o deploy/js/langs.min.js deploy/js/langs.js
-	uglifyjs -o deploy/js/home.min.js source/js/home.js
-	uglifyjs -o deploy/js/docs.min.js source/js/docs.js
+	cat $(SNIPPET) source/js/home.js | uglifyjs -o deploy/js/home.min.js
+	cat $(SNIPPET) source/js/docs.js | uglifyjs -o deploy/js/docs.min.js
 
 html:
 	node source/build.js
