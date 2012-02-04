@@ -400,20 +400,25 @@ b, strong { font-weight:bold; }
 
 
 /****************
-    Q Unit
+    Nodeunit
 ****************/
 
 
-#qunit-banner { height:20px; }
-#qunit-testrunner-toolbar { padding: 0.5em 0 0.5em 2em; color: #5E740B; background-color: #eee;}
+#nodeunit-tests { list-style-position:inside; padding-bottom:20px; border-bottom:#313749 10px solid; margin-bottom:20px; }
+#nodeunit-tests ul li { padding:2px 20px; list-style:none; }
+#nodeunit-tests > li { padding:5px 0; }
+#nodeunit-tests h3 { padding:10px 20px; background:#e9e9e9; border:1px solid #ddd; }
+#nodeunit-tests li.test ul { display:none; }
+#nodeunit-tests li.open ul { display:block; }
+#nodeunit-tests li.fail { background-color:#EE5757; }
 
+#nodeunit-banner { padding:10px 20px; margin:10px 0; border:1px solid rgba(0, 0, 0, .1); background:#e9e9e9; }
+#nodeunit-banner.pass { background:#63A62F; }
+#nodeunit-banner.fail { background:#EE5757; }
 
-/****************
-    Q Unit Pass/Fail
-****************/
+.submit-issue { background:#EE5757; padding:20px; }
 
-#qunit-tests { list-style-position:inside; padding-bottom:20px; border-bottom:#313749 10px solid; margin-bottom:20px; }
-#qunit-tests li { padding:5px 10px; list-style-position:inside; }
+/*
 #qunit-tests th, 
 #qunit-tests pre { font-size:14px; }
 #qunit-tests.hidepass li.pass { display:none; }
@@ -461,9 +466,9 @@ b, strong { font-weight:bold; }
     border-bottom: none;
     list-style-position: inside;
 }
-
+*/
 /*** Passing Styles */
-
+/*
 #qunit-tests li li.pass {
     color: #5E740B;
     background-color: #fff;
@@ -474,9 +479,9 @@ b, strong { font-weight:bold; }
 #qunit-tests .pass .test-actual,
 #qunit-tests .pass .test-expected { color:#999; }
 #qunit-tests .pass b.failed { color:#ccc; }
-
+*/
 /*** Failing Styles */
-
+/*
 #qunit-tests li li.fail {
     color: #710909;
     background-color: #fff;
@@ -491,17 +496,17 @@ b, strong { font-weight:bold; }
 #qunit-tests .fail .test-expected           { color: green;   }
 
 #qunit-banner.qunit-fail                    { background-color: #EE5757; }
-
+*/
 
 /** Result */
-
+/*
 .test-expected th { width:100px; }
 
-
+*/
 /** Fixture */
-
+/*
 #qunit-fixture {
     position: absolute;
     top: -10000px;
     left: -10000px;
-}
+}*/

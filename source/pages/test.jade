@@ -6,12 +6,17 @@ block styles
 
 block scripts
   script(src="../js/moment.js?_=" + builddate)
-  script(src="../js/langs.min.js?_=" + builddate)
-  script(src="../js/tests.min.js?_=" + builddate)
+  script
+    var require = function(){
+        return moment;
+    }
+    var exports = {};
+  script(src="../js/langs.js?_=" + builddate)
+  script(src="../js/tests.js?_=" + builddate)
 
 block content
   #test
-    h1 Moment.js unit test suite
-    h2#qunit-banner
-    h4#qunit-userAgent
-    ol#qunit-tests
+    h1#nodeunit-header Moment.js unit test suite
+    h2#nodeunit-banner &nbsp;
+    p#nodeunit-userAgent
+    ol#nodeunit-tests

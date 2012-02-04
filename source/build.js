@@ -67,7 +67,7 @@ function jadeToHtml(jadePath, htmlPath) {
 
 (function() {
     var src = fs.readFileSync(PATH_TO_LIB + 'moment.js', 'utf8');
-    var min = fs.readFileSync(PATH_TO_LIB + 'moment.min.js', 'utf8');
+    var min = fs.readFileSync(PATH_TO_LIB + 'min/moment.min.js', 'utf8');
     SRCSIZE = src.length;
     gzip(min, function(err, data) {
         MINSIZE = data.length;
