@@ -34,8 +34,8 @@ block content
         | console.log(halloween.fromNow());
       h5
         span#js-from-now
-      pre.js var now = moment().add('days', 9);\n
-        | console.log(now.format('dddd, MMMM Do YYYY'));
+      pre.js var threeDaysAgo = moment().subtract('days', 3);\n
+        | console.log(threeDaysAgo.calendar());
       h5
         span#js-add
       pre.js var now = moment();\n

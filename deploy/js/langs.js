@@ -843,7 +843,44 @@
     }
 }());
 (function () {
-    var lang = {
+
+    var pluralRules = [
+        function (n) { return ((n % 10 === 1) && (n % 100 !== 11)); },
+        function (n) { return ((n % 10) >= 2 && (n % 10) <= 4 && ((n % 10) % 1) === 0) && ((n % 100) < 12 || (n % 100) > 14); },
+        function (n) { return ((n % 10) === 0 || ((n % 10) >= 5 && (n % 10) <= 9 && ((n % 10) % 1) === 0) || ((n % 100) >= 11 && (n % 100) <= 14 && ((n % 100) % 1) === 0)); },
+        function (n) { return true; }
+    ],
+
+    plural = function (word, num) {
+        var forms = word.split('_'),
+        minCount = Math.min(pluralRules.length, forms.length),
+        i = -1;
+
+        while (++i < minCount) {
+            if (pluralRules[i](num)) {
+                return forms[i];
+            }
+        }
+        return forms[minCount - 1];
+    },
+
+    relativeTimeWithPlural = function (number, withoutSuffix, key) {
+        var format = {
+            'mm': 'минута_минуты_минут_минуты',
+            'hh': 'час_часа_часов_часа',
+            'dd': 'день_дня_дней_дня',
+            'MM': 'месяц_месяца_месяцев_месяца',
+            'yy': 'год_года_лет_года'
+        };
+        if (key === 'm') {
+            return withoutSuffix ? 'минута' : 'минуту';
+        }
+        else {
+            return number + ' ' + plural(format[key], +number);
+        }
+    },
+
+    lang = {
             months : "январь_февраль_март_апрель_май_июнь_июль_август_сентябрь_октябрь_ноябрь_декабрь".split("_"),
             monthsShort : "янв_фев_мар_апр_май_июн_июл_авг_сен_окт_ноя_дек".split("_"),
             weekdays : "воскресенье_понедельник_вторник_среда_четверг_пятница_суббота".split("_"),
@@ -881,16 +918,16 @@
                 future : "через %s",
                 past : "%s назад",
                 s : "несколько секунд",
-                m : "минут",
-                mm : "%d минут",
-                h : "часа",
-                hh : "%d часов",
-                d : "1 день",
-                dd : "%d дней",
+                m : relativeTimeWithPlural,
+                mm : relativeTimeWithPlural,
+                h : "час",
+                hh : relativeTimeWithPlural,
+                d : "день",
+                dd : relativeTimeWithPlural,
                 M : "месяц",
-                MM : "%d месяцев",
+                MM : relativeTimeWithPlural,
                 y : "год",
-                yy : "%d лет"
+                yy : relativeTimeWithPlural
             },
             ordinal : function (number) {
                 return '.';
@@ -1024,5 +1061,116 @@
     // Browser
     if (typeof window !== 'undefined' && this.moment && this.moment.lang) {
         this.moment.lang('tr', lang);
+    }
+}());
+(function () {
+    var lang = {
+            months : "一月_二月_三月_四月_五月_六月_七月_八月_九月_十月_十一月_十二月".split("_"),
+            monthsShort : "一月_二月_三月_四月_五月_六月_七月_八月_九月_十月_十一月_十二月".split("_"),
+            weekdays : "星期日_星期一_星期二_星期三_星期四_星期五_星期六".split("_"),
+            weekdaysShort : "週日_週一_週二_週三_週四_週五_週六".split("_"),
+            longDateFormat : {
+                LT : "h:mm A",
+                L : "DD/MM/YYYY",
+                LL : "D MMMM YYYY",
+                LLL : "D MMMM YYYY LT",
+                LLLL : "dddd, D MMMM YYYY LT"
+            },
+            meridiem : {
+                AM : '上午',
+                am : '上午',
+                PM : '下午',
+                pm : '下午'
+            },
+            calendar : {
+                sameDay : '[今天] LT',
+                nextDay : '[明天] LT',
+                nextWeek : '[下]dddd LT',
+                lastDay : '[昨天] LT',
+                lastWeek : '[上]dddd LT',
+                sameElse : 'L'
+            },
+            relativeTime : {
+                future : "%s後",
+                past : "%s前",
+                s : "幾秒",
+                m : "一分鐘",
+                mm : "%d分鐘",
+                h : "一小時",
+                hh : "%d小時",
+                d : "一天",
+                dd : "%d天",
+                M : "一個月",
+                MM : "%d月",
+                y : "一年",
+                yy : "%d年"
+            },
+            ordinal : function (number) {
+                return '.';
+            }
+        };
+
+    // Node
+    if (typeof module !== 'undefined') {
+        module.exports = lang;
+    }
+    // Browser
+    if (typeof window !== 'undefined' && this.moment && this.moment.lang) {
+        this.moment.lang('zh-tw', lang);
+    }
+}());(function () {
+    var lang = {
+            months : "一月_二月_三月_四月_五月_六月_七月_八月_九月_十月_十一月_十二月".split("_"),
+            monthsShort : "一月_二月_三月_四月_五月_六月_七月_八月_九月_十月_十一月_十二月".split("_"),
+            weekdays : "星期日_星期一_星期二_星期三_星期四_星期五_星期六".split("_"),
+            weekdaysShort : "周日_周一_周二_周三_周四_周五_周六".split("_"),
+            longDateFormat : {
+                LT : "h:mm A",
+                L : "DD/MM/YYYY",
+                LL : "D MMMM YYYY",
+                LLL : "D MMMM YYYY LT",
+                LLLL : "dddd, D MMMM YYYY LT"
+            },
+            meridiem : {
+                AM : '上午',
+                am : '上午',
+                PM : '下午',
+                pm : '下午'
+            },
+            calendar : {
+                sameDay : '[今天] LT',
+                nextDay : '[明天] LT',
+                nextWeek : '[下]dddd LT', 
+                lastDay : '[昨天] LT',
+                lastWeek : '[上]dddd LT', 
+                sameElse : 'L'
+            },
+            relativeTime : {
+                future : "%s后",
+                past : "%s前",
+                s : "数秒",
+                m : "一分钟",
+                mm : "%d分钟",
+                h : "一小时",
+                hh : "%d小时",
+                d : "一天",
+                dd : "%d天",
+                M : "一个月",
+                MM : "%d月",
+                y : "一年",
+                yy : "%d年"
+            },
+            ordinal : function (number) {
+                    return '.';
+            }
+        };
+
+    // Node
+    if (typeof module !== 'undefined') {
+        module.exports = lang;
+    }
+    // Browser
+    if (typeof window !== 'undefined' && this.moment && this.moment.lang) {
+        this.moment.lang('zh_CN', lang);
     }
 }());

@@ -12,12 +12,19 @@
         hasModule = (typeof module !== 'undefined'),
         paramsToParse = 'months|monthsShort|monthsParse|weekdays|weekdaysShort|longDateFormat|calendar|relativeTime|ordinal|meridiem'.split('|'),
         i,
-        jsonRegex = /^\/?Date\((\d+)/i,
+        jsonRegex = /^\/?Date\((\-?\d+)/i,
         charactersToReplace = /(\[[^\[]*\])|(\\)?(Mo|MM?M?M?|Do|DDDo|DD?D?D?|dddd?|do?|w[o|w]?|YYYY|YY|a|A|hh?|HH?|mm?|ss?|zz?|ZZ?|LT|LL?L?L?)/g,
         nonuppercaseLetters = /[^A-Z]/g,
         timezoneRegex = /\([A-Za-z ]+\)|:[0-9]{2} [A-Z]{3} /g,
         tokenCharacters = /(\\)?(MM?M?M?|dd?d?d|DD?D?D?|YYYY|YY|a|A|hh?|HH?|mm?|ss?|ZZ?|T)/g,
         inputCharacters = /(\\)?([0-9]+|([a-zA-Z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+|([\+\-]\d\d:?\d\d))/gi,
+        isoRegex = /\d{4}.\d\d.\d\d(T(\d\d(.\d\d(.\d\d)?)?)?([\+\-]\d\d:?\d\d)?)?/,
+        isoFormat = 'YYYY-MM-DDTHH:mm:ssZ',
+        isoTimes = [
+            ['HH:mm:ss', /T\d\d:\d\d:\d\d/],
+            ['HH:mm', /T\d\d:\d\d/],
+            ['HH', /T\d\d/]
+        ],
         timezoneParseRegex = /([\+\-]|\d\d)/gi,
         VERSION = "1.4.0",
         shortcuts = 'Month|Date|Hours|Minutes|Seconds|Milliseconds'.split('|');
@@ -213,6 +220,7 @@
             isUsingUTC = false,
             inputParts = string.match(inputCharacters),
             formatParts = format.match(tokenCharacters),
+            len = Math.min(inputParts.length, formatParts.length),
             i,
             isPm;
 
@@ -302,7 +310,7 @@
                 break;
             }
         }
-        for (i = 0; i < formatParts.length; i++) {
+        for (i = 0; i < len; i++) {
             addTime(formatParts[i], inputParts[i]);
         }
         // handle am pm
@@ -354,6 +362,22 @@
         return output;
     }
 
+    // date from iso format
+    function makeDateFromString(string) {
+        var format = 'YYYY-MM-DDT',
+            i;
+        if (isoRegex.exec(string)) {
+            for (i = 0; i < 3; i++) {
+                if (isoTimes[i][1].exec(string)) {
+                    format += isoTimes[i][0];
+                    break;
+                }
+            }
+            return makeDateFromStringAndFormat(string, format + 'Z');
+        }
+        return new Date(string);
+    }
+
     moment = function (input, format) {
         if (input === null) {
             return null;
@@ -377,6 +401,7 @@
                 matched ? new Date(+matched[1]) :
                 input instanceof Date ? input :
                 isArray(input) ? dateFromArray(input) :
+                typeof input === 'string' ? makeDateFromString(input) :
                 new Date(input);
         }
         return new Moment(date);
@@ -384,6 +409,9 @@
 
     // version number
     moment.version = VERSION;
+
+    // default format
+    moment.defaultFormat = isoFormat;
 
     // language switching and caching
     moment.lang = function (key, values) {
@@ -514,7 +542,8 @@
         },
 
         format : function (inputString) {
-            return formatDate(this._d, inputString);
+            return inputString ? formatDate(this._d, inputString) :
+                formatDate(this._d, moment.defaultFormat);
         },
 
         add : function (input, val) {
@@ -604,6 +633,10 @@
                 d : 1,
                 ms : -1
             });
+        },
+
+        zone : function () {
+            return this._d.getTimezoneOffset();
         }
     };
 
@@ -627,11 +660,6 @@
     // add shortcut for year (uses different syntax than the getter/setter 'year' == 'FullYear')
     makeShortcut('year', 'FullYear');
 
-    // add shortcut for timezone offset (no setter)
-    moment.fn.zone = function () {
-        return this._d.getTimezoneOffset();
-    };
-
     // CommonJS module is defined
     if (hasModule) {
         module.exports = moment;
@@ -639,6 +667,7 @@
     if (typeof window !== 'undefined') {
         window.moment = moment;
     }
+    /*global define:false */
     if (typeof define === "function" && define.amd) {
         define("moment", [], function () {
             return moment;
