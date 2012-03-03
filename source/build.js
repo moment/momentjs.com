@@ -15,6 +15,10 @@ var VERSION = moment.version;
 var SRCSIZE = 0;
 var MINSIZE = 0;
 var BUILD_DATE = moment().format('YYMMDD_HHmmss');
+var docsNavHtml = '';
+var docsCopyHtml = '';
+var docsSectionCount = 0;
+var docsArgs = {};
 
 
 /*********************************************
@@ -43,16 +47,17 @@ function makeFile(p, contents) {
 
 function toKb(input){
     var num = Math.round(input / 100) / 10;
-    return num + 'kb';
+    return num + 'k';
 }
 
-function jadeToHtml(jadePath, htmlPath) {
-    var args = {
-        version : VERSION,
-        minsize : toKb(MINSIZE),
-        srcsize : toKb(SRCSIZE),
-        builddate : BUILD_DATE
-    };
+function jadeToHtml(jadePath, htmlPath, args) {
+    if (!args) {
+        args = {};
+    }
+    args.version = VERSION;
+    args.minsize = toKb(MINSIZE);
+    args.srcsize = toKb(SRCSIZE);
+    args.builddate = BUILD_DATE;
 
     var compileFilename = path.normalize(__dirname + '/template/html.jade');
     var pathToJade = path.normalize(__dirname + '/pages/' + jadePath + '.jade');
@@ -74,5 +79,111 @@ function jadeToHtml(jadePath, htmlPath) {
         jadeToHtml('home', '/');
         jadeToHtml('docs', '/docs/');
         jadeToHtml('test', '/test/');
+
+        docsArgs.version = VERSION;
+        docsArgs.minsize = toKb(MINSIZE);
+        docsArgs.srcsize = toKb(SRCSIZE);
+        docsArgs.builddate = BUILD_DATE;
+        buildDocs();
     });
 })();
+
+
+/*********************************************
+    Docs
+*********************************************/
+
+
+function machineFriendly(str) {
+    return str.replace(/[^a-z]+/gi, '-').toLowerCase();
+}
+
+function buildDocs() {
+    var docPath = path.normalize(__dirname + '/docs/');
+    var docmap = JSON.parse(fs.readFileSync(docPath + 'docmap.json', 'utf8'));
+    var i, j, k;
+    var html = '';
+    buildNavStart();
+    for (i in docmap) {
+        buildHeaderStart();
+        buildHeader(i, docmap[i]);
+        for (j in docmap[i]) {
+            if (typeof docmap[i][j] != "string") {
+                buildBody(machineFriendly(i), j, docmap[i][j]);
+            }
+        }
+        buildHeaderEnd();
+    }
+    buildNavEnd();
+    var arg = {
+        docsCopyHtml : docsCopyHtml,
+        docsNavHtml : docsNavHtml
+    }
+    jadeToHtml('docs2', '/docs2/', arg);
+}
+
+function buildNavStart() {
+
+}
+
+function buildNavEnd() {
+    if (docsSectionCount % 4 != 0) {
+        docsNavHtml += "</div>";
+    }
+}
+
+function buildHeaderStart() {
+    if (docsSectionCount == 0) {
+        docsNavHtml += "<div class='row'>";
+    }
+    docsNavHtml += "<div class='span3'><div class='well' style='padding:8px 0;'><ul class='nav nav-list'>";
+}
+
+function buildHeaderEnd() {
+    docsNavHtml += "</ul></div></div>";
+    if (docsSectionCount == 3) {
+        docsNavHtml += "</div>";
+    }
+    docsSectionCount = (docsSectionCount + 1) % 4;
+}
+
+function buildHeader(title, object) {
+    var humanTitle = object._title || title;
+    var machineTitle = machineFriendly(title);
+    docsNavHtml += "<li class='nav-header'><a href='#/" + machineTitle + "/'>" + humanTitle + "</a></li>";
+    docsCopyHtml += "<div class='row'><div class='span12'><a name='/" + machineTitle + "/'></a><h2>" + humanTitle + "</h2></div></div>";
+}
+
+function buildBody(parent, title, object) {
+    var humanTitle = object._title || title;
+    var machineTitle = machineFriendly(title);
+    docsNavHtml += "<li><a href='#/" + parent + '/' + machineTitle + "/'>" + humanTitle + "</a></li>";
+    docsCopyHtml += "<div class='row doc-row'><a name='/" + parent + '/' + machineTitle + "/'></a>";
+    // title block
+    docsCopyHtml += "<div class='span4'>";
+    docsCopyHtml += "<h3>" + humanTitle + "</h3>";
+    if (object._signature) {
+        docsCopyHtml += "<pre>" + object._signature + "</pre>";
+    }
+    if (object._version) {
+        docsCopyHtml += "<div style='text-align:right'>Available in version <span class='label'>" + object._version + "</span></div>";
+    }
+    docsCopyHtml += "&nbsp;</div>";
+
+    // docs block
+    docsCopyHtml += "<div class='span8'>";
+    docsCopyHtml += docsAtPath(path.normalize(__dirname + '/docs/' + parent + '/' +machineTitle + '.jade'));
+    docsCopyHtml += "</div>";
+
+    // end
+    docsCopyHtml += "</div>";
+}
+
+function docsAtPath(p) {
+    if (path.existsSync(p)) {
+        var snippet = fs.readFileSync(p, 'utf8');
+        var compile = jade.compile(snippet);
+        return compile(docsArgs);
+    }
+    return '';
+}

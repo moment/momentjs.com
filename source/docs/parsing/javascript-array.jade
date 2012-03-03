@@ -1,0 +1,11 @@
+p An array mirroring the parameters passed into 
+  a(href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date") new Date()
+pre [year, month = 0, date = 1, hours = 0, minutes = 0, seconds = 0, milliseconds = 0] \n
+  | var day = moment([2010, 1, 14, 15, 25, 50, 125]); // February 14th, 3:25:50.125 PM
+p Any value past the year is optional, and will default to the lowest possible number.
+pre var day = moment([2010]); // January 1st \n
+  | var day = moment([2010, 6]); // July 1st 
+  | var day = moment([2010, 6, 10]); // July 10th
+p Construction with an array will create a date in the current timezone. To create a date from an array at UTC, you can use the following.
+pre var array = [2010, 1, 14, 15, 25, 50, 125];\n
+  | var day = moment(Date.UTC.apply({}, array));

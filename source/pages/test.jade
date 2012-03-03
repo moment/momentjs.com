@@ -15,8 +15,15 @@ block scripts
   script(src="../js/tests.js?_=" + builddate)
 
 block content
-  #test
-    h1#nodeunit-header Moment.js unit test suite
-    h2#nodeunit-banner &nbsp;
-    p#nodeunit-userAgent
-    ol#nodeunit-tests
+  .row
+
+    .span8
+      .hero-unit
+        h1 Moment.js
+        h2 Unit test suite
+        p#nodeunit-userAgent
+    .span4 
+      #nodeunit-banner.alert.alert-info &nbsp;
+  .row
+    .span12
+      ol#nodeunit-tests

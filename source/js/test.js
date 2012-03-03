@@ -13,9 +13,10 @@
         passed += _passed;
         failed += _failed;
         if (failed) {
-            banner.addClass('fail');
+            banner.removeClass('alert-info');
+            banner.addClass('alert-error');
         }
-        banner.text(passed + ' passed, ' + failed + ' failed. ' + duration + ' milliseconds.');
+        banner.html('<h3>' + passed + ' passed.</h3><h3>' + failed + ' failed.</h3><h3>' + duration + ' milliseconds.</h3>');
     }
 
     nodeunit.runModules(exports, {
@@ -32,10 +33,12 @@
             
             // each test
             testHtml += '<div><strong>' + name + '</strong> ';
-            testHtml += assertions.passes() + ' passed,';
-            testHtml += assertions.failures() + ' failed.</div>';
             if (assertions.failures()) {
                 testEl.addClass('fail open');
+                testHtml += assertions.passes() + ' passed,';
+                testHtml += assertions.failures() + ' failed.</div>';
+            } else {
+                testHtml += 'All ' + assertions.passes() + ' passed.</div>';
             }
             testEl.addClass('test');
             testEl.html(testHtml);
@@ -65,16 +68,16 @@
             var duration = moment().diff(start);
             var failures = assertions.failures();
 
-            if (failures) {
-                banner.after("<p class='submit-issue'>Hmm, looks like some of the unit tests are failing.<br/><br/>" +
+            if (failures || true) {
+                banner.after("<p class='alert alert-error'>Hmm, looks like some of the unit tests are failing.<br/><br/>" +
                     "It's hard to catch all the bugs across all timezones, so if you have a minute, " + 
-                    "please submit an issue with your user agent, timezone, and the failing test here: " + 
-                    "<a href='https://github.com/timrwood/moment/issues'>github.com/timrwood/moment/issues</a>." + 
+                    "please submit an issue with your user agent, timezone, and the failing test here.<br/><br/>" + 
+                    "<a class='btn' href='https://github.com/timrwood/moment/issues'>github.com/timrwood/moment/issues</a>" + 
                     "<br/><br/>Thanks!</p>");
             }
 
             banner.addClass(failures ? 'fail': 'pass');
-            banner.text(assertions.passes() + ' passed, ' + assertions.failures() + ' failed. ' + duration + ' milliseconds.');
+            updateTest(assertions.passes(), assertions.failures() + 1);
         }
     });
 

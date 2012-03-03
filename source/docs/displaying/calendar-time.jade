@@ -1,0 +1,30 @@
+p Calendar time is displays time relative to now, but slightly differently than 
+  code moment.fn.from
+  | .
+p 
+  code moment.fn.calendar
+  |  will format a date with different strings depending on how close to today the date is.
+table.table.table-striped.table-bordered
+  tr
+    td Last week
+    td Last Monday 2:30 AM
+  tr
+    td The day before
+    td Yesterday 2:30 AM
+  tr
+    td The same day
+    td Today 2:30 AM
+  tr
+    td The next day
+    td Tomorrow 2:30 AM
+  tr
+    td The next week
+    td Sunday 2:30 AM
+  tr
+    td Everything else
+    td 7/10/2011
+p These strings are localized, and can be customized with 
+  a(href="#/custom/calendar") moment.calendar
+  |  or 
+  a(href="#/i18n/lang") moment.lang
+  | .

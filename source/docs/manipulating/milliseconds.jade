@@ -1,0 +1,9 @@
+p There are a number of shortcut getter and setter functions. 
+  | Much like in jQuery, calling the function without paremeters causes it to function as a getter, 
+  | and calling with a parameter causes it to function as a setter.
+p These map to the corresponding function on the native 
+  code Date
+  | object.
+pre moment().milliseconds(30) === new Date().setMilliseconds(30);\n
+  | moment().milliseconds() === new Date().getMilliseconds();
+p Accepts numbers from 0 to 999

@@ -1,0 +1,23 @@
+p To get the difference in milliseconds, use 
+  code moment.fn.diff
+  |  like you would use 
+  code moment.fn.from
+  | .
+pre var a = moment([2007, 0, 29]);\n
+  | var b = moment([2007, 0, 28]);
+  | a.diff(b) // 86400000
+p To get the difference in another unit of measurement, pass that measurement as the second argument.
+pre var a = moment([2007, 0, 29]);\n
+  | var b = moment([2007, 0, 28]);
+  | a.diff(b, 'days') // 1
+p The supported measurements are 
+  code "years", "months", "weeks", "days", "hours", "minutes", and "seconds"
+p By default, 
+  code moment.fn.diff
+  | will return a rounded number. If you want the floating point number, pass 
+  code true
+  | as the third argument.
+pre var a = moment([2007, 0]);\n
+  | var b = moment([2008, 5]);
+  | a.diff(b, 'years')       // 1
+  | a.diff(b, 'years', true) // 1.5

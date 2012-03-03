@@ -1,0 +1,6 @@
+p ASP.NET returns dates in json in the following formats: 
+  code /Date(1198908717056)/
+  |  or 
+  code /Date(1198908717056-0700)/
+p If a string that matches this format is passed in, it will be parsed correctly.
+pre moment("/Date(1198908717056-0700)/").valueOf(); // 1198908717056

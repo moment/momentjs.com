@@ -5,19 +5,22 @@ html
     link(href="http://fonts.googleapis.com/css?family=Oswald", rel="stylesheet")
     block styles
   body
-    #navwrap
-      #nav
-        h1 Moment.js
-        ul
-          li
-            a.btn.clean-gray(href="/") Home
-          li
-            a.btn.clean-gray(href="/docs/") Documentation
-          li
-            a.btn.clean-gray(href="/test/") Unit Tests
-          li
-            a.btn.clean-gray(href="https://github.com/timrwood/moment") Github
-    #content
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          a.brand(href="/") Moment.js
+          ul.nav
+            li
+              a(href="/") Home
+            li
+              a(href="/docs/") Documentation
+            li
+              a(href="/test/") Unit Tests
+            li.divider-vertical
+            li
+              a(href="https://github.com/timrwood/moment") Github
+            li.divider-vertical
+    #content.container
       block content
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js")
     block scripts

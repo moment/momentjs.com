@@ -2,6 +2,7 @@ TESTJS = libs/nodeunit/nodeunit.js libs/moment/test/moment/*.js libs/moment/test
 LANGALL = libs/moment/lang/*.js
 SNIPPET = libs/snippet/jquery.snippet.js
 MOMENT = libs/moment/moment.js
+CSS = source/css/bootstrap.css source/css/style.css
 
 all: jsmin html css
 
@@ -21,4 +22,4 @@ html:
 	node source/build.js
 
 css:
-	cleancss -o deploy/css/style.css source/css/style.css
+	cat ${CSS} | cleancss -o deploy/css/style.css

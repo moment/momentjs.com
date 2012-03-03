@@ -1,0 +1,12 @@
+extends html
+
+block styles
+  link(rel="stylesheet", href="../css/style.css?_=" + builddate)
+  title Moment.js Documentation
+
+block scripts
+  script(src="../js/docs.min.js?_=" + builddate)
+
+block content
+  div!= docsNavHtml
+  #docs!= docsCopyHtml

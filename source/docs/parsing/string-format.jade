@@ -1,0 +1,69 @@
+p An input string and a format string
+pre var day = moment("12-25-1995", "MM-DD-YYYY");
+p The format parsing tokens are similar to the tokens for 
+  code moment.fn.format
+  | .
+p The parser ignores non-alphanumeric characters, so both 
+  code moment("12-25-1995", "MM-DD-YYYY")
+  | and 
+  code moment("12\\25\\1995", "MM-DD-YYYY")
+  | will return the same thing.
+table.table.table-striped.table-bordered
+  tbody
+    tr
+      th Input
+      th Output
+    tr
+      td M or MM
+      td Month Number (1 - 12)
+    tr
+      td MMM or MMMM
+      td Month Name (In currently language set by 
+        code moment.lang()
+        | )
+    tr
+      td D or DD
+      td Day of month
+    tr
+      td DDD or DDDD
+      td Day of year
+    tr
+      td d, dd, ddd, or dddd
+      td Day of week (NOTE: these tokens are not used to create the date, as there are 4-5 weeks in a month, and it would be impossible to get the date based off the day of the week)
+    tr
+      td YY
+      td 2 digit year (if greater than 70, will return 1900's, else 2000's)
+    tr
+      td YYYY
+      td 4 digit year
+    tr
+      td a or A
+      td AM/PM
+    tr
+      td H, HH
+      td 24 hour time
+    tr
+      td h, or hh
+      td 12 hour time (use in conjunction with a or A)
+    tr
+      td m or mm
+      td Minutes
+    tr
+      td s or ss
+      td Seconds
+    tr
+      td Z or ZZ
+      td Timezone offset as 
+        code +0700
+        |  or 
+        code +07:30
+p Unless you specify a timezone offset, parsing a string will create a date in the current timezone.
+p A workaround to parse a string in UTC is to append 
+  code "+0000"
+  |  to the end of your input string, and add 
+  code "ZZ"
+  |  to the end of your format string.
+p
+  span.label.label-warning Warning
+  |  Parsing a string with a format is by far the slowest method of creating a date. 
+  | If you have the ability to change the input, it is much faster (~15x) to use Unix timestamps.

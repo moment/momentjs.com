@@ -1,0 +1,10 @@
+p This is just a map to 
+  code moment.fn.from(new Date())
+pre moment([2007, 0, 29]).fromNow(); // 4 years ago
+p Like 
+  code moment.fn.from
+  | , if you pass 
+  code true
+  | as the second parameter, you can get the value without the suffix.
+pre moment([2007, 0, 29]).fromNow();     // 4 years ago\n
+  | moment([2007, 0, 29]).fromNow(true); // 4 years
