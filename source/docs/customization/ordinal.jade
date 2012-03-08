@@ -1,0 +1,12 @@
+p
+  code moment.ordinal
+  |  should be a function that returns the ordinal for a given number.
+pre moment.ordinal = function (number) {\n
+  |     var b = number % 10;
+  |     return (~~ (number % 100 / 10) === 1) ? 'th' : 
+  |         (b === 1) ? 'st' : 
+  |         (b === 2) ? 'nd' : 
+  |         (b === 3) ? 'rd' : 'th';
+  | };
+p For more information on ordinal numbers, see 
+  a(href="http://en.wikipedia.org/wiki/Ordinal_number_%28linguistics%29") wikipedia

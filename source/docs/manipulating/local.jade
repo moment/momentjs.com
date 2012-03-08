@@ -1,0 +1,6 @@
+p This method switches to local mode.
+pre
+  | var a = moment.utc([2011, 0, 1, 8]);
+  | a.hours(); // 8 UTC
+  | a.local();
+  | a.hours(); // 0 PST

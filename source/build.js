@@ -17,7 +17,6 @@ var MINSIZE = 0;
 var BUILD_DATE = moment().format('YYMMDD_HHmmss');
 var docsNavHtml = '';
 var docsCopyHtml = '';
-var docsSectionCount = 0;
 var docsArgs = {};
 
 
@@ -95,15 +94,14 @@ function jadeToHtml(jadePath, htmlPath, args) {
 
 
 function machineFriendly(str) {
-    return str.replace(/[^a-z]+/gi, '-').toLowerCase();
+    return str.replace(/[^a-z0-9]+/gi, '-').toLowerCase();
 }
 
 function buildDocs() {
     var docPath = path.normalize(__dirname + '/docs/');
     var docmap = JSON.parse(fs.readFileSync(docPath + 'docmap.json', 'utf8'));
-    var i, j, k;
+    var i, j;
     var html = '';
-    buildNavStart();
     for (i in docmap) {
         buildHeaderStart();
         buildHeader(i, docmap[i]);
@@ -114,7 +112,6 @@ function buildDocs() {
         }
         buildHeaderEnd();
     }
-    buildNavEnd();
     var arg = {
         docsCopyHtml : docsCopyHtml,
         docsNavHtml : docsNavHtml
@@ -122,46 +119,34 @@ function buildDocs() {
     jadeToHtml('docs2', '/docs2/', arg);
 }
 
-function buildNavStart() {
-
-}
-
-function buildNavEnd() {
-    if (docsSectionCount % 4 != 0) {
-        docsNavHtml += "</div>";
-    }
-}
-
 function buildHeaderStart() {
-    if (docsSectionCount == 0) {
-        docsNavHtml += "<div class='row'>";
-    }
-    docsNavHtml += "<div class='span3'><div class='well' style='padding:8px 0;'><ul class='nav nav-list'>";
+    docsNavHtml += "<li class='dropdown'>";
 }
 
 function buildHeaderEnd() {
-    docsNavHtml += "</ul></div></div>";
-    if (docsSectionCount == 3) {
-        docsNavHtml += "</div>";
-    }
-    docsSectionCount = (docsSectionCount + 1) % 4;
+    docsNavHtml += "</ul></li>";
 }
 
 function buildHeader(title, object) {
     var humanTitle = object._title || title;
     var machineTitle = machineFriendly(title);
-    docsNavHtml += "<li class='nav-header'><a href='#/" + machineTitle + "/'>" + humanTitle + "</a></li>";
-    docsCopyHtml += "<div class='row'><div class='span12'><a name='/" + machineTitle + "/'></a><h2>" + humanTitle + "</h2></div></div>";
+    docsNavHtml += "<a class='dropdown-toggle' data-toggle='dropdown' href='#'>";
+    docsNavHtml += humanTitle + "<b class='caret'></b></a><ul class='dropdown-menu'>";
+    docsCopyHtml += "<div class='row'><div class='span12'><a class='target' name='/" + machineTitle + "/'></a><h2>" + humanTitle + "</h2></div>";
+    docsCopyHtml += "<div class='span12'>";
+    docsCopyHtml += docsAtPath(path.normalize(__dirname + '/docs/' + machineTitle + '.jade'));
+    docsCopyHtml += "</div></div>";
 }
 
 function buildBody(parent, title, object) {
     var humanTitle = object._title || title;
     var machineTitle = machineFriendly(title);
     docsNavHtml += "<li><a href='#/" + parent + '/' + machineTitle + "/'>" + humanTitle + "</a></li>";
-    docsCopyHtml += "<div class='row doc-row'><a name='/" + parent + '/' + machineTitle + "/'></a>";
+    docsCopyHtml += "<div class='row'><a class='target' name='/" + parent + '/' + machineTitle + "/'></a>";
     // title block
-    docsCopyHtml += "<div class='span4'>";
-    docsCopyHtml += "<h3>" + humanTitle + "</h3>";
+    docsCopyHtml += "<div class='span12'>";
+    docsCopyHtml += "<h3 class='doc-row'>" + humanTitle + "</h3>";
+    docsCopyHtml += "</div><div class='span4'>";
     if (object._signature) {
         docsCopyHtml += "<pre>" + object._signature + "</pre>";
     }

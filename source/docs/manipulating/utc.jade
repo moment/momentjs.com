@@ -1,0 +1,6 @@
+p This method switches to UTC mode.
+pre
+  | var a = moment([2011, 0, 1, 8]);
+  | a.hours(); // 8 PST
+  | a.utc();
+  | a.hours(); // 16 UTC

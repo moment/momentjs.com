@@ -1,9 +1,9 @@
 (function(){
     var langs = {
+        'en' : 'English',
         'ca' : 'Catalan',
         'da' : 'Danish',
         'de' : 'German',
-        'en' : 'English',
         'es' : 'Spanish',
         'eu' : 'Basque',
         'fr' : 'French',

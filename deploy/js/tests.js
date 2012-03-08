@@ -7469,16 +7469,21 @@ exports["lang:zh-tw"] = {
     var start = moment();
     var passed = 0;
     var failed = 0;
+    var total = 0;
 
     function updateTest(_passed, _failed) {
-        var duration = moment().diff(start);
         passed += _passed;
         failed += _failed;
-        if (failed) {
+        updateTotals(passed, failed);
+    }
+
+    function updateTotals(_passed, _failed) {
+        var duration = moment().diff(start);
+        if (_failed) {
             banner.removeClass('alert-info');
             banner.addClass('alert-error');
         }
-        banner.html('<h3>' + passed + ' passed.</h3><h3>' + failed + ' failed.</h3><h3>' + duration + ' milliseconds.</h3>');
+        banner.html('<h3>' + _passed + ' passed.</h3><h3>' + _failed + ' failed.</h3><h3>' + duration + ' milliseconds.</h3>');
     }
 
     nodeunit.runModules(exports, {
@@ -7486,17 +7491,20 @@ exports["lang:zh-tw"] = {
             tests.append('<h3>' + name + '</h3>');
         },
         testDone : function (name, assertions) {
-            var testEl = $('<li>'),
+            var testEl = $('<li class="alert alert-success">'),
                 testHtml = '',
                 assertUl = $('<ul>'),
                 assertLi,
                 assertHtml = '';
                 assert;
+
+            total++;
             
             // each test
             testHtml += '<div><strong>' + name + '</strong> ';
             if (assertions.failures()) {
-                testEl.addClass('fail open');
+                testEl.addClass('alert-error open');
+                testEl.removeClass('alert-success');
                 testHtml += assertions.passes() + ' passed,';
                 testHtml += assertions.failures() + ' failed.</div>';
             } else {
@@ -7507,18 +7515,18 @@ exports["lang:zh-tw"] = {
 
             // each assert
             for (var i = 0; i < assertions.length; i++) {
-                assertLi = $('<li>');
-                assertHtml = '';
                 assert = assertions[i];
+                assertLi = $('<li>');
+                assertHtml = '<strong>' + total + '.' + (i + 1) + '</strong> ';
+                assertHtml += (assert.message || assert.method || 'no message');
                 if (assert.failed()) {
-                    assertHtml += (assert.message || assert.method || 'no message');
+                    assertHtml += ' (' + assert.error.expected + ' ' + assert.error.operator + ' ' + assert.error.actual + ')';
                     assertHtml += '<pre>' + (assert.error.stack || assert.error) + '</pre>';
-                    assertLi.html(assertHtml);
                     assertLi.addClass('fail');
                 } else {
-                    assertLi.html(assert.message || assert.method || 'no message');
                     assertLi.addClass('pass');
                 }
+                assertLi.html(assertHtml);
                 assertUl.append(assertLi);
             }
 
@@ -7530,16 +7538,17 @@ exports["lang:zh-tw"] = {
             var duration = moment().diff(start);
             var failures = assertions.failures();
 
-            if (failures || true) {
+            if (failures) {
                 banner.after("<p class='alert alert-error'>Hmm, looks like some of the unit tests are failing.<br/><br/>" +
                     "It's hard to catch all the bugs across all timezones, so if you have a minute, " + 
                     "please submit an issue with your user agent, timezone, and the failing test here.<br/><br/>" + 
                     "<a class='btn' href='https://github.com/timrwood/moment/issues'>github.com/timrwood/moment/issues</a>" + 
                     "<br/><br/>Thanks!</p>");
+            } else {
+                banner.after("<p class='alert alert-success'>Awesome, all the unit tests passed!</p>");
             }
 
-            banner.addClass(failures ? 'fail': 'pass');
-            updateTest(assertions.passes(), assertions.failures() + 1);
+            updateTotals(assertions.passes(), failures);
         }
     });
 

@@ -4,6 +4,11 @@ p There are a number of shortcut getter and setter functions.
 p These map to the corresponding function on the native 
   code Date
   | object.
-pre moment().milliseconds(30) === new Date().setMilliseconds(30);\n
-  | moment().milliseconds() === new Date().getMilliseconds();
+pre 
+  | moment().milliseconds(30) === new Date().setMilliseconds(30);
+  | moment().milliseconds()   === new Date().getMilliseconds();
+p If you are in UTC mode, they will map to the UTC equivalent.
+pre 
+  | moment.utc().milliseconds(30) === new Date().setUTCMilliseconds(30);
+  | moment.utc().milliseconds()   === new Date().getUTCMilliseconds();
 p Accepts numbers from 0 to 999

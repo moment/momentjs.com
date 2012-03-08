@@ -1,9 +1,4 @@
 {
-    "get-it" : {
-        "_title" : "Get the latest version",
-        "npm" : true,
-        "github" : true
-    },
     "use-it" : {
         "_title" : "Where to use it",
         "In NodeJS" : true,
@@ -120,7 +115,7 @@
         },
         "from" : {
             "_title" : "Humanize time from another moment",
-            "_signature" : "moment().from(Moment);moment().from(Moment, Boolean);",
+            "_signature" : "moment().from(Moment);\nmoment().from(Moment, Boolean);",
             "_version" : "1.0.0"
         },
         "fromNow" : {
@@ -196,6 +191,72 @@
         },
         "Daylight Saving Time" : {
             "_signature" : "moment().isDST();",
+            "_version" : "1.0.0"
+        }
+    },
+    "i18n" : {
+        "_title" : "Internationalization",
+        "changing-language" : {
+            "_title" : "Changing languages",
+            "_signature" : "moment().lang(String);\nmoment().lang(String, Object);",
+            "_version" : "1.0.0"
+        },
+        "loading-into-nodejs" : {
+            "_title" : "Loading languages in NodeJS",
+            "_signature" : "moment().lang(String);",
+            "_version" : "1.0.0"
+        },
+        "loading-into-browser" : {
+            "_title" : "Loading languages in the browser",
+            "_signature" : "moment().lang(String);",
+            "_version" : "1.0.0"
+        },
+        "adding-language" : {
+            "_title" : "Adding your language to Moment.js",
+            "_version" : "1.0.0"
+        }
+    },
+    "Customization" : {
+        "Month Names" : {
+            "_signature" : "moment.months = String[];",
+            "_version" : "1.0.0"
+        },
+        "Month Abbreviations" : {
+            "_signature" : "moment.monthsShort = String[];",
+            "_version" : "1.0.0"
+        },
+        "Weekday Names" : {
+            "_signature" : "moment.weekdays = String[];",
+            "_version" : "1.0.0"
+        },
+        "Weekday Abbreviations" : {
+            "_signature" : "moment.weekdaysShort = String[];",
+            "_version" : "1.0.0"
+        },
+        "Long Date Formats" : {
+            "_signature" : "moment.longDateFormat = Object;",
+            "_version" : "1.0.0"
+        },
+        "Relative Time" : {
+            "_signature" : "moment.relativeTime = Object;",
+            "_version" : "1.0.0"
+        },
+        "AM/PM" : {
+            "_signature" : "moment.meridiem = Object;",
+            "_version" : "1.0.0"
+        },
+        "Calendar" : {
+            "_signature" : "moment.calendar = Object;",
+            "_version" : "1.0.0"
+        },
+        "Ordinal" : {
+            "_signature" : "moment.ordinal = Function;",
+            "_version" : "1.0.0"
+        }
+    },
+    "Plugins" : {
+        "strftime" : {
+            "_signature" : "moment().strftime(String);",
             "_version" : "1.0.0"
         }
     }

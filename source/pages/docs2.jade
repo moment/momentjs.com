@@ -8,5 +8,24 @@ block scripts
   script(src="../js/docs.min.js?_=" + builddate)
 
 block content
-  div!= docsNavHtml
-  #docs!= docsCopyHtml
+  .row
+    .span8
+      .hero-unit
+        h1 Moment.js Documentation
+
+    #download-btns.span4
+      h3 Get the current version 
+        span.label.lebel-info= version
+      pre npm install moment
+      p
+        a.btn.btn-success.btn-large(href="https://raw.github.com/timrwood/moment/" + version + "/moment.min.js") 
+          strong Production 
+          span.filesize= '(' + minsize + ' min &amp; gzip)'
+      p
+        a.btn(href="https://raw.github.com/timrwood/moment/" + version + "/moment.js") 
+          strong Development 
+          span.filesize= '(full ' + srcsize + ' source)'
+
+  #subnav.subnav.subnav-fixed
+    ul.nav.nav-pills!= docsNavHtml
+  #docs(data-spy="scroll")!= docsCopyHtml
