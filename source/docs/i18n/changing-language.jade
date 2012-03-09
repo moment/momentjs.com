@@ -3,7 +3,7 @@ p To load a language, pass the key and the string values to
   code moment.lang
   | .
 p Note: More details on each of the parts of the language bundle can be found in the 
-  a(href="#/custom") customization
+  a(href="#/customization/") customization
   |  section.
 pre moment.lang('fr', {\n
   |     months : "Janvier_Février_Mars_Avril_Mai_Juin_Juillet_Aout_Septembre_Octobre_Novembre_Décembre".split("_"),
@@ -55,4 +55,4 @@ p Once you load a language, it becomes the active language. To change active lan
 pre moment.lang('fr');\n
   | moment(1316116057189).fromNow() // il y a une heure
   | moment.lang('en');
-  | moment(1316116057189).fromNow() // an hour ago
+  | moment(1316116057189).fromNow() // an hour ago 

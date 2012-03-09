@@ -76,7 +76,6 @@ function jadeToHtml(jadePath, htmlPath, args) {
     gzip(min, function(err, data) {
         MINSIZE = data.length;
         jadeToHtml('home', '/');
-        jadeToHtml('docs', '/docs/');
         jadeToHtml('test', '/test/');
 
         docsArgs.version = VERSION;
@@ -116,7 +115,7 @@ function buildDocs() {
         docsCopyHtml : docsCopyHtml,
         docsNavHtml : docsNavHtml
     }
-    jadeToHtml('docs2', '/docs2/', arg);
+    jadeToHtml('docs', '/docs/', arg);
 }
 
 function buildHeaderStart() {
@@ -131,6 +130,9 @@ function buildHeader(title, object) {
     var humanTitle = object._title || title;
     var machineTitle = machineFriendly(title);
     docsNavHtml += "<a class='dropdown-toggle' data-toggle='dropdown' href='#'>";
+    if (object._icon) {
+        docsNavHtml += "<i class='icon-" + object._icon + "'></i> ";
+    }
     docsNavHtml += humanTitle + "<b class='caret'></b></a><ul class='dropdown-menu'>";
     docsCopyHtml += "<div class='row'><div class='span12'><a class='target' name='/" + machineTitle + "/'></a><h2>" + humanTitle + "</h2></div>";
     docsCopyHtml += "<div class='span12'>";

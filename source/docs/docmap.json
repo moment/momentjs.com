@@ -1,10 +1,12 @@
 {
     "use-it" : {
+        "_icon" : "user",
         "_title" : "Where to use it",
         "In NodeJS" : true,
         "In the Browser" : true
     },
     "Parsing" : {
+        "_icon" : "time",
         "Javascript Date Object" : {
             "_signature" : "moment(Date);",
             "_version" : "1.0.0"
@@ -35,18 +37,19 @@
         },
         "ASP.NET json dates" : {
             "_signature" : "moment(String);",
-            "_version" : "1.0.0"
+            "_version" : "1.3.0"
         },
         "Cloning" : {
             "_signature" : "moment(Moment);",
-            "_version" : "1.0.0"
+            "_version" : "1.2.0"
         },
         "UTC" : {
             "_signature" : "moment.utc();\nmoment.utc(Number);\nmoment.utc(Number[]);\nmoment.utc(String);\nmoment.utc(String, String);",
-            "_version" : "1.0.0"
+            "_version" : "1.5.0"
         }
     },
     "Manipulating" : {
+        "_icon" : "random",
         "Add" : {
             "_signature" : "moment().add(String, Number);\nmoment().add(Object);",
             "_version" : "1.0.0"
@@ -57,7 +60,7 @@
         },
         "Milliseconds" : {
             "_signature" : "moment().milliseconds(Number);",
-            "_version" : "1.0.0"
+            "_version" : "1.3.0"
         },
         "Seconds" : {
             "_signature" : "moment().seconds(Number);",
@@ -79,7 +82,7 @@
         "Day" : {
             "_title" : "Day of the Week",
             "_signature" : "moment().day(Number);",
-            "_version" : "1.0.0"
+            "_version" : "1.3.0"
         },
         "Month" : {
             "_signature" : "moment().month(Number);",
@@ -92,23 +95,24 @@
         "sod" : {
             "_title" : "Start of Day",
             "_signature" : "moment().sod();",
-            "_version" : "1.0.0"
+            "_version" : "1.4.0"
         },
         "eod" : {
             "_title" : "End of Day",
             "_signature" : "moment().eod();",
-            "_version" : "1.0.0"
+            "_version" : "1.4.0"
         },
         "Local" : {
             "_signature" : "moment().local();",
-            "_version" : "1.0.0"
+            "_version" : "1.5.0"
         },
         "UTC" : {
             "_signature" : "moment().utc();",
-            "_version" : "1.0.0"
+            "_version" : "1.5.0"
         }
     },
     "Displaying" : {
+        "_icon" : "calendar",
         "Format" : {
             "_signature" : "moment().format();\nmoment().format(String);",
             "_version" : "1.0.0"
@@ -125,11 +129,11 @@
         },
         "Humanize duration" : {
             "_signature" : "moment.humanizeDuration(Number);\nmoment.humanizeDuration(Number, String);\nmoment.humanizeDuration(Number, String, Boolean);",
-            "_version" : "1.0.0"
+            "_version" : "1.5.0"
         },
         "Calendar Time" : {
             "_signature" : "moment().calendar();",
-            "_version" : "1.0.0"
+            "_version" : "1.3.0"
         },
         "Difference" : {
             "_signature" : "moment().diff(Moment);\nmoment().diff(Moment, String);\nmoment().diff(Moment, String, Boolean);",
@@ -145,7 +149,7 @@
         },
         "Milliseconds" : {
             "_signature" : "moment().milliseconds();",
-            "_version" : "1.0.0"
+            "_version" : "1.3.0"
         },
         "Seconds" : {
             "_signature" : "moment().seconds();",
@@ -183,18 +187,19 @@
         },
         "Timezone Offset" : {
             "_signature" : "moment().zone();",
-            "_version" : "1.0.0"
+            "_version" : "1.2.0"
         },
         "Days in Month" : {
             "_signature" : "moment().daysInMonth();",
-            "_version" : "1.0.0"
+            "_version" : "1.5.0"
         },
         "Daylight Saving Time" : {
             "_signature" : "moment().isDST();",
-            "_version" : "1.0.0"
+            "_version" : "1.2.0"
         }
     },
     "i18n" : {
+        "_icon" : "comment",
         "_title" : "Internationalization",
         "changing-language" : {
             "_title" : "Changing languages",
@@ -217,6 +222,7 @@
         }
     },
     "Customization" : {
+        "_icon" : "pencil",
         "Month Names" : {
             "_signature" : "moment.months = String[];",
             "_version" : "1.0.0"
@@ -235,7 +241,7 @@
         },
         "Long Date Formats" : {
             "_signature" : "moment.longDateFormat = Object;",
-            "_version" : "1.0.0"
+            "_version" : "1.1.0"
         },
         "Relative Time" : {
             "_signature" : "moment.relativeTime = Object;",
@@ -247,7 +253,7 @@
         },
         "Calendar" : {
             "_signature" : "moment.calendar = Object;",
-            "_version" : "1.0.0"
+            "_version" : "1.3.0"
         },
         "Ordinal" : {
             "_signature" : "moment.ordinal = Function;",
@@ -255,6 +261,7 @@
         }
     },
     "Plugins" : {
+        "_icon" : "shopping-cart",
         "strftime" : {
             "_signature" : "moment().strftime(String);",
             "_version" : "1.0.0"

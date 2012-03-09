@@ -11,17 +11,25 @@ html
           a.brand(href="/") Moment.js
           ul.nav
             li
-              a(href="/") Home
+              a(href="/docs/")
+                i.icon-book.icon-white
+                |  Documentation
             li
-              a(href="/docs/") Documentation
-            li
-              a(href="/test/") Unit Tests
+              a(href="/test/")
+                i.icon-ok.icon-white
+                |  Unit Tests
             li.divider-vertical
             li
-              a(href="https://github.com/timrwood/moment") Github
+              a(href="https://github.com/timrwood/moment")
+                i.icon-download-alt.icon-white
+                |  Github
             li.divider-vertical
     #content.container
       block content
+    .footer
+      .container
+        .row
+          .span12 Moment.js is freely distributable under the terms of the MIT license.
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js")
     block scripts
     script

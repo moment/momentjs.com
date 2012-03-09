@@ -152,6 +152,10 @@ table.table.table-striped.table-bordered
     tr
       td ZZ
       td -0700 -0600 ... +0600 +0700
+        br
+        br
+        | Z and ZZ are available in version 
+        span.label 1.2.0
     tr
       td
         b Localized date format
@@ -159,6 +163,10 @@ table.table.table-striped.table-bordered
     tr
       td LT
       td 8:30 PM
+        br
+        br
+        | LT is available in version 
+        span.label 1.3.0
     tr
       td L
       td 07/10/1986
@@ -171,6 +179,10 @@ table.table.table-striped.table-bordered
     tr
       td LLLL
       td Saturday, July 10 1986 8:30 PM
+        br
+        br
+        | L, LL, LLL, LLLL are available in version 
+        span.label 1.3.0
 p To escape characters in format strings, you can use a backslash before any character. NOTE: if you are using a string literal, you will need to escape the backslash, hence the double backslash below.
 pre moment().format('\\\\L'); // outputs 'L'
 p To escape multiple characters, you can wrap the characters in square brackets.
