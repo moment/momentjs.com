@@ -1,0 +1,16 @@
+p If you are looking for a Python-like isocalendar method, you can use Rocky Meza's plugin
+p
+  code moment-isocalendar
+p Calling the isocalendar method on a moment will return an array like the following:
+p
+  code [year, week_of_year, day_of_week, minutes_since_midnight]
+pre
+  | moment().isocalendar(); // [2012, 8, 5, 870]
+p You can also reconstruct a moment from a isocalendar array.
+pre
+  | moment.fromIsocalendar([2011, 51, 5, 870]).format('LLLL');
+  | // "Friday, December 23 2011 2:30 PM"
+p It is available on npm.
+pre npm install moment-isocalendar
+p The repository is located at 
+  a(href="https://github.com/fusionbox/moment-isocalendar") github.com/fusionbox/moment-isocalendar

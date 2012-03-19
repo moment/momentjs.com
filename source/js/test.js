@@ -1,6 +1,7 @@
 (function(){
     var banner = $('#nodeunit-banner');
     var tests = $('#nodeunit-tests');
+    var headerRow = $("#header-row");
 
     $('#nodeunit-userAgent').html(navigator.userAgent);
 
@@ -76,12 +77,25 @@
             var duration = moment().diff(start);
             var failures = assertions.failures();
 
+            var toStr = "Date.prototype.toString = " + (new Date()).toString();
+            toStr += "<br/><br/>";
+            toStr += "Date.prototype.toLocaleString = " + (new Date()).toLocaleString();
+            toStr += "<br/><br/>";
+            toStr += "Date.prototype.getTimezoneOffset = " + (new Date(1000)).getTimezoneOffset();
+            toStr += "<br/><br/>";
+            toStr += "navigator.userAgent = " + navigator.userAgent;
+
             if (failures) {
-                banner.after("<p class='alert alert-error'>Hmm, looks like some of the unit tests are failing.<br/><br/>" +
+                headerRow.after("<div class='row'>" + "<div class='span4'>" +
+                    "<p class='alert alert-error'>Hmm, looks like some of the unit tests are failing.<br/><br/>" +
                     "It's hard to catch all the bugs across all timezones, so if you have a minute, " + 
-                    "please submit an issue with your user agent, timezone, and the failing test here.<br/><br/>" + 
+                    "please submit an issue with the failing test and the info to the right.<br/><br/>" + 
                     "<a class='btn' href='https://github.com/timrwood/moment/issues'>github.com/timrwood/moment/issues</a>" + 
-                    "<br/><br/>Thanks!</p>");
+                    "<br/><br/>Thanks!</p>" + 
+                    "</div>" + 
+                    "<div class='span8'>" +
+                    "<p class='alert alert-info'>Please include this when you submit the issue.<br/><br/>" + toStr + "</p>" +
+                    "</div></div>")
             } else {
                 banner.after("<p class='alert alert-success'>Awesome, all the unit tests passed!</p>");
             }

@@ -378,7 +378,7 @@
                 pm : 'pm'
             },
             calendar : {
-                sameDay: "[Ajourd'hui à] LT",
+                sameDay: "[Aujourd'hui à] LT",
                 nextDay: '[Demain à] LT',
                 nextWeek: 'dddd [à] LT',
                 lastDay: '[Hier à] LT',
@@ -892,23 +892,25 @@
                 LL : "D MMMM YYYY",
                 LLL : "D MMMM YYYY LT",
                 LLLL : "dddd, D MMMM YYYY LT"
-            }, 
+            },
             calendar : {
                 sameDay: '[Сегодня в] LT',
                 nextDay: '[Завтра в] LT',
                 lastDay: '[Вчера в] LT',
                 nextWeek: function () {
-                    return this.day() === 1 ? '[Во] dddd [в] LT' : '[В] dddd [в] LT';
+                    return this.day() === 2 ? '[Во] dddd [в] LT' : '[В] dddd [в] LT';
                 },
                 lastWeek: function () {
                     switch (this.day()) {
                     case 0:
-                    case 1:
-                    case 3:
-                        return '[В прошлый] dddd [в] LT';
-                    case 6:
                         return '[В прошлое] dddd [в] LT';
-                    default:
+                    case 1:
+                    case 2:
+                    case 4:
+                        return '[В прошлый] dddd [в] LT';
+                    case 3:
+                    case 5:
+                    case 6:
                         return '[В прошлую] dddd [в] LT';
                     }
                 },
@@ -1094,20 +1096,20 @@
             relativeTime : {
                 future : "%s后",
                 past : "%s前",
-                s : "数秒",
-                m : "一分钟",
+                s : "几秒",
+                m : "1分钟",
                 mm : "%d分钟",
-                h : "一小时",
+                h : "1小时",
                 hh : "%d小时",
-                d : "一天",
+                d : "1天",
                 dd : "%d天",
-                M : "一个月",
-                MM : "%d月",
-                y : "一年",
+                M : "1个月",
+                MM : "%d个月",
+                y : "1年",
                 yy : "%d年"
             },
             ordinal : function (number) {
-                    return '.';
+                    return '';
             }
         };
 

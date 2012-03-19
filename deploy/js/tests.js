@@ -2696,6 +2696,33 @@ exports.humanize_duration = {
         test.done();
     }
 };
+var moment = require('../../moment');
+
+exports.is_moment = {
+    "is moment object": function(test) {
+        test.expect(11);
+
+        var MyObj = function() {};
+        MyObj.prototype.native = function() {
+            return new Date();
+        }
+
+        test.ok(moment.isMoment(moment()), 'simple moment object');
+        test.ok(moment.isMoment(moment('invalid date')), 'invalid moment object');
+
+        test.ok(!moment.isMoment(new MyObj()), 'myObj is not moment object');
+        test.ok(!moment.isMoment(moment), 'moment function is not moment object');
+        test.ok(!moment.isMoment(new Date()), 'date object is not moment object');
+        test.ok(!moment.isMoment(Object), 'Object is not moment object');
+        test.ok(!moment.isMoment('foo'), 'string is not moment object');
+        test.ok(!moment.isMoment(1), 'number is not moment object');
+        test.ok(!moment.isMoment(NaN), 'NaN is not moment object');
+        test.ok(!moment.isMoment(null), 'null is not moment object');
+        test.ok(!moment.isMoment(undefined), 'undefined is not moment object');
+
+        test.done();
+    }
+};
 var moment = require("../../moment");
 
 exports.leapyear = {
@@ -2754,12 +2781,12 @@ exports.utc = {
 
         // local
         m.local();
-        if (moment().zone() > 180) {
+        if (m.zone() > 180) {
             test.equal(m.date(), 1, "the day should be correct for utc");
         } else {
             test.equal(m.date(), 2, "the day should be correct for utc");
         }
-        var expected = (24 + 3 - Math.floor(moment().zone() / 60)) % 24;
+        var expected = (24 + 3 - Math.floor(m.zone() / 60)) % 24;
         test.equal(m.hours(), expected, "the hours (" + m.hours() + ") should be correct for utc");
         test.equal(moment().utc().zone(), 0, "timezone in utc should always be zero");
         test.done();
@@ -4565,11 +4592,11 @@ exports["lang:fr"] = {
     
         var a = moment().hours(2).minutes(0).seconds(0);
     
-        test.equal(moment(a).calendar(),                     "Ajourd'hui à 02:00",     "today at the same time");
-        test.equal(moment(a).add({ m: 25 }).calendar(),      "Ajourd'hui à 02:25",     "Now plus 25 min");
-        test.equal(moment(a).add({ h: 1 }).calendar(),       "Ajourd'hui à 03:00",     "Now plus 1 hour");
+        test.equal(moment(a).calendar(),                     "Aujourd'hui à 02:00",    "today at the same time");
+        test.equal(moment(a).add({ m: 25 }).calendar(),      "Aujourd'hui à 02:25",    "Now plus 25 min");
+        test.equal(moment(a).add({ h: 1 }).calendar(),       "Aujourd'hui à 03:00",    "Now plus 1 hour");
         test.equal(moment(a).add({ d: 1 }).calendar(),       "Demain à 02:00",         "tomorrow at the same time");
-        test.equal(moment(a).subtract({ h: 1 }).calendar(),  "Ajourd'hui à 01:00",     "Now minus 1 hour");
+        test.equal(moment(a).subtract({ h: 1 }).calendar(),  "Aujourd'hui à 01:00",    "Now minus 1 hour");
         test.equal(moment(a).subtract({ d: 1 }).calendar(),  "Hier à 02:00",           "yesterday at the same time");
         test.done();
     },
@@ -6491,7 +6518,7 @@ exports["lang:ru"] = {
         var m;
 
         function makeFormat(d) {
-            return d.day() === 1 ? '[Во] dddd [в] LT' : '[В] dddd [в] LT';
+            return d.day() === 2 ? '[Во] dddd [в] LT' : '[В] dddd [в] LT';
         }
 
         for (i = 2; i < 7; i++) {
@@ -6515,12 +6542,14 @@ exports["lang:ru"] = {
         function makeFormat(d) {
             switch (d.day()) {
             case 0:
-            case 1:
-            case 3:
-                return '[В прошлый] dddd [в] LT';
-            case 6:
                 return '[В прошлое] dddd [в] LT';
-            default:
+            case 1:
+            case 2:
+            case 4:
+                return '[В прошлый] dddd [в] LT';
+            case 3:
+            case 5:
+            case 6:
                 return '[В прошлую] dddd [в] LT';
             }
         }
@@ -7080,20 +7109,20 @@ exports["lang:zh-cn"] = {
         test.expect(18);
         moment.lang('zh-cn');
         var a = [
-                ['dddd, MMMM Do YYYY, a h:mm:ss',      '星期日, 二月 14. 2010, 下午 3:25:50'],
+                ['dddd, MMMM Do YYYY, a h:mm:ss',      '星期日, 二月 14 2010, 下午 3:25:50'],
                 ['ddd, Ah',                            '周日, 下午3'],
-                ['M Mo MM MMMM MMM',                   '2 2. 02 二月 二月'],
+                ['M Mo MM MMMM MMM',                   '2 2 02 二月 二月'],
                 ['YYYY YY',                            '2010 10'],
-                ['D Do DD',                            '14 14. 14'],
-                ['d do dddd ddd',                      '0 0. 星期日 周日'],
-                ['DDD DDDo DDDD',                      '45 45. 045'],
-                ['w wo ww',                            '8 8. 08'],
+                ['D Do DD',                            '14 14 14'],
+                ['d do dddd ddd',                      '0 0 星期日 周日'],
+                ['DDD DDDo DDDD',                      '45 45 045'],
+                ['w wo ww',                            '8 8 08'],
                 ['h hh',                               '3 03'],
                 ['H HH',                               '15 15'],
                 ['m mm',                               '25 25'],
                 ['s ss',                               '50 50'],
                 ['a A',                                '下午 下午'],
-                ['t\\he DDDo \\d\\ay of t\\he ye\\ar', 'the 45. day of the year'],
+                ['t\\he DDDo \\d\\ay of t\\he ye\\ar', 'the 45 day of the year'],
                 ['L',                                  '14/02/2010'],
                 ['LL',                                 '14 二月 2010'],
                 ['LLL',                                '14 二月 2010 3:25 下午'],
@@ -7133,35 +7162,35 @@ exports["lang:zh-cn"] = {
         test.expect(30);
         moment.lang('zh-cn');
         var start = moment([2007, 1, 28]);
-        test.equal(start.from(moment([2007, 1, 28]).add({s:44}), true),  "数秒",   "44 seconds = a few seconds");
-        test.equal(start.from(moment([2007, 1, 28]).add({s:45}), true),  "一分钟", "45 seconds = a minute");
-        test.equal(start.from(moment([2007, 1, 28]).add({s:89}), true),  "一分钟", "89 seconds = a minute");
+        test.equal(start.from(moment([2007, 1, 28]).add({s:44}), true),  "几秒",   "44 seconds = a few seconds");
+        test.equal(start.from(moment([2007, 1, 28]).add({s:45}), true),  "1分钟", "45 seconds = a minute");
+        test.equal(start.from(moment([2007, 1, 28]).add({s:89}), true),  "1分钟", "89 seconds = a minute");
         test.equal(start.from(moment([2007, 1, 28]).add({s:90}), true),  "2分钟",  "90 seconds = 2 minutes");
         test.equal(start.from(moment([2007, 1, 28]).add({m:44}), true),  "44分钟", "44 minutes = 44 minutes");
-        test.equal(start.from(moment([2007, 1, 28]).add({m:45}), true),  "一小时", "45 minutes = an hour");
-        test.equal(start.from(moment([2007, 1, 28]).add({m:89}), true),  "一小时", "89 minutes = an hour");
+        test.equal(start.from(moment([2007, 1, 28]).add({m:45}), true),  "1小时", "45 minutes = an hour");
+        test.equal(start.from(moment([2007, 1, 28]).add({m:89}), true),  "1小时", "89 minutes = an hour");
         test.equal(start.from(moment([2007, 1, 28]).add({m:90}), true),  "2小时",  "90 minutes = 2 hours");
         test.equal(start.from(moment([2007, 1, 28]).add({h:5}), true),   "5小时",  "5 hours = 5 hours");
         test.equal(start.from(moment([2007, 1, 28]).add({h:21}), true),  "21小时", "21 hours = 21 hours");
-        test.equal(start.from(moment([2007, 1, 28]).add({h:22}), true),  "一天",   "22 hours = a day");
-        test.equal(start.from(moment([2007, 1, 28]).add({h:35}), true),  "一天",   "35 hours = a day");
+        test.equal(start.from(moment([2007, 1, 28]).add({h:22}), true),  "1天",   "22 hours = a day");
+        test.equal(start.from(moment([2007, 1, 28]).add({h:35}), true),  "1天",   "35 hours = a day");
         test.equal(start.from(moment([2007, 1, 28]).add({h:36}), true),  "2天",   "36 hours = 2 days");
-        test.equal(start.from(moment([2007, 1, 28]).add({d:1}), true),   "一天",   "1 day = a day");
+        test.equal(start.from(moment([2007, 1, 28]).add({d:1}), true),   "1天",   "1 day = a day");
         test.equal(start.from(moment([2007, 1, 28]).add({d:5}), true),   "5天",   "5 days = 5 days");
         test.equal(start.from(moment([2007, 1, 28]).add({d:25}), true),  "25天",  "25 days = 25 days");
-        test.equal(start.from(moment([2007, 1, 28]).add({d:26}), true),  "一个月", "26 days = a month");
-        test.equal(start.from(moment([2007, 1, 28]).add({d:30}), true),  "一个月", "30 days = a month");
-        test.equal(start.from(moment([2007, 1, 28]).add({d:45}), true),  "一个月", "45 days = a month");
-        test.equal(start.from(moment([2007, 1, 28]).add({d:46}), true),  "2月",  "46 days = 2 months");
-        test.equal(start.from(moment([2007, 1, 28]).add({d:74}), true),  "2月",  "75 days = 2 months");
-        test.equal(start.from(moment([2007, 1, 28]).add({d:76}), true),  "3月",  "76 days = 3 months");
-        test.equal(start.from(moment([2007, 1, 28]).add({M:1}), true),   "一个月", "1 month = a month");
-        test.equal(start.from(moment([2007, 1, 28]).add({M:5}), true),   "5月",  "5 months = 5 months");
-        test.equal(start.from(moment([2007, 1, 28]).add({d:344}), true), "11月", "344 days = 11 months");
-        test.equal(start.from(moment([2007, 1, 28]).add({d:345}), true), "一年",   "345 days = a year");
-        test.equal(start.from(moment([2007, 1, 28]).add({d:547}), true), "一年",   "547 days = a year");
+        test.equal(start.from(moment([2007, 1, 28]).add({d:26}), true),  "1个月", "26 days = a month");
+        test.equal(start.from(moment([2007, 1, 28]).add({d:30}), true),  "1个月", "30 days = a month");
+        test.equal(start.from(moment([2007, 1, 28]).add({d:45}), true),  "1个月", "45 days = a month");
+        test.equal(start.from(moment([2007, 1, 28]).add({d:46}), true),  "2个月",  "46 days = 2 months");
+        test.equal(start.from(moment([2007, 1, 28]).add({d:74}), true),  "2个月",  "75 days = 2 months");
+        test.equal(start.from(moment([2007, 1, 28]).add({d:76}), true),  "3个月",  "76 days = 3 months");
+        test.equal(start.from(moment([2007, 1, 28]).add({M:1}), true),   "1个月", "1 month = a month");
+        test.equal(start.from(moment([2007, 1, 28]).add({M:5}), true),   "5个月",  "5 months = 5 months");
+        test.equal(start.from(moment([2007, 1, 28]).add({d:344}), true), "11个月", "344 days = 11 months");
+        test.equal(start.from(moment([2007, 1, 28]).add({d:345}), true), "1年",   "345 days = a year");
+        test.equal(start.from(moment([2007, 1, 28]).add({d:547}), true), "1年",   "547 days = a year");
         test.equal(start.from(moment([2007, 1, 28]).add({d:548}), true), "2年",   "548 days = 2 years");
-        test.equal(start.from(moment([2007, 1, 28]).add({y:1}), true),   "一年",   "1 year = a year");
+        test.equal(start.from(moment([2007, 1, 28]).add({y:1}), true),   "1年",   "1 year = a year");
         test.equal(start.from(moment([2007, 1, 28]).add({y:5}), true),   "5年",   "5 years = 5 years");
         test.done();
     },
@@ -7169,22 +7198,22 @@ exports["lang:zh-cn"] = {
     "suffix" : function(test) {
         test.expect(2);
         moment.lang('zh-cn');
-        test.equal(moment(30000).from(0), "数秒后",  "prefix");
-        test.equal(moment(0).from(30000), "数秒前", "suffix");
+        test.equal(moment(30000).from(0), "几秒后",  "prefix");
+        test.equal(moment(0).from(30000), "几秒前", "suffix");
         test.done();
     },
 
     "now from now" : function(test) {
         test.expect(1);
         moment.lang('zh-cn');
-        test.equal(moment().fromNow(), "数秒前",  "now from now should display as in the past");
+        test.equal(moment().fromNow(), "几秒前",  "now from now should display as in the past");
         test.done();
     },
 
     "fromNow" : function(test) {
         test.expect(2);
         moment.lang('zh-cn');
-        test.equal(moment().add({s:30}).fromNow(), "数秒后", "in a few seconds");
+        test.equal(moment().add({s:30}).fromNow(), "几秒后", "in a few seconds");
         test.equal(moment().add({d:5}).fromNow(), "5天后", "in 5 days");
         test.done();
     },
@@ -7253,7 +7282,8 @@ exports["lang:zh-cn"] = {
         test.equal(weeksFromNow.calendar(),   weeksFromNow.format('L'),  "in 2 weeks");
     test.done();
     }
-};var moment = require("../../moment");
+};
+var moment = require("../../moment");
 
 
     /**************************************************
@@ -7463,6 +7493,7 @@ exports["lang:zh-tw"] = {
 };(function(){
     var banner = $('#nodeunit-banner');
     var tests = $('#nodeunit-tests');
+    var headerRow = $("#header-row");
 
     $('#nodeunit-userAgent').html(navigator.userAgent);
 
@@ -7538,12 +7569,25 @@ exports["lang:zh-tw"] = {
             var duration = moment().diff(start);
             var failures = assertions.failures();
 
+            var toStr = "Date.prototype.toString = " + (new Date()).toString();
+            toStr += "<br/><br/>";
+            toStr += "Date.prototype.toLocaleString = " + (new Date()).toLocaleString();
+            toStr += "<br/><br/>";
+            toStr += "Date.prototype.getTimezoneOffset = " + (new Date(1000)).getTimezoneOffset();
+            toStr += "<br/><br/>";
+            toStr += "navigator.userAgent = " + navigator.userAgent;
+
             if (failures) {
-                banner.after("<p class='alert alert-error'>Hmm, looks like some of the unit tests are failing.<br/><br/>" +
+                headerRow.after("<div class='row'>" + "<div class='span4'>" +
+                    "<p class='alert alert-error'>Hmm, looks like some of the unit tests are failing.<br/><br/>" +
                     "It's hard to catch all the bugs across all timezones, so if you have a minute, " + 
-                    "please submit an issue with your user agent, timezone, and the failing test here.<br/><br/>" + 
+                    "please submit an issue with the failing test and the info to the right.<br/><br/>" + 
                     "<a class='btn' href='https://github.com/timrwood/moment/issues'>github.com/timrwood/moment/issues</a>" + 
-                    "<br/><br/>Thanks!</p>");
+                    "<br/><br/>Thanks!</p>" + 
+                    "</div>" + 
+                    "<div class='span8'>" +
+                    "<p class='alert alert-info'>Please include this when you submit the issue.<br/><br/>" + toStr + "</p>" +
+                    "</div></div>")
             } else {
                 banner.after("<p class='alert alert-success'>Awesome, all the unit tests passed!</p>");
             }
