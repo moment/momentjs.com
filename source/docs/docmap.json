@@ -263,8 +263,11 @@
     "Plugins" : {
         "_icon" : "shopping-cart",
         "strftime" : {
-            "_signature" : "moment().strftime(String);",
-            "_version" : "1.0.0"
+            "_signature" : "moment().strftime(String);"
+        },
+        "isocalendar" : {
+            "_title" : "ISO Calendar",
+            "_signature" : "moment().isocalendar();\nmoment.fromIsocalendar(Array);"
         }
     }
 }
