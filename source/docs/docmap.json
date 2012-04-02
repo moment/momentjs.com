@@ -207,17 +207,17 @@
         "_title" : "Internationalization",
         "changing-language" : {
             "_title" : "Changing languages",
-            "_signature" : "moment().lang(String);\nmoment().lang(String, Object);",
+            "_signature" : "moment.lang(String);\nmoment.lang(String, Object);",
             "_version" : "1.0.0"
         },
         "loading-into-nodejs" : {
             "_title" : "Loading languages in NodeJS",
-            "_signature" : "moment().lang(String);",
+            "_signature" : "moment.lang(String);",
             "_version" : "1.0.0"
         },
         "loading-into-browser" : {
             "_title" : "Loading languages in the browser",
-            "_signature" : "moment().lang(String);",
+            "_signature" : "moment.lang(String);",
             "_version" : "1.0.0"
         },
         "adding-language" : {
