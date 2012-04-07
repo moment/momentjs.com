@@ -1,4 +1,9 @@
 p
-  code moment.fn.valueOf 
-  | simply outputs the unix timestamp.
-pre moment(1318874398806).valueOf(); // 1318874398806
+  code moment.fn.unix
+  | simply outputs a Unix timestamp (the of seconds since the Unix Epoch).
+pre moment(1318874398806).valueOf(); // 1318874399
+p
+  span.label.label-info Note:
+  |  This value is rounded to the nearest second, and does not include a 
+  | milliseconds component.
+

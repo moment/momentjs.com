@@ -11,12 +11,6 @@
                 LLL : "D MMMM YYYY LT",
                 LLLL : "dddd D MMMM YYYY LT"
             },
-            meridiem : {
-                AM : 'AM',
-                am : 'am',
-                PM : 'PM',
-                pm : 'pm'
-            },
             calendar : {
                 sameDay : function () {
                     return '[avui a ' + ((this.hours() !== 1) ? 'les' : 'la') + '] LT';
@@ -77,12 +71,6 @@
                 LLL : "D MMMM YYYY h:mm A",
                 LLLL : "dddd D. MMMM, YYYY h:mm A"
             },
-            meridiem : {
-                AM : 'AM',
-                am : 'am',
-                PM : 'PM',
-                pm : 'pm'
-            },
             calendar : {
                 sameDay : '[I dag kl.] LT',
                 nextDay : '[I morgen kl.] LT',
@@ -133,12 +121,6 @@
                 LLL : "D. MMMM YYYY LT",
                 LLLL : "dddd, D. MMMM YYYY LT"
             },
-            meridiem : {
-                AM : 'AM',
-                am : 'am',
-                PM : 'PM',
-                pm : 'pm'
-            },
             calendar : {
                 sameDay: "[Heute um] LT",
                 sameElse: "L",
@@ -188,12 +170,6 @@
                 LL : "D MMMM YYYY",
                 LLL : "D MMMM YYYY LT",
                 LLLL : "dddd, D MMMM YYYY LT"
-            },
-            meridiem : {
-                AM : 'AM',
-                am : 'am',
-                PM : 'PM',
-                pm : 'pm'
             },
             calendar : {
                 sameDay : '[Today at] LT',
@@ -248,12 +224,6 @@
                 LL : "D MMMM YYYY",
                 LLL : "D MMMM YYYY LT",
                 LLLL : "dddd D MMMM YYYY LT"
-            },
-            meridiem : {
-                AM : 'AM',
-                am : 'am',
-                PM : 'PM',
-                pm : 'pm'
             },
             calendar : {
                 sameDay : function () {
@@ -315,12 +285,6 @@
                 LLL : "YYYYko MMMMren D[a] LT",
                 LLLL : "dddd, YYYYko MMMMren D[a] LT"
             },
-            meridiem : {
-                AM : 'AM',
-                am : 'am',
-                PM : 'PM',
-                pm : 'pm'
-            },
             calendar : {
                 sameDay : '[gaur] LT[etan]',
                 nextDay : '[bihar] LT[etan]',
@@ -359,6 +323,99 @@
     }
 }());
 (function () {
+    var numbers_past = ['nolla', 'yksi', 'kaksi', 'kolme', 'neljä', 'viisi',
+                        'kuusi', 'seitsemän', 'kahdeksan', 'yhdeksän'];
+    var numbers_future = ['nolla', 'yhden', 'kahden', 'kolmen', 'neljän', 'viiden',
+                          'kuuden', numbers_past[7], numbers_past[8], numbers_past[9]];
+
+    function translate(number, withoutSuffix, key, isFuture) {
+        var result = "";
+        switch (key) {
+        case 's':
+            return isFuture ? 'muutaman sekunnin' : 'muutama sekunti';
+        case 'm':
+            return isFuture ? 'minuutin' : 'minuutti';
+        case 'mm':
+            result = isFuture ? 'minuutin' : 'minuuttia';
+            break;
+        case 'h':
+            return isFuture ? 'tunnin' : 'tunti';
+        case 'hh':
+            result = isFuture ? 'tunnin' : 'tuntia';
+            break;
+        case 'd':
+            return isFuture ? 'päivän' : 'päivä';
+        case 'dd':
+            result = isFuture ? 'päivän' : 'päivää';
+            break;
+        case 'M':
+            return isFuture ? 'kuukauden' : 'kuukausi';
+        case 'MM':
+            result = isFuture ? 'kuukauden' : 'kuukautta';
+            break;
+        case 'y':
+            return isFuture ? 'vuoden' : 'vuosi';
+        case 'yy':
+            result = isFuture ? 'vuoden' : 'vuotta';
+            break;
+        }
+        result = verbal_number(number, isFuture) + " " + result;
+        return result;
+    }
+
+    function verbal_number(number, isFuture) {
+        return number < 10 ? (isFuture ? numbers_future[number] : numbers_past[number]) : number;
+    }
+
+    var lang = {
+            months : "tammikuu_helmikuu_maaliskuu_huhtikuu_toukokuu_kesäkuu_heinäkuu_elokuu_syyskuu_lokakuu_marraskuu_joulukuu".split("_"),
+            monthsShort : "tam_hel_maa_huh_tou_kes_hei_elo_syy_lok_mar_jou".split("_"),
+            weekdays : "sunnuntai_maanantai_tiistai_keskiviikko_torstai_perjantai_lauantai".split("_"),
+            weekdaysShort : "su_ma_ti_ke_to_pe_la".split("_"),
+            longDateFormat : {
+                LT : "HH.mm",
+                L : "DD.MM.YYYY",
+                LL : "Do MMMMt\\a YYYY",
+                LLL : "Do MMMMt\\a YYYY, klo LT",
+                LLLL : "dddd, Do MMMMt\\a YYYY, klo LT"
+            },
+            calendar : {
+                sameDay : '[tänään] [klo] LT',
+                nextDay : '[huomenna] [klo] LT',
+                nextWeek : 'dddd [klo] LT',
+                lastDay : '[eilen] [klo] LT',
+                lastWeek : '[viime] dddd[na] [klo] LT',
+                sameElse : 'L'
+            },
+            relativeTime : {
+                future : "%s päästä",
+                past : "%s sitten",
+                s : translate,
+                m : translate,
+                mm : translate,
+                h : translate,
+                hh : translate,
+                d : translate,
+                dd : translate,
+                M : translate,
+                MM : translate,
+                y : translate,
+                yy : translate
+            },
+            ordinal : function (number) {
+                return ".";
+            }
+        };
+
+    // Node
+    if (typeof module !== 'undefined') {
+        module.exports = lang;
+    }
+    // Browser
+    if (typeof window !== 'undefined' && this.moment && this.moment.lang) {
+        this.moment.lang('fi', lang);
+    }
+}());(function () {
     var lang = {
             months : "janvier_février_mars_avril_mai_juin_juillet_août_septembre_octobre_novembre_décembre".split("_"),
             monthsShort : "janv._févr._mars_avr._mai_juin_juil._août_sept._oct._nov._déc.".split("_"),
@@ -370,12 +427,6 @@
                 LL : "D MMMM YYYY",
                 LLL : "D MMMM YYYY LT",
                 LLLL : "dddd D MMMM YYYY LT"
-            },
-            meridiem : {
-                AM : 'AM',
-                am : 'am',
-                PM : 'PM',
-                pm : 'pm'
             },
             calendar : {
                 sameDay: "[Aujourd'hui à] LT",
@@ -427,12 +478,6 @@
                 LLL : "D MMMM YYYY LT",
                 LLLL : "dddd D MMMM YYYY LT"
             },
-            meridiem : {
-                AM : 'AM',
-                am : 'am',
-                PM : 'PM',
-                pm : 'pm'
-            },
             calendar : {
                 sameDay : function () {
                     return '[hoxe ' + ((this.hours() !== 1) ? 'ás' : 'a') + '] LT';
@@ -447,7 +492,7 @@
                     return '[onte ' + ((this.hours() !== 1) ? 'á' : 'a') + '] LT';
                 },
                 lastWeek : function () {
-                    return '[o] dddd [pasado ' + ((this.hours() !== 1) ? 'ás' : '') + '] LT';
+                    return '[o] dddd [pasado ' + ((this.hours() !== 1) ? 'ás' : 'a') + '] LT';
                 },
                 sameElse : 'L'
             },
@@ -492,12 +537,6 @@
                 LL : "D MMMM YYYY",
                 LLL : "D MMMM YYYY LT",
                 LLLL : "dddd, D MMMM YYYY LT"
-            },
-            meridiem : {
-                AM : 'AM',
-                am : 'am',
-                PM : 'PM',
-                pm : 'pm'
             },
             calendar : {
                 sameDay: '[Oggi alle] LT',
@@ -549,12 +588,9 @@
                 LLL : "YYYY년 MMMM D일 LT",
                 LLLL : "YYYY년 MMMM D일 dddd LT"
             },
-			meridiem : {
-				AM : '오전',
-				am : '오전',
-				PM : '오후',
-				pm : '오후'
-			},
+            meridiem : function(hour, minute, isUpper) {
+                return hour < 12 ? '오전' : '오후';
+            },
             calendar : {
                 sameDay : '오늘 LT',
                 nextDay : '내일 LT',
@@ -606,12 +642,6 @@
                 LLL : "D MMMM YYYY LT",
                 LLLL : "dddd D MMMM YYYY LT"
             },
-            meridiem : {
-                AM : 'AM',
-                am : 'am',
-                PM : 'PM',
-                pm : 'pm'
-            },
             calendar : {
                 sameDay: '[I dag klokken] LT',
                 nextDay: '[I morgen klokken] LT',
@@ -661,12 +691,6 @@
                 LL : "D MMMM YYYY",
                 LLL : "D MMMM YYYY LT",
                 LLLL : "dddd D MMMM YYYY LT"
-            },
-            meridiem : {
-                AM : 'AM',
-                am : 'am',
-                PM : 'PM',
-                pm : 'pm'
             },
             calendar : {
                 sameDay: '[Vandaag om] LT',
@@ -740,12 +764,6 @@
             LLL : "D MMMM YYYY LT",
             LLLL : "dddd, D MMMM YYYY LT"
         },
-        meridiem : {
-            AM : 'AM',
-            am : 'am',
-            PM : 'PM',
-            pm : 'pm'
-        },
         calendar : {
             sameDay: '[Dziś o] LT',
             nextDay: '[Jutro o] LT',
@@ -795,12 +813,6 @@
                 LL : "D \\de MMMM \\de YYYY",
                 LLL : "D \\de MMMM \\de YYYY LT",
                 LLLL : "dddd, D \\de MMMM \\de YYYY LT"
-            },
-            meridiem : {
-                AM : 'AM',
-                am : 'am',
-                PM : 'PM',
-                pm : 'pm'
             },
             calendar : {
                 sameDay: '[Hoje às] LT',
@@ -959,12 +971,6 @@
                 LLL : "D MMMM YYYY LT",
                 LLLL : "dddd D MMMM YYYY LT"
             },
-            meridiem : {
-                AM : 'AM',
-                am : 'am',
-                PM : 'PM',
-                pm : 'pm'
-            },
             calendar : {
                 sameDay: '[Idag klockan] LT',
                 nextDay: '[Imorgon klockan] LT',
@@ -1019,12 +1025,6 @@
                 LLL : "D MMMM YYYY LT",
                 LLLL : "dddd, D MMMM YYYY LT"
             },
-            meridiem : {
-                AM : 'AM',
-                am : 'am',
-                PM : 'PM',
-                pm : 'pm'
-            },
             calendar : {
                 sameDay : '[bugün saat] LT',
                 nextDay : '[yarın saat] LT',
@@ -1073,24 +1073,31 @@
             weekdays : "星期日_星期一_星期二_星期三_星期四_星期五_星期六".split("_"),
             weekdaysShort : "周日_周一_周二_周三_周四_周五_周六".split("_"),
             longDateFormat : {
-                LT : "h:mm A",
-                L : "DD/MM/YYYY",
-                LL : "D MMMM YYYY",
-                LLL : "D MMMM YYYY LT",
-                LLLL : "dddd, D MMMM YYYY LT"
+                LT : "Ah点mm",
+                L : "YYYY年MMMMD日",
+                LL : "YYYY年MMMMD日",
+                LLL : "YYYY年MMMMD日LT",
+                LLLL : "YYYY年MMMMD日ddddLT"
             },
-            meridiem : {
-                AM : '上午',
-                am : '上午',
-                PM : '下午',
-                pm : '下午'
+            meridiem : function (hour, minute, isLower) {
+                if (hour < 9) {
+                    return "早上";
+                } else if (hour < 11 && minute < 30) {
+                    return "上午";
+                } else if (hour < 13 && minute < 30) {
+                    return "中午";
+                } else if (hour < 18) {
+                    return "下午";
+                } else {
+                    return "晚上";
+                }
             },
             calendar : {
-                sameDay : '[今天] LT',
-                nextDay : '[明天] LT',
-                nextWeek : '[下]dddd LT', 
-                lastDay : '[昨天] LT',
-                lastWeek : '[上]dddd LT', 
+                sameDay : '[今天]LT',
+                nextDay : '[明天]LT',
+                nextWeek : '[下]ddddLT', 
+                lastDay : '[昨天]LT',
+                lastWeek : '[上]ddddLT', 
                 sameElse : 'L'
             },
             relativeTime : {
@@ -1129,24 +1136,31 @@
             weekdays : "星期日_星期一_星期二_星期三_星期四_星期五_星期六".split("_"),
             weekdaysShort : "週日_週一_週二_週三_週四_週五_週六".split("_"),
             longDateFormat : {
-                LT : "h:mm A",
-                L : "DD/MM/YYYY",
-                LL : "D MMMM YYYY",
-                LLL : "D MMMM YYYY LT",
-                LLLL : "dddd, D MMMM YYYY LT"
+                LT : "Ah點mm",
+                L : "YYYY年MMMMD日",
+                LL : "YYYY年MMMMD日",
+                LLL : "YYYY年MMMMD日LT",
+                LLLL : "YYYY年MMMMD日ddddLT"
             },
-            meridiem : {
-                AM : '上午',
-                am : '上午',
-                PM : '下午',
-                pm : '下午'
+            meridiem : function (hour, minute, isLower) {
+                if (hour < 9) {
+                    return "早上";
+                } else if (hour < 11 && minute < 30) {
+                    return "上午";
+                } else if (hour < 13 && minute < 30) {
+                    return "中午";
+                } else if (hour < 18) {
+                    return "下午";
+                } else {
+                    return "晚上";
+                }
             },
             calendar : {
-                sameDay : '[今天] LT',
-                nextDay : '[明天] LT',
-                nextWeek : '[下]dddd LT',
-                lastDay : '[昨天] LT',
-                lastWeek : '[上]dddd LT',
+                sameDay : '[今天]LT',
+                nextDay : '[明天]LT',
+                nextWeek : '[下]ddddLT',
+                lastDay : '[昨天]LT',
+                lastWeek : '[上]ddddLT',
                 sameElse : 'L'
             },
             relativeTime : {
