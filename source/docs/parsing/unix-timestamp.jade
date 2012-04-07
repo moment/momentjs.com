@@ -1,7 +1,10 @@
-p Similar to 
-  code new Date(Number)
-  | , you can create a moment by passing an integer value representing the number of milliseconds since 1 January 1970 00:00:00 UTC.
-pre var day = moment(1318781876406);
+p You can create a moment from a Unix timestamp (seconds since the Unix Epoch) 
+  | using 
+  code moment.unix(Number)
+  | .
+pre var day = moment(1318781876);
 p
   span.label.label-info Note:
-  |  This is a unix timestamp in milliseconds, not seconds.
+  |  This functions is implemented with (approximately)
+  code return moment(timestamp * 1000)
+  | , so milliseconds in the input timestamp will be included in the moment.
