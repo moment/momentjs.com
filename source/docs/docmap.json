@@ -144,7 +144,7 @@
             "_version" : "1.0.0"
         },
         "Native Javascript Date" : {
-            "_signature" : "moment().toDate();\nmoment().native(); // depreciated",
+            "_signature" : "moment().toDate();",
             "_version" : "1.0.0"
         },
         "Milliseconds since the Unix Epoch" : {
