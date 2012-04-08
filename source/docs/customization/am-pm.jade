@@ -4,7 +4,8 @@ p If your language uses 'am/pm',
 p If your language needs any different computation for am/pm, 
   code moment.meridiem
   |  should be a callback function that returns the correct string based on hour, minute, and upper/lowercase.
-pre moment.meridiem = function (hour, minute, isLower) {
+pre 
+  | moment.meridiem = function (hour, minute, isLower) {
   |     if (hour < 9) {
   |         return "早上";
   |     } else if (hour < 11 && minute < 30) {
@@ -17,3 +18,17 @@ pre moment.meridiem = function (hour, minute, isLower) {
   |         return "晚上";
   |     }
   | };
+p
+  span.label.label-info Note:
+  |  Before version 
+  span.label 1.6.0
+  | , 
+  code moment.meridiem
+  |  was a map of upper and lowercase versions of am/pm.
+pre moment.meridiem = {\n
+  |     am : 'am',
+  |     AM : 'AM',
+  |     pm : 'pm',
+  |     PM : 'PM'
+  | };
+p This has been deprecated. The 1.6.0 callback function syntax is now used instead.
