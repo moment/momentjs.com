@@ -11,9 +11,13 @@
             "_signature" : "moment(Date);",
             "_version" : "1.0.0"
         },
-        "Unix Timestamp" : {
+        "Milliseconds since the Unix Epoch" : {
             "_signature" : "moment(Number);",
             "_version" : "1.0.0"
+        },
+        "Unix Timestamp" : {
+            "_signature" : "moment.unix(Number)",
+            "_version" : "1.6.0"
         },
         "String" : {
             "_signature" : "moment(String);",
@@ -143,9 +147,13 @@
             "_signature" : "moment().toDate();\nmoment().native(); // depreciated",
             "_version" : "1.0.0"
         },
-        "Unix Timestamp" : {
+        "Milliseconds since the Unix Epoch" : {
             "_signature" : "moment().valueOf();",
             "_version" : "1.0.0"
+        },
+        "Unix Timestamp" : {
+            "_signature" : "moment().unix();",
+            "_version" : "1.6.0"
         },
         "Milliseconds" : {
             "_signature" : "moment().milliseconds();",
@@ -207,17 +215,17 @@
         "_title" : "Internationalization",
         "changing-language" : {
             "_title" : "Changing languages",
-            "_signature" : "moment().lang(String);\nmoment().lang(String, Object);",
+            "_signature" : "moment.lang(String);\nmoment.lang(String, Object);",
             "_version" : "1.0.0"
         },
         "loading-into-nodejs" : {
             "_title" : "Loading languages in NodeJS",
-            "_signature" : "moment().lang(String);",
+            "_signature" : "moment.lang(String);",
             "_version" : "1.0.0"
         },
         "loading-into-browser" : {
             "_title" : "Loading languages in the browser",
-            "_signature" : "moment().lang(String);",
+            "_signature" : "moment.lang(String);",
             "_version" : "1.0.0"
         },
         "adding-language" : {
