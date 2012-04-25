@@ -16,6 +16,10 @@
             "_signature" : "moment(Number);",
             "_version" : "1.0.0"
         },
+        "Unix Timestamp" : {
+            "_signature" : "moment.unix(Number)",
+            "_version" : "1.6.0"
+        },
         "String" : {
             "_signature" : "moment(String);",
             "_version" : "1.0.0"
@@ -147,7 +151,7 @@
             "_version" : "1.0.0"
         },
         "Native Javascript Date" : {
-            "_signature" : "moment().toDate();\nmoment().native(); // depreciated",
+            "_signature" : "moment().toDate();",
             "_version" : "1.0.0"
         },
         "Milliseconds since the Unix Epoch" : {
@@ -156,7 +160,7 @@
         },
         "Unix Timestamp" : {
             "_signature" : "moment().unix();",
-            "_version" : "???"
+            "_version" : "1.6.0"
         },
         "Milliseconds" : {
             "_signature" : "moment().milliseconds();",

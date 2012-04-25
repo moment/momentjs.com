@@ -1,10 +1,10 @@
-p If your language uses 'am/pm', you do not need to do add a meridiem parameter. Moment.js will use 'am/pm' by default.
-p If you need any other special case, moment.meridiem should be a callback function with parameters for the hours, minutes, and a boolean indicating whether it should be uppercase or not.
-pre
-  | moment.meridiem = function (hour, minute, isUpper) {
-  |     return hour < 12 ? '오전' : '오후';
-  | };
-pre
+p If your language uses 'am/pm', 
+  code moment.meridiem
+  |  can be ommitted, as those values are the defaults.
+p If your language needs any different computation for am/pm, 
+  code moment.meridiem
+  |  should be a callback function that returns the correct string based on hour, minute, and upper/lowercase.
+pre 
   | moment.meridiem = function (hour, minute, isLower) {
   |     if (hour < 9) {
   |         return "早上";
@@ -17,9 +17,18 @@ pre
   |     } else {
   |         return "晚上";
   |     }
-  | }
+  | };
 p
   span.label.label-info Note:
-  |  The meridiem values changed from a map to a callback in version 
+  |  Before version 
   span.label 1.6.0
-  | . If you are having trouble using a callback function, check if you are using the latest version.
+  | , 
+  code moment.meridiem
+  |  was a map of upper and lowercase versions of am/pm.
+pre moment.meridiem = {\n
+  |     am : 'am',
+  |     AM : 'AM',
+  |     pm : 'pm',
+  |     PM : 'PM'
+  | };
+p This has been deprecated. The 1.6.0 callback function syntax is now used instead.

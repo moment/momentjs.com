@@ -16,7 +16,7 @@ js:
 jsmin: js
 	uglifyjs -o deploy/js/langs.min.js deploy/js/langs.js
 	cat $(SNIPPET) $(MOMENT) $(LANGALL) source/js/home.js | uglifyjs -o deploy/js/home.min.js
-	cat $(SNIPPET) libs/bootstrap/bootstrap.js source/js/docs.js | uglifyjs -o deploy/js/docs.min.js
+	cat $(SNIPPET) $(MOMENT) libs/bootstrap/bootstrap.js source/js/docs.js | uglifyjs -o deploy/js/docs.min.js
 
 html:
 	node source/build.js
