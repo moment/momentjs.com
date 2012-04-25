@@ -7,6 +7,7 @@
     },
     "Parsing" : {
         "_icon" : "time",
+        "_title" : "Parse",
         "Javascript Date Object" : {
             "_signature" : "moment(Date);",
             "_version" : "1.0.0"
@@ -53,6 +54,7 @@
         }
     },
     "Manipulating" : {
+        "_title" : "Manipulate",
         "_icon" : "random",
         "Add" : {
             "_signature" : "moment().add(String, Number);\nmoment().add(Object);",
@@ -117,6 +119,7 @@
     },
     "Displaying" : {
         "_icon" : "calendar",
+        "_title" : "Display",
         "Format" : {
             "_signature" : "moment().format();\nmoment().format(String);",
             "_version" : "1.0.0"
@@ -212,7 +215,7 @@
     },
     "i18n" : {
         "_icon" : "comment",
-        "_title" : "Internationalization",
+        "_title" : "i18n",
         "changing-language" : {
             "_title" : "Changing languages",
             "_signature" : "moment.lang(String);\nmoment.lang(String, Object);",
@@ -230,10 +233,16 @@
         },
         "adding-language" : {
             "_title" : "Adding your language to Moment.js"
+        },
+        "getting-language" : {
+            "_title" : "Checking the current Moment.js language",
+            "_signature" : "moment.lang();",
+            "_version" : "1.6.0"
         }
     },
     "Customization" : {
         "_icon" : "pencil",
+        "_title" : "Customize",
         "Month Names" : {
             "_signature" : "moment.months = String[];",
             "_version" : "1.0.0"
@@ -259,8 +268,8 @@
             "_version" : "1.0.0"
         },
         "AM/PM" : {
-            "_signature" : "moment.meridiem = Object;",
-            "_version" : "1.0.0"
+            "_signature" : "moment.meridiem = Function;",
+            "_version" : "1.6.0"
         },
         "Calendar" : {
             "_signature" : "moment.calendar = Object;",
@@ -268,6 +277,14 @@
         },
         "Ordinal" : {
             "_signature" : "moment.ordinal = Function;",
+            "_version" : "1.0.0"
+        }
+    },
+    "Durations" : {
+        "_icon" : "resize-horizontal",
+        "_title" : "Durations",
+        "Month Names" : {
+            "_signature" : "moment.months = String[];",
             "_version" : "1.0.0"
         }
     },
