@@ -287,9 +287,41 @@
     "Durations" : {
         "_icon" : "resize-horizontal",
         "_title" : "Durations",
-        "Month Names" : {
-            "_signature" : "moment.months = String[];",
-            "_version" : "1.0.0"
+        "Creating" : {
+            "_signature" : "moment.duration(Number, String);\nmoment.duration(Number);\nmoment.duration(Object);",
+            "_version" : "1.6.0"
+        },
+        "Humanize" : {
+            "_signature" : "moment.duration().humanize();",
+            "_version" : "1.6.0"
+        },
+        "Milliseconds" : {
+            "_signature" : "moment.duration().milliseconds();\nmoment.duration().asMilliseconds();",
+            "_version" : "1.6.0"
+        },
+        "Seconds" : {
+            "_signature" : "moment.duration().seconds();\nmoment.duration().asSeconds();",
+            "_version" : "1.6.0"
+        },
+        "Minutes" : {
+            "_signature" : "moment.duration().minutes();\nmoment.duration().asMinutes();",
+            "_version" : "1.6.0"
+        },
+        "Hours" : {
+            "_signature" : "moment.duration().hours();\nmoment.duration().asHours();",
+            "_version" : "1.6.0"
+        },
+        "Days" : {
+            "_signature" : "moment.duration().days();\nmoment.duration().asDays();",
+            "_version" : "1.6.0"
+        },
+        "Months" : {
+            "_signature" : "moment.duration().months();\nmoment.duration().asMonths();",
+            "_version" : "1.6.0"
+        },
+        "Years" : {
+            "_signature" : "moment.duration().years();\nmoment.duration().asYears();",
+            "_version" : "1.6.0"
         }
     },
     "Plugins" : {
