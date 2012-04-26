@@ -1,1 +1,16 @@
-p FPO
+p To get the number of milliseconds in a duration, use 
+  code moment.duration().milliseconds()
+  | .
+p It will return a number between 0 and 1000.
+pre
+  | moment.duration(500).milliseconds(); // 500
+  | moment.duration(1500).milliseconds(); // 500
+  | moment.duration(15000).milliseconds(); // 0
+p If you want the length of the duration in milliseconds, use 
+  code moment.duration().asMilliseconds()
+  |  instead.
+
+pre
+  | moment.duration(500).asMilliseconds(); // 500
+  | moment.duration(1500).asMilliseconds(); // 1500
+  | moment.duration(15000).asMilliseconds(); // 15000

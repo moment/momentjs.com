@@ -1,1 +1,59 @@
-p FPO
+p To create a duration, call 
+  code moment.duration()
+  |  with the length of time in milliseconds.
+pre
+  | moment.duration(100); // 100 milliseconds
+p If you want to create a moment with a unit of measurement other than seconds, you can pass the unit of measurement as well.
+pre
+  | moment.duration(2, 'seconds');
+  | moment.duration(2, 'minutes');
+  | moment.duration(2, 'hours');
+  | moment.duration(2, 'days');
+  | moment.duration(2, 'weeks');
+  | moment.duration(2, 'months');
+  | moment.duration(2, 'years');
+p The same shorthand for 
+  code moment.fn.add
+  |  works here as well.
+table.table.table-striped.table-bordered
+  tbody
+    tr
+      th Key
+      th Shorthand
+    tr
+      td years
+      td y
+    tr
+      td months
+      td M
+    tr
+      td weeks
+      td w
+    tr
+      td days
+      td d
+    tr
+      td hours
+      td h
+    tr
+      td minutes
+      td m
+    tr
+      td seconds
+      td s
+    tr
+      td milliseconds
+      td ms
+p Much like 
+  code moment.fn.add
+  | , you can pass an object of values if you need multiple different units of measurement.
+pre
+  | moment.duration({
+  |     seconds: 2,
+  |     minutes: 2,
+  |     hours: 2,
+  |     days: 2,
+  |     weeks: 2,
+  |     months: 2,
+  |     years: 2
+  | });
