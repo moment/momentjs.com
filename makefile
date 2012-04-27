@@ -7,7 +7,7 @@ CSS = source/css/bootstrap.css source/css/style.css
 all: jsmin html css
 
 js:
-	git submodule foreach git pull origin develop
+	git submodule foreach git pull origin master
 	cp $(MOMENT) deploy/js/moment.js
 	cp libs/moment/min/moment.min.js deploy/js/moment.min.js
 	cat $(TESTJS) > deploy/js/tests.js

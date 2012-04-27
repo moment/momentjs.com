@@ -1,5 +1,5 @@
 // moment.js
-// version : 1.5.0
+// version : 1.6.1
 // author : Tim Wood
 // license : MIT
 // momentjs.com
@@ -7,7 +7,7 @@
 (function (Date, undefined) {
 
     var moment,
-        VERSION = "1.5.0",
+        VERSION = "1.6.1",
         round = Math.round, i,
         // internal storage for language config files
         languages = {},
@@ -187,8 +187,8 @@
             currentHours = m.hours(),
             currentMinutes = m.minutes(),
             currentSeconds = m.seconds(),
-            currentZone = -m.zone(),
             currentMilliseconds = m.milliseconds(),
+            currentZone = -m.zone(),
             ordinal = moment.ordinal,
             meridiem = moment.meridiem;
         // check if the character is a format
@@ -278,6 +278,7 @@
                 return currentSeconds;
             case 'ss' :
                 return leftZeroFill(currentSeconds, 2);
+            // MILLISECONDS
             case 'S' :
                 return ~~ (currentMilliseconds / 100);
             case 'SS' :
@@ -808,7 +809,7 @@
         },
 
         isDST : function () {
-            return (this.zone() < moment([this.year()]).zone() ||
+            return (this.zone() < moment([this.year()]).zone() || 
                 this.zone() < moment([this.year(), 5]).zone());
         },
 
