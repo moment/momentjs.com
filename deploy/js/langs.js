@@ -1286,7 +1286,7 @@
                 sameElse : 'L'
             },
             relativeTime : {
-                future : "%s后",
+                future : "%s内",
                 past : "%s前",
                 s : "几秒",
                 m : "1分钟",
@@ -1349,7 +1349,7 @@
                 sameElse : 'L'
             },
             relativeTime : {
-                future : "%s後",
+                future : "%s內",
                 past : "%s前",
                 s : "幾秒",
                 m : "一分鐘",
