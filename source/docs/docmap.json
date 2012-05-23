@@ -332,6 +332,10 @@
         "isocalendar" : {
             "_title" : "ISO Calendar",
             "_signature" : "moment().isocalendar();\nmoment.fromIsocalendar(Array);"
+        },
+        "range" : {
+            "_title" : "Date Ranges",
+            "_signature" : "moment().range(Moment, Moment);\nmoment.within(DateRange);"
         }
     }
 }
