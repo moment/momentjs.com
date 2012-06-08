@@ -62,11 +62,9 @@
         
         setTimeout(update, 1000);
     }
-    update();
-})();
+    if (!window.location.pathname.match('docs')) {
+        update();
+    }
 
-$('pre').snippet("javascript", {
-    showNum : false,
-    menu : false,
-    style : "nedit"
-});
+    $('#subnav').scrollspy();
+})();

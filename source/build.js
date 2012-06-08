@@ -2,7 +2,8 @@ var fs   = require('fs'),
     path = require('path'),
     zlib = require('zlib'),
     jade = require('jade'),
-    moment = require('../libs/moment/moment.js');
+    moment = require('../libs/moment/moment.js'),
+    highlight = require("highlight.js").highlight;
 
 
 /*********************************************
@@ -65,7 +66,15 @@ function jadeToHtml(jadePath, htmlPath, args) {
         var compile = jade.compile(data, {
             filename : compileFilename
         });
-        makeFile(htmlPath, compile(args));
+        var output = compile(args);
+
+        output = output.replace(/\&quot;/g,'"');
+        output = output.replace(/<pre>((.|\s)*?)<\/pre>/g, function(original, source){
+            return '<pre>' + highlight("javascript", source).value + '</pre>';
+        });
+        output = output.replace(/&amp;(\w+;)/g,'&$1');
+
+        makeFile(htmlPath, output);
     });
 }
 
