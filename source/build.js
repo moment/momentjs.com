@@ -31,7 +31,7 @@ var docsArgs = {};
  * @param {String} dest The file destination
  */
 function makeFile(p, contents) {
-    var filename = path.normalize(__dirname + '/../deploy/' + p + '/index.html');
+    var filename = path.normalize(__dirname + '/../' + p + '/index.html');
 
     fs.writeFile(filename, contents, 'utf8', function(err) {
         console.log('Built html : ' + filename);
