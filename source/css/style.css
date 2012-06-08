@@ -218,50 +218,36 @@ body {
 ****************/
 
 
-.snippet-wrap .snippet-no-num {
-    list-style:none;
-    padding:0;
-    margin:0;
-}
-.sh_nedit .sh_sourceCode {
-    font-weight:normal;
-    font-style:normal;
-}
-
-.sh_nedit .sh_sourceCode .sh_keyword,
-.sh_nedit .sh_sourceCode .sh_type,
-.sh_nedit .sh_sourceCode .sh_symbol,
-.sh_nedit .sh_sourceCode .sh_cbracket,
-.sh_nedit .sh_sourceCode .sh_date,
-.sh_nedit .sh_sourceCode .sh_time,
-.sh_nedit .sh_sourceCode .sh_file,
-.sh_nedit .sh_sourceCode .sh_variable,
-.sh_nedit .sh_sourceCode .sh_difflines,
-.sh_nedit .sh_sourceCode .sh_selector,
-.sh_nedit .sh_sourceCode .sh_property {
+pre .keyword,
+pre .type,
+pre .symbol,
+pre .cbracket,
+pre .date,
+pre .time,
+pre .file,
+pre .variable,
+pre .difflines,
+pre .selector,
+pre .property {
     font-weight:bold;
 }
 
-.sh_nedit .sh_sourceCode .sh_type {
-    color:#a52a2a;
+pre .type {
+    color:#458;
 }
 
-.sh_nedit .sh_sourceCode .sh_string {
-    color:#BD362F;
+pre .string {
+    color:#d14;
 }
 
-.sh_nedit .sh_sourceCode .sh_number {
-    color:#EE5F5B;
+pre .number {
+    color:#4a7;
 }
 
-.sh_nedit .sh_sourceCode .sh_regexp {
-    color:#F89406;
+pre .regexp {
+    color:#092;
 }
 
-.sh_nedit .sh_sourceCode .sh_comment {
+pre .comment {
     color:#999;
-}
-
-.sh_nedit .sh_sourceCode .sh_function {
-    color:#51A351;
 }
