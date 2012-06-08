@@ -62,9 +62,25 @@
         
         setTimeout(update, 1000);
     }
-    if (!window.location.pathname.match('docs')) {
+    if (window.location.pathname.match('docs')) {
+        initDocs();
+    } else {
         update();
     }
 
-    $('#subnav').scrollspy();
+    function initDocs(){
+        var dropdowns = $('.dropdown');
+        $(document).on('click', function (e) {
+            var el = $(e.target);
+            if (!el.is('.dropdown-toggle')) {
+                el = el.closest('.dropdown-toggle');
+            }
+            if (el.length) {
+                el.closest('.dropdown').addClass('open');
+            } else {
+                dropdowns.removeClass('open');
+            }
+        });
+    }
+
 })();
