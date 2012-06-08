@@ -75,10 +75,9 @@
             if (!el.is('.dropdown-toggle')) {
                 el = el.closest('.dropdown-toggle');
             }
+            dropdowns.removeClass('open');
             if (el.length) {
                 el.closest('.dropdown').addClass('open');
-            } else {
-                dropdowns.removeClass('open');
             }
         });
     }
