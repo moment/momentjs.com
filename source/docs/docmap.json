@@ -55,6 +55,11 @@
         "UTC" : {
             "_signature" : "moment.utc();\nmoment.utc(Number);\nmoment.utc(Number[]);\nmoment.utc(String);\nmoment.utc(String, String);",
             "_version" : "1.5.0"
+        },
+        "is-valid" : {
+            "_title" : "Validation",
+            "_signature" : "moment().isValid();",
+            "_version" : "1.7.0"
         }
     },
     "Manipulating" : {
