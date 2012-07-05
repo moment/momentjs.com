@@ -1,0 +1,10 @@
+p Set the moment to the start of a unit of time.
+pre
+  | moment().startOf('year'); // set the moment to Jan 1 12:00:00.000 pm this year
+  | moment().startOf('month'); // set the moment to the first of this month, 12:00:00.000 pm
+  | moment().startOf('day'); // set the moment to 12:00:00.000 pm today
+  | moment().startOf('hour'); // set the moment to now, but with 0 minutes, 0 seconds, and 0 milliseconds
+  | moment().startOf('minute'); // set the moment to now, but with 0 seconds and 0 milliseconds
+  | moment().startOf('second'); // same as moment().milliseconds(0);
+p This is essentially the same as the following.
+pre moment().hours(23).minutes(59).seconds(59).milliseconds(999);
