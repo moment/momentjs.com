@@ -102,6 +102,16 @@
             "_signature" : "moment().year(Number);",
             "_version" : "1.0.0"
         },
+        "start-of" : {
+            "_title" : "Start of Time",
+            "_signature" : "moment().startOf(String);",
+            "_version" : "1.7.0"
+        },
+        "end-of" : {
+            "_title" : "End of Time",
+            "_signature" : "moment().endOf(String);",
+            "_version" : "1.7.0"
+        },
         "sod" : {
             "_title" : "Start of Day",
             "_signature" : "moment().sod();",
