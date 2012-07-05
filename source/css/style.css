@@ -218,6 +218,10 @@ body {
 ****************/
 
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> gh-pages
 .snippet-wrap .snippet-no-num {
     list-style:none;
     padding:0;
@@ -264,4 +268,41 @@ body {
 
 .sh_nedit .sh_sourceCode .sh_function {
     color:#51A351;
+<<<<<<< HEAD
+=======
+=======
+pre .keyword,
+pre .type,
+pre .symbol,
+pre .cbracket,
+pre .date,
+pre .time,
+pre .file,
+pre .variable,
+pre .difflines,
+pre .selector,
+pre .property {
+    font-weight:bold;
+}
+
+pre .type {
+    color:#458;
+}
+
+pre .string {
+    color:#d14;
+}
+
+pre .number {
+    color:#4a7;
+}
+
+pre .regexp {
+    color:#092;
+}
+
+pre .comment {
+    color:#999;
+>>>>>>> master
+>>>>>>> gh-pages
 }

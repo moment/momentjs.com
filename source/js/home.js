@@ -62,11 +62,24 @@
         
         setTimeout(update, 1000);
     }
-    update();
-})();
+    if (window.location.pathname.match('docs')) {
+        initDocs();
+    } else {
+        update();
+    }
 
-$('pre').snippet("javascript", {
-    showNum : false,
-    menu : false,
-    style : "nedit"
-});
+    function initDocs(){
+        var dropdowns = $('.dropdown');
+        $(document).on('click', function (e) {
+            var el = $(e.target);
+            if (!el.is('.dropdown-toggle')) {
+                el = el.closest('.dropdown-toggle');
+            }
+            dropdowns.removeClass('open');
+            if (el.length) {
+                el.closest('.dropdown').addClass('open');
+            }
+        });
+    }
+
+})();

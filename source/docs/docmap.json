@@ -7,6 +7,7 @@
     },
     "Parsing" : {
         "_icon" : "time",
+        "_title" : "Parse",
         "Javascript Date Object" : {
             "_signature" : "moment(Date);",
             "_version" : "1.0.0"
@@ -43,6 +44,10 @@
             "_signature" : "moment(String);",
             "_version" : "1.3.0"
         },
+        "Unix Timestamp" : {
+            "_signature" : "moment.unix(Number)",
+            "_version" : "???"
+        },
         "Cloning" : {
             "_signature" : "moment(Moment);",
             "_version" : "1.2.0"
@@ -53,6 +58,7 @@
         }
     },
     "Manipulating" : {
+        "_title" : "Manipulate",
         "_icon" : "random",
         "Add" : {
             "_signature" : "moment().add(String, Number);\nmoment().add(Object);",
@@ -117,6 +123,7 @@
     },
     "Displaying" : {
         "_icon" : "calendar",
+        "_title" : "Display",
         "Format" : {
             "_signature" : "moment().format();\nmoment().format(String);",
             "_version" : "1.0.0"
@@ -212,7 +219,7 @@
     },
     "i18n" : {
         "_icon" : "comment",
-        "_title" : "Internationalization",
+        "_title" : "i18n",
         "changing-language" : {
             "_title" : "Changing languages",
             "_signature" : "moment.lang(String);\nmoment.lang(String, Object);",
@@ -230,10 +237,16 @@
         },
         "adding-language" : {
             "_title" : "Adding your language to Moment.js"
+        },
+        "getting-language" : {
+            "_title" : "Checking the current Moment.js language",
+            "_signature" : "moment.lang();",
+            "_version" : "1.6.0"
         }
     },
     "Customization" : {
         "_icon" : "pencil",
+        "_title" : "Customize",
         "Month Names" : {
             "_signature" : "moment.months = String[];",
             "_version" : "1.0.0"
@@ -259,8 +272,8 @@
             "_version" : "1.0.0"
         },
         "AM/PM" : {
-            "_signature" : "moment.meridiem = Object;",
-            "_version" : "1.0.0"
+            "_signature" : "moment.meridiem = Function;",
+            "_version" : "1.6.0"
         },
         "Calendar" : {
             "_signature" : "moment.calendar = Object;",
@@ -271,6 +284,46 @@
             "_version" : "1.0.0"
         }
     },
+    "Durations" : {
+        "_icon" : "resize-horizontal",
+        "_title" : "Durations",
+        "Creating" : {
+            "_signature" : "moment.duration(Number, String);\nmoment.duration(Number);\nmoment.duration(Object);",
+            "_version" : "1.6.0"
+        },
+        "Humanize" : {
+            "_signature" : "moment.duration().humanize();",
+            "_version" : "1.6.0"
+        },
+        "Milliseconds" : {
+            "_signature" : "moment.duration().milliseconds();\nmoment.duration().asMilliseconds();",
+            "_version" : "1.6.0"
+        },
+        "Seconds" : {
+            "_signature" : "moment.duration().seconds();\nmoment.duration().asSeconds();",
+            "_version" : "1.6.0"
+        },
+        "Minutes" : {
+            "_signature" : "moment.duration().minutes();\nmoment.duration().asMinutes();",
+            "_version" : "1.6.0"
+        },
+        "Hours" : {
+            "_signature" : "moment.duration().hours();\nmoment.duration().asHours();",
+            "_version" : "1.6.0"
+        },
+        "Days" : {
+            "_signature" : "moment.duration().days();\nmoment.duration().asDays();",
+            "_version" : "1.6.0"
+        },
+        "Months" : {
+            "_signature" : "moment.duration().months();\nmoment.duration().asMonths();",
+            "_version" : "1.6.0"
+        },
+        "Years" : {
+            "_signature" : "moment.duration().years();\nmoment.duration().asYears();",
+            "_version" : "1.6.0"
+        }
+    },
     "Plugins" : {
         "_icon" : "shopping-cart",
         "strftime" : {
@@ -279,6 +332,10 @@
         "isocalendar" : {
             "_title" : "ISO Calendar",
             "_signature" : "moment().isocalendar();\nmoment.fromIsocalendar(Array);"
+        },
+        "range" : {
+            "_title" : "Date Ranges",
+            "_signature" : "moment().range(Moment, Moment);\nmoment.within(DateRange);"
         }
     }
 }

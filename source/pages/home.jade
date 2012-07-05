@@ -1,11 +1,11 @@
 extends html
 
 block styles
-  link(rel="stylesheet", href="css/style.css?_=" + builddate)
+  link(rel="stylesheet", href="css/style.css")
   title Moment.js - A lightweight javascript date library
 
 block scripts
-  script(src="js/home.min.js?_=" + builddate)
+  script(src="js/home.min.js")
 
 block content
   .row
@@ -37,7 +37,8 @@ block content
   .row
     .span6
       h3 Formatting dates
-      pre moment().format('dddd, MMMM Do YYYY, h:mm:ss a');\n
+      pre
+        | moment().format('dddd, MMMM Do YYYY, h:mm:ss a');
         | moment().format('dddd [on the] wo [week of the year]');
         | moment().format("MMM Do 'YY");
         | moment().format(); // defaults to ISO-8601
@@ -56,6 +57,7 @@ block content
 
 
       h3 Internationalization
-      pre moment.lang('fr');\n
+      pre
+        | moment.lang('fr');
         | moment().format('LLLL');
       #js-lang.alert.alert-info

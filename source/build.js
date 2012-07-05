@@ -1,8 +1,9 @@
-var fs     = require('fs'),
+var fs   = require('fs'),
     path = require('path'),
-    gzip   = require('gzip'),
+    zlib = require('zlib'),
     jade = require('jade'),
-    moment = require('../libs/moment/moment.js');
+    moment = require('../libs/moment/moment.js'),
+    highlight = require("highlight.js").highlight;
 
 
 /*********************************************
@@ -31,7 +32,7 @@ var docsArgs = {};
  * @param {String} dest The file destination
  */
 function makeFile(p, contents) {
-    var filename = path.normalize(__dirname + '/../deploy/' + p + '/index.html');
+    var filename = path.normalize(__dirname + '/../' + p + '/index.html');
 
     fs.writeFile(filename, contents, 'utf8', function(err) {
         console.log('Built html : ' + filename);
@@ -65,7 +66,15 @@ function jadeToHtml(jadePath, htmlPath, args) {
         var compile = jade.compile(data, {
             filename : compileFilename
         });
-        makeFile(htmlPath, compile(args));
+        var output = compile(args);
+
+        output = output.replace(/\&quot;/g,'"');
+        output = output.replace(/<pre>((.|\s)*?)<\/pre>/g, function(original, source){
+            return '<pre>' + highlight("javascript", source).value + '</pre>';
+        });
+        output = output.replace(/&amp;(\w+;)/g,'&$1');
+
+        makeFile(htmlPath, output);
     });
 }
 
@@ -73,7 +82,7 @@ function jadeToHtml(jadePath, htmlPath, args) {
     var src = fs.readFileSync(PATH_TO_LIB + 'moment.js', 'utf8');
     var min = fs.readFileSync(PATH_TO_LIB + 'min/moment.min.js', 'utf8');
     SRCSIZE = src.length;
-    gzip(min, function(err, data) {
+    zlib.gzip(min, function(err, data) {
         MINSIZE = data.length;
         jadeToHtml('home', '/');
         jadeToHtml('test', '/test/');

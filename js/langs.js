@@ -526,6 +526,134 @@
     }
 }());
 (function () {
+    var plural = function (n) {
+        if (n % 100 == 11) {
+            return true;
+        } else if (n % 10 == 1) {
+            return false;
+        } else {
+            return true;
+        }
+    },
+
+    translate = function (number, withoutSuffix, key, isFuture) {
+        var result = number + " ";
+        switch (key) {
+        case 's':
+            return withoutSuffix || isFuture ? 'nokkrar sekúndur' : 'nokkrum sekúndum';
+        case 'm':
+            return withoutSuffix ? 'mínúta' : 'mínútu';
+        case 'mm':
+            if (plural(number)) {
+                return result + (withoutSuffix || isFuture ? 'mínútur' : 'mínútum');
+            } else if (withoutSuffix) {
+                return result + 'mínúta';
+            } else {
+                return result + 'mínútu';
+            }
+        case 'hh':
+            if (plural(number)) {
+                return result + (withoutSuffix || isFuture ? 'klukkustundir' : 'klukkustundum');
+            } else {
+                return result + 'klukkustund';
+            }
+        case 'd':
+            if (withoutSuffix) {
+                return 'dagur'
+            } else {
+                return isFuture ? 'dag' : 'degi';
+            }
+        case 'dd':
+            if (plural(number)) {
+                if (withoutSuffix) {
+                    return result + 'dagar'
+                } else {
+                    return result + (isFuture ? 'daga' : 'dögum');
+                }
+            } else if (withoutSuffix) {
+                return result + 'dagur'
+            } else {
+                return result + (isFuture ? 'dag' : 'degi');
+            }
+        case 'M':
+            if (withoutSuffix) {
+                return 'mánuður'
+            } else {
+                return isFuture ? 'mánuð' : 'mánuði';
+            }
+        case 'MM':
+            if (plural(number)) {
+                if (withoutSuffix) {
+                    return result + 'mánuðir'
+                } else {
+                    return result + (isFuture ? 'mánuði' : 'mánuðum');
+                }
+            } else if (withoutSuffix) {
+                return result + 'mánuður';
+            } else {
+                return result + (isFuture ? 'mánuð' : 'mánuði');
+            }
+        case 'y':
+            return withoutSuffix || isFuture ? 'ár' : 'ári';
+        case 'yy':
+            if (plural(number)) {
+                return result + (withoutSuffix || isFuture ? 'ár' : 'árum');
+            } else {
+                return result + (withoutSuffix || isFuture ? 'ár' : 'ári');
+            }
+        }
+    },
+
+    lang = {
+            months : "janúar_febrúar_mars_apríl_maí_júní_júlí_ágúst_september_október_nóvember_desember".split("_"),
+            monthsShort : "jan_feb_mar_apr_maí_jún_júl_ágú_sep_okt_nóv_des".split("_"),
+            weekdays : "sunnudagur_mánudagur_þriðjudagur_miðvikudagur_fimmtudagur_föstudagur_laugardagur".split("_"),
+            weekdaysShort : "sun_mán_þri_mið_fim_fös_lau".split("_"),
+            longDateFormat : {
+                LT : "H:mm",
+                L : "DD/MM/YYYY",
+                LL : "D. MMMM YYYY",
+                LLL : "D. MMMM YYYY kl. LT",
+                LLLL : "dddd, D. MMMM YYYY kl. LT"
+            },
+            calendar : {
+                sameDay : '[í dag kl.] LT',
+                nextDay : '[á morgun kl.] LT',
+                nextWeek : 'dddd [kl.] LT',
+                lastDay : '[í gær kl.] LT',
+                lastWeek : '[síðasta] dddd [kl.] LT',
+                sameElse : 'L'
+            },
+            relativeTime : {
+                future : "eftir %s",
+                past : "fyrir %s síðan",
+                s : translate,
+                m : translate,
+                mm : translate,
+                h : "klukkustund",
+                hh : translate,
+                d : translate,
+                dd : translate,
+                M : translate,
+                MM : translate,
+                y : translate,
+                yy : translate,
+            },
+            ordinal : function (number) {
+                return '.';
+            }
+        };
+
+    // Node
+    if (typeof module !== 'undefined') {
+        module.exports = lang;
+    }
+    // Browser
+    if (typeof window !== 'undefined' && this.moment && this.moment.lang) {
+        this.moment.lang('is', lang);
+    }
+}());
+(function () {
     var lang = {
             months : "Gennaio_Febbraio_Marzo_Aprile_Maggio_Giugno_Luglio_Agosto_Settebre_Ottobre_Novembre_Dicembre".split("_"),
             monthsShort : "Gen_Feb_Mar_Apr_Mag_Giu_Lug_Ago_Set_Ott_Nov_Dic".split("_"),
@@ -573,6 +701,63 @@
     // Browser
     if (typeof window !== 'undefined' && this.moment && this.moment.lang) {
         this.moment.lang('it', lang);
+    }
+}());
+(function () {
+    var lang = {
+            months : "1月_2月_3月_4月_5月_6月_7月_8月_9月_10月_11月_12月".split("_"),
+            monthsShort : "1月_2月_3月_4月_5月_6月_7月_8月_9月_10月_11月_12月".split("_"),
+            weekdays : "日曜日_月曜日_火曜日_水曜日_木曜日_金曜日_土曜日".split("_"),
+            weekdaysShort : "日_月_火_水_木_金_土".split("_"),
+            longDateFormat : {
+                LT : "Ah:mm",
+                L : "YYYY/MM/DD",
+                LL : "YYYY年M月D日",
+                LLL : "YYYY年M月D日 LT",
+                LLLL : "YYYY年M月D日 dddd LT"
+            },
+            meridiem : function (hour, minute, isLower) {
+                if (hour < 12) {
+                    return "午前";
+                } else {
+                    return "午後";
+                }
+            },
+            calendar : {
+                sameDay : '[今日] LT',
+                nextDay : '[明日] LT',
+                nextWeek : '[来週]dddd LT', 
+                lastDay : '[昨日] LT',
+                lastWeek : '[前週]dddd LT', 
+                sameElse : 'L'
+            },
+            relativeTime : {
+                future : "%s後",
+                past : "%s前",
+                s : "数秒",
+                m : "1分",
+                mm : "%d分",
+                h : "1時間",
+                hh : "%d時間",
+                d : "1日",
+                dd : "%d日",
+                M : "1ヶ月",
+                MM : "%dヶ月",
+                y : "1年",
+                yy : "%d年"
+            },
+            ordinal : function (number) {
+                    return '';
+            }
+        };
+
+    // Node
+    if (typeof module !== 'undefined') {
+        module.exports = lang;
+    }
+    // Browser
+    if (typeof window !== 'undefined' && this.moment && this.moment.lang) {
+        this.moment.lang('jp', lang);
     }
 }());
 (function () {
@@ -976,7 +1161,7 @@
                 nextDay: '[Imorgon klockan] LT',
                 lastDay: '[Igår klockan] LT',
                 nextWeek: 'dddd [klockan] LT',
-                lastWeek: '[Förra] dddd [en klockan] LT',
+                lastWeek: '[Förra] dddd[en klockan] LT',
                 sameElse: 'L'
             },
             relativeTime : {
@@ -1069,15 +1254,15 @@
 (function () {
     var lang = {
             months : "一月_二月_三月_四月_五月_六月_七月_八月_九月_十月_十一月_十二月".split("_"),
-            monthsShort : "一月_二月_三月_四月_五月_六月_七月_八月_九月_十月_十一月_十二月".split("_"),
+            monthsShort : "1月_2月_3月_4月_5月_6月_7月_8月_9月_10月_11月_12月".split("_"),
             weekdays : "星期日_星期一_星期二_星期三_星期四_星期五_星期六".split("_"),
             weekdaysShort : "周日_周一_周二_周三_周四_周五_周六".split("_"),
             longDateFormat : {
                 LT : "Ah点mm",
-                L : "YYYY年MMMMD日",
-                LL : "YYYY年MMMMD日",
-                LLL : "YYYY年MMMMD日LT",
-                LLLL : "YYYY年MMMMD日ddddLT"
+                L : "YYYY年MMMD日",
+                LL : "YYYY年MMMD日",
+                LLL : "YYYY年MMMD日LT",
+                LLLL : "YYYY年MMMD日ddddLT"
             },
             meridiem : function (hour, minute, isLower) {
                 if (hour < 9) {
@@ -1101,7 +1286,7 @@
                 sameElse : 'L'
             },
             relativeTime : {
-                future : "%s后",
+                future : "%s内",
                 past : "%s前",
                 s : "几秒",
                 m : "1分钟",
@@ -1132,15 +1317,15 @@
 (function () {
     var lang = {
             months : "一月_二月_三月_四月_五月_六月_七月_八月_九月_十月_十一月_十二月".split("_"),
-            monthsShort : "一月_二月_三月_四月_五月_六月_七月_八月_九月_十月_十一月_十二月".split("_"),
+            monthsShort : "1月_2月_3月_4月_5月_6月_7月_8月_9月_10月_11月_12月".split("_"),
             weekdays : "星期日_星期一_星期二_星期三_星期四_星期五_星期六".split("_"),
             weekdaysShort : "週日_週一_週二_週三_週四_週五_週六".split("_"),
             longDateFormat : {
                 LT : "Ah點mm",
-                L : "YYYY年MMMMD日",
-                LL : "YYYY年MMMMD日",
-                LLL : "YYYY年MMMMD日LT",
-                LLLL : "YYYY年MMMMD日ddddLT"
+                L : "YYYY年MMMD日",
+                LL : "YYYY年MMMD日",
+                LLL : "YYYY年MMMD日LT",
+                LLLL : "YYYY年MMMD日ddddLT"
             },
             meridiem : function (hour, minute, isLower) {
                 if (hour < 9) {
@@ -1164,7 +1349,7 @@
                 sameElse : 'L'
             },
             relativeTime : {
-                future : "%s後",
+                future : "%s內",
                 past : "%s前",
                 s : "幾秒",
                 m : "一分鐘",

@@ -1,18 +1,18 @@
 extends html
 
 block styles
-  link(rel="stylesheet", href="../css/style.css?_=" + builddate)
+  link(rel="stylesheet", href="../css/style.css")
   title Moment.js Unit Test Suite
 
 block scripts
-  script(src="../js/moment.js?_=" + builddate)
+  script(src="../js/moment.js")
   script
     var require = function(){
         return moment;
     }
     var exports = {};
-  script(src="../js/langs.js?_=" + builddate)
-  script(src="../js/tests.js?_=" + builddate)
+  script(src="../js/langs.js")
+  script(src="../js/tests.js")
 
 block content
   #header-row.row
