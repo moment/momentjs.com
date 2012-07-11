@@ -1,3 +1,4 @@
+(function(){
 /*!
  * Nodeunit
  * https://github.com/caolan/nodeunit
@@ -8772,4 +8773,5 @@ exports["lang:zh-tw"] = {
     tests.on('click', 'li.test', {}, function(){
         $(this).toggleClass('open');
     });
+})();
 })();
