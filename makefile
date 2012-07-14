@@ -1,4 +1,4 @@
-TESTJS = libs/nodeunit/nodeunit.js libs/moment/test/moment/*.js libs/moment/test/lang/*.js source/js/test.js
+TESTJS = source/js/iife_start.js libs/nodeunit/nodeunit.js libs/moment/test/moment/*.js libs/moment/test/lang/*.js source/js/test.js source/js/iife_end.js
 LANGALL = libs/moment/lang/*.js
 MOMENT = libs/moment/moment.js
 CSS = source/css/bootstrap.css source/css/style.css
