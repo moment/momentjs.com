@@ -58,6 +58,7 @@
         this.moment.lang('ca', lang);
     }
 }());
+
 (function () {
     var lang = {
             months : "Januar_Februar_Marts_April_Maj_Juni_Juli_August_September_Oktober_November_December".split("_"),
@@ -108,6 +109,7 @@
         this.moment.lang('da', lang);
     }
 }());
+
 (function () {
     var lang = {
             months : "Januar_Februar_März_April_Mai_Juni_Juli_August_September_Oktober_November_Dezember".split("_"),
@@ -158,6 +160,7 @@
         this.moment.lang('de', lang);
     }
 }());
+
 (function () {
     var lang = {
             months : "January_February_March_April_May_June_July_August_September_October_November_December".split("_"),
@@ -212,6 +215,7 @@
         this.moment.lang('en-gb', lang);
     }
 }());
+
 (function () {
     var lang = {
             months : "Enero_Febrero_Marzo_Abril_Mayo_Junio_Julio_Agosto_Septiembre_Octubre_Noviembre_Diciembre".split("_"),
@@ -272,6 +276,7 @@
         this.moment.lang('es', lang);
     }
 }());
+
 (function () {
     var lang = {
             months : "urtarrila_otsaila_martxoa_apirila_maiatza_ekaina_uztaila_abuztua_iraila_urria_azaroa_abendua".split("_"),
@@ -322,6 +327,7 @@
         this.moment.lang('eu', lang);
     }
 }());
+
 (function () {
     var numbers_past = ['nolla', 'yksi', 'kaksi', 'kolme', 'neljä', 'viisi',
                         'kuusi', 'seitsemän', 'kahdeksan', 'yhdeksän'];
@@ -415,7 +421,8 @@
     if (typeof window !== 'undefined' && this.moment && this.moment.lang) {
         this.moment.lang('fi', lang);
     }
-}());(function () {
+}());
+(function () {
     var lang = {
             months : "janvier_février_mars_avril_mai_juin_juillet_août_septembre_octobre_novembre_décembre".split("_"),
             monthsShort : "janv._févr._mars_avr._mai_juin_juil._août_sept._oct._nov._déc.".split("_"),
@@ -465,6 +472,7 @@
         this.moment.lang('fr', lang);
     }
 }());
+
 (function () {
     var lang = {
             months : "Xaneiro_Febreiro_Marzo_Abril_Maio_Xuño_Xullo_Agosto_Setembro_Octubro_Novembro_Decembro".split("_"),
@@ -525,6 +533,7 @@
         this.moment.lang('gl', lang);
     }
 }());
+
 (function () {
     var plural = function (n) {
         if (n % 100 == 11) {
@@ -653,6 +662,7 @@
         this.moment.lang('is', lang);
     }
 }());
+
 (function () {
     var lang = {
             months : "Gennaio_Febbraio_Marzo_Aprile_Maggio_Giugno_Luglio_Agosto_Settebre_Ottobre_Novembre_Dicembre".split("_"),
@@ -703,6 +713,7 @@
         this.moment.lang('it', lang);
     }
 }());
+
 (function () {
     var lang = {
             months : "1月_2月_3月_4月_5月_6月_7月_8月_9月_10月_11月_12月".split("_"),
@@ -760,6 +771,7 @@
         this.moment.lang('jp', lang);
     }
 }());
+
 (function () {
     var lang = {
             months : "1월_2월_3월_4월_5월_6월_7월_8월_9월_10월_11월_12월".split("_"),
@@ -814,6 +826,7 @@
         this.moment.lang('kr', lang);
     }
 }());
+
 (function () {
     var lang = {
             months : "januar_februar_mars_april_mai_juni_juli_august_september_oktober_november_desember".split("_"),
@@ -864,6 +877,7 @@
         this.moment.lang('nb', lang);
     }
 }());
+
 (function () {
     var lang = {
             months : "januari_februari_maart_april_mei_juni_juli_augustus_september_oktober_november_december".split("_"),
@@ -914,6 +928,7 @@
         this.moment.lang('nl', lang);
     }
 }());
+
 (function () {
     var plural = function (n) { 
         return (n % 10 < 5) && (n % 10 > 1) && (~~(n / 10) !== 1);
@@ -986,6 +1001,7 @@
         this.moment.lang('pl', lang);
     }
 }());
+
 (function () {
     var lang = {
             months : "Janeiro_Fevereiro_Março_Abril_Maio_Junho_Julho_Agosto_Setembro_Outubro_Novembro_Dezembro".split("_"),
@@ -1040,6 +1056,7 @@
         this.moment.lang('pt', lang);
     }
 }());
+
 (function () {
 
     var pluralRules = [
@@ -1143,6 +1160,7 @@
         this.moment.lang('ru', lang);
     }
 }());
+
 (function () {
     var lang = {
             months : "januari_februari_mars_april_maj_juni_juli_augusti_september_oktober_november_december".split("_"),
@@ -1197,6 +1215,7 @@
         this.moment.lang('sv', lang);
     }
 }());
+
 (function () {
     var lang = {
             months : "Ocak_Şubat_Mart_Nisan_Mayıs_Haziran_Temmuz_Ağustos_Eylül_Ekim_Kasım_Aralık".split("_"),
@@ -1251,6 +1270,7 @@
         this.moment.lang('tr', lang);
     }
 }());
+
 (function () {
     var lang = {
             months : "一月_二月_三月_四月_五月_六月_七月_八月_九月_十月_十一月_十二月".split("_"),
@@ -1314,6 +1334,7 @@
         this.moment.lang('zh-cn', lang);
     }
 }());
+
 (function () {
     var lang = {
             months : "一月_二月_三月_四月_五月_六月_七月_八月_九月_十月_十一月_十二月".split("_"),

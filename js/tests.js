@@ -1,4 +1,8 @@
 (function(){
+    var require = function(){
+        return window.moment;
+    }
+    var exports = {};
 /*!
  * Nodeunit
  * https://github.com/caolan/nodeunit
@@ -2033,6 +2037,7 @@ nodeunit.assert = assert;
 nodeunit.reporter = reporter;
 nodeunit.run = reporter.run;
 return nodeunit; })();
+
 var moment = require("../../moment");
 
 exports.add_subtract = {
@@ -2159,6 +2164,7 @@ exports.add_subtract = {
         test.done();
     }
 };
+
 var moment = require("../../moment");
 
 exports.create = {
@@ -2443,6 +2449,7 @@ exports.create = {
         test.done();
     }
 };
+
 var moment = require("../../moment");
 
 exports.days_in_month = {
@@ -2466,6 +2473,7 @@ exports.days_in_month = {
         test.done();
     }
 };
+
 var moment = require("../../moment");
 
 exports.diff = {
@@ -2560,6 +2568,7 @@ exports.diff = {
         test.done();
     }
 };
+
 var moment = require("../../moment");
 
 exports.duration = {
@@ -2772,6 +2781,7 @@ exports.duration = {
         test.done();
     }
 };
+
 var moment = require("../../moment");
 
 exports.format = {
@@ -2883,6 +2893,7 @@ exports.format = {
         test.done();
     }
 };
+
 var moment = require("../../moment");
 
 exports.getters_setters = {
@@ -2986,6 +2997,7 @@ exports.getters_setters = {
         test.done();
     }
 };
+
 var moment = require("../../moment");
 
 exports.humanize_duration = {
@@ -3038,6 +3050,7 @@ exports.humanize_duration = {
         test.done();
     }
 };
+
 var moment = require('../../moment');
 
 exports.is_moment = {
@@ -3065,6 +3078,7 @@ exports.is_moment = {
         test.done();
     }
 };
+
 var moment = require("../../moment");
 
 exports.lang = {
@@ -3086,6 +3100,7 @@ exports.lang = {
         test.done();
     }
 };
+
 var moment = require("../../moment");
 
 exports.leapyear = {
@@ -3099,6 +3114,7 @@ exports.leapyear = {
         test.done();
     }
 };
+
 var moment = require("../../moment");
 
 exports.eod_sod = {
@@ -3139,6 +3155,7 @@ exports.eod_sod = {
         test.done();
     }
 };
+
 var moment = require("../../moment");
 
 exports.utc = {
@@ -3202,6 +3219,7 @@ exports.utc = {
         test.done();
     }
 };
+
 var moment = require("../../moment");
 
 
@@ -3422,7 +3440,8 @@ exports["lang:ca"] = {
         test.equal(weeksFromNow.calendar(),   weeksFromNow.format('L'),  "in 2 weeks");
     test.done();
     }
-};var moment = require("../../moment");
+};
+var moment = require("../../moment");
 
 
     /**************************************************
@@ -3604,7 +3623,8 @@ exports["lang:da"] = {
         test.equal(moment().add({d:5}).fromNow(), "om 5 dage", "in 5 days");
     test.done();
     }
-};var moment = require("../../moment");
+};
+var moment = require("../../moment");
 
 
     /**************************************************
@@ -3844,7 +3864,8 @@ exports["lang:de"] = {
         test.equal(weeksFromNow.calendar(),   weeksFromNow.format('L'),  "in 2 weeks");
     test.done();
     }
-};var moment = require("../../moment");
+};
+var moment = require("../../moment");
 
 
     /**************************************************
@@ -4091,7 +4112,8 @@ exports["lang:en-gb"] = {
         test.equal(weeksFromNow.calendar(),   weeksFromNow.format('L'),  "in 2 weeks");
     test.done();
     }
-};var moment = require("../../moment");
+};
+var moment = require("../../moment");
 
 
     /**************************************************
@@ -4338,7 +4360,8 @@ exports["lang:en"] = {
         test.equal(weeksFromNow.calendar(),   weeksFromNow.format('L'),  "in 2 weeks");
     test.done();
     }
-};var moment = require("../../moment");
+};
+var moment = require("../../moment");
 
 
     /**************************************************
@@ -4555,7 +4578,8 @@ exports["lang:es"] = {
         test.equal(weeksFromNow.calendar(),   weeksFromNow.format('L'),  "in 2 weeks");
     test.done();
     }
-};var moment = require("../../moment");
+};
+var moment = require("../../moment");
 
 
     /**************************************************
@@ -4802,7 +4826,8 @@ exports["lang:eu"] = {
         test.equal(weeksFromNow.calendar(),   weeksFromNow.format('L'),  "in 2 weeks");
     test.done();
     }
-};var moment = require("../../moment");
+};
+var moment = require("../../moment");
 
 
     /**************************************************
@@ -5049,7 +5074,8 @@ exports["lang:fi"] = {
         test.equal(weeksFromNow.calendar(),   weeksFromNow.format('L'),  "kaden viikon päästä");
     test.done();
     }
-};var moment = require("../../moment");
+};
+var moment = require("../../moment");
 
 
     /**************************************************
@@ -5289,7 +5315,8 @@ exports["lang:fr"] = {
         test.equal(weeksFromNow.calendar(),   weeksFromNow.format('L'),  "in 2 weeks");
     test.done();
     }
-};var moment = require("../../moment");
+};
+var moment = require("../../moment");
 
 
     /**************************************************
@@ -5521,6 +5548,7 @@ exports["lang:gl"] = {
         test.done();
     }
 };
+
 var moment = require("../../moment");
 
 
@@ -5775,6 +5803,7 @@ exports["lang:is"] = {
     test.done();
     }
 };
+
 var moment = require("../../moment");
 
 
@@ -6015,7 +6044,8 @@ exports["lang:it"] = {
         test.equal(weeksFromNow.calendar(),   weeksFromNow.format('L'),  "in 2 weeks");
     test.done();
     }
-};var moment = require("../../moment");
+};
+var moment = require("../../moment");
 
 
     /**************************************************
@@ -6223,6 +6253,7 @@ exports["lang:jp"] = {
     test.done();
     }
 };
+
 var moment = require("../../moment");
 
 
@@ -6470,6 +6501,7 @@ exports["lang:kr"] = {
     test.done();
     }
 };
+
 var moment = require("../../moment");
 
 
@@ -6717,7 +6749,8 @@ exports["lang:nb"] = {
         test.equal(weeksFromNow.calendar(),   weeksFromNow.format('L'),  "in 2 weeks");
     test.done();
     }
-};var moment = require("../../moment");
+};
+var moment = require("../../moment");
 
 
     /**************************************************
@@ -6964,7 +6997,8 @@ exports["lang:nl"] = {
         test.equal(weeksFromNow.calendar(),   weeksFromNow.format('L'),  "in 2 weeks");
     test.done();
     }
-};var moment = require("../../moment");
+};
+var moment = require("../../moment");
 
 
     /**************************************************
@@ -7212,7 +7246,8 @@ exports["lang:pl"] = {
         test.equal(weeksFromNow.calendar(),   weeksFromNow.format('L'),  "in 2 weeks");
     test.done();
     }
-};var moment = require("../../moment");
+};
+var moment = require("../../moment");
 
 
     /**************************************************
@@ -7452,7 +7487,8 @@ exports["lang:pt"] = {
         test.equal(weeksFromNow.calendar(),   weeksFromNow.format('L'),  "in 2 weeks");
     test.done();
     }
-};var moment = require("../../moment");
+};
+var moment = require("../../moment");
 
 
     /**************************************************
@@ -7716,7 +7752,8 @@ exports["lang:ru"] = {
         test.equal(weeksFromNow.calendar(),   weeksFromNow.format('L'),  "in 2 weeks");
     test.done();
     }
-};var moment = require("../../moment");
+};
+var moment = require("../../moment");
 
 
     /**************************************************
@@ -7963,7 +8000,8 @@ exports["lang:sv"] = {
         test.equal(weeksFromNow.calendar(),   weeksFromNow.format('L'),  "in 2 weeks");
     test.done();
     }
-};var moment = require("../../moment");
+};
+var moment = require("../../moment");
 
 
     /**************************************************
@@ -8210,7 +8248,8 @@ exports["lang:tr"] = {
         test.equal(weeksFromNow.calendar(),   weeksFromNow.format('L'),  "in 2 weeks");
     test.done();
     }
-};var moment = require("../../moment");
+};
+var moment = require("../../moment");
 
 
     /**************************************************
@@ -8437,6 +8476,7 @@ exports["lang:zh-cn"] = {
         test.done();
     }
 };
+
 var moment = require("../../moment");
 
 
@@ -8664,6 +8704,7 @@ exports["lang:zh-tw"] = {
         test.done();
     }
 };
+
 (function(){
     var banner = $('#nodeunit-banner');
     var tests = $('#nodeunit-tests');
@@ -8774,4 +8815,5 @@ exports["lang:zh-tw"] = {
         $(this).toggleClass('open');
     });
 })();
+
 })();
