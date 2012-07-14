@@ -29,5 +29,35 @@ block content
           span.filesize= '(full ' + srcsize + ' source)'
 
   #subnav.subnav.subnav-fixed
-    ul.nav.nav-pills!= docsNavHtml
-  #docs(data-spy="scroll")!= docsCopyHtml
+    ul.nav.nav-pills
+      for section in docs
+        li.dropdown
+          a.dropdown-toggle(data-toggle='dropdown')
+            if (section._icon)
+              i(class='icon-' + section._icon)
+            span= section.name
+            b.caret
+          ul.dropdown-menu
+            for method in section.methods
+              li
+                a(href='#/' + section.machineName + '/' + method.machineName + '/')= method.name
+
+  #docs(data-spy="scroll")
+    for section in docs
+      .row
+        .span12
+          a.target(name='/' + section.machineName + '/')
+          h2= section.name
+        .span12
+          for method in section.methods
+            .row
+              a.target(name='/' + section.machineName + '/' + method.machineName + '/')
+              .span12
+                h3.doc-row= method.name
+              .span4
+                if (method._signature)
+                  pre= method._signature
+                if (method._version)
+                  div(style="text-align:right") Available in version 
+                    span.label= method._version
+              .span8!= method.body
