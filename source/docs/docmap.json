@@ -245,9 +245,14 @@
         "_title" : "i18n",
         "methods" : {
             "changing-language" : {
-                "_title" : "Changing languages",
+                "_title" : "Changing language globally",
                 "_signature" : "moment.lang(String);\nmoment.lang(String, Object);",
                 "_version" : "1.0.0"
+            },
+            "instance-language" : {
+                "_title" : "Changing language locally",
+                "_signature" : "moment().lang(String);",
+                "_version" : "1.7.0"
             },
             "loading-into-nodejs" : {
                 "_title" : "Loading languages in NodeJS",
@@ -274,20 +279,24 @@
         "_title" : "Customize",
         "methods" : {
             "Month Names" : {
-                "_signature" : "moment.months = String[];",
+                "_signature" : "moment.months = String[];\nmoment.months = Function",
                 "_version" : "1.0.0"
             },
             "Month Abbreviations" : {
-                "_signature" : "moment.monthsShort = String[];",
+                "_signature" : "moment.monthsShort = String[];\nmoment.monthsShort = Function",
                 "_version" : "1.0.0"
             },
             "Weekday Names" : {
-                "_signature" : "moment.weekdays = String[];",
+                "_signature" : "moment.weekdays = String[];\nmoment.weekdays = Function",
                 "_version" : "1.0.0"
             },
             "Weekday Abbreviations" : {
-                "_signature" : "moment.weekdaysShort = String[];",
+                "_signature" : "moment.weekdaysShort = String[];\nmoment.weekdaysShort = Function",
                 "_version" : "1.0.0"
+            },
+            "Minimal Weekday Abbreviations" : {
+                "_signature" : "moment.weekdaysMin = String[];\nmoment.weekdaysMin = Function",
+                "_version" : "1.7.0"
             },
             "Long Date Formats" : {
                 "_signature" : "moment.longDateFormat = Object;",
