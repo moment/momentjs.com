@@ -54,7 +54,7 @@
         formatHtmlEn += "</p><p>";
         formatHtmlEn += moment().format('dddd [on the] wo [week of the year]');
         formatHtmlEn += "</p><p>";
-        formatHtmlEn += moment().format("MMM Do 'YY");
+        formatHtmlEn += moment().format("MMM Do [']YY");
         formatHtmlEn += "</p><p>";
         formatHtmlEn += moment().format();
         formatHtmlEn += "</p>";
