@@ -150,6 +150,9 @@ body {
 .subnav .dropdown-toggle .caret {
     border-top-color: #000;
 }
+.subnav .dropdown-toggle span {
+    padding: 0 5px;
+}
 .subnav .nav > .active > a .caret,
 .subnav .nav > .active > a:hover .caret {
     border-top-color: #000;
@@ -231,10 +234,12 @@ pre .file,
 pre .variable,
 pre .difflines,
 pre .selector,
+pre .literal,
 pre .property {
     font-weight:bold;
 }
 
+pre .literal,
 pre .type {
     color:#458;
 }

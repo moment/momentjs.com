@@ -185,7 +185,7 @@ moment.lang(<span class="string">'es'</span>); <span class="comment">// change t
 localLang.format(<span class="string">'LLLL'</span>); <span class="comment">// dimanche 15 juillet 2012 11:01</span>
 globalLang.format(<span class="string">'LLLL'</span>); <span class="comment">// Domingo 15 Julio 2012 11:03</span>
  
-localLang.lang(<span class="literal">null</span>); <span class="comment">// reset the instance language</span>
+localLang.lang(<span class="literal">false</span>); <span class="comment">// reset the instance language</span>
 localLang.format(<span class="string">'LLLL'</span>); <span class="comment">// Domingo 15 Julio 2012 11:03</span>
 globalLang.format(<span class="string">'LLLL'</span>); <span class="comment">// Domingo 15 Julio 2012 11:03</span></pre><p>If you call <code>moment.fn.lang</code>with no parameters, you get back the lang configuration that would be used for that moment.</p><pre><span class="keyword">var</span> fr = moment().lang(<span class="string">'fr'</span>);
 fr.lang().months <span class="comment">// ["janvier", "février", "mars", ...]</span>
