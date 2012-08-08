@@ -1,5 +1,32 @@
 @import "./bootstrap";
 
+/****************
+    Share
+****************/
+
+.fork {
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: block;
+    background: url(../img/fork.png) 100% 0 no-repeat;
+    width: 150px;
+    height: 150px;
+    z-index: 2000;
+}
+
+.share {
+    text-align: center;
+}
+
+.share iframe {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.navbar li iframe {
+    margin-top: 10px;
+}
 
 /****************
     Special

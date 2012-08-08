@@ -2,7 +2,7 @@ extends html
 
 block styles
   link(rel="stylesheet", href="css/style.css")
-  title Moment.js - A lightweight javascript date library
+  title Moment.js | Parse, validate, manipulate, and display dates in javascript.
 
 block scripts
   script(src="js/home.min.js")
@@ -33,6 +33,10 @@ block content
           i.icon-download-alt
           strong  Development 
           span.filesize= '(full ' + srcsize + ' source)'
+      .share
+        a(href="https://twitter.com/share", class="twitter-share-button", data-url="http://momentjs.com", data-via="momentjs", data-lang="en", data-count="vertical")
+        div.g-plusone(data-size="tall", data-href="http://momentjs.com")
+
 
   .row
     .span6
