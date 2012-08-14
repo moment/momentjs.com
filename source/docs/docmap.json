@@ -375,6 +375,10 @@
             "range" : {
                 "_title" : "Date Ranges",
                 "_signature" : "moment().range(Moment, Moment);\nmoment.within(DateRange);"
+            },
+            "twix" : {
+                "_title" : "Twix",
+                "_signature" : "moment.twix(Moment, Moment);\nmoment.twix(Moment, Moment, Boolean);"
             }
         }
     }
