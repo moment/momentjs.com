@@ -110,7 +110,8 @@ var templateVars = {
     version : moment.version,
     minsize : 0,
     srcsize : 0,
-    docs : null
+    docs : null,
+    langs : require('./source/langs/data.js')
 }
 var running = 0;
 var done;

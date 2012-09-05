@@ -20,48 +20,78 @@ block content
 
 
     #download-btns.span4
-      h3 Get the current version 
-        span.label.lebel-info= version
+      h3= "Latest version : " + version
       pre npm install moment
       p
-        a.btn.btn-success.btn-large(href="https://raw.github.com/timrwood/moment/" + version + "/min/moment.min.js") 
+        a.btn.btn-success.btn-large(href="https://raw.github.com/timrwood/moment/" + version + "/min/moment.min.js")
           i.icon-download-alt.icon-white
-          strong  Production 
-          span.filesize= '(' + minsize + ' min &amp; gzip)'
+          strong  Production
+          span.filesize= ' (' + minsize + ' min &amp; gzip)'
       p
-        a.btn(href="https://raw.github.com/timrwood/moment/" + version + "/moment.js") 
+        a.btn(href="https://raw.github.com/timrwood/moment/" + version + "/moment.js")
           i.icon-download-alt
-          strong  Development 
-          span.filesize= '(full ' + srcsize + ' source)'
+          strong  Development
+          span.filesize= ' (full ' + srcsize + ' source)'
       .share
         a(href="https://twitter.com/share", class="twitter-share-button", data-url="http://momentjs.com", data-via="momentjs", data-lang="en", data-count="vertical")
         div.g-plusone(data-size="tall", data-href="http://momentjs.com")
 
-
   .row
-    .span6
-      h3 Formatting dates
-      pre
-        | moment().format('dddd, MMMM Do YYYY, h:mm:ss a');
-        | moment().format('dddd [on the] wo [week of the year]');
-        | moment().format("MMM Do 'YY");
-        | moment().format(); // defaults to ISO-8601
-      #js-format-now.alert.alert-info
+    .span10
+      h2 Formatting dates
+      .row
+        .span5
+          pre
+            | moment().format('MMMM Do YYYY, h:mm:ss a');
+            | moment().format('dddd');
+            | moment().format("MMM Do YY");
+            | moment().format('YYYY [escaped] YYYY');
+            | moment().format();
+        .span5
+          #js-format.alert.alert-info
 
+      h2 Timeago
+      .row
+        .span5
+          pre
+            | moment("20111031", "YYYYMMDD").fromNow();
+            | moment("20120620", "YYYYMMDD").fromNow();
+            | moment().startOf('day').fromNow();
+            | moment().endOf('day').fromNow();
+            | moment().startOf('hour').fromNow();
+        .span5
+          #js-from-now.alert.alert-info
 
-      h3 Timeago
-      pre moment("2011-10-31", "YYYY-MM-DD").fromNow();
-      #js-from-now.alert.alert-info
+      h2 Calendar Time
+      .row
+        .span5
+          pre
+            | moment().subtract('days', 10).calendar();
+            | moment().subtract('days', 6).calendar();
+            | moment().subtract('days', 3).calendar();
+            | moment().subtract('days', 1).calendar();
+            | moment().calendar();
+            | moment().add('days', 1).calendar();
+            | moment().add('days', 3).calendar();
+            | moment().add('days', 10).calendar();
+        .span5
+          #js-calendar.alert.alert-info
 
+      h2 Internationalization
+      .row
+        .span5
+          pre
+            | moment().format('L');
+            | moment().format('LL');
+            | moment().format('LLL');
+            | moment().format('LLLL');
+        .span5
+          #js-lang.alert.alert-info
 
-    .span6
-      h3 Calendar Time
-      pre moment().subtract('days', 3).calendar();
-      #js-add.alert.alert-info
-
-
-      h3 Internationalization
-      pre
-        | moment.lang('fr');
-        | moment().format('LLLL');
-      #js-lang.alert.alert-info
+    .span2
+      h2 Language
+      each val, key in langs
+        if key == "en"
+          .btn.btn-block.btn-info(data-lang="#{key}") #{val}
+        else
+          .btn.btn-block(data-lang="#{key}") #{val}

@@ -1,72 +1,88 @@
 (function(){
-    var langs = {
-        'en' : 'English',
-        'ca' : 'Catalan',
-        'da' : 'Danish',
-        'de' : 'German',
-        'es' : 'Spanish',
-        'eu' : 'Basque',
-        'fr' : 'French',
-        'gl' : 'Galician',
-        'it' : 'Italian',
-        'kr' : 'Korean',
-        'nb' : 'Norwegian',
-        'nl' : 'Dutch',
-        'pl' : 'Polish',
-        'pt' : 'Portuguese',
-        'ru' : 'Russian',
-        'sv' : 'Swedish',
-        'tr' : 'Turkish',
-        'zh-cn' : 'Chinese',
-        'zh-tw' : 'Traditional Chinese'
-    };
 
-    // lang and format
-    function update(){
-        var formatHtml = '',
-            fromHtml = '',
-            calendarHtml = '',
-            i,
-            threeDaysAgo = moment().subtract('days', 3);
-        for (i in langs) {
-            moment.lang(i);
-            formatHtml += "<p><b>" + langs[i] + " :</b> ";
-            formatHtml += moment().format('LLLL');
-            formatHtml += "</p>";
+    var currentLang = 'en';
 
-            calendarHtml += "<p><b>" + langs[i] + " :</b> ";
-            calendarHtml += threeDaysAgo.calendar();
-            calendarHtml += "</p>";
+    /********************************************
+        Formatting
+    ********************************************/
 
-            fromHtml += "<p><b>" + langs[i] + " :</b> ";
-            fromHtml += moment([2011, 9, 31]).fromNow();
-            fromHtml += "</p>";
-        }
-        $('#js-lang').html(formatHtml);
-        $('#js-from-now').html(fromHtml);
-        $('#js-add').html(calendarHtml);
-
-        // formats
-        moment.lang('en');
-        var formatHtmlEn = ''
-        formatHtmlEn += "<p>";
-        formatHtmlEn += moment().format('dddd, MMMM Do YYYY, h:mm:ss a');
-        formatHtmlEn += "</p><p>";
-        formatHtmlEn += moment().format('dddd [on the] wo [week of the year]');
-        formatHtmlEn += "</p><p>";
-        formatHtmlEn += moment().format("MMM Do [']YY");
-        formatHtmlEn += "</p><p>";
-        formatHtmlEn += moment().format();
-        formatHtmlEn += "</p>";
-        $('#js-format-now').html(formatHtmlEn);
-        
-        setTimeout(update, 1000);
+    function formatArray(array) {
+        return array.join('<br/>');
     }
+
+    function calendarHtml() {
+        var arr = [];
+        arr.push(moment().subtract('days', 10).calendar());
+        arr.push(moment().subtract('days', 6).calendar());
+        arr.push(moment().subtract('days', 3).calendar());
+        arr.push(moment().subtract('days', 1).calendar());
+        arr.push(moment().calendar());
+        arr.push(moment().add('days', 1).calendar());
+        arr.push(moment().add('days', 3).calendar());
+        arr.push(moment().add('days', 10).calendar());
+        return formatArray(arr);
+    }
+
+    function formatHtml() {
+        var arr = [];
+        arr.push(moment().format('MMMM Do YYYY, h:mm:ss a'));
+        arr.push(moment().format('dddd'));
+        arr.push(moment().format("MMM Do YY"));
+        arr.push(moment().format('YYYY [escaped] YYYY'));
+        arr.push(moment().format());
+        return formatArray(arr);
+    }
+
+    function fromHtml() {
+        var arr = [];
+        arr.push(moment("20111031", "YYYYMMDD").fromNow());
+        arr.push(moment("20120620", "YYYYMMDD").fromNow());
+        arr.push(moment().startOf('day').fromNow());
+        arr.push(moment().endOf('day').fromNow());
+        arr.push(moment().startOf('hour').fromNow());
+        return formatArray(arr);
+    }
+
+    function langHtml() {
+        var arr = [];
+        arr.push(moment().format('L'));
+        arr.push(moment().format('LL'));
+        arr.push(moment().format('LLL'));
+        arr.push(moment().format('LLLL'));
+        return formatArray(arr);
+    }
+
+    /********************************************
+        Update
+    ********************************************/
+
+    function update(){
+        moment.lang(currentLang);
+
+        $('#js-format').html(formatHtml());
+        $('#js-from-now').html(fromHtml());
+        $('#js-calendar').html(calendarHtml());
+        $('#js-lang').html(langHtml());
+    }
+
+    function timedUpdate () {
+        update();
+        setTimeout(timedUpdate, 1000);
+    }
+
     if (window.location.pathname.match('docs')) {
         initDocs();
     } else {
-        update();
+        timedUpdate();
     }
+
+    $(document).on('click', '[data-lang]', function(){
+        var dom = $(this);
+        currentLang = dom.data('lang');
+        $('[data-lang]').removeClass('btn-info');
+        dom.addClass('btn-info');
+        update();
+    });
 
     function initDocs(){
         var dropdowns = $('.dropdown');
