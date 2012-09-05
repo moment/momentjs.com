@@ -11,21 +11,22 @@ block content
   .row
     .span8
       .hero-unit
-        h1 Moment.js Documentation
+        h1 Moment.js
+        h2 Documentation
 
     #download-btns.span4
-      h3 Get the current version 
+      h3 Get the current version
         span.label.lebel-info= version
       pre npm install moment
       p
-        a.btn.btn-success.btn-large(href="https://raw.github.com/timrwood/moment/" + version + "/min/moment.min.js") 
+        a.btn.btn-success.btn-large(href="https://raw.github.com/timrwood/moment/" + version + "/min/moment.min.js")
           i.icon-download-alt.icon-white
-          strong  Production 
+          strong  Production
           span.filesize= '(' + minsize + ' min &amp; gzip)'
       p
-        a.btn(href="https://raw.github.com/timrwood/moment/" + version + "/moment.js") 
+        a.btn(href="https://raw.github.com/timrwood/moment/" + version + "/moment.js")
           i.icon-download-alt
-          strong  Development 
+          strong  Development
           span.filesize= '(full ' + srcsize + ' source)'
 
   #subnav.subnav.subnav-fixed
@@ -33,10 +34,7 @@ block content
       for section in docs
         li.dropdown
           a.dropdown-toggle(data-toggle='dropdown')
-            if (section._icon)
-              i(class='icon-' + section._icon)
             span= section.name
-            b.caret
           ul.dropdown-menu
             for method in section.methods
               li
@@ -51,15 +49,17 @@ block content
         .span12
           for method in section.methods
             .row
-              a.target(name='/' + section.machineName + '/' + method.machineName + '/')
-              .span12
-                h3.doc-row= method.name
-              .span4
-                if (method._signature)
-                  pre= method._signature
-                if (method._version)
-                  div(style="text-align:right") Available in version 
-                    span.label= method._version
-                else
-                  p &nbsp;
-              .span8!= method.body
+              .section
+                a.target(name='/' + section.machineName + '/' + method.machineName + '/')
+                .span8
+                  h3.doc-row= method.name
+                  div!= method.body
+                .span4
+                  if (method._version)
+                    p(style="text-align:right")
+                      span.label= "Added in " + method._version
+                  if (method._signature)
+                    p Method signature
+                    pre= method._signature
+                  else
+                    p &nbsp;

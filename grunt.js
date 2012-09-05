@@ -68,7 +68,7 @@ module.exports = function(grunt) {
         },
         watch: {
             compass: {
-                files: '<config:compass.dev.src>',
+                files: 'source/css/*.scss',
                 tasks: 'compass'
             },
             concat: {
@@ -87,7 +87,7 @@ module.exports = function(grunt) {
                 files: "<config:site.files>",
                 tasks: 'site'
             }
-        },
+        }
     });
 
     // plugin tasks

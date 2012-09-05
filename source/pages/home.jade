@@ -48,7 +48,7 @@ block content
             | moment().format('YYYY [escaped] YYYY');
             | moment().format();
         .span5
-          #js-format.alert.alert-info
+          pre#js-format
 
       h2 Timeago
       .row
@@ -60,7 +60,7 @@ block content
             | moment().endOf('day').fromNow();
             | moment().startOf('hour').fromNow();
         .span5
-          #js-from-now.alert.alert-info
+          pre#js-from-now
 
       h2 Calendar Time
       .row
@@ -75,7 +75,7 @@ block content
             | moment().add('days', 3).calendar();
             | moment().add('days', 10).calendar();
         .span5
-          #js-calendar.alert.alert-info
+          pre#js-calendar
 
       h2 Internationalization
       .row
@@ -86,7 +86,7 @@ block content
             | moment().format('LLL');
             | moment().format('LLLL');
         .span5
-          #js-lang.alert.alert-info
+          pre#js-lang
 
     .span2
       h2 Language
