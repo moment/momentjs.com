@@ -1,6 +1,6 @@
 Calendar time is displays time relative to now, but slightly differently than `moment.fn.from`.
 
- `moment.fn.calendar` will format a date with different strings depending on how close to today the date is.
+`moment.fn.calendar` will format a date with different strings depending on how close to today the date is.
 
 <table class="table table-striped table-bordered">
   <tr>

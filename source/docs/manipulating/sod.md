@@ -1,7 +1,6 @@
-**Note:** As of version <span class="label">2.0.0</span>,`moment.fn.startOf('day')` will replace `moment.fn.sod`.
+**Note:** As of version *2.0.0*, `moment.fn.startOf('day')` will replace `moment.fn.sod`.
 
 Set the time to the start of the day.
-
 
 ```javascript
 moment().sod(); // set the time to last midnight

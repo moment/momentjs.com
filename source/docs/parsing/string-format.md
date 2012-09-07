@@ -1,10 +1,8 @@
 If you know the format of an input string, you can use that to parse a moment.
 
-
 ```javascript
-var day = moment(&quot;12-25-1995&quot;, &quot;MM-DD-YYYY&quot;);
+var day = moment("12-25-1995", "MM-DD-YYYY");
 ```
-
 
 The format parsing tokens are similar to the tokens for `moment.fn.format`.
 
@@ -78,17 +76,13 @@ The parser ignores non-alphanumeric characters, so both `moment("12-25-1995", "M
     </tr>
     <tr>
       <td>Z or ZZ</td>
-      <td>Timezone offset as `+0700` or `+07:30`
+      <td>
+        Timezone offset as `+0700` or `+07:30`
 
-Available in version <span class="label">1.2.0</span></td>
+        Available in version *1.2.0*
+      </td>
     </tr>
   </tbody>
 </table>
 
 Unless you specify a timezone offset, parsing a string will create a date in the current timezone.
-
-A workaround to parse a string in UTC is to append `"+0000"` to the end of your input string, and add `"ZZ"` to the end of your format string.
-
-<span class="label label-warning">Warning</span> Parsing a string with a format is by far the slowest method of creating a date. 
-  If you have the ability to change the input, it is much faster (~15x) to 
-  use milliseconds since the Unix Epoch or Unix timestamps.

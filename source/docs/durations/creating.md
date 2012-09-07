@@ -1,13 +1,10 @@
 To create a duration, call `moment.duration()` with the length of time in milliseconds.
 
-
 ```javascript
 moment.duration(100); // 100 milliseconds
 ```
 
-
 If you want to create a moment with a unit of measurement other than seconds, you can pass the unit of measurement as well.
-
 
 ```javascript
 moment.duration(2, 'seconds');
@@ -18,7 +15,6 @@ moment.duration(2, 'weeks');
 moment.duration(2, 'months');
 moment.duration(2, 'years');
 ```
-
 
 The same shorthand for `moment.fn.add` works here as well.
 
@@ -64,7 +60,6 @@ The same shorthand for `moment.fn.add` works here as well.
 </table>
 
 Much like `moment.fn.add`, you can pass an object of values if you need multiple different units of measurement.
-
 
 ```javascript
 moment.duration({

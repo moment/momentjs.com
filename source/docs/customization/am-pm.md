@@ -21,7 +21,7 @@ moment.meridiem = function (hour, minute, isLower) {
 **Note:** Before version *1.6.0*, `moment.meridiem` was a map of upper and lowercase versions of am/pm.
 
 ```javascript
-moment.meridiem = {\n
+moment.meridiem = {
     am : 'am',
     AM : 'AM',
     pm : 'pm',

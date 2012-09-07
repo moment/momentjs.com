@@ -1,7 +1,7 @@
-<pre class="no-highlight">&lt;script src=&quot;moment.min.js&quot;&gt;&lt;/script&gt;
+```
+<script src="moment.min.js"></script>
 ```
 
-
 ```javascript
-moment().add('hours', 1).fromNow(); // &quot;in an hour&quot;
+moment().add('hours', 1).fromNow(); // "in an hour"
 ```

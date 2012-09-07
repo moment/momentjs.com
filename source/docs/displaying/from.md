@@ -1,50 +1,42 @@
 Another common way of displaying time, sometimes called timeago, is handled by `moment.fn.from`.
 
-
 ```javascript
 var a = moment([2007, 0, 29]);\n
 var b = moment([2007, 0, 28]);
-a.from(b) // &quot;a day ago&quot;
+a.from(b) // "a day ago"
 ```
 
-
-The first parameter is anything you can pass to `moment()`or a Moment.js object.
-
+The first parameter is anything you can pass to `moment()` or a Moment.js object.
 
 ```javascript
-var a = moment([2007, 0, 29]);\n
+var a = moment([2007, 0, 29]);
 var b = moment([2007, 0, 28]);
-a.from(b);                     // &quot;a day ago&quot;
-a.from([2007, 0, 28]);         // &quot;a day ago&quot;
-a.from(new Date(2007, 0, 28)); // &quot;a day ago&quot;
-a.from(&quot;1-28-2007&quot;);           // &quot;a day ago&quot;
+a.from(b);                     // "a day ago"
+a.from([2007, 0, 28]);         // "a day ago"
+a.from(new Date(2007, 0, 28)); // "a day ago"
+a.from("1-28-2007");           // "a day ago"
 ```
 
-
-  NOTE: Because it only accepts one parameter to pass in the date info, 
-  if you need to use String + Format or String + Formats, you should create a Moment.js 
-  object first and then call `moment.fn.from`
-
+NOTE: Because it only accepts one parameter to pass in the date info,
+if you need to use String + Format or String + Formats, you should create a Moment.js
+object first and then call `moment.fn.from`
 
 ```javascript
 var a = moment();\n
-var b = moment(&quot;10-10-1900&quot;, &quot;MM-DD-YYYY&quot;);
+var b = moment("10-10-1900", "MM-DD-YYYY");
 a.from(b);
 ```
 
-
-If you pass `true`as the second parameter, you can get the value without the suffix. This is useful wherever you need to have a human readable length of time.
-
+If you pass `true` as the second parameter, you can get the value without the suffix. This is useful wherever you need to have a human readable length of time.
 
 ```javascript
 var start = moment([2007, 0, 5]);\n
 var end = moment([2007, 0, 10]);
-start.from(end);       // &quot;in 5 days&quot;
-start.from(end, true); // &quot;5 days&quot;
+start.from(end);       // "in 5 days"
+start.from(end, true); // "5 days"
 ```
 
-
-The base strings are customized by `moment.lang`or by modifying the values directly using `moment.relativeTime`.
+The base strings are customized by `moment.lang` or by modifying the values directly using `moment.relativeTime`.
 
 The breakdown of which string is displayed when is outlined in the table below.
 

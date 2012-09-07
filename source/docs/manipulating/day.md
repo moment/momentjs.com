@@ -1,15 +1,12 @@
 Mutates the original moment by changing the day of the week.
 
-
 ```javascript
 moment().day(5); // set the day of the week to Friday
 ```
 
-
 This method can be used to set the day of the week, Sunday being 0 and Saturday being 6.
 
 `moment.fn.day` can also be overloaded to set to a weekday of the previous week, next week, or a week any distance from the moment.
-
 
 ```javascript
 moment().day(-7); // set to last Sunday (0 - 7) \n

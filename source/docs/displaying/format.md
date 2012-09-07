@@ -1,10 +1,9 @@
 The most robust display option is `moment.fn.format`. It takes a string of tokens and replaces them with their corresponding values from the Date object.
 
-
 ```javascript
-var a = moment([2010, 1, 14, 15, 25, 50, 125]);\n
-a.format(&quot;dddd, MMMM Do YYYY, h:mm:ss a&quot;); // &quot;Sunday, February 14th 2010, 3:25:50 pm&quot;
-a.format(&quot;ddd, hA&quot;);                       // &quot;Sun, 3PM&quot;
+var a = moment([2010, 1, 14, 15, 25, 50, 125]);
+a.format("dddd, MMMM Do YYYY, h:mm:ss a"); // "Sunday, February 14th 2010, 3:25:50 pm"
+a.format("ddd, hA");                       // "Sun, 3PM"
 ```
 
 <table class="table table-striped table-bordered">
@@ -179,9 +178,11 @@ a.format(&quot;ddd, hA&quot;);                       // &quot;Sun, 3PM&quot;
     </tr>
     <tr>
       <td>z or zz</td>
-      <td>EST CST ... MST PST
+      <td>
+        EST CST ... MST PST
 
-<span class="label label-info">Note:</span> as of <span class="label">1.6.0</span>, the z/zz format tokens have been deprecated. [Read more about it here.](https://github.com/timrwood/moment/issues/162)</td>
+        **Note:** as of *1.6.0*, the z/zz format tokens have been deprecated. [Read more about it here.](https://github.com/timrwood/moment/issues/162)
+      </td>
     </tr>
     <tr>
       <td>Z</td>
@@ -189,9 +190,11 @@ a.format(&quot;ddd, hA&quot;);                       // &quot;Sun, 3PM&quot;
     </tr>
     <tr>
       <td>ZZ</td>
-      <td>-0700 -0600 ... +0600 +0700
+      <td>
+        -0700 -0600 ... +0600 +0700
 
-Z and ZZ are available in version <span class="label">1.2.0</span></td>
+        Z and ZZ are available in version *1.2.0*
+      </td>
     </tr>
     <tr>
       <td>**Localized date format**</td>
@@ -199,9 +202,11 @@ Z and ZZ are available in version <span class="label">1.2.0</span></td>
     </tr>
     <tr>
       <td>LT</td>
-      <td>8:30 PM
+      <td>
+        8:30 PM
 
-LT is available in version <span class="label">1.3.0</span></td>
+        LT is available in version *1.3.0*
+      </td>
     </tr>
     <tr>
       <td>L</td>
@@ -217,30 +222,28 @@ LT is available in version <span class="label">1.3.0</span></td>
     </tr>
     <tr>
       <td>LLLL</td>
-      <td>Saturday, July 10 1986 8:30 PM
+      <td>
+        Saturday, July 10 1986 8:30 PM
 
-L, LL, LLL, LLLL are available in version <span class="label">1.3.0</span></td>
+        L, LL, LLL, LLLL are available in version *1.3.0*
+      </td>
     </tr>
   </tbody>
 </table>
 
 To escape characters in format strings, you can use a backslash before any character. NOTE: if you are using a string literal, you will need to escape the backslash, hence the double backslash below.
 
-
 ```javascript
 moment().format('\\L'); // outputs 'L'
 ```
 
-
 To escape multiple characters, you can wrap the characters in square brackets.
-
 
 ```javascript
 moment().format('[today] DDDD'); // 'today Sunday'
 ```
 
-
- <span class="label label-info">Note:</span> While these date formats are very similar to LDML date formats, there are a few minor differences regarding day of month, day of year, and day of week.
+**Note:** While these date formats are very similar to LDML date formats, there are a few minor differences regarding day of month, day of year, and day of week.
 
 For a breakdown of a few different date formatting tokens, see [this chart of date formatting tokens.](https://docs.google.com/spreadsheet/ccc?key=0AtgZluze7WMJdDBOLUZfSFIzenIwOHNjaWZoeGFqbWc&amp;hl=en_US#gid=0)
 
@@ -250,7 +253,7 @@ Baron Schwartz wrote a pretty cool date formatter that caches formatting functio
 
 Here's the [moment.js vs xaprb](http://jsperf.com/momentjs-vs-xaprb) performance tests, and here is the[article describing his methods.](http://www.xaprb.com/blog/2005/12/12/javascript-closures-for-runtime-efficiency/)
 
-<span class="label label-info">Note:</span> Version <span class="label">1.7.0</span> changed the formatter to use cached functions similar to Baron Schwartz' formatter.
+**Note:** Version *1.7.0* changed the formatter to use cached functions similar to Baron Schwartz' formatter.
 
 Here are [the performance improvements](http://jsperf.com/momentjs-cached-format-functions) and [the comparison against other libraries](http://jsperf.com/date-formatting/8).
 
@@ -258,14 +261,12 @@ If you are more comfortable working with strftime instead of LDML-like parsing t
 
 It is available on npm.
 
-
-```javascript
+```
 npm install moment-strftime
 ```
 
-
 The repository is located at [benjaminoakes/moment-strftime](https://github.com/benjaminoakes/moment-strftime)
 
-<span class="label label-info">Note:</span> As of version<span class="label">1.5.0</span>, calling this function without any parameters will output ISO-8601.
+**Note:** As of version *1.5.0*, calling this function without any parameters will output ISO-8601.
 
 It will use `moment.defaultFormat` to format the moment, which by default is `YYYY-MM-DDTHH:mm:ssZ`.

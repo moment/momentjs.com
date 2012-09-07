@@ -23,4 +23,4 @@ moment().startOf('hour');
 moment().minutes(0).seconds(0).milliseconds(0)
 ```
 
-**Note:** As of version <span class="label">2.0.0</span>, `moment.fn.startOf('day')` will replace `moment.fn.sod` and `moment.fn.endOf('day')` will replace `moment.fn.eod`.
+**Note:** As of version *2.0.0*, `moment.fn.startOf('day')` will replace `moment.fn.sod` and `moment.fn.endOf('day')` will replace `moment.fn.eod`.

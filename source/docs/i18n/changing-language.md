@@ -54,7 +54,7 @@ moment.lang('fr', {
 Once you load a language, it becomes the active language. To change active languages, simply call `moment.lang` with the key of a loaded language.
 
 ```javascript
-moment.lang('fr');\n
+moment.lang('fr');
 moment(1316116057189).fromNow() // il y a une heure
 moment.lang('en');
 moment(1316116057189).fromNow() // an hour ago

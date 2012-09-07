@@ -1,14 +1,12 @@
-If you need to work with date ranges, you can use Gianni Chiappetta's plugin `moment-range` .
+If you need to work with date ranges, you can use Gianni Chiappetta's plugin `moment-range`.
 
-Documentation can be found on the homepage [gf3.github.com/moment-range](http://gf3.github.com/moment-range/) .
+Documentation can be found on the homepage [gf3.github.com/moment-range](http://gf3.github.com/moment-range/).
 
 It is available on npm.
 
-
-```javascript
+```
 npm install moment-range
 ```
-
 
 And it is also available for the web at the repository below.
 
