@@ -1,4 +1,4 @@
-p Set the moment to the start of a unit of time.
+p Mutates the original moment by setting it to the start of a unit of time.
 pre
   | moment().startOf('year'); // set to Jan 1 12:00:00.000 pm this year
   | moment().startOf('month'); // set to the first of this month, 12:00:00.000 pm
@@ -15,16 +15,16 @@ pre
   | // these both set to the start of the hour
   | moment().startOf('hour');
   | moment().minutes(0).seconds(0).milliseconds(0)
-p 
+p
   span.label.label-info Note:
-  |  As of version 
+  |  As of version
   span.label 2.0.0
   | ,
   code moment.fn.startOf('day')
-  |  will replace 
+  |  will replace
   code moment.fn.sod
-  |  and 
+  |  and
   code moment.fn.endOf('day')
-  |  will replace 
+  |  will replace
   code moment.fn.eod
   | .

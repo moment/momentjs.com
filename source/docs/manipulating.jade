@@ -1,12 +1,12 @@
-p Once you have a Moment.js wrapper object, you may want to manipulate it in some way. There are a number of 
+p Once you have a Moment.js wrapper object, you may want to manipulate it in some way. There are a number of
   code moment.fn
   |  methods to help with this.
 p All manipulation methods are chainable, so you can do crazy things like this.
 pre moment().add('days', 7).subtract('months', 1).year(2009).hours(0).minutes(0).seconds(0);
-p 
+p
   span.label.label-info Note:
   |  It should be noted that moments are mutable. Calling any of the manipulation methods will change the original moment.
-p If you want to create a copy and manipulate it, you should use 
+p If you want to create a copy and manipulate it, you should use
   code moment.fn.clone
-  |  before manipulating the moment. 
+  |  before manipulating the moment.
   a(href="#/parsing/cloning/") More info on cloning.

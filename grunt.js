@@ -208,6 +208,7 @@ function normalizeDocs(docs) {
         section = docs[i];
         section.name = section._title || i;
         section.machineName = machineFriendly(i);
+        section.body = docsAtPath('source/docs/' + section.machineName + '.jade');
         for (j in section.methods) {
             method = section.methods[j];
             method.name = method._title || j;

@@ -46,6 +46,7 @@ block content
         .span12
           a.target(name='/' + section.machineName + '/')
           h2= section.name
+          div!= section.body
         .span12
           for method in section.methods
             .row
