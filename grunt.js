@@ -2,6 +2,7 @@ var fs   = require('fs'),
     path = require('path'),
     zlib = require('zlib'),
     jade = require('jade'),
+    ghm = require('github-flavored-markdown'),
     moment = require('./libs/moment/moment.js'),
     highlight = require("highlight.js").highlight;
 
@@ -208,19 +209,19 @@ function normalizeDocs(docs) {
         section = docs[i];
         section.name = section._title || i;
         section.machineName = machineFriendly(i);
-        section.body = docsAtPath('source/docs/' + section.machineName + '.jade');
+        section.body = docsAtPath('source/docs/' + section.machineName + '.md');
         for (j in section.methods) {
             method = section.methods[j];
             method.name = method._title || j;
             method.machineName = machineFriendly(j);
-            method.body = docsAtPath('source/docs/' + section.machineName +'/' + method.machineName + '.jade');
+            method.body = docsAtPath('source/docs/' + section.machineName +'/' + method.machineName + '.md');
         }
     }
 }
 
 function docsAtPath(p) {
     if (fs.existsSync(p)) {
-        return jade.compile(fs.readFileSync(p, 'utf8'))({});
+        return ghm.parse(fs.readFileSync(p, 'utf8'), "timrwood/moment");
     }
     return '';
 }

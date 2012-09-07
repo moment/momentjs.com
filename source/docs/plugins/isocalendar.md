@@ -11,22 +11,17 @@ Calling the isocalendar method on a moment will return an array like the followi
 moment().isocalendar(); // [2012, 8, 5, 870]
 ```
 
-
 You can also reconstruct a moment from a isocalendar array.
-
 
 ```javascript
 moment.fromIsocalendar([2011, 51, 5, 870]).format('LLLL');
-// &quot;Friday, December 23 2011 2:30 PM&quot;
+// "Friday, December 23 2011 2:30 PM"
 ```
-
 
 It is available on npm.
 
-
-```javascript
+```
 npm install moment-isocalendar
 ```
-
 
 The repository is located at [github.com/fusionbox/moment-isocalendar](https://github.com/fusionbox/moment-isocalendar)
