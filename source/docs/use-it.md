@@ -1,0 +1,1 @@
+Moment was designed to work in both the browser and in NodeJS. All code will work in both environments. All unit tests are run in both environments.

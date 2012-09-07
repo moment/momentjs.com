@@ -1,0 +1,2 @@
+  If you don't need i18n support, you can manually override the customization values. 
+  However, any calls to `moment.lang` will override them. It is probably safer to create a language for your specific customizations than to override these values manually.

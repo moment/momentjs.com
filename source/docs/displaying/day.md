@@ -1,0 +1,1 @@
+Get the day of the week (0 - 6).
