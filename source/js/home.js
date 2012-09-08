@@ -54,7 +54,7 @@
         formatHtmlEn += "</p><p>";
         formatHtmlEn += moment().format('dddd [on the] wo [week of the year]');
         formatHtmlEn += "</p><p>";
-        formatHtmlEn += moment().format("MMM Do 'YY");
+        formatHtmlEn += moment().format("MMM Do [']YY");
         formatHtmlEn += "</p><p>";
         formatHtmlEn += moment().format();
         formatHtmlEn += "</p>";
@@ -62,9 +62,24 @@
         
         setTimeout(update, 1000);
     }
-    if (!window.location.pathname.match('docs')) {
+    if (window.location.pathname.match('docs')) {
+        initDocs();
+    } else {
         update();
     }
 
-    $('#subnav').scrollspy();
+    function initDocs(){
+        var dropdowns = $('.dropdown');
+        $(document).on('click', function (e) {
+            var el = $(e.target);
+            if (!el.is('.dropdown-toggle')) {
+                el = el.closest('.dropdown-toggle');
+            }
+            dropdowns.removeClass('open');
+            if (el.length) {
+                el.closest('.dropdown').addClass('open');
+            }
+        });
+    }
+
 })();

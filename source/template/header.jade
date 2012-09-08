@@ -1,0 +1,46 @@
+!!! 5
+html
+  head
+    meta(charset="utf-8")
+    block styles
+  body
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          a.brand(href="/") Moment.js
+          ul.nav
+            li
+              a(href="/docs/")
+                i.icon-book.icon-white
+                |  Documentation
+            li
+              a(href="/test/")
+                i.icon-ok.icon-white
+                |  Unit Tests
+            li.divider-vertical
+            li
+              a(href="https://github.com/timrwood/moment")
+                i.icon-download-alt.icon-white
+                |  Github
+            li.divider-vertical
+            li
+              a(href="https://twitter.com/momentjs")
+                i.icon-star.icon-white
+                |  Twitter
+            li.divider-vertical
+    #content.container
+      block content
+    .footer
+      .container
+        .row
+          .span12 Moment.js is freely distributable under the terms of the MIT license.
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js")
+    block scripts
+    script
+      window._gaq = [['_setAccount','UA-10641787-5'],['_trackPageview'],['_trackPageLoadTime']];
+      (function(d, c) {
+        var ga = d.createElement(c); ga.async = true;
+        ga.src = "http://www.google-analytics.com/ga.js";
+        var s = d.getElementsByTagName(c)[0]; 
+        s.parentNode.insertBefore(ga, s);
+      })(document, 'script');

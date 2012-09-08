@@ -2,3 +2,9 @@ p
   code moment.weekdaysShort
   |  should be an array of the weekdays abbreviations.
 pre moment.weekdaysShort = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+p 
+  code moment.weekdaysShort
+  |  can be a callback function as well.
+pre config.weekdaysShort = function (momentToFormat, format) {
+  |     return weekdaysShort[momentToFormat.day()];
+  | }
