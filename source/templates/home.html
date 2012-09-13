@@ -6,77 +6,45 @@
 	<script src="js/home.min.js"></script>
 {% endblock scripts %}
 
+{% block header %}
+	<h2>
+		A {{ library.gzipped }} javascript date library for
+		parsing, validating, manipulating, and formatting dates.
+	</h2>
+{% endblock header %}
+
 {% block content %}
-	<div class="row">
-
-		<div class="span8">
-			<div class="hero-unit">
-				<h1>Moment.js</h1>
-				<h2>
-					A lightweight {{ library.gzipped }} javascript date library for
-					parsing, manipulating, and formatting dates.
-				</h2>
-			</div>
-		</div>
-
-		<div id="download-btns" class="span4">
-			<h3>Latest version : {{ library.version }}</h3>
-			<pre>npm install moment</pre>
-			<p>
-				<a class="btn btn-success btn-large" href="https://raw.github.com/timrwood/moment/" + {{ library.version }} + "/min/moment.min.js">
-					<i class="icon-download-alt icon-white"></i>
-					<strong>Production</strong>
-					<span class="filesize">({{ library.gzipped }} min &amp; gzip)</span>
-				</a>
-			</p>
-			<p>
-				<a class="btn" href="https://raw.github.com/timrwood/moment/" + {{ library.version }} + "/moment.js">
-					<i class="icon-download-alt"></i>
-					<strong>Development</strong>
-					<span class="filesize">(full {{ library.size }} source)</span>
-				</a>
-			</p>
-			<div class="share">
-				<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://momentjs.com" data-via="momentjs" data-lang="en" data-count="vertical"></a>
-				<div class="g-plusone" data-size="tall" data-href="http://momentjs.com"></div>
-			</div>
-		</div>
-	</div>
-
-	<div class="row">
-		<div class="span10">
+	<div class="examples">
+		<article>
 			<h2>Formatting dates</h2>
-			<div class="row">
-				<div class="span5">
-					<pre>moment().format('MMMM Do YYYY, h:mm:ss a');
+			<div class="input">
+				<pre lang="javascript">moment().format('MMMM Do YYYY, h:mm:ss a');
 moment().format('dddd');
 moment().format("MMM Do YY");
 moment().format('YYYY [escaped] YYYY');
 moment().format();</pre>
-				</div>
-				<div class="span5">
-					<pre id="js-format"></pre>
-				</div>
 			</div>
-
+			<div class="output">
+				<pre id="js-format"></pre>
+			</div>
+		</article>
+		<article>
 			<h2>Timeago</h2>
-			<div class="row">
-				<div class="span5">
-					<pre>moment("20111031", "YYYYMMDD").fromNow();
+			<div class="input">
+				<pre lang="javascript">moment("20111031", "YYYYMMDD").fromNow();
 moment("20120620", "YYYYMMDD").fromNow();
 moment().startOf('day').fromNow();
 moment().endOf('day').fromNow();
 moment().startOf('hour').fromNow();</pre>
-				</div>
-				<div class="span5">
-					<pre id="js-from-now"></pre>
-				</div>
 			</div>
-
+			<div class="output">
+				<pre id="js-from-now"></pre>
+			</div>
+		</article>
+		<article>
 			<h2>Calendar Time</h2>
-			<div class="row">
-				<div class="span5">
-					<pre>moment().subtract('days', 10).calendar();
+			<div class="input">
+				<pre lang="javascript">moment().subtract('days', 10).calendar();
 moment().subtract('days', 6).calendar();
 moment().subtract('days', 3).calendar();
 moment().subtract('days', 1).calendar();
@@ -84,26 +52,26 @@ moment().calendar();
 moment().add('days', 1).calendar();
 moment().add('days', 3).calendar();
 moment().add('days', 10).calendar();</pre>
-				</div>
-				<div class="span5">
-					<pre id="js-calendar"></pre>
-				</div>
 			</div>
-
+			<div class="output">
+				<pre id="js-calendar"></pre>
+			</div>
+		</article>
+		<article>
 			<h2>Internationalization</h2>
-			<div class="row">
-				<div class="span5">
-					<pre>moment().format('L');
+			<div class="input">
+				<pre lang="javascript">moment().format('L');
 moment().format('LL');
 moment().format('LLL');
 moment().format('LLLL');</pre>
-				</div>
-				<div class="span5">
-					<pre id="js-lang"></pre>
-				</div>
 			</div>
-		</div>
+			<div class="output">
+				<pre id="js-lang"></pre>
+			</div>
+		</article>
+	</div>
 
+	<div class="langs">
 		<div class="span2">
 			<h2>Language</h2>
 			{% for lang in langs %}

@@ -1,0 +1,30 @@
+header {
+    height: 300px;
+    background: url(../img/header.png);
+    padding: 80px 40px 40px;
+    color: #ccc;
+    text-shadow: 1px 1px 0 #000;
+
+    h1 {
+        font-size: 100px;
+        margin: 0;
+        padding: 40px 0 20px;
+        color: #eee;
+        font-weight: 100;
+    }
+
+    h2 {
+        margin: 0;
+        font-weight: 300;
+    }
+
+    hgroup {
+        float: left;
+        width: 66%;
+    }
+
+    aside {
+        margin-left: 66%;
+        padding-left: 20px;
+    }
+}

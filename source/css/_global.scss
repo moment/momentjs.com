@@ -1,0 +1,55 @@
+body {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+.container {
+    padding: 20px;
+}
+
+pre {
+    background: #444;
+    border: 1px solid #111;
+    color: #eee;
+    font-size: 14px;
+    padding: 5px 8px;
+    border-radius: 5px;
+    margin: 0 0 20px;
+    white-space: pre;
+    line-height: 20px;
+
+    .keyword,
+    .type,
+    .symbol,
+    .cbracket,
+    .date,
+    .time,
+    .file,
+    .variable,
+    .difflines,
+    .selector,
+    .literal,
+    .property {
+        font-weight: bold;
+    }
+
+    .literal,
+    .type {
+        color: #458;
+    }
+
+    .string {
+        color: #d14;
+    }
+
+    .number {
+        color: #4a7;
+    }
+
+    .regexp {
+        color: #092;
+    }
+
+    .comment {
+        color: #999;
+    }
+}

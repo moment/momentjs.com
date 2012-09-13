@@ -1,351 +1,252 @@
-@import "./bootstrap";
+//@import "./bootstrap";
+@import "compass";
 
-/****************
-    Share
-****************/
+@import "defaults";
+@import "normalize";
+@import "mixins";
 
-.hero-unit {
-    background: #fff;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, .2);
-}
+@import "global";
+@import "header";
+@import "nav";
 
-pre {
-    background: #444;
-    border: 1px solid #111;
-    color: #ccc;
-}
-
-/****************
-    Share
-****************/
+@import "pages/home";
 
 
-.fork {
-    position: fixed;
-    top: 0;
-    right: 0;
-    display: block;
-    background: url(../img/fork.png) 100% 0 no-repeat;
-    width: 150px;
-    height: 150px;
-    z-index: 2000;
-}
+// /****************
+//     Share
+// ****************/
 
-.share {
-    text-align: center;
-}
+// .hero-unit {
+//     background: #fff;
+//     box-shadow: 0 1px 5px rgba(0, 0, 0, .2);
+// }
 
-.share iframe {
-    display: inline-block;
-    margin: 0 10px;
-}
+// pre {
+//     background: #444;
+//     border: 1px solid #111;
+//     color: #ccc;
+// }
 
-.navbar li iframe {
-    margin-top: 10px;
-}
-
-/****************
-    Special
-****************/
+// /****************
+//     Share
+// ****************/
 
 
-body {
-    padding-top: 100px;
-    background: #eef8ff;
-    font-size: 16px;
-    line-height: 24px;
-}
+// .fork {
+//     position: fixed;
+//     top: 0;
+//     right: 0;
+//     display: block;
+//     background: url(../img/fork.png) 100% 0 no-repeat;
+//     width: 150px;
+//     height: 150px;
+//     z-index: 2000;
+// }
 
-#download-btns {
-    padding-top:50px;
-}
+// .share {
+//     text-align: center;
+// }
 
-#download-btns .btn {
-    display:block;
-}
+// .share iframe {
+//     display: inline-block;
+//     margin: 0 10px;
+// }
 
-.navbar .brand {
-    padding-left:57px;
-    font-weight:bold;
-    background:url(../img/clock.png) 20px 50% no-repeat;
-}
+// .navbar li iframe {
+//     margin-top: 10px;
+// }
 
-
-/****************
-    Docs
-****************/
-
-
-#docs {
-    h2 {
-        font-size: 50px;
-        padding: 20px 0;
-        margin: 20px 0;
-    }
-
-    h2,
-    h3 {
-        color: rgba(0, 0, 0, 0.8);
-        text-shadow: 1px 1px #fff;
-
-        a {
-            color: rgba(0, 0, 0, 0.8);
-            text-decoration: none;
-
-            &:hover {
-                color: #000;
-            }
-        }
-    }
-
-    h3 {
-        font-size: 30px;
-        padding-bottom:0;
-        margin: 0;
-    }
-
-    .doc-row {
-        padding: 0 0 20px;
-    }
-
-    .section-header {
-        padding: 0 0 20px;
-    }
-
-    .section {
-        box-shadow: 0 1px 5px rgba(0, 0, 0, .2);
-        margin: 0 0 20px;
-        overflow: hidden;
-        border-radius: 3px;
-        position: relative;
-        background: #fff;
-    }
-
-    .prose {
-        float: left;
-        width: 660px;
-        padding: 20px;
-        margin-left: 0;
-    }
-
-    .signature {
-        padding: 10px;
-        width: 260px;
-        margin-left: 0;
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        background: #333;
-        border-radius: 0 3px 3px 0;
-        color: #ccc;
-        border-left: 1px solid #000;
-
-        p {
-            font-size: 12px;
-            background: #111;
-            padding: 2px 6px;
-            border-radius: 3px;
-            border: 1px solid #000;
-        }
-
-        pre {
-            margin: 0;
-            padding: 0;
-            background: 0;
-            border: 0;
-            font-size: 10px;
-        }
-    }
-}
-
-.target {
-    position: relative;
-    display: block;
-    top: -110px;
-}
+// /****************
+//     Special
+// ****************/
 
 
-.table-striped tbody tr td,
-.table-striped tbody tr th {
-    background: #fff;
-}
+// body {
+//     padding-top: 100px;
+//     background: #eef8ff;
+//     font-size: 16px;
+//     line-height: 24px;
+// }
 
-.table-striped tbody tr:nth-child(odd) td,
-.table-striped tbody tr:nth-child(odd) th {
-    background: #f8f8f8;
-}
+// #download-btns {
+//     padding-top:50px;
+// }
 
-/****************
-    Test
-****************/
+// #download-btns .btn {
+//     display:block;
+// }
 
-
-#nodeunit-tests {
-    margin:0;
-    list-style:none;
-}
-
-#nodeunit-tests h3 {
-    margin:10px 0;
-}
-
-#nodeunit-tests .alert {
-    margin-bottom:5px;
-    padding:5px 10px;
-}
-
-#nodeunit-tests ul {
-    margin:0;
-    list-style:none;
-}
-
-.test ul {
-    display:none;
-}
-
-.test.open > div {
-    border-bottom:2px solid #EED3D7;
-    padding-bottom:5px;
-    margin-bottom:5px;
-}
-
-.test.alert-success.open > div {
-    border-bottom:1px solid #D6E9C6;
-}
-
-.test.open ul {
-    display:block;
-}
+// .navbar .brand {
+//     padding-left:57px;
+//     font-weight:bold;
+//     background:url(../img/clock.png) 20px 50% no-repeat;
+// }
 
 
-/****************
-    Nav
-****************/
-
-.navbar,
-.subnav {
-    font-size: 14px;
-    line-height: 20px;
-}
-
-.subnav {
-    width: 100%;
-    height: 38px;
-    background-color: #eee;
-    border-bottom: 1px solid #aaa;
-    box-shadow: 0 0 15px rgba(0, 0, 0, .5);
-}
-.subnav .nav {
-    margin-bottom: 0;
-}
-.subnav .nav > li > a {
-    color:#333;
-    margin: 0;
-    padding-top:    11px;
-    padding-bottom: 11px;
-    line-height: 16px;
-    border-left: 1px solid transparent;
-    border-right: 1px solid transparent;
-    border-radius: 0;
-    cursor: pointer;
-}
-.subnav .nav > li > a:hover {
-    background: #ddd;
-}
-.subnav .nav > .open > a,
-.subnav .nav > .open > a:hover {
-    background: #fff;
-    color: #777;
-    background: #fff;
-    border-right-color: #aaa;
-    border-left-color: #aaa;
-    padding-bottom: 12px;
-    position: relative;
-    z-index: 10;
-}
-.subnav .dropdown-toggle .caret {
-    border-top-color: #000;
-}
-.subnav .dropdown-toggle span {
-    padding: 0 5px;
-}
-.subnav .nav > .active > a .caret,
-.subnav .nav > .active > a:hover .caret {
-    border-top-color: #000;
-}
-.subnav .dropdown-menu {
-    position: absolute;
-    top: 36px;
-    z-index: 9;
-    -webkit-border-radius: 0 0 4px 4px;
-       -moz-border-radius: 0 0 4px 4px;
-            border-radius: 0 0 4px 4px;
-}
-.subnav-fixed {
-    position: fixed;
-    top: 40px;
-    left: 0;
-    right: 0;
-    z-index: 1020;
-}
-.subnav-fixed .nav {
-    width: 938px;
-    margin: 0 auto;
-    padding: 0 1px;
-}
+// /****************
+//     Docs
+// ****************/
 
 
-/****************
-    Footer
-****************/
+// #docs {
+//     h2 {
+//         font-size: 50px;
+//         padding: 20px 0;
+//         margin: 20px 0;
+//     }
+
+//     h2,
+//     h3 {
+//         color: rgba(0, 0, 0, 0.8);
+//         text-shadow: 1px 1px #fff;
+
+//         a {
+//             color: rgba(0, 0, 0, 0.8);
+//             text-decoration: none;
+
+//             &:hover {
+//                 color: #000;
+//             }
+//         }
+//     }
+
+//     h3 {
+//         font-size: 30px;
+//         padding-bottom:0;
+//         margin: 0;
+//     }
+
+//     .doc-row {
+//         padding: 0 0 20px;
+//     }
+
+//     .section-header {
+//         padding: 0 0 20px;
+//     }
+
+//     .section {
+//         box-shadow: 0 1px 5px rgba(0, 0, 0, .2);
+//         margin: 0 0 20px;
+//         overflow: hidden;
+//         border-radius: 3px;
+//         position: relative;
+//         background: #fff;
+//     }
+
+//     .prose {
+//         float: left;
+//         width: 660px;
+//         padding: 20px;
+//         margin-left: 0;
+//     }
+
+//     .signature {
+//         padding: 10px;
+//         width: 260px;
+//         margin-left: 0;
+//         position: absolute;
+//         top: 0;
+//         right: 0;
+//         bottom: 0;
+//         background: #333;
+//         border-radius: 0 3px 3px 0;
+//         color: #ccc;
+//         border-left: 1px solid #000;
+
+//         p {
+//             font-size: 12px;
+//             background: #111;
+//             padding: 2px 6px;
+//             border-radius: 3px;
+//             border: 1px solid #000;
+//         }
+
+//         pre {
+//             margin: 0;
+//             padding: 0;
+//             background: 0;
+//             border: 0;
+//             font-size: 10px;
+//         }
+//     }
+// }
+
+// .target {
+//     position: relative;
+//     display: block;
+//     top: -110px;
+// }
 
 
-.footer {
-    margin-top:40px;
-    padding:20px 0 60px;
-    background:whiteSmoke;
-    border-top:1px solid #ccc;
-}
+// .table-striped tbody tr td,
+// .table-striped tbody tr th {
+//     background: #fff;
+// }
+
+// .table-striped tbody tr:nth-child(odd) td,
+// .table-striped tbody tr:nth-child(odd) th {
+//     background: #f8f8f8;
+// }
+
+// /****************
+//     Test
+// ****************/
 
 
-/****************
-    Snippet Styles
-****************/
+// #nodeunit-tests {
+//     margin:0;
+//     list-style:none;
+// }
+
+// #nodeunit-tests h3 {
+//     margin:10px 0;
+// }
+
+// #nodeunit-tests .alert {
+//     margin-bottom:5px;
+//     padding:5px 10px;
+// }
+
+// #nodeunit-tests ul {
+//     margin:0;
+//     list-style:none;
+// }
+
+// .test ul {
+//     display:none;
+// }
+
+// .test.open > div {
+//     border-bottom:2px solid #EED3D7;
+//     padding-bottom:5px;
+//     margin-bottom:5px;
+// }
+
+// .test.alert-success.open > div {
+//     border-bottom:1px solid #D6E9C6;
+// }
+
+// .test.open ul {
+//     display:block;
+// }
 
 
-pre .keyword,
-pre .type,
-pre .symbol,
-pre .cbracket,
-pre .date,
-pre .time,
-pre .file,
-pre .variable,
-pre .difflines,
-pre .selector,
-pre .literal,
-pre .property {
-    font-weight:bold;
-}
+// /****************
+//     Footer
+// ****************/
 
-pre .literal,
-pre .type {
-    color:#458;
-}
 
-pre .string {
-    color:#d14;
-}
+// .footer {
+//     margin-top:40px;
+//     padding:20px 0 60px;
+//     background:whiteSmoke;
+//     border-top:1px solid #ccc;
+// }
 
-pre .number {
-    color:#4a7;
-}
 
-pre .regexp {
-    color:#092;
-}
+// /****************
+//     Snippet Styles
+// ****************/
 
-pre .comment {
-    color:#999;
-}
+
+

@@ -1,0 +1,30 @@
+.examples {
+	article {
+		margin-right: 20%;
+		overflow: hidden;
+
+		.input {
+			float: left;
+			width: 370px;
+
+			pre {
+				border-radius: 5px 0 0 5px;
+			}
+		}
+
+		.output {
+			margin-left: 370px;
+
+			pre {
+				border-radius: 0 5px 5px 0;
+				border-left: 0;
+				background: #333;
+			}
+		}
+
+		h2 {
+			padding: 0 0 20px;
+			margin: 0;
+		}
+	}
+}

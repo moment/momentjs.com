@@ -6,35 +6,42 @@
 		<title>Moment.js | {% block title %}{% endblock title %}</title>
 	</head>
 	<body>
-		<div class="navbar navbar-fixed-top navbar-inverse">
-			<div class="navbar-inner">
-				<div class="container">
-					<a class="brand" href="/">Moment.js</a>
-					<ul class="nav">
-						<li>
-							<a href="/docs/">
-								<i class="icon-book icon-white"></i> Documentation
-							</a>
-						</li>
-						<li>
-							<a href="/test/">
-								<i class="icon-ok icon-white"></i> Unit Tests
-							</a>
-						</li>
-						<li class="divider-vertical"></li>
-						<li>
-							<a href="https://twitter.com/momentjs">
-								Follow @momentjs on twitter
-							</a>
-						</li>
-						<li>
-							<iframe src="http://ghbtns.com/github-btn.html?user=timrwood&repo=moment&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<div id="content" class="container">
+		<nav>
+			<a class="logo" href="/">Moment.js</a>
+			<a class="docs" href="/docs/">Documentation</a>
+			<a class="test" href="/test/">Unit Tests</a>
+			<a class="twitter" href="https://twitter.com/momentjs">Follow @momentjs on twitter</a>
+			<iframe src="http://ghbtns.com/github-btn.html?user=timrwood&repo=moment&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+		</nav>
+		<header>
+			<hgroup>
+				<h1>Moment.js</h1>
+				{% block header %}
+
+				{% endblock header %}
+			</hgroup>
+			<aside>
+				{% block header_aside %}
+					<div class="download">
+						<h3>Latest version : {{ library.version }}</h3>
+						<pre>npm install moment</pre>
+						<a class="button gzipped" href="https://raw.github.com/timrwood/moment/" + {{ library.version }} + "/min/moment.min.js">
+							<strong>Production</strong>
+							<span class="filesize">({{ library.gzipped }} min &amp; gzip)</span>
+						</a>
+						<a class="button source" href="https://raw.github.com/timrwood/moment/" + {{ library.version }} + "/moment.js">
+							<strong>Development</strong>
+							<span class="filesize">(full {{ library.size }} source)</span>
+						</a>
+						<div class="share">
+							<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://momentjs.com" data-via="momentjs" data-lang="en" data-count="vertical"></a>
+							<div class="g-plusone" data-size="tall" data-href="http://momentjs.com"></div>
+						</div>
+					</div>
+				{% endblock header_aside %}
+			</aside>
+		</header>
+		<div class="container">
 			{% block content %}{% endblock content %}
 		</div>
 		<a href="https://github.com/timrwood/moment/" class="fork"></a>

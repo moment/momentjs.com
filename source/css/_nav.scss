@@ -1,0 +1,40 @@
+nav {
+    height: 50px;
+    @include grad(#bbb, #eee);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 0 20px;
+    font-weight: 200;
+
+    a {
+        float: left;
+        color: #333;
+        line-height: 50px;
+        padding: 0 15px;
+        text-decoration: none;
+        font-size: 16px;
+
+        &.logo {
+            font-size: 30px;
+            background: rgba(0, 0, 0, .1);
+            border: 1px solid #aaa;
+            border-width: 0 1px;
+            font-weight: 100;
+        }
+
+        &.twitter {
+            border: 1px solid #aaa;
+            border-width: 0 1px;
+        }
+
+        &:hover {
+            background: rgba(0, 0, 0, .1);
+        }
+    }
+
+    iframe {
+        margin: 14px 0 0 15px;
+    }
+}

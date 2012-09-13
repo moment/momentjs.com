@@ -6,14 +6,12 @@
 	<script src="../js/home.min.js"></script>
 {% endblock scripts %}
 
+{% block header %}
+	<h2>Documentation</h2>
+{% endblock header %}
+
 {% block content %}
 	<div class="row">
-		<div class="span8">
-			<div class="hero-unit">
-				<h1>Moment.js</h1>
-				<h2>Documentation</h2>
-			</div>
-		</div>
 
 		<div id="download-btns" class="span4">
 			<h3>Latest version : {{ library.version }}</h3>

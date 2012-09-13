@@ -1,14 +1,5 @@
-var fs   = require('fs'),
-    path = require('path'),
-    zlib = require('zlib'),
-    jade = require('jade'),
-    ghm = require('github-flavored-markdown'),
-    moment = require('./libs/moment/moment.js'),
-    highlight = require("highlight.js").highlight;
-
 module.exports = function(grunt) {
 
-    // Project configuration.
     grunt.initConfig({
         concat: {
             tests: {
@@ -60,16 +51,18 @@ module.exports = function(grunt) {
                 forcecompile: true
             }
         },
-        site: {
+        html: {
             files: [
                 "source/docs/**/*",
-                "source/template/**/*",
-                "source/pages/**/*"
+                "source/templates/*"
             ]
         },
         watch: {
             compass: {
-                files: 'source/css/*.scss',
+                files: [
+                    'source/css/*',
+                    'source/css/**/*'
+                ],
                 tasks: 'compass'
             },
             concat: {
@@ -84,12 +77,14 @@ module.exports = function(grunt) {
                 files: '<config:min.home.src>',
                 tasks: 'min'
             },
-            site: {
-                files: "<config:site.files>",
-                tasks: 'site'
+            html: {
+                files: "<config:html.files>",
+                tasks: 'html'
             }
         }
     });
+
+    grunt.registerTask("default", "html compass concat min");
 
     // plugin tasks
     grunt.loadNpmTasks('grunt-compass');
