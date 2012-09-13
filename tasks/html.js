@@ -1,9 +1,10 @@
-var fs   = require('fs'),
-    path = require('path'),
-    zlib = require('zlib'),
-    swig = require('swig'),
-    ghm = require('github-flavored-markdown'),
-    moment = require('../libs/moment/moment.js'),
+var fs        = require('fs'),
+    path      = require('path'),
+    library   = require('../source/data/library'),
+    langs     = require('../source/data/lang.js'),
+    swig      = require('swig'),
+    ghm       = require('github-flavored-markdown'),
+    moment    = require('../libs/moment/moment.js'),
     highlight = require("highlight.js").highlight;
 
 
@@ -27,11 +28,6 @@ function filename(fn) {
     return output;
 }
 
-function toKb(input){
-    var num = Math.round(input / 100) / 10;
-    return num + 'k';
-}
-
 module.exports = function(grunt) {
 
     /*********************************************
@@ -40,26 +36,13 @@ module.exports = function(grunt) {
 
     function main(cb) {
         var data = {
-            version : moment.version,
-            minsize : 0,
-            srcsize : 0,
-            docs : null,
-            langs : require('../source/langs/data.js')
+            library : library,
+            docs : {},
+            langs : langs
         };
-
-        fs.readFile(filename(['libs', 'moment', 'moment.js']), 'utf8', function (err, src) {
-            data.srcsize = toKb(src.length);
-            fs.readFile(filename(['libs', 'moment', 'min', 'moment.min.js']), 'utf8', function (err, min) {
-                zlib.gzip(min, function(err, gzip) {
-                    data.minsize = toKb(gzip.length);
-                    fs.readFile(filename(['source', 'docs', 'docmap.json']), 'utf8', function (err, docmap){
-                        var docs = JSON.parse(docmap);
-                        data.docs = normalizeDocs(docs);
-                        render(data, cb);
-                    });
-                });
-            });
-        });
+        library.ready(function(){
+            render(data, cb);
+        })
     }
 
     /*********************************************

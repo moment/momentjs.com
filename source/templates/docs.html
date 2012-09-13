@@ -1,2 +1,61 @@
 {% extends "base.html" %}
 
+{% block title %}Documentation{% endblock title %}
+
+{% block scripts %}
+	<script src="js/home.min.js"></script>
+{% endblock scripts %}
+
+{% block content %}
+	<div class="row">
+		<div class="span8">
+			<div class="hero-unit">
+				<h1>Moment.js</h1>
+				<h2>Documentation</h2>
+			</div>
+		</div>
+
+		<div id="download-btns" class="span4">
+			<h3>Latest version : {{ library.version }}</h3>
+			<pre>npm install moment</pre>
+			<p>
+				<a class="btn btn-success btn-large" href="https://raw.github.com/timrwood/moment/" + {{ library.version }} + "/min/moment.min.js">
+					<i class="icon-download-alt icon-white"></i>
+					<strong>Production</strong>
+					<span class="filesize">({{ library.gzipped }} min &amp; gzip)</span>
+				</a>
+			</p>
+			<p>
+				<a class="btn" href="https://raw.github.com/timrwood/moment/" + {{ library.version }} + "/moment.js">
+					<i class="icon-download-alt"></i>
+					<strong>Development</strong>
+					<span class="filesize">(full {{ library.size }} source)</span>
+				</a>
+			</p>
+			<div class="share">
+				<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://momentjs.com" data-via="momentjs" data-lang="en" data-count="vertical"></a>
+				<div class="g-plusone" data-size="tall" data-href="http://momentjs.com"></div>
+			</div>
+		</div>
+	</div>
+
+	<div id="subnav" class="subnav.subnav-fixed">
+		<ul class="nav nav-pills">
+			{% for section in docs %}
+				<li class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown">
+						<span>{{ section.name }}</span>
+					</a>
+					<ul class="dropdown-menu">
+						{% for method in section.methods %}
+							<li>
+								<a href="#/{{ section.machineName }}/{{ method.machineName }}/">{{ method.name }}</a>
+							</li>
+						{% endfor %}
+					</ul>
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+
+{% endblock content %}
