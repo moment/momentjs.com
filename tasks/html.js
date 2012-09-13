@@ -33,15 +33,13 @@ function main(cb) {
     };
     library.ready(function(){
         render(data, cb);
-    })
+    });
 }
 
-function highlightJs(source) {
+function highlightPreTags(source) {
     source = source.replace(/\&quot;/g,'"');
-    source = source.replace(/<pre[^>]*>((.|\s)*?)<\/pre>/g, function(original, source){
-        console.log(source);
-        var output = '<pre>' + highlight("javascript", source).value + '</pre>';
-        console.log(output);
+    source = source.replace(/<pre lang="javascript">((.|\s)*?)<\/pre>/g, function(original, source){
+        var output = '<pre lang="javascript">' + highlight("javascript", source).value + '</pre>';
         return output;
     });
     source = source.replace(/&amp;(\w+;)/g,'&$1');
@@ -49,10 +47,10 @@ function highlightJs(source) {
 }
 
 function renderSingle(src, dst, data, cb) {
-    var template = swig.compileFile(src);
-    var html = template.render(data);
+    var template = swig.compileFile(src),
+        html = template.render(data);
 
-    //html = highlightJs(html);
+    html = highlightPreTags(html);
 
     fs.writeFile(filename([dst]), html, 'utf8', function(err) {
         console.log('Built html : ' + dst);

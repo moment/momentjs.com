@@ -1,74 +1,74 @@
 <!doctype html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <link rel="stylesheet"  href="../css/style.css" />
-        <title>Moment.js | {% block title %}{% endblock title %}</title>
-    </head>
-    <body>
-        <div class="navbar navbar-fixed-top navbar-inverse">
-            <div class="navbar-inner">
-                <div class="container">
-                    <a class="brand" href="/">Moment.js</a>
-                    <ul class="nav">
-                        <li>
-                            <a href="/docs/">
-                                <i class="icon-book icon-white"></i> Documentation
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/test/">
-                                <i class="icon-ok icon-white"></i> Unit Tests
-                            </a>
-                        </li>
-                        <li class="divider-vertical"></li>
-                        <li>
-                            <a href="https://twitter.com/momentjs">
-                                Follow @momentjs on twitter
-                            </a>
-                        </li>
-                        <li>
-                            <iframe src="http://ghbtns.com/github-btn.html?user=timrwood&repo=moment&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div id="content" class="container">
-            {% block content %}{% endblock content %}
-        </div>
-        <a href="https://github.com/timrwood/moment/" class="fork"></a>
-        <div class="footer">
-            <div class="container">
-                <div class="row">
-                    <div class="span12">Moment.js is freely distributable under the terms of the MIT license.</div>
-                </div>
-            </div>
-        </div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
-        {% block scripts %}{% endblock scripts %}
-        <script>
-            window._gaq = [['_setAccount','UA-10641787-5'],['_trackPageview'],['_trackPageLoadTime']];
-            (function(d, c) {
-                var ga = d.createElement(c); ga.async = true;
-                ga.src = "http://www.google-analytics.com/ga.js";
-                var s = d.getElementsByTagName(c)[0];
-                s.parentNode.insertBefore(ga, s);
-            })(document, 'script');
-            ;(function(d,s,id){
-                var js,fjs=d.getElementsByTagName(s)[0];
-                if(!d.getElementById(id)){
-                    js=d.createElement(s);
-                    js.id=id;
-                    js.src="https://platform.twitter.com/widgets.js";
-                    fjs.parentNode.insertBefore(js,fjs);
-                }
-            })(document,"script","twitter-wjs")
-            ;(function() {
-                var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-                po.src = 'https://apis.google.com/js/plusone.js';
-                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-            })();
-        </script>
-    </body>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet"  href="../css/style.css" />
+		<title>Moment.js | {% block title %}{% endblock title %}</title>
+	</head>
+	<body>
+		<div class="navbar navbar-fixed-top navbar-inverse">
+			<div class="navbar-inner">
+				<div class="container">
+					<a class="brand" href="/">Moment.js</a>
+					<ul class="nav">
+						<li>
+							<a href="/docs/">
+								<i class="icon-book icon-white"></i> Documentation
+							</a>
+						</li>
+						<li>
+							<a href="/test/">
+								<i class="icon-ok icon-white"></i> Unit Tests
+							</a>
+						</li>
+						<li class="divider-vertical"></li>
+						<li>
+							<a href="https://twitter.com/momentjs">
+								Follow @momentjs on twitter
+							</a>
+						</li>
+						<li>
+							<iframe src="http://ghbtns.com/github-btn.html?user=timrwood&repo=moment&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="content" class="container">
+			{% block content %}{% endblock content %}
+		</div>
+		<a href="https://github.com/timrwood/moment/" class="fork"></a>
+		<div class="footer">
+			<div class="container">
+				<div class="row">
+					<div class="span12">Moment.js is freely distributable under the terms of the MIT license.</div>
+				</div>
+			</div>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+		{% block scripts %}{% endblock scripts %}
+		<script>
+			window._gaq = [['_setAccount','UA-10641787-5'],['_trackPageview'],['_trackPageLoadTime']];
+			(function(d, c) {
+				var ga = d.createElement(c); ga.async = true;
+				ga.src = "http://www.google-analytics.com/ga.js";
+				var s = d.getElementsByTagName(c)[0];
+				s.parentNode.insertBefore(ga, s);
+			})(document, 'script');
+			;(function(d,s,id){
+				var js,fjs=d.getElementsByTagName(s)[0];
+				if(!d.getElementById(id)){
+					js=d.createElement(s);
+					js.id=id;
+					js.src="https://platform.twitter.com/widgets.js";
+					fjs.parentNode.insertBefore(js,fjs);
+				}
+			})(document,"script","twitter-wjs")
+			;(function() {
+				var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+				po.src = 'https://apis.google.com/js/plusone.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+			})();
+		</script>
+	</body>
 </html>

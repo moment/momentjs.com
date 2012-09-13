@@ -1,1 +1,29 @@
 {% extends "base.html" %}
+
+{% block title %}Unit Tests{% endblock title %}
+
+{% block scripts %}
+	<script src="../js/moment.js"></script>
+	<script src="../js/langs.js"></script>
+	<script src="../js/tests.js"></script>
+{% endblock scripts %}
+
+{% block content %}
+	<div id="header-row" class="row">
+		<div class="span8">
+			<div class="hero-unit">
+				<h1>Moment.js</h1>
+				<h2>Unit test suite</h2>
+				<p id="nodeunit-userAgent"></p>
+			</div>
+		</div>
+		<div class="span4">
+			<div id="nodeunit-banner" class="alert alert-info"> </div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span12">
+			<ol id="nodeunit-tests"></ol>
+		</div>
+	</div>
+{% endblock content %}
