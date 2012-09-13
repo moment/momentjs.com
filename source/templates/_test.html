@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% comment %}
+
+block styles
+  link(rel="stylesheet", href="../css/style.css")
+  title Moment.js Unit Test Suite
+
+block scripts
+  script(src="../js/moment.js")
+  script(src="../js/langs.js")
+  script(src="../js/tests.js")
+
+block content
+  #header-row.row
+    .span8
+      .hero-unit
+        h1 Moment.js
+        h2 Unit test suite
+        p#nodeunit-userAgent
+    .span4
+      #nodeunit-banner.alert.alert-info &nbsp;
+  .row
+    .span12
+      ol#nodeunit-tests
+
+{% endcomment %}

@@ -24,7 +24,7 @@ If a language requires additional processing for a token, It can set the token a
 The function should return a string.
 
 ```javascript
-function(number, withoutSuffix, key, isFuture) {\n
+function (number, withoutSuffix, key, isFuture) {
     return string;
 }
 ```

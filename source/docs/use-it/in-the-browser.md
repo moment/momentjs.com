@@ -1,5 +1,5 @@
 ```
-<script src="moment.min.js"></script>
+&lt;script src="moment.min.js">&lt;/script>
 ```
 
 ```javascript

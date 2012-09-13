@@ -294,7 +294,8 @@
                 "_signature" : "moment.weekdaysShort = String[];\nmoment.weekdaysShort = Function",
                 "_version" : "1.0.0"
             },
-            "Minimal Weekday Abbreviations" : {
+            "weekday-min" : {
+                "_title" : "Minimal Weekday Abbreviations",
                 "_signature" : "moment.weekdaysMin = String[];\nmoment.weekdaysMin = Function",
                 "_version" : "1.7.0"
             },
