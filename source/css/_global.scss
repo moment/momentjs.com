@@ -13,15 +13,25 @@ body {
 	}
 }
 
-.fork {
-	position: fixed;
-	top: 0;
-	right: 0;
-	display: block;
-	background: url(../img/fork.png) 100% 0 no-repeat;
-	width: 150px;
-	height: 150px;
-	z-index: 2002;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: 200;
+}
+
+h2 {
+	font-size: 30px;
+}
+
+h3 {
+	font-size: 24px;
+}
+
+h4 {
+	font-size: 20px;
 }
 
 pre, code, kbd, samp {
@@ -37,7 +47,7 @@ pre {
 	border-radius: 5px;
 	margin: 0 0 20px;
 	white-space: pre;
-	line-height: 20px;
+	line-height: 24px;
 	background: #222 url(../img/header.png);
 	text-shadow: 1px 1px 0 #000;
 	font-weight: 100;
@@ -80,30 +90,9 @@ pre {
 	}
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	font-weight: 200;
-}
-
-h2 {
-	font-size: 30px;
-}
-
-h3 {
-	font-size: 24px;
-}
-
-h4 {
-	font-size: 20px;
-}
-
 code {
 	padding: 1px 4px;
-	background: #eee;
-	border: 1px solid #ddd;
+	background: #ddd;
+	border: 1px solid #ccc;
 	border-radius: 3px;
 }

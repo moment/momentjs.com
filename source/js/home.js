@@ -79,8 +79,8 @@
     $(document).on('click', '[data-lang]', function(){
         var dom = $(this);
         currentLang = dom.data('lang');
-        $('[data-lang]').removeClass('btn-info');
-        dom.addClass('btn-info');
+        $('[data-lang]').removeClass('active');
+        dom.addClass('active');
         update();
     });
 

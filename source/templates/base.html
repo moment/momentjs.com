@@ -10,6 +10,7 @@
 			<a class="logo" href="/">Moment.js</a>
 			<a class="docs" href="/docs/">Docs</a>
 			<a class="test" href="/test/">Tests</a>
+			<a class="fork" href="https://github.com/timrwood/moment/">Github</a>
 			<a class="twitter" href="https://twitter.com/momentjs">@momentjs</a>
 			<iframe src="http://ghbtns.com/github-btn.html?user=timrwood&repo=moment&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
 		</nav>
@@ -26,12 +27,12 @@
 						<h3>Latest version : {{ library.version }}</h3>
 						<pre>npm install moment</pre>
 						<a class="button gzipped" href="https://raw.github.com/timrwood/moment/" + {{ library.version }} + "/min/moment.min.js">
-							<strong>Production</strong>
-							<span class="filesize">({{ library.gzipped }} min &amp; gzip)</span>
+							<strong>moment.min.js</strong>
+							<span class="filesize">{{ library.gzipped }} gzipped</span>
 						</a>
 						<a class="button source" href="https://raw.github.com/timrwood/moment/" + {{ library.version }} + "/moment.js">
-							<strong>Development</strong>
-							<span class="filesize">(full {{ library.size }} source)</span>
+							<strong>moment.js</strong>
+							<span class="filesize">{{ library.size }} source</span>
 						</a>
 						<div class="share">
 							<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://momentjs.com" data-via="momentjs" data-lang="en" data-count="vertical"></a>
@@ -44,7 +45,6 @@
 		<div class="container">
 			{% block content %}{% endblock content %}
 		</div>
-		<a href="https://github.com/timrwood/moment/" class="fork"></a>
 		<footer>
 			<p>Moment.js is freely distributable under the terms of the MIT license.</p>
 		</footer>

@@ -2193,7 +2193,7 @@ exports.create = {
 
     "unix" : function(test) {
         test.expect(8);
-        test.equal(moment.unix(1).valueOf(), 1000, "1 unix timestamp == 1000 Date.valueOf");
+        test.equal(moment.unix(10).valueOf(), 1000, "1 unix timestamp == 1000 Date.valueOf");
         test.equal(moment(1000).unix(), 1, "1000 Date.valueOf == 1 unix timestamp");
         test.equal(moment.unix(1000).valueOf(), 1000000, "1000 unix timestamp == 1000000 Date.valueOf");
         test.equal(moment(1500).unix(), 1, "1500 Date.valueOf == 1 unix timestamp");
@@ -2250,7 +2250,7 @@ exports.create = {
     "string with format dropped am/pm bug" : function(test) {
         moment.lang('en');
         test.expect(3);
-        
+
         test.equal(moment('05/1/2012', 'MM/DD/YYYY h:m:s a').format('MM/DD/YYYY'), '05/01/2012', 'should not break if am/pm is left off from the parsing tokens');
         test.equal(moment('05/1/2012 12:25:00 am', 'MM/DD/YYYY h:m:s a').format('MM/DD/YYYY'), '05/01/2012', 'should not break if am/pm is left off from the parsing tokens');
         test.equal(moment('05/1/2012 12:25:00 pm', 'MM/DD/YYYY h:m:s a').format('MM/DD/YYYY'), '05/01/2012', 'should not break if am/pm is left off from the parsing tokens');
@@ -2260,11 +2260,11 @@ exports.create = {
 
     "empty string with formats" : function(test) {
         test.expect(3);
-        
+
         test.equal(moment(' ', 'MM').format('YYYY-MM-DD HH:mm:ss'), '0000-01-01 00:00:00', 'should not break if input is an empty string');
         test.equal(moment(' ', 'DD').format('YYYY-MM-DD HH:mm:ss'), '0000-01-01 00:00:00', 'should not break if input is an empty string');
         test.equal(moment(' ', ['MM', "DD"]).format('YYYY-MM-DD HH:mm:ss'), '0000-01-01 00:00:00', 'should not break if input is an empty string');
-        
+
         test.done();
     },
 
@@ -2301,7 +2301,7 @@ exports.create = {
                 ['HH:mm:ss SSS',        '00:30:00 789']
             ],
             i;
-        
+
         test.expect(a.length);
         for (i = 0; i < a.length; i++) {
             test.equal(moment(a[i][1], a[i][0]).format(a[i][0]), a[i][1], a[i][0] + ' ---> ' + a[i][1]);
@@ -2322,7 +2322,7 @@ exports.create = {
         for (i = 0; i < a.length; i++) {
             test.equal(moment(a[i][1], a[i][0]).format(a[i][0]), a[i][1], a[i][0] + ' ---> ' + a[i][1]);
         }
-        
+
         test.done();
     },
 
@@ -2456,7 +2456,7 @@ exports.create = {
         var m = moment('2011-10-08T18:04:20.111Z');
 
         test.equal(m.utc().format('YYYY-MM-DDTHH:mm:ss.SSS'), '2011-10-08T18:04:20.111', "moment should be able to parse ISO 2011-10-08T18:04:20.111Z");
-        
+
         test.done();
     },
 
@@ -11298,115 +11298,115 @@ exports["lang:zh-tw"] = {
     }
 };
 
+/*global moment:false*/
+
 (function(){
-    var banner = $('#nodeunit-banner');
-    var tests = $('#nodeunit-tests');
-    var headerRow = $("#header-row");
+	var banner = $('#nodeunit-banner');
+	var tests = $('#nodeunit-tests');
+	var headerRow = $("#header-row");
 
-    $('#nodeunit-userAgent').html(navigator.userAgent);
+	$('#nodeunit-userAgent').html(navigator.userAgent);
 
-    var start = moment();
-    var passed = 0;
-    var failed = 0;
-    var total = 0;
+	var start = moment();
+	var passed = 0;
+	var failed = 0;
+	var total = 0;
 
-    function updateTest(_passed, _failed) {
-        passed += _passed;
-        failed += _failed;
-        updateTotals(passed, failed);
-    }
+	function updateTest(_passed, _failed) {
+		passed += _passed;
+		failed += _failed;
+		updateTotals(passed, failed);
+	}
 
-    function updateTotals(_passed, _failed) {
-        var duration = moment().diff(start);
-        if (_failed) {
-            banner.removeClass('alert-info');
-            banner.addClass('alert-error');
-        }
-        banner.html('<h3>' + _passed + ' passed.</h3><h3>' + _failed + ' failed.</h3><h3>' + duration + ' milliseconds.</h3>');
-    }
+	function updateTotals(_passed, _failed) {
+		var duration = moment().diff(start);
+		if (_failed) {
+			banner.removeClass('pass');
+			banner.addClass('fail');
+		}
+		banner.html('<h3>' + _passed + ' tests passed. ' + _failed + ' failed.</h3>');
+	}
 
-    nodeunit.runModules(exports, {
-        moduleStart : function (name) {
-            tests.append('<h3>' + name + '</h3>');
-        },
-        testDone : function (name, assertions) {
-            var testEl = $('<li class="alert alert-success">'),
-                testHtml = '',
-                assertUl = $('<ul>'),
-                assertLi,
-                assertHtml = '';
-                assert;
+	nodeunit.runModules(exports, {
+		moduleStart : function (name) {
+			tests.append('<h3>' + name + '</h3>');
+		},
+		testDone : function (name, assertions) {
+			var testEl = $('<li>'),
+				testHtml = '',
+				assertUl = $('<ul>'),
+				assertLi,
+				assertHtml = '';
+				assert;
 
-            total++;
-            
-            // each test
-            testHtml += '<div><strong>' + name + '</strong> ';
-            if (assertions.failures()) {
-                testEl.addClass('alert-error open');
-                testEl.removeClass('alert-success');
-                testHtml += assertions.passes() + ' passed,';
-                testHtml += assertions.failures() + ' failed.</div>';
-            } else {
-                testHtml += 'All ' + assertions.passes() + ' passed.</div>';
-            }
-            testEl.addClass('test');
-            testEl.html(testHtml);
+			total++;
 
-            // each assert
-            for (var i = 0; i < assertions.length; i++) {
-                assert = assertions[i];
-                assertLi = $('<li>');
-                assertHtml = '<strong>' + total + '.' + (i + 1) + '</strong> ';
-                assertHtml += (assert.message || assert.method || 'no message');
-                if (assert.failed()) {
-                    assertHtml += ' (' + assert.error.expected + ' ' + assert.error.operator + ' ' + assert.error.actual + ')';
-                    assertHtml += '<pre>' + (assert.error.stack || assert.error) + '</pre>';
-                    assertLi.addClass('fail');
-                } else {
-                    assertLi.addClass('pass');
-                }
-                assertLi.html(assertHtml);
-                assertUl.append(assertLi);
-            }
+			// each test
+			testHtml += '<div class="title"><strong>' + name + '</strong> ';
+			if (assertions.failures()) {
+				testEl.addClass('fail open');
+				testHtml += assertions.passes() + ' passed,';
+				testHtml += assertions.failures() + ' failed.</div>';
+			} else {
+				testEl.addClass('pass');
+				testHtml += 'All ' + assertions.passes() + ' passed.</div>';
+			}
+			testEl.addClass('test');
+			testEl.html(testHtml);
 
-            testEl.append(assertUl);
-            tests.append(testEl);
-            updateTest(assertions.passes(), assertions.failures());
-        },
-        done : function (assertions) {
-            var duration = moment().diff(start);
-            var failures = assertions.failures();
+			// each assert
+			for (var i = 0; i < assertions.length; i++) {
+				assert = assertions[i];
+				assertLi = $('<li>');
+				assertHtml = '<strong>' + total + '.' + (i + 1) + '</strong> ';
+				assertHtml += (assert.message || assert.method || 'no message');
+				if (assert.failed()) {
+					assertHtml += ' (' + assert.error.expected + ' ' + assert.error.operator + ' ' + assert.error.actual + ')';
+					assertHtml += '<pre>' + (assert.error.stack || assert.error) + '</pre>';
+					assertLi.addClass('fail');
+				} else {
+					assertLi.addClass('pass');
+				}
+				assertLi.html(assertHtml);
+				assertUl.append(assertLi);
+			}
 
-            var toStr = "Date.prototype.toString = " + (new Date()).toString();
-            toStr += "<br/><br/>";
-            toStr += "Date.prototype.toLocaleString = " + (new Date()).toLocaleString();
-            toStr += "<br/><br/>";
-            toStr += "Date.prototype.getTimezoneOffset = " + (new Date(1000)).getTimezoneOffset();
-            toStr += "<br/><br/>";
-            toStr += "navigator.userAgent = " + navigator.userAgent;
+			testEl.append(assertUl);
+			tests.append(testEl);
+			updateTest(assertions.passes(), assertions.failures());
+		},
+		done : function (assertions) {
+			var duration = moment().diff(start),
+				failures = assertions.failures(),
 
-            if (failures) {
-                headerRow.after("<div class='row'>" + "<div class='span4'>" +
-                    "<p class='alert alert-error'>Hmm, looks like some of the unit tests are failing.<br/><br/>" +
-                    "It's hard to catch all the bugs across all timezones, so if you have a minute, " + 
-                    "please submit an issue with the failing test and the info to the right.<br/><br/>" + 
-                    "<a class='btn' href='https://github.com/timrwood/moment/issues'>github.com/timrwood/moment/issues</a>" + 
-                    "<br/><br/>Thanks!</p>" + 
-                    "</div>" + 
-                    "<div class='span8'>" +
-                    "<p class='alert alert-info'>Please include this when you submit the issue.<br/><br/>" + toStr + "</p>" +
-                    "</div></div>")
-            } else {
-                banner.after("<p class='alert alert-success'>Awesome, all the unit tests passed!</p>");
-            }
+				toStr = '<pre>' + [
+					"Date.prototype.toString = " + (new Date()).toString(),
+					"Date.prototype.toLocaleString = " + (new Date()).toLocaleString(),
+					"Date.prototype.getTimezoneOffset = " + (new Date(1000)).getTimezoneOffset(),
+					"navigator.userAgent = " + navigator.userAgent
+				].join("<br/>") + '</pre>';
 
-            updateTotals(assertions.passes(), failures);
-        }
-    });
+			if (failures) {
+				banner.after('<p>' + [
+					"Hmm, looks like some of the unit tests are failing.",
+					"It's hard to catch all the bugs across all browsers and timezones, so if you have a minute," +
+						"please submit an issue with the failing test and the info below.",
+					"<a href='https://github.com/timrwood/moment/issues'>github.com/timrwood/moment/issues</a>",
+					"Thanks!",
+					"Please include this when you submit the issue.",
+					toStr].join('</p><p>') + '</p>');
+			} else {
+				banner.after("<p class='success'>Awesome, all the unit tests passed!</p>");
+			}
 
-    tests.on('click', 'li.test', {}, function(){
-        $(this).toggleClass('open');
-    });
+			updateTotals(assertions.passes(), failures);
+		}
+	});
+
+	tests.on('click', 'li.test', function(){
+		$(this).toggleClass('open');
+	});
 })();
+
 
 })();

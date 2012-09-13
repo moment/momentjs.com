@@ -90,6 +90,11 @@
 			top: -110px;
 		}
 
+		code {
+			background: #eee;
+			border: 1px solid #ddd;
+		}
+
 		@include size(mobile) {
 			h2 {
 				font-size: 30px;

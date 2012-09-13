@@ -28,6 +28,16 @@ moment().format();</pre>
 				<pre id="js-format"></pre>
 			</div>
 		</article>
+	</div>
+	<div class="langs">
+		<h2>Languages</h2>
+		{% for lang in langs %}
+			<div class="button {% if loop.key == "en" %}active{% endif %}" data-lang="{{ loop.key }}">
+				{{ lang }}
+			</div>
+		{% endfor %}
+	</div>
+	<div class="examples">
 		<article>
 			<h2>Timeago</h2>
 			<div class="input">
@@ -69,16 +79,5 @@ moment().format('LLLL');</pre>
 				<pre id="js-lang"></pre>
 			</div>
 		</article>
-	</div>
-
-	<div class="langs">
-		<div class="span2">
-			<h2>Language</h2>
-			{% for lang in langs %}
-				<div class="btn btn-block {% if loop.key == "en" %}btn-info{% endif %}" data-lang="{{ loop.key }}">
-					{{ lang }}
-				</div>
-			{% endfor %}
-		</div>
 	</div>
 {% endblock content %}
