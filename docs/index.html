@@ -6,11 +6,11 @@
 		<title>Moment.js | Documentation</title>
 	</head>
 	<body>
-		<nav>
+		<nav class="top">
 			<a class="logo" href="/">Moment.js</a>
-			<a class="docs" href="/docs/">Documentation</a>
-			<a class="test" href="/test/">Unit Tests</a>
-			<a class="twitter" href="https://twitter.com/momentjs">Follow @momentjs on twitter</a>
+			<a class="docs" href="/docs/">Docs</a>
+			<a class="test" href="/test/">Tests</a>
+			<a class="twitter" href="https://twitter.com/momentjs">@momentjs</a>
 			<iframe src="http://ghbtns.com/github-btn.html?user=timrwood&repo=moment&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
 		</nav>
 		<header>
@@ -43,508 +43,287 @@
 		</header>
 		<div class="container">
 			
-	<div class="row">
 
-		<div id="download-btns" class="span4">
-			<h3>Latest version : 1.7.0</h3>
-			<pre>npm install moment</pre>
-			<p>
-				<a class="btn btn-success btn-large" href="https://raw.github.com/timrwood/moment/" + 1.7.0 + "/min/moment.min.js">
-					<i class="icon-download-alt icon-white"></i>
-					<strong>Production</strong>
-					<span class="filesize">(4.8k min &amp; gzip)</span>
-				</a>
-			</p>
-			<p>
-				<a class="btn" href="https://raw.github.com/timrwood/moment/" + 1.7.0 + "/moment.js">
-					<i class="icon-download-alt"></i>
-					<strong>Development</strong>
-					<span class="filesize">(full 36.8k source)</span>
-				</a>
-			</p>
-			<div class="share">
-				<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://momentjs.com" data-via="momentjs" data-lang="en" data-count="vertical"></a>
-				<div class="g-plusone" data-size="tall" data-href="http://momentjs.com"></div>
-			</div>
-		</div>
-	</div>
-
-	<div id="subnav" class="subnav subnav-fixed">
-		<ul class="nav nav-pills">
-			
-				<li class="dropdown">
-					<a class="dropdown-toggle" data-toggle="dropdown">
-						<span>Where to use it</span>
-					</a>
-					<ul class="dropdown-menu">
-						
-							<li>
-								<a href="#/use-it/in-node-js/">In Node.js</a>
-							</li>
-						
-							<li>
-								<a href="#/use-it/in-the-browser/">In the Browser</a>
-							</li>
-						
-					</ul>
-				</li>
-			
-				<li class="dropdown">
-					<a class="dropdown-toggle" data-toggle="dropdown">
-						<span>Parse</span>
-					</a>
-					<ul class="dropdown-menu">
-						
-							<li>
-								<a href="#/parsing/javascript-date-object/">Javascript Date Object</a>
-							</li>
-						
-							<li>
-								<a href="#/parsing/milliseconds-since-the-unix-epoch/">Milliseconds since the Unix Epoch</a>
-							</li>
-						
-							<li>
-								<a href="#/parsing/unix-timestamp/">Unix Timestamp</a>
-							</li>
-						
-							<li>
-								<a href="#/parsing/string/">String</a>
-							</li>
-						
-							<li>
-								<a href="#/parsing/string-format/">String + Format</a>
-							</li>
-						
-							<li>
-								<a href="#/parsing/string-formats/">String + Formats</a>
-							</li>
-						
-							<li>
-								<a href="#/parsing/now/">Now</a>
-							</li>
-						
-							<li>
-								<a href="#/parsing/javascript-array/">Javascript Array</a>
-							</li>
-						
-							<li>
-								<a href="#/parsing/asp-net-json-dates/">ASP.NET json dates</a>
-							</li>
-						
-							<li>
-								<a href="#/parsing/unix-timestamp/">Unix Timestamp</a>
-							</li>
-						
-							<li>
-								<a href="#/parsing/cloning/">Cloning</a>
-							</li>
-						
-							<li>
-								<a href="#/parsing/utc/">UTC</a>
-							</li>
-						
-							<li>
-								<a href="#/parsing/is-valid/">Validation</a>
-							</li>
-						
-					</ul>
-				</li>
-			
-				<li class="dropdown">
-					<a class="dropdown-toggle" data-toggle="dropdown">
-						<span>Manipulate</span>
-					</a>
-					<ul class="dropdown-menu">
-						
-							<li>
-								<a href="#/manipulating/add/">Add</a>
-							</li>
-						
-							<li>
-								<a href="#/manipulating/subtract/">Subtract</a>
-							</li>
-						
-							<li>
-								<a href="#/manipulating/milliseconds/">Milliseconds</a>
-							</li>
-						
-							<li>
-								<a href="#/manipulating/seconds/">Seconds</a>
-							</li>
-						
-							<li>
-								<a href="#/manipulating/minutes/">Minutes</a>
-							</li>
-						
-							<li>
-								<a href="#/manipulating/hours/">Hours</a>
-							</li>
-						
-							<li>
-								<a href="#/manipulating/date/">Date of the Month</a>
-							</li>
-						
-							<li>
-								<a href="#/manipulating/day/">Day of the Week</a>
-							</li>
-						
-							<li>
-								<a href="#/manipulating/month/">Month</a>
-							</li>
-						
-							<li>
-								<a href="#/manipulating/year/">Year</a>
-							</li>
-						
-							<li>
-								<a href="#/manipulating/start-of/">Start of Time</a>
-							</li>
-						
-							<li>
-								<a href="#/manipulating/end-of/">End of Time</a>
-							</li>
-						
-							<li>
-								<a href="#/manipulating/sod/">Start of Day</a>
-							</li>
-						
-							<li>
-								<a href="#/manipulating/eod/">End of Day</a>
-							</li>
-						
-							<li>
-								<a href="#/manipulating/local/">Local</a>
-							</li>
-						
-							<li>
-								<a href="#/manipulating/utc/">UTC</a>
-							</li>
-						
-					</ul>
-				</li>
-			
-				<li class="dropdown">
-					<a class="dropdown-toggle" data-toggle="dropdown">
-						<span>Display</span>
-					</a>
-					<ul class="dropdown-menu">
-						
-							<li>
-								<a href="#/displaying/format/">Format</a>
-							</li>
-						
-							<li>
-								<a href="#/displaying/from/">Humanize time from another moment</a>
-							</li>
-						
-							<li>
-								<a href="#/displaying/fromnow/">Humanize time from now</a>
-							</li>
-						
-							<li>
-								<a href="#/displaying/humanize-duration/">Humanize duration</a>
-							</li>
-						
-							<li>
-								<a href="#/displaying/calendar-time/">Calendar Time</a>
-							</li>
-						
-							<li>
-								<a href="#/displaying/difference/">Difference</a>
-							</li>
-						
-							<li>
-								<a href="#/displaying/native-javascript-date/">Native Javascript Date</a>
-							</li>
-						
-							<li>
-								<a href="#/displaying/milliseconds-since-the-unix-epoch/">Milliseconds since the Unix Epoch</a>
-							</li>
-						
-							<li>
-								<a href="#/displaying/unix-timestamp/">Unix Timestamp</a>
-							</li>
-						
-							<li>
-								<a href="#/displaying/milliseconds/">Milliseconds</a>
-							</li>
-						
-							<li>
-								<a href="#/displaying/seconds/">Seconds</a>
-							</li>
-						
-							<li>
-								<a href="#/displaying/minutes/">Minutes</a>
-							</li>
-						
-							<li>
-								<a href="#/displaying/hours/">Hours</a>
-							</li>
-						
-							<li>
-								<a href="#/displaying/date/">Date of the Month</a>
-							</li>
-						
-							<li>
-								<a href="#/displaying/day/">Day of the Week</a>
-							</li>
-						
-							<li>
-								<a href="#/displaying/month/">Month</a>
-							</li>
-						
-							<li>
-								<a href="#/displaying/year/">Year</a>
-							</li>
-						
-							<li>
-								<a href="#/displaying/leap-year/">Leap Year</a>
-							</li>
-						
-							<li>
-								<a href="#/displaying/timezone-offset/">Timezone Offset</a>
-							</li>
-						
-							<li>
-								<a href="#/displaying/days-in-month/">Days in Month</a>
-							</li>
-						
-							<li>
-								<a href="#/displaying/daylight-saving-time/">Daylight Saving Time</a>
-							</li>
-						
-							<li>
-								<a href="#/displaying/ismoment/">isMoment</a>
-							</li>
-						
-					</ul>
-				</li>
-			
-				<li class="dropdown">
-					<a class="dropdown-toggle" data-toggle="dropdown">
-						<span>i18n</span>
-					</a>
-					<ul class="dropdown-menu">
-						
-							<li>
-								<a href="#/i18n/changing-language/">Changing language globally</a>
-							</li>
-						
-							<li>
-								<a href="#/i18n/instance-language/">Changing language locally</a>
-							</li>
-						
-							<li>
-								<a href="#/i18n/loading-into-nodejs/">Loading languages in NodeJS</a>
-							</li>
-						
-							<li>
-								<a href="#/i18n/loading-into-browser/">Loading languages in the browser</a>
-							</li>
-						
-							<li>
-								<a href="#/i18n/adding-language/">Adding your language to Moment.js</a>
-							</li>
-						
-							<li>
-								<a href="#/i18n/getting-language/">Checking the current Moment.js language</a>
-							</li>
-						
-					</ul>
-				</li>
-			
-				<li class="dropdown">
-					<a class="dropdown-toggle" data-toggle="dropdown">
-						<span>Customize</span>
-					</a>
-					<ul class="dropdown-menu">
-						
-							<li>
-								<a href="#/customization/month-names/">Month Names</a>
-							</li>
-						
-							<li>
-								<a href="#/customization/month-abbreviations/">Month Abbreviations</a>
-							</li>
-						
-							<li>
-								<a href="#/customization/weekday-names/">Weekday Names</a>
-							</li>
-						
-							<li>
-								<a href="#/customization/weekday-abbreviations/">Weekday Abbreviations</a>
-							</li>
-						
-							<li>
-								<a href="#/customization/weekday-min/">Minimal Weekday Abbreviations</a>
-							</li>
-						
-							<li>
-								<a href="#/customization/long-date-formats/">Long Date Formats</a>
-							</li>
-						
-							<li>
-								<a href="#/customization/relative-time/">Relative Time</a>
-							</li>
-						
-							<li>
-								<a href="#/customization/am-pm/">AM/PM</a>
-							</li>
-						
-							<li>
-								<a href="#/customization/calendar/">Calendar</a>
-							</li>
-						
-							<li>
-								<a href="#/customization/ordinal/">Ordinal</a>
-							</li>
-						
-					</ul>
-				</li>
-			
-				<li class="dropdown">
-					<a class="dropdown-toggle" data-toggle="dropdown">
-						<span>Durations</span>
-					</a>
-					<ul class="dropdown-menu">
-						
-							<li>
-								<a href="#/durations/creating/">Creating</a>
-							</li>
-						
-							<li>
-								<a href="#/durations/humanize/">Humanize</a>
-							</li>
-						
-							<li>
-								<a href="#/durations/milliseconds/">Milliseconds</a>
-							</li>
-						
-							<li>
-								<a href="#/durations/seconds/">Seconds</a>
-							</li>
-						
-							<li>
-								<a href="#/durations/minutes/">Minutes</a>
-							</li>
-						
-							<li>
-								<a href="#/durations/hours/">Hours</a>
-							</li>
-						
-							<li>
-								<a href="#/durations/days/">Days</a>
-							</li>
-						
-							<li>
-								<a href="#/durations/months/">Months</a>
-							</li>
-						
-							<li>
-								<a href="#/durations/years/">Years</a>
-							</li>
-						
-					</ul>
-				</li>
-			
-				<li class="dropdown">
-					<a class="dropdown-toggle" data-toggle="dropdown">
-						<span>Plugins</span>
-					</a>
-					<ul class="dropdown-menu">
-						
-							<li>
-								<a href="#/plugins/strftime/">strftime</a>
-							</li>
-						
-							<li>
-								<a href="#/plugins/isocalendar/">ISO Calendar</a>
-							</li>
-						
-							<li>
-								<a href="#/plugins/range/">Date Ranges</a>
-							</li>
-						
-							<li>
-								<a href="#/plugins/twix/">Twix</a>
-							</li>
-						
-					</ul>
-				</li>
-			
-		</ul>
-	</div>
-
-	<div id="docs" data-spy="scroll">
+	<nav class="subnav">
 		
-			<div class="row">
-				<div class="section-header">
-					<a class="target" name="/use-it/"></a>
-					<h2>
-						<a href='#/use-it/'>Where to use it</a>
-					</h2>
-					<div><p>Moment was designed to work in both the browser and in NodeJS. All code will work in both environments. All unit tests are run in both environments.</p></div>
+			<div class="section">
+				<a href='#/use-it/'>Where to use it</a>
+				<div class="dropdown">
+					
+						<a href="#/use-it/in-node-js/">In Node.js</a>
+					
+						<a href="#/use-it/in-the-browser/">In the Browser</a>
+					
 				</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/use-it/in-node-js/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/use-it/in-node-js/'>In Node.js</a>
-								</h3>
-								<div></div>
-							</div>
-							<div class="signature">
-								
-								
-							</div>
-						</div>
+			</div>
+		
+			<div class="section">
+				<a href='#/parsing/'>Parse</a>
+				<div class="dropdown">
+					
+						<a href="#/parsing/javascript-date-object/">Javascript Date Object</a>
+					
+						<a href="#/parsing/milliseconds-since-the-unix-epoch/">Milliseconds since the Unix Epoch</a>
+					
+						<a href="#/parsing/unix-timestamp/">Unix Timestamp</a>
+					
+						<a href="#/parsing/string/">String</a>
+					
+						<a href="#/parsing/string-format/">String + Format</a>
+					
+						<a href="#/parsing/string-formats/">String + Formats</a>
+					
+						<a href="#/parsing/now/">Now</a>
+					
+						<a href="#/parsing/javascript-array/">Javascript Array</a>
+					
+						<a href="#/parsing/asp-net-json-dates/">ASP.NET json dates</a>
+					
+						<a href="#/parsing/unix-timestamp/">Unix Timestamp</a>
+					
+						<a href="#/parsing/cloning/">Cloning</a>
+					
+						<a href="#/parsing/utc/">UTC</a>
+					
+						<a href="#/parsing/is-valid/">Validation</a>
+					
+				</div>
+			</div>
+		
+			<div class="section">
+				<a href='#/manipulating/'>Manipulate</a>
+				<div class="dropdown">
+					
+						<a href="#/manipulating/add/">Add</a>
+					
+						<a href="#/manipulating/subtract/">Subtract</a>
+					
+						<a href="#/manipulating/milliseconds/">Milliseconds</a>
+					
+						<a href="#/manipulating/seconds/">Seconds</a>
+					
+						<a href="#/manipulating/minutes/">Minutes</a>
+					
+						<a href="#/manipulating/hours/">Hours</a>
+					
+						<a href="#/manipulating/date/">Date of the Month</a>
+					
+						<a href="#/manipulating/day/">Day of the Week</a>
+					
+						<a href="#/manipulating/month/">Month</a>
+					
+						<a href="#/manipulating/year/">Year</a>
+					
+						<a href="#/manipulating/start-of/">Start of Time</a>
+					
+						<a href="#/manipulating/end-of/">End of Time</a>
+					
+						<a href="#/manipulating/sod/">Start of Day</a>
+					
+						<a href="#/manipulating/eod/">End of Day</a>
+					
+						<a href="#/manipulating/local/">Local</a>
+					
+						<a href="#/manipulating/utc/">UTC</a>
+					
+				</div>
+			</div>
+		
+			<div class="section">
+				<a href='#/displaying/'>Display</a>
+				<div class="dropdown">
+					
+						<a href="#/displaying/format/">Format</a>
+					
+						<a href="#/displaying/from/">Humanize time from another moment</a>
+					
+						<a href="#/displaying/fromnow/">Humanize time from now</a>
+					
+						<a href="#/displaying/humanize-duration/">Humanize duration</a>
+					
+						<a href="#/displaying/calendar-time/">Calendar Time</a>
+					
+						<a href="#/displaying/difference/">Difference</a>
+					
+						<a href="#/displaying/native-javascript-date/">Native Javascript Date</a>
+					
+						<a href="#/displaying/milliseconds-since-the-unix-epoch/">Milliseconds since the Unix Epoch</a>
+					
+						<a href="#/displaying/unix-timestamp/">Unix Timestamp</a>
+					
+						<a href="#/displaying/milliseconds/">Milliseconds</a>
+					
+						<a href="#/displaying/seconds/">Seconds</a>
+					
+						<a href="#/displaying/minutes/">Minutes</a>
+					
+						<a href="#/displaying/hours/">Hours</a>
+					
+						<a href="#/displaying/date/">Date of the Month</a>
+					
+						<a href="#/displaying/day/">Day of the Week</a>
+					
+						<a href="#/displaying/month/">Month</a>
+					
+						<a href="#/displaying/year/">Year</a>
+					
+						<a href="#/displaying/leap-year/">Leap Year</a>
+					
+						<a href="#/displaying/timezone-offset/">Timezone Offset</a>
+					
+						<a href="#/displaying/days-in-month/">Days in Month</a>
+					
+						<a href="#/displaying/daylight-saving-time/">Daylight Saving Time</a>
+					
+						<a href="#/displaying/ismoment/">isMoment</a>
+					
+				</div>
+			</div>
+		
+			<div class="section">
+				<a href='#/i18n/'>i18n</a>
+				<div class="dropdown">
+					
+						<a href="#/i18n/changing-language/">Changing language globally</a>
+					
+						<a href="#/i18n/instance-language/">Changing language locally</a>
+					
+						<a href="#/i18n/loading-into-nodejs/">Loading languages in NodeJS</a>
+					
+						<a href="#/i18n/loading-into-browser/">Loading languages in the browser</a>
+					
+						<a href="#/i18n/adding-language/">Adding your language to Moment.js</a>
+					
+						<a href="#/i18n/getting-language/">Checking the current Moment.js language</a>
+					
+				</div>
+			</div>
+		
+			<div class="section">
+				<a href='#/customization/'>Customize</a>
+				<div class="dropdown">
+					
+						<a href="#/customization/month-names/">Month Names</a>
+					
+						<a href="#/customization/month-abbreviations/">Month Abbreviations</a>
+					
+						<a href="#/customization/weekday-names/">Weekday Names</a>
+					
+						<a href="#/customization/weekday-abbreviations/">Weekday Abbreviations</a>
+					
+						<a href="#/customization/weekday-min/">Minimal Weekday Abbreviations</a>
+					
+						<a href="#/customization/long-date-formats/">Long Date Formats</a>
+					
+						<a href="#/customization/relative-time/">Relative Time</a>
+					
+						<a href="#/customization/am-pm/">AM/PM</a>
+					
+						<a href="#/customization/calendar/">Calendar</a>
+					
+						<a href="#/customization/ordinal/">Ordinal</a>
+					
+				</div>
+			</div>
+		
+			<div class="section">
+				<a href='#/durations/'>Durations</a>
+				<div class="dropdown">
+					
+						<a href="#/durations/creating/">Creating</a>
+					
+						<a href="#/durations/humanize/">Humanize</a>
+					
+						<a href="#/durations/milliseconds/">Milliseconds</a>
+					
+						<a href="#/durations/seconds/">Seconds</a>
+					
+						<a href="#/durations/minutes/">Minutes</a>
+					
+						<a href="#/durations/hours/">Hours</a>
+					
+						<a href="#/durations/days/">Days</a>
+					
+						<a href="#/durations/months/">Months</a>
+					
+						<a href="#/durations/years/">Years</a>
+					
+				</div>
+			</div>
+		
+			<div class="section">
+				<a href='#/plugins/'>Plugins</a>
+				<div class="dropdown">
+					
+						<a href="#/plugins/strftime/">strftime</a>
+					
+						<a href="#/plugins/isocalendar/">ISO Calendar</a>
+					
+						<a href="#/plugins/range/">Date Ranges</a>
+					
+						<a href="#/plugins/twix/">Twix</a>
+					
+				</div>
+			</div>
+		
+	</nav>
+
+	<div class="docs">
+		
+			<article class="section">
+				<a class="target" name="/use-it/"></a>
+				<h2><a href='#/use-it/'>Where to use it</a></h2>
+				<p>Moment was designed to work in both the browser and in NodeJS. All code will work in both environments. All unit tests are run in both environments.</p>
+			</article>
+			
+				<article class="method">
+					<a class="target" name="/use-it/in-node-js/"></a>
+					<h3><a href='#/use-it/in-node-js/'>In Node.js</a></h3>
+					
+					<div class="prose">
+						
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/use-it/in-the-browser/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/use-it/in-the-browser/'>In the Browser</a>
-								</h3>
-								<div><div class="highlight"><pre lang="">&lt;script src="moment.min.js">&lt;/script>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/use-it/in-the-browser/"></a>
+					<h3><a href='#/use-it/in-the-browser/'>In the Browser</a></h3>
+					
+					<div class="prose">
+						<div class="highlight"><pre lang="">&lt;script src="moment.min.js">&lt;/script>
 </pre></div>
 
 <div class="highlight"><pre lang="javascript">moment().add(<span class="string">'hours'</span>, <span class="number">1</span>).fromNow(); <span class="comment">// "in an hour"</span>
-</pre></div></div>
-							</div>
-							<div class="signature">
-								
-								
-							</div>
-						</div>
+</pre></div>
 					</div>
-				
-			</div>
+				</article>
+			
 		
-			<div class="row">
-				<div class="section-header">
-					<a class="target" name="/parsing/"></a>
-					<h2>
-						<a href='#/parsing/'>Parse</a>
-					</h2>
-					<div><p>Instead of modifying the native <code>Date.prototype</code>, Moment.js creates a wrapper for the <code>Date</code> object.</p>
+			<article class="section">
+				<a class="target" name="/parsing/"></a>
+				<h2><a href='#/parsing/'>Parse</a></h2>
+				<p>Instead of modifying the native <code>Date.prototype</code>, Moment.js creates a wrapper for the <code>Date</code> object.</p>
 
 <p>Note: The Moment.js prototype is exposed through <code>moment.fn</code>. If you want to add your own functions, that is where you would put them.</p>
 
-<p>To get this wrapper object, simply call <code>moment()</code> with one of the supported input types.</p></div>
-				</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/parsing/javascript-date-object/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/parsing/javascript-date-object/'>Javascript Date Object</a>
-								</h3>
-								<div><p>You can create a moment with a pre-existing native Javascript Date object.</p>
+<p>To get this wrapper object, simply call <code>moment()</code> with one of the supported input types.</p>
+			</article>
+			
+				<article class="method">
+					<a class="target" name="/parsing/javascript-date-object/"></a>
+					<h3><a href='#/parsing/javascript-date-object/'>Javascript Date Object</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.0.0</p>
+							
+							
+								<pre>moment(Date);</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p>You can create a moment with a pre-existing native Javascript Date object.</p>
 
 <div class="highlight"><pre lang="javascript"><span class="keyword">var</span> day = <span class="keyword">new</span> Date(<span class="number">2011</span>, <span class="number">9</span>, <span class="number">16</span>);
 <span class="keyword">var</span> dayWrapper = moment(day);
@@ -553,77 +332,71 @@
 <div class="highlight"><pre lang="javascript"><span class="keyword">var</span> otherDay = moment(<span class="keyword">new</span> Date(<span class="number">2020</span>, <span class="number">3</span>, <span class="number">7</span>));
 </pre></div>
 
-<p>This is the fastest way to get a Moment.js wrapper.</p></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.0.0</p>
-								
-								
-									<pre>moment(Date);</pre>
-								
-							</div>
-						</div>
+<p>This is the fastest way to get a Moment.js wrapper.</p>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/parsing/milliseconds-since-the-unix-epoch/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/parsing/milliseconds-since-the-unix-epoch/'>Milliseconds since the Unix Epoch</a>
-								</h3>
-								<div><p>Similar to <code>new Date(Number)</code>, you can create a moment by passing an integer value representing the<br />number of milliseconds since the Unix Epoch (1 January 1970 00:00:00 UTC).</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/parsing/milliseconds-since-the-unix-epoch/"></a>
+					<h3><a href='#/parsing/milliseconds-since-the-unix-epoch/'>Milliseconds since the Unix Epoch</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.0.0</p>
+							
+							
+								<pre>moment(Number);</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p>Similar to <code>new Date(Number)</code>, you can create a moment by passing an integer value representing the<br />number of milliseconds since the Unix Epoch (1 January 1970 00:00:00 UTC).</p>
 
 <div class="highlight"><pre lang="javascript"><span class="keyword">var</span> day = moment(<span class="number">1318781876406</span>);
 </pre></div>
 
-<p><strong>Note:</strong>To create a <code>moment()</code>from a Unix timetamp (the number of seconds since the Epoch), use <code>moment.unix(Number)</code>.</p></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.0.0</p>
-								
-								
-									<pre>moment(Number);</pre>
-								
-							</div>
-						</div>
+<p><strong>Note:</strong>To create a <code>moment()</code>from a Unix timetamp (the number of seconds since the Epoch), use <code>moment.unix(Number)</code>.</p>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/parsing/unix-timestamp/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/parsing/unix-timestamp/'>Unix Timestamp</a>
-								</h3>
-								<div><p>You can create a moment from a Unix timestamp (seconds since the Unix Epoch)<br />using <code>moment.unix(Number)</code>.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/parsing/unix-timestamp/"></a>
+					<h3><a href='#/parsing/unix-timestamp/'>Unix Timestamp</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.6.0</p>
+							
+							
+								<pre>moment.unix(Number)</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p>You can create a moment from a Unix timestamp (seconds since the Unix Epoch)<br />using <code>moment.unix(Number)</code>.</p>
 
 <div class="highlight"><pre lang="javascript"><span class="keyword">var</span> day = moment.unix(<span class="number">1318781876</span>);
 </pre></div>
 
-<p><strong>Note:</strong> This functions is implemented with (approximately) <code>return moment(timestamp * 1000)</code>, so milliseconds in the input timestamp will be included in the moment.</p></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.6.0</p>
-								
-								
-									<pre>moment.unix(Number)</pre>
-								
-							</div>
-						</div>
+<p><strong>Note:</strong> This functions is implemented with (approximately) <code>return moment(timestamp * 1000)</code>, so milliseconds in the input timestamp will be included in the moment.</p>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/parsing/string/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/parsing/string/'>String</a>
-								</h3>
-								<div><p>You can create a moment from a string that can be parsed by <code>Date.parse</code>.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/parsing/string/"></a>
+					<h3><a href='#/parsing/string/'>String</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.0.0</p>
+							
+							
+								<pre>moment(String);</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p>You can create a moment from a string that can be parsed by <code>Date.parse</code>.</p>
 
 <div class="highlight"><pre lang="javascript"><span class="keyword">var</span> day = moment(<span class="string">"Dec 25, 1995"</span>);
 </pre></div>
@@ -639,27 +412,25 @@
 <span class="string">"YYYY-MM-DDTHH:mm:ss z"</span>
 </pre></div>
 
-<p><strong>Note:</strong> Automatic cross browser ISO-8601 support was added in version <span class="label">1.5.0</span></p></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.0.0</p>
-								
-								
-									<pre>moment(String);</pre>
-								
-							</div>
-						</div>
+<p><strong>Note:</strong> Automatic cross browser ISO-8601 support was added in version <span class="label">1.5.0</span></p>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/parsing/string-format/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/parsing/string-format/'>String + Format</a>
-								</h3>
-								<div><p>If you know the format of an input string, you can use that to parse a moment.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/parsing/string-format/"></a>
+					<h3><a href='#/parsing/string-format/'>String + Format</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.0.0</p>
+							
+							
+								<pre>moment(String, String);</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p>If you know the format of an input string, you can use that to parse a moment.</p>
 
 <div class="highlight"><pre lang="javascript"><span class="keyword">var</span> day = moment(<span class="string">"12-25-1995"</span>, <span class="string">"MM-DD-YYYY"</span>);
 </pre></div>
@@ -745,27 +516,25 @@
   </tbody>
 </table>
 
-<p>Unless you specify a timezone offset, parsing a string will create a date in the current timezone.</p></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.0.0</p>
-								
-								
-									<pre>moment(String, String);</pre>
-								
-							</div>
-						</div>
+<p>Unless you specify a timezone offset, parsing a string will create a date in the current timezone.</p>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/parsing/string-formats/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/parsing/string-formats/'>String + Formats</a>
-								</h3>
-								<div><p>If you don't know the exact format of an input string, but know it could be one of many, you can use an array of formats.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/parsing/string-formats/"></a>
+					<h3><a href='#/parsing/string-formats/'>String + Formats</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.0.0</p>
+							
+							
+								<pre>moment(String, String[]);</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p>If you don't know the exact format of an input string, but know it could be one of many, you can use an array of formats.</p>
 
 <p>This is the same as String + Format, only it will try to match the input to multiple formats.</p>
 
@@ -777,52 +546,48 @@
 <div class="highlight"><pre lang="javascript"><span class="keyword">var</span> day = moment(<span class="string">"05-06-1995"</span>, [<span class="string">"MM-DD-YYYY"</span>, <span class="string">"DD-MM-YYYY"</span>]); <span class="comment">// June 5th or May 6th?</span>
 </pre></div>
 
-<p><strong>Note:</strong> This is considerably slower than parsing with a single format. This should only be used as a last line of defense.</p></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.0.0</p>
-								
-								
-									<pre>moment(String, String[]);</pre>
-								
-							</div>
-						</div>
+<p><strong>Note:</strong> This is considerably slower than parsing with a single format. This should only be used as a last line of defense.</p>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/parsing/now/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/parsing/now/'>Now</a>
-								</h3>
-								<div><p>To get the current date and time, just call <code>moment()</code> with no parameters.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/parsing/now/"></a>
+					<h3><a href='#/parsing/now/'>Now</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.0.0</p>
+							
+							
+								<pre>moment();</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p>To get the current date and time, just call <code>moment()</code> with no parameters.</p>
 
 <div class="highlight"><pre lang="javascript"><span class="keyword">var</span> now = moment();
 </pre></div>
 
-<p>This is essentially the same as calling <code>moment(new Date())</code>.</p></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.0.0</p>
-								
-								
-									<pre>moment();</pre>
-								
-							</div>
-						</div>
+<p>This is essentially the same as calling <code>moment(new Date())</code>.</p>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/parsing/javascript-array/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/parsing/javascript-array/'>Javascript Array</a>
-								</h3>
-								<div><p>You can also create a moment by passing in an array of the parameters that mirror the parameters passed to <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date">new Date()</a></p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/parsing/javascript-array/"></a>
+					<h3><a href='#/parsing/javascript-array/'>Javascript Array</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.0.0</p>
+							
+							
+								<pre>moment(Number[]);</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p>You can also create a moment by passing in an array of the parameters that mirror the parameters passed to <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date">new Date()</a></p>
 
 <div class="highlight"><pre lang="javascript">[year, month = <span class="number">0</span>, date = <span class="number">1</span>, hours = <span class="number">0</span>, minutes = <span class="number">0</span>, seconds = <span class="number">0</span>, milliseconds = <span class="number">0</span>]
 <span class="keyword">var</span> day = moment([<span class="number">2010</span>, <span class="number">1</span>, <span class="number">14</span>, <span class="number">15</span>, <span class="number">25</span>, <span class="number">50</span>, <span class="number">125</span>]); <span class="comment">// February 14th, 3:25:50.125 PM</span>
@@ -843,77 +608,71 @@
 
 <p><strong>Note:</strong> Because this mirrors the native Date parameters, the following parameters are all zero indexed: months, hours, minutes, seconds, and milliseconds. Years and days of the month are 1 indexed.</p>
 
-<p>This is often the cause of frustration, especially with months, so take note!</p></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.0.0</p>
-								
-								
-									<pre>moment(Number[]);</pre>
-								
-							</div>
-						</div>
+<p>This is often the cause of frustration, especially with months, so take note!</p>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/parsing/asp-net-json-dates/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/parsing/asp-net-json-dates/'>ASP.NET json dates</a>
-								</h3>
-								<div><p>ASP.NET returns dates in json in the following formats: <code>/Date(1198908717056)/</code> or <code>/Date(1198908717056-0700)/</code></p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/parsing/asp-net-json-dates/"></a>
+					<h3><a href='#/parsing/asp-net-json-dates/'>ASP.NET json dates</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.3.0</p>
+							
+							
+								<pre>moment(String);</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p>ASP.NET returns dates in json in the following formats: <code>/Date(1198908717056)/</code> or <code>/Date(1198908717056-0700)/</code></p>
 
 <p>If a string that matches this format is passed in, it will be parsed correctly.</p>
 
 <div class="highlight"><pre lang="javascript">moment(<span class="string">"/Date(1198908717056-0700)/"</span>).valueOf(); <span class="comment">// 1198908717056</span>
-</pre></div></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.3.0</p>
-								
-								
-									<pre>moment(String);</pre>
-								
-							</div>
-						</div>
+</pre></div>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/parsing/unix-timestamp/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/parsing/unix-timestamp/'>Unix Timestamp</a>
-								</h3>
-								<div><p>You can create a moment from a Unix timestamp (seconds since the Unix Epoch)<br />using <code>moment.unix(Number)</code>.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/parsing/unix-timestamp/"></a>
+					<h3><a href='#/parsing/unix-timestamp/'>Unix Timestamp</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in ???</p>
+							
+							
+								<pre>moment.unix(Number)</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p>You can create a moment from a Unix timestamp (seconds since the Unix Epoch)<br />using <code>moment.unix(Number)</code>.</p>
 
 <div class="highlight"><pre lang="javascript"><span class="keyword">var</span> day = moment.unix(<span class="number">1318781876</span>);
 </pre></div>
 
-<p><strong>Note:</strong> This functions is implemented with (approximately) <code>return moment(timestamp * 1000)</code>, so milliseconds in the input timestamp will be included in the moment.</p></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in ???</p>
-								
-								
-									<pre>moment.unix(Number)</pre>
-								
-							</div>
-						</div>
+<p><strong>Note:</strong> This functions is implemented with (approximately) <code>return moment(timestamp * 1000)</code>, so milliseconds in the input timestamp will be included in the moment.</p>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/parsing/cloning/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/parsing/cloning/'>Cloning</a>
-								</h3>
-								<div><p>All moments are mutable. If you want a clone of a moment, you can do so explicitly or implicitly.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/parsing/cloning/"></a>
+					<h3><a href='#/parsing/cloning/'>Cloning</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.2.0</p>
+							
+							
+								<pre>moment(Moment);</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p>All moments are mutable. If you want a clone of a moment, you can do so explicitly or implicitly.</p>
 
 <p>Calling <code>moment()</code> on a moment will clone it.</p>
 
@@ -929,27 +688,29 @@ b.year(); <span class="comment">// 2012</span>
 <span class="keyword">var</span> b = a.clone();
 a.year(<span class="number">2000</span>);
 b.year(); <span class="comment">// 2012</span>
-</pre></div></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.2.0</p>
-								
-								
-									<pre>moment(Moment);</pre>
-								
-							</div>
-						</div>
+</pre></div>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/parsing/utc/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/parsing/utc/'>UTC</a>
-								</h3>
-								<div><p>By default, moment parses in local time. If you want to parse a moment in UTC, you can use the following methods.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/parsing/utc/"></a>
+					<h3><a href='#/parsing/utc/'>UTC</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.5.0</p>
+							
+							
+								<pre>moment.utc();
+moment.utc(Number);
+moment.utc(Number[]);
+moment.utc(String);
+moment.utc(String, String);</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p>By default, moment parses in local time. If you want to parse a moment in UTC, you can use the following methods.</p>
 
 <div class="highlight"><pre lang="javascript">moment.utc() <span class="comment">// current date/time in UTC mode</span>
 moment.utc(Number) <span class="comment">// milliseconds since the Unix Epoch in UTC mode</span>
@@ -970,31 +731,25 @@ moment.utc(String, String) <span class="comment">// parse a string and format in
 a.hours(); <span class="comment">// 8 UTC</span>
 a.local();
 a.hours(); <span class="comment">// 0 PST</span>
-</pre></div></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.5.0</p>
-								
-								
-									<pre>moment.utc();
-moment.utc(Number);
-moment.utc(Number[]);
-moment.utc(String);
-moment.utc(String, String);</pre>
-								
-							</div>
-						</div>
+</pre></div>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/parsing/is-valid/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/parsing/is-valid/'>Validation</a>
-								</h3>
-								<div><p>The main moment.js function is very flexible and will allow overflowing in parsing input. For example, <code>moment("2012-01-40", "YYYY-MM-DD")</code> will overflow the date value into the months, making the actual date Feb 9 (31 days in Jan + 9 days into Feb).</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/parsing/is-valid/"></a>
+					<h3><a href='#/parsing/is-valid/'>Validation</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.7.0</p>
+							
+							
+								<pre>moment().isValid();</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p>The main moment.js function is very flexible and will allow overflowing in parsing input. For example, <code>moment("2012-01-40", "YYYY-MM-DD")</code> will overflow the date value into the months, making the actual date Feb 9 (31 days in Jan + 9 days into Feb).</p>
 
 <p>This can be useful when getting things like the 150th day of the year, or the 500th minute in a day, however, it can be problematic when trying to parse user input.</p>
 
@@ -1015,28 +770,15 @@ moment(<span class="string">"not a date"</span>).isValid(); <span class="comment
 
 <div class="highlight"><pre lang="javascript">moment(<span class="string">"2011-10-10"</span>, <span class="string">"YYYY-MM-DD"</span>).isValid(); <span class="comment">// true</span>
 moment(<span class="string">"2011-10-10"</span>, <span class="string">"YYYY-MM-DD"</span>).date(<span class="number">20</span>).isValid(); <span class="comment">// false</span>
-</pre></div></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.7.0</p>
-								
-								
-									<pre>moment().isValid();</pre>
-								
-							</div>
-						</div>
+</pre></div>
 					</div>
-				
-			</div>
+				</article>
+			
 		
-			<div class="row">
-				<div class="section-header">
-					<a class="target" name="/manipulating/"></a>
-					<h2>
-						<a href='#/manipulating/'>Manipulate</a>
-					</h2>
-					<div><p>Once you have a Moment.js wrapper object, you may want to manipulate it in some way. There are a number of<code>moment.fn</code> methods to help with this.</p>
+			<article class="section">
+				<a class="target" name="/manipulating/"></a>
+				<h2><a href='#/manipulating/'>Manipulate</a></h2>
+				<p>Once you have a Moment.js wrapper object, you may want to manipulate it in some way. There are a number of<code>moment.fn</code> methods to help with this.</p>
 
 <p>All manipulation methods are chainable, so you can do crazy things like this.</p>
 
@@ -1045,17 +787,25 @@ moment(<span class="string">"2011-10-10"</span>, <span class="string">"YYYY-MM-D
 
 <p><span class="label label-info">Note:</span> It should be noted that moments are mutable. Calling any of the manipulation methods will change the original moment.</p>
 
-<p>If you want to create a copy and manipulate it, you should use<code>moment.fn.clone</code> before manipulating the moment.<a href="#/parsing/cloning/">More info on cloning.</a></p></div>
-				</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/manipulating/add/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/manipulating/add/'>Add</a>
-								</h3>
-								<div><p>Mutates the original moment by adding time.</p>
+<p>If you want to create a copy and manipulate it, you should use<code>moment.fn.clone</code> before manipulating the moment.<a href="#/parsing/cloning/">More info on cloning.</a></p>
+			</article>
+			
+				<article class="method">
+					<a class="target" name="/manipulating/add/"></a>
+					<h3><a href='#/manipulating/add/'>Add</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.0.0</p>
+							
+							
+								<pre>moment().add(String, Number);
+moment().add(Object);</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p>Mutates the original moment by adding time.</p>
 
 <p>This is a pretty robust function for adding time to an existing date.<br />To add time, pass the key of what time you want to add, and the amount you want to add.</p>
 
@@ -1142,54 +892,49 @@ m.add(<span class="string">'days'</span>, <span class="number">1</span>).hours()
 <div class="highlight"><pre lang="javascript"><span class="keyword">var</span> m = moment(<span class="keyword">new</span> Date(<span class="number">2011</span>, <span class="number">2</span>, <span class="number">12</span>, <span class="number">5</span>, <span class="number">0</span>, <span class="number">0</span>)); <span class="comment">// the day before DST in the US</span>
 m.hours(); <span class="comment">// 5</span>
 m.add(<span class="string">'hours'</span>, <span class="number">24</span>).hours(); <span class="comment">// 6</span>
-</pre></div></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.0.0</p>
-								
-								
-									<pre>moment().add(String, Number);
-moment().add(Object);</pre>
-								
-							</div>
-						</div>
+</pre></div>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/manipulating/subtract/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/manipulating/subtract/'>Subtract</a>
-								</h3>
-								<div><p>Mutates the original moment by subtracting time.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/manipulating/subtract/"></a>
+					<h3><a href='#/manipulating/subtract/'>Subtract</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.0.0</p>
+							
+							
+								<pre>moment().subtract(String, Number);
+moment().subtract(Object);</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p>Mutates the original moment by subtracting time.</p>
 
 <p>This is exactly the same as <code>moment.fn.add</code>, only instead of adding time, it subtracts time.</p>
 
 <div class="highlight"><pre lang="javascript">moment().subtract(<span class="string">'days'</span>, <span class="number">7</span>);
-</pre></div></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.0.0</p>
-								
-								
-									<pre>moment().subtract(String, Number);
-moment().subtract(Object);</pre>
-								
-							</div>
-						</div>
+</pre></div>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/manipulating/milliseconds/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/manipulating/milliseconds/'>Milliseconds</a>
-								</h3>
-								<div><p>Mutates the original moment by changing the milliseconds.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/manipulating/milliseconds/"></a>
+					<h3><a href='#/manipulating/milliseconds/'>Milliseconds</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.3.0</p>
+							
+							
+								<pre>moment().milliseconds(Number);</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p>Mutates the original moment by changing the milliseconds.</p>
 
 <p>There are a number of shortcut getter and setter functions.<br />Much like in jQuery, calling the function without paremeters causes it to function as a getter,<br />and calling with a parameter causes it to function as a setter.</p>
 
@@ -1205,129 +950,119 @@ moment().milliseconds()   === <span class="keyword">new</span> Date().getMillise
 moment.utc().milliseconds()   === <span class="keyword">new</span> Date().getUTCMilliseconds();
 </pre></div>
 
-<p>Accepts numbers from 0 to 999</p></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.3.0</p>
-								
-								
-									<pre>moment().milliseconds(Number);</pre>
-								
-							</div>
-						</div>
+<p>Accepts numbers from 0 to 999</p>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/manipulating/seconds/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/manipulating/seconds/'>Seconds</a>
-								</h3>
-								<div><p>Mutates the original moment by changing the seconds.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/manipulating/seconds/"></a>
+					<h3><a href='#/manipulating/seconds/'>Seconds</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.0.0</p>
+							
+							
+								<pre>moment().seconds(Number);</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p>Mutates the original moment by changing the seconds.</p>
 
 <p>Accepts numbers from 0 to 59</p>
 
 <div class="highlight"><pre lang="javascript">moment().seconds(<span class="number">30</span>); <span class="comment">// set the seconds to 30</span>
-</pre></div></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.0.0</p>
-								
-								
-									<pre>moment().seconds(Number);</pre>
-								
-							</div>
-						</div>
+</pre></div>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/manipulating/minutes/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/manipulating/minutes/'>Minutes</a>
-								</h3>
-								<div><p>Mutates the original moment by changing the minutes.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/manipulating/minutes/"></a>
+					<h3><a href='#/manipulating/minutes/'>Minutes</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.0.0</p>
+							
+							
+								<pre>moment().minutes(Number);</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p>Mutates the original moment by changing the minutes.</p>
 
 <p>Accepts numbers from 0 to 59</p>
 
 <div class="highlight"><pre lang="javascript">moment().minutes(<span class="number">30</span>); <span class="comment">// set the minutes to 30</span>
-</pre></div></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.0.0</p>
-								
-								
-									<pre>moment().minutes(Number);</pre>
-								
-							</div>
-						</div>
+</pre></div>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/manipulating/hours/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/manipulating/hours/'>Hours</a>
-								</h3>
-								<div><p>Mutates the original moment by changing the hour of day.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/manipulating/hours/"></a>
+					<h3><a href='#/manipulating/hours/'>Hours</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.0.0</p>
+							
+							
+								<pre>moment().hours(Number);</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p>Mutates the original moment by changing the hour of day.</p>
 
 <p>Accepts numbers from 0 to 23</p>
 
 <div class="highlight"><pre lang="javascript">moment().hours(<span class="number">12</span>); <span class="comment">// set the hours to 12</span>
-</pre></div></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.0.0</p>
-								
-								
-									<pre>moment().hours(Number);</pre>
-								
-							</div>
-						</div>
+</pre></div>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/manipulating/date/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/manipulating/date/'>Date of the Month</a>
-								</h3>
-								<div><p>Mutates the original moment by changing the day of the month.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/manipulating/date/"></a>
+					<h3><a href='#/manipulating/date/'>Date of the Month</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.0.0</p>
+							
+							
+								<pre>moment().date(Number);</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p>Mutates the original moment by changing the day of the month.</p>
 
 <p>Accepts numbers from 1 to 31</p>
 
 <div class="highlight"><pre lang="javascript">moment().date(<span class="number">5</span>); <span class="comment">// set the date to 5</span>
 </pre></div>
 
-<p><strong>NOTE:</strong> <code>moment.fn.date</code> is used to set the date of the month, and <code>moment.fn.day</code> is used to set the day of the week.</p></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.0.0</p>
-								
-								
-									<pre>moment().date(Number);</pre>
-								
-							</div>
-						</div>
+<p><strong>NOTE:</strong> <code>moment.fn.date</code> is used to set the date of the month, and <code>moment.fn.day</code> is used to set the day of the week.</p>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/manipulating/day/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/manipulating/day/'>Day of the Week</a>
-								</h3>
-								<div><p>Mutates the original moment by changing the day of the week.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/manipulating/day/"></a>
+					<h3><a href='#/manipulating/day/'>Day of the Week</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.3.0</p>
+							
+							
+								<pre>moment().day(Number);</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p>Mutates the original moment by changing the day of the week.</p>
 
 <div class="highlight"><pre lang="javascript">moment().day(<span class="number">5</span>); <span class="comment">// set the day of the week to Friday</span>
 </pre></div>
@@ -1340,75 +1075,69 @@ moment.utc().milliseconds()   === <span class="keyword">new</span> Date().getUTC
 moment().day(<span class="number">7</span>); <span class="comment">// set to next Sunday (0 + 7)</span>
 moment().day(<span class="number">10</span>); <span class="comment">// set to next Wednesday (3 + 7)</span>
 moment().day(<span class="number">24</span>); <span class="comment">// set to 3 Wednesdays from now (3 + 7 + 7 + 7)</span>
-</pre></div></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.3.0</p>
-								
-								
-									<pre>moment().day(Number);</pre>
-								
-							</div>
-						</div>
+</pre></div>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/manipulating/month/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/manipulating/month/'>Month</a>
-								</h3>
-								<div><p>Mutates the original moment by changing the month.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/manipulating/month/"></a>
+					<h3><a href='#/manipulating/month/'>Month</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.0.0</p>
+							
+							
+								<pre>moment().month(Number);</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p>Mutates the original moment by changing the month.</p>
 
 <p>Accepts numbers from 0 to 11</p>
 
 <div class="highlight"><pre lang="javascript">moment().month(<span class="number">5</span>); <span class="comment">// set the month to June</span>
-</pre></div></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.0.0</p>
-								
-								
-									<pre>moment().month(Number);</pre>
-								
-							</div>
-						</div>
+</pre></div>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/manipulating/year/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/manipulating/year/'>Year</a>
-								</h3>
-								<div><p>Mutates the original moment by changing the year.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/manipulating/year/"></a>
+					<h3><a href='#/manipulating/year/'>Year</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.0.0</p>
+							
+							
+								<pre>moment().year(Number);</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p>Mutates the original moment by changing the year.</p>
 
 <div class="highlight"><pre lang="javascript">moment().year(<span class="number">1984</span>); <span class="comment">// set the year to 1984</span>
-</pre></div></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.0.0</p>
-								
-								
-									<pre>moment().year(Number);</pre>
-								
-							</div>
-						</div>
+</pre></div>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/manipulating/start-of/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/manipulating/start-of/'>Start of Time</a>
-								</h3>
-								<div><p>Mutates the original moment by setting it to the start of a unit of time.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/manipulating/start-of/"></a>
+					<h3><a href='#/manipulating/start-of/'>Start of Time</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.7.0</p>
+							
+							
+								<pre>moment().startOf(String);</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p>Mutates the original moment by setting it to the start of a unit of time.</p>
 
 <div class="highlight"><pre lang="javascript">moment().startOf(<span class="string">'year'</span>); <span class="comment">// set to Jan 1 12:00:00.000 pm this year</span>
 moment().startOf(<span class="string">'month'</span>); <span class="comment">// set to the first of this month, 12:00:00.000 pm</span>
@@ -1430,52 +1159,48 @@ moment().startOf(<span class="string">'hour'</span>);
 moment().minutes(<span class="number">0</span>).seconds(<span class="number">0</span>).milliseconds(<span class="number">0</span>)
 </pre></div>
 
-<p><strong>Note:</strong> As of version <em>2.0.0</em>, <code>moment.fn.startOf('day')</code> will replace <code>moment.fn.sod</code> and <code>moment.fn.endOf('day')</code> will replace <code>moment.fn.eod</code>.</p></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.7.0</p>
-								
-								
-									<pre>moment().startOf(String);</pre>
-								
-							</div>
-						</div>
+<p><strong>Note:</strong> As of version <em>2.0.0</em>, <code>moment.fn.startOf('day')</code> will replace <code>moment.fn.sod</code> and <code>moment.fn.endOf('day')</code> will replace <code>moment.fn.eod</code>.</p>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/manipulating/end-of/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/manipulating/end-of/'>End of Time</a>
-								</h3>
-								<div><p>Mutates the original moment by setting it to the end of a unit of time.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/manipulating/end-of/"></a>
+					<h3><a href='#/manipulating/end-of/'>End of Time</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.7.0</p>
+							
+							
+								<pre>moment().endOf(String);</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p>Mutates the original moment by setting it to the end of a unit of time.</p>
 
 <p>This is similar to<code>moment.fn.startOf</code> only it sets to the end instead of the start.</p>
 
 <div class="highlight"><pre lang="javascript">moment().endOf(<span class="string">"year"</span>); <span class="comment">// set the moment to 12-31 11:59:59.999 pm this year</span>
-</pre></div></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.7.0</p>
-								
-								
-									<pre>moment().endOf(String);</pre>
-								
-							</div>
-						</div>
+</pre></div>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/manipulating/sod/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/manipulating/sod/'>Start of Day</a>
-								</h3>
-								<div><p><strong>Note:</strong> As of version <em>2.0.0</em>, <code>moment.fn.startOf('day')</code> will replace <code>moment.fn.sod</code>.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/manipulating/sod/"></a>
+					<h3><a href='#/manipulating/sod/'>Start of Day</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.4.0</p>
+							
+							
+								<pre>moment().sod();</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p><strong>Note:</strong> As of version <em>2.0.0</em>, <code>moment.fn.startOf('day')</code> will replace <code>moment.fn.sod</code>.</p>
 
 <p>Set the time to the start of the day.</p>
 
@@ -1485,27 +1210,25 @@ moment().minutes(<span class="number">0</span>).seconds(<span class="number">0</
 <p>This is essentially the same as the following.</p>
 
 <div class="highlight"><pre lang="javascript">moment().hours(<span class="number">0</span>).minutes(<span class="number">0</span>).seconds(<span class="number">0</span>).milliseconds(<span class="number">0</span>);
-</pre></div></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.4.0</p>
-								
-								
-									<pre>moment().sod();</pre>
-								
-							</div>
-						</div>
+</pre></div>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/manipulating/eod/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/manipulating/eod/'>End of Day</a>
-								</h3>
-								<div><p><strong>Note:</strong> As of version <em>2.0.0</em>,<code>moment.fn.endOf('day')</code> will replace <code>moment.fn.eod</code>.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/manipulating/eod/"></a>
+					<h3><a href='#/manipulating/eod/'>End of Day</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.4.0</p>
+							
+							
+								<pre>moment().eod();</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p><strong>Note:</strong> As of version <em>2.0.0</em>,<code>moment.fn.endOf('day')</code> will replace <code>moment.fn.eod</code>.</p>
 
 <p>Set the time to the end of the day.</p>
 
@@ -1515,90 +1238,81 @@ moment().minutes(<span class="number">0</span>).seconds(<span class="number">0</
 <p>This is essentially the same as the following.</p>
 
 <div class="highlight"><pre lang="javascript">moment().hours(<span class="number">23</span>).minutes(<span class="number">59</span>).seconds(<span class="number">59</span>).milliseconds(<span class="number">999</span>);
-</pre></div></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.4.0</p>
-								
-								
-									<pre>moment().eod();</pre>
-								
-							</div>
-						</div>
+</pre></div>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/manipulating/local/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/manipulating/local/'>Local</a>
-								</h3>
-								<div><p>Toggles a flag on the original moment to internally use get* and set* instead of getUTC* and setUTC*.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/manipulating/local/"></a>
+					<h3><a href='#/manipulating/local/'>Local</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.5.0</p>
+							
+							
+								<pre>moment().local();</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p>Toggles a flag on the original moment to internally use get* and set* instead of getUTC* and setUTC*.</p>
 
 <div class="highlight"><pre lang="javascript"><span class="keyword">var</span> a = moment.utc([<span class="number">2011</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">8</span>]);
 a.hours(); <span class="comment">// 8 UTC</span>
 a.local();
 a.hours(); <span class="comment">// 0 PST</span>
-</pre></div></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.5.0</p>
-								
-								
-									<pre>moment().local();</pre>
-								
-							</div>
-						</div>
+</pre></div>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/manipulating/utc/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/manipulating/utc/'>UTC</a>
-								</h3>
-								<div><p>Toggles a flag on the original moment to internally use getUTC* and setUTC* instead of get* and set*.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/manipulating/utc/"></a>
+					<h3><a href='#/manipulating/utc/'>UTC</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.5.0</p>
+							
+							
+								<pre>moment().utc();</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p>Toggles a flag on the original moment to internally use getUTC* and setUTC* instead of get* and set*.</p>
 
 <div class="highlight"><pre lang="javascript"><span class="keyword">var</span> a = moment([<span class="number">2011</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">8</span>]);
 a.hours(); <span class="comment">// 8 PST</span>
 a.utc();
 a.hours(); <span class="comment">// 16 UTC</span>
-</pre></div></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.5.0</p>
-								
-								
-									<pre>moment().utc();</pre>
-								
-							</div>
-						</div>
+</pre></div>
 					</div>
-				
-			</div>
+				</article>
+			
 		
-			<div class="row">
-				<div class="section-header">
-					<a class="target" name="/displaying/"></a>
-					<h2>
-						<a href='#/displaying/'>Display</a>
-					</h2>
-					<div><p>Once parsing and manipulation are done, you need some way to display the moment. Moment.js offers many ways of doing that.</p></div>
-				</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/displaying/format/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/displaying/format/'>Format</a>
-								</h3>
-								<div><p>The most robust display option is <code>moment.fn.format</code>. It takes a string of tokens and replaces them with their corresponding values from the Date object.</p>
+			<article class="section">
+				<a class="target" name="/displaying/"></a>
+				<h2><a href='#/displaying/'>Display</a></h2>
+				<p>Once parsing and manipulation are done, you need some way to display the moment. Moment.js offers many ways of doing that.</p>
+			</article>
+			
+				<article class="method">
+					<a class="target" name="/displaying/format/"></a>
+					<h3><a href='#/displaying/format/'>Format</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.0.0</p>
+							
+							
+								<pre>moment().format();
+moment().format(String);</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p>The most robust display option is <code>moment.fn.format</code>. It takes a string of tokens and replaces them with their corresponding values from the Date object.</p>
 
 <div class="highlight"><pre lang="javascript"><span class="keyword">var</span> a = moment([<span class="number">2010</span>, <span class="number">1</span>, <span class="number">14</span>, <span class="number">15</span>, <span class="number">25</span>, <span class="number">50</span>, <span class="number">125</span>]);
 a.format(<span class="string">"dddd, MMMM Do YYYY, h:mm:ss a"</span>); <span class="comment">// "Sunday, February 14th 2010, 3:25:50 pm"</span>
@@ -1865,28 +1579,26 @@ a.format(<span class="string">"ddd, hA"</span>);                       <span cla
 
 <p><strong>Note:</strong> As of version <em>1.5.0</em>, calling this function without any parameters will output ISO-8601.</p>
 
-<p>It will use <code>moment.defaultFormat</code> to format the moment, which by default is <code>YYYY-MM-DDTHH:mm:ssZ</code>.</p></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.0.0</p>
-								
-								
-									<pre>moment().format();
-moment().format(String);</pre>
-								
-							</div>
-						</div>
+<p>It will use <code>moment.defaultFormat</code> to format the moment, which by default is <code>YYYY-MM-DDTHH:mm:ssZ</code>.</p>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/displaying/from/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/displaying/from/'>Humanize time from another moment</a>
-								</h3>
-								<div><p>Another common way of displaying time, sometimes called timeago, is handled by <code>moment.fn.from</code>.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/displaying/from/"></a>
+					<h3><a href='#/displaying/from/'>Humanize time from another moment</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.0.0</p>
+							
+							
+								<pre>moment().from(Moment);
+moment().from(Moment, Boolean);</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p>Another common way of displaying time, sometimes called timeago, is handled by <code>moment.fn.from</code>.</p>
 
 <div class="highlight"><pre lang="javascript"><span class="keyword">var</span> a = moment([<span class="number">2007</span>, <span class="number">0</span>, <span class="number">29</span>]);\n
 <span class="keyword">var</span> b = moment([<span class="number">2007</span>, <span class="number">0</span>, <span class="number">28</span>]);
@@ -1987,28 +1699,26 @@ start.from(end, <span class="literal">true</span>); <span class="comment">// "5 
       <td>2 years ago ... 20 years ago</td>
     </tr>
   </tbody>
-</table></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.0.0</p>
-								
-								
-									<pre>moment().from(Moment);
-moment().from(Moment, Boolean);</pre>
-								
-							</div>
-						</div>
+</table>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/displaying/fromnow/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/displaying/fromnow/'>Humanize time from now</a>
-								</h3>
-								<div><p>This is just a map to <code>moment.fn.from(new Date())</code></p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/displaying/fromnow/"></a>
+					<h3><a href='#/displaying/fromnow/'>Humanize time from now</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.0.0</p>
+							
+							
+								<pre>moment().fromNow();
+moment().fromNow(Boolean);</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p>This is just a map to <code>moment.fn.from(new Date())</code></p>
 
 <div class="highlight"><pre lang="javascript">moment([<span class="number">2007</span>, <span class="number">0</span>, <span class="number">29</span>]).fromNow(); <span class="comment">// 4 years ago</span>
 </pre></div>
@@ -2017,28 +1727,27 @@ moment().from(Moment, Boolean);</pre>
 
 <div class="highlight"><pre lang="javascript">moment([<span class="number">2007</span>, <span class="number">0</span>, <span class="number">29</span>]).fromNow();     <span class="comment">// 4 years ago</span>
 moment([<span class="number">2007</span>, <span class="number">0</span>, <span class="number">29</span>]).fromNow(<span class="literal">true</span>); <span class="comment">// 4 years</span>
-</pre></div></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.0.0</p>
-								
-								
-									<pre>moment().fromNow();
-moment().fromNow(Boolean);</pre>
-								
-							</div>
-						</div>
+</pre></div>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/displaying/humanize-duration/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/displaying/humanize-duration/'>Humanize duration</a>
-								</h3>
-								<div><p><strong>Note:</strong> <code>moment.humanizeDuration()</code> has been deprecated in favor of <code>moment.duration().humanize()</code>.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/displaying/humanize-duration/"></a>
+					<h3><a href='#/displaying/humanize-duration/'>Humanize duration</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.5.0</p>
+							
+							
+								<pre>moment.humanizeDuration(Number);
+moment.humanizeDuration(Number, String);
+moment.humanizeDuration(Number, String, Boolean);</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p><strong>Note:</strong> <code>moment.humanizeDuration()</code> has been deprecated in favor of <code>moment.duration().humanize()</code>.</p>
 
 <p>It will be removed shortly in the future. <a href="#/durations/humanize/">More documentation on moment.duration().humanize() here.</a></p>
 
@@ -2070,29 +1779,25 @@ moment.humanizeDuration(<span class="number">1</span>, <span class="string">"min
 
 <div class="highlight"><pre lang="javascript">moment.humanizeDuration(-<span class="number">60000</span>, <span class="literal">true</span>);        <span class="comment">// a minute ago</span>
 moment.humanizeDuration(-<span class="number">1</span>, <span class="string">"minutes"</span>, <span class="literal">true</span>); <span class="comment">// a minute ago</span>
-</pre></div></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.5.0</p>
-								
-								
-									<pre>moment.humanizeDuration(Number);
-moment.humanizeDuration(Number, String);
-moment.humanizeDuration(Number, String, Boolean);</pre>
-								
-							</div>
-						</div>
+</pre></div>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/displaying/calendar-time/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/displaying/calendar-time/'>Calendar Time</a>
-								</h3>
-								<div><p>Calendar time is displays time relative to now, but slightly differently than <code>moment.fn.from</code>.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/displaying/calendar-time/"></a>
+					<h3><a href='#/displaying/calendar-time/'>Calendar Time</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.3.0</p>
+							
+							
+								<pre>moment().calendar();</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p>Calendar time is displays time relative to now, but slightly differently than <code>moment.fn.from</code>.</p>
 
 <p><code>moment.fn.calendar</code> will format a date with different strings depending on how close to today the date is.</p>
 
@@ -2123,27 +1828,27 @@ moment.humanizeDuration(Number, String, Boolean);</pre>
   </tr>
 </table>
 
-<p>These strings are localized, and can be customized with <a href="#/customization/calendar/">moment.calendar</a> or <a href="#/i18n/changing-language/">moment.lang</a>.</p></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.3.0</p>
-								
-								
-									<pre>moment().calendar();</pre>
-								
-							</div>
-						</div>
+<p>These strings are localized, and can be customized with <a href="#/customization/calendar/">moment.calendar</a> or <a href="#/i18n/changing-language/">moment.lang</a>.</p>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/displaying/difference/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/displaying/difference/'>Difference</a>
-								</h3>
-								<div><p>To get the difference in milliseconds, use <code>moment.fn.diff</code> like you would use <code>moment.fn.from</code>.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/displaying/difference/"></a>
+					<h3><a href='#/displaying/difference/'>Difference</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.0.0</p>
+							
+							
+								<pre>moment().diff(Moment);
+moment().diff(Moment, String);
+moment().diff(Moment, String, Boolean);</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p>To get the difference in milliseconds, use <code>moment.fn.diff</code> like you would use <code>moment.fn.from</code>.</p>
 
 <div class="highlight"><pre lang="javascript"><span class="keyword">var</span> a = moment([<span class="number">2007</span>, <span class="number">0</span>, <span class="number">29</span>]);
 <span class="keyword">var</span> b = moment([<span class="number">2007</span>, <span class="number">0</span>, <span class="number">28</span>]);
@@ -2182,396 +1887,357 @@ b.diff(a) <span class="comment">// 1000</span>
 <div class="highlight"><pre lang="javascript">          <span class="comment">// a &lt; b</span>
 a.diff(b) <span class="comment">// a - b &lt; 0</span>
 b.diff(a) <span class="comment">// b - a &lt; 0</span>
-</pre></div></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.0.0</p>
-								
-								
-									<pre>moment().diff(Moment);
-moment().diff(Moment, String);
-moment().diff(Moment, String, Boolean);</pre>
-								
-							</div>
-						</div>
+</pre></div>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/displaying/native-javascript-date/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/displaying/native-javascript-date/'>Native Javascript Date</a>
-								</h3>
-								<div><p>To get the native Date object that Moment.js wraps, use <code>moment.fn.toDate</code>.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/displaying/native-javascript-date/"></a>
+					<h3><a href='#/displaying/native-javascript-date/'>Native Javascript Date</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.0.0</p>
+							
+							
+								<pre>moment().toDate();</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p>To get the native Date object that Moment.js wraps, use <code>moment.fn.toDate</code>.</p>
 
 <div class="highlight"><pre lang="javascript">moment([<span class="number">2007</span>, <span class="number">0</span>, <span class="number">29</span>]).toDate(); <span class="comment">// returns native Date object</span>
 </pre></div>
 
-<p>Note: <code>moment.fn.native</code> has been replaced by <code>moment.fn.toDate</code> and has been deprecated as of <em>1.6.0</em>.</p></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.0.0</p>
-								
-								
-									<pre>moment().toDate();</pre>
-								
-							</div>
-						</div>
+<p>Note: <code>moment.fn.native</code> has been replaced by <code>moment.fn.toDate</code> and has been deprecated as of <em>1.6.0</em>.</p>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/displaying/milliseconds-since-the-unix-epoch/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/displaying/milliseconds-since-the-unix-epoch/'>Milliseconds since the Unix Epoch</a>
-								</h3>
-								<div><p><code>moment.fn.valueOf</code> simply outputs the number of milliseconds since the Unix Epoch, just like<br />  JavaScript's native <code>Date.valueOf()</code>.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/displaying/milliseconds-since-the-unix-epoch/"></a>
+					<h3><a href='#/displaying/milliseconds-since-the-unix-epoch/'>Milliseconds since the Unix Epoch</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.0.0</p>
+							
+							
+								<pre>moment().valueOf();</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p><code>moment.fn.valueOf</code> simply outputs the number of milliseconds since the Unix Epoch, just like<br />  JavaScript's native <code>Date.valueOf()</code>.</p>
 
 <div class="highlight"><pre lang="javascript">moment(<span class="number">1318874398806</span>).valueOf(); <span class="comment">// 1318874398806</span>
 </pre></div>
 
-<p><strong>Note:</strong> To get a Unix timestamp (the number of seconds since the Epoch) from a <code>moment()</code>, use <code>moment.fn.unix()</code>.</p></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.0.0</p>
-								
-								
-									<pre>moment().valueOf();</pre>
-								
-							</div>
-						</div>
+<p><strong>Note:</strong> To get a Unix timestamp (the number of seconds since the Epoch) from a <code>moment()</code>, use <code>moment.fn.unix()</code>.</p>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/displaying/unix-timestamp/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/displaying/unix-timestamp/'>Unix Timestamp</a>
-								</h3>
-								<div><p><code>moment.fn.unix</code> simply outputs a Unix timestamp (the of seconds since the Unix Epoch).</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/displaying/unix-timestamp/"></a>
+					<h3><a href='#/displaying/unix-timestamp/'>Unix Timestamp</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.6.0</p>
+							
+							
+								<pre>moment().unix();</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p><code>moment.fn.unix</code> simply outputs a Unix timestamp (the of seconds since the Unix Epoch).</p>
 
 <div class="highlight"><pre lang="javascript">moment(<span class="number">1318874398806</span>).unix(); <span class="comment">// 1318874398</span>
 </pre></div>
 
-<p><strong>Note:</strong> This value is rounded to the nearest second, and does not include a milliseconds component.</p></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.6.0</p>
-								
-								
-									<pre>moment().unix();</pre>
-								
-							</div>
-						</div>
+<p><strong>Note:</strong> This value is rounded to the nearest second, and does not include a milliseconds component.</p>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/displaying/milliseconds/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/displaying/milliseconds/'>Milliseconds</a>
-								</h3>
-								<div><p>Get the milliseconds (0 - 999).</p></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.3.0</p>
-								
-								
-									<pre>moment().milliseconds();</pre>
-								
-							</div>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/displaying/milliseconds/"></a>
+					<h3><a href='#/displaying/milliseconds/'>Milliseconds</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.3.0</p>
+							
+							
+								<pre>moment().milliseconds();</pre>
+							
 						</div>
+					
+					<div class="prose">
+						<p>Get the milliseconds (0 - 999).</p>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/displaying/seconds/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/displaying/seconds/'>Seconds</a>
-								</h3>
-								<div><p>Get the seconds (0 - 59).</p></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.0.0</p>
-								
-								
-									<pre>moment().seconds();</pre>
-								
-							</div>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/displaying/seconds/"></a>
+					<h3><a href='#/displaying/seconds/'>Seconds</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.0.0</p>
+							
+							
+								<pre>moment().seconds();</pre>
+							
 						</div>
+					
+					<div class="prose">
+						<p>Get the seconds (0 - 59).</p>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/displaying/minutes/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/displaying/minutes/'>Minutes</a>
-								</h3>
-								<div><p>Get the minutes (0 - 59).</p></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.0.0</p>
-								
-								
-									<pre>moment().minutes();</pre>
-								
-							</div>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/displaying/minutes/"></a>
+					<h3><a href='#/displaying/minutes/'>Minutes</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.0.0</p>
+							
+							
+								<pre>moment().minutes();</pre>
+							
 						</div>
+					
+					<div class="prose">
+						<p>Get the minutes (0 - 59).</p>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/displaying/hours/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/displaying/hours/'>Hours</a>
-								</h3>
-								<div><p>Get the hours (0 - 23).</p></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.0.0</p>
-								
-								
-									<pre>moment().hours();</pre>
-								
-							</div>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/displaying/hours/"></a>
+					<h3><a href='#/displaying/hours/'>Hours</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.0.0</p>
+							
+							
+								<pre>moment().hours();</pre>
+							
 						</div>
+					
+					<div class="prose">
+						<p>Get the hours (0 - 23).</p>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/displaying/date/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/displaying/date/'>Date of the Month</a>
-								</h3>
-								<div><p>Get the date of the month (1 - 31).</p></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.0.0</p>
-								
-								
-									<pre>moment().date();</pre>
-								
-							</div>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/displaying/date/"></a>
+					<h3><a href='#/displaying/date/'>Date of the Month</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.0.0</p>
+							
+							
+								<pre>moment().date();</pre>
+							
 						</div>
+					
+					<div class="prose">
+						<p>Get the date of the month (1 - 31).</p>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/displaying/day/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/displaying/day/'>Day of the Week</a>
-								</h3>
-								<div><p>Get the day of the week (0 - 6).</p></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.0.0</p>
-								
-								
-									<pre>moment().day();</pre>
-								
-							</div>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/displaying/day/"></a>
+					<h3><a href='#/displaying/day/'>Day of the Week</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.0.0</p>
+							
+							
+								<pre>moment().day();</pre>
+							
 						</div>
+					
+					<div class="prose">
+						<p>Get the day of the week (0 - 6).</p>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/displaying/month/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/displaying/month/'>Month</a>
-								</h3>
-								<div><p>Get the month (0 - 11).</p></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.0.0</p>
-								
-								
-									<pre>moment().month();</pre>
-								
-							</div>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/displaying/month/"></a>
+					<h3><a href='#/displaying/month/'>Month</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.0.0</p>
+							
+							
+								<pre>moment().month();</pre>
+							
 						</div>
+					
+					<div class="prose">
+						<p>Get the month (0 - 11).</p>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/displaying/year/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/displaying/year/'>Year</a>
-								</h3>
-								<div><p>Get the four digit year.</p></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.0.0</p>
-								
-								
-									<pre>moment().year();</pre>
-								
-							</div>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/displaying/year/"></a>
+					<h3><a href='#/displaying/year/'>Year</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.0.0</p>
+							
+							
+								<pre>moment().year();</pre>
+							
 						</div>
+					
+					<div class="prose">
+						<p>Get the four digit year.</p>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/displaying/leap-year/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/displaying/leap-year/'>Leap Year</a>
-								</h3>
-								<div><p><code>moment.fn.isLeapYear</code> returns <code>true</code> if that year is a leap year, and <code>false</code> if it is not.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/displaying/leap-year/"></a>
+					<h3><a href='#/displaying/leap-year/'>Leap Year</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.0.0</p>
+							
+							
+								<pre>moment().isLeapYear();</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p><code>moment.fn.isLeapYear</code> returns <code>true</code> if that year is a leap year, and <code>false</code> if it is not.</p>
 
 <div class="highlight"><pre lang="javascript">moment([<span class="number">2000</span>]).isLeapYear() <span class="comment">// true</span>
 moment([<span class="number">2001</span>]).isLeapYear() <span class="comment">// false</span>
 moment([<span class="number">2100</span>]).isLeapYear() <span class="comment">// false</span>
-</pre></div></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.0.0</p>
-								
-								
-									<pre>moment().isLeapYear();</pre>
-								
-							</div>
-						</div>
+</pre></div>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/displaying/timezone-offset/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/displaying/timezone-offset/'>Timezone Offset</a>
-								</h3>
-								<div><p>Get the timezone offset in minutes.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/displaying/timezone-offset/"></a>
+					<h3><a href='#/displaying/timezone-offset/'>Timezone Offset</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.2.0</p>
+							
+							
+								<pre>moment().zone();</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p>Get the timezone offset in minutes.</p>
 
 <div class="highlight"><pre lang="javascript">moment().zone(); <span class="comment">// (60, 120, 240, etc.)</span>
-</pre></div></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.2.0</p>
-								
-								
-									<pre>moment().zone();</pre>
-								
-							</div>
-						</div>
+</pre></div>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/displaying/days-in-month/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/displaying/days-in-month/'>Days in Month</a>
-								</h3>
-								<div><p>Get the number of days in the current month.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/displaying/days-in-month/"></a>
+					<h3><a href='#/displaying/days-in-month/'>Days in Month</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.5.0</p>
+							
+							
+								<pre>moment().daysInMonth();</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p>Get the number of days in the current month.</p>
 
 <div class="highlight"><pre lang="javascript">moment(<span class="string">"2012-2"</span>, <span class="string">"YYYY-MM"</span>).daysInMonth() <span class="comment">// 29</span>
 moment(<span class="string">"2012-1"</span>, <span class="string">"YYYY-MM"</span>).daysInMonth() <span class="comment">// 31</span>
-</pre></div></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.5.0</p>
-								
-								
-									<pre>moment().daysInMonth();</pre>
-								
-							</div>
-						</div>
+</pre></div>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/displaying/daylight-saving-time/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/displaying/daylight-saving-time/'>Daylight Saving Time</a>
-								</h3>
-								<div><p><code>moment.fn.isDST</code> checks if the current moment is in daylight savings time or not.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/displaying/daylight-saving-time/"></a>
+					<h3><a href='#/displaying/daylight-saving-time/'>Daylight Saving Time</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.2.0</p>
+							
+							
+								<pre>moment().isDST();</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p><code>moment.fn.isDST</code> checks if the current moment is in daylight savings time or not.</p>
 
 <div class="highlight"><pre lang="javascript">moment([<span class="number">2011</span>, <span class="number">2</span>, <span class="number">12</span>]).isDST(); <span class="comment">// false, March 12 2011 is not DST</span>
 moment([<span class="number">2011</span>, <span class="number">2</span>, <span class="number">14</span>]).isDST(); <span class="comment">// true, March 14 2011 is DST</span>
-</pre></div></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.2.0</p>
-								
-								
-									<pre>moment().isDST();</pre>
-								
-							</div>
-						</div>
+</pre></div>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/displaying/ismoment/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/displaying/ismoment/'>isMoment</a>
-								</h3>
-								<div><p>If you want to check if a variable is a moment object, you can use <code>moment.isMoment()</code>.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/displaying/ismoment/"></a>
+					<h3><a href='#/displaying/ismoment/'>isMoment</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.5.0</p>
+							
+							
+								<pre>moment.isMoment(obj);</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p>If you want to check if a variable is a moment object, you can use <code>moment.isMoment()</code>.</p>
 
 <div class="highlight"><pre lang="javascript">moment.isMoment() <span class="comment">// false</span>
 moment.isMoment(<span class="keyword">new</span> Date()) <span class="comment">// false</span>
 moment.isMoment(moment()) <span class="comment">// true</span>
-</pre></div></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.5.0</p>
-								
-								
-									<pre>moment.isMoment(obj);</pre>
-								
-							</div>
-						</div>
+</pre></div>
 					</div>
-				
-			</div>
+				</article>
+			
 		
-			<div class="row">
-				<div class="section-header">
-					<a class="target" name="/i18n/"></a>
-					<h2>
-						<a href='#/i18n/'>i18n</a>
-					</h2>
-					<div><p>Moment.js has pretty robust support for internationalization. You can load multiple languages onto the same instance and easily switch between them.</p></div>
-				</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/i18n/changing-language/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/i18n/changing-language/'>Changing language globally</a>
-								</h3>
-								<div><p>By default, Moment.js comes with English language strings. If you need other languages, you can load them into Moment.js for later use.</p>
+			<article class="section">
+				<a class="target" name="/i18n/"></a>
+				<h2><a href='#/i18n/'>i18n</a></h2>
+				<p>Moment.js has pretty robust support for internationalization. You can load multiple languages onto the same instance and easily switch between them.</p>
+			</article>
+			
+				<article class="method">
+					<a class="target" name="/i18n/changing-language/"></a>
+					<h3><a href='#/i18n/changing-language/'>Changing language globally</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.0.0</p>
+							
+							
+								<pre>moment.lang(String);
+moment.lang(String, Object);</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p>By default, Moment.js comes with English language strings. If you need other languages, you can load them into Moment.js for later use.</p>
 
 <p>To load a language, pass the key and the string values to <code>moment.lang</code>.</p>
 
@@ -2629,28 +2295,25 @@ moment.isMoment(moment()) <span class="comment">// true</span>
 moment(<span class="number">1316116057189</span>).fromNow() <span class="comment">// il y a une heure</span>
 moment.lang(<span class="string">'en'</span>);
 moment(<span class="number">1316116057189</span>).fromNow() <span class="comment">// an hour ago</span>
-</pre></div></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.0.0</p>
-								
-								
-									<pre>moment.lang(String);
-moment.lang(String, Object);</pre>
-								
-							</div>
-						</div>
+</pre></div>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/i18n/instance-language/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/i18n/instance-language/'>Changing language locally</a>
-								</h3>
-								<div><p>Moment.js uses a global language configuration.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/i18n/instance-language/"></a>
+					<h3><a href='#/i18n/instance-language/'>Changing language locally</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.7.0</p>
+							
+							
+								<pre>moment().lang(String);</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p>Moment.js uses a global language configuration.</p>
 
 <p>However, this can be problematic when passing around moment objects that may need to be formatted into different languages.</p>
 
@@ -2681,54 +2344,50 @@ fr.lang(<span class="string">'en'</span>);
 fr.lang().months <span class="comment">// ["January", "February", "March", ...]</span>
 </pre></div>
 
-<p>If you need to access the language data for a moment, this is the preferred way to do so.</p></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.7.0</p>
-								
-								
-									<pre>moment().lang(String);</pre>
-								
-							</div>
-						</div>
+<p>If you need to access the language data for a moment, this is the preferred way to do so.</p>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/i18n/loading-into-nodejs/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/i18n/loading-into-nodejs/'>Loading languages in NodeJS</a>
-								</h3>
-								<div><p>Loading languages in NodeJS is super easy. If there is a language file in <code>moment/lang/</code> named after that key, the first call to <code>moment.lang</code> will load it.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/i18n/loading-into-nodejs/"></a>
+					<h3><a href='#/i18n/loading-into-nodejs/'>Loading languages in NodeJS</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.0.0</p>
+							
+							
+								<pre>moment.lang(String);</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p>Loading languages in NodeJS is super easy. If there is a language file in <code>moment/lang/</code> named after that key, the first call to <code>moment.lang</code> will load it.</p>
 
 <div class="highlight"><pre lang="javascript"><span class="keyword">var</span> moment = require(<span class="string">'moment'</span>);
 moment.lang(<span class="string">'fr'</span>);
 moment(<span class="number">1316116057189</span>).fromNow(); <span class="comment">// il y a une heure</span>
 </pre></div>
 
-<p>If you want your language supported, create a pull request to the <code>develop</code> branch with the <a href="#/i18n/adding-language/">required language and unit test files</a>.</p></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.0.0</p>
-								
-								
-									<pre>moment.lang(String);</pre>
-								
-							</div>
-						</div>
+<p>If you want your language supported, create a pull request to the <code>develop</code> branch with the <a href="#/i18n/adding-language/">required language and unit test files</a>.</p>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/i18n/loading-into-browser/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/i18n/loading-into-browser/'>Loading languages in the browser</a>
-								</h3>
-								<div><p>Loading languages in the browser just requires you to include the language files.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/i18n/loading-into-browser/"></a>
+					<h3><a href='#/i18n/loading-into-browser/'>Loading languages in the browser</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.0.0</p>
+							
+							
+								<pre>moment.lang(String);</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p>Loading languages in the browser just requires you to include the language files.</p>
 
 <div class="highlight"><pre lang="html">&lt;script src="moment.min.js">&lt;/script>
 &lt;script src="lang/fr.js">&lt;/script>
@@ -2744,84 +2403,70 @@ moment(<span class="number">1316116057189</span>).fromNow(); <span class="commen
 <p>Ideally, you would bundle all the files you need into one file to minimize http requests.</p>
 
 <div class="highlight"><pre lang="html">&lt;script src="moment-fr-it.min.js">&lt;/script>
-</pre></div></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.0.0</p>
-								
-								
-									<pre>moment.lang(String);</pre>
-								
-							</div>
-						</div>
+</pre></div>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/i18n/adding-language/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/i18n/adding-language/'>Adding your language to Moment.js</a>
-								</h3>
-								<div><p>To add your language to Moment.js, submit a pull request with both a language file and a test file. You can find examples in <code>moment/lang/fr.js</code> and <code>moment/test/lang/fr.js</code>.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/i18n/adding-language/"></a>
+					<h3><a href='#/i18n/adding-language/'>Adding your language to Moment.js</a></h3>
+					
+					<div class="prose">
+						<p>To add your language to Moment.js, submit a pull request with both a language file and a test file. You can find examples in <code>moment/lang/fr.js</code> and <code>moment/test/lang/fr.js</code>.</p>
 
 <p>To run the tests, do <code>make test</code>.</p>
 
-<p>If all the tests pass, submit that pull request, and thank you for contributing!</p></div>
-							</div>
-							<div class="signature">
-								
-								
-							</div>
-						</div>
+<p>If all the tests pass, submit that pull request, and thank you for contributing!</p>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/i18n/getting-language/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/i18n/getting-language/'>Checking the current Moment.js language</a>
-								</h3>
-								<div><p>If you are changing languages frequently, you may want to know what language is currently being used. This is as simple as calling <code>moment.lang</code> without any parameters.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/i18n/getting-language/"></a>
+					<h3><a href='#/i18n/getting-language/'>Checking the current Moment.js language</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.6.0</p>
+							
+							
+								<pre>moment.lang();</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p>If you are changing languages frequently, you may want to know what language is currently being used. This is as simple as calling <code>moment.lang</code> without any parameters.</p>
 
 <div class="highlight"><pre lang="javascript">moment.lang(<span class="string">'en'</span>); <span class="comment">// set to english</span>
 moment.lang(); <span class="comment">// returns 'en'</span>
 moment.lang(<span class="string">'fr'</span>); <span class="comment">// set to french</span>
 moment.lang(); <span class="comment">// returns 'fr'</span>
-</pre></div></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.6.0</p>
-								
-								
-									<pre>moment.lang();</pre>
-								
-							</div>
-						</div>
+</pre></div>
 					</div>
-				
-			</div>
+				</article>
+			
 		
-			<div class="row">
-				<div class="section-header">
-					<a class="target" name="/customization/"></a>
-					<h2>
-						<a href='#/customization/'>Customize</a>
-					</h2>
-					<div><p>If you don't need i18n support, you can manually override the customization values. <br />  However, any calls to <code>moment.lang</code> will override them. It is probably safer to create a language for your specific customizations than to override these values manually.</p></div>
-				</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/customization/month-names/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/customization/month-names/'>Month Names</a>
-								</h3>
-								<div><p><code>moment.months</code> should be an array of the month names.</p>
+			<article class="section">
+				<a class="target" name="/customization/"></a>
+				<h2><a href='#/customization/'>Customize</a></h2>
+				<p>If you don't need i18n support, you can manually override the customization values. <br />  However, any calls to <code>moment.lang</code> will override them. It is probably safer to create a language for your specific customizations than to override these values manually.</p>
+			</article>
+			
+				<article class="method">
+					<a class="target" name="/customization/month-names/"></a>
+					<h3><a href='#/customization/month-names/'>Month Names</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.0.0</p>
+							
+							
+								<pre>moment.months = String[];
+moment.months = Function</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p><code>moment.months</code> should be an array of the month names.</p>
 
 <div class="highlight"><pre lang="javascript">moment.months = [<span class="string">"January"</span>, <span class="string">"February"</span>, <span class="string">"March"</span>, <span class="string">"April"</span>, <span class="string">"May"</span>, <span class="string">"June"</span>, <span class="string">"July"</span>, <span class="string">"August"</span>, <span class="string">"September"</span>, <span class="string">"October"</span>, <span class="string">"November"</span>, <span class="string">"December"</span>];
 </pre></div>
@@ -2837,28 +2482,26 @@ moment.lang(); <span class="comment">// returns 'fr'</span>
         <span class="keyword">return</span> subjective[momentToFormat.month()];
     }
 }
-</pre></div></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.0.0</p>
-								
-								
-									<pre>moment.months = String[];
-moment.months = Function</pre>
-								
-							</div>
-						</div>
+</pre></div>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/customization/month-abbreviations/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/customization/month-abbreviations/'>Month Abbreviations</a>
-								</h3>
-								<div><p><code>moment.monthsShort</code> should be an array of the month abbreviations.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/customization/month-abbreviations/"></a>
+					<h3><a href='#/customization/month-abbreviations/'>Month Abbreviations</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.0.0</p>
+							
+							
+								<pre>moment.monthsShort = String[];
+moment.monthsShort = Function</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p><code>moment.monthsShort</code> should be an array of the month abbreviations.</p>
 
 <div class="highlight"><pre lang="javascript">moment.monthsShort = [<span class="string">"Jan"</span>, <span class="string">"Feb"</span>, <span class="string">"Mar"</span>, <span class="string">"Apr"</span>, <span class="string">"May"</span>, <span class="string">"Jun"</span>, <span class="string">"Jul"</span>, <span class="string">"Aug"</span>, <span class="string">"Sep"</span>, <span class="string">"Oct"</span>, <span class="string">"Nov"</span>, <span class="string">"Dec"</span>];
 </pre></div>
@@ -2872,28 +2515,26 @@ moment.months = Function</pre>
         <span class="keyword">return</span> subjective[momentToFormat.month()];
     }
 }
-</pre></div></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.0.0</p>
-								
-								
-									<pre>moment.monthsShort = String[];
-moment.monthsShort = Function</pre>
-								
-							</div>
-						</div>
+</pre></div>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/customization/weekday-names/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/customization/weekday-names/'>Weekday Names</a>
-								</h3>
-								<div><p><code>moment.weekdays</code> should be an array of the weekdays names.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/customization/weekday-names/"></a>
+					<h3><a href='#/customization/weekday-names/'>Weekday Names</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.0.0</p>
+							
+							
+								<pre>moment.weekdays = String[];
+moment.weekdays = Function</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p><code>moment.weekdays</code> should be an array of the weekdays names.</p>
 
 <div class="highlight"><pre lang="javascript">moment.weekdays = [<span class="string">"Sunday"</span>, <span class="string">"Monday"</span>, <span class="string">"Tuesday"</span>, <span class="string">"Wednesday"</span>, <span class="string">"Thursday"</span>, <span class="string">"Friday"</span>, <span class="string">"Saturday"</span>];
 </pre></div>
@@ -2903,28 +2544,26 @@ moment.monthsShort = Function</pre>
 <div class="highlight"><pre lang="javascript">config.weekdays = <span class="function"><span class="keyword">function</span> <span class="params">(momentToFormat, format)</span> {</span>
     <span class="keyword">return</span> weekdays[momentToFormat.day()];
 }
-</pre></div></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.0.0</p>
-								
-								
-									<pre>moment.weekdays = String[];
-moment.weekdays = Function</pre>
-								
-							</div>
-						</div>
+</pre></div>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/customization/weekday-abbreviations/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/customization/weekday-abbreviations/'>Weekday Abbreviations</a>
-								</h3>
-								<div><p><code>moment.weekdaysShort</code> should be an array of the weekdays abbreviations.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/customization/weekday-abbreviations/"></a>
+					<h3><a href='#/customization/weekday-abbreviations/'>Weekday Abbreviations</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.0.0</p>
+							
+							
+								<pre>moment.weekdaysShort = String[];
+moment.weekdaysShort = Function</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p><code>moment.weekdaysShort</code> should be an array of the weekdays abbreviations.</p>
 
 <div class="highlight"><pre lang="javascript">moment.weekdaysShort = [<span class="string">"Sun"</span>, <span class="string">"Mon"</span>, <span class="string">"Tue"</span>, <span class="string">"Wed"</span>, <span class="string">"Thu"</span>, <span class="string">"Fri"</span>, <span class="string">"Sat"</span>];
 </pre></div>
@@ -2934,28 +2573,26 @@ moment.weekdays = Function</pre>
 <div class="highlight"><pre lang="javascript">config.weekdaysShort = <span class="function"><span class="keyword">function</span> <span class="params">(momentToFormat, format)</span> {</span>
     <span class="keyword">return</span> weekdaysShort[momentToFormat.day()];
 }
-</pre></div></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.0.0</p>
-								
-								
-									<pre>moment.weekdaysShort = String[];
-moment.weekdaysShort = Function</pre>
-								
-							</div>
-						</div>
+</pre></div>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/customization/weekday-min/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/customization/weekday-min/'>Minimal Weekday Abbreviations</a>
-								</h3>
-								<div><p><code>moment.weekdaysMin</code> should be an array of two letter weekday abbreviations. The purpose of these is for things like calendar pickers, thus they should be as small as possible.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/customization/weekday-min/"></a>
+					<h3><a href='#/customization/weekday-min/'>Minimal Weekday Abbreviations</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.7.0</p>
+							
+							
+								<pre>moment.weekdaysMin = String[];
+moment.weekdaysMin = Function</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p><code>moment.weekdaysMin</code> should be an array of two letter weekday abbreviations. The purpose of these is for things like calendar pickers, thus they should be as small as possible.</p>
 
 <div class="highlight"><pre lang="javascript">moment.weekdaysMin = [<span class="string">"Su"</span>, <span class="string">"Mo"</span>, <span class="string">"Tu"</span>, <span class="string">"We"</span>, <span class="string">"Th"</span>, <span class="string">"Fr"</span>, <span class="string">"Sa"</span>];
 </pre></div>
@@ -2965,28 +2602,25 @@ moment.weekdaysShort = Function</pre>
 <div class="highlight"><pre lang="javascript">config.weekdaysMin = <span class="function"><span class="keyword">function</span> <span class="params">(momentToFormat, format)</span> {</span>
     <span class="keyword">return</span> weekdaysMin[momentToFormat.day()];
 }
-</pre></div></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.7.0</p>
-								
-								
-									<pre>moment.weekdaysMin = String[];
-moment.weekdaysMin = Function</pre>
-								
-							</div>
-						</div>
+</pre></div>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/customization/long-date-formats/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/customization/long-date-formats/'>Long Date Formats</a>
-								</h3>
-								<div><p><code>moment.longDateFormat</code> should be an object containing a key/value pair for each long date format (L, LL, LLL, LLLL, and LT). <code>LT</code> should be the time format, and is also used for <code>moment.fn.calendar</code>.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/customization/long-date-formats/"></a>
+					<h3><a href='#/customization/long-date-formats/'>Long Date Formats</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.1.0</p>
+							
+							
+								<pre>moment.longDateFormat = Object;</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p><code>moment.longDateFormat</code> should be an object containing a key/value pair for each long date format (L, LL, LLL, LLLL, and LT). <code>LT</code> should be the time format, and is also used for <code>moment.fn.calendar</code>.</p>
 
 <div class="highlight"><pre lang="javascript">moment.longDateFormat = {
     LT: <span class="string">"h:mm A"</span>,
@@ -2995,27 +2629,25 @@ moment.weekdaysMin = Function</pre>
     LLL: <span class="string">"MMMM D YYYY LT"</span>,
     LLLL: <span class="string">"dddd, MMMM D YYYY LT"</span>
 };
-</pre></div></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.1.0</p>
-								
-								
-									<pre>moment.longDateFormat = Object;</pre>
-								
-							</div>
-						</div>
+</pre></div>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/customization/relative-time/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/customization/relative-time/'>Relative Time</a>
-								</h3>
-								<div><p><code>moment.relativeTime</code> should be an object of the replacement strings for <code>moment.fn.from</code>.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/customization/relative-time/"></a>
+					<h3><a href='#/customization/relative-time/'>Relative Time</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.0.0</p>
+							
+							
+								<pre>moment.relativeTime = Object;</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p><code>moment.relativeTime</code> should be an object of the replacement strings for <code>moment.fn.from</code>.</p>
 
 <div class="highlight"><pre lang="javascript">moment.relativeTime = {
     future: <span class="string">"in %s"</span>,
@@ -3051,27 +2683,25 @@ moment.weekdaysMin = Function</pre>
 
 <p>The <code>isFuture</code> parameter will be true if it is going to use the future suffix/prefix and false if it is going to use the past prefix/suffix.</p>
 
-<p><strong>Note:</strong> the <code>isFuture</code> parameter was added in version <em>1.6.0</em>.</p></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.0.0</p>
-								
-								
-									<pre>moment.relativeTime = Object;</pre>
-								
-							</div>
-						</div>
+<p><strong>Note:</strong> the <code>isFuture</code> parameter was added in version <em>1.6.0</em>.</p>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/customization/am-pm/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/customization/am-pm/'>AM/PM</a>
-								</h3>
-								<div><p>If your language uses 'am/pm', <code>moment.meridiem</code> can be ommitted, as those values are the defaults.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/customization/am-pm/"></a>
+					<h3><a href='#/customization/am-pm/'>AM/PM</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.6.0</p>
+							
+							
+								<pre>moment.meridiem = Function;</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p>If your language uses 'am/pm', <code>moment.meridiem</code> can be ommitted, as those values are the defaults.</p>
 
 <p>If your language needs any different computation for am/pm, <code>moment.meridiem</code> should be a callback function that returns the correct string based on hour, minute, and upper/lowercase.</p>
 
@@ -3100,27 +2730,25 @@ moment.weekdaysMin = Function</pre>
 };
 </pre></div>
 
-<p>This has been deprecated. The 1.6.0 callback function syntax is now used instead.</p></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.6.0</p>
-								
-								
-									<pre>moment.meridiem = Function;</pre>
-								
-							</div>
-						</div>
+<p>This has been deprecated. The 1.6.0 callback function syntax is now used instead.</p>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/customization/calendar/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/customization/calendar/'>Calendar</a>
-								</h3>
-								<div><p><code>moment.calendar</code> should have the following formatting strings.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/customization/calendar/"></a>
+					<h3><a href='#/customization/calendar/'>Calendar</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.3.0</p>
+							
+							
+								<pre>moment.calendar = Object;</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p><code>moment.calendar</code> should have the following formatting strings.</p>
 
 <div class="highlight"><pre lang="javascript">moment.calendar = {
     lastDay : <span class="string">'[Yesterday at] LT'</span>,
@@ -3130,27 +2758,25 @@ moment.weekdaysMin = Function</pre>
     nextWeek : <span class="string">'dddd [at] LT'</span>,
     sameElse : <span class="string">'L'</span>
 };
-</pre></div></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.3.0</p>
-								
-								
-									<pre>moment.calendar = Object;</pre>
-								
-							</div>
-						</div>
+</pre></div>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/customization/ordinal/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/customization/ordinal/'>Ordinal</a>
-								</h3>
-								<div><p><code>moment.ordinal</code> should be a function that returns the ordinal for a given number.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/customization/ordinal/"></a>
+					<h3><a href='#/customization/ordinal/'>Ordinal</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.0.0</p>
+							
+							
+								<pre>moment.ordinal = Function;</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p><code>moment.ordinal</code> should be a function that returns the ordinal for a given number.</p>
 
 <div class="highlight"><pre lang="javascript">moment.ordinal = <span class="function"><span class="keyword">function</span> <span class="params">(number)</span> {</span>
     <span class="keyword">var</span> b = number % <span class="number">10</span>;
@@ -3161,42 +2787,38 @@ moment.weekdaysMin = Function</pre>
 };
 </pre></div>
 
-<p>For more information on ordinal numbers, see <a href="http://en.wikipedia.org/wiki/Ordinal_number_%28linguistics%29">wikipedia</a></p></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.0.0</p>
-								
-								
-									<pre>moment.ordinal = Function;</pre>
-								
-							</div>
-						</div>
+<p>For more information on ordinal numbers, see <a href="http://en.wikipedia.org/wiki/Ordinal_number_%28linguistics%29">wikipedia</a></p>
 					</div>
-				
-			</div>
+				</article>
+			
 		
-			<div class="row">
-				<div class="section-header">
-					<a class="target" name="/durations/"></a>
-					<h2>
-						<a href='#/durations/'>Durations</a>
-					</h2>
-					<div><p>Moment.js also has duration objects. Whereas moments are defined as single points in time, durations are defined as a length of time.</p>
+			<article class="section">
+				<a class="target" name="/durations/"></a>
+				<h2><a href='#/durations/'>Durations</a></h2>
+				<p>Moment.js also has duration objects. Whereas moments are defined as single points in time, durations are defined as a length of time.</p>
 
 <p>Durations do not have a defined beginning and end date. They are contextless.</p>
 
-<p>A duration is more like '2 hours' than 'between 2 and 4 pm today'.</p></div>
-				</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/durations/creating/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/durations/creating/'>Creating</a>
-								</h3>
-								<div><p>To create a duration, call <code>moment.duration()</code> with the length of time in milliseconds.</p>
+<p>A duration is more like '2 hours' than 'between 2 and 4 pm today'.</p>
+			</article>
+			
+				<article class="method">
+					<a class="target" name="/durations/creating/"></a>
+					<h3><a href='#/durations/creating/'>Creating</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.6.0</p>
+							
+							
+								<pre>moment.duration(Number, String);
+moment.duration(Number);
+moment.duration(Object);</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p>To create a duration, call <code>moment.duration()</code> with the length of time in milliseconds.</p>
 
 <div class="highlight"><pre lang="javascript">moment.duration(<span class="number">100</span>); <span class="comment">// 100 milliseconds</span>
 </pre></div>
@@ -3266,29 +2888,25 @@ moment.duration(<span class="number">2</span>, <span class="string">'years'</spa
     months: <span class="number">2</span>,
     years: <span class="number">2</span>
 });
-</pre></div></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.6.0</p>
-								
-								
-									<pre>moment.duration(Number, String);
-moment.duration(Number);
-moment.duration(Object);</pre>
-								
-							</div>
-						</div>
+</pre></div>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/durations/humanize/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/durations/humanize/'>Humanize</a>
-								</h3>
-								<div><p>Sometimes, you want all the goodness of <code>moment.fn.from</code> but you don't want to have to create two moments, you just want to display a length of time.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/durations/humanize/"></a>
+					<h3><a href='#/durations/humanize/'>Humanize</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.6.0</p>
+							
+							
+								<pre>moment.duration().humanize();</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p>Sometimes, you want all the goodness of <code>moment.fn.from</code> but you don't want to have to create two moments, you just want to display a length of time.</p>
 
 <p>Enter <code>moment.duration().humanize()</code>.</p>
 
@@ -3305,27 +2923,26 @@ moment.duration(<span class="number">24</span>, <span class="string">"hours"</sp
 <p>For suffixes before now, pass in a negative number.</p>
 
 <div class="highlight"><pre lang="javascript">moment.duration(-<span class="number">1</span>, <span class="string">"minutes"</span>).humanize(<span class="literal">true</span>); <span class="comment">// a minute ago</span>
-</pre></div></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.6.0</p>
-								
-								
-									<pre>moment.duration().humanize();</pre>
-								
-							</div>
-						</div>
+</pre></div>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/durations/milliseconds/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/durations/milliseconds/'>Milliseconds</a>
-								</h3>
-								<div><p>To get the number of milliseconds in a duration, use <code>moment.duration().milliseconds()</code>.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/durations/milliseconds/"></a>
+					<h3><a href='#/durations/milliseconds/'>Milliseconds</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.6.0</p>
+							
+							
+								<pre>moment.duration().milliseconds();
+moment.duration().asMilliseconds();</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p>To get the number of milliseconds in a duration, use <code>moment.duration().milliseconds()</code>.</p>
 
 <p>It will return a number between 0 and 1000.</p>
 
@@ -3339,28 +2956,26 @@ moment.duration(<span class="number">15000</span>).milliseconds(); <span class="
 <div class="highlight"><pre lang="javascript">moment.duration(<span class="number">500</span>).asMilliseconds(); <span class="comment">// 500</span>
 moment.duration(<span class="number">1500</span>).asMilliseconds(); <span class="comment">// 1500</span>
 moment.duration(<span class="number">15000</span>).asMilliseconds(); <span class="comment">// 15000</span>
-</pre></div></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.6.0</p>
-								
-								
-									<pre>moment.duration().milliseconds();
-moment.duration().asMilliseconds();</pre>
-								
-							</div>
-						</div>
+</pre></div>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/durations/seconds/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/durations/seconds/'>Seconds</a>
-								</h3>
-								<div><p>To get the number of seconds in a duration, use <code>moment.duration().seconds()</code>.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/durations/seconds/"></a>
+					<h3><a href='#/durations/seconds/'>Seconds</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.6.0</p>
+							
+							
+								<pre>moment.duration().seconds();
+moment.duration().asSeconds();</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p>To get the number of seconds in a duration, use <code>moment.duration().seconds()</code>.</p>
 
 <p>It will return a number between 0 and 60.</p>
 
@@ -3374,183 +2989,148 @@ moment.duration(<span class="number">15000</span>).seconds(); <span class="comme
 <div class="highlight"><pre lang="javascript">moment.duration(<span class="number">500</span>).asSeconds(); <span class="comment">// 0.5</span>
 moment.duration(<span class="number">1500</span>).asSeconds(); <span class="comment">// 1.5</span>
 moment.duration(<span class="number">15000</span>).asSeconds(); <span class="comment">// 15</span>
-</pre></div></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.6.0</p>
-								
-								
-									<pre>moment.duration().seconds();
-moment.duration().asSeconds();</pre>
-								
-							</div>
-						</div>
+</pre></div>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/durations/minutes/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/durations/minutes/'>Minutes</a>
-								</h3>
-								<div><p>As with the other getters for durations, <code>moment.duration().minutes()</code> gets the minutes (0 - 60).</p>
-
-<p><code>moment.duration().asMinutes()</code> gets the length of the duration in minutes.</p></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.6.0</p>
-								
-								
-									<pre>moment.duration().minutes();
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/durations/minutes/"></a>
+					<h3><a href='#/durations/minutes/'>Minutes</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.6.0</p>
+							
+							
+								<pre>moment.duration().minutes();
 moment.duration().asMinutes();</pre>
-								
-							</div>
+							
 						</div>
-					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/durations/hours/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/durations/hours/'>Hours</a>
-								</h3>
-								<div><p>As with the other getters for durations, <code>moment.duration().hours()</code> gets the hours (0 - 24).</p>
+					
+					<div class="prose">
+						<p>As with the other getters for durations, <code>moment.duration().minutes()</code> gets the minutes (0 - 60).</p>
 
-<p><code>moment.duration().asHours()</code> gets the length of the duration in hours.</p></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.6.0</p>
-								
-								
-									<pre>moment.duration().hours();
+<p><code>moment.duration().asMinutes()</code> gets the length of the duration in minutes.</p>
+					</div>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/durations/hours/"></a>
+					<h3><a href='#/durations/hours/'>Hours</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.6.0</p>
+							
+							
+								<pre>moment.duration().hours();
 moment.duration().asHours();</pre>
-								
-							</div>
+							
 						</div>
-					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/durations/days/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/durations/days/'>Days</a>
-								</h3>
-								<div><p>As with the other getters for durations, <code>moment.duration().days()</code> gets the days (0 - 30).</p>
+					
+					<div class="prose">
+						<p>As with the other getters for durations, <code>moment.duration().hours()</code> gets the hours (0 - 24).</p>
 
-<p><code>moment.duration().asDays()</code> gets the length of the duration in days.</p></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.6.0</p>
-								
-								
-									<pre>moment.duration().days();
-moment.duration().asDays();</pre>
-								
-							</div>
-						</div>
+<p><code>moment.duration().asHours()</code> gets the length of the duration in hours.</p>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/durations/months/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/durations/months/'>Months</a>
-								</h3>
-								<div><p>As with the other getters for durations, <code>moment.duration().months()</code> gets the months (0 - 12).</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/durations/days/"></a>
+					<h3><a href='#/durations/days/'>Days</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.6.0</p>
+							
+							
+								<pre>moment.duration().days();
+moment.duration().asDays();</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p>As with the other getters for durations, <code>moment.duration().days()</code> gets the days (0 - 30).</p>
+
+<p><code>moment.duration().asDays()</code> gets the length of the duration in days.</p>
+					</div>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/durations/months/"></a>
+					<h3><a href='#/durations/months/'>Months</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.6.0</p>
+							
+							
+								<pre>moment.duration().months();
+moment.duration().asMonths();</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p>As with the other getters for durations, <code>moment.duration().months()</code> gets the months (0 - 12).</p>
 
 <p><code>moment.duration().asMonths()</code> gets the length of the duration in months.</p>
 
-<p><strong>Note:</strong> The length of a duration in months is defined as 30 days.</p></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.6.0</p>
-								
-								
-									<pre>moment.duration().months();
-moment.duration().asMonths();</pre>
-								
-							</div>
-						</div>
+<p><strong>Note:</strong> The length of a duration in months is defined as 30 days.</p>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/durations/years/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/durations/years/'>Years</a>
-								</h3>
-								<div><p>As with the other getters for durations, <code>moment.duration().years()</code> gets the years.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/durations/years/"></a>
+					<h3><a href='#/durations/years/'>Years</a></h3>
+					
+						<div class="signature">
+							
+								<p>Available in 1.6.0</p>
+							
+							
+								<pre>moment.duration().years();
+moment.duration().asYears();</pre>
+							
+						</div>
+					
+					<div class="prose">
+						<p>As with the other getters for durations, <code>moment.duration().years()</code> gets the years.</p>
 
 <p><code>moment.duration().asYears()</code> gets the length of the duration in years.</p>
 
-<p><strong>Note:</strong> The length of a duration in years is defined as 365 days.</p></div>
-							</div>
-							<div class="signature">
-								
-									<p>Available in 1.6.0</p>
-								
-								
-									<pre>moment.duration().years();
-moment.duration().asYears();</pre>
-								
-							</div>
-						</div>
+<p><strong>Note:</strong> The length of a duration in years is defined as 365 days.</p>
 					</div>
-				
-			</div>
+				</article>
+			
 		
-			<div class="row">
-				<div class="section-header">
-					<a class="target" name="/plugins/"></a>
-					<h2>
-						<a href='#/plugins/'>Plugins</a>
-					</h2>
-					<div><p>Some people have made plugins for moment.js that may be useful to you.</p></div>
-				</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/plugins/strftime/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/plugins/strftime/'>strftime</a>
-								</h3>
-								<div><p>If you are more comfortable working with strftime instead of LDML-like parsing tokens, you can use Ben Oakes' plugin <code>moment-strftime</code>.</p>
+			<article class="section">
+				<a class="target" name="/plugins/"></a>
+				<h2><a href='#/plugins/'>Plugins</a></h2>
+				<p>Some people have made plugins for moment.js that may be useful to you.</p>
+			</article>
+			
+				<article class="method">
+					<a class="target" name="/plugins/strftime/"></a>
+					<h3><a href='#/plugins/strftime/'>strftime</a></h3>
+					
+					<div class="prose">
+						<p>If you are more comfortable working with strftime instead of LDML-like parsing tokens, you can use Ben Oakes' plugin <code>moment-strftime</code>.</p>
 
 <p>It is available on npm.</p>
 
 <div class="highlight"><pre lang="">npm install moment-strftime
 </pre></div>
 
-<p>The repository is located at <a href="https://github.com/benjaminoakes/moment-strftime">github.com/benjaminoakes/moment-strftime</a></p></div>
-							</div>
-							<div class="signature">
-								
-								
-									<pre>moment().strftime(String);</pre>
-								
-							</div>
-						</div>
+<p>The repository is located at <a href="https://github.com/benjaminoakes/moment-strftime">github.com/benjaminoakes/moment-strftime</a></p>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/plugins/isocalendar/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/plugins/isocalendar/'>ISO Calendar</a>
-								</h3>
-								<div><p>If you are looking for a Python-like isocalendar method, you can use Rocky Meza's plugin</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/plugins/isocalendar/"></a>
+					<h3><a href='#/plugins/isocalendar/'>ISO Calendar</a></h3>
+					
+					<div class="prose">
+						<p>If you are looking for a Python-like isocalendar method, you can use Rocky Meza's plugin</p>
 
 <p><code>moment-isocalendar</code></p>
 
@@ -3572,26 +3152,16 @@ moment.duration().asYears();</pre>
 <div class="highlight"><pre lang="">npm install moment-isocalendar
 </pre></div>
 
-<p>The repository is located at <a href="https://github.com/fusionbox/moment-isocalendar">github.com/fusionbox/moment-isocalendar</a></p></div>
-							</div>
-							<div class="signature">
-								
-								
-									<pre>moment().isocalendar();
-moment.fromIsocalendar(Array);</pre>
-								
-							</div>
-						</div>
+<p>The repository is located at <a href="https://github.com/fusionbox/moment-isocalendar">github.com/fusionbox/moment-isocalendar</a></p>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/plugins/range/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/plugins/range/'>Date Ranges</a>
-								</h3>
-								<div><p>If you need to work with date ranges, you can use Gianni Chiappetta's plugin <code>moment-range</code>.</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/plugins/range/"></a>
+					<h3><a href='#/plugins/range/'>Date Ranges</a></h3>
+					
+					<div class="prose">
+						<p>If you need to work with date ranges, you can use Gianni Chiappetta's plugin <code>moment-range</code>.</p>
 
 <p>Documentation can be found on the homepage <a href="http://gf3.github.com/moment-range/">gf3.github.com/moment-range</a>.</p>
 
@@ -3602,26 +3172,16 @@ moment.fromIsocalendar(Array);</pre>
 
 <p>And it is also available for the web at the repository below.</p>
 
-<p>The repository is located at <a href="https://github.com/gf3/moment-range"><a href='https://github.com/gf3/moment-range'>https://github.com/gf3/moment-range</a></a></p></div>
-							</div>
-							<div class="signature">
-								
-								
-									<pre>moment().range(Moment, Moment);
-moment.within(DateRange);</pre>
-								
-							</div>
-						</div>
+<p>The repository is located at <a href="https://github.com/gf3/moment-range"><a href='https://github.com/gf3/moment-range'>https://github.com/gf3/moment-range</a></a></p>
 					</div>
-				
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/plugins/twix/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/plugins/twix/'>Twix</a>
-								</h3>
-								<div><p>Another range plugin is Isaac Cambron's library <code>Twix</code> . It has many range-related features but excels at formatting them readably. For example,</p>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/plugins/twix/"></a>
+					<h3><a href='#/plugins/twix/'>Twix</a></h3>
+					
+					<div class="prose">
+						<p>Another range plugin is Isaac Cambron's library <code>Twix</code> . It has many range-related features but excels at formatting them readably. For example,</p>
 
 <div class="highlight"><pre lang="javascript"><span class="keyword">var</span> t = moment.twix(<span class="string">"1/25/1982 9:30 AM"</span>, <span class="string">"1/25/1982 1:30 PM"</span>)
 t.format();  <span class="comment">// Jan 25, 1982, 9:30 AM - 1:30 PM</span>
@@ -3640,35 +3200,25 @@ t.format(); <span class="comment">// 'May 25 - 26, 1982'</span>
 <div class="highlight"><pre lang="">npm install twix.js
 </pre></div>
 
-<p>Or just grab the JS file from <a href="https://raw.github.com/icambron/twix.js/master/bin/twix.js">here</a>.</p></div>
-							</div>
-							<div class="signature">
-								
-								
-									<pre>moment.twix(Moment, Moment);
-moment.twix(Moment, Moment, Boolean);</pre>
-								
-							</div>
-						</div>
+<p>Or just grab the JS file from <a href="https://raw.github.com/icambron/twix.js/master/bin/twix.js">here</a>.</p>
 					</div>
-				
-			</div>
+				</article>
+			
 		
 	</div>
 
 
 		</div>
 		<a href="https://github.com/timrwood/moment/" class="fork"></a>
-		<div class="footer">
-			<div class="container">
-				<div class="row">
-					<div class="span12">Moment.js is freely distributable under the terms of the MIT license.</div>
-				</div>
-			</div>
-		</div>
+		<footer>
+			<p>Moment.js is freely distributable under the terms of the MIT license.</p>
+		</footer>
+
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+
 		
 	<script src="../js/home.min.js"></script>
+
 
 		<script>
 			window._gaq = [['_setAccount','UA-10641787-5'],['_trackPageview'],['_trackPageLoadTime']];

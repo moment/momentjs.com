@@ -9,7 +9,7 @@ var fs        = require('fs'),
 swig.init({
     allowErrors: true,
     autoescape: true,
-    cache: true,
+    cache: false,
     encoding: 'utf8',
     filters: {},
     root: filename(['source', 'templates']),

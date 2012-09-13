@@ -11,83 +11,46 @@
 {% endblock header %}
 
 {% block content %}
-	<div class="row">
 
-		<div id="download-btns" class="span4">
-			<h3>Latest version : {{ library.version }}</h3>
-			<pre>npm install moment</pre>
-			<p>
-				<a class="btn btn-success btn-large" href="https://raw.github.com/timrwood/moment/" + {{ library.version }} + "/min/moment.min.js">
-					<i class="icon-download-alt icon-white"></i>
-					<strong>Production</strong>
-					<span class="filesize">({{ library.gzipped }} min &amp; gzip)</span>
-				</a>
-			</p>
-			<p>
-				<a class="btn" href="https://raw.github.com/timrwood/moment/" + {{ library.version }} + "/moment.js">
-					<i class="icon-download-alt"></i>
-					<strong>Development</strong>
-					<span class="filesize">(full {{ library.size }} source)</span>
-				</a>
-			</p>
-			<div class="share">
-				<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://momentjs.com" data-via="momentjs" data-lang="en" data-count="vertical"></a>
-				<div class="g-plusone" data-size="tall" data-href="http://momentjs.com"></div>
-			</div>
-		</div>
-	</div>
-
-	<div id="subnav" class="subnav subnav-fixed">
-		<ul class="nav nav-pills">
-			{% for section in docs %}
-				<li class="dropdown">
-					<a class="dropdown-toggle" data-toggle="dropdown">
-						<span>{{ section.title }}</span>
-					</a>
-					<ul class="dropdown-menu">
-						{% for method in section.methods %}
-							<li>
-								<a href="#/{{ section.key }}/{{ method.key }}/">{{ method.title }}</a>
-							</li>
-						{% endfor %}
-					</ul>
-				</li>
-			{% endfor %}
-		</ul>
-	</div>
-
-	<div id="docs" data-spy="scroll">
+	<nav class="subnav">
 		{% for section in docs %}
-			<div class="row">
-				<div class="section-header">
-					<a class="target" name="/{{ section.key }}/"></a>
-					<h2>
-						<a href='#/{{ section.key }}/'>{{ section.title }}</a>
-					</h2>
-					<div>{% autoescape false %}{{ section.body }}{% endautoescape %}</div>
+			<div class="section">
+				<a href='#/{{ section.key }}/'>{{ section.title }}</a>
+				<div class="dropdown">
+					{% for method in section.methods %}
+						<a href="#/{{ section.key }}/{{ method.key }}/">{{ method.title }}</a>
+					{% endfor %}
 				</div>
-				{% for method in section.methods %}
-					<div class="row">
-						<div class="section">
-							<a class="target" name="/{{ section.key }}/{{ method.key }}/"></a>
-							<div class="prose">
-								<h3 class="doc-row">
-									<a href='#/{{ section.key }}/{{ method.key }}/'>{{ method.title }}</a>
-								</h3>
-								<div>{% autoescape false %}{{ method.body }}{% endautoescape %}</div>
-							</div>
-							<div class="signature">
-								{% if method.version %}
-									<p>Available in {{ method.version }}</p>
-								{% endif %}
-								{% if method.signature %}
-									<pre>{{ method.signature }}</pre>
-								{% endif %}
-							</div>
-						</div>
-					</div>
-				{% endfor %}
 			</div>
+		{% endfor %}
+	</nav>
+
+	<div class="docs">
+		{% for section in docs %}
+			<article class="section">
+				<a class="target" name="/{{ section.key }}/"></a>
+				<h2><a href='#/{{ section.key }}/'>{{ section.title }}</a></h2>
+				{% autoescape false %}{{ section.body }}{% endautoescape %}
+			</article>
+			{% for method in section.methods %}
+				<article class="method">
+					<a class="target" name="/{{ section.key }}/{{ method.key }}/"></a>
+					<h3><a href='#/{{ section.key }}/{{ method.key }}/'>{{ method.title }}</a></h3>
+					{% if method.version and method.signature %}
+						<div class="signature">
+							{% if method.version %}
+								<p>Available in {{ method.version }}</p>
+							{% endif %}
+							{% if method.signature %}
+								<pre>{{ method.signature }}</pre>
+							{% endif %}
+						</div>
+					{% endif %}
+					<div class="prose">
+						{% autoescape false %}{{ method.body }}{% endautoescape %}
+					</div>
+				</article>
+			{% endfor %}
 		{% endfor %}
 	</div>
 

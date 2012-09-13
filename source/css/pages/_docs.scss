@@ -1,0 +1,148 @@
+.docs {
+	article {
+		position: relative;
+		overflow: hidden;
+		margin: 0 0 20px;
+
+		h2,
+		h3 {
+			color: rgba(0, 0, 0, 0.8);
+			text-shadow: 1px 1px #fff;
+			padding: 0;
+			margin: 0;
+
+			a {
+				color: rgba(0, 0, 0, 0.8);
+				text-decoration: none;
+
+				&:hover {
+					color: #000;
+				}
+			}
+		}
+
+		h2 {
+			font-size: 50px;
+		}
+
+		h3 {
+			padding: 0 20px;
+			font-size: 30px;
+		}
+
+		&.method {
+			box-shadow: 0 1px 5px rgba(0, 0, 0, .2);
+			overflow: hidden;
+			border-radius: 3px;
+			position: relative;
+			background: #fff;
+		}
+
+		.prose {
+			padding: 20px;
+			margin-right: 280px;
+		}
+
+		.signature {
+			padding: 10px;
+			width: 260px;
+			margin-left: 0;
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			background: #333;
+			border-radius: 0 3px 3px 0;
+			color: #ccc;
+			border-left: 1px solid #000;
+
+			p {
+				font-size: 12px;
+				background: #111;
+				padding: 2px 6px;
+				border-radius: 3px;
+				border: 1px solid #000;
+				margin: 0;
+			}
+
+			pre {
+				margin: 0;
+				padding: 0;
+				background: 0;
+				border: 0;
+				font-size: 10px;
+			}
+		}
+
+		td,
+		th {
+			padding: 10px 10px;
+			border-top: 1px solid #ddd;
+			background: #fff;
+			text-align: left;
+		}
+
+		tr:nth-child(odd) td,
+		tr:nth-child(odd) th {
+			background: #f8f8f8;
+		}
+
+		.target {
+			position: relative;
+			display: block;
+			top: -110px;
+		}
+
+		@include size(mobile) {
+			h2 {
+				font-size: 30px;
+			}
+
+			h3 {
+				padding: 10px;
+			}
+
+			.prose {
+				padding: 10px;
+				margin-right: 0;
+			}
+
+			.signature {
+				position: static;
+				width: auto;
+				border-radius: 0;
+			}
+
+			aside {
+				margin: 0;
+				padding: 0;
+			}
+		}
+
+		@include size(tablet) {
+			h2 {
+				font-size: 30px;
+			}
+
+			h3 {
+				padding: 10px;
+			}
+
+			.prose {
+				padding: 10px;
+				margin-right: 0;
+			}
+
+			.signature {
+				position: static;
+				width: auto;
+				border-radius: 0;
+			}
+
+			aside {
+				margin: 0;
+				padding: 0;
+			}
+		}
+	}
+}

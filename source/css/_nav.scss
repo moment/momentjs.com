@@ -1,40 +1,132 @@
-nav {
-    height: 50px;
-    @include grad(#bbb, #eee);
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    padding: 0 20px;
-    font-weight: 200;
+nav.top {
+	height: 50px;
+	@include grad(#bbb, #eee);
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	padding: 0 20px;
+	font-weight: 200;
+	@include box-shadow(0 0 6px rgba(0, 0, 0, .8));
+	z-index: 2001;
 
-    a {
-        float: left;
-        color: #333;
-        line-height: 50px;
-        padding: 0 15px;
-        text-decoration: none;
-        font-size: 16px;
+	a {
+		float: left;
+		color: #333;
+		line-height: 50px;
+		padding: 0 15px;
+		text-decoration: none;
+		font-size: 16px;
+		display: block;
 
-        &.logo {
-            font-size: 30px;
-            background: rgba(0, 0, 0, .1);
-            border: 1px solid #aaa;
-            border-width: 0 1px;
-            font-weight: 100;
-        }
+		&.logo {
+			font-size: 30px;
+			font-weight: 100;
+		}
 
-        &.twitter {
-            border: 1px solid #aaa;
-            border-width: 0 1px;
-        }
+		&:hover {
+			background: rgba(0, 0, 0, .1);
+		}
+	}
 
-        &:hover {
-            background: rgba(0, 0, 0, .1);
-        }
-    }
+	iframe {
+		margin: 14px 0 0 15px;
+	}
 
-    iframe {
-        margin: 14px 0 0 15px;
-    }
+	@include size(mobile) {
+		height: auto;
+		padding: 10px;
+		background: #eee;
+		position: static;
+
+		a {
+			float: none;
+			border: 1px solid #aaa;
+			margin-bottom: 5px;
+			background: #ccc;
+			line-height: 40px;
+			padding: 0 10px;
+			border-radius: 5px;
+
+			&.twitter {
+				border: 1px solid #aaa;
+			}
+
+			+ a {
+				margin-top: 5px;
+			}
+		}
+
+		iframe {
+			display: none;
+		}
+	}
+
+}
+
+nav.subnav {
+	height: 40px;
+	@include grad(#bbb, #999);
+	position: fixed;
+	top: 50px;
+	left: 0;
+	right: 0;
+	padding: 0 20px;
+	font-weight: 200;
+	border-top: 1px solid #666;
+	border-bottom: 1px solid #666;
+	@include box-shadow(0 0 6px rgba(0, 0, 0, .8));
+	z-index: 2000;
+
+	@include size(mobile) {
+		display: none;
+	}
+
+	.section {
+		float: left;
+		height: 40px;
+		line-height: 40px;
+		position: relative;
+
+		a {
+			padding: 0 15px;
+			text-decoration: none;
+			border: 1px solid transparent;
+			border-width: 0 1px;
+			display: block;
+			font-size: 14px;
+		}
+
+		.dropdown {
+			position: absolute;
+			top: 40px;
+			left: 0;
+			background: #fff;
+			min-width: 100%;
+			border: 1px solid #333;
+			border-top: 0;
+			display: none;
+			@include box-sizing(border-box);
+
+			a {
+				padding: 0 10px;
+				white-space: nowrap;
+				line-height: 30px;
+
+				&:hover {
+					background: #eee;
+				}
+			}
+		}
+
+		&:hover {
+			> a {
+				border-color: #333;
+				background: #fff;
+			}
+			.dropdown {
+				display: block;
+			}
+		}
+	}
 }

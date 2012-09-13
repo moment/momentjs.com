@@ -1,55 +1,92 @@
 body {
-    font-family: "Helvetica Neue", Arial, sans-serif;
+	font-family: "Helvetica Neue", Arial, sans-serif;
+	font-size: 16px;
+	line-height: 1.3;
+	background: #eee;
 }
 
 .container {
-    padding: 20px;
+	padding: 20px;
+
+	@include size(mobile) {
+		padding: 10px;
+	}
 }
 
 pre {
-    background: #444;
-    border: 1px solid #111;
-    color: #eee;
-    font-size: 14px;
-    padding: 5px 8px;
-    border-radius: 5px;
-    margin: 0 0 20px;
-    white-space: pre;
-    line-height: 20px;
+	background: #444;
+	border: 1px solid #111;
+	color: #eee;
+	font-size: 14px;
+	padding: 5px 8px;
+	border-radius: 5px;
+	margin: 0 0 20px;
+	white-space: pre;
+	line-height: 20px;
+	background: #222 url(../img/header.png);
+	text-shadow: 1px 1px 0 #000;
 
-    .keyword,
-    .type,
-    .symbol,
-    .cbracket,
-    .date,
-    .time,
-    .file,
-    .variable,
-    .difflines,
-    .selector,
-    .literal,
-    .property {
-        font-weight: bold;
-    }
+	.keyword,
+	.type,
+	.symbol,
+	.cbracket,
+	.date,
+	.time,
+	.file,
+	.variable,
+	.difflines,
+	.selector,
+	.literal,
+	.property {
+		font-weight: bold;
+	}
 
-    .literal,
-    .type {
-        color: #458;
-    }
+	.literal,
+	.type {
+		color: #458;
+	}
 
-    .string {
-        color: #d14;
-    }
+	.string {
+		color: #d14;
+	}
 
-    .number {
-        color: #4a7;
-    }
+	.number {
+		color: #4a7;
+	}
 
-    .regexp {
-        color: #092;
-    }
+	.regexp {
+		color: #092;
+	}
 
-    .comment {
-        color: #999;
-    }
+	.comment {
+		color: #999;
+	}
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: 200;
+}
+
+h2 {
+	font-size: 30px;
+}
+
+h3 {
+	font-size: 24px;
+}
+
+h4 {
+	font-size: 20px;
+}
+
+code {
+	padding: 1px 4px;
+	background: #eee;
+	border: 1px solid #ddd;
+	border-radius: 3px;
 }
