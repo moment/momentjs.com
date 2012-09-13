@@ -39,23 +39,58 @@
 		</div>
 	</div>
 
-	<div id="subnav" class="subnav.subnav-fixed">
+	<div id="subnav" class="subnav subnav-fixed">
 		<ul class="nav nav-pills">
 			{% for section in docs %}
 				<li class="dropdown">
 					<a class="dropdown-toggle" data-toggle="dropdown">
-						<span>{{ section.name }}</span>
+						<span>{{ section.title }}</span>
 					</a>
 					<ul class="dropdown-menu">
 						{% for method in section.methods %}
 							<li>
-								<a href="#/{{ section.machineName }}/{{ method.machineName }}/">{{ method.name }}</a>
+								<a href="#/{{ section.key }}/{{ method.key }}/">{{ method.title }}</a>
 							</li>
 						{% endfor %}
 					</ul>
 				</li>
 			{% endfor %}
 		</ul>
+	</div>
+
+	<div id="docs" data-spy="scroll">
+		{% for section in docs %}
+			<div class="row">
+				<div class="section-header">
+					<a class="target" name="/{{ section.key }}/"></a>
+					<h2>
+						<a href='#/{{ section.key }}/'>{{ section.title }}</a>
+					</h2>
+					<div>{% autoescape false %}{{ section.body }}{% endautoescape %}</div>
+				</div>
+				{% for method in section.methods %}
+					<div class="row">
+						<div class="section">
+							<a class="target" name="/{{ section.key }}/{{ method.key }}/"></a>
+							<div class="prose">
+								<h3 class="doc-row">
+									<a href='#/{{ section.key }}/{{ method.key }}/'>{{ method.title }}</a>
+								</h3>
+								<div>{% autoescape false %}{{ method.body }}{% endautoescape %}</div>
+							</div>
+							<div class="signature">
+								{% if method.version %}
+									<p>Available in {{ method.version }}</p>
+								{% endif %}
+								{% if method.signature %}
+									<pre>{{ method.signature }}</pre>
+								{% endif %}
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		{% endfor %}
 	</div>
 
 {% endblock content %}

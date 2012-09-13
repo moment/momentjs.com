@@ -50,7 +50,7 @@
 
 		<div id="download-btns" class="span4">
 			<h3>Latest version : 1.6.2</h3>
-			<pre>undefined</pre>
+			<pre>npm install moment</pre>
 			<p>
 				<a class="btn btn-success btn-large" href="https://raw.github.com/timrwood/moment/" + 1.6.2 + "/min/moment.min.js">
 					<i class="icon-download-alt icon-white"></i>
@@ -77,7 +77,11 @@
 			<h2>Formatting dates</h2>
 			<div class="row">
 				<div class="span5">
-					<pre>undefined</pre>
+					<pre>moment().format('MMMM Do YYYY, h:mm:ss a');
+moment().format('dddd');
+moment().format("MMM Do YY");
+moment().format('YYYY [escaped] YYYY');
+moment().format();</pre>
 				</div>
 				<div class="span5">
 					<pre id="js-format"></pre>
@@ -87,7 +91,11 @@
 			<h2>Timeago</h2>
 			<div class="row">
 				<div class="span5">
-					<pre>undefined</pre>
+					<pre>moment("20111031", "YYYYMMDD").fromNow();
+moment("20120620", "YYYYMMDD").fromNow();
+moment().startOf('day').fromNow();
+moment().endOf('day').fromNow();
+moment().startOf('hour').fromNow();</pre>
 				</div>
 				<div class="span5">
 					<pre id="js-from-now"></pre>
@@ -97,7 +105,14 @@
 			<h2>Calendar Time</h2>
 			<div class="row">
 				<div class="span5">
-					<pre>undefined</pre>
+					<pre>moment().subtract('days', 10).calendar();
+moment().subtract('days', 6).calendar();
+moment().subtract('days', 3).calendar();
+moment().subtract('days', 1).calendar();
+moment().calendar();
+moment().add('days', 1).calendar();
+moment().add('days', 3).calendar();
+moment().add('days', 10).calendar();</pre>
 				</div>
 				<div class="span5">
 					<pre id="js-calendar"></pre>
@@ -107,7 +122,10 @@
 			<h2>Internationalization</h2>
 			<div class="row">
 				<div class="span5">
-					<pre>undefined</pre>
+					<pre>moment().format('L');
+moment().format('LL');
+moment().format('LLL');
+moment().format('LLLL');</pre>
 				</div>
 				<div class="span5">
 					<pre id="js-lang"></pre>
