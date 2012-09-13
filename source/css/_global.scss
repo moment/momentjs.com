@@ -13,10 +13,25 @@ body {
 	}
 }
 
+.fork {
+	position: fixed;
+	top: 0;
+	right: 0;
+	display: block;
+	background: url(../img/fork.png) 100% 0 no-repeat;
+	width: 150px;
+	height: 150px;
+	z-index: 2002;
+}
+
+pre, code, kbd, samp {
+	font-family: Consolas, monaco, monospace;
+}
+
 pre {
 	background: #444;
 	border: 1px solid #111;
-	color: #eee;
+	color: #ccc;
 	font-size: 14px;
 	padding: 5px 8px;
 	border-radius: 5px;
@@ -25,6 +40,7 @@ pre {
 	line-height: 20px;
 	background: #222 url(../img/header.png);
 	text-shadow: 1px 1px 0 #000;
+	font-weight: 100;
 
 	.keyword,
 	.type,
@@ -38,20 +54,21 @@ pre {
 	.selector,
 	.literal,
 	.property {
-		font-weight: bold;
+		font-weight: 700;
+		color: #fff;
 	}
 
 	.literal,
 	.type {
-		color: #458;
+		color: #A0B1E4;
 	}
 
 	.string {
-		color: #d14;
+		color: #f47;
 	}
 
 	.number {
-		color: #4a7;
+		color: #4baa8f;
 	}
 
 	.regexp {
@@ -59,7 +76,7 @@ pre {
 	}
 
 	.comment {
-		color: #999;
+		color: #666;
 	}
 }
 

@@ -26,6 +26,63 @@ header {
 	aside {
 		margin-left: 66%;
 		padding-left: 20px;
+
+		pre {
+			background: rgba(0, 0, 0, .5);
+			margin: 0 0 10px;
+		}
+
+		h3 {
+			margin: 0;
+			padding: 40px 0 10px;
+		}
+
+		a {
+			display: block;
+			padding: 5px 10px;
+			margin-bottom: 10px;
+			text-shadow: none;
+			background: #ddd;
+			text-decoration: none;
+			text-align: center;
+			border-radius: 5px;
+			border: 1px solid #999;
+			@include grad(#888, #555);
+			color: #111;
+
+			&:hover {
+				@include grad(#777, #444);
+			}
+
+			&.gzipped {
+				padding: 15px 10px;
+				@include grad(#ddd, #aaa);
+				border: 1px solid #fff;
+				color: #333;
+
+				&:hover {
+					@include grad(#ccc, #999);
+				}
+			}
+		}
+
+		.share {
+			text-align: center;
+		}
+	}
+
+	@include size(tablet) {
+		hgroup {
+			width: 50%;
+		}
+
+		h1 {
+			font-size: 60px;
+		}
+
+		aside {
+			margin-left: 50%;
+		}
 	}
 
 	@include size(mobile) {

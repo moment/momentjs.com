@@ -26,7 +26,7 @@
 		}
 
 		h3 {
-			padding: 0 20px;
+			padding: 20px 20px 0;
 			font-size: 30px;
 		}
 
@@ -44,9 +44,7 @@
 		}
 
 		.signature {
-			padding: 10px;
-			width: 260px;
-			margin-left: 0;
+			width: 280px;
 			position: absolute;
 			top: 0;
 			right: 0;
@@ -57,17 +55,16 @@
 			border-left: 1px solid #000;
 
 			p {
-				font-size: 12px;
 				background: #111;
-				padding: 2px 6px;
-				border-radius: 3px;
+				padding: 10px;
+				border-radius: 0 3px 0 0;
 				border: 1px solid #000;
 				margin: 0;
 			}
 
 			pre {
 				margin: 0;
-				padding: 0;
+				padding: 10px;
 				background: 0;
 				border: 0;
 				font-size: 10px;
@@ -143,6 +140,11 @@
 				margin: 0;
 				padding: 0;
 			}
+		}
+
+		@include size(wide) {
+			margin-left: 100px;
+			margin-right: 100px;
 		}
 	}
 }

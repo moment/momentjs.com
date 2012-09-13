@@ -1,0 +1,36 @@
+#nodeunit-tests {
+	margin: 0;
+	list-style: none;
+
+	h3 {
+		margin: 10px 0;
+	}
+
+	.alert {
+		margin-bottom: 5px;
+		padding: 5px 10px;
+	}
+
+	ul {
+		margin: 0;
+		list-style: none;
+	}
+}
+
+.test ul {
+    display:none;
+}
+
+.test.open > div {
+    border-bottom:2px solid #EED3D7;
+    padding-bottom:5px;
+    margin-bottom:5px;
+}
+
+.test.alert-success.open > div {
+    border-bottom:1px solid #D6E9C6;
+}
+
+.test.open ul {
+    display:block;
+}
