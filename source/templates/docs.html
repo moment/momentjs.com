@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}Documentation{% endblock title %}
+
+{% block scripts %}
+	<script src="../js/home.min.js"></script>
+{% endblock scripts %}
+
+{% block header %}
+	<h2>Documentation</h2>
+{% endblock header %}
+
+{% block content %}
+
+	<nav class="subnav">
+		{% for section in docs %}
+			<div class="section">
+				<a href='#/{{ section.key }}/'>{{ section.title }}</a>
+				<div class="dropdown">
+					{% for method in section.methods %}
+						<a href="#/{{ section.key }}/{{ method.key }}/">{{ method.title }}</a>
+					{% endfor %}
+				</div>
+			</div>
+		{% endfor %}
+	</nav>
+
+	<div class="docs">
+		{% for section in docs %}
+			<article class="section">
+				<a class="target" name="/{{ section.key }}/"></a>
+				<h2><a href='#/{{ section.key }}/'>{{ section.title }}</a></h2>
+				{% autoescape false %}{{ section.body }}{% endautoescape %}
+			</article>
+			{% for method in section.methods %}
+				<article class="method">
+					<a class="target" name="/{{ section.key }}/{{ method.key }}/"></a>
+					<h3><a href='#/{{ section.key }}/{{ method.key }}/'>{{ method.title }}</a></h3>
+					{% if method.version and method.signature %}
+						<div class="signature">
+							{% if method.version %}
+								<p>Available in {{ method.version }}</p>
+							{% endif %}
+							{% if method.signature %}
+								<pre lang="javascript">{{ method.signature }}</pre>
+							{% endif %}
+						</div>
+					{% endif %}
+					<div class="prose">
+						{% autoescape false %}{{ method.body }}{% endautoescape %}
+					</div>
+				</article>
+			{% endfor %}
+		{% endfor %}
+	</div>
+
+{% endblock content %}

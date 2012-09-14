@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Unit Tests{% endblock title %}
+
+{% block scripts %}
+	<script src="../js/moment.js"></script>
+	<script src="../js/langs.js"></script>
+	<script src="../js/tests.js"></script>
+{% endblock scripts %}
+
+{% block header %}
+	<h2>Unit Tests</h2>
+{% endblock header %}
+
+{% block header_aside %}
+{% endblock header_aside %}
+
+{% block content %}
+	<div id="nodeunit-banner" class="test pass"></div>
+	<ol id="nodeunit-tests"></ol>
+{% endblock content %}

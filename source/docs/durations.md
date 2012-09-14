@@ -1,0 +1,5 @@
+Moment.js also has duration objects. Whereas moments are defined as single points in time, durations are defined as a length of time.
+
+Durations do not have a defined beginning and end date. They are contextless.
+
+A duration is more like '2 hours' than 'between 2 and 4 pm today'.

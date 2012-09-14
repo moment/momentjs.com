@@ -1,31 +1,264 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" href="css/style.css"><title>Moment.js | Parse, validate, manipulate, and display dates in javascript.</title></head><body><div class="navbar navbar-fixed-top navbar-inverse"><div class="navbar-inner"><div class="container"><a href="/" class="brand">Moment.js</a><ul class="nav"><li><a href="/docs/"><i class="icon-book icon-white"></i> Documentation</a></li><li><a href="/test/"><i class="icon-ok icon-white"></i> Unit Tests</a></li><li class="divider-vertical"></li><li><a href="https://twitter.com/momentjs"> Follow @momentjs on twitter</a></li><li class="divider-vertical"></li><li><iframe src="http://ghbtns.com/github-btn.html?user=timrwood&amp;repo=moment&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe></li></ul></div></div></div><div id="content" class="container"><div class="row"><div class="span8"><div class="hero-unit"><h1>Moment.js</h1><h2>A lightweight (<span>4.8k</span>) javascript date library for parsing, manipulating, and formatting dates.</h2></div></div><div id="download-btns" class="span4"><h3>Latest version : 1.7.0</h3><pre>npm install moment</pre><p><a href="https://raw.github.com/timrwood/moment/1.7.0/min/moment.min.js" class="btn btn-success btn-large"><i class="icon-download-alt icon-white"></i><strong> Production</strong><span class="filesize"> (4.8k min &amp; gzip)</span></a></p><p><a href="https://raw.github.com/timrwood/moment/1.7.0/moment.js" class="btn"><i class="icon-download-alt"></i><strong> Development</strong><span class="filesize"> (full 36.8k source)</span></a></p><div class="share"><a href="https://twitter.com/share" data-url="http://momentjs.com" data-via="momentjs" data-lang="en" data-count="vertical" class="twitter-share-button"></a><div data-size="tall" data-href="http://momentjs.com" class="g-plusone"></div></div></div></div><div class="row"><div class="span10"><h2>Formatting dates</h2><div class="row"><div class="span5"><pre>moment().format(<span class="string">'MMMM Do YYYY, h:mm:ss a'</span>);
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet"  href="../css/style.css" />
+		<title>Moment.js | Parse, validate, manipulate, and display dates in javascript.</title>
+	</head>
+	<body>
+		<nav class="top">
+			<a class="logo" href="/">Moment.js</a>
+			<a class="docs" href="/docs/">Docs</a>
+			<a class="test" href="/test/">Tests</a>
+			<a class="github" href="https://github.com/timrwood/moment/">Github</a>
+			<a class="twitter" href="https://twitter.com/momentjs">@momentjs</a>
+			<iframe src="http://ghbtns.com/github-btn.html?user=timrwood&repo=moment&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+		</nav>
+		<header>
+			<hgroup>
+				<h1>Moment.js</h1>
+				
+	<h2>
+		A 4.8k javascript date library for
+		parsing, validating, manipulating, and formatting dates.
+	</h2>
+
+			</hgroup>
+			<aside>
+				
+					<div class="download">
+						<h3>Latest version : 1.7.0</h3>
+						<pre>npm install moment</pre>
+						<a class="button gzipped" href="https://raw.github.com/timrwood/moment/" + 1.7.0 + "/min/moment.min.js">
+							<strong>moment.min.js</strong>
+							<span class="filesize">4.8k gzipped</span>
+						</a>
+						<a class="button source" href="https://raw.github.com/timrwood/moment/" + 1.7.0 + "/moment.js">
+							<strong>moment.js</strong>
+							<span class="filesize">36.8k source</span>
+						</a>
+						<div class="share">
+							<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://momentjs.com" data-via="momentjs" data-lang="en" data-count="vertical"></a>
+							<div class="g-plusone" data-size="tall" data-href="http://momentjs.com"></div>
+						</div>
+					</div>
+				
+			</aside>
+		</header>
+		<div class="container">
+			
+	<div class="examples">
+		<article>
+			<h2>Formatting dates</h2>
+			<div class="input">
+				<pre lang="javascript">moment().format(<span class="string">'MMMM Do YYYY, h:mm:ss a'</span>);
 moment().format(<span class="string">'dddd'</span>);
 moment().format(<span class="string">"MMM Do YY"</span>);
 moment().format(<span class="string">'YYYY [escaped] YYYY'</span>);
-moment().format();</pre></div><div class="span5"><pre id="js-format"></pre></div></div><h2>Timeago</h2><div class="row"><div class="span5"><pre>moment(<span class="string">"20111031"</span>, <span class="string">"YYYYMMDD"</span>).fromNow();
+moment().format();</pre>
+			</div>
+			<div class="output">
+				<pre id="js-format"></pre>
+			</div>
+		</article>
+	</div>
+	<div class="langs">
+		<h2>Languages</h2>
+		
+			<div class="button " data-lang="bg">
+				Bulgarian
+			</div>
+		
+			<div class="button " data-lang="ca">
+				Catalan
+			</div>
+		
+			<div class="button " data-lang="cv">
+				Catalan
+			</div>
+		
+			<div class="button " data-lang="da">
+				Danish
+			</div>
+		
+			<div class="button " data-lang="de">
+				German
+			</div>
+		
+			<div class="button active" data-lang="en">
+				English
+			</div>
+		
+			<div class="button " data-lang="en-ca">
+				English (Canada)
+			</div>
+		
+			<div class="button " data-lang="en-gb">
+				English (England)
+			</div>
+		
+			<div class="button " data-lang="es">
+				Spanish
+			</div>
+		
+			<div class="button " data-lang="eu">
+				Basque
+			</div>
+		
+			<div class="button " data-lang="fi">
+				Finnish
+			</div>
+		
+			<div class="button " data-lang="fr">
+				French
+			</div>
+		
+			<div class="button " data-lang="fr-ca">
+				French (Canada)
+			</div>
+		
+			<div class="button " data-lang="gl">
+				Galician
+			</div>
+		
+			<div class="button " data-lang="hu">
+				Hungarian
+			</div>
+		
+			<div class="button " data-lang="is">
+				Icelandic
+			</div>
+		
+			<div class="button " data-lang="it">
+				Italian
+			</div>
+		
+			<div class="button " data-lang="ja">
+				Japanese
+			</div>
+		
+			<div class="button " data-lang="ko">
+				Korean
+			</div>
+		
+			<div class="button " data-lang="nb">
+				Norwegian
+			</div>
+		
+			<div class="button " data-lang="nl">
+				Dutch
+			</div>
+		
+			<div class="button " data-lang="pl">
+				Polish
+			</div>
+		
+			<div class="button " data-lang="pt">
+				Portuguese
+			</div>
+		
+			<div class="button " data-lang="pt-br">
+				Portuguese (Brazil)
+			</div>
+		
+			<div class="button " data-lang="ru">
+				Russian
+			</div>
+		
+			<div class="button " data-lang="sv">
+				Swedish
+			</div>
+		
+			<div class="button " data-lang="tr">
+				Turkish
+			</div>
+		
+			<div class="button " data-lang="zh-cn">
+				Chinese
+			</div>
+		
+			<div class="button " data-lang="zh-tw">
+				Chinese (Traditional)
+			</div>
+		
+	</div>
+	<div class="examples">
+		<article>
+			<h2>Timeago</h2>
+			<div class="input">
+				<pre lang="javascript">moment(<span class="string">"20111031"</span>, <span class="string">"YYYYMMDD"</span>).fromNow();
 moment(<span class="string">"20120620"</span>, <span class="string">"YYYYMMDD"</span>).fromNow();
 moment().startOf(<span class="string">'day'</span>).fromNow();
 moment().endOf(<span class="string">'day'</span>).fromNow();
-moment().startOf(<span class="string">'hour'</span>).fromNow();</pre></div><div class="span5"><pre id="js-from-now"></pre></div></div><h2>Calendar Time</h2><div class="row"><div class="span5"><pre>moment().subtract(<span class="string">'days'</span>, <span class="number">10</span>).calendar();
+moment().startOf(<span class="string">'hour'</span>).fromNow();</pre>
+			</div>
+			<div class="output">
+				<pre id="js-from-now"></pre>
+			</div>
+		</article>
+		<article>
+			<h2>Calendar Time</h2>
+			<div class="input">
+				<pre lang="javascript">moment().subtract(<span class="string">'days'</span>, <span class="number">10</span>).calendar();
 moment().subtract(<span class="string">'days'</span>, <span class="number">6</span>).calendar();
 moment().subtract(<span class="string">'days'</span>, <span class="number">3</span>).calendar();
 moment().subtract(<span class="string">'days'</span>, <span class="number">1</span>).calendar();
 moment().calendar();
 moment().add(<span class="string">'days'</span>, <span class="number">1</span>).calendar();
 moment().add(<span class="string">'days'</span>, <span class="number">3</span>).calendar();
-moment().add(<span class="string">'days'</span>, <span class="number">10</span>).calendar();</pre></div><div class="span5"><pre id="js-calendar"></pre></div></div><h2>Internationalization</h2><div class="row"><div class="span5"><pre>moment().format(<span class="string">'L'</span>);
+moment().add(<span class="string">'days'</span>, <span class="number">10</span>).calendar();</pre>
+			</div>
+			<div class="output">
+				<pre id="js-calendar"></pre>
+			</div>
+		</article>
+		<article>
+			<h2>Internationalization</h2>
+			<div class="input">
+				<pre lang="javascript">moment().format(<span class="string">'L'</span>);
 moment().format(<span class="string">'LL'</span>);
 moment().format(<span class="string">'LLL'</span>);
-moment().format(<span class="string">'LLLL'</span>);</pre></div><div class="span5"><pre id="js-lang"></pre></div></div></div><div class="span2"><h2>Language</h2><div data-lang="bg" class="btn btn-block">Bulgarian</div><div data-lang="ca" class="btn btn-block">Catalan</div><div data-lang="cv" class="btn btn-block">Catalan</div><div data-lang="da" class="btn btn-block">Danish</div><div data-lang="de" class="btn btn-block">German</div><div data-lang="en" class="btn btn-block btn-info">English</div><div data-lang="en-ca" class="btn btn-block">English (Canada)</div><div data-lang="en-gb" class="btn btn-block">English (England)</div><div data-lang="es" class="btn btn-block">Spanish</div><div data-lang="eu" class="btn btn-block">Basque</div><div data-lang="fi" class="btn btn-block">Finnish</div><div data-lang="fr" class="btn btn-block">French</div><div data-lang="fr-ca" class="btn btn-block">French (Canada)</div><div data-lang="gl" class="btn btn-block">Galician</div><div data-lang="hu" class="btn btn-block">Hungarian</div><div data-lang="is" class="btn btn-block">Icelandic</div><div data-lang="it" class="btn btn-block">Italian</div><div data-lang="ja" class="btn btn-block">Japanese</div><div data-lang="ko" class="btn btn-block">Korean</div><div data-lang="nb" class="btn btn-block">Norwegian</div><div data-lang="nl" class="btn btn-block">Dutch</div><div data-lang="pl" class="btn btn-block">Polish</div><div data-lang="pt" class="btn btn-block">Portuguese</div><div data-lang="pt-br" class="btn btn-block">Portuguese (Brazil)</div><div data-lang="ru" class="btn btn-block">Russian</div><div data-lang="sv" class="btn btn-block">Swedish</div><div data-lang="tr" class="btn btn-block">Turkish</div><div data-lang="zh-cn" class="btn btn-block">Chinese</div><div data-lang="zh-tw" class="btn btn-block">Chinese (Traditional)</div></div></div></div><a href="https://github.com/timrwood/moment/" class="fork"></a><div class="footer"><div class="container"><div class="row"><div class="span12">Moment.js is freely distributable under the terms of the MIT license.</div></div></div></div><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script><script src="js/home.min.js"></script><script>window._gaq = [['_setAccount','UA-10641787-5'],['_trackPageview'],['_trackPageLoadTime']];
-(function(d, c) {
-  var ga = d.createElement(c); ga.async = true;
-  ga.src = "http://www.google-analytics.com/ga.js";
-  var s = d.getElementsByTagName(c)[0];
-  s.parentNode.insertBefore(ga, s);
-})(document, 'script');
-;(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}})(document,"script","twitter-wjs")
-;(function() {
-  var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-  po.src = 'https://apis.google.com/js/plusone.js';
-  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-})();</script></body></html>
+moment().format(<span class="string">'LLLL'</span>);</pre>
+			</div>
+			<div class="output">
+				<pre id="js-lang"></pre>
+			</div>
+		</article>
+	</div>
+
+		</div>
+		<footer>
+			<p>Moment.js is freely distributable under the terms of the MIT license.</p>
+		</footer>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+
+		
+	<script src="js/home.min.js"></script>
+
+
+		<script>
+			window._gaq = [['_setAccount','UA-10641787-5'],['_trackPageview'],['_trackPageLoadTime']];
+			(function(d, c) {
+				var ga = d.createElement(c); ga.async = true;
+				ga.src = "http://www.google-analytics.com/ga.js";
+				var s = d.getElementsByTagName(c)[0];
+				s.parentNode.insertBefore(ga, s);
+			})(document, 'script');
+			;(function(d,s,id){
+				var js,fjs=d.getElementsByTagName(s)[0];
+				if(!d.getElementById(id)){
+					js=d.createElement(s);
+					js.id=id;
+					js.src="https://platform.twitter.com/widgets.js";
+					fjs.parentNode.insertBefore(js,fjs);
+				}
+			})(document,"script","twitter-wjs")
+			;(function() {
+				var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+				po.src = 'https://apis.google.com/js/plusone.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+			})();
+		</script>
+	</body>
+</html>
