@@ -13,7 +13,7 @@ a.format("ddd, hA");                       // "Sun, 3PM"
       <th>Output</th>
     </tr>
     <tr>
-      <td>**Month**</td>
+      <td><b>Month</b></td>
       <td></td>
     </tr>
     <tr>
@@ -37,7 +37,7 @@ a.format("ddd, hA");                       // "Sun, 3PM"
       <td>January February ... November December</td>
     </tr>
     <tr>
-      <td>**Day of Month**</td>
+      <td><b>Day of Month</b></td>
       <td></td>
     </tr>
     <tr>
@@ -53,7 +53,7 @@ a.format("ddd, hA");                       // "Sun, 3PM"
       <td>01 02 ... 30 31</td>
     </tr>
     <tr>
-      <td>**Day of Year**</td>
+      <td><b>Day of Year</b></td>
       <td></td>
     </tr>
     <tr>
@@ -69,7 +69,7 @@ a.format("ddd, hA");                       // "Sun, 3PM"
       <td>001 002 ... 364 365</td>
     </tr>
     <tr>
-      <td>**Day of Week**</td>
+      <td><b>Day of Week</b></td>
       <td></td>
     </tr>
     <tr>
@@ -89,7 +89,7 @@ a.format("ddd, hA");                       // "Sun, 3PM"
       <td>Sunday Monday ... Friday Saturday</td>
     </tr>
     <tr>
-      <td>**Week of Year**</td>
+      <td><b>Week of Year</b></td>
       <td></td>
     </tr>
     <tr>
@@ -105,7 +105,7 @@ a.format("ddd, hA");                       // "Sun, 3PM"
       <td>01 02 ... 52 53</td>
     </tr>
     <tr>
-      <td>**Year**</td>
+      <td><b>Year</b></td>
       <td></td>
     </tr>
     <tr>
@@ -117,7 +117,7 @@ a.format("ddd, hA");                       // "Sun, 3PM"
       <td>1970 1971 ... 2029 2030</td>
     </tr>
     <tr>
-      <td>**AM/PM**</td>
+      <td><b>AM/PM</b></td>
       <td></td>
     </tr>
     <tr>
@@ -129,7 +129,7 @@ a.format("ddd, hA");                       // "Sun, 3PM"
       <td>am pm</td>
     </tr>
     <tr>
-      <td>**Hour**</td>
+      <td><b>Hour</b></td>
       <td></td>
     </tr>
     <tr>
@@ -149,7 +149,7 @@ a.format("ddd, hA");                       // "Sun, 3PM"
       <td>01 02 ... 11 12</td>
     </tr>
     <tr>
-      <td>**Minute**</td>
+      <td><b>Minute</b></td>
       <td></td>
     </tr>
     <tr>
@@ -161,7 +161,7 @@ a.format("ddd, hA");                       // "Sun, 3PM"
       <td>00 01 ... 58 59</td>
     </tr>
     <tr>
-      <td>**Second**</td>
+      <td><b>Second</b></td>
       <td></td>
     </tr>
     <tr>
@@ -173,7 +173,7 @@ a.format("ddd, hA");                       // "Sun, 3PM"
       <td>00 01 ... 58 59</td>
     </tr>
     <tr>
-      <td> **Timezone**</td>
+      <td><b>Timezone</b></td>
       <td></td>
     </tr>
     <tr>
@@ -197,7 +197,7 @@ a.format("ddd, hA");                       // "Sun, 3PM"
       </td>
     </tr>
     <tr>
-      <td>**Localized date format**</td>
+      <td><b>Localized&nbsp;date&nbsp;format</b></td>
       <td></td>
     </tr>
     <tr>
