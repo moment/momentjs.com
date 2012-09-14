@@ -9,7 +9,7 @@ header {
 	h1 {
 		font-size: 100px;
 		margin: 0;
-		padding: 40px 0 20px;
+		padding: 20px 0 0;
 		color: #eee;
 		font-weight: 100;
 	}
@@ -36,6 +36,7 @@ header {
 		h3 {
 			margin: 0;
 			padding: 40px 0 10px;
+			font-size: 20px;
 		}
 
 		a {
@@ -68,11 +69,14 @@ header {
 		}
 
 		.share {
+			height: 60px;
 			text-align: center;
 		}
 	}
 
 	@include size(tablet) {
+		min-height: 0px;
+
 		hgroup {
 			width: 50%;
 		}
@@ -89,6 +93,7 @@ header {
 	@include size(mobile) {
 		height: auto;
 		padding: 20px;
+		min-height: 0px;
 
 		hgroup {
 			float: none;

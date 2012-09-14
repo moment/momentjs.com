@@ -5,6 +5,10 @@ body {
 	background: #eee;
 }
 
+* {
+	@include box-sizing(border-box);
+}
+
 .container {
 	padding: 20px;
 
@@ -52,6 +56,10 @@ pre {
 	text-shadow: 1px 1px 0 #000;
 	font-weight: 100;
 
+	a {
+		color: #fff;
+	}
+
 	.keyword,
 	.type,
 	.symbol,
@@ -74,7 +82,7 @@ pre {
 	}
 
 	.string {
-		color: #f47;
+		color: #FF8F44;
 	}
 
 	.number {

@@ -5,8 +5,6 @@
 	var tests = $('#nodeunit-tests');
 	var headerRow = $("#header-row");
 
-	$('#nodeunit-userAgent').html(navigator.userAgent);
-
 	var start = moment();
 	var passed = 0;
 	var failed = 0;
@@ -80,6 +78,10 @@
 				failures = assertions.failures(),
 
 				toStr = '<pre>' + [
+					"Please submit an issue to " +
+					"<a href='https://github.com/timrwood/moment/issues'>github.com/timrwood/moment/issues</a> " +
+					"with the information below and the failing tests.",
+					"",
 					"Date.prototype.toString = " + (new Date()).toString(),
 					"Date.prototype.toLocaleString = " + (new Date()).toLocaleString(),
 					"Date.prototype.getTimezoneOffset = " + (new Date(1000)).getTimezoneOffset(),
@@ -89,11 +91,8 @@
 			if (failures) {
 				banner.after('<p>' + [
 					"Hmm, looks like some of the unit tests are failing.",
-					"It's hard to catch all the bugs across all browsers and timezones, so if you have a minute," +
-						"please submit an issue with the failing test and the info below.",
-					"<a href='https://github.com/timrwood/moment/issues'>github.com/timrwood/moment/issues</a>",
-					"Thanks!",
-					"Please include this when you submit the issue.",
+					"It's hard to catch all the bugs across all browsers and timezones, so if you have a minute, " +
+						"please submit an issue with the failing test and the info below. Thanks!",
 					toStr].join('</p><p>') + '</p>');
 			} else {
 				banner.after("<p class='success'>Awesome, all the unit tests passed!</p>");
