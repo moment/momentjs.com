@@ -1,6 +1,6 @@
 nav.top {
 	height: 50px;
-	@include grad(#bbb, #eee);
+	@include grad(#eee, #bbb);
 	position: fixed;
 	top: 0;
 	left: 0;
