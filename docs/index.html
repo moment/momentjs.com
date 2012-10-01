@@ -896,6 +896,12 @@ m.add(<span class="string">'days'</span>, <span class="number">1</span>).hours()
 m.hours(); <span class="comment">// 5</span>
 m.add(<span class="string">'hours'</span>, <span class="number">24</span>).hours(); <span class="comment">// 6</span>
 </pre></div>
+
+<p>Alternatively, you can use <a href="#/durations/">durations</a> to add to moments.</p>
+
+<div class="highlight"><pre lang="javascript"><span class="keyword">var</span> duration = moment.duration({<span class="string">'days'</span>, <span class="number">1</span>});
+moment([<span class="number">2012</span>, <span class="number">0</span>, <span class="number">31</span>]).add(duration); <span class="comment">// February 1</span>
+</pre></div>
 					</div>
 				</article>
 			
