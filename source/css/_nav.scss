@@ -43,7 +43,6 @@ nav.top {
 	@include size(mobile) {
 		height: auto;
 		padding: 0;
-		background: #eee;
 		position: static;
 		overflow: hidden;
 
@@ -51,17 +50,13 @@ nav.top {
 			float: none;
 			border: 0;
 			margin-bottom: 0;
-			background: #ccc;
 			line-height: 30px;
 			padding: 5px 10px;
-			background: #ddd;
 			text-decoration: none;
-			@include grad(#ddd, #aaa);
-			color: #333;
 			font-size: 14px;
 
 			&.logo {
-				border-bottom: 1px solid #666;
+				border-bottom: 1px solid #000;
 			}
 
 			&.docs,
@@ -77,7 +72,7 @@ nav.top {
 			&.github,
 			&.twitter {
 				border: 0;
-				border-left: 1px solid #666;
+				border-left: 1px solid #000;
 			}
 
 			&.twitter {

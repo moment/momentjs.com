@@ -104,7 +104,6 @@ header {
 		}
 	}
 
-
 	h2 {
 		margin: 0 0 0 10%;
 		padding: 20px 0 0 320px;
@@ -155,43 +154,114 @@ header {
 	}
 
 	@include size(tablet) {
-		min-height: 0px;
+		.watch {
+			height: 60px;
 
-		hgroup {
-			width: 50%;
+			.band {
+				margin: -10px 20px -10px 20px;
+				width: 200px;
+				height: 80px;
+			}
+
+			.face {
+				width: 160px;
+				height: 160px;
+				margin: -45px auto 0;
+				border-radius: 130px;
+
+				&:after {
+					top: 65px;
+					left: 65px;
+					width: 10px;
+					height: 10px;
+					border-radius: 10px;
+				}
+
+				&:before {
+					top: 15px;
+					left: 15px;
+					width: 120px;
+					height: 120px;
+					border-radius: 115px;
+				}
+			}
+
+			#hour {
+				margin: -5px 0 -5px -30px;
+				padding: 5px 0 5px 30px;
+			}
+
+			#minute {
+				margin: -55px -5px 0;
+				padding: 55px 5px 0;
+			}
+
+			#second {
+				margin: -55px -1px 0 0;
+				padding: 55px 1px 0 0;
+			}
+
+			h1 {
+				line-height: 60px;
+				font-size: 40px;
+			}
 		}
 
-		h1 {
-			font-size: 60px;
-		}
-
-		aside {
-			margin-left: 50%;
+		h2 {
+			margin: 0;
+			padding: 10px 0 0 220px;
+			color: #222;
+			min-height: 100px;
 		}
 	}
 
 	@include size(mobile) {
 		height: auto;
-		padding: 20px;
 		min-height: 0px;
+
+		.watch {
+			position: relative;
+			margin-bottom: 100px;
+
+			.band {
+				margin: 0 auto;
+				position: relative;
+				top: -10px;
+				float: none;
+			}
+
+			h1 {
+				position: absolute;
+				top: -180px;
+				left: 0;
+				right: 0;
+				text-align: center;
+				color: #222;
+				text-shadow: none;
+			}
+		}
 
 		hgroup {
 			float: none;
 			width: 100%;
 		}
 
-		h1 {
-			padding: 0;
-			font-size: 60px;
+		aside {
+			width: auto;
+			margin: 0 10px;
+
+			a {
+				width: 50%;
+			}
 		}
 
 		h2 {
 			padding: 0;
+			margin: 0 20px;
 		}
 
-		aside {
-			margin: 0;
-			padding: 0;
+		.share {
+			display: none;
 		}
 	}
 }
