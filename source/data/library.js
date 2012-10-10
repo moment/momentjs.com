@@ -10,7 +10,7 @@ function filename(fn) {
 
 function toKb(input){
     var num = Math.round(input / 100) / 10;
-    return num + 'k';
+    return num + 'kb';
 }
 
 var src = fs.readFileSync(filename(['libs', 'moment', 'moment.js']), 'utf8');

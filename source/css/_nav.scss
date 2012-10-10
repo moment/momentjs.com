@@ -1,6 +1,6 @@
 nav.top {
 	height: 50px;
-	@include grad(#eee, #bbb);
+	background: #111;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -12,17 +12,12 @@ nav.top {
 
 	a {
 		float: left;
-		color: #333;
+		color: #ccc;
 		line-height: 50px;
 		padding: 0 15px;
 		text-decoration: none;
 		font-size: 16px;
 		display: block;
-
-		&.logo {
-			font-size: 30px;
-			font-weight: 100;
-		}
 
 		&:hover {
 			background: rgba(0, 0, 0, .1);
@@ -99,15 +94,13 @@ nav.top {
 
 nav.subnav {
 	height: 40px;
-	@include grad(#bbb, #999);
+	background: #333;
 	position: fixed;
 	top: 50px;
 	left: 0;
 	right: 0;
 	padding: 0 20px;
 	font-weight: 200;
-	border-top: 1px solid #666;
-	border-bottom: 1px solid #666;
 	@include box-shadow(0 0 6px rgba(0, 0, 0, .8));
 	z-index: 2000;
 
@@ -128,6 +121,7 @@ nav.subnav {
 			border-width: 0 1px;
 			display: block;
 			font-size: 14px;
+			color: #ccc;
 		}
 
 		.dropdown {
@@ -145,6 +139,7 @@ nav.subnav {
 				padding: 0 10px;
 				white-space: nowrap;
 				line-height: 30px;
+				color: #333;
 
 				&:hover {
 					background: #eee;
@@ -156,6 +151,7 @@ nav.subnav {
 			> a {
 				border-color: #333;
 				background: #fff;
+				color: #333;
 			}
 			.dropdown {
 				display: block;

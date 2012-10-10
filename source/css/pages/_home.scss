@@ -13,8 +13,11 @@
 		background: #fff;
 		border-radius: 3px;
 		border: 1px solid #999;
-		box-shadow: 1px 1px 5px rgba(0, 0, 0, .2);
 		cursor: pointer;
+
+		&:hover {
+			box-shadow: 1px 0 5px rgba(0, 0, 0, .2);
+		}
 
 		&.active {
 			background: #333;
@@ -42,8 +45,20 @@
 
 			pre {
 				border-radius: 0 5px 5px 0;
-				border-left-width: 9px;
-				color: #FF8F44;
+				color: #c0ffee;
+				position: relative;
+				border-left: 0;
+
+				&:after {
+					display: block;
+					content: "";
+					position: absolute;
+					left: 0;
+					top: 0;
+					bottom: 0;
+					width: 10px;
+					@include background-image(linear-gradient(left, rgba(0, 0, 0, .3), rgba(0, 0, 0, 0)));
+				}
 			}
 		}
 

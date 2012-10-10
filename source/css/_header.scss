@@ -1,70 +1,98 @@
 header {
 	min-height: 300px;
-	background: url(../img/header.png);
-	padding: 80px 40px 40px;
+	padding: 190px 0 40px;
 	color: #ccc;
-	text-shadow: 1px 1px 0 #000;
 	overflow: hidden;
 
-	h1 {
-		font-size: 100px;
-		margin: 0;
-		padding: 20px 0 0;
-		color: #eee;
-		font-weight: 100;
+	.watch {
+		background: url(../img/header.png);
+		height: 80px;
+		text-shadow: 1px 1px 0 #000;
+
+		.band {
+			margin: -10px 20px -10px 10%;
+			float: left;
+			width: 300px;
+			background: url(../img/header.png);
+			border: 5px solid $background-color;
+			height: 100px;
+		}
+
+		.face {
+			width: 260px;
+			height: 260px;
+			margin: -85px auto 0;
+			background: url(../img/header.png);
+			border: 5px solid $background-color;
+			border-radius: 130px;
+
+			&:after {
+				margin: 10px;
+				width: 230px;
+				height: 230px;
+				background: $background-color;
+				border-radius: 115px;
+				content: "";
+				display: block;
+			}
+		}
+
+		h1 {
+			line-height: 80px;
+			font-size: 60px;
+			margin: 0;
+			font-weight: 100;
+			color: $background-color;
+
+			span {
+				font-size: 30px;
+				padding: 0 10px;
+				color: #666;
+			}
+		}
 	}
+
 
 	h2 {
-		margin: 0;
-		font-weight: 100;
+		margin: 0 0 0 10%;
+		padding: 20px 0 0 320px;
+		color: #222;
+		min-height: 100px;
 	}
 
-	hgroup {
-		float: left;
-		width: 66%;
+	.share {
+		position: absolute;
+		top: 75px;
+		right: 30px;
 	}
 
 	aside {
-		margin-left: 66%;
-		padding-left: 20px;
-
-		pre {
-			background: rgba(0, 0, 0, .5);
-			margin: 0 0 10px;
-		}
-
-		h3 {
-			margin: 0;
-			padding: 40px 0 10px;
-			font-size: 20px;
-		}
+		width: 400px;
+		margin: 0 auto;
+		padding: 20px 0;
 
 		a {
 			display: block;
-			padding: 5px 10px;
-			margin-bottom: 10px;
-			text-shadow: none;
-			background: #ddd;
+			width: 200px;
+			float: left;
 			text-decoration: none;
 			text-align: center;
-			border-radius: 5px;
-			border: 1px solid #999;
-			@include grad(#888, #555);
-			color: #111;
+			border-radius: 5px 0 0 5px;
+			border: 1px solid #000;
+			background: #222;
+			color: #ccc;
+			padding: 20px 0;
 
-			&:hover {
-				@include grad(#777, #444);
+			+ a {
+				border-left: 0;
+				border-radius: 0 5px 5px 0;
+				background: #fff;
+				color: #666;
+				border: 1px solid #999;
 			}
 
-			&.gzipped {
-				padding: 15px 10px;
-				@include grad(#ddd, #aaa);
-				border: 1px solid #fff;
-				color: #333;
-
-				&:hover {
-					@include grad(#ccc, #999);
-				}
+			&:hover {
+				box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 			}
 		}
 
