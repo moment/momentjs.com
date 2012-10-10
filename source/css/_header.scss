@@ -25,16 +25,68 @@ header {
 			background: url(../img/header.png);
 			border: 5px solid $background-color;
 			border-radius: 130px;
+			position: relative;
 
 			&:after {
-				margin: 10px;
-				width: 230px;
-				height: 230px;
+				position: absolute;
+				top: 115px;
+				left: 115px;
+				width: 10px;
+				height: 10px;
+				background: url(../img/header.png);
+				border: 5px solid $background-color;
+				border-radius: 10px;
+				content: "";
+				display: block;
+			}
+
+			&:before {
+				position: absolute;
+				top: 15px;
+				left: 15px;
+				width: 220px;
+				height: 220px;
 				background: $background-color;
 				border-radius: 115px;
 				content: "";
 				display: block;
 			}
+		}
+
+		#hour {
+			width: 0;
+			height: 0;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin: -5px 0 -5px -70px;
+			padding: 5px 0 5px 70px;
+			background: #222;
+			@include transform-origin(100%, 50%);
+		}
+
+		#minute {
+			width: 0;
+			height: 0;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin: -105px -5px 0;
+			padding: 105px 5px 0;
+			background: #222;
+			@include transform-origin(50%, 100%);
+		}
+
+		#second {
+			width: 0;
+			height: 0;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin: -105px -1px 0 0;
+			padding: 105px 1px 0 0;
+			background: #222;
+			@include transform-origin(50%, 100%);
 		}
 
 		h1 {
@@ -79,7 +131,7 @@ header {
 			text-align: center;
 			border-radius: 5px 0 0 5px;
 			border: 1px solid #000;
-			background: #222;
+			background: url(../img/header.png);
 			color: #ccc;
 			padding: 20px 0;
 

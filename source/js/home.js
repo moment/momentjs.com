@@ -63,6 +63,15 @@
         $('#js-from-now').html(fromHtml());
         $('#js-calendar').html(calendarHtml());
         $('#js-lang').html(langHtml());
+
+        var now = moment(),
+            hour = ((now.hours() % 12) / 12) * 360 + 90,
+            second = now.seconds() * 6,
+            minute = now.minutes() * 6;
+
+        $('#hour').css("transform", "rotate(" + hour + "deg)");
+        $('#minute').css("transform", "rotate(" + minute + "deg)");
+        $('#second').css("transform", "rotate(" + second + "deg)");
     }
 
     function timedUpdate () {
