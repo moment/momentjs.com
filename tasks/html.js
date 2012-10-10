@@ -3,7 +3,8 @@ var fs        = require('fs'),
     langs     = require('../source/data/lang'),
     docs      = require('../source/data/docs'),
     swig      = require('swig'),
-    highlight = require("highlight.js").highlight;
+    highlight = require("highlight.js").highlight,
+    moment    = require("moment");
 
 
 swig.init({
@@ -29,7 +30,8 @@ function main(cb) {
     var data = {
         library : library,
         docs : docs,
-        langs : langs
+        langs : langs,
+        cachebust : moment().format()
     };
     library.ready(function(){
         render(data, cb);

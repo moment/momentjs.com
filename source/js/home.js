@@ -79,11 +79,7 @@
         setTimeout(timedUpdate, 1000);
     }
 
-    if (window.location.pathname.match('docs')) {
-        initDocs();
-    } else {
-        timedUpdate();
-    }
+    timedUpdate();
 
     $(document).on('click', '[data-lang]', function(){
         var dom = $(this);
@@ -92,19 +88,5 @@
         dom.addClass('active');
         update();
     });
-
-    function initDocs(){
-        var dropdowns = $('.dropdown');
-        $(document).on('click', function (e) {
-            var el = $(e.target);
-            if (!el.is('.dropdown-toggle')) {
-                el = el.closest('.dropdown-toggle');
-            }
-            dropdowns.removeClass('open');
-            if (el.length) {
-                el.closest('.dropdown').addClass('open');
-            }
-        });
-    }
 
 })();
