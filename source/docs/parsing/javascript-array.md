@@ -23,3 +23,11 @@ var day = moment(Date.UTC.apply({}, array));
 **Note:** Because this mirrors the native Date parameters, the following parameters are all zero indexed: months, hours, minutes, seconds, and milliseconds. Years and days of the month are 1 indexed.
 
 This is often the cause of frustration, especially with months, so take note!
+
+If the date represented by the array does not exist, `moment.fn.isValid` will return false.
+
+```javascript
+moment([2010, 13]).isValid(); // false (not a real month)
+moment([2010, 11, 31]).isValid(); // false (not a real day)
+moment([2010, 2, 29]).isValid(); // false (not a leap year)
+```

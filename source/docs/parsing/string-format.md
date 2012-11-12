@@ -86,3 +86,12 @@ The parser ignores non-alphanumeric characters, so both `moment("12-25-1995", "M
 </table>
 
 Unless you specify a timezone offset, parsing a string will create a date in the current timezone.
+
+If there are errors when parsing, `moment.fn.isValid` will return false.
+
+```javascript
+moment("2010 13", "YYYY MM").isValid(); // false (not a real month)
+moment("2010 11 31", "YYYY MM DD").isValid(); // false (not a real day)
+moment("2010 2 29", "YYYY MM DD").isValid(); // false (not a leap year)
+moment("2010 notamonth 29", "YYYY MMM DD").isValid(); // false
+```
