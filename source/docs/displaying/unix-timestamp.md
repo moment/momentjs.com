@@ -4,4 +4,4 @@
 moment(1318874398806).unix(); // 1318874398
 ```
 
-**Note:** This value is rounded to the nearest second, and does not include a milliseconds component.
+**Note:** This value is floored to the nearest second, and does not include a milliseconds component.
