@@ -100,6 +100,6 @@ m.add('hours', 24).hours(); // 6
 Alternatively, you can use [durations](#/durations/) to add to moments.
 
 ```javascript
-var duration = moment.duration({'days', 1});
+var duration = moment.duration({'days' : 1});
 moment([2012, 0, 31]).add(duration); // February 1
 ```
