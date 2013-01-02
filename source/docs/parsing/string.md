@@ -13,7 +13,7 @@ If you are trying to parse an ISO-8601 string, the following formats are support
 "YYYY-MM-DDTHH"
 "YYYY-MM-DDTHH:mm"
 "YYYY-MM-DDTHH:mm:ss"
-"YYYY-MM-DDTHH:mm:ss z"
+"YYYY-MM-DDTHH:mm:ss Z"
 ```
 
 **Note:** Automatic cross browser ISO-8601 support was added in version <span class="label">1.5.0</span>
