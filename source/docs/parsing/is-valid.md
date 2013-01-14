@@ -2,7 +2,11 @@ The main moment.js function is very flexible and will allow overflowing in parsi
 
 This can be useful when getting things like the 150th day of the year, or the 500th minute in a day, however, it can be problematic when trying to parse user input.
 
-`moment.fn.isValid()` was added to check if the input for a moment is actually valid input.
+`moment.fn.isValid()` was added to check if the input for a moment is a valid date.
+
+**Note:** It is not intended to be used to validate that the input string matches the format string. Because the strictness of format matching can vary depending on the application and business requirements, this sort of validation is not included in moment.js.
+
+Instead, `isValid` answers questions like "Does March 32nd exist?" and "Does February 29th 2011 exist?".
 
 ```javascript
 moment("2011-10-10", "YYYY-MM-DD").isValid(); // true
