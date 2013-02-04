@@ -1,7 +1,7 @@
 module.exports = {
     'bg'    : 'Bulgarian',
     'ca'    : 'Catalan',
-    'cv'    : 'Catalan',
+    'cv'    : 'Chuvash',
     'da'    : 'Danish',
     'de'    : 'German',
     'en'    : 'English',
