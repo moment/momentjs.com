@@ -1,4 +1,4 @@
-`moment.fn.isLeapYear` returns `true` if that year is a leap year, and `false` if it is not.
+`moment#isLeapYear` returns `true` if that year is a leap year, and `false` if it is not.
 
 ```javascript
 moment([2000]).isLeapYear() // true

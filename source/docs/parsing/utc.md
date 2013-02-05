@@ -1,20 +1,37 @@
-By default, moment parses in local time. If you want to parse a moment in UTC, you can use the following methods.
+By default, moment parses and displays in local time.
 
-```javascript
-moment.utc() // current date/time in UTC mode
-moment.utc(Number) // milliseconds since the Unix Epoch in UTC mode
-moment.utc([Number, ...]) // parse an array of numbers matching Date.UTC() parameters
-moment.utc(String) // parse string into UTC mode
-moment.utc(String, String) // parse a string and format into UTC mode
-```
+If you want to parse or display a moment in UTC, you can use `moment.utc()` instead of `moment()`.
 
-This brings us to an interesting feature of moment.js, UTC mode.
+This brings us to an interesting feature of Moment.js. UTC mode.
 
 While in UTC mode, all display methods will display in UTC time instead of local time.
 
-Any moment created with `moment()` will not be in UTC mode, and any moments created with `moment.utc()` will be in UTC mode.
+```javascript
+moment().format();     // 2013-02-04T10:35:24-08:00
+moment.utc().format(); // 2013-02-04T18:35:24+00:00
+```
 
-To switch from UTC to local time, you can use `moment.fn.utc` or `moment.fn.local`.
+Additionally, while in UTC mode, all getters and setters will internally use the `Date#getUTC*` and `Date#setUTC*` methods instead of the `Date#get*` and `Date#set*` methods.
+
+```javascript
+moment.utc().seconds(30) === new Date().setUTCSeconds(30);
+moment.utc().seconds()   === new Date().getUTCSeconds();
+```
+
+It is important to note that though the displays differ above, they are both the same moment in time.
+
+```javascript
+var a = moment();
+var b = moment.utc();
+a.format();  // 2013-02-04T10:35:24-08:00
+b.format();  // 2013-02-04T18:35:24+00:00
+a.valueOf(); // 1360002924000
+b.valueOf(); // 1360002924000
+```
+
+Any moment created with `moment.utc()` will be in UTC mode, and any moment created with `moment()` will not.
+
+To switch from UTC to local time, you can use [moment#utc](#/manipulating/utc/) or [moment#local](#/manipulating/local/).
 
 ```javascript
 var a = moment.utc([2011, 0, 1, 8]);

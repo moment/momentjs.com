@@ -13,11 +13,3 @@ t.format(); // 'May 25 - 26, 1982'
 ```
 
 Full documentation of all the options and features is here: [https://github.com/icambron/twix.js/wiki/Documentation](https://github.com/icambron/twix.js/wiki/Documentation).
-
-It's available on npm like so:
-
-```
-npm install twix
-```
-
-Or just grab the JS file from [here](https://raw.github.com/icambron/twix.js/master/bin/twix.js).

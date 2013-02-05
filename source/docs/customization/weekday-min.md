@@ -1,13 +1,17 @@
-`moment.weekdaysMin` should be an array of two letter weekday abbreviations. The purpose of these is for things like calendar pickers, thus they should be as small as possible.
+`Language#weekdaysMin` should be an array of two letter weekday abbreviations. The purpose of these is for things like calendar pickers, thus they should be as small as possible.
 
 ```javascript
-moment.weekdaysMin = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
+moment.lang('en', {
+    weekdaysMin : ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"]
+});
 ```
 
-`moment.weekdaysMin` can be a callback function as well.
+`Language#weekdaysMin` can be a callback function as well.
 
 ```javascript
-config.weekdaysMin = function (momentToFormat, format) {
-    return weekdaysMin[momentToFormat.day()];
-}
+moment.lang('en', {
+    weekdaysMin : function (momentToFormat, format) {
+        return weekdaysMin[momentToFormat.day()];
+    }
+});
 ```

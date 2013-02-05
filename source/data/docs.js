@@ -13,10 +13,13 @@ var exp = [
 		title : "Where to use it",
 		methods : [
 			{
-				key : "In Node.js"
+				key : "Node.js"
 			},
 			{
-				key : "In the Browser"
+				key : "Browser"
+			},
+			{
+				key : "Require.js"
 			}
 		]
 	},
@@ -25,19 +28,9 @@ var exp = [
 		title : "Parse",
 		methods : [
 			{
-				key : "Javascript Date Object",
-				signature : "moment(Date);",
+				key : "Now",
+				signature : "moment();",
 				version : "1.0.0"
-			},
-			{
-				key : "Milliseconds since the Unix Epoch",
-				signature : "moment(Number);",
-				version : "1.0.0"
-			},
-			{
-				key : "Unix Timestamp",
-				signature : "moment.unix(Number)",
-				version : "1.6.0"
 			},
 			{
 				key : "String",
@@ -55,33 +48,49 @@ var exp = [
 				version : "1.0.0"
 			},
 			{
-				key : "Now",
-				signature : "moment();",
+				key : "Unix Offset",
+				title : "Unix Offset (milliseconds)",
+				signature : "moment(Number);",
 				version : "1.0.0"
 			},
 			{
-				key : "Javascript Array",
+				key : "Unix Timestamp",
+				title : "Unix Timestamp (seconds)",
+				signature : "moment.unix(Number)",
+				version : "1.6.0"
+			},
+			{
+				key : "Date",
+				signature : "moment(Date);",
+				version : "1.0.0"
+			},
+			{
+				key : "Array",
 				signature : "moment(Number[]);",
 				version : "1.0.0"
 			},
 			{
-				key : "ASP.NET json dates",
+				key : "ASP.NET JSON Date",
 				signature : "moment(String);",
 				version : "1.3.0"
 			},
 			{
-				key : "Unix Timestamp",
-				signature : "moment.unix(Number)",
-				version : "???"
-			},
-			{
-				key : "Cloning",
+				key : "Moment Clone",
 				signature : "moment(Moment);",
 				version : "1.2.0"
 			},
 			{
 				key : "UTC",
-				signature : "moment.utc();\nmoment.utc(Number);\nmoment.utc(Number[]);\nmoment.utc(String);\nmoment.utc(String, String);",
+				signature : [
+					"moment.utc();",
+					"moment.utc(Number);",
+					"moment.utc(Number[]);",
+					"moment.utc(String);",
+					"moment.utc(String, String);",
+					"moment.utc(String, String[]);",
+					"moment.utc(Moment);",
+					"moment.utc(Date);"
+				],
 				version : "1.5.0"
 			},
 			{
@@ -93,59 +102,145 @@ var exp = [
 		]
 	},
 	{
+		key : "get-set",
+		title : "Get + Set",
+		methods : [
+			{
+				key : "Millisecond",
+				signature : [
+					"moment().millisecond(Number);",
+					"moment().millisecond(); // Number",
+					"moment().milliseconds(Number);",
+					"moment().milliseconds(); // Number"
+				],
+				version : "1.3.0"
+			},
+			{
+				key : "Second",
+				signature : [
+					"moment().second(Number);",
+					"moment().second(); // Number",
+					"moment().seconds(Number);",
+					"moment().seconds(); // Number"
+				],
+				version : "1.0.0"
+			},
+			{
+				key : "Minute",
+				signature : [
+					"moment().minute(Number);",
+					"moment().minute(); // Number",
+					"moment().minutes(Number);",
+					"moment().minutes(); // Number"
+				],
+				version : "1.0.0"
+			},
+			{
+				key : "Hour",
+				signature : [
+					"moment().hour(Number);",
+					"moment().hour(); // Number",
+					"moment().hours(Number);",
+					"moment().hours(); // Number"
+				],
+				version : "1.0.0"
+			},
+			{
+				key : "Date",
+				title : "Date of Month",
+				signature : [
+					"moment().date(Number);",
+					"moment().date(); // Number",
+					"moment().dates(Number);",
+					"moment().dates(); // Number"
+				],
+				version : "1.0.0"
+			},
+			{
+				key : "Day",
+				title : "Day of Week",
+				signature : [
+					"moment().day(Number);",
+					"moment().day(); // Number",
+					"moment().days(Number);",
+					"moment().days(); // Number"
+				],
+				version : "1.3.0"
+			},
+			{
+				key : "Day of Year",
+				signature : [
+					"moment().dayOfYear(Number);",
+					"moment().dayOfYear(); // Number"
+				],
+				version : "2.0.0"
+			},
+			{
+				key : "Week",
+				title : "Week of Year",
+				signature : [
+					"moment().week(Number);",
+					"moment().week(); // Number",
+					"moment().weeks(Number);",
+					"moment().weeks(); // Number"
+				],
+				version : "2.0.0"
+			},
+			{
+				key : "ISO Week",
+				title : "Week of Year (ISO)",
+				signature : [
+					"moment().isoWeek(Number);",
+					"moment().isoWeek(); // Number",
+					"moment().isoWeeks(Number);",
+					"moment().isoWeeks(); // Number"
+				],
+				version : "2.0.0"
+			},
+			{
+				key : "Month",
+				signature : [
+					"moment().month(Number);",
+					"moment().month(); // Number",
+					"moment().months(Number);",
+					"moment().months(); // Number"
+				],
+				version : "1.0.0"
+			},
+			{
+				key : "Year",
+				signature : [
+					"moment().year(Number);",
+					"moment().year(); // Number",
+					"moment().years(Number);",
+					"moment().years(); // Number"
+				],
+				version : "1.0.0"
+			}
+		]
+	},
+	{
 		key : "Manipulating",
 		title : "Manipulate",
 		methods : [
 			{
 				key : "Add",
-				signature : "moment().add(String, Number);\nmoment().add(Object);",
+				signature : [
+					"moment().add(String, Number);",
+					"moment().add(Number, String); // 2.0.0",
+					"moment().add(Duration); // 1.6.0",
+					"moment().add(Object);"
+				],
 				version : "1.0.0"
 			},
 			{
 				key : "Subtract",
-				signature : "moment().subtract(String, Number);\nmoment().subtract(Object);",
-				version : "1.0.0"
-			},
-			{
-				key : "Milliseconds",
-				signature : "moment().milliseconds(Number);",
-				version : "1.3.0"
-			},
-			{
-				key : "Seconds",
-				signature : "moment().seconds(Number);",
-				version : "1.0.0"
-			},
-			{
-				key : "Minutes",
-				signature : "moment().minutes(Number);",
-				version : "1.0.0"
-			},
-			{
-				key : "Hours",
-				signature : "moment().hours(Number);",
-				version : "1.0.0"
-			},
-			{
-				key : "Date",
-				title : "Date of the Month",
-				signature : "moment().date(Number);",
-				version : "1.0.0"
-			},
-			{
-				key : "Day",
-				title : "Day of the Week",
-				signature : "moment().day(Number);",
-				version : "1.3.0"
-			},
-			{
-				key : "Month",
-				signature : "moment().month(Number);",
-				version : "1.0.0"
-			},
-			{
-				key : "Year",
-				signature : "moment().year(Number);",
+				signature : [
+					"moment().subtract(String, Number);",
+					"moment().subtract(Number, String); // 2.0.0",
+					"moment().subtract(Duration); // 1.6.0",
+					"moment().subtract(Object);"
+				],
 				version : "1.0.0"
 			},
 			{
@@ -159,18 +254,6 @@ var exp = [
 				title : "End of Time",
 				signature : "moment().endOf(String);",
 				version : "1.7.0"
-			},
-			{
-				key : "sod",
-				title : "Start of Day",
-				signature : "moment().sod();",
-				version : "1.4.0"
-			},
-			{
-				key : "eod",
-				title : "End of Day",
-				signature : "moment().eod();",
-				version : "1.4.0"
 			},
 			{
 				key : "Local",
@@ -190,25 +273,29 @@ var exp = [
 		methods : [
 			{
 				key : "Format",
-				signature : "moment().format();\nmoment().format(String);",
-				version : "1.0.0"
-			},
-			{
-				key : "from",
-				title : "Humanize time from another moment",
-				signature : "moment().from(Moment);\nmoment().from(Moment, Boolean);",
+				signature : [
+					"moment().format();",
+					"moment().format(String);"
+				],
 				version : "1.0.0"
 			},
 			{
 				key : "fromNow",
-				title : "Humanize time from now",
-				signature : "moment().fromNow();\nmoment().fromNow(Boolean);",
+				title : "Time from now",
+				signature : [
+					"moment().fromNow();",
+					"moment().fromNow(Boolean);"
+				],
 				version : "1.0.0"
 			},
 			{
-				key : "Humanize duration",
-				signature : "moment.humanizeDuration(Number);\nmoment.humanizeDuration(Number, String);\nmoment.humanizeDuration(Number, String, Boolean);",
-				version : "1.5.0"
+				key : "from",
+				title : "Time from X",
+				signature : [
+					"moment().from(Moment|String|Number|Date|Array);",
+					"moment().from(Moment|String|Number|Date|Array, Boolean);"
+				],
+				version : "1.0.0"
 			},
 			{
 				key : "Calendar Time",
@@ -217,70 +304,27 @@ var exp = [
 			},
 			{
 				key : "Difference",
-				signature : "moment().diff(Moment);\nmoment().diff(Moment, String);\nmoment().diff(Moment, String, Boolean);",
+				signature : [
+					"moment().diff(Moment|String|Number|Date|Array);",
+					"moment().diff(Moment|String|Number|Date|Array, String);",
+					"moment().diff(Moment|String|Number|Date|Array, String, Boolean);"
+				],
 				version : "1.0.0"
 			},
 			{
-				key : "Native Javascript Date",
-				signature : "moment().toDate();",
-				version : "1.0.0"
-			},
-			{
-				key : "Milliseconds since the Unix Epoch",
-				signature : "moment().valueOf();",
+				key : "Unix Offset",
+				title : "Unix Offset (milliseconds)",
+				signature : [
+					"moment().valueOf();",
+					"+moment();"
+				],
 				version : "1.0.0"
 			},
 			{
 				key : "Unix Timestamp",
+				title : "Unix Timestamp (seconds)",
 				signature : "moment().unix();",
 				version : "1.6.0"
-			},
-			{
-				key : "Milliseconds",
-				signature : "moment().milliseconds();",
-				version : "1.3.0"
-			},
-			{
-				key : "Seconds",
-				signature : "moment().seconds();",
-				version : "1.0.0"
-			},
-			{
-				key : "Minutes",
-				signature : "moment().minutes();",
-				version : "1.0.0"
-			},
-			{
-				key : "Hours",
-				signature : "moment().hours();",
-				version : "1.0.0"
-			},
-			{
-				key : "Date",
-				title : "Date of the Month",
-				signature : "moment().date();",
-				version : "1.0.0"
-			},
-			{
-				key : "Day",
-				title : "Day of the Week",
-				signature : "moment().day();",
-				version : "1.0.0"
-			},
-			{
-				key : "Month",
-				signature : "moment().month();",
-				version : "1.0.0"
-			},
-			{
-				key : "Year",
-				signature : "moment().year();",
-				version : "1.0.0"
-			},
-			{
-				key : "Leap Year",
-				signature : "moment().isLeapYear();",
-				version : "1.0.0"
 			},
 			{
 				key : "Timezone Offset",
@@ -293,12 +337,62 @@ var exp = [
 				version : "1.5.0"
 			},
 			{
-				key : "Daylight Saving Time",
+				key : "As Javascript Date",
+				signature : "moment().toDate();",
+				version : "1.0.0"
+			},
+			{
+				key : "As Array",
+				signature : "moment().toArray();",
+				version : "1.7.0"
+			},
+			{
+				key : "As JSON",
+				signature : "moment().toJSON();",
+				version : "2.0.0"
+			}
+		]
+	},
+	{
+		key : "Query",
+		title : "Query",
+		methods : [
+			{
+				key : "Is Before",
+				signature : [
+					"moment().isBefore(Moment|String|Number|Date|Array);",
+					"moment().isBefore(Moment|String|Number|Date|Array, String);"
+				],
+				version : "2.0.0"
+			},
+			{
+				key : "Is Same",
+				signature : [
+					"moment().isSame(Moment|String|Number|Date|Array);",
+					"moment().isSame(Moment|String|Number|Date|Array, String);"
+				],
+				version : "2.0.0"
+			},
+			{
+				key : "Is After",
+				signature : [
+					"moment().isAfter(Moment|String|Number|Date|Array);",
+					"moment().isAfter(Moment|String|Number|Date|Array, String);"
+				],
+				version : "2.0.0"
+			},
+			{
+				key : "Is Leap Year",
+				signature : "moment().isLeapYear();",
+				version : "1.0.0"
+			},
+			{
+				key : "Is Daylight Saving Time",
 				signature : "moment().isDST();",
 				version : "1.2.0"
 			},
 			{
-				key : "isMoment",
+				key : "Is a Moment",
 				signature : "moment.isMoment(obj);",
 				version : "1.5.0"
 			}
@@ -311,7 +405,10 @@ var exp = [
 			{
 				key : "changing-language",
 				title : "Changing language globally",
-				signature : "moment.lang(String);\nmoment.lang(String, Object);",
+				signature : [
+					"moment.lang(String);",
+					"moment.lang(String, Object);"
+				],
 				version : "1.0.0"
 			},
 			{
@@ -323,13 +420,15 @@ var exp = [
 			{
 				key : "loading-into-nodejs",
 				title : "Loading languages in NodeJS",
-				signature : "moment.lang(String);",
+				signature : [
+					"moment.lang(String);"
+				],
 				version : "1.0.0"
 			},
 			{
 				key : "loading-into-browser",
 				title : "Loading languages in the browser",
-				signature : "moment.lang(String);",
+				signature : "moment.lang(String, Object);",
 				version : "1.0.0"
 			},
 			{
@@ -350,53 +449,108 @@ var exp = [
 		methods : [
 			{
 				key : "Month Names",
-				signature : "moment.months = String[];\nmoment.months = Function",
+				signature : [
+					"moment.lang('en', {",
+					"    months : String[]",
+					"});",
+					"moment.lang('en', {",
+					"    months : Function",
+					"});"
+				],
 				version : "1.0.0"
 			},
 			{
 				key : "Month Abbreviations",
-				signature : "moment.monthsShort = String[];\nmoment.monthsShort = Function",
+				signature : [
+					"moment.lang('en', {",
+					"    monthsShort : String[]",
+					"});",
+					"moment.lang('en', {",
+					"    monthsShort : Function",
+					"});"
+				],
 				version : "1.0.0"
 			},
 			{
 				key : "Weekday Names",
-				signature : "moment.weekdays = String[];\nmoment.weekdays = Function",
+				signature : [
+					"moment.lang('en', {",
+					"    weekdays : String[]",
+					"});",
+					"moment.lang('en', {",
+					"    weekdays : Function",
+					"});"
+				],
 				version : "1.0.0"
 			},
 			{
 				key : "Weekday Abbreviations",
-				signature : "moment.weekdaysShort = String[];\nmoment.weekdaysShort = Function",
+				signature : [
+					"moment.lang('en', {",
+					"    weekdaysShort : String[]",
+					"});",
+					"moment.lang('en', {",
+					"    weekdaysShort : Function",
+					"});"
+				],
 				version : "1.0.0"
 			},
 			{
 				key : "weekday-min",
 				title : "Minimal Weekday Abbreviations",
-				signature : "moment.weekdaysMin = String[];\nmoment.weekdaysMin = Function",
+				signature : [
+					"moment.lang('en', {",
+					"    weekdaysMin : String[]",
+					"});",
+					"moment.lang('en', {",
+					"    weekdaysMin : Function",
+					"});"
+				],
 				version : "1.7.0"
 			},
 			{
 				key : "Long Date Formats",
-				signature : "moment.longDateFormat = Object;",
+				signature : [
+					"moment.lang('en', {",
+					"    longDateFormat : Object",
+					"});"
+				],
 				version : "1.1.0"
 			},
 			{
 				key : "Relative Time",
-				signature : "moment.relativeTime = Object;",
+				signature : [
+					"moment.lang('en', {",
+					"    relativeTime : Object",
+					"});"
+				],
 				version : "1.0.0"
 			},
 			{
 				key : "AM/PM",
-				signature : "moment.meridiem = Function;",
+				signature : [
+					"moment.lang('en', {",
+					"    meridiem : Function",
+					"});"
+				],
 				version : "1.6.0"
 			},
 			{
 				key : "Calendar",
-				signature : "moment.calendar = Object;",
+				signature : [
+					"moment.lang('en', {",
+					"    calendar : Object",
+					"});"
+				],
 				version : "1.3.0"
 			},
 			{
 				key : "Ordinal",
-				signature : "moment.ordinal = Function;",
+				signature : [
+					"moment.lang('en', {",
+					"    ordinal : Function",
+					"});"
+				],
 				version : "1.0.0"
 			}
 		]
@@ -457,22 +611,30 @@ var exp = [
 		methods : [
 			{
 				key : "strftime",
-				signature : "moment().strftime(String);"
+				signature : [
+					"npm install moment-strftime"
+				]
 			},
 			{
 				key : "isocalendar",
 				title : "ISO Calendar",
-				signature : "moment().isocalendar();\nmoment.fromIsocalendar(Array);"
+				signature : [
+					"npm install moment-isocalendar"
+				]
 			},
 			{
 				key : "range",
 				title : "Date Ranges",
-				signature : "moment().range(Moment, Moment);\nmoment.within(DateRange);"
+				signature : [
+					"npm install moment-range"
+				]
 			},
 			{
 				key : "twix",
 				title : "Twix",
-				signature : "moment.twix(Moment, Moment);\nmoment.twix(Moment, Moment, Boolean);"
+				signature : [
+					"npm install twix"
+				]
 			}
 		]
 	}
@@ -498,6 +660,9 @@ function normalizeDocs(docs) {
 			method = section.methods[j];
 			method.title = method.title || method.key;
 			method.key = machineFriendly(method.key);
+			if (method.signature && method.signature.join) {
+				method.signature = method.signature.join('\n');
+			}
 			method.body = docsAtPath(filename(['source', 'docs', section.key, method.key + '.md']));
 		}
 	}

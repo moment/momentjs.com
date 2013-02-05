@@ -1,15 +1,14 @@
 .docs {
 	article {
 		position: relative;
-		overflow: hidden;
 		margin: 0 0 20px;
 
 		h2,
 		h3 {
 			color: rgba(0, 0, 0, 0.8);
-			text-shadow: 1px 1px #fff;
 			padding: 0;
 			margin: 0;
+			position: relative;
 
 			a {
 				color: rgba(0, 0, 0, 0.8);
@@ -20,6 +19,17 @@
 					text-decoration: underline;
 				}
 			}
+
+			span.hash {
+				position: absolute;
+				top: 0;
+				right: 100%;
+				display: block;
+			}
+
+			span {
+				color: rgba(0, 0, 0, 0.2);
+			}
 		}
 
 		h2 {
@@ -27,75 +37,39 @@
 		}
 
 		h3 {
-			padding: 20px;
+			padding: 20px 0;
+			border-top: 1px solid rgba(0, 0, 0, 0.1);
 			font-size: 30px;
 			margin: 0;
+
+			span.hash {
+				top: 20px;
+			}
 		}
 
 		p {
-			margin: 0 0 20px;
+			margin: 0 0 10px;
 		}
 
 		&.method {
-			border: 1px solid #ccc;
-			overflow: hidden;
 			border-radius: 3px;
 			position: relative;
-			background: #fff;
 		}
 
 		.prose {
-			padding: 0 20px 20px;
-			margin-right: 280px;
-
 			pre {
-				margin-left: -20px;
-				margin-right: -20px;
-				border-radius: 0;
-				padding-left: 20px;
-				padding-right: 20px;
-				border-right: 0;
+				padding: 5px 10px;
 			}
 		}
 
-		.signature {
-			width: 280px;
-			position: absolute;
-			top: 0;
-			right: 0;
-			bottom: 0;
-			background: url(../img/header.png);
-			border-radius: 0 3px 3px 0;
-			color: #ccc;
-
-			&:after {
-				display: block;
-				content: "";
-				position: absolute;
-				left: 0;
-				top: 0;
-				bottom: 0;
-				width: 10px;
-				@include background-image(linear-gradient(left, rgba(0, 0, 0, .3), rgba(0, 0, 0, 0)));
-			}
-
-			p {
-				padding: 10px;
-				border-radius: 0 3px 0 0;
-				margin: 0;
-			}
-
-			pre {
-				margin: 0;
-				padding: 10px;
-				background: 0;
-				border: 0;
-			}
+		table {
+			width: 100%;
+			margin-bottom: 20px;
 		}
 
 		td,
 		th {
-			padding: 10px 10px;
+			padding: 7px 10px;
 			border-top: 1px solid #ddd;
 			background: #fff;
 			text-align: left;
@@ -110,71 +84,6 @@
 			position: relative;
 			display: block;
 			top: -110px;
-		}
-
-		code {
-			background: #eee;
-			border: 1px solid #ddd;
-		}
-
-		@include size(mobile) {
-			h2 {
-				font-size: 30px;
-			}
-
-			h3 {
-				padding: 10px;
-			}
-
-			.prose {
-				padding: 10px;
-				margin-right: 0;
-			}
-
-			.signature {
-				position: static;
-				width: auto;
-				border-radius: 0;
-
-				&:after {
-					display: none;
-				}
-			}
-
-			aside {
-				margin: 0;
-				padding: 0;
-			}
-		}
-
-		@include size(tablet) {
-			h2 {
-				font-size: 30px;
-			}
-
-			h3 {
-				padding: 10px;
-			}
-
-			.prose {
-				padding: 10px;
-				margin-right: 0;
-			}
-
-			.signature {
-				position: static;
-				width: auto;
-				border-radius: 0;
-
-				&:after {
-					display: none;
-				}
-			}
-
-			aside {
-				margin: 0;
-				padding: 0;
-			}
 		}
 
 		@include size(wide) {

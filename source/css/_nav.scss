@@ -1,3 +1,13 @@
+.is-home .home-nav,
+.is-test .test-nav {
+	background: $background-color;
+	color: #333;
+}
+
+.is-docs .docs-nav {
+	background: #333;
+}
+
 nav.top {
 	height: 50px;
 	background: #111;
@@ -7,7 +17,6 @@ nav.top {
 	right: 0;
 	padding: 0 20px;
 	font-weight: 200;
-	@include box-shadow(0 0 6px rgba(0, 0, 0, .8));
 	z-index: 2001;
 
 	a {
@@ -20,7 +29,8 @@ nav.top {
 		display: block;
 
 		&:hover {
-			background: rgba(0, 0, 0, .1);
+			background: $background-color;
+			color: #333;
 		}
 	}
 
@@ -96,7 +106,6 @@ nav.subnav {
 	right: 0;
 	padding: 0 20px;
 	font-weight: 200;
-	@include box-shadow(0 0 6px rgba(0, 0, 0, .8));
 	z-index: 2000;
 
 	@include size(mobile) {
@@ -104,13 +113,13 @@ nav.subnav {
 	}
 
 	.section {
-		float: left;
+		display: inline-block;
 		height: 40px;
 		line-height: 40px;
 		position: relative;
 
 		a {
-			padding: 0 15px;
+			padding: 0 5px;
 			text-decoration: none;
 			border: 1px solid transparent;
 			border-width: 0 1px;
@@ -157,7 +166,6 @@ nav.subnav {
 	@include size(tablet) {
 		padding: 0 10px;
 		height: auto;
-		overflow: hidden;
 
 		.section {
 			a {

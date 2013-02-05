@@ -16,7 +16,7 @@ moment.duration(2, 'months');
 moment.duration(2, 'years');
 ```
 
-The same shorthand for `moment.fn.add` works here as well.
+The same shorthand for `moment#add` and `moment#subtract` works here as well.
 
 <table class="table table-striped table-bordered">
   <tbody>
@@ -59,7 +59,7 @@ The same shorthand for `moment.fn.add` works here as well.
   </tbody>
 </table>
 
-Much like `moment.fn.add`, you can pass an object of values if you need multiple different units of measurement.
+Much like `moment#add`, you can pass an object of values if you need multiple different units of measurement.
 
 ```javascript
 moment.duration({

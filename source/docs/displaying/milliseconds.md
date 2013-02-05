@@ -1,1 +1,0 @@
-Get the milliseconds (0 - 999).

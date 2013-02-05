@@ -45,20 +45,10 @@
 
 			pre {
 				border-radius: 0 5px 5px 0;
-				color: #c0ffee;
+				color: #ccc;
 				position: relative;
 				border-left: 0;
-
-				&:after {
-					display: block;
-					content: "";
-					position: absolute;
-					left: 0;
-					top: 0;
-					bottom: 0;
-					width: 10px;
-					@include background-image(linear-gradient(left, rgba(0, 0, 0, .3), rgba(0, 0, 0, 0)));
-				}
+				background: url(../img/header.png);
 			}
 		}
 

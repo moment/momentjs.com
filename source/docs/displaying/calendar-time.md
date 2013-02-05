@@ -1,6 +1,6 @@
-Calendar time is displays time relative to now, but slightly differently than `moment.fn.from`.
+Calendar time is displays time relative to now, but slightly differently than `moment#fromNow`.
 
-`moment.fn.calendar` will format a date with different strings depending on how close to today the date is.
+`moment#calendar` will format a date with different strings depending on how close to today the date is.
 
 <table class="table table-striped table-bordered">
   <tr>
@@ -29,4 +29,4 @@ Calendar time is displays time relative to now, but slightly differently than `m
   </tr>
 </table>
 
-These strings are localized, and can be customized with [moment.calendar](#/customization/calendar/) or [moment.lang](#/i18n/changing-language/).
+These strings are localized, and [can be customized](#/customization/calendar/).

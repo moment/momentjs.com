@@ -1,1 +1,0 @@
-Get the hours (0 - 23).

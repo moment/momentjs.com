@@ -1,7 +1,6 @@
 Mutates the original moment by adding time.
 
-This is a pretty robust function for adding time to an existing date.
-To add time, pass the key of what time you want to add, and the amount you want to add.
+This is a pretty robust function for adding time to an existing moment. To add time, pass the key of what time you want to add, and the amount you want to add.
 
 ```javascript
 moment().add('days', 7);
@@ -73,8 +72,6 @@ moment().add('days', 360); // 360 days
 If the day of the month on the original date is greater than the number of days in the final month,
 the day of the month will change to the last day in the final month.
 
-Example:
-
 ```javascript
 moment([2010, 0, 31]);                  // January 31
 moment([2010, 0, 31]).add('months', 1); // February 28
@@ -102,4 +99,18 @@ Alternatively, you can use [durations](#/durations/) to add to moments.
 ```javascript
 var duration = moment.duration({'days' : 1});
 moment([2012, 0, 31]).add(duration); // February 1
+```
+
+As of version **2.0.0**, a reversed syntax is also supported to ease development. The syntaxes below will all work.
+
+```javascript
+moment().add('seconds', 1);
+moment().add('seconds', '1');
+moment().add(1, 'seconds');
+```
+
+This syntax will not work. The first parameter would need to be a number, not a string.
+
+```javascript
+moment().add('1', 'seconds');
 ```

@@ -9,7 +9,7 @@ a.year(2000);
 b.year(); // 2012
 ```
 
-Additionally, you can call `moment.fn.clone` to clone a moment.
+Additionally, you can call `moment#clone` to clone a moment.
 
 ```javascript
 var a = moment([2012]);

@@ -1,7 +1,7 @@
 body {
 	font-family: "Helvetica Neue", Arial, sans-serif;
 	font-size: 16px;
-	line-height: 1.3;
+	line-height: 1.6;
 	background: $background-color;
 }
 
@@ -43,21 +43,20 @@ pre, code, kbd, samp {
 }
 
 pre {
-	background: #444;
-	border: 1px solid #111;
-	color: #ccc;
+	border: 1px solid #e3e3e3;
+	border-radius: 3px;
+	color: #333;
 	font-size: 14px;
 	padding: 5px 8px;
-	border-radius: 5px;
 	margin: 0 0 20px;
 	white-space: pre;
 	line-height: 24px;
 	background: #222 url(../img/header.png);
-	text-shadow: 1px 1px 0 #000;
+	background: #fff;
 	font-weight: 100;
 
 	a {
-		color: #fff;
+		color: #666;
 	}
 
 	.keyword,
@@ -73,7 +72,7 @@ pre {
 	.literal,
 	.property {
 		font-weight: 700;
-		color: #fff;
+		color: #666;
 	}
 
 	.literal,
@@ -82,7 +81,7 @@ pre {
 	}
 
 	.string {
-		color: #c0ffee;
+		color: #ED7677;
 	}
 
 	.number {
@@ -100,7 +99,7 @@ pre {
 
 code {
 	padding: 1px 4px;
-	background: #ddd;
-	border: 1px solid #ccc;
+	background: #fff;
 	border-radius: 3px;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }

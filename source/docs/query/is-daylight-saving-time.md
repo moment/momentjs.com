@@ -1,4 +1,4 @@
-`moment.fn.isDST` checks if the current moment is in daylight savings time or not.
+`moment#isDST` checks if the current moment is in daylight savings time.
 
 ```javascript
 moment([2011, 2, 12]).isDST(); // false, March 12 2011 is not DST

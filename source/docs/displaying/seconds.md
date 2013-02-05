@@ -1,1 +1,0 @@
-Get the seconds (0 - 59).

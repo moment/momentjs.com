@@ -5,11 +5,11 @@
 		<link rel="stylesheet" href="/css/style.css?v={{ cachebust }}" />
 		<title>Moment.js | {% block title %}{% endblock title %}</title>
 	</head>
-	<body>
+	<body class="{% block body_class %}{% endblock body_class %}">
 		<nav class="top">
-			<a class="logo" href="/">Moment.js</a>
-			<a class="docs" href="/docs/">Docs</a>
-			<a class="test" href="/test/">Tests</a>
+			<a class="logo home-nav" href="/">Moment.js</a>
+			<a class="docs-nav" href="/docs/">Docs</a>
+			<a class="test-nav" href="/test/">Tests</a>
 			<a class="github" href="https://github.com/timrwood/moment/">Github</a>
 			<a class="twitter" href="https://twitter.com/momentjs">@momentjs</a>
 			<iframe src="http://ghbtns.com/github-btn.html?user=timrwood&repo=moment&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
