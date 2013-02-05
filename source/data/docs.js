@@ -39,7 +39,10 @@ var exp = [
 			},
 			{
 				key : "String + Format",
-				signature : "moment(String, String);",
+				signature : [
+					"moment(String, String);",
+					"moment(String, String, String);"
+				],
 				version : "1.0.0"
 			},
 			{
@@ -88,6 +91,7 @@ var exp = [
 					"moment.utc(String);",
 					"moment.utc(String, String);",
 					"moment.utc(String, String[]);",
+					"moment.utc(String, String, String);",
 					"moment.utc(Moment);",
 					"moment.utc(Date);"
 				],

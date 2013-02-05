@@ -111,3 +111,10 @@ moment("2010 11 31", "YYYY MM DD").isValid(); // false (not a real day)
 moment("2010 2 29", "YYYY MM DD").isValid(); // false (not a leap year)
 moment("2010 notamonth 29", "YYYY MMM DD").isValid(); // false (not a real month name)
 ```
+
+As of version **2.0.0**, a language key can be passed as the third parameter to `moment()` and `moment.utc()`.
+
+```javascript
+moment('2012 juillet', 'YYYY MMM', 'fr');
+moment('2012 July', 'YYYY MMM', 'en');
+```

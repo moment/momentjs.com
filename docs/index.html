@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<link rel="stylesheet" href="/css/style.css?v=2013-02-04T16:45:21-08:00" />
+		<link rel="stylesheet" href="/css/style.css?v=2013-02-05T12:14:01-08:00" />
 		<title>Moment.js | Documentation</title>
 	</head>
 	<body class="is-docs">
@@ -430,7 +430,8 @@ define([<span class="string">"moment"</span>], <span class="function"><span clas
 					</h3>
 					<div class="prose">
 						
-							<pre lang="javascript">moment(String, String);</pre>
+							<pre lang="javascript">moment(String, String);
+moment(String, String, String);</pre>
 						
 						<p>If you know the format of an input string, you can use that to parse a moment.</p>
 
@@ -540,6 +541,12 @@ moment(<span class="string">"2010-10-20 4:30 +0000"</span>, <span class="string"
 moment(<span class="string">"2010 11 31"</span>, <span class="string">"YYYY MM DD"</span>).isValid(); <span class="comment">// false (not a real day)</span>
 moment(<span class="string">"2010 2 29"</span>, <span class="string">"YYYY MM DD"</span>).isValid(); <span class="comment">// false (not a leap year)</span>
 moment(<span class="string">"2010 notamonth 29"</span>, <span class="string">"YYYY MMM DD"</span>).isValid(); <span class="comment">// false (not a real month name)</span>
+</pre></div>
+
+<p>As of version <strong>2.0.0</strong>, a language key can be passed as the third parameter to <code>moment()</code> and <code>moment.utc()</code>.</p>
+
+<div class="highlight"><pre lang="javascript">moment(<span class="string">'2012 juillet'</span>, <span class="string">'YYYY MMM'</span>, <span class="string">'fr'</span>);
+moment(<span class="string">'2012 July'</span>, <span class="string">'YYYY MMM'</span>, <span class="string">'en'</span>);
 </pre></div>
 					</div>
 				</article>
@@ -736,6 +743,7 @@ moment.utc(Number[]);
 moment.utc(String);
 moment.utc(String, String);
 moment.utc(String, String[]);
+moment.utc(String, String, String);
 moment.utc(Moment);
 moment.utc(Date);</pre>
 						
@@ -3206,7 +3214,7 @@ t.format(); <span class="comment">// 'May 25 - 26, 1982'</span>
 		</footer>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-		<script src="../js/home.min.js?v=2013-02-04T16:45:21-08:00"></script>
+		<script src="../js/home.min.js?v=2013-02-05T12:14:01-08:00"></script>
 
 		
 
