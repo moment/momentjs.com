@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<link rel="stylesheet" href="/css/style.css?v=2013-02-05T12:14:01-08:00" />
+		<link rel="stylesheet" href="/css/style.css?v=2013-02-05T12:17:40-08:00" />
 		<title>Moment.js | Documentation</title>
 	</head>
 	<body class="is-docs">
@@ -2815,13 +2815,16 @@ moment.lang(<span class="string">'en'</span>, {
 <div class="highlight"><pre lang="javascript">moment.lang(<span class="string">'en'</span>, {
     ordinal : <span class="function"><span class="keyword">function</span> <span class="params">(number)</span> {</span>
         <span class="keyword">var</span> b = number % <span class="number">10</span>;
-        <span class="keyword">return</span> (~~ (number % <span class="number">100</span> / <span class="number">10</span>) === <span class="number">1</span>) ? <span class="string">'th'</span> :
+        <span class="keyword">var</span> output = (~~ (number % <span class="number">100</span> / <span class="number">10</span>) === <span class="number">1</span>) ? <span class="string">'th'</span> :
             (b === <span class="number">1</span>) ? <span class="string">'st'</span> :
             (b === <span class="number">2</span>) ? <span class="string">'nd'</span> :
             (b === <span class="number">3</span>) ? <span class="string">'rd'</span> : <span class="string">'th'</span>;
+        <span class="keyword">return</span> number + output;
     }
 });
 </pre></div>
+
+<p>As of <strong>2.0.0</strong>, the ordinal function should return both the number and the ordinal. Previously, only the ordinal was returned.</p>
 
 <p>For more information on ordinal numbers, see <a href="http://en.wikipedia.org/wiki/Ordinal_number_%28linguistics%29">wikipedia</a></p>
 					</div>
@@ -3214,7 +3217,7 @@ t.format(); <span class="comment">// 'May 25 - 26, 1982'</span>
 		</footer>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-		<script src="../js/home.min.js?v=2013-02-05T12:14:01-08:00"></script>
+		<script src="../js/home.min.js?v=2013-02-05T12:17:40-08:00"></script>
 
 		
 
