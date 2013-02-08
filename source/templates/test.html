@@ -5,9 +5,7 @@
 {% block title %}Unit Tests{% endblock title %}
 
 {% block scripts %}
-	<script src="../js/moment.js"></script>
-	<script src="../js/langs.js"></script>
-	<script src="../js/tests.js"></script>
+	<script src="../js/tests.js?v={{ cachebust }}"></script>
 {% endblock scripts %}
 
 {% block header %}

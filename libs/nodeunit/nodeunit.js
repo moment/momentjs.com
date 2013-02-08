@@ -1780,6 +1780,8 @@ exports.runModule = function (name, mod, opt, callback) {
     }
     options.moduleStart = run_once;
 
+    mod = this.testCase(mod);
+
     var start = new Date().getTime();
 
     exports.runSuite(null, mod, options, function (err, a_list) {

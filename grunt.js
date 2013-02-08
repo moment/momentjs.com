@@ -15,7 +15,7 @@ module.exports = function(grunt) {
             },
             langs: {
                 src: [
-                    'libs/moment/lang/*.js'
+                    'libs/moment/min/langs.js'
                 ],
                 dest: 'js/langs.js'
             },
@@ -30,7 +30,7 @@ module.exports = function(grunt) {
             home: {
                 src: [
                     'libs/moment/moment.js',
-                    'libs/moment/lang/*.js',
+                    'libs/moment/min/langs.js',
                     'source/js/home.js'
                 ],
                 dest: 'js/home.min.js'
