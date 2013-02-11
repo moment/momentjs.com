@@ -2821,7 +2821,7 @@ exports.diff = {
         test.expect(7);
 
         test.equal(moment([2011]).utc().diff([2010], 'years'), 1, "year diff");
-        test.equal(moment([2010, 2]).utc().diff([2010], 'months'), 2, "month diff");
+        test.equal(moment([2010, 2, 2]).utc().diff([2010, 0, 2], 'months'), 2, "month diff");
         test.equal(moment([2010, 0, 4]).utc().diff([2010], 'days'), 3, "day diff");
         test.equal(moment([2010, 0, 22]).utc().diff([2010], 'weeks'), 3, "week diff");
         test.equal(moment([2010, 0, 1, 4]).utc().diff([2010], 'hours'), 4, "hour diff");
@@ -5047,9 +5047,18 @@ exports.utc = {
 var moment = require("../../moment");
 
 exports["lang:ar-ma"] = {
+    setUp : function (cb) {
+        moment.lang('ar-ma');
+        cb();
+    },
+
+    tearDown : function (cb) {
+        moment.lang('en');
+        cb();
+    },
+
     "parse" : function(test) {
         test.expect(96);
-        moment.lang('ar-ma');
         var tests = 'يناير:يناير_فبراير:فبراير_مارس:مارس_أبريل:أبريل_ماي:ماي_يونيو:يونيو_يوليوز:يوليوز_غشت:غشت_شتنبر:شتنبر_أكتوبر:أكتوبر_نونبر:نونبر_دجنبر:دجنبر'.split("_");
         var i;
         function equalTest(input, mmm, i) {
@@ -5071,7 +5080,6 @@ exports["lang:ar-ma"] = {
 
     "format" : function(test) {
         test.expect(22);
-        moment.lang('ar-ma');
         var a = [
                 ['dddd, MMMM Do YYYY, h:mm:ss a',      'الأحد, فبراير 14 2010, 3:25:50 pm'],
                 ['ddd, hA',                            'احد, 3PM'],
@@ -5106,7 +5114,6 @@ exports["lang:ar-ma"] = {
 
     "format ordinal" : function(test) {
         test.expect(31);
-        moment.lang('ar-ma');
         test.equal(moment([2011, 0, 1]).format('DDDo'), '1', '1');
         test.equal(moment([2011, 0, 2]).format('DDDo'), '2', '2');
         test.equal(moment([2011, 0, 3]).format('DDDo'), '3', '3');
@@ -5146,7 +5153,6 @@ exports["lang:ar-ma"] = {
 
     "format month" : function(test) {
         test.expect(12);
-        moment.lang('ar-ma');
         var expected = 'يناير يناير_فبراير فبراير_مارس مارس_أبريل أبريل_ماي ماي_يونيو يونيو_يوليوز يوليوز_غشت غشت_شتنبر شتنبر_أكتوبر أكتوبر_نونبر نونبر_دجنبر دجنبر'.split("_");
         var i;
         for (i = 0; i < expected.length; i++) {
@@ -5157,7 +5163,6 @@ exports["lang:ar-ma"] = {
 
     "format week" : function(test) {
         test.expect(7);
-        moment.lang('ar-ma');
         var expected = 'الأحد احد ح_الإتنين اتنين ن_الثلاثاء ثلاثاء ث_الأربعاء اربعاء ر_الخميس خميس خ_الجمعة جمعة ج_السبت سبت س'.split("_");
         var i;
         for (i = 0; i < expected.length; i++) {
@@ -5168,7 +5173,6 @@ exports["lang:ar-ma"] = {
 
     "from" : function(test) {
         test.expect(30);
-        moment.lang('ar-ma');
         var start = moment([2007, 1, 28]);
         test.equal(start.from(moment([2007, 1, 28]).add({s:44}), true),  "ثوان", "44 seconds = a few seconds");
         test.equal(start.from(moment([2007, 1, 28]).add({s:45}), true),  "دقيقة",      "45 seconds = a minute");
@@ -5205,7 +5209,6 @@ exports["lang:ar-ma"] = {
 
     "suffix" : function(test) {
         test.expect(2);
-        moment.lang('ar-ma');
         test.equal(moment(30000).from(0), "في ثوان",  "prefix");
         test.equal(moment(0).from(30000), "منذ ثوان", "suffix");
         test.done();
@@ -5213,14 +5216,12 @@ exports["lang:ar-ma"] = {
 
     "now from now" : function(test) {
         test.expect(1);
-        moment.lang('ar-ma');
         test.equal(moment().fromNow(), "منذ ثوان",  "now from now should display as in the past");
         test.done();
     },
 
     "fromNow" : function(test) {
         test.expect(2);
-        moment.lang('ar-ma');
         test.equal(moment().add({s:30}).fromNow(), "في ثوان", "in a few seconds");
         test.equal(moment().add({d:5}).fromNow(), "في 5 أيام", "in 5 days");
         test.done();
@@ -5228,7 +5229,6 @@ exports["lang:ar-ma"] = {
 
     "calendar day" : function(test) {
         test.expect(6);
-        moment.lang('ar-ma');
 
         var a = moment().hours(2).minutes(0).seconds(0);
 
@@ -5243,7 +5243,6 @@ exports["lang:ar-ma"] = {
 
     "calendar next week" : function(test) {
         test.expect(15);
-        moment.lang('ar-ma');
 
         var i;
         var m;
@@ -5261,7 +5260,6 @@ exports["lang:ar-ma"] = {
 
     "calendar last week" : function(test) {
         test.expect(15);
-        moment.lang('ar-ma');
 
         for (i = 2; i < 7; i++) {
             m = moment().subtract({ d: i });
@@ -5276,7 +5274,6 @@ exports["lang:ar-ma"] = {
 
     "calendar all else" : function(test) {
         test.expect(4);
-        moment.lang('ar-ma');
         var weeksAgo = moment().subtract({ w: 1 });
         var weeksFromNow = moment().add({ w: 1 });
 
@@ -5400,9 +5397,18 @@ exports["lang:ar-ma"] = {
 var moment = require("../../moment");
 
 exports["lang:ar"] = {
+    setUp : function (cb) {
+        moment.lang('ar');
+        cb();
+    },
+
+    tearDown : function (cb) {
+        moment.lang('en');
+        cb();
+    },
+
     "parse" : function(test) {
         test.expect(96);
-        moment.lang('ar');
         var tests = 'كانون الثاني:كانون الثاني_ﺶﺑﺎﻃ:ﺶﺑﺎﻃ_آذار:آذار_نيسان:نيسان_أيار:أيار_حزيران:حزيران_تموز:تموز_آب:آب_أيلول:أيلول_تشرين الأول:تشرين الأول_تشرين الثاني:تشرين الثاني_كانون الأول:كانون الأول'.split("_");
         var i;
         function equalTest(input, mmm, i) {
@@ -5424,7 +5430,6 @@ exports["lang:ar"] = {
 
     "format" : function(test) {
         test.expect(22);
-        moment.lang('ar');
         var a = [
                 ['dddd, MMMM Do YYYY, h:mm:ss a',      'الأحد, ﺶﺑﺎﻃ 14 2010, 3:25:50 pm'],
                 ['ddd, hA',                            'احد, 3PM'],
@@ -5459,7 +5464,6 @@ exports["lang:ar"] = {
 
     "format ordinal" : function(test) {
         test.expect(31);
-        moment.lang('ar');
         test.equal(moment([2011, 0, 1]).format('DDDo'), '1', '1');
         test.equal(moment([2011, 0, 2]).format('DDDo'), '2', '2');
         test.equal(moment([2011, 0, 3]).format('DDDo'), '3', '3');
@@ -5499,7 +5503,6 @@ exports["lang:ar"] = {
 
     "format month" : function(test) {
         test.expect(12);
-        moment.lang('ar');
         var expected = 'كانون الثاني كانون الثاني_ﺶﺑﺎﻃ ﺶﺑﺎﻃ_آذار آذار_نيسان نيسان_أيار أيار_حزيران حزيران_تموز تموز_آب آب_أيلول أيلول_تشرين الأول تشرين الأول_تشرين الثاني تشرين الثاني_كانون الأول كانون الأول'.split("_");
         var i;
         for (i = 0; i < expected.length; i++) {
@@ -5510,7 +5513,6 @@ exports["lang:ar"] = {
 
     "format week" : function(test) {
         test.expect(7);
-        moment.lang('ar');
         var expected = 'الأحد احد ح_الإتنين اتنين ن_الثلاثاء ثلاثاء ث_الأربعاء اربعاء ر_الخميس خميس خ_الجمعة جمعة ج_السبت سبت س'.split("_");
         var i;
         for (i = 0; i < expected.length; i++) {
@@ -5521,7 +5523,6 @@ exports["lang:ar"] = {
 
     "from" : function(test) {
         test.expect(30);
-        moment.lang('ar');
         var start = moment([2007, 1, 28]);
         test.equal(start.from(moment([2007, 1, 28]).add({s:44}), true),  "ثوان", "44 seconds = a few seconds");
         test.equal(start.from(moment([2007, 1, 28]).add({s:45}), true),  "دقيقة",      "45 seconds = a minute");
@@ -5558,7 +5559,6 @@ exports["lang:ar"] = {
 
     "suffix" : function(test) {
         test.expect(2);
-        moment.lang('ar');
         test.equal(moment(30000).from(0), "في ثوان",  "prefix");
         test.equal(moment(0).from(30000), "منذ ثوان", "suffix");
         test.done();
@@ -5566,14 +5566,12 @@ exports["lang:ar"] = {
 
     "now from now" : function(test) {
         test.expect(1);
-        moment.lang('ar');
         test.equal(moment().fromNow(), "منذ ثوان",  "now from now should display as in the past");
         test.done();
     },
 
     "fromNow" : function(test) {
         test.expect(2);
-        moment.lang('ar');
         test.equal(moment().add({s:30}).fromNow(), "في ثوان", "in a few seconds");
         test.equal(moment().add({d:5}).fromNow(), "في 5 أيام", "in 5 days");
         test.done();
@@ -5581,7 +5579,6 @@ exports["lang:ar"] = {
 
     "calendar day" : function(test) {
         test.expect(6);
-        moment.lang('ar');
 
         var a = moment().hours(2).minutes(0).seconds(0);
 
@@ -5596,7 +5593,6 @@ exports["lang:ar"] = {
 
     "calendar next week" : function(test) {
         test.expect(15);
-        moment.lang('ar');
 
         var i;
         var m;
@@ -5614,7 +5610,6 @@ exports["lang:ar"] = {
 
     "calendar last week" : function(test) {
         test.expect(15);
-        moment.lang('ar');
 
         for (i = 2; i < 7; i++) {
             m = moment().subtract({ d: i });
@@ -5629,7 +5624,6 @@ exports["lang:ar"] = {
 
     "calendar all else" : function(test) {
         test.expect(4);
-        moment.lang('ar');
         var weeksAgo = moment().subtract({ w: 1 });
         var weeksFromNow = moment().add({ w: 1 });
 
@@ -7266,7 +7260,7 @@ exports["lang:da"] = {
     "format" : function(test) {
         test.expect(22);
         var a = [
-                ['dddd \\den MMMM Do YYYY, h:mm:ss a', 'Søndag den Februar 14. 2010, 3:25:50 pm'],
+                ['dddd \\den Do MMMM YYYY, h:mm:ss a', 'Søndag den 14. Februar 2010, 3:25:50 pm'],
                 ['ddd hA',                             'Søn 3PM'],
                 ['M Mo MM MMMM MMM',                   '2 2. 02 Februar Feb'],
                 ['YYYY YY',                            '2010 10'],
@@ -7282,12 +7276,12 @@ exports["lang:da"] = {
                 ['[den] DDDo \\d\\ag på året',         'den 45. dag på året'],
                 ['L',                                  '14/02/2010'],
                 ['LL',                                 '14 Februar 2010'],
-                ['LLL',                                '14 Februar 2010 3:25 PM'],
-                ['LLLL',                               'Søndag 14. Februar, 2010 3:25 PM'],
+                ['LLL',                                '14 Februar 2010 15:25'],
+                ['LLLL',                               'Søndag 14. Februar, 2010 15:25'],
                 ['l',                                  '14/2/2010'],
                 ['ll',                                 '14 Feb 2010'],
-                ['lll',                                '14 Feb 2010 3:25 PM'],
-                ['llll',                               'Søn 14. Feb, 2010 3:25 PM']
+                ['lll',                                '14 Feb 2010 15:25'],
+                ['llll',                               'Søn 14. Feb, 2010 15:25']
             ],
             b = moment(new Date(2010, 1, 14, 15, 25, 50, 125)),
             i;
@@ -7360,34 +7354,34 @@ exports["lang:da"] = {
         test.expect(30);
         var start = moment([2007, 1, 28]);
         test.equal(start.from(moment([2007, 1, 28]).add({s:44}), true),  "få sekunder", "44 seconds = a few seconds");
-        test.equal(start.from(moment([2007, 1, 28]).add({s:45}), true),  "minut",       "45 seconds = a minute");
-        test.equal(start.from(moment([2007, 1, 28]).add({s:89}), true),  "minut",       "89 seconds = a minute");
+        test.equal(start.from(moment([2007, 1, 28]).add({s:45}), true),  "et minut",    "45 seconds = a minute");
+        test.equal(start.from(moment([2007, 1, 28]).add({s:89}), true),  "et minut",    "89 seconds = a minute");
         test.equal(start.from(moment([2007, 1, 28]).add({s:90}), true),  "2 minutter",  "90 seconds = 2 minutes");
         test.equal(start.from(moment([2007, 1, 28]).add({m:44}), true),  "44 minutter", "44 minutes = 44 minutes");
-        test.equal(start.from(moment([2007, 1, 28]).add({m:45}), true),  "time",        "45 minutes = an hour");
-        test.equal(start.from(moment([2007, 1, 28]).add({m:89}), true),  "time",        "89 minutes = an hour");
+        test.equal(start.from(moment([2007, 1, 28]).add({m:45}), true),  "en time",     "45 minutes = an hour");
+        test.equal(start.from(moment([2007, 1, 28]).add({m:89}), true),  "en time",     "89 minutes = an hour");
         test.equal(start.from(moment([2007, 1, 28]).add({m:90}), true),  "2 timer",     "90 minutes = 2 hours");
         test.equal(start.from(moment([2007, 1, 28]).add({h:5}), true),   "5 timer",     "5 hours = 5 hours");
         test.equal(start.from(moment([2007, 1, 28]).add({h:21}), true),  "21 timer",    "21 hours = 21 hours");
-        test.equal(start.from(moment([2007, 1, 28]).add({h:22}), true),  "dag",         "22 hours = a day");
-        test.equal(start.from(moment([2007, 1, 28]).add({h:35}), true),  "dag",         "35 hours = a day");
+        test.equal(start.from(moment([2007, 1, 28]).add({h:22}), true),  "en dag",      "22 hours = a day");
+        test.equal(start.from(moment([2007, 1, 28]).add({h:35}), true),  "en dag",      "35 hours = a day");
         test.equal(start.from(moment([2007, 1, 28]).add({h:36}), true),  "2 dage",      "36 hours = 2 days");
-        test.equal(start.from(moment([2007, 1, 28]).add({d:1}), true),   "dag",         "1 day = a day");
+        test.equal(start.from(moment([2007, 1, 28]).add({d:1}), true),   "en dag",      "1 day = a day");
         test.equal(start.from(moment([2007, 1, 28]).add({d:5}), true),   "5 dage",      "5 days = 5 days");
         test.equal(start.from(moment([2007, 1, 28]).add({d:25}), true),  "25 dage",     "25 days = 25 days");
-        test.equal(start.from(moment([2007, 1, 28]).add({d:26}), true),  "månede",      "26 days = a month");
-        test.equal(start.from(moment([2007, 1, 28]).add({d:30}), true),  "månede",      "30 days = a month");
-        test.equal(start.from(moment([2007, 1, 28]).add({d:45}), true),  "månede",      "45 days = a month");
+        test.equal(start.from(moment([2007, 1, 28]).add({d:26}), true),  "en måned",    "26 days = a month");
+        test.equal(start.from(moment([2007, 1, 28]).add({d:30}), true),  "en måned",    "30 days = a month");
+        test.equal(start.from(moment([2007, 1, 28]).add({d:45}), true),  "en måned",    "45 days = a month");
         test.equal(start.from(moment([2007, 1, 28]).add({d:46}), true),  "2 måneder",   "46 days = 2 months");
         test.equal(start.from(moment([2007, 1, 28]).add({d:74}), true),  "2 måneder",   "75 days = 2 months");
         test.equal(start.from(moment([2007, 1, 28]).add({d:76}), true),  "3 måneder",   "76 days = 3 months");
-        test.equal(start.from(moment([2007, 1, 28]).add({M:1}), true),   "månede",      "1 month = a month");
+        test.equal(start.from(moment([2007, 1, 28]).add({M:1}), true),   "en måned",    "1 month = a month");
         test.equal(start.from(moment([2007, 1, 28]).add({M:5}), true),   "5 måneder",   "5 months = 5 months");
         test.equal(start.from(moment([2007, 1, 28]).add({d:344}), true), "11 måneder",  "344 days = 11 months");
-        test.equal(start.from(moment([2007, 1, 28]).add({d:345}), true), "år",          "345 days = a year");
-        test.equal(start.from(moment([2007, 1, 28]).add({d:547}), true), "år",          "547 days = a year");
+        test.equal(start.from(moment([2007, 1, 28]).add({d:345}), true), "et år",       "345 days = a year");
+        test.equal(start.from(moment([2007, 1, 28]).add({d:547}), true), "et år",       "547 days = a year");
         test.equal(start.from(moment([2007, 1, 28]).add({d:548}), true), "2 år",        "548 days = 2 years");
-        test.equal(start.from(moment([2007, 1, 28]).add({y:1}), true),   "år",          "1 year = a year");
+        test.equal(start.from(moment([2007, 1, 28]).add({y:1}), true),   "et år",       "1 year = a year");
         test.equal(start.from(moment([2007, 1, 28]).add({y:5}), true),   "5 år",        "5 years = 5 years");
         test.done();
     },
@@ -11041,6 +11035,8 @@ exports["lang:fr-ca"] = {
 
     "same last week" : function(test) {
         test.expect(15);
+
+        var i, m;
 
         for (i = 2; i < 7; i++) {
             m = moment().subtract({ d: i });
@@ -19096,9 +19092,19 @@ var moment = require("../../moment");
 
 
 exports["lang:tzm-la"] = {
+    setUp : function (cb) {
+        moment.lang('tzm-la');
+        cb();
+    },
+
+    tearDown : function (cb) {
+        moment.lang('en');
+        cb();
+    },
+
     "parse" : function(test) {
         test.expect(96);
-        moment.lang('tzm-la');
+
         var tests = 'innayr innayr_brˤayrˤ brˤayrˤ_marˤsˤ marˤsˤ_ibrir ibrir_mayyw mayyw_ywnyw ywnyw_ywlywz ywlywz_ɣwšt ɣwšt_šwtanbir šwtanbir_ktˤwbrˤ ktˤwbrˤ_nwwanbir nwwanbir_dwjnbir dwjnbir'.split("_");
         var i;
         function equalTest(input, mmm, i) {
@@ -19120,7 +19126,7 @@ exports["lang:tzm-la"] = {
 
     "format" : function(test) {
         test.expect(22);
-        moment.lang('tzm-la');
+
         var a = [
                 ['dddd, MMMM Do YYYY, h:mm:ss a',      'asamas, brˤayrˤ 14 2010, 3:25:50 pm'],
                 ['ddd, hA',                            'asamas, 3PM'],
@@ -19155,7 +19161,7 @@ exports["lang:tzm-la"] = {
 
     "format ordinal" : function(test) {
         test.expect(31);
-        moment.lang('tzm-la');
+
         test.equal(moment([2011, 0, 1]).format('DDDo'), '1', '1');
         test.equal(moment([2011, 0, 2]).format('DDDo'), '2', '2');
         test.equal(moment([2011, 0, 3]).format('DDDo'), '3', '3');
@@ -19195,7 +19201,7 @@ exports["lang:tzm-la"] = {
 
     "format month" : function(test) {
         test.expect(12);
-        moment.lang('tzm-la');
+
         var expected = 'innayr innayr_brˤayrˤ brˤayrˤ_marˤsˤ marˤsˤ_ibrir ibrir_mayyw mayyw_ywnyw ywnyw_ywlywz ywlywz_ɣwšt ɣwšt_šwtanbir šwtanbir_ktˤwbrˤ ktˤwbrˤ_nwwanbir nwwanbir_dwjnbir dwjnbir'.split("_");
         var i;
         for (i = 0; i < expected.length; i++) {
@@ -19206,7 +19212,7 @@ exports["lang:tzm-la"] = {
 
     "format week" : function(test) {
         test.expect(7);
-        moment.lang('tzm-la');
+
         var expected = 'asamas asamas asamas_aynas aynas aynas_asinas asinas asinas_akras akras akras_akwas akwas akwas_asimwas asimwas asimwas_asiḍyas asiḍyas asiḍyas'.split("_");
         var i;
         for (i = 0; i < expected.length; i++) {
@@ -19217,7 +19223,7 @@ exports["lang:tzm-la"] = {
 
     "from" : function(test) {
         test.expect(30);
-        moment.lang('tzm-la');
+
         var start = moment([2007, 1, 28]);
         test.equal(start.from(moment([2007, 1, 28]).add({s:44}), true),  "imik", "44 seconds = a few seconds");
         test.equal(start.from(moment([2007, 1, 28]).add({s:45}), true),  "minuḍ",      "45 seconds = a minute");
@@ -19254,7 +19260,7 @@ exports["lang:tzm-la"] = {
 
     "suffix" : function(test) {
         test.expect(2);
-        moment.lang('tzm-la');
+
         test.equal(moment(30000).from(0), "dadkh s yan imik",  "prefix");
         test.equal(moment(0).from(30000), "yan imik", "suffix");
         test.done();
@@ -19262,14 +19268,14 @@ exports["lang:tzm-la"] = {
 
     "now from now" : function(test) {
         test.expect(1);
-        moment.lang('tzm-la');
+
         test.equal(moment().fromNow(), "yan imik",  "now from now should display as in the past");
         test.done();
     },
 
     "fromNow" : function(test) {
         test.expect(2);
-        moment.lang('tzm-la');
+
         test.equal(moment().add({s:30}).fromNow(), "dadkh s yan imik", "in a few seconds");
         test.equal(moment().add({d:5}).fromNow(), "dadkh s yan 5 ossan", "in 5 days");
         test.done();
@@ -19277,7 +19283,6 @@ exports["lang:tzm-la"] = {
 
     "calendar day" : function(test) {
         test.expect(6);
-        moment.lang('tzm-la');
 
         var a = moment().hours(2).minutes(0).seconds(0);
 
@@ -19292,7 +19297,6 @@ exports["lang:tzm-la"] = {
 
     "calendar next week" : function(test) {
         test.expect(15);
-        moment.lang('tzm-la');
 
         var i;
         var m;
@@ -19310,7 +19314,6 @@ exports["lang:tzm-la"] = {
 
     "calendar last week" : function(test) {
         test.expect(15);
-        moment.lang('tzm-la');
 
         for (i = 2; i < 7; i++) {
             m = moment().subtract({ d: i });
@@ -19325,7 +19328,6 @@ exports["lang:tzm-la"] = {
 
     "calendar all else" : function(test) {
         test.expect(4);
-        moment.lang('tzm-la');
         var weeksAgo = moment().subtract({ w: 1 });
         var weeksFromNow = moment().add({ w: 1 });
 
@@ -19450,9 +19452,18 @@ var moment = require("../../moment");
 
 
 exports["lang:tzm"] = {
+    setUp : function (cb) {
+        moment.lang('tzm');
+        cb();
+    },
+
+    tearDown : function (cb) {
+        moment.lang('en');
+        cb();
+    },
+
     "parse" : function(test) {
         test.expect(96);
-        moment.lang('tzm');
         var tests = 'ⵉⵏⵏⴰⵢⵔ ⵉⵏⵏⴰⵢⵔ_ⴱⵕⴰⵢⵕ ⴱⵕⴰⵢⵕ_ⵎⴰⵕⵚ ⵎⴰⵕⵚ_ⵉⴱⵔⵉⵔ ⵉⴱⵔⵉⵔ_ⵎⴰⵢⵢⵓ ⵎⴰⵢⵢⵓ_ⵢⵓⵏⵢⵓ ⵢⵓⵏⵢⵓ_ⵢⵓⵍⵢⵓⵣ ⵢⵓⵍⵢⵓⵣ_ⵖⵓⵛⵜ ⵖⵓⵛⵜ_ⵛⵓⵜⴰⵏⴱⵉⵔ ⵛⵓⵜⴰⵏⴱⵉⵔ_ⴽⵟⵓⴱⵕ ⴽⵟⵓⴱⵕ_ⵏⵓⵡⴰⵏⴱⵉⵔ ⵏⵓⵡⴰⵏⴱⵉⵔ_ⴷⵓⵊⵏⴱⵉⵔ ⴷⵓⵊⵏⴱⵉⵔ'.split("_");
         var i;
         function equalTest(input, mmm, i) {
@@ -19474,7 +19485,6 @@ exports["lang:tzm"] = {
 
     "format" : function(test) {
         test.expect(22);
-        moment.lang('tzm');
         var a = [
                 ['dddd, MMMM Do YYYY, h:mm:ss a',      'ⴰⵙⴰⵎⴰⵙ, ⴱⵕⴰⵢⵕ 14 2010, 3:25:50 pm'],
                 ['ddd, hA',                            'ⴰⵙⴰⵎⴰⵙ, 3PM'],
@@ -19509,7 +19519,6 @@ exports["lang:tzm"] = {
 
     "format ordinal" : function(test) {
         test.expect(31);
-        moment.lang('tzm');
         test.equal(moment([2011, 0, 1]).format('DDDo'), '1', '1');
         test.equal(moment([2011, 0, 2]).format('DDDo'), '2', '2');
         test.equal(moment([2011, 0, 3]).format('DDDo'), '3', '3');
@@ -19549,7 +19558,6 @@ exports["lang:tzm"] = {
 
     "format month" : function(test) {
         test.expect(12);
-        moment.lang('tzm');
         var expected = 'ⵉⵏⵏⴰⵢⵔ ⵉⵏⵏⴰⵢⵔ_ⴱⵕⴰⵢⵕ ⴱⵕⴰⵢⵕ_ⵎⴰⵕⵚ ⵎⴰⵕⵚ_ⵉⴱⵔⵉⵔ ⵉⴱⵔⵉⵔ_ⵎⴰⵢⵢⵓ ⵎⴰⵢⵢⵓ_ⵢⵓⵏⵢⵓ ⵢⵓⵏⵢⵓ_ⵢⵓⵍⵢⵓⵣ ⵢⵓⵍⵢⵓⵣ_ⵖⵓⵛⵜ ⵖⵓⵛⵜ_ⵛⵓⵜⴰⵏⴱⵉⵔ ⵛⵓⵜⴰⵏⴱⵉⵔ_ⴽⵟⵓⴱⵕ ⴽⵟⵓⴱⵕ_ⵏⵓⵡⴰⵏⴱⵉⵔ ⵏⵓⵡⴰⵏⴱⵉⵔ_ⴷⵓⵊⵏⴱⵉⵔ ⴷⵓⵊⵏⴱⵉⵔ'.split("_");
         var i;
         for (i = 0; i < expected.length; i++) {
@@ -19560,7 +19568,6 @@ exports["lang:tzm"] = {
 
     "format week" : function(test) {
         test.expect(7);
-        moment.lang('tzm');
         var expected = 'ⴰⵙⴰⵎⴰⵙ ⴰⵙⴰⵎⴰⵙ ⴰⵙⴰⵎⴰⵙ_ⴰⵢⵏⴰⵙ ⴰⵢⵏⴰⵙ ⴰⵢⵏⴰⵙ_ⴰⵙⵉⵏⴰⵙ ⴰⵙⵉⵏⴰⵙ ⴰⵙⵉⵏⴰⵙ_ⴰⴽⵔⴰⵙ ⴰⴽⵔⴰⵙ ⴰⴽⵔⴰⵙ_ⴰⴽⵡⴰⵙ ⴰⴽⵡⴰⵙ ⴰⴽⵡⴰⵙ_ⴰⵙⵉⵎⵡⴰⵙ ⴰⵙⵉⵎⵡⴰⵙ ⴰⵙⵉⵎⵡⴰⵙ_ⴰⵙⵉⴹⵢⴰⵙ ⴰⵙⵉⴹⵢⴰⵙ ⴰⵙⵉⴹⵢⴰⵙ'.split("_");
         var i;
         for (i = 0; i < expected.length; i++) {
@@ -19571,7 +19578,6 @@ exports["lang:tzm"] = {
 
     "from" : function(test) {
         test.expect(30);
-        moment.lang('tzm');
         var start = moment([2007, 1, 28]);
         test.equal(start.from(moment([2007, 1, 28]).add({s:44}), true),  "ⵉⵎⵉⴽ", "44 seconds = a few seconds");
         test.equal(start.from(moment([2007, 1, 28]).add({s:45}), true),  "ⵎⵉⵏⵓⴺ",      "45 seconds = a minute");
@@ -19608,7 +19614,6 @@ exports["lang:tzm"] = {
 
     "suffix" : function(test) {
         test.expect(2);
-        moment.lang('tzm');
         test.equal(moment(30000).from(0), "ⴷⴰⴷⵅ ⵙ ⵢⴰⵏ ⵉⵎⵉⴽ",  "prefix");
         test.equal(moment(0).from(30000), "ⵢⴰⵏ ⵉⵎⵉⴽ", "suffix");
         test.done();
@@ -19616,14 +19621,12 @@ exports["lang:tzm"] = {
 
     "now from now" : function(test) {
         test.expect(1);
-        moment.lang('tzm');
         test.equal(moment().fromNow(), "ⵢⴰⵏ ⵉⵎⵉⴽ",  "now from now should display as in the past");
         test.done();
     },
 
     "fromNow" : function(test) {
         test.expect(2);
-        moment.lang('tzm');
         test.equal(moment().add({s:30}).fromNow(), "ⴷⴰⴷⵅ ⵙ ⵢⴰⵏ ⵉⵎⵉⴽ", "in a few seconds");
         test.equal(moment().add({d:5}).fromNow(), "ⴷⴰⴷⵅ ⵙ ⵢⴰⵏ 5 oⵙⵙⴰⵏ", "in 5 days");
         test.done();
@@ -19631,7 +19634,6 @@ exports["lang:tzm"] = {
 
     "calendar day" : function(test) {
         test.expect(6);
-        moment.lang('tzm');
 
         var a = moment().hours(2).minutes(0).seconds(0);
 
@@ -19646,7 +19648,6 @@ exports["lang:tzm"] = {
 
     "calendar next week" : function(test) {
         test.expect(15);
-        moment.lang('tzm');
 
         var i;
         var m;
@@ -19664,7 +19665,6 @@ exports["lang:tzm"] = {
 
     "calendar last week" : function(test) {
         test.expect(15);
-        moment.lang('tzm');
 
         for (i = 2; i < 7; i++) {
             m = moment().subtract({ d: i });
@@ -19679,7 +19679,6 @@ exports["lang:tzm"] = {
 
     "calendar all else" : function(test) {
         test.expect(4);
-        moment.lang('tzm');
         var weeksAgo = moment().subtract({ w: 1 });
         var weeksFromNow = moment().add({ w: 1 });
 
