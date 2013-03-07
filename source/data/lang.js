@@ -25,6 +25,7 @@ module.exports = {
     'ja'     : 'Japanese',
     'ko'     : 'Korean',
     'lv'     : 'Latvian',
+    'ms-my'  : 'Bahasa Malaysian',
     'ne'     : 'Nepalese',
     'nb'     : 'Norwegian',
     'nl'     : 'Dutch',

@@ -6,9 +6,10 @@
     "homepage": "http://momentjs.com",
     "author": "Tim Wood <washwithcare@gmail.com> (http://timwoodcreates.com/)",
     "devDependencies" : {
-        "uglify-js"    : "1.3.2",
-        "clean-css"    : "0.4.2",
-        "jade"         : "0.26.3",
-        "highlight.js" : "latest"
+        "uglify-js"     : "1.3.2",
+        "clean-css"     : "0.4.2",
+        "jade"          : "0.26.3",
+        "highlight.js"  : "latest",
+        "grunt-compass" : "latest"
     }
 }

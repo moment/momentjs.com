@@ -4,7 +4,7 @@ var fs        = require('fs'),
     docs      = require('../source/data/docs'),
     swig      = require('swig'),
     highlight = require("highlight.js").highlight,
-    moment    = require("moment");
+    moment    = require("../libs/moment");
 
 
 swig.init({
