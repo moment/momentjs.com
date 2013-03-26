@@ -639,6 +639,10 @@ var exp = [
 				signature : [
 					"npm install twix"
 				]
+			},
+			{
+				key : "twitter",
+				title : "Twitter"
 			}
 		]
 	}

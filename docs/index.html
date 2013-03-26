@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<link rel="stylesheet" href="/css/style.css?v=2013-03-07T15:15:04-08:00" />
+		<link rel="stylesheet" href="/css/style.css?v=2013-03-25T20:21:43-07:00" />
 		<title>Moment.js | Documentation</title>
 	</head>
 	<body class="is-docs">
@@ -278,6 +278,8 @@
 						<a href="#/plugins/range/">Date Ranges</a>
 					
 						<a href="#/plugins/twix/">Twix</a>
+					
+						<a href="#/plugins/twitter/">Twitter</a>
 					
 				</div>
 			</div>
@@ -3207,6 +3209,36 @@ t.format(); <span class="comment">// 'May 25 - 26, 1982'</span>
 					</div>
 				</article>
 			
+				<article class="method">
+					<a class="target" name="/plugins/twitter/"></a>
+					<h3>
+						<a href='#/plugins/twitter/'><span class="hash">#</span>Twitter</a>
+						<span></span>
+					</h3>
+					<div class="prose">
+						
+						<p>If you're trying to format times for tweets like the way Twitter does, you can use the <a href="https://github.com/hijonathan/moment.twitter">moment.twitter</a> plugin by <a href="https://github.com/hijonathan">@hijonathan</a>.</p>
+
+<p>It's a simple way to display both short and long versions of human-readable timestamps.</p>
+
+<div class="highlight"><pre lang="javascript">moment().subtract(<span class="string">'hours'</span>, <span class="number">5</span>).twitter();
+<span class="comment">// 5 hours</span>
+</pre></div>
+
+<p>Yes, it does smart pluralization.</p>
+
+<div class="highlight"><pre lang="javascript">moment().subtract(<span class="string">'hour'</span>, <span class="number">1</span>).twitter();
+<span class="comment">// 1 hour</span>
+</pre></div>
+
+<p>Not short enough for you?</p>
+
+<div class="highlight"><pre lang="javascript">moment().subtract(<span class="string">'days'</span>, <span class="number">6</span>).twitterShort();
+<span class="comment">// 6d</span>
+</pre></div>
+					</div>
+				</article>
+			
 		
 	</div>
 
@@ -3217,7 +3249,7 @@ t.format(); <span class="comment">// 'May 25 - 26, 1982'</span>
 		</footer>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-		<script src="../js/home.min.js?v=2013-03-07T15:15:04-08:00"></script>
+		<script src="../js/home.min.js?v=2013-03-25T20:21:43-07:00"></script>
 
 		
 
