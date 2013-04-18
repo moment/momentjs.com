@@ -9,7 +9,7 @@ t.format();  //=> 'Jan 25, 1982, 9:30 AM - 1:30 PM'
 t.simpleFormat("h:m"); //=> '9:30 - 1:30'
 ```
 
-Full documentation of all the options and features is [here](icambron.github.io/twix.js).
+Full documentation of all the options and features is [here](http://icambron.github.io/twix.js).
 
 It's available on npm like so:
 
