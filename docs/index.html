@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<link rel="stylesheet" href="/css/style.css?v=2013-03-25T20:21:43-07:00" />
+		<link rel="stylesheet" href="/css/style.css?v=2013-04-18T14:36:21-07:00" />
 		<title>Moment.js | Documentation</title>
 	</head>
 	<body class="is-docs">
@@ -1089,7 +1089,7 @@ moment().years(); <span class="comment">// Number</span></pre>
 						
 						<p>Gets or sets the year.</p>
 
-<p>Accepts numbers from -270,00 to 270,000.</p>
+<p>Accepts numbers from -270,000 to 270,000.</p>
 					</div>
 				</article>
 			
@@ -3193,19 +3193,23 @@ moment.duration().asYears();</pre>
 						
 							<pre lang="javascript">npm install twix</pre>
 						
-						<p>Another range plugin is Isaac Cambron's library <code>Twix</code> . It has many range-related features but excels at formatting them readably. For example,</p>
+						<p>Another range plugin is Isaac Cambron's library <code>Twix</code>. It has many<br />range-related features and excels at formatting ranges readably. For example,</p>
 
-<div class="highlight"><pre lang="javascript"><span class="keyword">var</span> t = moment.twix(<span class="string">"1/25/1982 9:30 AM"</span>, <span class="string">"1/25/1982 1:30 PM"</span>)
-t.format();  <span class="comment">// Jan 25, 1982, 9:30 AM - 1:30 PM</span>
+<div class="highlight"><pre lang="javascript"><span class="keyword">var</span> t = moment(<span class="string">"1/25/1982 9:30 AM"</span>).twix(<span class="string">"1/25/1982 1:30 PM"</span>);
+t.isCurrent(); <span class="comment">//=&gt; false</span>
+t.count(<span class="string">'minutes'</span>); <span class="comment">//=&gt; 241</span>
+t.format();  <span class="comment">//=&gt; 'Jan 25, 1982, 9:30 AM - 1:30 PM'</span>
+t.simpleFormat(<span class="string">"h:m"</span>); <span class="comment">//=&gt; '9:30 - 1:30'</span>
 </pre></div>
 
-<p>It also understands all-day events where the times aren't really relevant:</p>
+<p>Full documentation of all the options and features is <a href="http://icambron.github.io/twix.js">here</a>.</p>
 
-<div class="highlight"><pre lang="javascript"><span class="keyword">var</span> t = moment.twix(<span class="string">'5/25/1982'</span>, <span class="string">'5/26/1982'</span>, <span class="literal">true</span>);
-t.format(); <span class="comment">// 'May 25 - 26, 1982'</span>
+<p>It's available on npm like so:</p>
+
+<div class="highlight"><pre lang="">npm install twix
 </pre></div>
 
-<p>Full documentation of all the options and features is here: <a href="https://github.com/icambron/twix.js/wiki/Documentation"><a href='https://github.com/icambron/twix.js/wiki/Documentation'>https://github.com/icambron/twix.js/wiki/Documentation</a></a>.</p>
+<p>Or just grab the JS file from <a href="https://raw.github.com/icambron/twix.js/master/bin/twix.js">here</a>.</p>
 					</div>
 				</article>
 			
@@ -3249,7 +3253,7 @@ t.format(); <span class="comment">// 'May 25 - 26, 1982'</span>
 		</footer>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-		<script src="../js/home.min.js?v=2013-03-25T20:21:43-07:00"></script>
+		<script src="../js/home.min.js?v=2013-04-18T14:36:21-07:00"></script>
 
 		
 
