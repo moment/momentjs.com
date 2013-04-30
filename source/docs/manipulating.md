@@ -8,4 +8,4 @@ moment().add('days', 7).subtract('months', 1).year(2009).hours(0).minutes(0).sec
 
 **Note:** It should be noted that moments are mutable. Calling any of the manipulation methods will change the original moment.
 
-If you want to create a copy and manipulate it, you should use `moment#clone` before manipulating the moment.[More info on cloning.](#/parsing/cloning/)
+If you want to create a copy and manipulate it, you should use `moment#clone` before manipulating the moment. [More info on cloning.](#/parsing/moment-clone/)
