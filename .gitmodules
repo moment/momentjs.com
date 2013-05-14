@@ -1,3 +1,6 @@
 [submodule "libs/moment"]
 	path = libs/moment
 	url = git://github.com/timrwood/moment.git
+[submodule "libs/moment-timezone"]
+	path = libs/moment-timezone
+	url = git@github.com:timrwood/moment-timezone.git

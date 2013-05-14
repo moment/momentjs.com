@@ -103,7 +103,9 @@ module.exports = function(grunt) {
     grunt.registerTask("default", "html compass concat min");
 
     // plugin tasks
-    grunt.loadNpmTasks('grunt-compass');
+    grunt.loadNpmTasks("grunt-contrib-compass");
+    grunt.loadNpmTasks("grunt-contrib-concat");
+    grunt.loadNpmTasks("grunt-contrib-uglify");
 
     // tasks
     grunt.loadTasks("tasks");
