@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<link rel="stylesheet" href="/static/css/style.css?v=2013-05-14T14:24:35-07:00" />
+		<link rel="stylesheet" href="/static/css/style.css?v=2013-05-14T15:42:31-07:00" />
 		<title>Moment.js | Parse, validate, manipulate, and display dates in javascript.</title>
 	</head>
 	<body class="is-core is-home">
@@ -64,10 +64,10 @@
 		<article>
 			<h2>Formatting dates</h2>
 			<div class="input">
-				<pre lang="javascript">moment().format(<span class="string">'MMMM Do YYYY, h:mm:ss a'</span>);
-moment().format(<span class="string">'dddd'</span>);
-moment().format(<span class="string">"MMM Do YY"</span>);
-moment().format(<span class="string">'YYYY [escaped] YYYY'</span>);
+				<pre lang="javascript">moment().format('MMMM Do YYYY, h:mm:ss a');
+moment().format('dddd');
+moment().format("MMM Do YY");
+moment().format('YYYY [escaped] YYYY');
 moment().format();</pre>
 			</div>
 			<div class="output">
@@ -251,11 +251,11 @@ moment().format();</pre>
 		<article>
 			<h2>Timeago</h2>
 			<div class="input">
-				<pre lang="javascript">moment(<span class="string">"20111031"</span>, <span class="string">"YYYYMMDD"</span>).fromNow();
-moment(<span class="string">"20120620"</span>, <span class="string">"YYYYMMDD"</span>).fromNow();
-moment().startOf(<span class="string">'day'</span>).fromNow();
-moment().endOf(<span class="string">'day'</span>).fromNow();
-moment().startOf(<span class="string">'hour'</span>).fromNow();</pre>
+				<pre lang="javascript">moment("20111031", "YYYYMMDD").fromNow();
+moment("20120620", "YYYYMMDD").fromNow();
+moment().startOf('day').fromNow();
+moment().endOf('day').fromNow();
+moment().startOf('hour').fromNow();</pre>
 			</div>
 			<div class="output">
 				<pre id="js-from-now"></pre>
@@ -264,14 +264,14 @@ moment().startOf(<span class="string">'hour'</span>).fromNow();</pre>
 		<article>
 			<h2>Calendar Time</h2>
 			<div class="input">
-				<pre lang="javascript">moment().subtract(<span class="string">'days'</span>, <span class="number">10</span>).calendar();
-moment().subtract(<span class="string">'days'</span>, <span class="number">6</span>).calendar();
-moment().subtract(<span class="string">'days'</span>, <span class="number">3</span>).calendar();
-moment().subtract(<span class="string">'days'</span>, <span class="number">1</span>).calendar();
+				<pre lang="javascript">moment().subtract('days', 10).calendar();
+moment().subtract('days', 6).calendar();
+moment().subtract('days', 3).calendar();
+moment().subtract('days', 1).calendar();
 moment().calendar();
-moment().add(<span class="string">'days'</span>, <span class="number">1</span>).calendar();
-moment().add(<span class="string">'days'</span>, <span class="number">3</span>).calendar();
-moment().add(<span class="string">'days'</span>, <span class="number">10</span>).calendar();</pre>
+moment().add('days', 1).calendar();
+moment().add('days', 3).calendar();
+moment().add('days', 10).calendar();</pre>
 			</div>
 			<div class="output">
 				<pre id="js-calendar"></pre>
@@ -280,10 +280,10 @@ moment().add(<span class="string">'days'</span>, <span class="number">10</span>)
 		<article>
 			<h2>Internationalization</h2>
 			<div class="input">
-				<pre lang="javascript">moment().format(<span class="string">'L'</span>);
-moment().format(<span class="string">'LL'</span>);
-moment().format(<span class="string">'LLL'</span>);
-moment().format(<span class="string">'LLLL'</span>);</pre>
+				<pre lang="javascript">moment().format('L');
+moment().format('LL');
+moment().format('LLL');
+moment().format('LLLL');</pre>
 			</div>
 			<div class="output">
 				<pre id="js-lang"></pre>
@@ -297,7 +297,6 @@ moment().format(<span class="string">'LLLL'</span>);</pre>
 		</footer>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-		<script src="/static/js/home.min.js?v=2013-05-14T14:24:35-07:00"></script>
 
 		
 

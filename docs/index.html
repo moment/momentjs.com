@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<link rel="stylesheet" href="/static/css/style.css?v=2013-05-14T14:24:35-07:00" />
+		<link rel="stylesheet" href="/static/css/style.css?v=2013-05-14T15:42:31-07:00" />
 		<title>Moment.js | Documentation</title>
 	</head>
 	<body class="is-core is-docs">
@@ -311,7 +311,7 @@
 					<div class="prose">
 						
 						<pre><code>npm install moment</code></pre>
-<pre><code class="lang-javascript">var moment = require(&#39;moment&#39;);
+<pre><code class="lang-javascript"><span class="keyword">var</span> moment = require(<span class="string">'moment'</span>);
 moment().format();</code></pre>
 
 					</div>
@@ -325,10 +325,10 @@ moment().format();</code></pre>
 					</h3>
 					<div class="prose">
 						
-						<pre><code>&lt;script src="moment.js"&gt;&lt;/script&gt;
-&lt;script&gt;
+						<pre><code>&amp;lt;script src=&quot;moment.js&quot;&gt;&amp;lt;/script&gt;
+&amp;lt;script&gt;
     moment().format();
-&lt;/script&gt;</code></pre>
+&amp;lt;/script&gt;</code></pre>
 
 					</div>
 				</article>
@@ -343,10 +343,10 @@ moment().format();</code></pre>
 						
 						<pre><code class="lang-javascript">require.config({
     paths: {
-        "moment": "path/to/moment",
+        <span class="string">"moment"</span>: <span class="string">"path/to/moment"</span>,
     }
 });
-define(["moment"], function (moment) {
+define([<span class="string">"moment"</span>], <span class="function"><span class="keyword">function</span> <span class="params">(moment)</span> {</span>
     moment().format();
 });</code></pre>
 
@@ -374,7 +374,7 @@ define(["moment"], function (moment) {
 							<pre lang="javascript">moment();</pre>
 						
 						<p>To get the current date and time, just call <code>moment()</code> with no parameters.</p>
-<pre><code class="lang-javascript">var now = moment();</code></pre>
+<pre><code class="lang-javascript"><span class="keyword">var</span> now = moment();</code></pre>
 <p>This is essentially the same as calling <code>moment(new Date())</code>.</p>
 
 					</div>
@@ -391,25 +391,25 @@ define(["moment"], function (moment) {
 							<pre lang="javascript">moment(String);</pre>
 						
 						<p>You can create a moment from a string that can be parsed by <code>Date.parse</code>.</p>
-<pre><code class="lang-javascript">var day = moment("Dec 25, 1995");</code></pre>
+<pre><code class="lang-javascript"><span class="keyword">var</span> day = moment(<span class="string">"Dec 25, 1995"</span>);</code></pre>
 <p><strong>Warning</strong> Browser support for this is inconsistent. Because there is no specification on which formats should be supported, what works in some browsers will not work in other browsers.</p>
 <p>For more consistent results, you should use <a href="#/parsing/string-format/">String + Format</a>.</p>
 <p>There is one exception. Moment.js does detect if you are using an ISO-8601 string and will parse that correctly without a format string.</p>
 <p>The following ISO-8601 formats are supported across all browsers.</p>
-<pre><code class="lang-javascript">"YYYY-MM-DD"
-"YYYY-MM-DDTHH"
-"YYYY-MM-DD HH"
-"YYYY-MM-DDTHH:mm"
-"YYYY-MM-DD HH:mm"
-"YYYY-MM-DDTHH:mm:ss"
-"YYYY-MM-DD HH:mm:ss"
-"YYYY-MM-DDTHH:mm:ss.SSS"
-"YYYY-MM-DD HH:mm:ss.SSS"
-"YYYY-MM-DDTHH:mm:ss Z"
-"YYYY-MM-DD HH:mm:ss Z"</code></pre>
+<pre><code class="lang-javascript"><span class="string">"YYYY-MM-DD"</span>
+<span class="string">"YYYY-MM-DDTHH"</span>
+<span class="string">"YYYY-MM-DD HH"</span>
+<span class="string">"YYYY-MM-DDTHH:mm"</span>
+<span class="string">"YYYY-MM-DD HH:mm"</span>
+<span class="string">"YYYY-MM-DDTHH:mm:ss"</span>
+<span class="string">"YYYY-MM-DD HH:mm:ss"</span>
+<span class="string">"YYYY-MM-DDTHH:mm:ss.SSS"</span>
+<span class="string">"YYYY-MM-DD HH:mm:ss.SSS"</span>
+<span class="string">"YYYY-MM-DDTHH:mm:ss Z"</span>
+<span class="string">"YYYY-MM-DD HH:mm:ss Z"</span></code></pre>
 <p><strong>Note:</strong> Automatic cross browser ISO-8601 support was added in version <strong>1.5.0</strong></p>
 <p>If a string does not match any of the above formats and is not able to be parsed with <code>Date.parse</code>, <code>moment#isValid</code> will return false.</p>
-<pre><code class="lang-javascript">moment("not a real date").isValid(); // false</code></pre>
+<pre><code class="lang-javascript">moment(<span class="string">"not a real date"</span>).isValid(); <span class="comment">// false</span></code></pre>
 
 					</div>
 				</article>
@@ -426,10 +426,10 @@ define(["moment"], function (moment) {
 moment(String, String, String);</pre>
 						
 						<p>If you know the format of an input string, you can use that to parse a moment.</p>
-<pre><code class="lang-javascript">moment("12-25-1995", "MM-DD-YYYY");</code></pre>
+<pre><code class="lang-javascript">moment(<span class="string">"12-25-1995"</span>, <span class="string">"MM-DD-YYYY"</span>);</code></pre>
 <p>The parser ignores non-alphanumeric characters, so both of the following will return the same thing.</p>
-<pre><code class="lang-javascript">moment("12-25-1995", "MM-DD-YYYY");
-moment("12\25\1995", "MM-DD-YYYY");</code></pre>
+<pre><code class="lang-javascript">moment(<span class="string">"12-25-1995"</span>, <span class="string">"MM-DD-YYYY"</span>);
+moment(<span class="string">"12\25\1995"</span>, <span class="string">"MM-DD-YYYY"</span>);</code></pre>
 <p>The parsing tokens are similar to the formatting tokens used in <code>moment#format</code>.</p>
 <table class="table table-striped table-bordered">
   <tbody>
@@ -514,16 +514,16 @@ moment("12\25\1995", "MM-DD-YYYY");</code></pre>
 
 <p><code>Z ZZ</code> were added in <strong>1.2.0</strong>. <code>S SS SSS</code> were added in <strong>1.6.0</strong>. <code>X</code> was added in <code>2.0.0</code>.</p>
 <p>Unless you specify a timezone offset, parsing a string will create a date in the current timezone.</p>
-<pre><code class="lang-javascript">moment("2010-10-20 4:30", "YYYY-MM-DD HH:mm"); // parsed as 4:30 local time
-moment("2010-10-20 4:30 +0000", "YYYY-MM-DD HH:mm Z"); // parsed as 4:30 GMT</code></pre>
+<pre><code class="lang-javascript">moment(<span class="string">"2010-10-20 4:30"</span>, <span class="string">"YYYY-MM-DD HH:mm"</span>); <span class="comment">// parsed as 4:30 local time</span>
+moment(<span class="string">"2010-10-20 4:30 +0000"</span>, <span class="string">"YYYY-MM-DD HH:mm Z"</span>); <span class="comment">// parsed as 4:30 GMT</span></code></pre>
 <p>If the moment that results from the parsed input does not exist, <code>moment#isValid</code> will return false.</p>
-<pre><code class="lang-javascript">moment("2010 13", "YYYY MM").isValid(); // false (not a real month)
-moment("2010 11 31", "YYYY MM DD").isValid(); // false (not a real day)
-moment("2010 2 29", "YYYY MM DD").isValid(); // false (not a leap year)
-moment("2010 notamonth 29", "YYYY MMM DD").isValid(); // false (not a real month name)</code></pre>
+<pre><code class="lang-javascript">moment(<span class="string">"2010 13"</span>, <span class="string">"YYYY MM"</span>).isValid(); <span class="comment">// false (not a real month)</span>
+moment(<span class="string">"2010 11 31"</span>, <span class="string">"YYYY MM DD"</span>).isValid(); <span class="comment">// false (not a real day)</span>
+moment(<span class="string">"2010 2 29"</span>, <span class="string">"YYYY MM DD"</span>).isValid(); <span class="comment">// false (not a leap year)</span>
+moment(<span class="string">"2010 notamonth 29"</span>, <span class="string">"YYYY MMM DD"</span>).isValid(); <span class="comment">// false (not a real month name)</span></code></pre>
 <p>As of version <strong>2.0.0</strong>, a language key can be passed as the third parameter to <code>moment()</code> and <code>moment.utc()</code>.</p>
-<pre><code class="lang-javascript">moment(&#39;2012 juillet&#39;, &#39;YYYY MMM&#39;, &#39;fr&#39;);
-moment(&#39;2012 July&#39;, &#39;YYYY MMM&#39;, &#39;en&#39;);</code></pre>
+<pre><code class="lang-javascript">moment(<span class="string">'2012 juillet'</span>, <span class="string">'YYYY MMM'</span>, <span class="string">'fr'</span>);
+moment(<span class="string">'2012 July'</span>, <span class="string">'YYYY MMM'</span>, <span class="string">'en'</span>);</code></pre>
 
 					</div>
 				</article>
@@ -540,11 +540,11 @@ moment(&#39;2012 July&#39;, &#39;YYYY MMM&#39;, &#39;en&#39;);</code></pre>
 						
 						<p>If you don&#39;t know the exact format of an input string, but know it could be one of many, you can use an array of formats.</p>
 <p>This is the same as <a href="#/parsing/string-format/">String + Format</a>, only it will try to match the input to multiple formats.</p>
-<pre><code class="lang-javascript">moment("12-25-1995", ["MM-DD-YYYY", "YYYY-MM-DD"]);</code></pre>
+<pre><code class="lang-javascript">moment(<span class="string">"12-25-1995"</span>, [<span class="string">"MM-DD-YYYY"</span>, <span class="string">"YYYY-MM-DD"</span>]);</code></pre>
 <p>This approach is fundamentally problematic in cases like the following, where there is a difference in big, medium, or little endian date formats.</p>
-<pre><code class="lang-javascript">moment("05-06-1995", ["MM-DD-YYYY", "DD-MM-YYYY"]); // June 5th or May 6th?
-moment("040506", ["MMDDYY", "DDMMYY", "YYMMDD"]); // Apr 5 2006, May 4 2006, or May 6 2004?</code></pre>
-<p>This is also the reason Moment.js does not do "magical" string parsing.</p>
+<pre><code class="lang-javascript">moment(<span class="string">"05-06-1995"</span>, [<span class="string">"MM-DD-YYYY"</span>, <span class="string">"DD-MM-YYYY"</span>]); <span class="comment">// June 5th or May 6th?</span>
+moment(<span class="string">"040506"</span>, [<span class="string">"MMDDYY"</span>, <span class="string">"DDMMYY"</span>, <span class="string">"YYMMDD"</span>]); <span class="comment">// Apr 5 2006, May 4 2006, or May 6 2004?</span></code></pre>
+<p>This is also the reason Moment.js does not do &quot;magical&quot; string parsing.</p>
 <p><strong>Note:</strong> Parsing multiple formats is considerably slower than parsing a single format. If you can avoid it, it is much faster to parse a single format.</p>
 
 					</div>
@@ -561,7 +561,7 @@ moment("040506", ["MMDDYY", "DDMMYY", "YYMMDD"]); // Apr 5 2006, May 4 2006, or 
 							<pre lang="javascript">moment(Number);</pre>
 						
 						<p>Similar to <code>new Date(Number)</code>, you can create a moment by passing an integer value representing the number of <em>milliseconds</em> since the Unix Epoch (Jan 1 1970 12AM UTC).</p>
-<pre><code class="lang-javascript">var day = moment(1318781876406);</code></pre>
+<pre><code class="lang-javascript"><span class="keyword">var</span> day = moment(<span class="number">1318781876406</span>);</code></pre>
 
 					</div>
 				</article>
@@ -577,9 +577,9 @@ moment("040506", ["MMDDYY", "DDMMYY", "YYMMDD"]); // Apr 5 2006, May 4 2006, or 
 							<pre lang="javascript">moment.unix(Number)</pre>
 						
 						<p>To create a moment from a Unix timestamp (<em>seconds</em> since the Unix Epoch), use <code>moment.unix(Number)</code>.</p>
-<pre><code class="lang-javascript">var day = moment.unix(1318781876);</code></pre>
+<pre><code class="lang-javascript"><span class="keyword">var</span> day = moment.unix(<span class="number">1318781876</span>);</code></pre>
 <p>This is implemented as <code>moment(timestamp * 1000)</code>, so partial seconds in the input timestamp are included.</p>
-<pre><code class="lang-javascript">var day = moment.unix(1318781876.721);</code></pre>
+<pre><code class="lang-javascript"><span class="keyword">var</span> day = moment.unix(<span class="number">1318781876.721</span>);</code></pre>
 
 					</div>
 				</article>
@@ -595,8 +595,8 @@ moment("040506", ["MMDDYY", "DDMMYY", "YYMMDD"]); // Apr 5 2006, May 4 2006, or 
 							<pre lang="javascript">moment(Date);</pre>
 						
 						<p>You can create a <code>Moment</code> with a pre-existing native Javascript <code>Date</code> object.</p>
-<pre><code class="lang-javascript">var day = new Date(2011, 9, 16);
-var dayWrapper = moment(day);</code></pre>
+<pre><code class="lang-javascript"><span class="keyword">var</span> day = <span class="keyword">new</span> Date(<span class="number">2011</span>, <span class="number">9</span>, <span class="number">16</span>);
+<span class="keyword">var</span> dayWrapper = moment(day);</code></pre>
 <p>This is the fastest way to get a Moment.js wrapper.</p>
 
 					</div>
@@ -614,19 +614,19 @@ var dayWrapper = moment(day);</code></pre>
 						
 						<p>You can create a moment with an array of numbers that mirror the parameters passed to <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date">new Date()</a></p>
 <pre><code class="lang-javascript">[year, month, day, hour, minute, second, millisecond]
-moment([2010, 1, 14, 15, 25, 50, 125]); // February 14th, 3:25:50.125 PM</code></pre>
+moment([<span class="number">2010</span>, <span class="number">1</span>, <span class="number">14</span>, <span class="number">15</span>, <span class="number">25</span>, <span class="number">50</span>, <span class="number">125</span>]); <span class="comment">// February 14th, 3:25:50.125 PM</span></code></pre>
 <p>Any value past the year is optional, and will default to the lowest possible number.</p>
-<pre><code class="lang-javascript">moment([2010]); // January 1st
-moment([2010, 6]); // July 1st
-moment([2010, 6, 10]); // July 10th</code></pre>
+<pre><code class="lang-javascript">moment([<span class="number">2010</span>]); <span class="comment">// January 1st</span>
+moment([<span class="number">2010</span>, <span class="number">6</span>]); <span class="comment">// July 1st</span>
+moment([<span class="number">2010</span>, <span class="number">6</span>, <span class="number">10</span>]); <span class="comment">// July 10th</span></code></pre>
 <p>Construction with an array will create a date in the current timezone. To create a date from an array at UTC, use <code>moment.utc(Number[])</code>.</p>
-<pre><code class="lang-javascript">moment.utc([2010, 1, 14, 15, 25, 50, 125]);</code></pre>
+<pre><code class="lang-javascript">moment.utc([<span class="number">2010</span>, <span class="number">1</span>, <span class="number">14</span>, <span class="number">15</span>, <span class="number">25</span>, <span class="number">50</span>, <span class="number">125</span>]);</code></pre>
 <p><strong>Note:</strong> Because this mirrors the native Date parameters, the following parameters are all zero indexed: months, hours, minutes, seconds, and milliseconds. Years and days of the month are 1 indexed.</p>
 <p>This is often the cause of frustration, especially with months, so take note!</p>
 <p>If the date represented by the array does not exist, <code>moment#isValid</code> will return false.</p>
-<pre><code class="lang-javascript">moment([2010, 13]).isValid(); // false (not a real month)
-moment([2010, 11, 31]).isValid(); // false (not a real day)
-moment([2010, 2, 29]).isValid(); // false (not a leap year)</code></pre>
+<pre><code class="lang-javascript">moment([<span class="number">2010</span>, <span class="number">13</span>]).isValid(); <span class="comment">// false (not a real month)</span>
+moment([<span class="number">2010</span>, <span class="number">11</span>, <span class="number">31</span>]).isValid(); <span class="comment">// false (not a real day)</span>
+moment([<span class="number">2010</span>, <span class="number">2</span>, <span class="number">29</span>]).isValid(); <span class="comment">// false (not a leap year)</span></code></pre>
 
 					</div>
 				</article>
@@ -643,7 +643,7 @@ moment([2010, 2, 29]).isValid(); // false (not a leap year)</code></pre>
 						
 						<p>ASP.NET returns dates in JSON as <code>/Date(1198908717056)/</code> or <code>/Date(1198908717056-0700)/</code></p>
 <p>If a string that matches this format is passed in, it will be parsed correctly.</p>
-<pre><code class="lang-javascript">moment("/Date(1198908717056-0700)/"); // December 28 2007 10:11 PM</code></pre>
+<pre><code class="lang-javascript">moment(<span class="string">"/Date(1198908717056-0700)/"</span>); <span class="comment">// December 28 2007 10:11 PM</span></code></pre>
 
 					</div>
 				</article>
@@ -660,15 +660,15 @@ moment([2010, 2, 29]).isValid(); // false (not a leap year)</code></pre>
 						
 						<p>All moments are mutable. If you want a clone of a moment, you can do so explicitly or implicitly.</p>
 <p>Calling <code>moment()</code> on a moment will clone it.</p>
-<pre><code class="lang-javascript">var a = moment([2012]);
-var b = moment(a);
-a.year(2000);
-b.year(); // 2012</code></pre>
+<pre><code class="lang-javascript"><span class="keyword">var</span> a = moment([<span class="number">2012</span>]);
+<span class="keyword">var</span> b = moment(a);
+a.year(<span class="number">2000</span>);
+b.year(); <span class="comment">// 2012</span></code></pre>
 <p>Additionally, you can call <code>moment#clone</code> to clone a moment.</p>
-<pre><code class="lang-javascript">var a = moment([2012]);
-var b = a.clone();
-a.year(2000);
-b.year(); // 2012</code></pre>
+<pre><code class="lang-javascript"><span class="keyword">var</span> a = moment([<span class="number">2012</span>]);
+<span class="keyword">var</span> b = a.clone();
+a.year(<span class="number">2000</span>);
+b.year(); <span class="comment">// 2012</span></code></pre>
 
 					</div>
 				</article>
@@ -695,24 +695,24 @@ moment.utc(Date);</pre>
 <p>If you want to parse or display a moment in UTC, you can use <code>moment.utc()</code> instead of <code>moment()</code>.</p>
 <p>This brings us to an interesting feature of Moment.js. UTC mode.</p>
 <p>While in UTC mode, all display methods will display in UTC time instead of local time.</p>
-<pre><code class="lang-javascript">moment().format();     // 2013-02-04T10:35:24-08:00
-moment.utc().format(); // 2013-02-04T18:35:24+00:00</code></pre>
+<pre><code class="lang-javascript">moment().format();     <span class="comment">// 2013-02-04T10:35:24-08:00</span>
+moment.utc().format(); <span class="comment">// 2013-02-04T18:35:24+00:00</span></code></pre>
 <p>Additionally, while in UTC mode, all getters and setters will internally use the <code>Date#getUTC*</code> and <code>Date#setUTC*</code> methods instead of the <code>Date#get*</code> and <code>Date#set*</code> methods.</p>
-<pre><code class="lang-javascript">moment.utc().seconds(30) === new Date().setUTCSeconds(30);
-moment.utc().seconds()   === new Date().getUTCSeconds();</code></pre>
+<pre><code class="lang-javascript">moment.utc().seconds(<span class="number">30</span>) === <span class="keyword">new</span> Date().setUTCSeconds(<span class="number">30</span>);
+moment.utc().seconds()   === <span class="keyword">new</span> Date().getUTCSeconds();</code></pre>
 <p>It is important to note that though the displays differ above, they are both the same moment in time.</p>
-<pre><code class="lang-javascript">var a = moment();
-var b = moment.utc();
-a.format();  // 2013-02-04T10:35:24-08:00
-b.format();  // 2013-02-04T18:35:24+00:00
-a.valueOf(); // 1360002924000
-b.valueOf(); // 1360002924000</code></pre>
+<pre><code class="lang-javascript"><span class="keyword">var</span> a = moment();
+<span class="keyword">var</span> b = moment.utc();
+a.format();  <span class="comment">// 2013-02-04T10:35:24-08:00</span>
+b.format();  <span class="comment">// 2013-02-04T18:35:24+00:00</span>
+a.valueOf(); <span class="comment">// 1360002924000</span>
+b.valueOf(); <span class="comment">// 1360002924000</span></code></pre>
 <p>Any moment created with <code>moment.utc()</code> will be in UTC mode, and any moment created with <code>moment()</code> will not.</p>
 <p>To switch from UTC to local time, you can use <a href="#/manipulating/utc/">moment#utc</a> or <a href="#/manipulating/local/">moment#local</a>.</p>
-<pre><code class="lang-javascript">var a = moment.utc([2011, 0, 1, 8]);
-a.hours(); // 8 UTC
+<pre><code class="lang-javascript"><span class="keyword">var</span> a = moment.utc([<span class="number">2011</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">8</span>]);
+a.hours(); <span class="comment">// 8 UTC</span>
 a.local();
-a.hours(); // 0 PST</code></pre>
+a.hours(); <span class="comment">// 0 PST</span></code></pre>
 
 					</div>
 				</article>
@@ -727,23 +727,23 @@ a.hours(); // 0 PST</code></pre>
 						
 							<pre lang="javascript">moment().isValid();</pre>
 						
-						<p>The main <code>moment()</code> function is very flexible and will allow overflowing in parsing input. For example, <code>moment("2012-01-40", "YYYY-MM-DD")</code> will overflow the date value into the months, making the actual moment Feb 9 (31 days in Jan + 9 days into Feb).</p>
+						<p>The main <code>moment()</code> function is very flexible and will allow overflowing in parsing input. For example, <code>moment(&quot;2012-01-40&quot;, &quot;YYYY-MM-DD&quot;)</code> will overflow the date value into the months, making the actual moment Feb 9 (31 days in Jan + 9 days into Feb).</p>
 <p>This can be useful when getting things like the 150th day of the year, or the 500th minute in a day, however, it can be problematic when trying to parse user input.</p>
 <p><code>moment#isValid</code> was added to check if the input for a moment is indeed a valid date.</p>
 <p><strong>Note:</strong> It is not intended to be used to validate that the input string matches the format string. Because the strictness of format matching can vary depending on the application and business requirements, this sort of validation is not included in Moment.js.</p>
-<p>Instead, <code>moment#isValid</code> answers questions like "Does March 32nd exist?" and "Does February 29th 2011 exist?".</p>
-<pre><code class="lang-javascript">moment("2011-10-10", "YYYY-MM-DD").isValid(); // true
-moment("2011-10-50", "YYYY-MM-DD").isValid(); // false (bad day of month)</code></pre>
+<p>Instead, <code>moment#isValid</code> answers questions like &quot;Does March 32nd exist?&quot; and &quot;Does February 29th 2011 exist?&quot;.</p>
+<pre><code class="lang-javascript">moment(<span class="string">"2011-10-10"</span>, <span class="string">"YYYY-MM-DD"</span>).isValid(); <span class="comment">// true</span>
+moment(<span class="string">"2011-10-50"</span>, <span class="string">"YYYY-MM-DD"</span>).isValid(); <span class="comment">// false (bad day of month)</span></code></pre>
 <p>It works with ISO 8601 parsing.</p>
-<pre><code class="lang-javascript">moment("2011-10-10T10:20:90").isValid(); // false (bad seconds)</code></pre>
+<pre><code class="lang-javascript">moment(<span class="string">"2011-10-10T10:20:90"</span>).isValid(); <span class="comment">// false (bad seconds)</span></code></pre>
 <p>It works with an array of numbers that mirror the parameters passed to <code>new Date()</code>.</p>
-<pre><code class="lang-javascript">moment([2011, 0, 1]).isValid(); // true
-moment([2011, 0, 50]).isValid(); // false (bad day of month)</code></pre>
+<pre><code class="lang-javascript">moment([<span class="number">2011</span>, <span class="number">0</span>, <span class="number">1</span>]).isValid(); <span class="comment">// true</span>
+moment([<span class="number">2011</span>, <span class="number">0</span>, <span class="number">50</span>]).isValid(); <span class="comment">// false (bad day of month)</span></code></pre>
 <p>It also works with a string that gets passed to <code>Date.parse()</code></p>
-<pre><code class="lang-javascript">moment("not a date").isValid(); // false</code></pre>
+<pre><code class="lang-javascript">moment(<span class="string">"not a date"</span>).isValid(); <span class="comment">// false</span></code></pre>
 <p><strong>Note:</strong> The <code>moment#isValid</code> method will not work after manipulating the moment object with any of the manipulation methods.</p>
-<pre><code class="lang-javascript">moment("2011-10-10", "YYYY-MM-DD").isValid(); // true
-moment("2011-10-10", "YYYY-MM-DD").date(20).isValid(); // false</code></pre>
+<pre><code class="lang-javascript">moment(<span class="string">"2011-10-10"</span>, <span class="string">"YYYY-MM-DD"</span>).isValid(); <span class="comment">// true</span>
+moment(<span class="string">"2011-10-10"</span>, <span class="string">"YYYY-MM-DD"</span>).date(<span class="number">20</span>).isValid(); <span class="comment">// false</span></code></pre>
 
 					</div>
 				</article>
@@ -755,11 +755,11 @@ moment("2011-10-10", "YYYY-MM-DD").date(20).isValid(); // false</code></pre>
 				<p>Moment.js uses overloaded getters and setters. You may be familiar with this pattern from it&#39;s use in jQuery.</p>
 <p>Calling these methods without parameters acts as a getter, and calling them with a parameter acts as a setter.</p>
 <p>These map to the corresponding function on the native <code>Date</code> object.</p>
-<pre><code class="lang-javascript">moment().seconds(30) === new Date().setSeconds(30);
-moment().seconds()   === new Date().getSeconds();</code></pre>
+<pre><code class="lang-javascript">moment().seconds(<span class="number">30</span>) === <span class="keyword">new</span> Date().setSeconds(<span class="number">30</span>);
+moment().seconds()   === <span class="keyword">new</span> Date().getSeconds();</code></pre>
 <p>If you are in <a href="#/manipulating/utc/">UTC mode</a>, they will map to the UTC equivalent.</p>
-<pre><code class="lang-javascript">moment.utc().seconds(30) === new Date().setUTCSeconds(30);
-moment.utc().seconds()   === new Date().getUTCSeconds();</code></pre>
+<pre><code class="lang-javascript">moment.utc().seconds(<span class="number">30</span>) === <span class="keyword">new</span> Date().setUTCSeconds(<span class="number">30</span>);
+moment.utc().seconds()   === <span class="keyword">new</span> Date().getUTCSeconds();</code></pre>
 <p>For convenience, both singular and plural method names exist as of version <code>2.0.0</code>.</p>
 <p><strong>Note</strong>: All of these methods mutate the original moment when used as setters.</p>
 
@@ -774,9 +774,9 @@ moment.utc().seconds()   === new Date().getUTCSeconds();</code></pre>
 					<div class="prose">
 						
 							<pre lang="javascript">moment().millisecond(Number);
-moment().millisecond(); <span class="comment">// Number</span>
+moment().millisecond(); // Number
 moment().milliseconds(Number);
-moment().milliseconds(); <span class="comment">// Number</span></pre>
+moment().milliseconds(); // Number</pre>
 						
 						<p>Gets or sets the milliseconds.</p>
 <p>Accepts numbers from 0 to 999. If the range is exceeded, it will bubble up to the seconds.</p>
@@ -793,9 +793,9 @@ moment().milliseconds(); <span class="comment">// Number</span></pre>
 					<div class="prose">
 						
 							<pre lang="javascript">moment().second(Number);
-moment().second(); <span class="comment">// Number</span>
+moment().second(); // Number
 moment().seconds(Number);
-moment().seconds(); <span class="comment">// Number</span></pre>
+moment().seconds(); // Number</pre>
 						
 						<p>Gets or sets the seconds.</p>
 <p>Accepts numbers from 0 to 59. If the range is exceeded, it will bubble up to the minutes.</p>
@@ -812,9 +812,9 @@ moment().seconds(); <span class="comment">// Number</span></pre>
 					<div class="prose">
 						
 							<pre lang="javascript">moment().minute(Number);
-moment().minute(); <span class="comment">// Number</span>
+moment().minute(); // Number
 moment().minutes(Number);
-moment().minutes(); <span class="comment">// Number</span></pre>
+moment().minutes(); // Number</pre>
 						
 						<p>Gets or sets the minutes.</p>
 <p>Accepts numbers from 0 to 59. If the range is exceeded, it will bubble up to the hours.</p>
@@ -831,9 +831,9 @@ moment().minutes(); <span class="comment">// Number</span></pre>
 					<div class="prose">
 						
 							<pre lang="javascript">moment().hour(Number);
-moment().hour(); <span class="comment">// Number</span>
+moment().hour(); // Number
 moment().hours(Number);
-moment().hours(); <span class="comment">// Number</span></pre>
+moment().hours(); // Number</pre>
 						
 						<p>Gets or sets the hour.</p>
 <p>Accepts numbers from 0 to 23. If the range is exceeded, it will bubble up to the day.</p>
@@ -850,9 +850,9 @@ moment().hours(); <span class="comment">// Number</span></pre>
 					<div class="prose">
 						
 							<pre lang="javascript">moment().date(Number);
-moment().date(); <span class="comment">// Number</span>
+moment().date(); // Number
 moment().dates(Number);
-moment().dates(); <span class="comment">// Number</span></pre>
+moment().dates(); // Number</pre>
 						
 						<p>Gets or sets the day of the month.</p>
 <p>Accepts numbers from 1 to 31. If the range is exceeded, it will bubble up to the months.</p>
@@ -870,17 +870,17 @@ moment().dates(); <span class="comment">// Number</span></pre>
 					<div class="prose">
 						
 							<pre lang="javascript">moment().day(Number);
-moment().day(); <span class="comment">// Number</span>
+moment().day(); // Number
 moment().days(Number);
-moment().days(); <span class="comment">// Number</span></pre>
+moment().days(); // Number</pre>
 						
 						<p>Gets or sets the day of the week.</p>
 <p>This method can be used to set the day of the week, with Sunday as 0 and Saturday as 6.</p>
 <p>If the range is exceeded, it will bubble up to other weeks.</p>
-<pre><code class="lang-javascript">moment().day(-7); // last Sunday (0 - 7)
-moment().day(7); // next Sunday (0 + 7)
-moment().day(10); // next Wednesday (3 + 7)
-moment().day(24); // 3 Wednesdays from now (3 + 7 + 7 + 7)</code></pre>
+<pre><code class="lang-javascript">moment().day(-<span class="number">7</span>); <span class="comment">// last Sunday (0 - 7)</span>
+moment().day(<span class="number">7</span>); <span class="comment">// next Sunday (0 + 7)</span>
+moment().day(<span class="number">10</span>); <span class="comment">// next Wednesday (3 + 7)</span>
+moment().day(<span class="number">24</span>); <span class="comment">// 3 Wednesdays from now (3 + 7 + 7 + 7)</span></code></pre>
 <p><em>Note:</em> <code>Moment#date</code> is for the date of the month, and <code>Moment#day</code> is for the day of the week.</p>
 
 					</div>
@@ -895,7 +895,7 @@ moment().day(24); // 3 Wednesdays from now (3 + 7 + 7 + 7)</code></pre>
 					<div class="prose">
 						
 							<pre lang="javascript">moment().dayOfYear(Number);
-moment().dayOfYear(); <span class="comment">// Number</span></pre>
+moment().dayOfYear(); // Number</pre>
 						
 						<p>Gets or sets the day of the year.</p>
 <p>Accepts numbers from 1 to 366. If the range is exceeded, it will bubble up to the years.</p>
@@ -912,9 +912,9 @@ moment().dayOfYear(); <span class="comment">// Number</span></pre>
 					<div class="prose">
 						
 							<pre lang="javascript">moment().week(Number);
-moment().week(); <span class="comment">// Number</span>
+moment().week(); // Number
 moment().weeks(Number);
-moment().weeks(); <span class="comment">// Number</span></pre>
+moment().weeks(); // Number</pre>
 						
 						<p>Gets or sets the week of the year.</p>
 <p>Because different locales define week of year numbering differently, Moment.js added <code>moment#week</code> to get/set the localized week of the year.</p>
@@ -936,9 +936,9 @@ moment().weeks(); <span class="comment">// Number</span></pre>
 					<div class="prose">
 						
 							<pre lang="javascript">moment().isoWeek(Number);
-moment().isoWeek(); <span class="comment">// Number</span>
+moment().isoWeek(); // Number
 moment().isoWeeks(Number);
-moment().isoWeeks(); <span class="comment">// Number</span></pre>
+moment().isoWeeks(); // Number</pre>
 						
 						<p>Gets or sets the <a href="http://en.wikipedia.org/wiki/ISO_week_date">ISO week of the year</a>.</p>
 <p>When setting the week of the year, the day of the week is retained.</p>
@@ -955,9 +955,9 @@ moment().isoWeeks(); <span class="comment">// Number</span></pre>
 					<div class="prose">
 						
 							<pre lang="javascript">moment().month(Number);
-moment().month(); <span class="comment">// Number</span>
+moment().month(); // Number
 moment().months(Number);
-moment().months(); <span class="comment">// Number</span></pre>
+moment().months(); // Number</pre>
 						
 						<p>Gets or sets the month.</p>
 <p>Accepts numbers from 0 to 11. If the range is exceeded, it will bubble up to the year.</p>
@@ -975,9 +975,9 @@ moment().months(); <span class="comment">// Number</span></pre>
 					<div class="prose">
 						
 							<pre lang="javascript">moment().year(Number);
-moment().year(); <span class="comment">// Number</span>
+moment().year(); // Number
 moment().years(Number);
-moment().years(); <span class="comment">// Number</span></pre>
+moment().years(); // Number</pre>
 						
 						<p>Gets or sets the year.</p>
 <p>Accepts numbers from -270,000 to 270,000.</p>
@@ -991,7 +991,7 @@ moment().years(); <span class="comment">// Number</span></pre>
 				<h2><a href='#/manipulating/'><span class="hash">#</span>Manipulate</a></h2>
 				<p>Once you have a <code>Moment</code>, you may want to manipulate it in some way. There are a number of methods to help with this.</p>
 <p>Moment.js uses the <a href="http://en.wikipedia.org/wiki/Fluent_interface">fluent interface pattern</a>, also known as <a href="http://en.wikipedia.org/wiki/Method_chaining">method chaining</a>. This allows you to do crazy things like the following.</p>
-<pre><code class="lang-javascript">moment().add(&#39;days&#39;, 7).subtract(&#39;months&#39;, 1).year(2009).hours(0).minutes(0).seconds(0);</code></pre>
+<pre><code class="lang-javascript">moment().add(<span class="string">'days'</span>, <span class="number">7</span>).subtract(<span class="string">'months'</span>, <span class="number">1</span>).year(<span class="number">2009</span>).hours(<span class="number">0</span>).minutes(<span class="number">0</span>).seconds(<span class="number">0</span>);</code></pre>
 <p><strong>Note:</strong> It should be noted that moments are mutable. Calling any of the manipulation methods will change the original moment.</p>
 <p>If you want to create a copy and manipulate it, you should use <code>moment#clone</code> before manipulating the moment. <a href="#/parsing/moment-clone/">More info on cloning.</a></p>
 
@@ -1006,15 +1006,15 @@ moment().years(); <span class="comment">// Number</span></pre>
 					<div class="prose">
 						
 							<pre lang="javascript">moment().add(String, Number);
-moment().add(Number, String); <span class="comment">// 2.0.0</span>
-moment().add(Duration); <span class="comment">// 1.6.0</span>
+moment().add(Number, String); // 2.0.0
+moment().add(Duration); // 1.6.0
 moment().add(Object);</pre>
 						
 						<p>Mutates the original moment by adding time.</p>
 <p>This is a pretty robust function for adding time to an existing moment. To add time, pass the key of what time you want to add, and the amount you want to add.</p>
-<pre><code class="lang-javascript">moment().add(&#39;days&#39;, 7);</code></pre>
+<pre><code class="lang-javascript">moment().add(<span class="string">'days'</span>, <span class="number">7</span>);</code></pre>
 <p>There are some shorthand keys as well if you&#39;re into that whole brevity thing.</p>
-<pre><code class="lang-javascript">moment().add(&#39;d&#39;, 7);</code></pre>
+<pre><code class="lang-javascript">moment().add(<span class="string">'d'</span>, <span class="number">7</span>);</code></pre>
 <table class="table table-striped table-bordered">
   <tbody>
     <tr>
@@ -1057,34 +1057,34 @@ moment().add(Object);</pre>
 </table>
 
 <p>If you want to add multiple different keys at the same time, you can pass them in as an object literal.</p>
-<pre><code class="lang-javascript">moment().add(&#39;days&#39;, 7).add(&#39;months&#39;, 1); // with chaining
-moment().add({days:7,months:1}); // with object literal</code></pre>
+<pre><code class="lang-javascript">moment().add(<span class="string">'days'</span>, <span class="number">7</span>).add(<span class="string">'months'</span>, <span class="number">1</span>); <span class="comment">// with chaining</span>
+moment().add({days:<span class="number">7</span>,months:<span class="number">1</span>}); <span class="comment">// with object literal</span></code></pre>
 <p>There are no upper limits for the amounts, so you can overload any of the parameters.</p>
-<pre><code class="lang-javascript">moment().add(&#39;milliseconds&#39;, 1000000); // a million milliseconds
-moment().add(&#39;days&#39;, 360); // 360 days</code></pre>
+<pre><code class="lang-javascript">moment().add(<span class="string">'milliseconds'</span>, <span class="number">1000000</span>); <span class="comment">// a million milliseconds</span>
+moment().add(<span class="string">'days'</span>, <span class="number">360</span>); <span class="comment">// 360 days</span></code></pre>
 <h4>Special considerations for months and years</h4>
 <p>If the day of the month on the original date is greater than the number of days in the final month,
 the day of the month will change to the last day in the final month.</p>
-<pre><code class="lang-javascript">moment([2010, 0, 31]);                  // January 31
-moment([2010, 0, 31]).add(&#39;months&#39;, 1); // February 28</code></pre>
+<pre><code class="lang-javascript">moment([<span class="number">2010</span>, <span class="number">0</span>, <span class="number">31</span>]);                  <span class="comment">// January 31</span>
+moment([<span class="number">2010</span>, <span class="number">0</span>, <span class="number">31</span>]).add(<span class="string">'months'</span>, <span class="number">1</span>); <span class="comment">// February 28</span></code></pre>
 <p>There are also special considerations to keep in mind when adding time that crosses over Daylight Savings Time.
 If you are adding years, months, weeks, or days, the original hour will always match the added hour.</p>
-<pre><code class="lang-javascript">var m = moment(new Date(2011, 2, 12, 5, 0, 0)); // the day before DST in the US
-m.hours(); // 5
-m.add(&#39;days&#39;, 1).hours(); // 5</code></pre>
+<pre><code class="lang-javascript"><span class="keyword">var</span> m = moment(<span class="keyword">new</span> Date(<span class="number">2011</span>, <span class="number">2</span>, <span class="number">12</span>, <span class="number">5</span>, <span class="number">0</span>, <span class="number">0</span>)); <span class="comment">// the day before DST in the US</span>
+m.hours(); <span class="comment">// 5</span>
+m.add(<span class="string">'days'</span>, <span class="number">1</span>).hours(); <span class="comment">// 5</span></code></pre>
 <p>If you are adding hours, minutes, seconds, or milliseconds, the assumption is that you want precision to the hour, and will result in a different hour.</p>
-<pre><code class="lang-javascript">var m = moment(new Date(2011, 2, 12, 5, 0, 0)); // the day before DST in the US
-m.hours(); // 5
-m.add(&#39;hours&#39;, 24).hours(); // 6</code></pre>
+<pre><code class="lang-javascript"><span class="keyword">var</span> m = moment(<span class="keyword">new</span> Date(<span class="number">2011</span>, <span class="number">2</span>, <span class="number">12</span>, <span class="number">5</span>, <span class="number">0</span>, <span class="number">0</span>)); <span class="comment">// the day before DST in the US</span>
+m.hours(); <span class="comment">// 5</span>
+m.add(<span class="string">'hours'</span>, <span class="number">24</span>).hours(); <span class="comment">// 6</span></code></pre>
 <p>Alternatively, you can use <a href="#/durations/">durations</a> to add to moments.</p>
-<pre><code class="lang-javascript">var duration = moment.duration({&#39;days&#39; : 1});
-moment([2012, 0, 31]).add(duration); // February 1</code></pre>
+<pre><code class="lang-javascript"><span class="keyword">var</span> duration = moment.duration({<span class="string">'days'</span> : <span class="number">1</span>});
+moment([<span class="number">2012</span>, <span class="number">0</span>, <span class="number">31</span>]).add(duration); <span class="comment">// February 1</span></code></pre>
 <p>As of version <strong>2.0.0</strong>, a reversed syntax is also supported to ease development. The syntaxes below will all work.</p>
-<pre><code class="lang-javascript">moment().add(&#39;seconds&#39;, 1);
-moment().add(&#39;seconds&#39;, &#39;1&#39;);
-moment().add(1, &#39;seconds&#39;);</code></pre>
+<pre><code class="lang-javascript">moment().add(<span class="string">'seconds'</span>, <span class="number">1</span>);
+moment().add(<span class="string">'seconds'</span>, <span class="string">'1'</span>);
+moment().add(<span class="number">1</span>, <span class="string">'seconds'</span>);</code></pre>
 <p>This syntax will not work. The first parameter would need to be a number, not a string.</p>
-<pre><code class="lang-javascript">moment().add(&#39;1&#39;, &#39;seconds&#39;);</code></pre>
+<pre><code class="lang-javascript">moment().add(<span class="string">'1'</span>, <span class="string">'seconds'</span>);</code></pre>
 
 					</div>
 				</article>
@@ -1098,13 +1098,13 @@ moment().add(1, &#39;seconds&#39;);</code></pre>
 					<div class="prose">
 						
 							<pre lang="javascript">moment().subtract(String, Number);
-moment().subtract(Number, String); <span class="comment">// 2.0.0</span>
-moment().subtract(Duration); <span class="comment">// 1.6.0</span>
+moment().subtract(Number, String); // 2.0.0
+moment().subtract(Duration); // 1.6.0
 moment().subtract(Object);</pre>
 						
 						<p>Mutates the original moment by subtracting time.</p>
 <p>This is exactly the same as <code>moment#add</code>, only instead of adding time, it subtracts time.</p>
-<pre><code class="lang-javascript">moment().subtract(&#39;days&#39;, 7);</code></pre>
+<pre><code class="lang-javascript">moment().subtract(<span class="string">'days'</span>, <span class="number">7</span>);</code></pre>
 
 					</div>
 				</article>
@@ -1120,18 +1120,18 @@ moment().subtract(Object);</pre>
 							<pre lang="javascript">moment().startOf(String);</pre>
 						
 						<p>Mutates the original moment by setting it to the start of a unit of time.</p>
-<pre><code class="lang-javascript">moment().startOf(&#39;year&#39;);   // set to January 1st, 12:00 am this year
-moment().startOf(&#39;month&#39;);  // set to the first of this month, 12:00 am
-moment().startOf(&#39;week&#39;);   // set to the first day of this week, 12:00 am
-moment().startOf(&#39;day&#39;);    // set to 12:00 am today
-moment().startOf(&#39;hour&#39;);   // set to now, but with 0 mins, 0 secs, and 0 ms
-moment().startOf(&#39;minute&#39;); // set to now, but with 0 seconds and 0 milliseconds
-moment().startOf(&#39;second&#39;); // same as moment().milliseconds(0);</code></pre>
+<pre><code class="lang-javascript">moment().startOf(<span class="string">'year'</span>);   <span class="comment">// set to January 1st, 12:00 am this year</span>
+moment().startOf(<span class="string">'month'</span>);  <span class="comment">// set to the first of this month, 12:00 am</span>
+moment().startOf(<span class="string">'week'</span>);   <span class="comment">// set to the first day of this week, 12:00 am</span>
+moment().startOf(<span class="string">'day'</span>);    <span class="comment">// set to 12:00 am today</span>
+moment().startOf(<span class="string">'hour'</span>);   <span class="comment">// set to now, but with 0 mins, 0 secs, and 0 ms</span>
+moment().startOf(<span class="string">'minute'</span>); <span class="comment">// set to now, but with 0 seconds and 0 milliseconds</span>
+moment().startOf(<span class="string">'second'</span>); <span class="comment">// same as moment().milliseconds(0);</span></code></pre>
 <p>These shortcuts are essentially the same as the following.</p>
-<pre><code class="lang-javascript">moment().startOf(&#39;year&#39;);
-moment().month(0).date(1).hours(0).minutes(0).seconds(0).milliseconds(0);</code></pre>
-<pre><code class="lang-javascript">moment().startOf(&#39;hour&#39;);
-moment().minutes(0).seconds(0).milliseconds(0)</code></pre>
+<pre><code class="lang-javascript">moment().startOf(<span class="string">'year'</span>);
+moment().month(<span class="number">0</span>).date(<span class="number">1</span>).hours(<span class="number">0</span>).minutes(<span class="number">0</span>).seconds(<span class="number">0</span>).milliseconds(<span class="number">0</span>);</code></pre>
+<pre><code class="lang-javascript">moment().startOf(<span class="string">'hour'</span>);
+moment().minutes(<span class="number">0</span>).seconds(<span class="number">0</span>).milliseconds(<span class="number">0</span>)</code></pre>
 <p>As of version <strong>2.0.0</strong>, <code>moment#startOf(&#39;day&#39;)</code> replaced <code>moment#sod</code>.</p>
 
 					</div>
@@ -1149,7 +1149,7 @@ moment().minutes(0).seconds(0).milliseconds(0)</code></pre>
 						
 						<p>Mutates the original moment by setting it to the end of a unit of time.</p>
 <p>This is the same as <code>moment#startOf</code>, only instead of setting to the start of a unit of time, it sets to the end of a unit of time.</p>
-<pre><code class="lang-javascript">moment().endOf("year"); // set the moment to 12-31 11:59:59.999 pm this year</code></pre>
+<pre><code class="lang-javascript">moment().endOf(<span class="string">"year"</span>); <span class="comment">// set the moment to 12-31 11:59:59.999 pm this year</span></code></pre>
 <p>As of version <strong>2.0.0</strong>, <code>moment#endOf(&#39;day&#39;)</code> replaced <code>moment#eod</code>.</p>
 
 					</div>
@@ -1166,10 +1166,10 @@ moment().minutes(0).seconds(0).milliseconds(0)</code></pre>
 							<pre lang="javascript">moment().local();</pre>
 						
 						<p>Toggles a flag on the original moment to internally use <code>Date#get*</code> and <code>Date#set*</code> instead of <code>Date#getUTC*</code> and <code>Date#setUTC*</code>.</p>
-<pre><code class="lang-javascript">var a = moment.utc([2011, 0, 1, 8]);
-a.hours(); // 8 UTC
+<pre><code class="lang-javascript"><span class="keyword">var</span> a = moment.utc([<span class="number">2011</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">8</span>]);
+a.hours(); <span class="comment">// 8 UTC</span>
 a.local();
-a.hours(); // 0 PST</code></pre>
+a.hours(); <span class="comment">// 0 PST</span></code></pre>
 <p>See <a href="#/parsing/utc/">moment.utc()</a> for more information on UTC mode.</p>
 
 					</div>
@@ -1186,10 +1186,10 @@ a.hours(); // 0 PST</code></pre>
 							<pre lang="javascript">moment().utc();</pre>
 						
 						<p>Toggles a flag on the original moment to internally use <code>Date#getUTC*</code> and <code>Date#setUTC*</code> instead of <code>Date#get*</code> and <code>Date#set*</code>.</p>
-<pre><code class="lang-javascript">var a = moment([2011, 0, 1, 8]);
-a.hours(); // 8 PST
+<pre><code class="lang-javascript"><span class="keyword">var</span> a = moment([<span class="number">2011</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">8</span>]);
+a.hours(); <span class="comment">// 8 PST</span>
 a.utc();
-a.hours(); // 16 UTC</code></pre>
+a.hours(); <span class="comment">// 16 UTC</span></code></pre>
 <p>See <a href="#/parsing/utc/">moment.utc()</a> for more information on UTC mode.</p>
 
 					</div>
@@ -1215,8 +1215,8 @@ a.hours(); // 16 UTC</code></pre>
 moment().format(String);</pre>
 						
 						<p>This is the most robust display option. It takes a string of tokens and replaces them with their corresponding values.</p>
-<pre><code class="lang-javascript">moment().format("dddd, MMMM Do YYYY, h:mm:ss a"); // "Sunday, February 14th 2010, 3:25:50 pm"
-moment().format("ddd, hA");                       // "Sun, 3PM"</code></pre>
+<pre><code class="lang-javascript">moment().format(<span class="string">"dddd, MMMM Do YYYY, h:mm:ss a"</span>); <span class="comment">// "Sunday, February 14th 2010, 3:25:50 pm"</span>
+moment().format(<span class="string">"ddd, hA"</span>);                       <span class="comment">// "Sun, 3PM"</span></code></pre>
 <p>There are a couple conventions used with the naming of the</p>
 <table class="table table-striped table-bordered">
   <tbody>
@@ -1496,7 +1496,7 @@ moment().format("ddd, hA");                       // "Sun, 3PM"</code></pre>
 <p><code>L LL LLL LLLL LT</code> are available in version <strong>1.3.0</strong>. <code>l ll lll llll</code> are available in <strong>2.0.0</strong>.</p>
 <h4>Escaping characters</h4>
 <p>To escape characters in format strings, you can wrap the characters in square brackets.</p>
-<pre><code class="lang-javascript">moment().format(&#39;[today] DDDD&#39;); // &#39;today Sunday&#39;</code></pre>
+<pre><code class="lang-javascript">moment().format(<span class="string">'[today] DDDD'</span>); <span class="comment">// 'today Sunday'</span></code></pre>
 <h4>Similarities and differences with LDML</h4>
 <p><strong>Note:</strong> While these date formats are very similar to LDML date formats, there are a few minor differences regarding day of month, day of year, and day of week.</p>
 <p>For a breakdown of a few different date formatting tokens across different languages, see <a href="https://docs.google.com/spreadsheet/ccc?key=0AtgZluze7WMJdDBOLUZfSFIzenIwOHNjaWZoeGFqbWc&amp;hl=en_US#gid=0">this chart of date formatting tokens.</a></p>
@@ -1522,10 +1522,10 @@ moment().format("ddd, hA");                       // "Sun, 3PM"</code></pre>
 moment().fromNow(Boolean);</pre>
 						
 						<p>A common way of displaying time is handled by <code>moment#fromNow</code>. This is sometimes called timeago or relative time.</p>
-<pre><code class="lang-javascript">moment([2007, 0, 29]).fromNow(); // 4 years ago</code></pre>
+<pre><code class="lang-javascript">moment([<span class="number">2007</span>, <span class="number">0</span>, <span class="number">29</span>]).fromNow(); <span class="comment">// 4 years ago</span></code></pre>
 <p>If you pass <code>true</code>, you can get the value without the suffix.</p>
-<pre><code class="lang-javascript">moment([2007, 0, 29]).fromNow();     // 4 years ago
-moment([2007, 0, 29]).fromNow(true); // 4 years</code></pre>
+<pre><code class="lang-javascript">moment([<span class="number">2007</span>, <span class="number">0</span>, <span class="number">29</span>]).fromNow();     <span class="comment">// 4 years ago</span>
+moment([<span class="number">2007</span>, <span class="number">0</span>, <span class="number">29</span>]).fromNow(<span class="literal">true</span>); <span class="comment">// 4 years</span></code></pre>
 <p>The base strings are <a href="#/customization/relative-time/">customized by the current language</a>.</p>
 <p>The breakdown of which string is displayed for each length of time is outlined in the table below.</p>
 <table class="table table-striped table-bordered">
@@ -1610,21 +1610,21 @@ moment([2007, 0, 29]).fromNow(true); // 4 years</code></pre>
 moment().from(Moment|String|Number|Date|Array, Boolean);</pre>
 						
 						<p>You may want to display a moment in relation to a time other than now. In that case, you can use <code>moment#from</code>.</p>
-<pre><code class="lang-javascript">var a = moment([2007, 0, 29]);
-var b = moment([2007, 0, 28]);
-a.from(b) // "a day ago"</code></pre>
+<pre><code class="lang-javascript"><span class="keyword">var</span> a = moment([<span class="number">2007</span>, <span class="number">0</span>, <span class="number">29</span>]);
+<span class="keyword">var</span> b = moment([<span class="number">2007</span>, <span class="number">0</span>, <span class="number">28</span>]);
+a.from(b) <span class="comment">// "a day ago"</span></code></pre>
 <p>The first parameter is anything you can pass to <code>moment()</code> or an actual <code>Moment</code>.</p>
-<pre><code class="lang-javascript">var a = moment([2007, 0, 29]);
-var b = moment([2007, 0, 28]);
-a.from(b);                     // "a day ago"
-a.from([2007, 0, 28]);         // "a day ago"
-a.from(new Date(2007, 0, 28)); // "a day ago"
-a.from("1-28-2007");           // "a day ago"</code></pre>
+<pre><code class="lang-javascript"><span class="keyword">var</span> a = moment([<span class="number">2007</span>, <span class="number">0</span>, <span class="number">29</span>]);
+<span class="keyword">var</span> b = moment([<span class="number">2007</span>, <span class="number">0</span>, <span class="number">28</span>]);
+a.from(b);                     <span class="comment">// "a day ago"</span>
+a.from([<span class="number">2007</span>, <span class="number">0</span>, <span class="number">28</span>]);         <span class="comment">// "a day ago"</span>
+a.from(<span class="keyword">new</span> Date(<span class="number">2007</span>, <span class="number">0</span>, <span class="number">28</span>)); <span class="comment">// "a day ago"</span>
+a.from(<span class="string">"1-28-2007"</span>);           <span class="comment">// "a day ago"</span></code></pre>
 <p>Like <code>moment#fromNow</code>, passing <code>true</code> as the second parameter returns value without the suffix. This is useful wherever you need to have a human readable length of time.</p>
-<pre><code class="lang-javascript">var start = moment([2007, 0, 5]);
-var end = moment([2007, 0, 10]);
-start.from(end);       // "in 5 days"
-start.from(end, true); // "5 days"</code></pre>
+<pre><code class="lang-javascript"><span class="keyword">var</span> start = moment([<span class="number">2007</span>, <span class="number">0</span>, <span class="number">5</span>]);
+<span class="keyword">var</span> end = moment([<span class="number">2007</span>, <span class="number">0</span>, <span class="number">10</span>]);
+start.from(end);       <span class="comment">// "in 5 days"</span>
+start.from(end, <span class="literal">true</span>); <span class="comment">// "5 days"</span></code></pre>
 
 					</div>
 				</article>
@@ -1686,28 +1686,28 @@ moment().diff(Moment|String|Number|Date|Array, String);
 moment().diff(Moment|String|Number|Date|Array, String, Boolean);</pre>
 						
 						<p>To get the difference in milliseconds, use <code>moment#diff</code> like you would use <code>moment#from</code>.</p>
-<pre><code class="lang-javascript">var a = moment([2007, 0, 29]);
-var b = moment([2007, 0, 28]);
-a.diff(b) // 86400000</code></pre>
+<pre><code class="lang-javascript"><span class="keyword">var</span> a = moment([<span class="number">2007</span>, <span class="number">0</span>, <span class="number">29</span>]);
+<span class="keyword">var</span> b = moment([<span class="number">2007</span>, <span class="number">0</span>, <span class="number">28</span>]);
+a.diff(b) <span class="comment">// 86400000</span></code></pre>
 <p>To get the difference in another unit of measurement, pass that measurement as the second argument.</p>
-<pre><code class="lang-javascript">var a = moment([2007, 0, 29]);
-var b = moment([2007, 0, 28]);
-a.diff(b, &#39;days&#39;) // 1</code></pre>
+<pre><code class="lang-javascript"><span class="keyword">var</span> a = moment([<span class="number">2007</span>, <span class="number">0</span>, <span class="number">29</span>]);
+<span class="keyword">var</span> b = moment([<span class="number">2007</span>, <span class="number">0</span>, <span class="number">28</span>]);
+a.diff(b, <span class="string">'days'</span>) <span class="comment">// 1</span></code></pre>
 <p>The supported measurements are years, months, weeks, days, hours, minutes, and seconds. For ease of development, the singular forms are supported as of <strong>2.0.0</strong>. Units of measurement other than milliseconds are available in version <strong>1.1.1</strong>.</p>
 <p>By default, <code>moment#diff</code> will return number rounded down. If you want the floating point number, pass <code>true</code> as the third argument. Before <strong>2.0.0</strong>, <code>moment#diff</code> returned rounded number, not a rounded <em>down</em> number.</p>
-<pre><code class="lang-javascript">var a = moment([2007, 0]);
-var b = moment([2008, 5]);
-a.diff(b, &#39;years&#39;)       // 1
-a.diff(b, &#39;years&#39;, true) // 1.5</code></pre>
+<pre><code class="lang-javascript"><span class="keyword">var</span> a = moment([<span class="number">2007</span>, <span class="number">0</span>]);
+<span class="keyword">var</span> b = moment([<span class="number">2008</span>, <span class="number">5</span>]);
+a.diff(b, <span class="string">'years'</span>)       <span class="comment">// 1</span>
+a.diff(b, <span class="string">'years'</span>, <span class="literal">true</span>) <span class="comment">// 1.5</span></code></pre>
 <p>If the moment is later than the moment you are passing to <code>moment.fn.diff</code>, the return value will be negative.</p>
-<pre><code class="lang-javascript">var a = moment();
-var b = moment().add(&#39;seconds&#39;, 1);
-a.diff(b) // -1000
-b.diff(a) // 1000</code></pre>
+<pre><code class="lang-javascript"><span class="keyword">var</span> a = moment();
+<span class="keyword">var</span> b = moment().add(<span class="string">'seconds'</span>, <span class="number">1</span>);
+a.diff(b) <span class="comment">// -1000</span>
+b.diff(a) <span class="comment">// 1000</span></code></pre>
 <p>A easy way to think of this is by replacing <code>.diff(</code> with a minus operator.</p>
-<pre><code class="lang-javascript">          // a &lt; b
-a.diff(b) // a - b &lt; 0
-b.diff(a) // b - a &lt; 0</code></pre>
+<pre><code class="lang-javascript">          <span class="comment">// a &lt; b</span>
+a.diff(b) <span class="comment">// a - b &lt; 0</span>
+b.diff(a) <span class="comment">// b - a &lt; 0</span></code></pre>
 <h4>Month and year diffs</h4>
 <p><code>moment#diff</code> has some special handling for month and year diffs. It is optimized to ensure that two months with the same date are always a whole number apart.</p>
 <p>So Jan 15 to Feb 15 should be exactly 1 month.</p>
@@ -1731,8 +1731,8 @@ b.diff(a) // b - a &lt; 0</code></pre>
 +moment();</pre>
 						
 						<p><code>moment#valueOf</code> simply outputs the number of milliseconds since the Unix Epoch, just like <code>Date#valueOf</code>.</p>
-<pre><code class="lang-javascript">moment(1318874398806).valueOf(); // 1318874398806
-+moment(1318874398806); // 1318874398806</code></pre>
+<pre><code class="lang-javascript">moment(<span class="number">1318874398806</span>).valueOf(); <span class="comment">// 1318874398806</span>
++moment(<span class="number">1318874398806</span>); <span class="comment">// 1318874398806</span></code></pre>
 <p>To get a Unix timestamp (the number of seconds since the epoch) from a <code>Moment</code>, use <code>moment#unix</code>.</p>
 
 					</div>
@@ -1749,7 +1749,7 @@ b.diff(a) // b - a &lt; 0</code></pre>
 							<pre lang="javascript">moment().unix();</pre>
 						
 						<p><code>moment#unix</code> outputs a Unix timestamp (the of seconds since the Unix Epoch).</p>
-<pre><code class="lang-javascript">moment(1318874398806).unix(); // 1318874398</code></pre>
+<pre><code class="lang-javascript">moment(<span class="number">1318874398806</span>).unix(); <span class="comment">// 1318874398</span></code></pre>
 <p>This value is floored to the nearest second, and does not include a milliseconds component.</p>
 
 					</div>
@@ -1766,7 +1766,7 @@ b.diff(a) // b - a &lt; 0</code></pre>
 							<pre lang="javascript">moment().zone();</pre>
 						
 						<p>Get the timezone offset in minutes.</p>
-<pre><code class="lang-javascript">moment().zone(); // (60, 120, 240, etc.)</code></pre>
+<pre><code class="lang-javascript">moment().zone(); <span class="comment">// (60, 120, 240, etc.)</span></code></pre>
 
 					</div>
 				</article>
@@ -1782,8 +1782,8 @@ b.diff(a) // b - a &lt; 0</code></pre>
 							<pre lang="javascript">moment().daysInMonth();</pre>
 						
 						<p>Get the number of days in the current month.</p>
-<pre><code class="lang-javascript">moment("2012-02", "YYYY-MM").daysInMonth() // 29
-moment("2012-01", "YYYY-MM").daysInMonth() // 31</code></pre>
+<pre><code class="lang-javascript">moment(<span class="string">"2012-02"</span>, <span class="string">"YYYY-MM"</span>).daysInMonth() <span class="comment">// 29</span>
+moment(<span class="string">"2012-01"</span>, <span class="string">"YYYY-MM"</span>).daysInMonth() <span class="comment">// 31</span></code></pre>
 
 					</div>
 				</article>
@@ -1816,7 +1816,7 @@ moment("2012-01", "YYYY-MM").daysInMonth() // 31</code></pre>
 							<pre lang="javascript">moment().toArray();</pre>
 						
 						<p>This returns an array that mirrors the parameters from <code>new Date()</code>.</p>
-<pre><code class="lang-javascript">moment().toArray(); // [2013, 1, 4, 14, 40, 16, 154];</code></pre>
+<pre><code class="lang-javascript">moment().toArray(); <span class="comment">// [2013, 1, 4, 14, 40, 16, 154];</span></code></pre>
 
 					</div>
 				</article>
@@ -1834,7 +1834,7 @@ moment("2012-01", "YYYY-MM").daysInMonth() // 31</code></pre>
 						<p>When serializing an object to JSON, if there is a <code>Moment</code> object, it will be represented as an ISO8601 string.</p>
 <pre><code class="lang-javascript">JSON.stringify({
     postDate : moment()
-}); // {"postDate":"2013-02-04T22:44:30.652Z"}</code></pre>
+}); <span class="comment">// {"postDate":"2013-02-04T22:44:30.652Z"}</span></code></pre>
 
 					</div>
 				</article>
@@ -1858,10 +1858,10 @@ moment("2012-01", "YYYY-MM").daysInMonth() // 31</code></pre>
 moment().isBefore(Moment|String|Number|Date|Array, String);</pre>
 						
 						<p>Check if a moment is before another moment.</p>
-<pre><code class="lang-javascript">moment(&#39;2010-10-20&#39;).isBefore(&#39;2010-10-21&#39;); // true</code></pre>
+<pre><code class="lang-javascript">moment(<span class="string">'2010-10-20'</span>).isBefore(<span class="string">'2010-10-21'</span>); <span class="comment">// true</span></code></pre>
 <p>If you want to limit the granularity to a unit other than milliseconds, pass the units as the second parameter.</p>
-<pre><code class="lang-javascript">moment(&#39;2010-10-20&#39;).isBefore(&#39;2010-12-31&#39;, &#39;year&#39;); // false
-moment(&#39;2010-10-20&#39;).isBefore(&#39;2011-01-01&#39;, &#39;year&#39;); // true</code></pre>
+<pre><code class="lang-javascript">moment(<span class="string">'2010-10-20'</span>).isBefore(<span class="string">'2010-12-31'</span>, <span class="string">'year'</span>); <span class="comment">// false</span>
+moment(<span class="string">'2010-10-20'</span>).isBefore(<span class="string">'2011-01-01'</span>, <span class="string">'year'</span>); <span class="comment">// true</span></code></pre>
 <p>Like <code>moment#isAfter</code> and <code>moment#isSame</code>, any of the units of time that are supported for <code>moment#startOf</code> are supported for <code>moment#isBefore</code>. Year, month, week, day, hour, minute, and second.</p>
 
 					</div>
@@ -1879,12 +1879,12 @@ moment(&#39;2010-10-20&#39;).isBefore(&#39;2011-01-01&#39;, &#39;year&#39;); // 
 moment().isSame(Moment|String|Number|Date|Array, String);</pre>
 						
 						<p>Check if a moment is the same as another moment.</p>
-<pre><code class="lang-javascript">moment(&#39;2010-10-20&#39;).isSame(&#39;2010-10-20&#39;); // true</code></pre>
+<pre><code class="lang-javascript">moment(<span class="string">'2010-10-20'</span>).isSame(<span class="string">'2010-10-20'</span>); <span class="comment">// true</span></code></pre>
 <p>If you want to limit the granularity to a unit other than milliseconds, pass the units as the second parameter.</p>
-<pre><code class="lang-javascript">moment(&#39;2010-10-20&#39;).isSame(&#39;2009-12-31&#39;, &#39;year&#39;); // false
-moment(&#39;2010-10-20&#39;).isSame(&#39;2010-01-01&#39;, &#39;year&#39;); // true
-moment(&#39;2010-10-20&#39;).isSame(&#39;2010-12-31&#39;, &#39;year&#39;); // true
-moment(&#39;2010-10-20&#39;).isSame(&#39;2011-01-01&#39;, &#39;year&#39;); // false</code></pre>
+<pre><code class="lang-javascript">moment(<span class="string">'2010-10-20'</span>).isSame(<span class="string">'2009-12-31'</span>, <span class="string">'year'</span>); <span class="comment">// false</span>
+moment(<span class="string">'2010-10-20'</span>).isSame(<span class="string">'2010-01-01'</span>, <span class="string">'year'</span>); <span class="comment">// true</span>
+moment(<span class="string">'2010-10-20'</span>).isSame(<span class="string">'2010-12-31'</span>, <span class="string">'year'</span>); <span class="comment">// true</span>
+moment(<span class="string">'2010-10-20'</span>).isSame(<span class="string">'2011-01-01'</span>, <span class="string">'year'</span>); <span class="comment">// false</span></code></pre>
 <p>Like <code>moment#isAfter</code> and <code>moment#isBefore</code>, any of the units of time that are supported for <code>moment#startOf</code> are supported for <code>moment#isSame</code>. Year, month, week, day, hour, minute, and second.</p>
 
 					</div>
@@ -1902,10 +1902,10 @@ moment(&#39;2010-10-20&#39;).isSame(&#39;2011-01-01&#39;, &#39;year&#39;); // fa
 moment().isAfter(Moment|String|Number|Date|Array, String);</pre>
 						
 						<p>Check if a moment is after another moment.</p>
-<pre><code class="lang-javascript">moment(&#39;2010-10-20&#39;).isAfter(&#39;2010-10-19&#39;); // true</code></pre>
+<pre><code class="lang-javascript">moment(<span class="string">'2010-10-20'</span>).isAfter(<span class="string">'2010-10-19'</span>); <span class="comment">// true</span></code></pre>
 <p>If you want to limit the granularity to a unit other than milliseconds, pass the units as the second parameter.</p>
-<pre><code class="lang-javascript">moment(&#39;2010-10-20&#39;).isAfter(&#39;2010-01-01&#39;, &#39;year&#39;); // false
-moment(&#39;2010-10-20&#39;).isAfter(&#39;2009-12-31&#39;, &#39;year&#39;); // true</code></pre>
+<pre><code class="lang-javascript">moment(<span class="string">'2010-10-20'</span>).isAfter(<span class="string">'2010-01-01'</span>, <span class="string">'year'</span>); <span class="comment">// false</span>
+moment(<span class="string">'2010-10-20'</span>).isAfter(<span class="string">'2009-12-31'</span>, <span class="string">'year'</span>); <span class="comment">// true</span></code></pre>
 <p>Like <code>moment#isSame</code> and <code>moment#isBefore</code>, any of the units of time that are supported for <code>moment#startOf</code> are supported for <code>moment#isAfter</code>. Year, month, week, day, hour, minute, and second.</p>
 
 					</div>
@@ -1922,9 +1922,9 @@ moment(&#39;2010-10-20&#39;).isAfter(&#39;2009-12-31&#39;, &#39;year&#39;); // t
 							<pre lang="javascript">moment().isLeapYear();</pre>
 						
 						<p><code>moment#isLeapYear</code> returns <code>true</code> if that year is a leap year, and <code>false</code> if it is not.</p>
-<pre><code class="lang-javascript">moment([2000]).isLeapYear() // true
-moment([2001]).isLeapYear() // false
-moment([2100]).isLeapYear() // false</code></pre>
+<pre><code class="lang-javascript">moment([<span class="number">2000</span>]).isLeapYear() <span class="comment">// true</span>
+moment([<span class="number">2001</span>]).isLeapYear() <span class="comment">// false</span>
+moment([<span class="number">2100</span>]).isLeapYear() <span class="comment">// false</span></code></pre>
 
 					</div>
 				</article>
@@ -1940,8 +1940,8 @@ moment([2100]).isLeapYear() // false</code></pre>
 							<pre lang="javascript">moment().isDST();</pre>
 						
 						<p><code>moment#isDST</code> checks if the current moment is in daylight savings time.</p>
-<pre><code class="lang-javascript">moment([2011, 2, 12]).isDST(); // false, March 12 2011 is not DST
-moment([2011, 2, 14]).isDST(); // true, March 14 2011 is DST</code></pre>
+<pre><code class="lang-javascript">moment([<span class="number">2011</span>, <span class="number">2</span>, <span class="number">12</span>]).isDST(); <span class="comment">// false, March 12 2011 is not DST</span>
+moment([<span class="number">2011</span>, <span class="number">2</span>, <span class="number">14</span>]).isDST(); <span class="comment">// true, March 14 2011 is DST</span></code></pre>
 
 					</div>
 				</article>
@@ -1957,9 +1957,9 @@ moment([2011, 2, 14]).isDST(); // true, March 14 2011 is DST</code></pre>
 							<pre lang="javascript">moment.isMoment(obj);</pre>
 						
 						<p>To check if a variable is a moment object, use <code>moment.isMoment()</code>.</p>
-<pre><code class="lang-javascript">moment.isMoment() // false
-moment.isMoment(new Date()) // false
-moment.isMoment(moment()) // true</code></pre>
+<pre><code class="lang-javascript">moment.isMoment() <span class="comment">// false</span>
+moment.isMoment(<span class="keyword">new</span> Date()) <span class="comment">// false</span>
+moment.isMoment(moment()) <span class="comment">// true</span></code></pre>
 
 					</div>
 				</article>
@@ -1988,55 +1988,55 @@ moment.lang(String, Object);</pre>
 						<p>By default, Moment.js comes with English language strings. If you need other languages, you can load them into Moment.js for later use.</p>
 <p>To load a language, pass the key and the string values to <code>moment.lang</code>.</p>
 <p>More details on each of the parts of the language bundle can be found in the <a href="#/customization/">customization</a> section.</p>
-<pre><code class="lang-javascript">moment.lang(&#39;fr&#39;, {
-    months : "janvier_février_mars_avril_mai_juin_juillet_août_septembre_octobre_novembre_décembre".split("_"),
-    monthsShort : "janv._févr._mars_avr._mai_juin_juil._août_sept._oct._nov._déc.".split("_"),
-    weekdays : "dimanche_lundi_mardi_mercredi_jeudi_vendredi_samedi".split("_"),
-    weekdaysShort : "dim._lun._mar._mer._jeu._ven._sam.".split("_"),
-    weekdaysMin : "Di_Lu_Ma_Me_Je_Ve_Sa".split("_"),
+<pre><code class="lang-javascript">moment.lang(<span class="string">'fr'</span>, {
+    months : <span class="string">"janvier_février_mars_avril_mai_juin_juillet_août_septembre_octobre_novembre_décembre"</span>.split(<span class="string">"_"</span>),
+    monthsShort : <span class="string">"janv._févr._mars_avr._mai_juin_juil._août_sept._oct._nov._déc."</span>.split(<span class="string">"_"</span>),
+    weekdays : <span class="string">"dimanche_lundi_mardi_mercredi_jeudi_vendredi_samedi"</span>.split(<span class="string">"_"</span>),
+    weekdaysShort : <span class="string">"dim._lun._mar._mer._jeu._ven._sam."</span>.split(<span class="string">"_"</span>),
+    weekdaysMin : <span class="string">"Di_Lu_Ma_Me_Je_Ve_Sa"</span>.split(<span class="string">"_"</span>),
     longDateFormat : {
-        LT : "HH:mm",
-        L : "DD/MM/YYYY",
-        LL : "D MMMM YYYY",
-        LLL : "D MMMM YYYY LT",
-        LLLL : "dddd D MMMM YYYY LT"
+        LT : <span class="string">"HH:mm"</span>,
+        L : <span class="string">"DD/MM/YYYY"</span>,
+        LL : <span class="string">"D MMMM YYYY"</span>,
+        LLL : <span class="string">"D MMMM YYYY LT"</span>,
+        LLLL : <span class="string">"dddd D MMMM YYYY LT"</span>
     },
     calendar : {
-        sameDay: "[Aujourd&#39;hui à] LT",
-        nextDay: &#39;[Demain à] LT&#39;,
-        nextWeek: &#39;dddd [à] LT&#39;,
-        lastDay: &#39;[Hier à] LT&#39;,
-        lastWeek: &#39;dddd [dernier à] LT&#39;,
-        sameElse: &#39;L&#39;
+        sameDay: <span class="string">"[Aujourd'hui à] LT"</span>,
+        nextDay: <span class="string">'[Demain à] LT'</span>,
+        nextWeek: <span class="string">'dddd [à] LT'</span>,
+        lastDay: <span class="string">'[Hier à] LT'</span>,
+        lastWeek: <span class="string">'dddd [dernier à] LT'</span>,
+        sameElse: <span class="string">'L'</span>
     },
     relativeTime : {
-        future : "dans %s",
-        past : "il y a %s",
-        s : "quelques secondes",
-        m : "une minute",
-        mm : "%d minutes",
-        h : "une heure",
-        hh : "%d heures",
-        d : "un jour",
-        dd : "%d jours",
-        M : "un mois",
-        MM : "%d mois",
-        y : "une année",
-        yy : "%d années"
+        future : <span class="string">"dans %s"</span>,
+        past : <span class="string">"il y a %s"</span>,
+        s : <span class="string">"quelques secondes"</span>,
+        m : <span class="string">"une minute"</span>,
+        mm : <span class="string">"%d minutes"</span>,
+        h : <span class="string">"une heure"</span>,
+        hh : <span class="string">"%d heures"</span>,
+        d : <span class="string">"un jour"</span>,
+        dd : <span class="string">"%d jours"</span>,
+        M : <span class="string">"un mois"</span>,
+        MM : <span class="string">"%d mois"</span>,
+        y : <span class="string">"une année"</span>,
+        yy : <span class="string">"%d années"</span>
     },
-    ordinal : function (number) {
-        return number + (number === 1 ? &#39;er&#39; : &#39;ème&#39;);
+    ordinal : <span class="function"><span class="keyword">function</span> <span class="params">(number)</span> {</span>
+        <span class="keyword">return</span> number + (number === <span class="number">1</span> ? <span class="string">'er'</span> : <span class="string">'ème'</span>);
     },
     week : {
-        dow : 1, // Monday is the first day of the week.
-        doy : 4  // The week that contains Jan 4th is the first week of the year.
+        dow : <span class="number">1</span>, <span class="comment">// Monday is the first day of the week.</span>
+        doy : <span class="number">4</span>  <span class="comment">// The week that contains Jan 4th is the first week of the year.</span>
     }
 });</code></pre>
 <p>Once you load a language, it becomes the active language. To change active languages, simply call <code>moment.lang</code> with the key of a loaded language.</p>
-<pre><code class="lang-javascript">moment.lang(&#39;fr&#39;);
-moment(1316116057189).fromNow() // il y a une heure
-moment.lang(&#39;en&#39;);
-moment(1316116057189).fromNow() // an hour ago</code></pre>
+<pre><code class="lang-javascript">moment.lang(<span class="string">'fr'</span>);
+moment(<span class="number">1316116057189</span>).fromNow() <span class="comment">// il y a une heure</span>
+moment.lang(<span class="string">'en'</span>);
+moment(<span class="number">1316116057189</span>).fromNow() <span class="comment">// an hour ago</span></code></pre>
 
 					</div>
 				</article>
@@ -2053,26 +2053,26 @@ moment(1316116057189).fromNow() // an hour ago</code></pre>
 						
 						<p>A global language configuration can be problematic when passing around moments that may need to be formatted into different languages.</p>
 <p>In <strong>1.7.0</strong> we added instance specific language configurations.</p>
-<pre><code class="lang-javascript">moment.lang(&#39;en&#39;); // default the language to English
-var globalLang = moment();
-var localLang = moment();
+<pre><code class="lang-javascript">moment.lang(<span class="string">'en'</span>); <span class="comment">// default the language to English</span>
+<span class="keyword">var</span> globalLang = moment();
+<span class="keyword">var</span> localLang = moment();
 
-localLang.lang(&#39;fr&#39;); // set this instance to use French
-localLang.format(&#39;LLLL&#39;); // dimanche 15 juillet 2012 11:01
-globalLang.format(&#39;LLLL&#39;); // Sunday, July 15 2012 11:01 AM
+localLang.lang(<span class="string">'fr'</span>); <span class="comment">// set this instance to use French</span>
+localLang.format(<span class="string">'LLLL'</span>); <span class="comment">// dimanche 15 juillet 2012 11:01</span>
+globalLang.format(<span class="string">'LLLL'</span>); <span class="comment">// Sunday, July 15 2012 11:01 AM</span>
 
-moment.lang(&#39;es&#39;); // change the global language to Spanish
-localLang.format(&#39;LLLL&#39;); // dimanche 15 juillet 2012 11:01
-globalLang.format(&#39;LLLL&#39;); // Domingo 15 Julio 2012 11:03
+moment.lang(<span class="string">'es'</span>); <span class="comment">// change the global language to Spanish</span>
+localLang.format(<span class="string">'LLLL'</span>); <span class="comment">// dimanche 15 juillet 2012 11:01</span>
+globalLang.format(<span class="string">'LLLL'</span>); <span class="comment">// Domingo 15 Julio 2012 11:03</span>
 
-localLang.lang(false); // reset the instance language
-localLang.format(&#39;LLLL&#39;); // Domingo 15 Julio 2012 11:03
-globalLang.format(&#39;LLLL&#39;); // Domingo 15 Julio 2012 11:03</code></pre>
+localLang.lang(<span class="literal">false</span>); <span class="comment">// reset the instance language</span>
+localLang.format(<span class="string">'LLLL'</span>); <span class="comment">// Domingo 15 Julio 2012 11:03</span>
+globalLang.format(<span class="string">'LLLL'</span>); <span class="comment">// Domingo 15 Julio 2012 11:03</span></code></pre>
 <p>If you call <code>moment#lang</code> with no parameters, you get back the language configuration that would be used for that moment.</p>
-<pre><code class="lang-javascript">var fr = moment().lang(&#39;fr&#39;);
-fr.lang().months // ["janvier", "février", "mars", ...]
-fr.lang(&#39;en&#39;);
-fr.lang().months // ["January", "February", "March", ...]</code></pre>
+<pre><code class="lang-javascript"><span class="keyword">var</span> fr = moment().lang(<span class="string">'fr'</span>);
+fr.lang().months <span class="comment">// ["janvier", "février", "mars", ...]</span>
+fr.lang(<span class="string">'en'</span>);
+fr.lang().months <span class="comment">// ["January", "February", "March", ...]</span></code></pre>
 <p>If you need to access the language data for a moment, this is the preferred way to do so.</p>
 
 					</div>
@@ -2089,9 +2089,9 @@ fr.lang().months // ["January", "February", "March", ...]</code></pre>
 							<pre lang="javascript">moment.lang(String);</pre>
 						
 						<p>Loading languages in NodeJS is super easy. If there is a language file in <code>moment/lang/</code> named after that key, the first call to <code>moment.lang</code> will load it.</p>
-<pre><code class="lang-javascript">var moment = require(&#39;moment&#39;);
-moment.lang(&#39;fr&#39;);
-moment(1316116057189).fromNow(); // il y a une heure</code></pre>
+<pre><code class="lang-javascript"><span class="keyword">var</span> moment = require(<span class="string">'moment'</span>);
+moment.lang(<span class="string">'fr'</span>);
+moment(<span class="number">1316116057189</span>).fromNow(); <span class="comment">// il y a une heure</span></code></pre>
 <p>If you want your language supported, create a pull request to the <code>develop</code> branch with the <a href="#/i18n/adding-language/">required language and unit test files</a>.</p>
 
 					</div>
@@ -2108,14 +2108,14 @@ moment(1316116057189).fromNow(); // il y a une heure</code></pre>
 							<pre lang="javascript">moment.lang(String, Object);</pre>
 						
 						<p>Loading languages in the browser just requires you to include the language files.</p>
-<pre><code class="lang-html">&lt;script src="moment.min.js"&gt;&lt;/script&gt;
-&lt;script src="lang/fr.js"&gt;&lt;/script&gt;
-&lt;script src="lang/pt.js"&gt;&lt;/script&gt;</code></pre>
+<pre><code class="lang-html">&amp;lt;script src=&quot;moment.min.js&quot;&gt;&amp;lt;/script&gt;
+&amp;lt;script src=&quot;lang/fr.js&quot;&gt;&amp;lt;/script&gt;
+&amp;lt;script src=&quot;lang/pt.js&quot;&gt;&amp;lt;/script&gt;</code></pre>
 <p>There are minified versions of each of these languages. There is also a minified version of all of the languages bundled together.</p>
-<pre><code class="lang-html">&lt;script src="moment.min.js"&gt;&lt;/script&gt;
-&lt;script src="lang/all.min.js"&gt;&lt;/script&gt;</code></pre>
+<pre><code class="lang-html">&amp;lt;script src=&quot;moment.min.js&quot;&gt;&amp;lt;/script&gt;
+&amp;lt;script src=&quot;lang/all.min.js&quot;&gt;&amp;lt;/script&gt;</code></pre>
 <p>Ideally, you would bundle all the files you need into one file to minimize http requests.</p>
-<pre><code class="lang-html">&lt;script src="moment-fr-it.min.js"&gt;&lt;/script&gt;</code></pre>
+<pre><code class="lang-html">&amp;lt;script src=&quot;moment-fr-it.min.js&quot;&gt;&amp;lt;/script&gt;</code></pre>
 
 					</div>
 				</article>
@@ -2146,10 +2146,10 @@ moment(1316116057189).fromNow(); // il y a une heure</code></pre>
 							<pre lang="javascript">moment.lang();</pre>
 						
 						<p>If you are changing languages frequently, you may want to know what language is currently being used. This is as simple as calling <code>moment.lang</code> without any parameters.</p>
-<pre><code class="lang-javascript">moment.lang(&#39;en&#39;); // set to english
-moment.lang(); // returns &#39;en&#39;
-moment.lang(&#39;fr&#39;); // set to french
-moment.lang(); // returns &#39;fr&#39;</code></pre>
+<pre><code class="lang-javascript">moment.lang(<span class="string">'en'</span>); <span class="comment">// set to english</span>
+moment.lang(); <span class="comment">// returns 'en'</span>
+moment.lang(<span class="string">'fr'</span>); <span class="comment">// set to french</span>
+moment.lang(); <span class="comment">// returns 'fr'</span></code></pre>
 
 					</div>
 				</article>
@@ -2159,12 +2159,12 @@ moment.lang(); // returns &#39;fr&#39;</code></pre>
 				<a class="target" name="/customization/"></a>
 				<h2><a href='#/customization/'><span class="hash">#</span>Customize</a></h2>
 				<p>Moment.js is very easy to customize. In general, you should create a language setting with your customizations.</p>
-<pre><code class="lang-javascript">moment.lang(&#39;en-my-settings&#39;, {
-    // customizations.
+<pre><code class="lang-javascript">moment.lang(<span class="string">'en-my-settings'</span>, {
+    <span class="comment">// customizations.</span>
 });</code></pre>
 <p>However, you can also overwrite an existing language that has been loaded as well.</p>
-<pre><code class="lang-javascript">moment.lang(&#39;en&#39;, {
-    // customizations
+<pre><code class="lang-javascript">moment.lang(<span class="string">'en'</span>, {
+    <span class="comment">// customizations</span>
 });</code></pre>
 <p>Any settings that are not defined are inherited from the default english settings.</p>
 
@@ -2178,29 +2178,29 @@ moment.lang(); // returns &#39;fr&#39;</code></pre>
 					</h3>
 					<div class="prose">
 						
-							<pre lang="javascript">moment.lang(<span class="string">'en'</span>, {
+							<pre lang="javascript">moment.lang('en', {
     months : String[]
 });
-moment.lang(<span class="string">'en'</span>, {
+moment.lang('en', {
     months : Function
 });</pre>
 						
 						<p><code>Language#months</code> should be an array of the month names.</p>
-<pre><code class="lang-javascript">moment.lang(&#39;en&#39;, {
+<pre><code class="lang-javascript">moment.lang(<span class="string">'en'</span>, {
     months : [
-        "January", "February", "March", "April", "May", "June", "July",
-        "August", "September", "October", "November", "December"
+        <span class="string">"January"</span>, <span class="string">"February"</span>, <span class="string">"March"</span>, <span class="string">"April"</span>, <span class="string">"May"</span>, <span class="string">"June"</span>, <span class="string">"July"</span>,
+        <span class="string">"August"</span>, <span class="string">"September"</span>, <span class="string">"October"</span>, <span class="string">"November"</span>, <span class="string">"December"</span>
     ]
 });</code></pre>
 <p>If you need more processing to calculate the name of the month, (for example, if there is different grammar for different formats), <code>Language#months</code> can be a function with the following signature. It should always return a month name.</p>
-<pre><code class="lang-javascript">moment.lang(&#39;en&#39;, {
-    months : function (momentToFormat, format) {
-        // momentToFormat is the moment currently being formatted
-        // format is the formatting string
-        if (/^MMMM/.test(format)) { // if the format starts with &#39;MMMM&#39;
-            return nominative[momentToFormat.month()];
-        } else {
-            return subjective[momentToFormat.month()];
+<pre><code class="lang-javascript">moment.lang(<span class="string">'en'</span>, {
+    months : <span class="function"><span class="keyword">function</span> <span class="params">(momentToFormat, format)</span> {</span>
+        <span class="comment">// momentToFormat is the moment currently being formatted</span>
+        <span class="comment">// format is the formatting string</span>
+        <span class="keyword">if</span> (<span class="regexp">/^MMMM/</span>.test(format)) { <span class="comment">// if the format starts with 'MMMM'</span>
+            <span class="keyword">return</span> nominative[momentToFormat.month()];
+        } <span class="keyword">else</span> {
+            <span class="keyword">return</span> subjective[momentToFormat.month()];
         }
     }
 });</code></pre>
@@ -2216,27 +2216,27 @@ moment.lang(<span class="string">'en'</span>, {
 					</h3>
 					<div class="prose">
 						
-							<pre lang="javascript">moment.lang(<span class="string">'en'</span>, {
+							<pre lang="javascript">moment.lang('en', {
     monthsShort : String[]
 });
-moment.lang(<span class="string">'en'</span>, {
+moment.lang('en', {
     monthsShort : Function
 });</pre>
 						
 						<p><code>Language#monthsShort</code> should be an array of the month abbreviations.</p>
-<pre><code class="lang-javascript">moment.lang(&#39;en&#39;, {
+<pre><code class="lang-javascript">moment.lang(<span class="string">'en'</span>, {
     monthsShort : [
-        "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+        <span class="string">"Jan"</span>, <span class="string">"Feb"</span>, <span class="string">"Mar"</span>, <span class="string">"Apr"</span>, <span class="string">"May"</span>, <span class="string">"Jun"</span>,
+        <span class="string">"Jul"</span>, <span class="string">"Aug"</span>, <span class="string">"Sep"</span>, <span class="string">"Oct"</span>, <span class="string">"Nov"</span>, <span class="string">"Dec"</span>
     ]
 });</code></pre>
 <p>Like <code>Language#months</code>, <code>Language#monthsShort</code> can be a callback function as well.</p>
-<pre><code class="lang-javascript">moment.lang(&#39;en&#39;, {
-    monthsShort : function (momentToFormat, format) {
-        if (/^MMMM/.test(format)) {
-            return nominative[momentToFormat.month()];
-        } else {
-            return subjective[momentToFormat.month()];
+<pre><code class="lang-javascript">moment.lang(<span class="string">'en'</span>, {
+    monthsShort : <span class="function"><span class="keyword">function</span> <span class="params">(momentToFormat, format)</span> {</span>
+        <span class="keyword">if</span> (<span class="regexp">/^MMMM/</span>.test(format)) {
+            <span class="keyword">return</span> nominative[momentToFormat.month()];
+        } <span class="keyword">else</span> {
+            <span class="keyword">return</span> subjective[momentToFormat.month()];
         }
     }
 });</code></pre>
@@ -2252,23 +2252,23 @@ moment.lang(<span class="string">'en'</span>, {
 					</h3>
 					<div class="prose">
 						
-							<pre lang="javascript">moment.lang(<span class="string">'en'</span>, {
+							<pre lang="javascript">moment.lang('en', {
     weekdays : String[]
 });
-moment.lang(<span class="string">'en'</span>, {
+moment.lang('en', {
     weekdays : Function
 });</pre>
 						
 						<p><code>Language#weekdays</code> should be an array of the weekdays names.</p>
-<pre><code class="lang-javascript">moment.lang(&#39;en&#39;, {
+<pre><code class="lang-javascript">moment.lang(<span class="string">'en'</span>, {
     weekdays : [
-        "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
+        <span class="string">"Sunday"</span>, <span class="string">"Monday"</span>, <span class="string">"Tuesday"</span>, <span class="string">"Wednesday"</span>, <span class="string">"Thursday"</span>, <span class="string">"Friday"</span>, <span class="string">"Saturday"</span>
     ]
 });</code></pre>
 <p><code>Language#weekdays</code> can be a callback function as well.</p>
-<pre><code class="lang-javascript">moment.lang(&#39;en&#39;, {
-    weekdays : function (momentToFormat, format) {
-        return weekdays[momentToFormat.day()];
+<pre><code class="lang-javascript">moment.lang(<span class="string">'en'</span>, {
+    weekdays : <span class="function"><span class="keyword">function</span> <span class="params">(momentToFormat, format)</span> {</span>
+        <span class="keyword">return</span> weekdays[momentToFormat.day()];
     }
 });</code></pre>
 
@@ -2283,21 +2283,21 @@ moment.lang(<span class="string">'en'</span>, {
 					</h3>
 					<div class="prose">
 						
-							<pre lang="javascript">moment.lang(<span class="string">'en'</span>, {
+							<pre lang="javascript">moment.lang('en', {
     weekdaysShort : String[]
 });
-moment.lang(<span class="string">'en'</span>, {
+moment.lang('en', {
     weekdaysShort : Function
 });</pre>
 						
 						<p><code>Language#weekdaysShort</code> should be an array of the weekdays abbreviations.</p>
-<pre><code class="lang-javascript">moment.lang(&#39;en&#39;, {
-    weekdaysShort : ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+<pre><code class="lang-javascript">moment.lang(<span class="string">'en'</span>, {
+    weekdaysShort : [<span class="string">"Sun"</span>, <span class="string">"Mon"</span>, <span class="string">"Tue"</span>, <span class="string">"Wed"</span>, <span class="string">"Thu"</span>, <span class="string">"Fri"</span>, <span class="string">"Sat"</span>]
 });</code></pre>
 <p><code>Language#weekdaysShort</code> can be a callback function as well.</p>
-<pre><code class="lang-javascript">moment.lang(&#39;en&#39;, {
-    weekdaysShort : function (momentToFormat, format) {
-        return weekdaysShort[momentToFormat.day()];
+<pre><code class="lang-javascript">moment.lang(<span class="string">'en'</span>, {
+    weekdaysShort : <span class="function"><span class="keyword">function</span> <span class="params">(momentToFormat, format)</span> {</span>
+        <span class="keyword">return</span> weekdaysShort[momentToFormat.day()];
     }
 });</code></pre>
 
@@ -2312,21 +2312,21 @@ moment.lang(<span class="string">'en'</span>, {
 					</h3>
 					<div class="prose">
 						
-							<pre lang="javascript">moment.lang(<span class="string">'en'</span>, {
+							<pre lang="javascript">moment.lang('en', {
     weekdaysMin : String[]
 });
-moment.lang(<span class="string">'en'</span>, {
+moment.lang('en', {
     weekdaysMin : Function
 });</pre>
 						
 						<p><code>Language#weekdaysMin</code> should be an array of two letter weekday abbreviations. The purpose of these is for things like calendar pickers, thus they should be as small as possible.</p>
-<pre><code class="lang-javascript">moment.lang(&#39;en&#39;, {
-    weekdaysMin : ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"]
+<pre><code class="lang-javascript">moment.lang(<span class="string">'en'</span>, {
+    weekdaysMin : [<span class="string">"Su"</span>, <span class="string">"Mo"</span>, <span class="string">"Tu"</span>, <span class="string">"We"</span>, <span class="string">"Th"</span>, <span class="string">"Fr"</span>, <span class="string">"Sa"</span>]
 });</code></pre>
 <p><code>Language#weekdaysMin</code> can be a callback function as well.</p>
-<pre><code class="lang-javascript">moment.lang(&#39;en&#39;, {
-    weekdaysMin : function (momentToFormat, format) {
-        return weekdaysMin[momentToFormat.day()];
+<pre><code class="lang-javascript">moment.lang(<span class="string">'en'</span>, {
+    weekdaysMin : <span class="function"><span class="keyword">function</span> <span class="params">(momentToFormat, format)</span> {</span>
+        <span class="keyword">return</span> weekdaysMin[momentToFormat.day()];
     }
 });</code></pre>
 
@@ -2341,32 +2341,32 @@ moment.lang(<span class="string">'en'</span>, {
 					</h3>
 					<div class="prose">
 						
-							<pre lang="javascript">moment.lang(<span class="string">'en'</span>, {
+							<pre lang="javascript">moment.lang('en', {
     longDateFormat : Object
 });</pre>
 						
 						<p><code>Language#longDateFormat</code> should be an object containing a key/value pair for each long date format <code>L LL LLL LLLL LT</code>. <code>LT</code> should be the time format, and is also used for <code>moment#calendar</code>.</p>
-<pre><code class="lang-javascript">moment.lang(&#39;en&#39;, {
+<pre><code class="lang-javascript">moment.lang(<span class="string">'en'</span>, {
     longDateFormat : {
-        LT: "h:mm A",
-        L: "MM/DD/YYYY",
-        l: "M/D/YYYY",
-        LL: "MMMM Do YYYY",
-        ll: "MMM D YYYY",
-        LLL: "MMMM Do YYYY LT",
-        lll: "MMM D YYYY LT",
-        LLLL: "dddd, MMMM Do YYYY LT",
-        llll: "ddd, MMM D YYYY LT"
+        LT: <span class="string">"h:mm A"</span>,
+        L: <span class="string">"MM/DD/YYYY"</span>,
+        l: <span class="string">"M/D/YYYY"</span>,
+        LL: <span class="string">"MMMM Do YYYY"</span>,
+        ll: <span class="string">"MMM D YYYY"</span>,
+        LLL: <span class="string">"MMMM Do YYYY LT"</span>,
+        lll: <span class="string">"MMM D YYYY LT"</span>,
+        LLLL: <span class="string">"dddd, MMMM Do YYYY LT"</span>,
+        llll: <span class="string">"ddd, MMM D YYYY LT"</span>
     }
 });</code></pre>
 <p>You can eliminate the lowercase <code>l</code> tokens and they will be created automatically by replacing long tokens with the short token variants.</p>
-<pre><code class="lang-javascript">moment.lang(&#39;en&#39;, {
+<pre><code class="lang-javascript">moment.lang(<span class="string">'en'</span>, {
     longDateFormat : {
-        LT: "h:mm A",
-        L: "MM/DD/YYYY",
-        LL: "MMMM Do YYYY",
-        LLL: "MMMM Do YYYY LT",
-        LLLL: "dddd, MMMM Do YYYY LT"
+        LT: <span class="string">"h:mm A"</span>,
+        L: <span class="string">"MM/DD/YYYY"</span>,
+        LL: <span class="string">"MMMM Do YYYY"</span>,
+        LLL: <span class="string">"MMMM Do YYYY LT"</span>,
+        LLLL: <span class="string">"dddd, MMMM Do YYYY LT"</span>
     }
 });</code></pre>
 
@@ -2381,33 +2381,33 @@ moment.lang(<span class="string">'en'</span>, {
 					</h3>
 					<div class="prose">
 						
-							<pre lang="javascript">moment.lang(<span class="string">'en'</span>, {
+							<pre lang="javascript">moment.lang('en', {
     relativeTime : Object
 });</pre>
 						
 						<p><code>Language#relativeTime</code> should be an object of the replacement strings for <code>moment#from</code>.</p>
-<pre><code class="lang-javascript">moment.lang(&#39;en&#39;, {
+<pre><code class="lang-javascript">moment.lang(<span class="string">'en'</span>, {
     relativeTime : {
-        future: "in %s",
-        past:   "%s ago",
-        s:  "seconds",
-        m:  "a minute",
-        mm: "%d minutes",
-        h:  "an hour",
-        hh: "%d hours",
-        d:  "a day",
-        dd: "%d days",
-        M:  "a month",
-        MM: "%d months",
-        y:  "a year",
-        yy: "%d years"
+        future: <span class="string">"in %s"</span>,
+        past:   <span class="string">"%s ago"</span>,
+        s:  <span class="string">"seconds"</span>,
+        m:  <span class="string">"a minute"</span>,
+        mm: <span class="string">"%d minutes"</span>,
+        h:  <span class="string">"an hour"</span>,
+        hh: <span class="string">"%d hours"</span>,
+        d:  <span class="string">"a day"</span>,
+        dd: <span class="string">"%d days"</span>,
+        M:  <span class="string">"a month"</span>,
+        MM: <span class="string">"%d months"</span>,
+        y:  <span class="string">"a year"</span>,
+        yy: <span class="string">"%d years"</span>
     }
 });</code></pre>
 <p><code>Language#relativeTime.future</code> refers to the prefix/suffix for future dates, and <code>Language#relativeTime.past</code> refers to the prefix/suffix for past dates. For all others, a single character refers to the singular, and an double character refers to the plural.</p>
 <p>If a language requires additional processing for a token, It can set the token as a function with the following signature.
 The function should return a string.</p>
-<pre><code class="lang-javascript">function (number, withoutSuffix, key, isFuture) {
-    return string;
+<pre><code class="lang-javascript"><span class="function"><span class="keyword">function</span> <span class="params">(number, withoutSuffix, key, isFuture)</span> {</span>
+    <span class="keyword">return</span> string;
 }</code></pre>
 <p>The <code>key</code> argument refers to the replacement key in the <code>Language#relativeTime</code> object. (eg. <code>s m mm h</code>, etc.)</p>
 <p>The <code>number</code> argument refers to the number of units for that key. For <code>m</code>, the number is the number of minutes, etc.</p>
@@ -2425,34 +2425,34 @@ The function should return a string.</p>
 					</h3>
 					<div class="prose">
 						
-							<pre lang="javascript">moment.lang(<span class="string">'en'</span>, {
+							<pre lang="javascript">moment.lang('en', {
     meridiem : Function
 });</pre>
 						
 						<p>If your language uses &#39;am/pm&#39;, <code>Language#meridiem</code> can be ommitted, as those values are the defaults.</p>
 <p>If your language needs any different computation for am/pm, <code>Language#meridiem</code> should be a callback function that returns the correct string based on hour, minute, and upper/lowercase.</p>
-<pre><code class="lang-javascript">moment.lang(&#39;en&#39;, {
-    meridiem : function (hour, minute, isLowercase) {
-        if (hour &lt; 9) {
-            return "早上";
-        } else if (hour &lt; 11 &amp;&amp; minute &lt; 30) {
-            return "上午";
-        } else if (hour &lt; 13 &amp;&amp; minute &lt; 30) {
-            return "中午";
-        } else if (hour &lt; 18) {
-            return "下午";
-        } else {
-            return "晚上";
+<pre><code class="lang-javascript">moment.lang(<span class="string">'en'</span>, {
+    meridiem : <span class="function"><span class="keyword">function</span> <span class="params">(hour, minute, isLowercase)</span> {</span>
+        <span class="keyword">if</span> (hour &lt; <span class="number">9</span>) {
+            <span class="keyword">return</span> <span class="string">"早上"</span>;
+        } <span class="keyword">else</span> <span class="keyword">if</span> (hour &lt; <span class="number">11</span> &amp;&amp; minute &lt; <span class="number">30</span>) {
+            <span class="keyword">return</span> <span class="string">"上午"</span>;
+        } <span class="keyword">else</span> <span class="keyword">if</span> (hour &lt; <span class="number">13</span> &amp;&amp; minute &lt; <span class="number">30</span>) {
+            <span class="keyword">return</span> <span class="string">"中午"</span>;
+        } <span class="keyword">else</span> <span class="keyword">if</span> (hour &lt; <span class="number">18</span>) {
+            <span class="keyword">return</span> <span class="string">"下午"</span>;
+        } <span class="keyword">else</span> {
+            <span class="keyword">return</span> <span class="string">"晚上"</span>;
         }
     }
 });</code></pre>
 <p>Before version <strong>1.6.0</strong>, <code>Language#meridiem</code> was a map of upper and lowercase versions of am/pm.</p>
-<pre><code class="lang-javascript">moment.lang(&#39;en&#39;, {
+<pre><code class="lang-javascript">moment.lang(<span class="string">'en'</span>, {
     meridiem : {
-        am : &#39;am&#39;,
-        AM : &#39;AM&#39;,
-        pm : &#39;pm&#39;,
-        PM : &#39;PM&#39;
+        am : <span class="string">'am'</span>,
+        AM : <span class="string">'AM'</span>,
+        pm : <span class="string">'pm'</span>,
+        PM : <span class="string">'PM'</span>
     }
 });</code></pre>
 <p>This has been deprecated. The <strong>1.6.0</strong> callback function syntax is now used instead.</p>
@@ -2468,24 +2468,24 @@ The function should return a string.</p>
 					</h3>
 					<div class="prose">
 						
-							<pre lang="javascript">moment.lang(<span class="string">'en'</span>, {
+							<pre lang="javascript">moment.lang('en', {
     calendar : Object
 });</pre>
 						
 						<p><code>Language#calendar</code> should have the following formatting strings.</p>
-<pre><code class="lang-javascript">moment.lang(&#39;en&#39;, {
+<pre><code class="lang-javascript">moment.lang(<span class="string">'en'</span>, {
     calendar : {
-        lastDay : &#39;[Yesterday at] LT&#39;,
-        sameDay : &#39;[Today at] LT&#39;,
-        nextDay : &#39;[Tomorrow at] LT&#39;,
-        lastWeek : &#39;[last] dddd [at] LT&#39;,
-        nextWeek : &#39;dddd [at] LT&#39;,
-        sameElse : &#39;L&#39;
+        lastDay : <span class="string">'[Yesterday at] LT'</span>,
+        sameDay : <span class="string">'[Today at] LT'</span>,
+        nextDay : <span class="string">'[Tomorrow at] LT'</span>,
+        lastWeek : <span class="string">'[last] dddd [at] LT'</span>,
+        nextWeek : <span class="string">'dddd [at] LT'</span>,
+        sameElse : <span class="string">'L'</span>
     }
 });</code></pre>
 <p>Each of the <code>Language#calendar</code> keys can also be a callback function with the scope of the current moment. It should return a formatting string.</p>
-<pre><code class="lang-javascript">function () {
-    return &#39;[hoy a la&#39; + ((this.hours() !== 1) ? &#39;s&#39; : &#39;&#39;) + &#39;] LT&#39;;
+<pre><code class="lang-javascript"><span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+    <span class="keyword">return</span> <span class="string">'[hoy a la'</span> + ((<span class="keyword">this</span>.hours() !== <span class="number">1</span>) ? <span class="string">'s'</span> : <span class="string">''</span>) + <span class="string">'] LT'</span>;
 },</code></pre>
 
 					</div>
@@ -2499,19 +2499,19 @@ The function should return a string.</p>
 					</h3>
 					<div class="prose">
 						
-							<pre lang="javascript">moment.lang(<span class="string">'en'</span>, {
+							<pre lang="javascript">moment.lang('en', {
     ordinal : Function
 });</pre>
 						
 						<p><code>Language#ordinal</code> should be a function that returns the ordinal for a given number.</p>
-<pre><code class="lang-javascript">moment.lang(&#39;en&#39;, {
-    ordinal : function (number) {
-        var b = number % 10;
-        var output = (~~ (number % 100 / 10) === 1) ? &#39;th&#39; :
-            (b === 1) ? &#39;st&#39; :
-            (b === 2) ? &#39;nd&#39; :
-            (b === 3) ? &#39;rd&#39; : &#39;th&#39;;
-        return number + output;
+<pre><code class="lang-javascript">moment.lang(<span class="string">'en'</span>, {
+    ordinal : <span class="function"><span class="keyword">function</span> <span class="params">(number)</span> {</span>
+        <span class="keyword">var</span> b = number % <span class="number">10</span>;
+        <span class="keyword">var</span> output = (~~ (number % <span class="number">100</span> / <span class="number">10</span>) === <span class="number">1</span>) ? <span class="string">'th'</span> :
+            (b === <span class="number">1</span>) ? <span class="string">'st'</span> :
+            (b === <span class="number">2</span>) ? <span class="string">'nd'</span> :
+            (b === <span class="number">3</span>) ? <span class="string">'rd'</span> : <span class="string">'th'</span>;
+        <span class="keyword">return</span> number + output;
     }
 });</code></pre>
 <p>As of <strong>2.0.0</strong>, the ordinal function should return both the number and the ordinal. Previously, only the ordinal was returned.</p>
@@ -2544,15 +2544,15 @@ moment.duration(Number);
 moment.duration(Object);</pre>
 						
 						<p>To create a duration, call <code>moment.duration()</code> with the length of time in milliseconds.</p>
-<pre><code class="lang-javascript">moment.duration(100); // 100 milliseconds</code></pre>
+<pre><code class="lang-javascript">moment.duration(<span class="number">100</span>); <span class="comment">// 100 milliseconds</span></code></pre>
 <p>If you want to create a moment with a unit of measurement other than seconds, you can pass the unit of measurement as well.</p>
-<pre><code class="lang-javascript">moment.duration(2, &#39;seconds&#39;);
-moment.duration(2, &#39;minutes&#39;);
-moment.duration(2, &#39;hours&#39;);
-moment.duration(2, &#39;days&#39;);
-moment.duration(2, &#39;weeks&#39;);
-moment.duration(2, &#39;months&#39;);
-moment.duration(2, &#39;years&#39;);</code></pre>
+<pre><code class="lang-javascript">moment.duration(<span class="number">2</span>, <span class="string">'seconds'</span>);
+moment.duration(<span class="number">2</span>, <span class="string">'minutes'</span>);
+moment.duration(<span class="number">2</span>, <span class="string">'hours'</span>);
+moment.duration(<span class="number">2</span>, <span class="string">'days'</span>);
+moment.duration(<span class="number">2</span>, <span class="string">'weeks'</span>);
+moment.duration(<span class="number">2</span>, <span class="string">'months'</span>);
+moment.duration(<span class="number">2</span>, <span class="string">'years'</span>);</code></pre>
 <p>The same shorthand for <code>moment#add</code> and <code>moment#subtract</code> works here as well.</p>
 <table class="table table-striped table-bordered">
   <tbody>
@@ -2597,13 +2597,13 @@ moment.duration(2, &#39;years&#39;);</code></pre>
 
 <p>Much like <code>moment#add</code>, you can pass an object of values if you need multiple different units of measurement.</p>
 <pre><code class="lang-javascript">moment.duration({
-    seconds: 2,
-    minutes: 2,
-    hours: 2,
-    days: 2,
-    weeks: 2,
-    months: 2,
-    years: 2
+    seconds: <span class="number">2</span>,
+    minutes: <span class="number">2</span>,
+    hours: <span class="number">2</span>,
+    days: <span class="number">2</span>,
+    weeks: <span class="number">2</span>,
+    months: <span class="number">2</span>,
+    years: <span class="number">2</span>
 });</code></pre>
 
 					</div>
@@ -2621,13 +2621,13 @@ moment.duration(2, &#39;years&#39;);</code></pre>
 						
 						<p>Sometimes, you want all the goodness of <code>moment#from</code> but you don&#39;t want to have to create two moments, you just want to display a length of time.</p>
 <p>Enter <code>moment.duration().humanize()</code>.</p>
-<pre><code class="lang-javascript">moment.duration(1, "minutes").humanize(); // a minute
-moment.duration(2, "minutes").humanize(); // 2 minutes
-moment.duration(24, "hours").humanize();  // a day</code></pre>
+<pre><code class="lang-javascript">moment.duration(<span class="number">1</span>, <span class="string">"minutes"</span>).humanize(); <span class="comment">// a minute</span>
+moment.duration(<span class="number">2</span>, <span class="string">"minutes"</span>).humanize(); <span class="comment">// 2 minutes</span>
+moment.duration(<span class="number">24</span>, <span class="string">"hours"</span>).humanize();  <span class="comment">// a day</span></code></pre>
 <p>By default, the return string is suffixless. If you want a suffix, pass in true as seen below.</p>
-<pre><code class="lang-javascript">moment.duration(1, "minutes").humanize(true); // in a minute</code></pre>
+<pre><code class="lang-javascript">moment.duration(<span class="number">1</span>, <span class="string">"minutes"</span>).humanize(<span class="literal">true</span>); <span class="comment">// in a minute</span></code></pre>
 <p>For suffixes before now, pass in a negative number.</p>
-<pre><code class="lang-javascript">moment.duration(-1, "minutes").humanize(true); // a minute ago</code></pre>
+<pre><code class="lang-javascript">moment.duration(-<span class="number">1</span>, <span class="string">"minutes"</span>).humanize(<span class="literal">true</span>); <span class="comment">// a minute ago</span></code></pre>
 
 					</div>
 				</article>
@@ -2645,13 +2645,13 @@ moment.duration().asMilliseconds();</pre>
 						
 						<p>To get the number of milliseconds in a duration, use <code>moment.duration().milliseconds()</code>.</p>
 <p>It will return a number between 0 and 1000.</p>
-<pre><code class="lang-javascript">moment.duration(500).milliseconds(); // 500
-moment.duration(1500).milliseconds(); // 500
-moment.duration(15000).milliseconds(); // 0</code></pre>
+<pre><code class="lang-javascript">moment.duration(<span class="number">500</span>).milliseconds(); <span class="comment">// 500</span>
+moment.duration(<span class="number">1500</span>).milliseconds(); <span class="comment">// 500</span>
+moment.duration(<span class="number">15000</span>).milliseconds(); <span class="comment">// 0</span></code></pre>
 <p>If you want the length of the duration in milliseconds, use <code>moment.duration().asMilliseconds()</code> instead.</p>
-<pre><code class="lang-javascript">moment.duration(500).asMilliseconds(); // 500
-moment.duration(1500).asMilliseconds(); // 1500
-moment.duration(15000).asMilliseconds(); // 15000</code></pre>
+<pre><code class="lang-javascript">moment.duration(<span class="number">500</span>).asMilliseconds(); <span class="comment">// 500</span>
+moment.duration(<span class="number">1500</span>).asMilliseconds(); <span class="comment">// 1500</span>
+moment.duration(<span class="number">15000</span>).asMilliseconds(); <span class="comment">// 15000</span></code></pre>
 
 					</div>
 				</article>
@@ -2669,13 +2669,13 @@ moment.duration().asSeconds();</pre>
 						
 						<p>To get the number of seconds in a duration, use <code>moment.duration().seconds()</code>.</p>
 <p>It will return a number between 0 and 60.</p>
-<pre><code class="lang-javascript">moment.duration(500).seconds(); // 0
-moment.duration(1500).seconds(); // 1
-moment.duration(15000).seconds(); // 15</code></pre>
+<pre><code class="lang-javascript">moment.duration(<span class="number">500</span>).seconds(); <span class="comment">// 0</span>
+moment.duration(<span class="number">1500</span>).seconds(); <span class="comment">// 1</span>
+moment.duration(<span class="number">15000</span>).seconds(); <span class="comment">// 15</span></code></pre>
 <p>If you want the length of the duration in seconds, use <code>moment.duration().asSeconds()</code> instead.</p>
-<pre><code class="lang-javascript">moment.duration(500).asSeconds(); // 0.5
-moment.duration(1500).asSeconds(); // 1.5
-moment.duration(15000).asSeconds(); // 15</code></pre>
+<pre><code class="lang-javascript">moment.duration(<span class="number">500</span>).asSeconds(); <span class="comment">// 0.5</span>
+moment.duration(<span class="number">1500</span>).asSeconds(); <span class="comment">// 1.5</span>
+moment.duration(<span class="number">15000</span>).asSeconds(); <span class="comment">// 15</span></code></pre>
 
 					</div>
 				</article>
@@ -2805,10 +2805,10 @@ moment.duration().asYears();</pre>
 <p><code>moment-isocalendar</code></p>
 <p>Calling the isocalendar method on a moment will return an array like the following:</p>
 <p><code>[year, week_of_year, day_of_week, minutes_since_midnight]</code></p>
-<pre><code class="lang-javascript">moment().isocalendar(); // [2012, 8, 5, 870]</code></pre>
+<pre><code class="lang-javascript">moment().isocalendar(); <span class="comment">// [2012, 8, 5, 870]</span></code></pre>
 <p>You can also reconstruct a moment from a isocalendar array.</p>
-<pre><code class="lang-javascript">moment.fromIsocalendar([2011, 51, 5, 870]).format(&#39;LLLL&#39;);
-// "Friday, December 23 2011 2:30 PM"</code></pre>
+<pre><code class="lang-javascript">moment.fromIsocalendar([<span class="number">2011</span>, <span class="number">51</span>, <span class="number">5</span>, <span class="number">870</span>]).format(<span class="string">'LLLL'</span>);
+<span class="comment">// "Friday, December 23 2011 2:30 PM"</span></code></pre>
 <p>The repository is located at <a href="https://github.com/fusionbox/moment-isocalendar">github.com/fusionbox/moment-isocalendar</a></p>
 
 					</div>
@@ -2844,11 +2844,11 @@ moment.duration().asYears();</pre>
 						
 						<p>Another range plugin is Isaac Cambron&#39;s library <code>Twix</code>. It has many
 range-related features and excels at formatting ranges readably. For example,</p>
-<pre><code class="lang-javascript">var t = moment("1/25/1982 9:30 AM").twix("1/25/1982 1:30 PM");
-t.isCurrent(); //=&gt; false
-t.count(&#39;minutes&#39;); //=&gt; 241
-t.format();  //=&gt; &#39;Jan 25, 1982, 9:30 AM - 1:30 PM&#39;
-t.simpleFormat("h:m"); //=&gt; &#39;9:30 - 1:30&#39;</code></pre>
+<pre><code class="lang-javascript"><span class="keyword">var</span> t = moment(<span class="string">"1/25/1982 9:30 AM"</span>).twix(<span class="string">"1/25/1982 1:30 PM"</span>);
+t.isCurrent(); <span class="comment">//=&gt; false</span>
+t.count(<span class="string">'minutes'</span>); <span class="comment">//=&gt; 241</span>
+t.format();  <span class="comment">//=&gt; 'Jan 25, 1982, 9:30 AM - 1:30 PM'</span>
+t.simpleFormat(<span class="string">"h:m"</span>); <span class="comment">//=&gt; '9:30 - 1:30'</span></code></pre>
 <p>Full documentation of all the options and features is <a href="http://icambron.github.io/twix.js">here</a>.</p>
 <p>It&#39;s available on npm like so:</p>
 <pre><code>npm install twix</code></pre>
@@ -2867,14 +2867,14 @@ t.simpleFormat("h:m"); //=&gt; &#39;9:30 - 1:30&#39;</code></pre>
 						
 						<p>If you&#39;re trying to format times for tweets like the way Twitter does, you can use the <a href="https://github.com/hijonathan/moment.twitter">moment.twitter</a> plugin by <a href="https://github.com/hijonathan">@hijonathan</a>.</p>
 <p>It&#39;s a simple way to display both short and long versions of human-readable timestamps.</p>
-<pre><code class="lang-javascript">moment().subtract(&#39;hours&#39;, 5).twitter();
-// 5 hours</code></pre>
+<pre><code class="lang-javascript">moment().subtract(<span class="string">'hours'</span>, <span class="number">5</span>).twitter();
+<span class="comment">// 5 hours</span></code></pre>
 <p>Yes, it does smart pluralization.</p>
-<pre><code class="lang-javascript">moment().subtract(&#39;hour&#39;, 1).twitter();
-// 1 hour</code></pre>
+<pre><code class="lang-javascript">moment().subtract(<span class="string">'hour'</span>, <span class="number">1</span>).twitter();
+<span class="comment">// 1 hour</span></code></pre>
 <p>Not short enough for you?</p>
-<pre><code class="lang-javascript">moment().subtract(&#39;days&#39;, 6).twitterShort();
-// 6d</code></pre>
+<pre><code class="lang-javascript">moment().subtract(<span class="string">'days'</span>, <span class="number">6</span>).twitterShort();
+<span class="comment">// 6d</span></code></pre>
 
 					</div>
 				</article>
@@ -2889,7 +2889,6 @@ t.simpleFormat("h:m"); //=&gt; &#39;9:30 - 1:30&#39;</code></pre>
 		</footer>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-		<script src="/static/js/home.min.js?v=2013-05-14T14:24:35-07:00"></script>
 
 		
 

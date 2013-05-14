@@ -48,6 +48,15 @@ module.exports = function(grunt) {
 					'source/js/home.js'
 				],
 				dest: 'static/js/home.min.js'
+			},
+			timezone_home: {
+				src: [
+					'libs/moment/moment.js',
+					'libs/moment-timezone/moment-timezone.js',
+					'libs/moment-timezone/zones/all.browser.js',
+					'source/js/timezone-home.js'
+				],
+				dest: 'static/js/timezone-home.min.js'
 			}
 		},
 		compass: {
@@ -97,6 +106,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks("grunt-contrib-compass");
 	grunt.loadNpmTasks("grunt-contrib-concat");
 	grunt.loadNpmTasks("grunt-contrib-uglify");
+	grunt.loadNpmTasks("grunt-contrib-watch");
 
 	// tasks
 	grunt.loadTasks("source/tasks");

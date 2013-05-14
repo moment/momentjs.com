@@ -2,8 +2,8 @@ var fs        = require('fs'),
     library   = require('../data/library'),
     langs     = require('../data/lang'),
     docs      = require('../data/docs'),
+    zones     = require('../data/zones'),
     swig      = require('swig'),
-    highlight = require("highlight.js").highlight,
     moment    = require("../../libs/moment");
 
 swig.init({
@@ -29,6 +29,7 @@ function main(cb) {
     var data = {
         library : library,
         docs : docs,
+        zones : zones,
         langs : langs,
         cachebust : moment().format()
     };
@@ -37,21 +38,9 @@ function main(cb) {
     });
 }
 
-function highlightPreTags(source) {
-    source = source.replace(/\&quot;/g,'"');
-    source = source.replace(/<pre lang="javascript">((.|\s)*?)<\/pre>/g, function(original, source){
-        var output = '<pre lang="javascript">' + highlight("javascript", source).value + '</pre>';
-        return output;
-    });
-    source = source.replace(/&amp;(\w+;)/g,'&$1');
-    return source;
-}
-
 function renderSingle(src, dst, data, cb) {
     var template = swig.compileFile(src),
         html = template.render(data);
-
-    html = highlightPreTags(html);
 
     fs.writeFile(filename([dst]), html, 'utf8', function(err) {
         console.log('Built html : ' + dst);

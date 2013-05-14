@@ -1,5 +1,15 @@
 var fs        = require('fs'),
+	highlight = require("highlight.js").highlight,
 	marked    = require('marked');
+
+marked.setOptions({
+	highlight : function (code, lang) {
+		if (lang === "javascript") {
+			return highlight("javascript", code).value;
+		}
+		return code;
+	}
+});
 
 function filename(fn) {
 	fn.unshift(process.cwd());

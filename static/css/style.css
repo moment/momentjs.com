@@ -525,6 +525,14 @@ code {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
+/* line 106, /Users/tim.wood/github/momentjs.com/source/css/_global.scss */
+pre code {
+  padding: 0;
+  background: #fff;
+  border-radius: 0;
+  box-shadow: none;
+}
+
 /* line 1, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
 header {
   min-height: 300px;
@@ -643,7 +651,7 @@ header .watch h1 span {
 }
 /* line 107, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
 header h2 {
-  margin: 0 0 0 10%;
+  margin: 0 0 0 5%;
   padding: 20px 0 0 320px;
   color: #222;
   min-height: 100px;
