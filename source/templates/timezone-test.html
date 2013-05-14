@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block body_class %}is-test{% endblock body_class %}
+
+{% block title %}Unit Tests{% endblock title %}
+
+{% block scripts %}
+	<script src="/static/js/moment-timezone.js?v={{ cachebust }}"></script>
+	<script src="/static/js/timezone-tests.js?v={{ cachebust }}"></script>
+{% endblock scripts %}
+
+{% block header %}
+	<h2>Unit Tests</h2>
+{% endblock header %}
+
+{% block content %}
+	<div id="nodeunit-banner" class="test pass"></div>
+	<ol id="nodeunit-tests"></ol>
+{% endblock content %}

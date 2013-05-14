@@ -1,5 +1,5 @@
 var fs        = require('fs'),
-	ghm       = require('github-flavored-markdown');
+	marked    = require('marked');
 
 function filename(fn) {
 	fn.unshift(process.cwd());
@@ -679,7 +679,7 @@ function normalizeDocs(docs) {
 
 function docsAtPath(p) {
 	if (fs.existsSync(p)) {
-		return ghm.parse(fs.readFileSync(p, 'utf8'), "timrwood/moment");
+		return marked(fs.readFileSync(p, 'utf8'));
 	}
 	return '';
 }
