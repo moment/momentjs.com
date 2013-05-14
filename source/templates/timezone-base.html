@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block body_class %}is-timezone{% endblock body_class %}
+
+{% block nav %}
+	<a class="test-nav" href="/timezone/test/">Tests</a>
+{% endblock nav %}
+
+{% block github_button %}
+	<iframe src="http://ghbtns.com/github-btn.html?user=timrwood&repo=moment-timezone&type=watch&count=true&size=large" allowtransparency="true" frameborder="0" scrolling="0" width="180" height="30"></iframe>
+{% endblock github_button %}
+
+{% block site_header %}
+	<div class="share">
+		<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://momentjs.com" data-via="momentjs" data-lang="en" data-count="vertical"></a>
+		<div class="g-plusone" data-size="tall" data-href="http://momentjs.com"></div>
+	</div>
+	<div class="watch">
+		<div class="band">
+			<div class="face"></div>
+		</div>
+		<h1>Moment Timezone<span>{{ library.version }}</span></h1>
+	</div>
+	<hgroup>
+		{% block header %}
+
+		{% endblock header %}
+	</hgroup>
+	<aside>
+		{% block header_aside %}
+			<div class="download">
+				<a class="button gzipped" href="https://raw.github.com/timrwood/moment/{{ library.version }}/min/moment.min.js">
+					<strong>Minified Source</strong>
+					<span class="filesize">{{ library.gzipped }}</span>
+				</a>
+				<a class="button source" href="https://raw.github.com/timrwood/moment/{{ library.version }}/moment.js">
+					<strong>Full Source</strong>
+					<span class="filesize">{{ library.size }} </span>
+				</a>
+			</div>
+		{% endblock header_aside %}
+	</aside>
+{% endblock site_header %}

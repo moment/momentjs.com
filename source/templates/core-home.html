@@ -1,6 +1,6 @@
-{% extends "base.html" %}
+{% extends "core-base.html" %}
 
-{% block body_class %}is-home{% endblock body_class %}
+{% block body_class %}{% parent %} is-home{% endblock body_class %}
 
 {% block title %}Parse, validate, manipulate, and display dates in javascript.{% endblock title %}
 

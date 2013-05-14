@@ -23,22 +23,20 @@ module.exports = function(grunt) {
 				],
 				dest: 'static/js/timezone-tests.js'
 			},
+			timezone_data: {
+				src: 'libs/moment-timezone/zones/all.browser.js',
+				dest: 'static/js/timezone-data.js'
+			},
 			langs: {
-				src: [
-					'libs/moment/min/langs.js'
-				],
+				src: 'libs/moment/min/langs.js',
 				dest: 'static/js/langs.js'
 			},
 			moment: {
-				src: [
-					'libs/moment/moment.js'
-				],
+				src: 'libs/moment/moment.js',
 				dest: 'static/js/moment.js'
 			},
 			moment_timezone: {
-				src: [
-					'libs/moment-timezone/moment-timezone.js'
-				],
+				src: 'libs/moment-timezone/moment-timezone.js',
 				dest: 'static/js/moment-timezone.js'
 			}
 		},

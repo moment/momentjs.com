@@ -1,11 +1,12 @@
-{% extends "base.html" %}
+{% extends "timezone-base.html" %}
 
-{% block body_class %}is-test{% endblock body_class %}
+{% block body_class %}{% parent %} is-test{% endblock body_class %}
 
 {% block title %}Unit Tests{% endblock title %}
 
 {% block scripts %}
 	<script src="/static/js/moment-timezone.js?v={{ cachebust }}"></script>
+	<script src="/static/js/timezone-data.js?v={{ cachebust }}"></script>
 	<script src="/static/js/timezone-tests.js?v={{ cachebust }}"></script>
 {% endblock scripts %}
 

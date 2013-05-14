@@ -1,6 +1,6 @@
-{% extends "base.html" %}
+{% extends "core-base.html" %}
 
-{% block body_class %}is-test{% endblock body_class %}
+{% block body_class %}{% parent %} is-test{% endblock body_class %}
 
 {% block title %}Unit Tests{% endblock title %}
 

@@ -1,3 +1,9 @@
+.is-timezone .timezone-nav,
+.is-core .core-nav {
+	background: $background-color;
+	color: #333;
+}
+
 .is-home .home-nav,
 .is-test .test-nav {
 	background: $background-color;
@@ -34,8 +40,21 @@ nav.top {
 		}
 	}
 
+	.logos {
+		float: left;
+
+		a {
+			font-size: 20px;
+		}
+	}
+
+	.pages {
+		float: right;
+	}
+
 	iframe {
 		margin: 14px 0 0 15px;
+		float: right;
 	}
 
 	@include size(tablet) {

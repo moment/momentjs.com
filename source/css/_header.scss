@@ -1,6 +1,6 @@
 header {
 	min-height: 300px;
-	padding: 190px 0 40px;
+	padding: 190px 0 20px;
 	color: #ccc;
 	overflow: hidden;
 
@@ -10,7 +10,7 @@ header {
 		text-shadow: 1px 1px 0 #000;
 
 		.band {
-			margin: -10px 20px -10px 10%;
+			margin: -10px 20px -10px 5%;
 			float: left;
 			width: 300px;
 			background: url(../img/header.png);
@@ -262,6 +262,23 @@ header {
 
 		.share {
 			display: none;
+		}
+	}
+}
+
+.is-timezone {
+	header {
+		.watch {
+			.face {
+				&:after {
+					border: 0;
+				}
+
+				&:before {
+					background: url(../img/world.png) 50% 50% no-repeat;
+					background-size: cover;
+				}
+			}
 		}
 	}
 }
