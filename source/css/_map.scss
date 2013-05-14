@@ -1,0 +1,11 @@
+.map {
+	background: url(../img/header.png);
+	padding: 5px;
+	border-radius: 3px;
+}
+
+.map-inset {
+	padding-bottom: 50%;
+	background: url(../img/world.png) 50% 50% no-repeat;
+	background-size: cover;
+}

@@ -1036,6 +1036,20 @@ nav.subnav .section:hover .dropdown {
   }
 }
 
+/* line 1, /Users/tim.wood/github/momentjs.com/source/css/_map.scss */
+.map {
+  background: url(../img/header.png);
+  padding: 5px;
+  border-radius: 3px;
+}
+
+/* line 7, /Users/tim.wood/github/momentjs.com/source/css/_map.scss */
+.map-inset {
+  padding-bottom: 50%;
+  background: url(../img/world.png) 50% 50% no-repeat;
+  background-size: cover;
+}
+
 /* line 1, /Users/tim.wood/github/momentjs.com/source/css/pages/_home.scss */
 .langs {
   margin-bottom: 20px;
