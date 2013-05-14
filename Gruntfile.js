@@ -13,6 +13,16 @@ module.exports = function(grunt) {
                 ],
                 dest: 'js/tests.js'
             },
+            timezone_tests: {
+                src: [
+                    'source/js/iife_start.js',
+                    'libs/nodeunit/nodeunit.js',
+                    'libs/moment-timezone/test/**/*.js',
+                    'source/js/test.js',
+                    'source/js/iife_end.js'
+                ],
+                dest: 'js/timezone-tests.js'
+            },
             langs: {
                 src: [
                     'libs/moment/min/langs.js'
@@ -24,6 +34,12 @@ module.exports = function(grunt) {
                     'libs/moment/moment.js'
                 ],
                 dest: 'js/moment.js'
+            },
+            moment_timezone: {
+                src: [
+                    'libs/moment-timezone/moment-timezone.js'
+                ],
+                dest: 'js/moment-timezone.js'
             }
         },
         min: {

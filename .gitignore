@@ -1,6 +1,4 @@
-node_modules/grunt*
-node_modules/.bin/grunt*
-node_modules/to-markdown*
+node_modules
 .DS_Store
 .sass-cache
 
