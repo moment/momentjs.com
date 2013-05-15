@@ -2,7 +2,11 @@ module.exports = function(grunt) {
 
 	grunt.initConfig({
 		concat: {
-			tests: {
+			core_home: {
+				src: 'source/js/core-home.js',
+				dest: 'static/js/core-home.js'
+			},
+			core_test: {
 				src: [
 					'source/js/iife_start.js',
 					'libs/nodeunit/nodeunit.js',
@@ -11,9 +15,13 @@ module.exports = function(grunt) {
 					'source/js/test.js',
 					'source/js/iife_end.js'
 				],
-				dest: 'static/js/tests.js'
+				dest: 'static/js/core-test.js'
 			},
-			timezone_tests: {
+			timezone_home: {
+				src: 'source/js/timezone-home.js',
+				dest: 'static/js/timezone-home.js'
+			},
+			timezone_test: {
 				src: [
 					'source/js/iife_start.js',
 					'libs/nodeunit/nodeunit.js',
@@ -21,42 +29,22 @@ module.exports = function(grunt) {
 					'source/js/test.js',
 					'source/js/iife_end.js'
 				],
-				dest: 'static/js/timezone-tests.js'
+				dest: 'static/js/timezone-test.js'
 			},
-			timezone_data: {
-				src: 'libs/moment-timezone/zones/all.browser.js',
-				dest: 'static/js/timezone-data.js'
-			},
-			langs: {
-				src: 'libs/moment/min/langs.js',
-				dest: 'static/js/langs.js'
-			},
-			moment: {
-				src: 'libs/moment/moment.js',
-				dest: 'static/js/moment.js'
-			},
-			moment_timezone: {
-				src: 'libs/moment-timezone/moment-timezone.js',
-				dest: 'static/js/moment-timezone.js'
-			}
-		},
-		uglify: {
-			home: {
+			global: {
 				src: [
 					'libs/moment/moment.js',
 					'libs/moment/min/langs.js',
-					'source/js/home.js'
-				],
-				dest: 'static/js/home.min.js'
-			},
-			timezone_home: {
-				src: [
-					'libs/moment/moment.js',
 					'libs/moment-timezone/moment-timezone.js',
-					'libs/moment-timezone/zones/all.browser.js',
-					'source/js/timezone-home.js'
+					'libs/moment-timezone/zones/all.browser.js'
 				],
-				dest: 'static/js/timezone-home.min.js'
+				dest: 'static/js/global.js'
+			}
+		},
+		uglify: {
+			global: {
+				src: 'static/js/global.js',
+				dest: 'static/js/global.min.js'
 			}
 		},
 		compass: {

@@ -438,30 +438,31 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 200;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 700;
 }
 
-/* line 29, /Users/tim.wood/github/momentjs.com/source/css/_global.scss */
+/* line 30, /Users/tim.wood/github/momentjs.com/source/css/_global.scss */
 h2 {
   font-size: 30px;
 }
 
-/* line 33, /Users/tim.wood/github/momentjs.com/source/css/_global.scss */
+/* line 34, /Users/tim.wood/github/momentjs.com/source/css/_global.scss */
 h3 {
   font-size: 24px;
 }
 
-/* line 37, /Users/tim.wood/github/momentjs.com/source/css/_global.scss */
+/* line 38, /Users/tim.wood/github/momentjs.com/source/css/_global.scss */
 h4 {
   font-size: 20px;
 }
 
-/* line 41, /Users/tim.wood/github/momentjs.com/source/css/_global.scss */
+/* line 42, /Users/tim.wood/github/momentjs.com/source/css/_global.scss */
 pre, code, kbd, samp {
   font-family: Consolas, monaco, monospace;
 }
 
-/* line 45, /Users/tim.wood/github/momentjs.com/source/css/_global.scss */
+/* line 46, /Users/tim.wood/github/momentjs.com/source/css/_global.scss */
 pre {
   border: 1px solid #e3e3e3;
   border-radius: 3px;
@@ -475,11 +476,11 @@ pre {
   background: #fff;
   font-weight: 100;
 }
-/* line 58, /Users/tim.wood/github/momentjs.com/source/css/_global.scss */
+/* line 59, /Users/tim.wood/github/momentjs.com/source/css/_global.scss */
 pre a {
   color: #666;
 }
-/* line 73, /Users/tim.wood/github/momentjs.com/source/css/_global.scss */
+/* line 74, /Users/tim.wood/github/momentjs.com/source/css/_global.scss */
 pre .keyword,
 pre .type,
 pre .symbol,
@@ -495,29 +496,29 @@ pre .property {
   font-weight: 700;
   color: #666;
 }
-/* line 79, /Users/tim.wood/github/momentjs.com/source/css/_global.scss */
+/* line 80, /Users/tim.wood/github/momentjs.com/source/css/_global.scss */
 pre .literal,
 pre .type {
   color: #A0B1E4;
 }
-/* line 83, /Users/tim.wood/github/momentjs.com/source/css/_global.scss */
+/* line 84, /Users/tim.wood/github/momentjs.com/source/css/_global.scss */
 pre .string {
   color: #ED7677;
 }
-/* line 87, /Users/tim.wood/github/momentjs.com/source/css/_global.scss */
+/* line 88, /Users/tim.wood/github/momentjs.com/source/css/_global.scss */
 pre .number {
   color: #4baa8f;
 }
-/* line 91, /Users/tim.wood/github/momentjs.com/source/css/_global.scss */
+/* line 92, /Users/tim.wood/github/momentjs.com/source/css/_global.scss */
 pre .regexp {
   color: #092;
 }
-/* line 95, /Users/tim.wood/github/momentjs.com/source/css/_global.scss */
+/* line 96, /Users/tim.wood/github/momentjs.com/source/css/_global.scss */
 pre .comment {
   color: #666;
 }
 
-/* line 100, /Users/tim.wood/github/momentjs.com/source/css/_global.scss */
+/* line 101, /Users/tim.wood/github/momentjs.com/source/css/_global.scss */
 code {
   padding: 1px 4px;
   background: #fff;
@@ -525,7 +526,7 @@ code {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
-/* line 106, /Users/tim.wood/github/momentjs.com/source/css/_global.scss */
+/* line 107, /Users/tim.wood/github/momentjs.com/source/css/_global.scss */
 pre code {
   padding: 0;
   background: #fff;
@@ -535,141 +536,146 @@ pre code {
 
 /* line 1, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
 header {
+  margin: 90px auto 0;
+  width: 80%;
   min-height: 300px;
-  padding: 190px 0 20px;
-  color: #ccc;
-  overflow: hidden;
-}
-/* line 7, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
-header .watch {
-  background: url(../img/header.png);
-  height: 80px;
-  text-shadow: 1px 1px 0 #000;
-}
-/* line 12, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
-header .watch .band {
-  margin: -10px 20px -10px 5%;
-  float: left;
-  width: 300px;
-  background: url(../img/header.png);
-  border: 5px solid whitesmoke;
-  height: 100px;
-}
-/* line 21, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
-header .watch .face {
-  width: 260px;
-  height: 260px;
-  margin: -85px auto 0;
-  background: url(../img/header.png);
-  border: 5px solid whitesmoke;
-  border-radius: 130px;
   position: relative;
 }
-/* line 30, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
-header .watch .face:after {
+/* line 7, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+header .share {
   position: absolute;
-  top: 115px;
-  left: 115px;
-  width: 10px;
-  height: 10px;
+  top: 0;
+  right: 0;
+}
+/* line 13, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+header .circle {
+  width: 260px;
+  height: 260px;
+  left: 20px;
+  top: 20px;
+  position: absolute;
+}
+/* line 21, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+header .face {
+  width: 100%;
+  height: 100%;
   background: url(../img/header.png);
   border: 5px solid whitesmoke;
-  border-radius: 10px;
-  content: "";
-  display: block;
+  border-radius: 50%;
+  position: relative;
 }
-/* line 44, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
-header .watch .face .map-thumb, header .watch .face:before {
+/* line 29, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+header .face:after {
   position: absolute;
-  top: 15px;
-  left: 15px;
-  width: 220px;
-  height: 220px;
-  background: whitesmoke;
-  border-radius: 115px;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  margin: -5px 0 0 -5px;
+  background: url(../img/header.png);
+  border-radius: 5px;
   content: "";
   display: block;
 }
-/* line 57, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
-header .watch #hour {
+/* line 43, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+header .face .map-thumb, header .face:before {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  background: whitesmoke;
+  border-radius: 50%;
+  content: "";
+  display: block;
+}
+/* line 56, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+header #hour {
   width: 0;
   height: 0;
   position: absolute;
   top: 50%;
   left: 50%;
-  margin: -5px 0 -5px -70px;
-  padding: 5px 0 5px 70px;
+  margin: -5px 0 -5px -25%;
+  padding: 5px 0 5px 25%;
   background: #222;
   -webkit-transform-origin: 100% 50%;
   -moz-transform-origin: 100% 50%;
   -ms-transform-origin: 100% 50%;
   transform-origin: 100% 50%;
+  border-radius: 5px 0 0 5px;
 }
 /* line 69, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
-header .watch #minute {
+header #minute {
   width: 0;
   height: 0;
   position: absolute;
   top: 50%;
   left: 50%;
-  margin: -105px -5px 0;
-  padding: 105px 5px 0;
+  margin: -40% -5px 0;
+  padding: 40% 5px 0;
+  background: #222;
+  -webkit-transform-origin: 50% 100%;
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  border-radius: 5px 5px 0 0;
+}
+/* line 82, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+header #second {
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -40% -1px 0 0;
+  padding: 40% 1px 0;
   background: #222;
   -webkit-transform-origin: 50% 100%;
   -moz-transform-origin: 50% 100%;
   -ms-transform-origin: 50% 100%;
   transform-origin: 50% 100%;
 }
-/* line 81, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
-header .watch #second {
-  width: 0;
-  height: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin: -105px -1px 0 0;
-  padding: 105px 1px 0 0;
-  background: #222;
-  -webkit-transform-origin: 50% 100%;
-  -moz-transform-origin: 50% 100%;
-  -ms-transform-origin: 50% 100%;
-  transform-origin: 50% 100%;
+/* line 94, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+header .title {
+  padding-left: 300px;
+  height: 300px;
+  display: table;
 }
-/* line 93, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
-header .watch h1 {
+/* line 99, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+header .title .title-inset {
+  display: table-cell;
+  vertical-align: middle;
+}
+/* line 104, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+header .title h1 {
   line-height: 80px;
   font-size: 60px;
   margin: 0;
   font-weight: 100;
-  color: whitesmoke;
 }
-/* line 100, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
-header .watch h1 span {
+/* line 110, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+header .title h1 span {
   font-size: 30px;
   padding: 0 10px;
-  color: #666;
+  color: #999;
 }
-/* line 108, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
-header h2 {
-  margin: 0 0 0 5%;
-  padding: 20px 0 0 320px;
+/* line 117, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+header .title h2 {
   color: #222;
-  min-height: 100px;
+  font-weight: 300;
+  margin: 0;
 }
-/* line 115, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
-header .share {
-  position: absolute;
-  top: 100px;
-  right: 30px;
-}
-/* line 121, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
-header aside {
+
+/* line 125, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+aside {
   width: 400px;
   margin: 0 auto;
   padding: 20px 0;
+  overflow: hidden;
 }
-/* line 126, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
-header aside a {
+/* line 131, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+aside a {
   display: block;
   width: 200px;
   float: left;
@@ -681,144 +687,25 @@ header aside a {
   color: #ccc;
   padding: 20px 0;
 }
-/* line 138, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
-header aside a + a {
+/* line 143, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+aside a + a {
   border-left: 0;
   border-radius: 0 5px 5px 0;
   background: #fff;
   color: #666;
   border: 1px solid #999;
 }
-/* line 146, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
-header aside a:hover {
+/* line 151, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+aside a:hover {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
-/* line 151, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
-header aside .share {
-  height: 60px;
-  text-align: center;
-}
-@media screen and (min-width: 481px) and (max-width: 768px) {
-  /* line 158, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
-  header .watch {
-    height: 60px;
-  }
-  /* line 161, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
-  header .watch .band {
-    margin: -10px 20px -10px 20px;
-    width: 200px;
-    height: 80px;
-  }
-  /* line 167, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
-  header .watch .face {
-    width: 160px;
-    height: 160px;
-    margin: -45px auto 0;
-    border-radius: 130px;
-  }
-  /* line 173, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
-  header .watch .face:after {
-    top: 65px;
-    left: 65px;
-    width: 10px;
-    height: 10px;
-    border-radius: 10px;
-  }
-  /* line 181, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
-  header .watch .face:before {
-    top: 15px;
-    left: 15px;
-    width: 120px;
-    height: 120px;
-    border-radius: 115px;
-  }
-  /* line 190, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
-  header .watch #hour {
-    margin: -5px 0 -5px -30px;
-    padding: 5px 0 5px 30px;
-  }
-  /* line 195, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
-  header .watch #minute {
-    margin: -55px -5px 0;
-    padding: 55px 5px 0;
-  }
-  /* line 200, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
-  header .watch #second {
-    margin: -55px -1px 0 0;
-    padding: 55px 1px 0 0;
-  }
-  /* line 205, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
-  header .watch h1 {
-    line-height: 60px;
-    font-size: 40px;
-  }
-  /* line 211, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
-  header h2 {
-    margin: 0;
-    padding: 10px 0 0 220px;
-    color: #222;
-    min-height: 100px;
-  }
-}
-@media screen and (max-width: 480px) {
-  /* line 1, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
-  header {
-    height: auto;
-    min-height: 0px;
-  }
-  /* line 223, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
-  header .watch {
-    position: relative;
-    margin-bottom: 100px;
-  }
-  /* line 227, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
-  header .watch .band {
-    margin: 0 auto;
-    position: relative;
-    top: -10px;
-    float: none;
-  }
-  /* line 234, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
-  header .watch h1 {
-    position: absolute;
-    top: -180px;
-    left: 0;
-    right: 0;
-    text-align: center;
-    color: #222;
-    text-shadow: none;
-  }
-  /* line 245, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
-  header hgroup {
-    float: none;
-    width: 100%;
-  }
-  /* line 250, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
-  header aside {
-    width: auto;
-    margin: 0 10px;
-  }
-  /* line 254, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
-  header aside a {
-    width: 50%;
-  }
-  /* line 259, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
-  header h2 {
-    padding: 0;
-    margin: 0 20px;
-  }
-  /* line 264, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
-  header .share {
-    display: none;
-  }
-}
 
-/* line 275, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
-.is-timezone header .watch .face:before, .is-timezone header .watch .face:after {
+/* line 162, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+.is-timezone header .circle .face:before, .is-timezone header .circle .face:after {
   display: none;
 }
-/* line 279, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
-.is-timezone header .watch .face .map-thumb {
+/* line 166, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+.is-timezone header .circle .face .map-thumb {
   background: url(../img/world.png);
   background-size: cover;
   background-position: 25% 0;
@@ -837,71 +724,52 @@ header aside .share {
 }
 
 @-moz-keyframes map {
-  /* line 294, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+  /* line 181, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
   from {
     background-position: 625% 0;
   }
 
-  /* line 297, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+  /* line 184, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
   to {
     background-position: 25% 0;
   }
 }
 
 @-webkit-keyframes map {
-  /* line 294, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+  /* line 181, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
   from {
     background-position: 625% 0;
   }
 
-  /* line 297, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+  /* line 184, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
   to {
     background-position: 25% 0;
   }
 }
 
 @keyframes map {
-  /* line 294, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+  /* line 181, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
   from {
     background-position: 625% 0;
   }
 
-  /* line 297, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+  /* line 184, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
   to {
     background-position: 25% 0;
   }
 }
 
-/* line 302, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
-footer {
-  background: url(../img/header.png);
-  padding: 40px;
-  color: #fff;
-  font-weight: 100;
-  font-size: 30px;
-  text-align: center;
-}
-
-/* line 2, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+/* line 5, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
 .is-timezone .timezone-nav,
-.is-core .core-nav {
-  background: whitesmoke;
-  color: #333;
-}
-
-/* line 8, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+.is-core .core-nav,
 .is-home .home-nav,
-.is-test .test-nav {
+.is-test .test-nav,
+.is-docs .docs-nav {
   background: whitesmoke;
   color: #333;
 }
 
-/* line 13, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
-.is-docs .docs-nav {
-  background: #333;
-}
-
-/* line 17, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+/* line 10, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
 nav.top {
   height: 50px;
   background: #111;
@@ -910,18 +778,25 @@ nav.top {
   left: 0;
   right: 0;
   padding: 0 20px;
-  font-weight: 200;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 300;
   z-index: 2001;
 }
-/* line 28, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+/* line 22, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
 nav.top a {
   float: left;
   color: #ccc;
-  line-height: 50px;
+  margin: 5px 0 5px 5px;
+  line-height: 40px;
   padding: 0 15px;
   text-decoration: none;
   font-size: 16px;
   display: block;
+}
+/* line 32, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+nav.top a.logo {
+  margin: 0;
+  line-height: 50px;
 }
 /* line 37, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
 nav.top a:hover {
@@ -929,45 +804,33 @@ nav.top a:hover {
   color: #333;
 }
 /* line 43, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
-nav.top .logos {
-  float: left;
-}
-/* line 46, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
-nav.top .logos a {
-  font-size: 20px;
-}
-/* line 51, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
-nav.top .pages {
-  float: right;
-}
-/* line 55, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
 nav.top iframe {
   margin: 14px 0 0 15px;
   float: right;
 }
 @media screen and (min-width: 481px) and (max-width: 768px) {
-  /* line 17, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+  /* line 10, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
   nav.top {
     padding: 0 10px;
   }
-  /* line 63, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+  /* line 51, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
   nav.top a {
     padding: 0 10px;
   }
-  /* line 67, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+  /* line 55, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
   nav.top iframe {
     display: none;
   }
 }
 @media screen and (max-width: 480px) {
-  /* line 17, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+  /* line 10, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
   nav.top {
     height: auto;
     padding: 0;
     position: static;
     overflow: hidden;
   }
-  /* line 78, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+  /* line 66, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
   nav.top a {
     float: none;
     border: 0;
@@ -977,57 +840,60 @@ nav.top iframe {
     text-decoration: none;
     font-size: 14px;
   }
-  /* line 87, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+  /* line 75, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
   nav.top a.logo {
     border-bottom: 1px solid #000;
   }
-  /* line 94, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+  /* line 82, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
   nav.top a.docs, nav.top a.test, nav.top a.github, nav.top a.twitter {
     float: left;
     width: 23%;
     text-align: center;
   }
-  /* line 102, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+  /* line 90, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
   nav.top a.test, nav.top a.github, nav.top a.twitter {
     border: 0;
     border-left: 1px solid #000;
   }
-  /* line 107, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+  /* line 95, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
   nav.top a.twitter {
     width: 31%;
   }
-  /* line 112, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+  /* line 100, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
   nav.top iframe {
     display: none;
   }
 }
 
-/* line 119, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+/* line 107, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
 nav.subnav {
-  height: 40px;
-  background: #333;
+  height: 45px;
+  background: whitesmoke;
+  color: #333;
   position: fixed;
   top: 50px;
   left: 0;
   right: 0;
   padding: 0 20px;
-  font-weight: 200;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 300;
   z-index: 2000;
+  border-bottom: 5px solid #111;
 }
 @media screen and (max-width: 480px) {
-  /* line 119, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+  /* line 107, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
   nav.subnav {
     display: none;
   }
 }
-/* line 134, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+/* line 125, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
 nav.subnav .section {
   display: inline-block;
   height: 40px;
   line-height: 40px;
   position: relative;
 }
-/* line 140, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+/* line 131, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
 nav.subnav .section a {
   padding: 0 5px;
   text-decoration: none;
@@ -1035,12 +901,11 @@ nav.subnav .section a {
   border-width: 0 1px;
   display: block;
   font-size: 14px;
-  color: #ccc;
 }
-/* line 150, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+/* line 140, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
 nav.subnav .section .dropdown {
   position: absolute;
-  top: 40px;
+  top: 41px;
   left: 0;
   background: #fff;
   min-width: 100%;
@@ -1051,34 +916,35 @@ nav.subnav .section .dropdown {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 161, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+/* line 151, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
 nav.subnav .section .dropdown a {
   padding: 0 10px;
   white-space: nowrap;
   line-height: 30px;
   color: #333;
 }
-/* line 167, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+/* line 157, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
 nav.subnav .section .dropdown a:hover {
   background: #eee;
 }
-/* line 174, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+/* line 164, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
 nav.subnav .section:hover > a {
   border-color: #333;
+  padding-bottom: 1px;
   background: #fff;
   color: #333;
 }
-/* line 179, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+/* line 170, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
 nav.subnav .section:hover .dropdown {
   display: block;
 }
 @media screen and (min-width: 481px) and (max-width: 768px) {
-  /* line 119, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+  /* line 107, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
   nav.subnav {
     padding: 0 10px;
     height: auto;
   }
-  /* line 190, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+  /* line 181, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
   nav.subnav .section a {
     padding: 0 5px;
     font-size: 14px;

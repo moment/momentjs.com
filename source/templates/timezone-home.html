@@ -8,6 +8,10 @@
 	<h2>Timezone support for Moment.js</h2>
 {% endblock header %}
 
+{% block scripts %}
+	<script src="/static/js/timezone-home.js?v={{ cachebust }}"></script>
+{% endblock scripts %}
+
 {% block content %}
 	<div class="map">
 		<div class="map-inset">
@@ -15,7 +19,3 @@
 		</div>
 	</div>
 {% endblock content %}
-
-{% block scripts %}
-	<script src="/static/js/timezone-home.min.js?v={{ cachebust }}"></script>
-{% endblock scripts %}

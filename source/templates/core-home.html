@@ -11,6 +11,10 @@
 	</h2>
 {% endblock header %}
 
+{% block scripts %}
+	<script src="/static/js/core-home.js?v={{ cachebust }}"></script>
+{% endblock scripts %}
+
 {% block content %}
 	<div class="examples">
 		<article>
