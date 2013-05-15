@@ -40,6 +40,7 @@ header {
 				display: block;
 			}
 
+			.map-thumb,
 			&:before {
 				position: absolute;
 				top: 15px;
@@ -270,16 +271,31 @@ header {
 	header {
 		.watch {
 			.face {
+				&:before,
 				&:after {
-					border: 0;
+					display: none;
 				}
 
-				&:before {
-					background: url(../img/world.png) 50% 50% no-repeat;
+				.map-thumb {
+					background: url(../img/world.png);
 					background-size: cover;
+					background-position: 25% 0;
+					@include animation-iteration-count(1);
+					@include animation-duration(3s);
+					@include animation-delay(2s);
+					@include animation-name(map);
 				}
 			}
 		}
+	}
+}
+
+@include keyframes("map") {
+	from {
+		background-position: 625% 0;
+	}
+	to {
+		background-position: 25% 0;
 	}
 }
 

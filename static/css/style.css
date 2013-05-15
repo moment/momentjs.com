@@ -578,8 +578,8 @@ header .watch .face:after {
   content: "";
   display: block;
 }
-/* line 43, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
-header .watch .face:before {
+/* line 44, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+header .watch .face .map-thumb, header .watch .face:before {
   position: absolute;
   top: 15px;
   left: 15px;
@@ -590,7 +590,7 @@ header .watch .face:before {
   content: "";
   display: block;
 }
-/* line 56, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+/* line 57, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
 header .watch #hour {
   width: 0;
   height: 0;
@@ -605,7 +605,7 @@ header .watch #hour {
   -ms-transform-origin: 100% 50%;
   transform-origin: 100% 50%;
 }
-/* line 68, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+/* line 69, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
 header .watch #minute {
   width: 0;
   height: 0;
@@ -620,7 +620,7 @@ header .watch #minute {
   -ms-transform-origin: 50% 100%;
   transform-origin: 50% 100%;
 }
-/* line 80, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+/* line 81, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
 header .watch #second {
   width: 0;
   height: 0;
@@ -635,7 +635,7 @@ header .watch #second {
   -ms-transform-origin: 50% 100%;
   transform-origin: 50% 100%;
 }
-/* line 92, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+/* line 93, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
 header .watch h1 {
   line-height: 80px;
   font-size: 60px;
@@ -643,32 +643,32 @@ header .watch h1 {
   font-weight: 100;
   color: whitesmoke;
 }
-/* line 99, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+/* line 100, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
 header .watch h1 span {
   font-size: 30px;
   padding: 0 10px;
   color: #666;
 }
-/* line 107, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+/* line 108, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
 header h2 {
   margin: 0 0 0 5%;
   padding: 20px 0 0 320px;
   color: #222;
   min-height: 100px;
 }
-/* line 114, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+/* line 115, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
 header .share {
   position: absolute;
   top: 100px;
   right: 30px;
 }
-/* line 120, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+/* line 121, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
 header aside {
   width: 400px;
   margin: 0 auto;
   padding: 20px 0;
 }
-/* line 125, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+/* line 126, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
 header aside a {
   display: block;
   width: 200px;
@@ -681,7 +681,7 @@ header aside a {
   color: #ccc;
   padding: 20px 0;
 }
-/* line 137, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+/* line 138, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
 header aside a + a {
   border-left: 0;
   border-radius: 0 5px 5px 0;
@@ -689,34 +689,34 @@ header aside a + a {
   color: #666;
   border: 1px solid #999;
 }
-/* line 145, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+/* line 146, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
 header aside a:hover {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
-/* line 150, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+/* line 151, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
 header aside .share {
   height: 60px;
   text-align: center;
 }
 @media screen and (min-width: 481px) and (max-width: 768px) {
-  /* line 157, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+  /* line 158, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
   header .watch {
     height: 60px;
   }
-  /* line 160, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+  /* line 161, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
   header .watch .band {
     margin: -10px 20px -10px 20px;
     width: 200px;
     height: 80px;
   }
-  /* line 166, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+  /* line 167, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
   header .watch .face {
     width: 160px;
     height: 160px;
     margin: -45px auto 0;
     border-radius: 130px;
   }
-  /* line 172, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+  /* line 173, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
   header .watch .face:after {
     top: 65px;
     left: 65px;
@@ -724,7 +724,7 @@ header aside .share {
     height: 10px;
     border-radius: 10px;
   }
-  /* line 180, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+  /* line 181, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
   header .watch .face:before {
     top: 15px;
     left: 15px;
@@ -732,27 +732,27 @@ header aside .share {
     height: 120px;
     border-radius: 115px;
   }
-  /* line 189, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+  /* line 190, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
   header .watch #hour {
     margin: -5px 0 -5px -30px;
     padding: 5px 0 5px 30px;
   }
-  /* line 194, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+  /* line 195, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
   header .watch #minute {
     margin: -55px -5px 0;
     padding: 55px 5px 0;
   }
-  /* line 199, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+  /* line 200, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
   header .watch #second {
     margin: -55px -1px 0 0;
     padding: 55px 1px 0 0;
   }
-  /* line 204, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+  /* line 205, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
   header .watch h1 {
     line-height: 60px;
     font-size: 40px;
   }
-  /* line 210, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+  /* line 211, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
   header h2 {
     margin: 0;
     padding: 10px 0 0 220px;
@@ -766,19 +766,19 @@ header aside .share {
     height: auto;
     min-height: 0px;
   }
-  /* line 222, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+  /* line 223, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
   header .watch {
     position: relative;
     margin-bottom: 100px;
   }
-  /* line 226, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+  /* line 227, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
   header .watch .band {
     margin: 0 auto;
     position: relative;
     top: -10px;
     float: none;
   }
-  /* line 233, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+  /* line 234, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
   header .watch h1 {
     position: absolute;
     top: -180px;
@@ -788,42 +788,91 @@ header aside .share {
     color: #222;
     text-shadow: none;
   }
-  /* line 244, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+  /* line 245, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
   header hgroup {
     float: none;
     width: 100%;
   }
-  /* line 249, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+  /* line 250, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
   header aside {
     width: auto;
     margin: 0 10px;
   }
-  /* line 253, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+  /* line 254, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
   header aside a {
     width: 50%;
   }
-  /* line 258, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+  /* line 259, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
   header h2 {
     padding: 0;
     margin: 0 20px;
   }
-  /* line 263, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+  /* line 264, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
   header .share {
     display: none;
   }
 }
 
-/* line 273, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
-.is-timezone header .watch .face:after {
-  border: 0;
+/* line 275, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+.is-timezone header .watch .face:before, .is-timezone header .watch .face:after {
+  display: none;
 }
-/* line 277, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
-.is-timezone header .watch .face:before {
-  background: url(../img/world.png) 50% 50% no-repeat;
+/* line 279, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+.is-timezone header .watch .face .map-thumb {
+  background: url(../img/world.png);
   background-size: cover;
+  background-position: 25% 0;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-duration: 3s;
+  -moz-animation-duration: 3s;
+  animation-duration: 3s;
+  -webkit-animation-delay: 2s;
+  -moz-animation-delay: 2s;
+  animation-delay: 2s;
+  -webkit-animation-name: map;
+  -moz-animation-name: map;
+  animation-name: map;
 }
 
-/* line 286, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+@-moz-keyframes map {
+  /* line 294, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+  from {
+    background-position: 625% 0;
+  }
+
+  /* line 297, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+  to {
+    background-position: 25% 0;
+  }
+}
+
+@-webkit-keyframes map {
+  /* line 294, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+  from {
+    background-position: 625% 0;
+  }
+
+  /* line 297, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+  to {
+    background-position: 25% 0;
+  }
+}
+
+@keyframes map {
+  /* line 294, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+  from {
+    background-position: 625% 0;
+  }
+
+  /* line 297, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+  to {
+    background-position: 25% 0;
+  }
+}
+
+/* line 302, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
 footer {
   background: url(../img/header.png);
   padding: 40px;
@@ -1046,7 +1095,7 @@ nav.subnav .section:hover .dropdown {
 /* line 7, /Users/tim.wood/github/momentjs.com/source/css/_map.scss */
 .map-inset {
   padding-bottom: 50%;
-  background: url(../img/world.png) 50% 50% no-repeat;
+  background: url(../img/world.png) 50% 50%;
   background-size: cover;
 }
 
