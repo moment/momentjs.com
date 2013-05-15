@@ -1,25 +1,16 @@
 (function(){
 
-    var currentZone = 'America/Los_Angeles';
+    var currentZone = 'America/Los_Angeles',
+        width = $('.map-inset').outerWidth(),
+        height = $('.map-inset').outerHeight();
 
-    function update(){
-        $('#js-zone').html(moment().tz(currentZone).format());
-        $('.zone-name').html(currentZone);
-    }
+    console.log(width, height);
 
-    function timedUpdate () {
-        update();
-        setTimeout(timedUpdate, 1000);
-    }
+    $('.map-inset').mousemove(function(e){
+        var x = e.pageX - this.offsetLeft,
+            y = e.pageY - this.offsetTop;
 
-    timedUpdate();
-
-    $(document).on('click', '[data-zone]', function(){
-        var dom = $(this);
-        currentZone = dom.data('zone');
-        $('[data-zone]').removeClass('active');
-        dom.addClass('active');
-        update();
+        console.log(x / width, y / height);
     });
 
 })();

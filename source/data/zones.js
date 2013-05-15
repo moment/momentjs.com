@@ -1,4 +1,4 @@
-var data = require("../../libs/moment-timezone/zones/all");
+var data = require("../../libs/moment-timezone/moment-timezone.json");
 
 module.exports = [];
 

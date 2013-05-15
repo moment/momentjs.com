@@ -8,12 +8,12 @@ module.exports = function(grunt) {
 			},
 			core_test: {
 				src: [
-					'source/js/iife_start.js',
+					'source/js/test-start.js',
 					'libs/nodeunit/nodeunit.js',
 					'libs/moment/test/moment/*.js',
 					'libs/moment/test/lang/*.js',
 					'source/js/test.js',
-					'source/js/iife_end.js'
+					'source/js/test-end.js'
 				],
 				dest: 'static/js/core-test.js'
 			},
@@ -23,11 +23,11 @@ module.exports = function(grunt) {
 			},
 			timezone_test: {
 				src: [
-					'source/js/iife_start.js',
+					'source/js/test-start.js',
 					'libs/nodeunit/nodeunit.js',
 					'libs/moment-timezone/tests/**/*.js',
 					'source/js/test.js',
-					'source/js/iife_end.js'
+					'source/js/test-end.js'
 				],
 				dest: 'static/js/timezone-test.js'
 			},
@@ -36,7 +36,9 @@ module.exports = function(grunt) {
 					'libs/moment/moment.js',
 					'libs/moment/min/langs.js',
 					'libs/moment-timezone/moment-timezone.js',
-					'libs/moment-timezone/zones/all.browser.js'
+					'source/js/timezone-data-start.js',
+					'libs/moment-timezone/moment-timezone.json',
+					'source/js/timezone-data-end.js'
 				],
 				dest: 'static/js/global.js'
 			}
