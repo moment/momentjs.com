@@ -64,28 +64,19 @@ module.exports = function(grunt) {
 			]
 		},
 		watch: {
-			compass: {
+			css: {
 				files: [
 					'source/css/*',
 					'source/css/**/*'
 				],
 				tasks: 'compass'
 			},
-			concat: {
+			js: {
 				files: [
-					'<config:concat.tests.src>',
-					'<config:concat.langs.src>',
-					'<config:concat.moment.src>'
+					'source/**/*.js',
+					'libs/**/*.js'
 				],
-				tasks: 'concat'
-			},
-			min: {
-				files: '<config:min.home.src>',
-				tasks: 'min'
-			},
-			html: {
-				files: "<config:html.files>",
-				tasks: 'html'
+				tasks: ['concat', 'uglify']
 			}
 		}
 	});

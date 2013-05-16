@@ -956,13 +956,62 @@ nav.subnav .section:hover .dropdown {
   background: url(../img/header.png);
   padding: 5px;
   border-radius: 3px;
+  margin-top: 60px;
+  position: relative;
 }
 
-/* line 7, /Users/tim.wood/github/momentjs.com/source/css/_map.scss */
+/* line 9, /Users/tim.wood/github/momentjs.com/source/css/_map.scss */
+.map-label {
+  background: whitesmoke;
+  border: 5px solid #111;
+  line-height: 60px;
+  height: 70px;
+  top: -45px;
+  left: 10%;
+  right: 10%;
+  position: absolute;
+  border-radius: 3px;
+  margin: 0;
+}
+/* line 21, /Users/tim.wood/github/momentjs.com/source/css/_map.scss */
+.map-label span {
+  position: absolute;
+  top: 0;
+  width: 50%;
+}
+/* line 26, /Users/tim.wood/github/momentjs.com/source/css/_map.scss */
+.map-label span.map-label-name {
+  left: 0;
+  padding-right: 10px;
+  text-align: right;
+}
+/* line 32, /Users/tim.wood/github/momentjs.com/source/css/_map.scss */
+.map-label span.map-label-time {
+  right: 0;
+  padding-left: 10px;
+  text-align: left;
+}
+
+/* line 40, /Users/tim.wood/github/momentjs.com/source/css/_map.scss */
 .map-inset {
   padding-bottom: 50%;
   background: url(../img/world.png) 50% 50%;
   background-size: cover;
+  position: relative;
+}
+/* line 46, /Users/tim.wood/github/momentjs.com/source/css/_map.scss */
+.map-inset span {
+  width: 6px;
+  height: 6px;
+  margin: -3px 0 0 -3px;
+  background: #fff;
+  position: absolute;
+  border-radius: 3px;
+  border: 1px solid #111;
+}
+/* line 55, /Users/tim.wood/github/momentjs.com/source/css/_map.scss */
+.map-inset span.active {
+  background: #f00;
 }
 
 /* line 1, /Users/tim.wood/github/momentjs.com/source/css/pages/_home.scss */

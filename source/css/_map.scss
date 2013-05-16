@@ -2,10 +2,58 @@
 	background: url(../img/header.png);
 	padding: 5px;
 	border-radius: 3px;
+	margin-top: 60px;
+	position: relative;
+}
+
+.map-label {
+	background: $background-color;
+	border: 5px solid #111;
+	line-height: 60px;
+	height: 70px;
+	top: -45px;
+	left: 10%;
+	right: 10%;
+	position: absolute;
+	border-radius: 3px;
+	margin: 0;
+
+	span {
+		position: absolute;
+		top: 0;
+		width: 50%;
+
+		&.map-label-name {
+			left: 0;
+			padding-right: 10px;
+			text-align: right;
+		}
+
+		&.map-label-time {
+			right: 0;
+			padding-left: 10px;
+			text-align: left;
+		}
+	}
 }
 
 .map-inset {
 	padding-bottom: 50%;
 	background: url(../img/world.png) 50% 50%;
 	background-size: cover;
+	position: relative;
+
+	span {
+		width: 6px;
+		height: 6px;
+		margin: -3px 0 0 -3px;
+		background: #fff;
+		position: absolute;
+		border-radius: 3px;
+		border: 1px solid #111;
+
+		&.active {
+			background: #f00;
+		}
+	}
 }

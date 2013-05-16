@@ -5361,6 +5361,18 @@ moment.lang('en');
 			return zoneSets[name];
 		}
 
+		function add (data) {
+			if (!data) {
+				return;
+			}
+			if (data.zones) {
+				addZones(data.zones);
+			}
+			if (data.rules) {
+				addRules(data.rules);
+			}
+		}
+
 		// overwrite moment.updateOffset
 		moment.updateOffset = function (mom) {
 			var offset;
@@ -5374,8 +5386,10 @@ moment.lang('en');
 		};
 
 		moment.fn.tz = function (name) {
-			this._z = getZoneSet(name);
-			moment.updateOffset(this);
+			this._z = zoneSets[normalizeName(name)];
+			if (this._z) {
+				moment.updateOffset(this);
+			}
 			return this;
 		};
 
@@ -5393,14 +5407,17 @@ moment.lang('en');
 			return oldZoneAbbr.call(this);
 		};
 
-		moment.tz = {
-			addRules   : addRules,
-			addRule    : addRule,
-			getRuleSet : getRuleSet,
-			addZones   : addZones,
-			addZone    : addZone,
-			getZoneSet : getZoneSet
+		moment.tz = function () {
+			var args = [], i, len = arguments.length - 1;
+			for (i = 0; i < len; i++) {
+				args[i] = arguments[i];
+			}
+			return moment.apply(null, args).tz(arguments[len]);
 		};
+
+		moment.tz.add = add;
+		moment.tz.addRule = addRule;
+		moment.tz.addZone = addZone;
 
 		// add default rule
 		defaultRule = addRule("- 0 9999 0 0 0 0 0 0");
@@ -5409,7 +5426,7 @@ moment.lang('en');
 	}
 
 	if (typeof define === "function" && define.amd) {
-		define(["moment"], onload);
+		define("moment-timezone", ["moment"], onload);
 	} else if (typeof window !== "undefined" && window.moment) {
 		onload(window.moment);
 	} else if (typeof module !== 'undefined') {
@@ -5423,1568 +5440,1568 @@ moment.lang('en');
 {
 	"meta": {
 		"Africa/Abidjan": {
-			"lat": 519,
-			"lon": -402,
+			"lat": 5.3167,
+			"lon": -3.9667,
 			"rules": ""
 		},
 		"Africa/Accra": {
-			"lat": 533,
-			"lon": -13,
+			"lat": 5.55,
+			"lon": 0.2167,
 			"rules": "Ghana"
 		},
 		"Africa/Addis_Ababa": {
-			"lat": 902,
-			"lon": 3842,
+			"lat": 9.0333,
+			"lon": 38.7,
 			"rules": ""
 		},
 		"Africa/Algiers": {
-			"lat": 3647,
-			"lon": 303,
+			"lat": 36.7833,
+			"lon": 3.05,
 			"rules": "Algeria"
 		},
 		"Africa/Asmara": {
-			"lat": 1520,
-			"lon": 3853,
+			"lat": 15.3333,
+			"lon": 38.8833,
 			"rules": ""
 		},
 		"Africa/Bamako": {
-			"lat": 1239,
-			"lon": -800,
+			"lat": 12.65,
+			"lon": -8,
 			"rules": ""
 		},
 		"Africa/Bangui": {
-			"lat": 422,
-			"lon": 1835,
+			"lat": 4.3667,
+			"lon": 18.5833,
 			"rules": ""
 		},
 		"Africa/Banjul": {
-			"lat": 1328,
-			"lon": -1639,
+			"lat": 13.4667,
+			"lon": -15.35,
 			"rules": ""
 		},
 		"Africa/Bissau": {
-			"lat": 1151,
-			"lon": -1535,
+			"lat": 11.85,
+			"lon": -14.4167,
 			"rules": ""
 		},
 		"Africa/Blantyre": {
-			"lat": -1547,
-			"lon": 3500,
+			"lat": -14.2167,
+			"lon": 35,
 			"rules": ""
 		},
 		"Africa/Brazzaville": {
-			"lat": -416,
-			"lon": 1517,
+			"lat": -3.7333,
+			"lon": 15.2833,
 			"rules": ""
 		},
 		"Africa/Bujumbura": {
-			"lat": -323,
-			"lon": 2922,
+			"lat": -2.6167,
+			"lon": 29.3667,
 			"rules": ""
 		},
 		"Africa/Cairo": {
-			"lat": 3003,
-			"lon": 3115,
+			"lat": 30.05,
+			"lon": 31.25,
 			"rules": "Egypt"
 		},
 		"Africa/Casablanca": {
-			"lat": 3339,
-			"lon": -735,
+			"lat": 33.65,
+			"lon": -6.4167,
 			"rules": "Morocco"
 		},
 		"Africa/Ceuta": {
-			"lat": 3553,
-			"lon": -519,
+			"lat": 35.8833,
+			"lon": -4.6833,
 			"rules": "Spain SpainAfrica EU"
 		},
 		"Africa/Conakry": {
-			"lat": 931,
-			"lon": -1343,
+			"lat": 9.5167,
+			"lon": -12.2833,
 			"rules": ""
 		},
 		"Africa/Dakar": {
-			"lat": 1440,
-			"lon": -1726,
+			"lat": 14.6667,
+			"lon": -16.5667,
 			"rules": ""
 		},
 		"Africa/Dar_es_Salaam": {
-			"lat": -648,
-			"lon": 3917,
+			"lat": -5.2,
+			"lon": 39.2833,
 			"rules": ""
 		},
 		"Africa/Djibouti": {
-			"lat": 1136,
-			"lon": 4309,
+			"lat": 11.6,
+			"lon": 43.15,
 			"rules": ""
 		},
 		"Africa/Douala": {
-			"lat": 403,
-			"lon": 942,
+			"lat": 4.05,
+			"lon": 9.7,
 			"rules": ""
 		},
 		"Africa/El_Aaiun": {
-			"lat": 2709,
-			"lon": -1312,
+			"lat": 27.15,
+			"lon": -12.8,
 			"rules": ""
 		},
 		"Africa/Freetown": {
-			"lat": 830,
-			"lon": -1315,
+			"lat": 8.5,
+			"lon": -12.75,
 			"rules": "SL"
 		},
 		"Africa/Gaborone": {
-			"lat": -2439,
-			"lon": 2555,
+			"lat": -23.35,
+			"lon": 25.9167,
 			"rules": ""
 		},
 		"Africa/Harare": {
-			"lat": -1750,
-			"lon": 3103,
+			"lat": -16.1667,
+			"lon": 31.05,
 			"rules": ""
 		},
 		"Africa/Johannesburg": {
-			"lat": -2615,
-			"lon": 2800,
+			"lat": -25.75,
+			"lon": 28,
 			"rules": "SA"
 		},
 		"Africa/Juba": {
-			"lat": 451,
-			"lon": 3136,
+			"lat": 4.85,
+			"lon": 31.6,
 			"rules": "Sudan"
 		},
 		"Africa/Kampala": {
-			"lat": 19,
-			"lon": 3225,
+			"lat": 0.3167,
+			"lon": 32.4167,
 			"rules": ""
 		},
 		"Africa/Khartoum": {
-			"lat": 1536,
-			"lon": 3232,
+			"lat": 15.6,
+			"lon": 32.5333,
 			"rules": "Sudan"
 		},
 		"Africa/Kigali": {
-			"lat": -157,
-			"lon": 3004,
+			"lat": -0.05,
+			"lon": 30.0667,
 			"rules": ""
 		},
 		"Africa/Kinshasa": {
-			"lat": -418,
-			"lon": 1518,
+			"lat": -3.7,
+			"lon": 15.3,
 			"rules": ""
 		},
 		"Africa/Lagos": {
-			"lat": 627,
-			"lon": 324,
+			"lat": 6.45,
+			"lon": 3.4,
 			"rules": ""
 		},
 		"Africa/Libreville": {
-			"lat": 23,
-			"lon": 927,
+			"lat": 0.3833,
+			"lon": 9.45,
 			"rules": ""
 		},
 		"Africa/Lome": {
-			"lat": 608,
-			"lon": 113,
+			"lat": 6.1333,
+			"lon": 1.2167,
 			"rules": ""
 		},
 		"Africa/Luanda": {
-			"lat": -848,
-			"lon": 1314,
+			"lat": -7.2,
+			"lon": 13.2333,
 			"rules": ""
 		},
 		"Africa/Lubumbashi": {
-			"lat": -1140,
-			"lon": 2728,
+			"lat": -10.3333,
+			"lon": 27.4667,
 			"rules": ""
 		},
 		"Africa/Lusaka": {
-			"lat": -1525,
-			"lon": 2817,
+			"lat": -14.5833,
+			"lon": 28.2833,
 			"rules": ""
 		},
 		"Africa/Malabo": {
-			"lat": 345,
-			"lon": 847,
+			"lat": 3.75,
+			"lon": 8.7833,
 			"rules": ""
 		},
 		"Africa/Maputo": {
-			"lat": -2558,
-			"lon": 3235,
+			"lat": -24.0333,
+			"lon": 32.5833,
 			"rules": ""
 		},
 		"Africa/Maseru": {
-			"lat": -2928,
-			"lon": 2730,
+			"lat": -28.5333,
+			"lon": 27.5,
 			"rules": ""
 		},
 		"Africa/Mbabane": {
-			"lat": -2618,
-			"lon": 3106,
+			"lat": -25.7,
+			"lon": 31.1,
 			"rules": ""
 		},
 		"Africa/Mogadishu": {
-			"lat": 204,
-			"lon": 4522,
+			"lat": 2.0667,
+			"lon": 45.3667,
 			"rules": ""
 		},
 		"Africa/Monrovia": {
-			"lat": 618,
-			"lon": -1047,
+			"lat": 6.3,
+			"lon": -9.2167,
 			"rules": ""
 		},
 		"Africa/Nairobi": {
-			"lat": -117,
-			"lon": 3649,
+			"lat": -0.7167,
+			"lon": 36.8167,
 			"rules": ""
 		},
 		"Africa/Ndjamena": {
-			"lat": 1207,
-			"lon": 1503,
+			"lat": 12.1167,
+			"lon": 15.05,
 			"rules": ""
 		},
 		"Africa/Niamey": {
-			"lat": 1331,
-			"lon": 207,
+			"lat": 13.5167,
+			"lon": 2.1167,
 			"rules": ""
 		},
 		"Africa/Nouakchott": {
-			"lat": 1806,
-			"lon": -1557,
+			"lat": 18.1,
+			"lon": -14.05,
 			"rules": ""
 		},
 		"Africa/Ouagadougou": {
-			"lat": 1222,
-			"lon": -131,
+			"lat": 12.3667,
+			"lon": -0.4833,
 			"rules": ""
 		},
 		"Africa/Porto-Novo": {
-			"lat": 629,
-			"lon": 237,
+			"lat": 6.4833,
+			"lon": 2.6167,
 			"rules": ""
 		},
 		"Africa/Sao_Tome": {
-			"lat": 20,
-			"lon": 644,
+			"lat": 0.3333,
+			"lon": 6.7333,
 			"rules": ""
 		},
 		"Africa/Tripoli": {
-			"lat": 3254,
-			"lon": 1311,
+			"lat": 32.9,
+			"lon": 13.1833,
 			"rules": "Libya"
 		},
 		"Africa/Tunis": {
-			"lat": 3648,
-			"lon": 1011,
+			"lat": 36.8,
+			"lon": 10.1833,
 			"rules": "Tunisia"
 		},
 		"Africa/Windhoek": {
-			"lat": -2234,
-			"lon": 1706,
+			"lat": -21.4333,
+			"lon": 17.1,
 			"rules": "Namibia"
 		},
 		"America/Adak": {
-			"lat": 515248,
-			"lon": -1763929,
+			"lat": 51.88,
+			"lon": -175.3419,
 			"rules": "US"
 		},
 		"America/Anchorage": {
-			"lat": 611305,
-			"lon": -1495401,
+			"lat": 61.2181,
+			"lon": -148.0997,
 			"rules": "US"
 		},
 		"America/Anguilla": {
-			"lat": 1812,
-			"lon": -6304,
+			"lat": 18.2,
+			"lon": -62.9333,
 			"rules": ""
 		},
 		"America/Antigua": {
-			"lat": 1703,
-			"lon": -6148,
+			"lat": 17.05,
+			"lon": -60.2,
 			"rules": ""
 		},
 		"America/Araguaina": {
-			"lat": -712,
-			"lon": -4812,
+			"lat": -6.8,
+			"lon": -47.8,
 			"rules": "Brazil"
 		},
 		"America/Argentina/Buenos_Aires": {
-			"lat": -3436,
-			"lon": -5827,
+			"lat": -33.4,
+			"lon": -57.55,
 			"rules": "Arg"
 		},
 		"America/Argentina/Catamarca": {
-			"lat": -2828,
-			"lon": -6547,
+			"lat": -27.5333,
+			"lon": -64.2167,
 			"rules": "Arg"
 		},
 		"America/Argentina/Cordoba": {
-			"lat": -3124,
-			"lon": -6411,
+			"lat": -30.6,
+			"lon": -63.8167,
 			"rules": "Arg"
 		},
 		"America/Argentina/Jujuy": {
-			"lat": -2411,
-			"lon": -6518,
+			"lat": -23.8167,
+			"lon": -64.7,
 			"rules": "Arg"
 		},
 		"America/Argentina/La_Rioja": {
-			"lat": -2926,
-			"lon": -6651,
+			"lat": -28.5667,
+			"lon": -65.15,
 			"rules": "Arg"
 		},
 		"America/Argentina/Mendoza": {
-			"lat": -3253,
-			"lon": -6849,
+			"lat": -31.1167,
+			"lon": -67.1833,
 			"rules": "Arg"
 		},
 		"America/Argentina/Rio_Gallegos": {
-			"lat": -5138,
-			"lon": -6913,
+			"lat": -50.3667,
+			"lon": -68.7833,
 			"rules": "Arg"
 		},
 		"America/Argentina/Salta": {
-			"lat": -2447,
-			"lon": -6525,
+			"lat": -23.2167,
+			"lon": -64.5833,
 			"rules": "Arg"
 		},
 		"America/Argentina/San_Juan": {
-			"lat": -3132,
-			"lon": -6831,
+			"lat": -30.4667,
+			"lon": -67.4833,
 			"rules": "Arg"
 		},
 		"America/Argentina/San_Luis": {
-			"lat": -3319,
-			"lon": -6621,
+			"lat": -32.6833,
+			"lon": -65.65,
 			"rules": "Arg SanLuis"
 		},
 		"America/Argentina/Tucuman": {
-			"lat": -2649,
-			"lon": -6513,
+			"lat": -25.1833,
+			"lon": -64.7833,
 			"rules": "Arg"
 		},
 		"America/Argentina/Ushuaia": {
-			"lat": -5448,
-			"lon": -6818,
+			"lat": -53.2,
+			"lon": -67.7,
 			"rules": "Arg"
 		},
 		"America/Aruba": {
-			"lat": 1230,
-			"lon": -6958,
+			"lat": 12.5,
+			"lon": -68.0333,
 			"rules": ""
 		},
 		"America/Asuncion": {
-			"lat": -2516,
-			"lon": -5740,
+			"lat": -24.7333,
+			"lon": -56.3333,
 			"rules": "Para"
 		},
 		"America/Atikokan": {
-			"lat": 484531,
-			"lon": -913718,
+			"lat": 48.7586,
+			"lon": -90.3783,
 			"rules": "Canada"
 		},
 		"America/Bahia": {
-			"lat": -1259,
-			"lon": -3831,
+			"lat": -11.0167,
+			"lon": -37.4833,
 			"rules": "Brazil"
 		},
 		"America/Bahia_Banderas": {
-			"lat": 2048,
-			"lon": -10515,
+			"lat": 20.8,
+			"lon": -104.75,
 			"rules": "Mexico"
 		},
 		"America/Barbados": {
-			"lat": 1306,
-			"lon": -5937,
+			"lat": 13.1,
+			"lon": -58.3833,
 			"rules": "Barb"
 		},
 		"America/Belem": {
-			"lat": -127,
-			"lon": -4829,
+			"lat": -0.55,
+			"lon": -47.5167,
 			"rules": "Brazil"
 		},
 		"America/Belize": {
-			"lat": 1730,
-			"lon": -8812,
+			"lat": 17.5,
+			"lon": -87.8,
 			"rules": "Belize"
 		},
 		"America/Blanc-Sablon": {
-			"lat": 5125,
-			"lon": -5707,
+			"lat": 51.4167,
+			"lon": -56.8833,
 			"rules": "Canada"
 		},
 		"America/Boa_Vista": {
-			"lat": 249,
-			"lon": -6040,
+			"lat": 2.8167,
+			"lon": -59.3333,
 			"rules": "Brazil"
 		},
 		"America/Bogota": {
-			"lat": 436,
-			"lon": -7405,
+			"lat": 4.6,
+			"lon": -73.9167,
 			"rules": "CO"
 		},
 		"America/Boise": {
-			"lat": 433649,
-			"lon": -1161209,
+			"lat": 43.6136,
+			"lon": -115.7975,
 			"rules": "US"
 		},
 		"America/Cambridge_Bay": {
-			"lat": 690650,
-			"lon": -1050310,
+			"lat": 69.1139,
+			"lon": -104.9472,
 			"rules": "NT_YK Canada"
 		},
 		"America/Campo_Grande": {
-			"lat": -2027,
-			"lon": -5437,
+			"lat": -19.55,
+			"lon": -53.3833,
 			"rules": "Brazil"
 		},
 		"America/Cancun": {
-			"lat": 2105,
-			"lon": -8646,
+			"lat": 21.0833,
+			"lon": -85.2333,
 			"rules": "Mexico"
 		},
 		"America/Caracas": {
-			"lat": 1030,
-			"lon": -6656,
+			"lat": 10.5,
+			"lon": -65.0667,
 			"rules": ""
 		},
 		"America/Cayenne": {
-			"lat": 456,
-			"lon": -5220,
+			"lat": 4.9333,
+			"lon": -51.6667,
 			"rules": ""
 		},
 		"America/Cayman": {
-			"lat": 1918,
-			"lon": -8123,
+			"lat": 19.3,
+			"lon": -80.6167,
 			"rules": ""
 		},
 		"America/Chicago": {
-			"lat": 415100,
-			"lon": -873900,
+			"lat": 41.85,
+			"lon": -86.35,
 			"rules": "US Chicago"
 		},
 		"America/Chihuahua": {
-			"lat": 2838,
-			"lon": -10605,
+			"lat": 28.6333,
+			"lon": -105.9167,
 			"rules": "Mexico"
 		},
 		"America/Costa_Rica": {
-			"lat": 956,
-			"lon": -8405,
+			"lat": 9.9333,
+			"lon": -83.9167,
 			"rules": "CR"
 		},
 		"America/Creston": {
-			"lat": 4906,
-			"lon": -11631,
+			"lat": 49.1,
+			"lon": -115.4833,
 			"rules": ""
 		},
 		"America/Cuiaba": {
-			"lat": -1535,
-			"lon": -5605,
+			"lat": -14.4167,
+			"lon": -55.9167,
 			"rules": "Brazil"
 		},
 		"America/Curacao": {
-			"lat": 1211,
-			"lon": -6900,
+			"lat": 12.1833,
+			"lon": -69,
 			"rules": ""
 		},
 		"America/Danmarkshavn": {
-			"lat": 7646,
-			"lon": -1840,
+			"lat": 76.7667,
+			"lon": -17.3333,
 			"rules": "EU"
 		},
 		"America/Dawson": {
-			"lat": 6404,
-			"lon": -13925,
+			"lat": 64.0667,
+			"lon": -138.5833,
 			"rules": "NT_YK Canada"
 		},
 		"America/Dawson_Creek": {
-			"lat": 5946,
-			"lon": -12014,
+			"lat": 59.7667,
+			"lon": -119.7667,
 			"rules": "Canada Vanc"
 		},
 		"America/Denver": {
-			"lat": 394421,
-			"lon": -1045903,
+			"lat": 39.7392,
+			"lon": -103.0158,
 			"rules": "US Denver"
 		},
 		"America/Detroit": {
-			"lat": 421953,
-			"lon": -830245,
+			"lat": 42.3314,
+			"lon": -82.9542,
 			"rules": "US Detroit"
 		},
 		"America/Dominica": {
-			"lat": 1518,
-			"lon": -6124,
+			"lat": 15.3,
+			"lon": -60.6,
 			"rules": ""
 		},
 		"America/Edmonton": {
-			"lat": 5333,
-			"lon": -11328,
+			"lat": 53.55,
+			"lon": -112.5333,
 			"rules": "Edm Canada"
 		},
 		"America/Eirunepe": {
-			"lat": -640,
-			"lon": -6952,
+			"lat": -5.3333,
+			"lon": -68.1333,
 			"rules": "Brazil"
 		},
 		"America/El_Salvador": {
-			"lat": 1342,
-			"lon": -8912,
+			"lat": 13.7,
+			"lon": -88.8,
 			"rules": "Salv"
 		},
 		"America/Fortaleza": {
-			"lat": -343,
-			"lon": -3830,
+			"lat": -2.2833,
+			"lon": -37.5,
 			"rules": "Brazil"
 		},
 		"America/Glace_Bay": {
-			"lat": 4612,
-			"lon": -5957,
+			"lat": 46.2,
+			"lon": -58.05,
 			"rules": "Canada Halifax"
 		},
 		"America/Godthab": {
-			"lat": 6411,
-			"lon": -5144,
+			"lat": 64.1833,
+			"lon": -50.2667,
 			"rules": "EU"
 		},
 		"America/Goose_Bay": {
-			"lat": 5320,
-			"lon": -6025,
+			"lat": 53.3333,
+			"lon": -59.5833,
 			"rules": "Canada StJohns"
 		},
 		"America/Grand_Turk": {
-			"lat": 2128,
-			"lon": -7108,
+			"lat": 21.4667,
+			"lon": -70.8667,
 			"rules": "TC"
 		},
 		"America/Grenada": {
-			"lat": 1203,
-			"lon": -6145,
+			"lat": 12.05,
+			"lon": -60.25,
 			"rules": ""
 		},
 		"America/Guadeloupe": {
-			"lat": 1614,
-			"lon": -6132,
+			"lat": 16.2333,
+			"lon": -60.4667,
 			"rules": ""
 		},
 		"America/Guatemala": {
-			"lat": 1438,
-			"lon": -9031,
+			"lat": 14.6333,
+			"lon": -89.4833,
 			"rules": "Guat"
 		},
 		"America/Guayaquil": {
-			"lat": -210,
-			"lon": -7950,
+			"lat": -1.8333,
+			"lon": -78.1667,
 			"rules": ""
 		},
 		"America/Guyana": {
-			"lat": 648,
-			"lon": -5810,
+			"lat": 6.8,
+			"lon": -57.8333,
 			"rules": ""
 		},
 		"America/Halifax": {
-			"lat": 4439,
-			"lon": -6336,
+			"lat": 44.65,
+			"lon": -62.4,
 			"rules": "Halifax Canada"
 		},
 		"America/Havana": {
-			"lat": 2308,
-			"lon": -8222,
+			"lat": 23.1333,
+			"lon": -81.6333,
 			"rules": "Cuba"
 		},
 		"America/Hermosillo": {
-			"lat": 2904,
-			"lon": -11058,
+			"lat": 29.0667,
+			"lon": -109.0333,
 			"rules": "Mexico"
 		},
 		"America/Indiana/Indianapolis": {
-			"lat": 394606,
-			"lon": -860929,
+			"lat": 39.7683,
+			"lon": -85.8419,
 			"rules": "US Indianapolis"
 		},
 		"America/Indiana/Knox": {
-			"lat": 411745,
-			"lon": -863730,
+			"lat": 41.2958,
+			"lon": -85.375,
 			"rules": "US Starke"
 		},
 		"America/Indiana/Marengo": {
-			"lat": 382232,
-			"lon": -862041,
+			"lat": 38.3756,
+			"lon": -85.6553,
 			"rules": "US Marengo"
 		},
 		"America/Indiana/Petersburg": {
-			"lat": 382931,
-			"lon": -871643,
+			"lat": 38.4919,
+			"lon": -86.7214,
 			"rules": "US Pike"
 		},
 		"America/Indiana/Tell_City": {
-			"lat": 375711,
-			"lon": -864541,
+			"lat": 37.9531,
+			"lon": -85.2386,
 			"rules": "US Perry"
 		},
 		"America/Indiana/Vevay": {
-			"lat": 384452,
-			"lon": -850402,
+			"lat": 38.7478,
+			"lon": -84.9328,
 			"rules": "US"
 		},
 		"America/Indiana/Vincennes": {
-			"lat": 384038,
-			"lon": -873143,
+			"lat": 38.6772,
+			"lon": -86.4714,
 			"rules": "US Vincennes"
 		},
 		"America/Indiana/Winamac": {
-			"lat": 410305,
-			"lon": -863611,
+			"lat": 41.0514,
+			"lon": -85.3969,
 			"rules": "US Pulaski"
 		},
 		"America/Inuvik": {
-			"lat": 682059,
-			"lon": -1334300,
+			"lat": 68.3497,
+			"lon": -132.2833,
 			"rules": "NT_YK Canada"
 		},
 		"America/Iqaluit": {
-			"lat": 6344,
-			"lon": -6828,
+			"lat": 63.7333,
+			"lon": -67.5333,
 			"rules": "NT_YK Canada"
 		},
 		"America/Jamaica": {
-			"lat": 1800,
-			"lon": -7648,
+			"lat": 18,
+			"lon": -75.2,
 			"rules": "US"
 		},
 		"America/Juneau": {
-			"lat": 581807,
-			"lon": -1342511,
+			"lat": 58.3019,
+			"lon": -133.5803,
 			"rules": "US"
 		},
 		"America/Kentucky/Louisville": {
-			"lat": 381515,
-			"lon": -854534,
+			"lat": 38.2542,
+			"lon": -84.2406,
 			"rules": "US Louisville"
 		},
 		"America/Kentucky/Monticello": {
-			"lat": 364947,
-			"lon": -845057,
+			"lat": 36.8297,
+			"lon": -83.1508,
 			"rules": "US"
 		},
 		"America/Kralendijk": {
-			"lat": 120903,
-			"lon": -681636,
+			"lat": 12.1508,
+			"lon": -67.7233,
 			"rules": ""
 		},
 		"America/La_Paz": {
-			"lat": -1630,
-			"lon": -6809,
+			"lat": -15.5,
+			"lon": -67.85,
 			"rules": ""
 		},
 		"America/Lima": {
-			"lat": -1203,
-			"lon": -7703,
+			"lat": -11.95,
+			"lon": -76.95,
 			"rules": "Peru"
 		},
 		"America/Los_Angeles": {
-			"lat": 340308,
-			"lon": -1181434,
+			"lat": 34.0522,
+			"lon": -117.7572,
 			"rules": "US CA"
 		},
 		"America/Lower_Princes": {
-			"lat": 180305,
-			"lon": -630250,
+			"lat": 18.0514,
+			"lon": -62.9528,
 			"rules": ""
 		},
 		"America/Maceio": {
-			"lat": -940,
-			"lon": -3543,
+			"lat": -8.3333,
+			"lon": -34.2833,
 			"rules": "Brazil"
 		},
 		"America/Managua": {
-			"lat": 1209,
-			"lon": -8617,
+			"lat": 12.15,
+			"lon": -85.7167,
 			"rules": "Nic"
 		},
 		"America/Manaus": {
-			"lat": -308,
-			"lon": -6001,
+			"lat": -2.8667,
+			"lon": -59.9833,
 			"rules": "Brazil"
 		},
 		"America/Marigot": {
-			"lat": 1804,
-			"lon": -6305,
+			"lat": 18.0667,
+			"lon": -62.9167,
 			"rules": ""
 		},
 		"America/Martinique": {
-			"lat": 1436,
-			"lon": -6105,
+			"lat": 14.6,
+			"lon": -60.9167,
 			"rules": ""
 		},
 		"America/Matamoros": {
-			"lat": 2550,
-			"lon": -9730,
+			"lat": 25.8333,
+			"lon": -96.5,
 			"rules": "US Mexico"
 		},
 		"America/Mazatlan": {
-			"lat": 2313,
-			"lon": -10625,
+			"lat": 23.2167,
+			"lon": -105.5833,
 			"rules": "Mexico"
 		},
 		"America/Menominee": {
-			"lat": 450628,
-			"lon": -873651,
+			"lat": 45.1078,
+			"lon": -86.3858,
 			"rules": "US Menominee"
 		},
 		"America/Merida": {
-			"lat": 2058,
-			"lon": -8937,
+			"lat": 20.9667,
+			"lon": -88.3833,
 			"rules": "Mexico"
 		},
 		"America/Metlakatla": {
-			"lat": 550737,
-			"lon": -1313435,
+			"lat": 55.1269,
+			"lon": -130.4236,
 			"rules": "US"
 		},
 		"America/Mexico_City": {
-			"lat": 1924,
-			"lon": -9909,
+			"lat": 19.4,
+			"lon": -98.85,
 			"rules": "Mexico"
 		},
 		"America/Miquelon": {
-			"lat": 4703,
-			"lon": -5620,
+			"lat": 47.05,
+			"lon": -55.6667,
 			"rules": "Canada"
 		},
 		"America/Moncton": {
-			"lat": 4606,
-			"lon": -6447,
+			"lat": 46.1,
+			"lon": -63.2167,
 			"rules": "Canada Moncton"
 		},
 		"America/Monterrey": {
-			"lat": 2540,
-			"lon": -10019,
+			"lat": 25.6667,
+			"lon": -99.6833,
 			"rules": "US Mexico"
 		},
 		"America/Montevideo": {
-			"lat": -3453,
-			"lon": -5611,
+			"lat": -33.1167,
+			"lon": -55.8167,
 			"rules": "Uruguay"
 		},
 		"America/Montreal": {
-			"lat": 4531,
-			"lon": -7334,
+			"lat": 45.5167,
+			"lon": -72.4333,
 			"rules": "Mont Canada"
 		},
 		"America/Montserrat": {
-			"lat": 1643,
-			"lon": -6213,
+			"lat": 16.7167,
+			"lon": -61.7833,
 			"rules": ""
 		},
 		"America/Nassau": {
-			"lat": 2505,
-			"lon": -7721,
+			"lat": 25.0833,
+			"lon": -76.65,
 			"rules": "Bahamas US"
 		},
 		"America/New_York": {
-			"lat": 404251,
-			"lon": -740023,
+			"lat": 40.7142,
+			"lon": -73.9936,
 			"rules": "US NYC"
 		},
 		"America/Nipigon": {
-			"lat": 4901,
-			"lon": -8816,
+			"lat": 49.0167,
+			"lon": -87.7333,
 			"rules": "Canada"
 		},
 		"America/Nome": {
-			"lat": 643004,
-			"lon": -1652423,
+			"lat": 64.5011,
+			"lon": -164.5936,
 			"rules": "US"
 		},
 		"America/Noronha": {
-			"lat": -351,
-			"lon": -3225,
+			"lat": -2.15,
+			"lon": -31.5833,
 			"rules": "Brazil"
 		},
 		"America/North_Dakota/Beulah": {
-			"lat": 471551,
-			"lon": -1014640,
+			"lat": 47.2642,
+			"lon": -100.2222,
 			"rules": "US"
 		},
 		"America/North_Dakota/Center": {
-			"lat": 470659,
-			"lon": -1011757,
+			"lat": 47.1164,
+			"lon": -100.7008,
 			"rules": "US"
 		},
 		"America/North_Dakota/New_Salem": {
-			"lat": 465042,
-			"lon": -1012439,
+			"lat": 46.845,
+			"lon": -100.5892,
 			"rules": "US"
 		},
 		"America/Ojinaga": {
-			"lat": 2934,
-			"lon": -10425,
+			"lat": 29.5667,
+			"lon": -103.5833,
 			"rules": "Mexico US"
 		},
 		"America/Panama": {
-			"lat": 858,
-			"lon": -7932,
+			"lat": 8.9667,
+			"lon": -78.4667,
 			"rules": ""
 		},
 		"America/Pangnirtung": {
-			"lat": 6608,
-			"lon": -6544,
+			"lat": 66.1333,
+			"lon": -64.2667,
 			"rules": "NT_YK Canada"
 		},
 		"America/Paramaribo": {
-			"lat": 550,
-			"lon": -5510,
+			"lat": 5.8333,
+			"lon": -54.8333,
 			"rules": ""
 		},
 		"America/Phoenix": {
-			"lat": 332654,
-			"lon": -1120424,
+			"lat": 33.4483,
+			"lon": -111.9267,
 			"rules": "US"
 		},
 		"America/Port-au-Prince": {
-			"lat": 1832,
-			"lon": -7220,
+			"lat": 18.5333,
+			"lon": -71.6667,
 			"rules": "Haiti"
 		},
 		"America/Port_of_Spain": {
-			"lat": 1039,
-			"lon": -6131,
+			"lat": 10.65,
+			"lon": -60.4833,
 			"rules": ""
 		},
 		"America/Porto_Velho": {
-			"lat": -846,
-			"lon": -6354,
+			"lat": -7.2333,
+			"lon": -62.1,
 			"rules": "Brazil"
 		},
 		"America/Puerto_Rico": {
-			"lat": 182806,
-			"lon": -660622,
+			"lat": 18.4683,
+			"lon": -65.8939,
 			"rules": "US"
 		},
 		"America/Rainy_River": {
-			"lat": 4843,
-			"lon": -9434,
+			"lat": 48.7167,
+			"lon": -93.4333,
 			"rules": "Canada"
 		},
 		"America/Rankin_Inlet": {
-			"lat": 624900,
-			"lon": -920459,
+			"lat": 62.8167,
+			"lon": -91.9169,
 			"rules": "NT_YK Canada"
 		},
 		"America/Recife": {
-			"lat": -803,
-			"lon": -3454,
+			"lat": -7.95,
+			"lon": -33.1,
 			"rules": "Brazil"
 		},
 		"America/Regina": {
-			"lat": 5024,
-			"lon": -10439,
+			"lat": 50.4,
+			"lon": -103.35,
 			"rules": "Regina"
 		},
 		"America/Resolute": {
-			"lat": 744144,
-			"lon": -944945,
+			"lat": 74.6956,
+			"lon": -93.1708,
 			"rules": "NT_YK Canada"
 		},
 		"America/Rio_Branco": {
-			"lat": -958,
-			"lon": -6748,
+			"lat": -8.0333,
+			"lon": -66.2,
 			"rules": "Brazil"
 		},
 		"America/Santa_Isabel": {
-			"lat": 3018,
-			"lon": -11452,
+			"lat": 30.3,
+			"lon": -113.1333,
 			"rules": "CA US Mexico"
 		},
 		"America/Santarem": {
-			"lat": -226,
-			"lon": -5452,
+			"lat": -1.5667,
+			"lon": -53.1333,
 			"rules": "Brazil"
 		},
 		"America/Santiago": {
-			"lat": -3327,
-			"lon": -7040,
+			"lat": -32.55,
+			"lon": -69.3333,
 			"rules": "Chile"
 		},
 		"America/Santo_Domingo": {
-			"lat": 1828,
-			"lon": -6954,
+			"lat": 18.4667,
+			"lon": -68.1,
 			"rules": "DR US"
 		},
 		"America/Sao_Paulo": {
-			"lat": -2332,
-			"lon": -4637,
+			"lat": -22.4667,
+			"lon": -45.3833,
 			"rules": "Brazil"
 		},
 		"America/Scoresbysund": {
-			"lat": 7029,
-			"lon": -2158,
+			"lat": 70.4833,
+			"lon": -20.0333,
 			"rules": "C-Eur EU"
 		},
 		"America/Shiprock": {
-			"lat": 364708,
-			"lon": -1084111,
+			"lat": 36.7856,
+			"lon": -107.3136,
 			"rules": ""
 		},
 		"America/Sitka": {
-			"lat": 571035,
-			"lon": -1351807,
+			"lat": 57.1764,
+			"lon": -134.6981,
 			"rules": "US"
 		},
 		"America/St_Barthelemy": {
-			"lat": 1753,
-			"lon": -6251,
+			"lat": 17.8833,
+			"lon": -61.15,
 			"rules": ""
 		},
 		"America/St_Johns": {
-			"lat": 4734,
-			"lon": -5243,
+			"lat": 47.5667,
+			"lon": -51.2833,
 			"rules": "StJohns Canada"
 		},
 		"America/St_Kitts": {
-			"lat": 1718,
-			"lon": -6243,
+			"lat": 17.3,
+			"lon": -61.2833,
 			"rules": ""
 		},
 		"America/St_Lucia": {
-			"lat": 1401,
-			"lon": -6100,
+			"lat": 14.0167,
+			"lon": -61,
 			"rules": ""
 		},
 		"America/St_Thomas": {
-			"lat": 1821,
-			"lon": -6456,
+			"lat": 18.35,
+			"lon": -63.0667,
 			"rules": ""
 		},
 		"America/St_Vincent": {
-			"lat": 1309,
-			"lon": -6114,
+			"lat": 13.15,
+			"lon": -60.7667,
 			"rules": ""
 		},
 		"America/Swift_Current": {
-			"lat": 5017,
-			"lon": -10750,
+			"lat": 50.2833,
+			"lon": -106.1667,
 			"rules": "Canada Regina Swift"
 		},
 		"America/Tegucigalpa": {
-			"lat": 1406,
-			"lon": -8713,
+			"lat": 14.1,
+			"lon": -86.7833,
 			"rules": "Hond"
 		},
 		"America/Thule": {
-			"lat": 7634,
-			"lon": -6847,
+			"lat": 76.5667,
+			"lon": -67.2167,
 			"rules": "Thule"
 		},
 		"America/Thunder_Bay": {
-			"lat": 4823,
-			"lon": -8915,
+			"lat": 48.3833,
+			"lon": -88.75,
 			"rules": "Canada Mont"
 		},
 		"America/Tijuana": {
-			"lat": 3232,
-			"lon": -11701,
+			"lat": 32.5333,
+			"lon": -116.9833,
 			"rules": "CA US Mexico"
 		},
 		"America/Toronto": {
-			"lat": 4339,
-			"lon": -7923,
+			"lat": 43.65,
+			"lon": -78.6167,
 			"rules": "Canada Toronto"
 		},
 		"America/Tortola": {
-			"lat": 1827,
-			"lon": -6437,
+			"lat": 18.45,
+			"lon": -63.3833,
 			"rules": ""
 		},
 		"America/Vancouver": {
-			"lat": 4916,
-			"lon": -12307,
+			"lat": 49.2667,
+			"lon": -122.8833,
 			"rules": "Vanc Canada"
 		},
 		"America/Whitehorse": {
-			"lat": 6043,
-			"lon": -13503,
+			"lat": 60.7167,
+			"lon": -134.95,
 			"rules": "NT_YK Canada"
 		},
 		"America/Winnipeg": {
-			"lat": 4953,
-			"lon": -9709,
+			"lat": 49.8833,
+			"lon": -96.85,
 			"rules": "Winn Canada"
 		},
 		"America/Yakutat": {
-			"lat": 593249,
-			"lon": -1394338,
+			"lat": 59.5469,
+			"lon": -138.2728,
 			"rules": "US"
 		},
 		"America/Yellowknife": {
-			"lat": 6227,
-			"lon": -11421,
+			"lat": 62.45,
+			"lon": -113.65,
 			"rules": "NT_YK Canada"
 		},
 		"Antarctica/Casey": {
-			"lat": -6617,
-			"lon": 11031,
+			"lat": -65.7167,
+			"lon": 110.5167,
 			"rules": ""
 		},
 		"Antarctica/Davis": {
-			"lat": -6835,
-			"lon": 7758,
+			"lat": -67.4167,
+			"lon": 77.9667,
 			"rules": ""
 		},
 		"Antarctica/DumontDUrville": {
-			"lat": -6640,
-			"lon": 14001,
+			"lat": -65.3333,
+			"lon": 140.0167,
 			"rules": ""
 		},
 		"Antarctica/Macquarie": {
-			"lat": -5430,
-			"lon": 15857,
+			"lat": -53.5,
+			"lon": 158.95,
 			"rules": "Aus AT"
 		},
 		"Antarctica/Mawson": {
-			"lat": -6736,
-			"lon": 6253,
+			"lat": -66.4,
+			"lon": 62.8833,
 			"rules": ""
 		},
 		"Antarctica/McMurdo": {
-			"lat": -7750,
-			"lon": 16636,
+			"lat": -76.1667,
+			"lon": 166.6,
 			"rules": "NZAQ"
 		},
 		"Antarctica/Palmer": {
-			"lat": -6448,
-			"lon": -6406,
+			"lat": -63.2,
+			"lon": -63.9,
 			"rules": "ArgAQ ChileAQ"
 		},
 		"Antarctica/Rothera": {
-			"lat": -6734,
-			"lon": -6808,
+			"lat": -66.4333,
+			"lon": -67.8667,
 			"rules": ""
 		},
 		"Antarctica/South_Pole": {
-			"lat": -9000,
+			"lat": -90,
 			"lon": 0,
 			"rules": ""
 		},
 		"Antarctica/Syowa": {
-			"lat": -690022,
-			"lon": 393524,
+			"lat": -68.9939,
+			"lon": 39.59,
 			"rules": ""
 		},
 		"Antarctica/Vostok": {
-			"lat": -7824,
-			"lon": 10654,
+			"lat": -77.6,
+			"lon": 106.9,
 			"rules": ""
 		},
 		"Arctic/Longyearbyen": {
-			"lat": 7800,
-			"lon": 1600,
+			"lat": 78,
+			"lon": 16,
 			"rules": ""
 		},
 		"Asia/Aden": {
-			"lat": 1245,
-			"lon": 4512,
+			"lat": 12.75,
+			"lon": 45.2,
 			"rules": ""
 		},
 		"Asia/Almaty": {
-			"lat": 4315,
-			"lon": 7657,
+			"lat": 43.25,
+			"lon": 76.95,
 			"rules": "RussiaAsia"
 		},
 		"Asia/Amman": {
-			"lat": 3157,
-			"lon": 3556,
+			"lat": 31.95,
+			"lon": 35.9333,
 			"rules": "Jordan"
 		},
 		"Asia/Anadyr": {
-			"lat": 6445,
-			"lon": 17729,
+			"lat": 64.75,
+			"lon": 177.4833,
 			"rules": "Russia"
 		},
 		"Asia/Aqtau": {
-			"lat": 4431,
-			"lon": 5016,
+			"lat": 44.5167,
+			"lon": 50.2667,
 			"rules": "RussiaAsia"
 		},
 		"Asia/Aqtobe": {
-			"lat": 5017,
-			"lon": 5710,
+			"lat": 50.2833,
+			"lon": 57.1667,
 			"rules": "RussiaAsia"
 		},
 		"Asia/Ashgabat": {
-			"lat": 3757,
-			"lon": 5823,
+			"lat": 37.95,
+			"lon": 58.3833,
 			"rules": "RussiaAsia"
 		},
 		"Asia/Baghdad": {
-			"lat": 3321,
-			"lon": 4425,
+			"lat": 33.35,
+			"lon": 44.4167,
 			"rules": "Iraq"
 		},
 		"Asia/Bahrain": {
-			"lat": 2623,
-			"lon": 5035,
+			"lat": 26.3833,
+			"lon": 50.5833,
 			"rules": ""
 		},
 		"Asia/Baku": {
-			"lat": 4023,
-			"lon": 4951,
+			"lat": 40.3833,
+			"lon": 49.85,
 			"rules": "RussiaAsia EUAsia Azer"
 		},
 		"Asia/Bangkok": {
-			"lat": 1345,
-			"lon": 10031,
+			"lat": 13.75,
+			"lon": 100.5167,
 			"rules": ""
 		},
 		"Asia/Beirut": {
-			"lat": 3353,
-			"lon": 3530,
+			"lat": 33.8833,
+			"lon": 35.5,
 			"rules": "Lebanon"
 		},
 		"Asia/Bishkek": {
-			"lat": 4254,
-			"lon": 7436,
+			"lat": 42.9,
+			"lon": 74.6,
 			"rules": "RussiaAsia Kyrgyz"
 		},
 		"Asia/Brunei": {
-			"lat": 456,
-			"lon": 11455,
+			"lat": 4.9333,
+			"lon": 114.9167,
 			"rules": ""
 		},
 		"Asia/Choibalsan": {
-			"lat": 4804,
-			"lon": 11430,
+			"lat": 48.0667,
+			"lon": 114.5,
 			"rules": "Mongol"
 		},
 		"Asia/Chongqing": {
-			"lat": 2934,
-			"lon": 10635,
+			"lat": 29.5667,
+			"lon": 106.5833,
 			"rules": "PRC"
 		},
 		"Asia/Colombo": {
-			"lat": 656,
-			"lon": 7951,
+			"lat": 6.9333,
+			"lon": 79.85,
 			"rules": ""
 		},
 		"Asia/Damascus": {
-			"lat": 3330,
-			"lon": 3618,
+			"lat": 33.5,
+			"lon": 36.3,
 			"rules": "Syria"
 		},
 		"Asia/Dhaka": {
-			"lat": 2343,
-			"lon": 9025,
+			"lat": 23.7167,
+			"lon": 90.4167,
 			"rules": "Dhaka"
 		},
 		"Asia/Dili": {
-			"lat": -833,
-			"lon": 12535,
+			"lat": -7.45,
+			"lon": 125.5833,
 			"rules": ""
 		},
 		"Asia/Dubai": {
-			"lat": 2518,
-			"lon": 5518,
+			"lat": 25.3,
+			"lon": 55.3,
 			"rules": ""
 		},
 		"Asia/Dushanbe": {
-			"lat": 3835,
-			"lon": 6848,
+			"lat": 38.5833,
+			"lon": 68.8,
 			"rules": "RussiaAsia"
 		},
 		"Asia/Gaza": {
-			"lat": 3130,
-			"lon": 3428,
+			"lat": 31.5,
+			"lon": 34.4667,
 			"rules": "Zion EgyptAsia Jordan Palestine"
 		},
 		"Asia/Harbin": {
-			"lat": 4545,
-			"lon": 12641,
+			"lat": 45.75,
+			"lon": 126.6833,
 			"rules": "PRC"
 		},
 		"Asia/Hebron": {
-			"lat": 313200,
-			"lon": 350542,
+			"lat": 31.5333,
+			"lon": 35.095,
 			"rules": "Zion EgyptAsia Jordan Palestine"
 		},
 		"Asia/Ho_Chi_Minh": {
-			"lat": 1045,
-			"lon": 10640,
+			"lat": 10.75,
+			"lon": 106.6667,
 			"rules": ""
 		},
 		"Asia/Hong_Kong": {
-			"lat": 2217,
-			"lon": 11409,
+			"lat": 22.2833,
+			"lon": 114.15,
 			"rules": "HK"
 		},
 		"Asia/Hovd": {
-			"lat": 4801,
-			"lon": 9139,
+			"lat": 48.0167,
+			"lon": 91.65,
 			"rules": "Mongol"
 		},
 		"Asia/Irkutsk": {
-			"lat": 5216,
-			"lon": 10420,
+			"lat": 52.2667,
+			"lon": 104.3333,
 			"rules": "Russia"
 		},
 		"Asia/Jakarta": {
-			"lat": -610,
-			"lon": 10648,
+			"lat": -5.8333,
+			"lon": 106.8,
 			"rules": ""
 		},
 		"Asia/Jayapura": {
-			"lat": -232,
-			"lon": 14042,
+			"lat": -1.4667,
+			"lon": 140.7,
 			"rules": ""
 		},
 		"Asia/Jerusalem": {
-			"lat": 3146,
-			"lon": 3514,
+			"lat": 31.7667,
+			"lon": 35.2333,
 			"rules": "Zion"
 		},
 		"Asia/Kabul": {
-			"lat": 3431,
-			"lon": 6912,
+			"lat": 34.5167,
+			"lon": 69.2,
 			"rules": ""
 		},
 		"Asia/Kamchatka": {
-			"lat": 5301,
-			"lon": 15839,
+			"lat": 53.0167,
+			"lon": 158.65,
 			"rules": "Russia"
 		},
 		"Asia/Karachi": {
-			"lat": 2452,
-			"lon": 6703,
+			"lat": 24.8667,
+			"lon": 67.05,
 			"rules": "Pakistan"
 		},
 		"Asia/Kashgar": {
-			"lat": 3929,
-			"lon": 7559,
+			"lat": 39.4833,
+			"lon": 75.9833,
 			"rules": "PRC"
 		},
 		"Asia/Kathmandu": {
-			"lat": 2743,
-			"lon": 8519,
+			"lat": 27.7167,
+			"lon": 85.3167,
 			"rules": ""
 		},
 		"Asia/Khandyga": {
-			"lat": 623923,
-			"lon": 1353314,
+			"lat": 62.6564,
+			"lon": 135.5539,
 			"rules": "Russia"
 		},
 		"Asia/Kolkata": {
-			"lat": 2232,
-			"lon": 8822,
+			"lat": 22.5333,
+			"lon": 88.3667,
 			"rules": ""
 		},
 		"Asia/Krasnoyarsk": {
-			"lat": 5601,
-			"lon": 9250,
+			"lat": 56.0167,
+			"lon": 92.8333,
 			"rules": "Russia"
 		},
 		"Asia/Kuala_Lumpur": {
-			"lat": 310,
-			"lon": 10142,
+			"lat": 3.1667,
+			"lon": 101.7,
 			"rules": ""
 		},
 		"Asia/Kuching": {
-			"lat": 133,
-			"lon": 11020,
+			"lat": 1.55,
+			"lon": 110.3333,
 			"rules": "NBorneo"
 		},
 		"Asia/Kuwait": {
-			"lat": 2920,
-			"lon": 4759,
+			"lat": 29.3333,
+			"lon": 47.9833,
 			"rules": ""
 		},
 		"Asia/Macau": {
-			"lat": 2214,
-			"lon": 11335,
+			"lat": 22.2333,
+			"lon": 113.5833,
 			"rules": "Macau PRC"
 		},
 		"Asia/Magadan": {
-			"lat": 5934,
-			"lon": 15048,
+			"lat": 59.5667,
+			"lon": 150.8,
 			"rules": "Russia"
 		},
 		"Asia/Makassar": {
-			"lat": -507,
-			"lon": 11924,
+			"lat": -4.8833,
+			"lon": 119.4,
 			"rules": ""
 		},
 		"Asia/Manila": {
-			"lat": 1435,
-			"lon": 12100,
+			"lat": 14.5833,
+			"lon": 121,
 			"rules": "Phil"
 		},
 		"Asia/Muscat": {
-			"lat": 2336,
-			"lon": 5835,
+			"lat": 23.6,
+			"lon": 58.5833,
 			"rules": ""
 		},
 		"Asia/Nicosia": {
-			"lat": 3510,
-			"lon": 3322,
+			"lat": 35.1667,
+			"lon": 33.3667,
 			"rules": "Cyprus EUAsia"
 		},
 		"Asia/Novokuznetsk": {
-			"lat": 5345,
-			"lon": 8707,
+			"lat": 53.75,
+			"lon": 87.1167,
 			"rules": "Russia"
 		},
 		"Asia/Novosibirsk": {
-			"lat": 5502,
-			"lon": 8255,
+			"lat": 55.0333,
+			"lon": 82.9167,
 			"rules": "Russia"
 		},
 		"Asia/Omsk": {
-			"lat": 5500,
-			"lon": 7324,
+			"lat": 55,
+			"lon": 73.4,
 			"rules": "Russia"
 		},
 		"Asia/Oral": {
-			"lat": 5113,
-			"lon": 5121,
+			"lat": 51.2167,
+			"lon": 51.35,
 			"rules": "RussiaAsia"
 		},
 		"Asia/Phnom_Penh": {
-			"lat": 1133,
-			"lon": 10455,
+			"lat": 11.55,
+			"lon": 104.9167,
 			"rules": ""
 		},
 		"Asia/Pontianak": {
-			"lat": -2,
-			"lon": 10920,
+			"lat": 0.0333,
+			"lon": 109.3333,
 			"rules": ""
 		},
 		"Asia/Pyongyang": {
-			"lat": 3901,
-			"lon": 12545,
+			"lat": 39.0167,
+			"lon": 125.75,
 			"rules": ""
 		},
 		"Asia/Qatar": {
-			"lat": 2517,
-			"lon": 5132,
+			"lat": 25.2833,
+			"lon": 51.5333,
 			"rules": ""
 		},
 		"Asia/Qyzylorda": {
-			"lat": 4448,
-			"lon": 6528,
+			"lat": 44.8,
+			"lon": 65.4667,
 			"rules": "RussiaAsia"
 		},
 		"Asia/Rangoon": {
-			"lat": 1647,
-			"lon": 9610,
+			"lat": 16.7833,
+			"lon": 96.1667,
 			"rules": ""
 		},
 		"Asia/Riyadh": {
-			"lat": 2438,
-			"lon": 4643,
+			"lat": 24.6333,
+			"lon": 46.7167,
 			"rules": ""
 		},
 		"Asia/Sakhalin": {
-			"lat": 4658,
-			"lon": 14242,
+			"lat": 46.9667,
+			"lon": 142.7,
 			"rules": "Russia"
 		},
 		"Asia/Samarkand": {
-			"lat": 3940,
-			"lon": 6648,
+			"lat": 39.6667,
+			"lon": 66.8,
 			"rules": "RussiaAsia"
 		},
 		"Asia/Seoul": {
-			"lat": 3733,
-			"lon": 12658,
+			"lat": 37.55,
+			"lon": 126.9667,
 			"rules": "ROK"
 		},
 		"Asia/Shanghai": {
-			"lat": 3114,
-			"lon": 12128,
+			"lat": 31.2333,
+			"lon": 121.4667,
 			"rules": "Shang PRC"
 		},
 		"Asia/Singapore": {
-			"lat": 117,
-			"lon": 10351,
+			"lat": 1.2833,
+			"lon": 103.85,
 			"rules": ""
 		},
 		"Asia/Taipei": {
-			"lat": 2503,
-			"lon": 12130,
+			"lat": 25.05,
+			"lon": 121.5,
 			"rules": "Taiwan"
 		},
 		"Asia/Tashkent": {
-			"lat": 4120,
-			"lon": 6918,
+			"lat": 41.3333,
+			"lon": 69.3,
 			"rules": "RussiaAsia"
 		},
 		"Asia/Tbilisi": {
-			"lat": 4143,
-			"lon": 4449,
+			"lat": 41.7167,
+			"lon": 44.8167,
 			"rules": "RussiaAsia E-EurAsia"
 		},
 		"Asia/Tehran": {
-			"lat": 3540,
-			"lon": 5126,
+			"lat": 35.6667,
+			"lon": 51.4333,
 			"rules": "Iran"
 		},
 		"Asia/Thimphu": {
-			"lat": 2728,
-			"lon": 8939,
+			"lat": 27.4667,
+			"lon": 89.65,
 			"rules": ""
 		},
 		"Asia/Tokyo": {
-			"lat": 353916,
-			"lon": 1394441,
+			"lat": 35.6544,
+			"lon": 139.7447,
 			"rules": "Japan"
 		},
 		"Asia/Ulaanbaatar": {
-			"lat": 4755,
-			"lon": 10653,
+			"lat": 47.9167,
+			"lon": 106.8833,
 			"rules": "Mongol"
 		},
 		"Asia/Urumqi": {
-			"lat": 4348,
-			"lon": 8735,
+			"lat": 43.8,
+			"lon": 87.5833,
 			"rules": "PRC"
 		},
 		"Asia/Ust-Nera": {
-			"lat": 643337,
-			"lon": 1431336,
+			"lat": 64.5603,
+			"lon": 143.2267,
 			"rules": "Russia"
 		},
 		"Asia/Vientiane": {
-			"lat": 1758,
-			"lon": 10236,
+			"lat": 17.9667,
+			"lon": 102.6,
 			"rules": ""
 		},
 		"Asia/Vladivostok": {
-			"lat": 4310,
-			"lon": 13156,
+			"lat": 43.1667,
+			"lon": 131.9333,
 			"rules": "Russia"
 		},
 		"Asia/Yakutsk": {
-			"lat": 6200,
-			"lon": 12940,
+			"lat": 62,
+			"lon": 129.6667,
 			"rules": "Russia"
 		},
 		"Asia/Yekaterinburg": {
-			"lat": 5651,
-			"lon": 6036,
+			"lat": 56.85,
+			"lon": 60.6,
 			"rules": "Russia"
 		},
 		"Asia/Yerevan": {
-			"lat": 4011,
-			"lon": 4430,
+			"lat": 40.1833,
+			"lon": 44.5,
 			"rules": "RussiaAsia"
 		},
 		"Atlantic/Azores": {
-			"lat": 3744,
-			"lon": -2540,
+			"lat": 37.7333,
+			"lon": -24.3333,
 			"rules": "Port W-Eur EU"
 		},
 		"Atlantic/Bermuda": {
-			"lat": 3217,
-			"lon": -6446,
+			"lat": 32.2833,
+			"lon": -63.2333,
 			"rules": "Bahamas US"
 		},
 		"Atlantic/Canary": {
-			"lat": 2806,
-			"lon": -1524,
+			"lat": 28.1,
+			"lon": -14.6,
 			"rules": "EU"
 		},
 		"Atlantic/Cape_Verde": {
-			"lat": 1455,
-			"lon": -2331,
+			"lat": 14.9167,
+			"lon": -22.4833,
 			"rules": ""
 		},
 		"Atlantic/Faroe": {
-			"lat": 6201,
-			"lon": -646,
+			"lat": 62.0167,
+			"lon": -5.2333,
 			"rules": "EU"
 		},
 		"Atlantic/Madeira": {
-			"lat": 3238,
-			"lon": -1654,
+			"lat": 32.6333,
+			"lon": -15.1,
 			"rules": "Port EU"
 		},
 		"Atlantic/Reykjavik": {
-			"lat": 6409,
-			"lon": -2151,
+			"lat": 64.15,
+			"lon": -20.15,
 			"rules": "Iceland"
 		},
 		"Atlantic/South_Georgia": {
-			"lat": -5416,
-			"lon": -3632,
+			"lat": -53.7333,
+			"lon": -35.4667,
 			"rules": ""
 		},
 		"Atlantic/St_Helena": {
-			"lat": -1555,
-			"lon": -542,
+			"lat": -14.0833,
+			"lon": -4.3,
 			"rules": ""
 		},
 		"Atlantic/Stanley": {
-			"lat": -5142,
-			"lon": -5751,
+			"lat": -50.3,
+			"lon": -56.15,
 			"rules": "Falk"
 		},
 		"Australia/Adelaide": {
-			"lat": -3455,
-			"lon": 13835,
+			"lat": -33.0833,
+			"lon": 138.5833,
 			"rules": "Aus AS"
 		},
 		"Australia/Brisbane": {
-			"lat": -2728,
-			"lon": 15302,
+			"lat": -26.5333,
+			"lon": 153.0333,
 			"rules": "Aus AQ"
 		},
 		"Australia/Broken_Hill": {
-			"lat": -3157,
-			"lon": 14127,
+			"lat": -30.05,
+			"lon": 141.45,
 			"rules": "Aus AN AS"
 		},
 		"Australia/Currie": {
-			"lat": -3956,
-			"lon": 14352,
+			"lat": -38.0667,
+			"lon": 143.8667,
 			"rules": "Aus AT"
 		},
 		"Australia/Darwin": {
-			"lat": -1228,
-			"lon": 13050,
+			"lat": -11.5333,
+			"lon": 130.8333,
 			"rules": "Aus"
 		},
 		"Australia/Eucla": {
-			"lat": -3143,
-			"lon": 12852,
+			"lat": -30.2833,
+			"lon": 128.8667,
 			"rules": "Aus AW"
 		},
 		"Australia/Hobart": {
-			"lat": -4253,
-			"lon": 14719,
+			"lat": -41.1167,
+			"lon": 147.3167,
 			"rules": "Aus AT"
 		},
 		"Australia/Lindeman": {
-			"lat": -2016,
-			"lon": 14900,
+			"lat": -19.7333,
+			"lon": 149,
 			"rules": "Aus AQ Holiday"
 		},
 		"Australia/Lord_Howe": {
-			"lat": -3133,
-			"lon": 15905,
+			"lat": -30.45,
+			"lon": 159.0833,
 			"rules": "LH"
 		},
 		"Australia/Melbourne": {
-			"lat": -3749,
-			"lon": 14458,
+			"lat": -36.1833,
+			"lon": 144.9667,
 			"rules": "Aus AV"
 		},
 		"Australia/Perth": {
-			"lat": -3157,
-			"lon": 11551,
+			"lat": -30.05,
+			"lon": 115.85,
 			"rules": "Aus AW"
 		},
 		"Australia/Sydney": {
-			"lat": -3352,
-			"lon": 15113,
+			"lat": -32.1333,
+			"lon": 151.2167,
 			"rules": "Aus AN"
 		},
 		"CET": {
@@ -7003,341 +7020,341 @@ moment.lang('en');
 			"rules": "US"
 		},
 		"Europe/Amsterdam": {
-			"lat": 5222,
-			"lon": 454,
+			"lat": 52.3667,
+			"lon": 4.9,
 			"rules": "Neth C-Eur EU"
 		},
 		"Europe/Andorra": {
-			"lat": 4230,
-			"lon": 131,
+			"lat": 42.5,
+			"lon": 1.5167,
 			"rules": "EU"
 		},
 		"Europe/Athens": {
-			"lat": 3758,
-			"lon": 2343,
+			"lat": 37.9667,
+			"lon": 23.7167,
 			"rules": "Greece EU"
 		},
 		"Europe/Belgrade": {
-			"lat": 4450,
-			"lon": 2030,
+			"lat": 44.8333,
+			"lon": 20.5,
 			"rules": "C-Eur EU"
 		},
 		"Europe/Berlin": {
-			"lat": 5230,
-			"lon": 1322,
+			"lat": 52.5,
+			"lon": 13.3667,
 			"rules": "C-Eur SovietZone Germany EU"
 		},
 		"Europe/Bratislava": {
-			"lat": 4809,
-			"lon": 1707,
+			"lat": 48.15,
+			"lon": 17.1167,
 			"rules": ""
 		},
 		"Europe/Brussels": {
-			"lat": 5050,
-			"lon": 420,
+			"lat": 50.8333,
+			"lon": 4.3333,
 			"rules": "C-Eur Belgium EU"
 		},
 		"Europe/Bucharest": {
-			"lat": 4426,
-			"lon": 2606,
+			"lat": 44.4333,
+			"lon": 26.1,
 			"rules": "Romania C-Eur E-Eur EU"
 		},
 		"Europe/Budapest": {
-			"lat": 4730,
-			"lon": 1905,
+			"lat": 47.5,
+			"lon": 19.0833,
 			"rules": "C-Eur Hungary EU"
 		},
 		"Europe/Busingen": {
-			"lat": 4742,
-			"lon": 841,
+			"lat": 47.7,
+			"lon": 8.6833,
 			"rules": ""
 		},
 		"Europe/Chisinau": {
-			"lat": 4700,
-			"lon": 2850,
+			"lat": 47,
+			"lon": 28.8333,
 			"rules": "Romania C-Eur Russia E-Eur EU"
 		},
 		"Europe/Copenhagen": {
-			"lat": 5540,
-			"lon": 1235,
+			"lat": 55.6667,
+			"lon": 12.5833,
 			"rules": "Denmark C-Eur EU"
 		},
 		"Europe/Dublin": {
-			"lat": 5320,
-			"lon": -615,
+			"lat": 53.3333,
+			"lon": -5.75,
 			"rules": "GB-Eire EU"
 		},
 		"Europe/Gibraltar": {
-			"lat": 3608,
-			"lon": -521,
+			"lat": 36.1333,
+			"lon": -4.65,
 			"rules": "GB-Eire EU"
 		},
 		"Europe/Guernsey": {
-			"lat": 4927,
-			"lon": -232,
+			"lat": 49.45,
+			"lon": -1.4667,
 			"rules": ""
 		},
 		"Europe/Helsinki": {
-			"lat": 6010,
-			"lon": 2458,
+			"lat": 60.1667,
+			"lon": 24.9667,
 			"rules": "Finland EU"
 		},
 		"Europe/Isle_of_Man": {
-			"lat": 5409,
-			"lon": -428,
+			"lat": 54.15,
+			"lon": -3.5333,
 			"rules": ""
 		},
 		"Europe/Istanbul": {
-			"lat": 4101,
-			"lon": 2858,
+			"lat": 41.0167,
+			"lon": 28.9667,
 			"rules": "Turkey EU"
 		},
 		"Europe/Jersey": {
-			"lat": 4912,
-			"lon": -207,
+			"lat": 49.2,
+			"lon": -1.8833,
 			"rules": ""
 		},
 		"Europe/Kaliningrad": {
-			"lat": 5443,
-			"lon": 2030,
+			"lat": 54.7167,
+			"lon": 20.5,
 			"rules": "C-Eur Poland Russia"
 		},
 		"Europe/Kiev": {
-			"lat": 5026,
-			"lon": 3031,
+			"lat": 50.4333,
+			"lon": 30.5167,
 			"rules": "C-Eur Russia E-Eur EU"
 		},
 		"Europe/Lisbon": {
-			"lat": 3843,
-			"lon": -908,
+			"lat": 38.7167,
+			"lon": -8.8667,
 			"rules": "Port W-Eur EU"
 		},
 		"Europe/Ljubljana": {
-			"lat": 4603,
-			"lon": 1431,
+			"lat": 46.05,
+			"lon": 14.5167,
 			"rules": ""
 		},
 		"Europe/London": {
-			"lat": 513030,
-			"lon": -731,
+			"lat": 51.5083,
+			"lon": 0.1253,
 			"rules": "GB-Eire EU"
 		},
 		"Europe/Luxembourg": {
-			"lat": 4936,
-			"lon": 609,
+			"lat": 49.6,
+			"lon": 6.15,
 			"rules": "Lux Belgium C-Eur EU"
 		},
 		"Europe/Madrid": {
-			"lat": 4024,
-			"lon": -341,
+			"lat": 40.4,
+			"lon": -2.3167,
 			"rules": "Spain EU"
 		},
 		"Europe/Malta": {
-			"lat": 3554,
-			"lon": 1431,
+			"lat": 35.9,
+			"lon": 14.5167,
 			"rules": "Italy C-Eur Malta EU"
 		},
 		"Europe/Mariehamn": {
-			"lat": 6006,
-			"lon": 1957,
+			"lat": 60.1,
+			"lon": 19.95,
 			"rules": ""
 		},
 		"Europe/Minsk": {
-			"lat": 5354,
-			"lon": 2734,
+			"lat": 53.9,
+			"lon": 27.5667,
 			"rules": "C-Eur Russia"
 		},
 		"Europe/Monaco": {
-			"lat": 4342,
-			"lon": 723,
+			"lat": 43.7,
+			"lon": 7.3833,
 			"rules": "France EU"
 		},
 		"Europe/Moscow": {
-			"lat": 5545,
-			"lon": 3735,
+			"lat": 55.75,
+			"lon": 37.5833,
 			"rules": "Russia"
 		},
 		"Europe/Oslo": {
-			"lat": 5955,
-			"lon": 1045,
+			"lat": 59.9167,
+			"lon": 10.75,
 			"rules": "Norway C-Eur EU"
 		},
 		"Europe/Paris": {
-			"lat": 4852,
-			"lon": 220,
+			"lat": 48.8667,
+			"lon": 2.3333,
 			"rules": "France C-Eur EU"
 		},
 		"Europe/Podgorica": {
-			"lat": 4226,
-			"lon": 1916,
+			"lat": 42.4333,
+			"lon": 19.2667,
 			"rules": ""
 		},
 		"Europe/Prague": {
-			"lat": 5005,
-			"lon": 1426,
+			"lat": 50.0833,
+			"lon": 14.4333,
 			"rules": "C-Eur Czech EU"
 		},
 		"Europe/Riga": {
-			"lat": 5657,
-			"lon": 2406,
+			"lat": 56.95,
+			"lon": 24.1,
 			"rules": "C-Eur Russia Latvia EU"
 		},
 		"Europe/Rome": {
-			"lat": 4154,
-			"lon": 1229,
+			"lat": 41.9,
+			"lon": 12.4833,
 			"rules": "Italy C-Eur EU"
 		},
 		"Europe/Samara": {
-			"lat": 5312,
-			"lon": 5009,
+			"lat": 53.2,
+			"lon": 50.15,
 			"rules": "Russia"
 		},
 		"Europe/San_Marino": {
-			"lat": 4355,
-			"lon": 1228,
+			"lat": 43.9167,
+			"lon": 12.4667,
 			"rules": ""
 		},
 		"Europe/Sarajevo": {
-			"lat": 4352,
-			"lon": 1825,
+			"lat": 43.8667,
+			"lon": 18.4167,
 			"rules": ""
 		},
 		"Europe/Simferopol": {
-			"lat": 4457,
-			"lon": 3406,
+			"lat": 44.95,
+			"lon": 34.1,
 			"rules": "C-Eur Russia E-Eur EU"
 		},
 		"Europe/Skopje": {
-			"lat": 4159,
-			"lon": 2126,
+			"lat": 41.9833,
+			"lon": 21.4333,
 			"rules": ""
 		},
 		"Europe/Sofia": {
-			"lat": 4241,
-			"lon": 2319,
+			"lat": 42.6833,
+			"lon": 23.3167,
 			"rules": "C-Eur Bulg E-Eur EU"
 		},
 		"Europe/Stockholm": {
-			"lat": 5920,
-			"lon": 1803,
+			"lat": 59.3333,
+			"lon": 18.05,
 			"rules": "EU"
 		},
 		"Europe/Tallinn": {
-			"lat": 5925,
-			"lon": 2445,
+			"lat": 59.4167,
+			"lon": 24.75,
 			"rules": "C-Eur Russia EU"
 		},
 		"Europe/Tirane": {
-			"lat": 4120,
-			"lon": 1950,
+			"lat": 41.3333,
+			"lon": 19.8333,
 			"rules": "Albania EU"
 		},
 		"Europe/Uzhgorod": {
-			"lat": 4837,
-			"lon": 2218,
+			"lat": 48.6167,
+			"lon": 22.3,
 			"rules": "C-Eur Russia E-Eur EU"
 		},
 		"Europe/Vaduz": {
-			"lat": 4709,
-			"lon": 931,
+			"lat": 47.15,
+			"lon": 9.5167,
 			"rules": "EU"
 		},
 		"Europe/Vatican": {
-			"lat": 415408,
-			"lon": 122711,
+			"lat": 41.9022,
+			"lon": 12.4531,
 			"rules": ""
 		},
 		"Europe/Vienna": {
-			"lat": 4813,
-			"lon": 1620,
+			"lat": 48.2167,
+			"lon": 16.3333,
 			"rules": "C-Eur Austria EU"
 		},
 		"Europe/Vilnius": {
-			"lat": 5441,
-			"lon": 2519,
+			"lat": 54.6833,
+			"lon": 25.3167,
 			"rules": "C-Eur Russia EU"
 		},
 		"Europe/Volgograd": {
-			"lat": 4844,
-			"lon": 4425,
+			"lat": 48.7333,
+			"lon": 44.4167,
 			"rules": "Russia"
 		},
 		"Europe/Warsaw": {
-			"lat": 5215,
-			"lon": 2100,
+			"lat": 52.25,
+			"lon": 21,
 			"rules": "C-Eur Poland W-Eur EU"
 		},
 		"Europe/Zagreb": {
-			"lat": 4548,
-			"lon": 1558,
+			"lat": 45.8,
+			"lon": 15.9667,
 			"rules": ""
 		},
 		"Europe/Zaporozhye": {
-			"lat": 4750,
-			"lon": 3510,
+			"lat": 47.8333,
+			"lon": 35.1667,
 			"rules": "C-Eur Russia E-Eur EU"
 		},
 		"Europe/Zurich": {
-			"lat": 4723,
-			"lon": 832,
+			"lat": 47.3833,
+			"lon": 8.5333,
 			"rules": "Swiss EU"
 		},
 		"HST": {
 			"rules": ""
 		},
 		"Indian/Antananarivo": {
-			"lat": -1855,
-			"lon": 4731,
+			"lat": -17.0833,
+			"lon": 47.5167,
 			"rules": ""
 		},
 		"Indian/Chagos": {
-			"lat": -720,
-			"lon": 7225,
+			"lat": -6.6667,
+			"lon": 72.4167,
 			"rules": ""
 		},
 		"Indian/Christmas": {
-			"lat": -1025,
-			"lon": 10543,
+			"lat": -9.5833,
+			"lon": 105.7167,
 			"rules": ""
 		},
 		"Indian/Cocos": {
-			"lat": -1210,
-			"lon": 9655,
+			"lat": -11.8333,
+			"lon": 96.9167,
 			"rules": ""
 		},
 		"Indian/Comoro": {
-			"lat": -1141,
-			"lon": 4316,
+			"lat": -10.3167,
+			"lon": 43.2667,
 			"rules": ""
 		},
 		"Indian/Kerguelen": {
-			"lat": -492110,
-			"lon": 701303,
+			"lat": -48.6472,
+			"lon": 70.2175,
 			"rules": ""
 		},
 		"Indian/Mahe": {
-			"lat": -440,
-			"lon": 5528,
+			"lat": -3.3333,
+			"lon": 55.4667,
 			"rules": ""
 		},
 		"Indian/Maldives": {
-			"lat": 410,
-			"lon": 7330,
+			"lat": 4.1667,
+			"lon": 73.5,
 			"rules": ""
 		},
 		"Indian/Mauritius": {
-			"lat": -2010,
-			"lon": 5730,
+			"lat": -19.8333,
+			"lon": 57.5,
 			"rules": "Mauritius"
 		},
 		"Indian/Mayotte": {
-			"lat": -1247,
-			"lon": 4514,
+			"lat": -11.2167,
+			"lon": 45.2333,
 			"rules": ""
 		},
 		"Indian/Reunion": {
-			"lat": -2052,
-			"lon": 5528,
+			"lat": -19.1333,
+			"lon": 55.4667,
 			"rules": ""
 		},
 		"MET": {
@@ -7353,193 +7370,193 @@ moment.lang('en');
 			"rules": "US"
 		},
 		"Pacific/Apia": {
-			"lat": -1350,
-			"lon": -17144,
+			"lat": -12.1667,
+			"lon": -170.2667,
 			"rules": "WS"
 		},
 		"Pacific/Auckland": {
-			"lat": -3652,
-			"lon": 17446,
+			"lat": -35.1333,
+			"lon": 174.7667,
 			"rules": "NZ"
 		},
 		"Pacific/Chatham": {
-			"lat": -4357,
-			"lon": -17633,
+			"lat": -42.05,
+			"lon": -175.45,
 			"rules": "Chatham"
 		},
 		"Pacific/Chuuk": {
-			"lat": 725,
-			"lon": 15147,
+			"lat": 7.4167,
+			"lon": 151.7833,
 			"rules": ""
 		},
 		"Pacific/Easter": {
-			"lat": -2709,
-			"lon": -10926,
+			"lat": -26.85,
+			"lon": -108.5667,
 			"rules": "Chile"
 		},
 		"Pacific/Efate": {
-			"lat": -1740,
-			"lon": 16825,
+			"lat": -16.3333,
+			"lon": 168.4167,
 			"rules": "Vanuatu"
 		},
 		"Pacific/Enderbury": {
-			"lat": -308,
-			"lon": -17105,
+			"lat": -2.8667,
+			"lon": -170.9167,
 			"rules": ""
 		},
 		"Pacific/Fakaofo": {
-			"lat": -922,
-			"lon": -17114,
+			"lat": -8.6333,
+			"lon": -170.7667,
 			"rules": ""
 		},
 		"Pacific/Fiji": {
-			"lat": -1808,
-			"lon": 17825,
+			"lat": -17.8667,
+			"lon": 178.4167,
 			"rules": "Fiji"
 		},
 		"Pacific/Funafuti": {
-			"lat": -831,
-			"lon": 17913,
+			"lat": -7.4833,
+			"lon": 179.2167,
 			"rules": ""
 		},
 		"Pacific/Galapagos": {
-			"lat": -54,
-			"lon": -8936,
+			"lat": 0.9,
+			"lon": -88.4,
 			"rules": ""
 		},
 		"Pacific/Gambier": {
-			"lat": -2308,
-			"lon": -13457,
+			"lat": -22.8667,
+			"lon": -133.05,
 			"rules": ""
 		},
 		"Pacific/Guadalcanal": {
-			"lat": -932,
-			"lon": 16012,
+			"lat": -8.4667,
+			"lon": 160.2,
 			"rules": ""
 		},
 		"Pacific/Guam": {
-			"lat": 1328,
-			"lon": 14445,
+			"lat": 13.4667,
+			"lon": 144.75,
 			"rules": ""
 		},
 		"Pacific/Honolulu": {
-			"lat": 211825,
-			"lon": -1575130,
+			"lat": 21.3069,
+			"lon": -156.1417,
 			"rules": ""
 		},
 		"Pacific/Johnston": {
-			"lat": 1645,
-			"lon": -16931,
+			"lat": 16.75,
+			"lon": -168.4833,
 			"rules": ""
 		},
 		"Pacific/Kiritimati": {
-			"lat": 152,
-			"lon": -15720,
+			"lat": 1.8667,
+			"lon": -156.6667,
 			"rules": ""
 		},
 		"Pacific/Kosrae": {
-			"lat": 519,
-			"lon": 16259,
+			"lat": 5.3167,
+			"lon": 162.9833,
 			"rules": ""
 		},
 		"Pacific/Kwajalein": {
-			"lat": 905,
-			"lon": 16720,
+			"lat": 9.0833,
+			"lon": 167.3333,
 			"rules": ""
 		},
 		"Pacific/Majuro": {
-			"lat": 709,
-			"lon": 17112,
+			"lat": 7.15,
+			"lon": 171.2,
 			"rules": ""
 		},
 		"Pacific/Marquesas": {
-			"lat": -900,
-			"lon": -13930,
+			"lat": -9,
+			"lon": -138.5,
 			"rules": ""
 		},
 		"Pacific/Midway": {
-			"lat": 2813,
-			"lon": -17722,
+			"lat": 28.2167,
+			"lon": -176.6333,
 			"rules": ""
 		},
 		"Pacific/Nauru": {
-			"lat": -31,
-			"lon": 16655,
+			"lat": 0.5167,
+			"lon": 166.9167,
 			"rules": ""
 		},
 		"Pacific/Niue": {
-			"lat": -1901,
-			"lon": -16955,
+			"lat": -18.9833,
+			"lon": -168.0833,
 			"rules": ""
 		},
 		"Pacific/Norfolk": {
-			"lat": -2903,
-			"lon": 16758,
+			"lat": -28.95,
+			"lon": 167.9667,
 			"rules": ""
 		},
 		"Pacific/Noumea": {
-			"lat": -2216,
-			"lon": 16627,
+			"lat": -21.7333,
+			"lon": 166.45,
 			"rules": "NC"
 		},
 		"Pacific/Pago_Pago": {
-			"lat": -1416,
-			"lon": -17042,
+			"lat": -13.7333,
+			"lon": -169.3,
 			"rules": ""
 		},
 		"Pacific/Palau": {
-			"lat": 720,
-			"lon": 13429,
+			"lat": 7.3333,
+			"lon": 134.4833,
 			"rules": ""
 		},
 		"Pacific/Pitcairn": {
-			"lat": -2504,
-			"lon": -13005,
+			"lat": -24.9333,
+			"lon": -129.9167,
 			"rules": ""
 		},
 		"Pacific/Pohnpei": {
-			"lat": 658,
-			"lon": 15813,
+			"lat": 6.9667,
+			"lon": 158.2167,
 			"rules": ""
 		},
 		"Pacific/Port_Moresby": {
-			"lat": -930,
-			"lon": 14710,
+			"lat": -8.5,
+			"lon": 147.1667,
 			"rules": ""
 		},
 		"Pacific/Rarotonga": {
-			"lat": -2114,
-			"lon": -15946,
+			"lat": -20.7667,
+			"lon": -158.2333,
 			"rules": "Cook"
 		},
 		"Pacific/Saipan": {
-			"lat": 1512,
-			"lon": 14545,
+			"lat": 15.2,
+			"lon": 145.75,
 			"rules": ""
 		},
 		"Pacific/Tahiti": {
-			"lat": -1732,
-			"lon": -14934,
+			"lat": -16.4667,
+			"lon": -148.4333,
 			"rules": ""
 		},
 		"Pacific/Tarawa": {
-			"lat": 125,
-			"lon": 17300,
+			"lat": 1.4167,
+			"lon": 173,
 			"rules": ""
 		},
 		"Pacific/Tongatapu": {
-			"lat": -2110,
-			"lon": -17510,
+			"lat": -20.8333,
+			"lon": -174.8333,
 			"rules": "Tonga"
 		},
 		"Pacific/Wake": {
-			"lat": 1917,
-			"lon": 16637,
+			"lat": 19.2833,
+			"lon": 166.6167,
 			"rules": ""
 		},
 		"Pacific/Wallis": {
-			"lat": -1318,
-			"lon": -17610,
+			"lat": -12.7,
+			"lon": -175.8333,
 			"rules": ""
 		},
 		"WET": {
@@ -12669,6 +12686,5 @@ moment.lang('en');
 		]
 	}
 }
-    moment.tz.addZones(window.momentTZData.zones);
-    moment.tz.addRules(window.momentTZData.rules);
+    moment.tz.add(window.momentTZData);
 }());
