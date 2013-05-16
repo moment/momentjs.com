@@ -1,14 +1,26 @@
 (function(){
 
-	var currentZone,
-		$map = $('.map-inset'),
+	var $map = $('.map-inset'),
 		$labelName = $('.map-label-name'),
 		$labelTime = $('.map-label-time'),
+		$axisX = $('.map-axis-x'),
+		$axisY = $('.map-axis-y'),
 		width = $map.outerWidth(),
 		height = $map.outerHeight(),
 		i,
 		lastCenter,
 		centers = [];
+
+	function changeCenter (center) {
+		if (center === lastCenter) {
+			return;
+		}
+		if (lastCenter) {
+			lastCenter.deactivate();
+		}
+		center.activate();
+		lastCenter = center;
+	}
 
 	function Center (data, name) {
 		this.x = (180 + data.lon) / 360;
@@ -18,6 +30,9 @@
 			top: this.y * 100 + '%'
 		});
 		this.name = name;
+		if (name === 'America/Los_Angeles') {
+			changeCenter(this);
+		}
 	}
 
 	Center.prototype = {
@@ -25,24 +40,22 @@
 			var dx = this.x - x,
 				dy = this.y - y;
 			return dx * dx + dy * dy;
+		},
+		activate : function () {
+			var m = moment.tz(this.name);
+			$labelName.text(this.name);
+			$labelTime.text(m.format("hh:mm a ") + m.zoneAbbr());
+			$axisX.css('left', this.x * 100 + '%');
+			$axisY.css('top', this.y * 100 + '%');
+		},
+		deactivate : function ()  {
+			this.dom.removeClass('active');
 		}
 	};
 
 	for (i in window.momentTZData.meta) {
 		centers.push(new Center(window.momentTZData.meta[i], i));
 	}
-
-	function changeZone (zone) {
-		if (zone === currentZone) {
-			return;
-		}
-		currentZone = zone;
-		var m = moment.tz(zone);
-		$labelName.text(zone);
-		$labelTime.text(m.format("hh:mm a ") + m.zoneAbbr());
-	}
-
-	changeZone('America/Los_Angeles');
 
 	$('.map-inset').mousemove(function (e) {
 		var offset = $(this).offset(),
@@ -64,12 +77,7 @@
 		}
 
 		if (closestCenter) {
-			if (lastCenter && lastCenter !== closestCenter) {
-				lastCenter.dom.removeClass('active');
-			}
-			lastCenter = closestCenter;
-			changeZone(closestCenter.name);
-			closestCenter.dom.addClass('active');
+			changeCenter(closestCenter);
 		}
 	});
 

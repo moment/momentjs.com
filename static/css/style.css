@@ -1013,6 +1013,24 @@ nav.subnav .section:hover .dropdown {
 .map-inset span.active {
   background: #f00;
 }
+/* line 60, /Users/tim.wood/github/momentjs.com/source/css/_map.scss */
+.map-inset .map-axis-x {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: url(../img/header.png);
+  border-left: 1px solid #111;
+  width: 0;
+}
+/* line 69, /Users/tim.wood/github/momentjs.com/source/css/_map.scss */
+.map-inset .map-axis-y {
+  position: absolute;
+  left: 0;
+  right: 0;
+  background: url(../img/header.png);
+  border-top: 1px solid #111;
+  height: 0;
+}
 
 /* line 1, /Users/tim.wood/github/momentjs.com/source/css/pages/_home.scss */
 .langs {

@@ -56,4 +56,22 @@
 			background: #f00;
 		}
 	}
+
+	.map-axis-x {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		background: url(../img/header.png);
+		border-left: 1px solid #111;
+		width: 0;
+	}
+
+	.map-axis-y {
+		position: absolute;
+		left: 0;
+		right: 0;
+		background: url(../img/header.png);
+		border-top: 1px solid #111;
+		height: 0;
+	}
 }
