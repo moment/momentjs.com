@@ -11,6 +11,11 @@
 		lastCenter,
 		centers = [];
 
+	$(window).resize(function () {
+		width = $map.outerWidth();
+		height = $map.outerHeight();
+	}).resize();
+
 	function changeCenter (center) {
 		if (center === lastCenter) {
 			return;
