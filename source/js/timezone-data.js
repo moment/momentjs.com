@@ -32,12 +32,13 @@
 
 	function rebuild () {
 		var op = {
-			zones : {},
-			rules : {}
-		};
+				zones : {},
+				rules : {}
+			};
 
 		$('[data-zone].active').each(function(){
-			addZone($(this).data('zone'), op);
+			var name = $(this).data('zone');
+			addZone(name, op);
 		});
 
 		op = JSON.stringify(op, null, 4);

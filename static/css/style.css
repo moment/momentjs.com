@@ -1346,8 +1346,9 @@ nav.subnav .section:hover .dropdown {
   min-height: 1200px;
   font-family: Consolas, monaco, monospace;
   font-size: 12px;
+  white-space: pre;
 }
-/* line 46, /Users/tim.wood/github/momentjs.com/source/css/pages/_timezone-data.scss */
+/* line 47, /Users/tim.wood/github/momentjs.com/source/css/pages/_timezone-data.scss */
 .zones-output textarea:focus {
   outline: 0;
 }
