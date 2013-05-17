@@ -759,6 +759,16 @@ aside a:hover {
   }
 }
 
+/* line 189, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+footer {
+  background: url(../img/header.png);
+  padding: 40px;
+  color: #fff;
+  font-weight: 100;
+  font-size: 30px;
+  text-align: center;
+}
+
 /* line 5, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
 .is-timezone .timezone-nav,
 .is-core .core-nav,
@@ -772,7 +782,7 @@ aside a:hover {
 /* line 10, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
 nav.top {
   height: 50px;
-  background: #111;
+  background: url(../img/header.png);
   position: fixed;
   top: 0;
   left: 0;
@@ -951,197 +961,6 @@ nav.subnav .section:hover .dropdown {
   }
 }
 
-/* line 1, /Users/tim.wood/github/momentjs.com/source/css/_map.scss */
-.map {
-  background: url(../img/header.png);
-  padding: 5px;
-  border-radius: 3px;
-  margin-top: 60px;
-  position: relative;
-}
-
-/* line 9, /Users/tim.wood/github/momentjs.com/source/css/_map.scss */
-.map-label {
-  background: whitesmoke;
-  border: 5px solid #111;
-  line-height: 60px;
-  height: 70px;
-  top: -45px;
-  left: 10%;
-  right: 10%;
-  position: absolute;
-  border-radius: 3px;
-  margin: 0;
-}
-/* line 21, /Users/tim.wood/github/momentjs.com/source/css/_map.scss */
-.map-label span {
-  position: absolute;
-  top: 0;
-  width: 50%;
-}
-/* line 26, /Users/tim.wood/github/momentjs.com/source/css/_map.scss */
-.map-label span.map-label-name {
-  left: 0;
-  padding-right: 10px;
-  text-align: right;
-}
-/* line 32, /Users/tim.wood/github/momentjs.com/source/css/_map.scss */
-.map-label span.map-label-time {
-  right: 0;
-  padding-left: 10px;
-  text-align: left;
-}
-
-/* line 40, /Users/tim.wood/github/momentjs.com/source/css/_map.scss */
-.map-inset {
-  padding-bottom: 50%;
-  background: url(../img/world.png) 50% 50%;
-  background-size: cover;
-  position: relative;
-}
-/* line 46, /Users/tim.wood/github/momentjs.com/source/css/_map.scss */
-.map-inset span {
-  width: 6px;
-  height: 6px;
-  margin: -3px 0 0 -3px;
-  background: #fff;
-  position: absolute;
-  border-radius: 3px;
-  border: 1px solid #111;
-}
-/* line 55, /Users/tim.wood/github/momentjs.com/source/css/_map.scss */
-.map-inset span.active {
-  background: #f00;
-}
-/* line 60, /Users/tim.wood/github/momentjs.com/source/css/_map.scss */
-.map-inset .map-axis-x {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  background: url(../img/header.png);
-  border-left: 1px solid #111;
-  width: 0;
-}
-/* line 69, /Users/tim.wood/github/momentjs.com/source/css/_map.scss */
-.map-inset .map-axis-y {
-  position: absolute;
-  left: 0;
-  right: 0;
-  background: url(../img/header.png);
-  border-top: 1px solid #111;
-  height: 0;
-}
-
-/* line 1, /Users/tim.wood/github/momentjs.com/source/css/pages/_home.scss */
-.langs {
-  margin-bottom: 20px;
-}
-/* line 4, /Users/tim.wood/github/momentjs.com/source/css/pages/_home.scss */
-.langs h2 {
-  padding: 0 0 20px;
-  margin: 0;
-}
-/* line 9, /Users/tim.wood/github/momentjs.com/source/css/pages/_home.scss */
-.langs .button {
-  display: inline-block;
-  padding: 5px 10px;
-  margin: 4px 2px;
-  background: #fff;
-  border-radius: 3px;
-  border: 1px solid #999;
-  cursor: pointer;
-}
-/* line 18, /Users/tim.wood/github/momentjs.com/source/css/pages/_home.scss */
-.langs .button:hover {
-  box-shadow: 1px 0 5px rgba(0, 0, 0, 0.2);
-}
-/* line 22, /Users/tim.wood/github/momentjs.com/source/css/pages/_home.scss */
-.langs .button.active {
-  background: #333;
-  color: #ccc;
-  border-color: #000;
-}
-
-/* line 31, /Users/tim.wood/github/momentjs.com/source/css/pages/_home.scss */
-.examples article {
-  overflow: hidden;
-}
-/* line 34, /Users/tim.wood/github/momentjs.com/source/css/pages/_home.scss */
-.examples article .input {
-  float: left;
-  width: 370px;
-}
-/* line 38, /Users/tim.wood/github/momentjs.com/source/css/pages/_home.scss */
-.examples article .input pre {
-  border-radius: 5px 0 0 5px;
-}
-/* line 43, /Users/tim.wood/github/momentjs.com/source/css/pages/_home.scss */
-.examples article .output {
-  margin-left: 370px;
-}
-/* line 46, /Users/tim.wood/github/momentjs.com/source/css/pages/_home.scss */
-.examples article .output pre {
-  border-radius: 0 5px 5px 0;
-  color: #ccc;
-  position: relative;
-  border-left: 0;
-  background: url(../img/header.png);
-}
-/* line 55, /Users/tim.wood/github/momentjs.com/source/css/pages/_home.scss */
-.examples article h2 {
-  padding: 0 0 20px;
-  margin: 0;
-}
-@media screen and (min-width: 769px) and (max-width: 1200px) {
-  /* line 61, /Users/tim.wood/github/momentjs.com/source/css/pages/_home.scss */
-  .examples article pre {
-    font-size: 13px;
-  }
-}
-@media screen and (min-width: 481px) and (max-width: 768px) {
-  /* line 31, /Users/tim.wood/github/momentjs.com/source/css/pages/_home.scss */
-  .examples article {
-    margin-right: 0;
-  }
-  /* line 69, /Users/tim.wood/github/momentjs.com/source/css/pages/_home.scss */
-  .examples article pre {
-    font-size: 12px;
-  }
-  /* line 73, /Users/tim.wood/github/momentjs.com/source/css/pages/_home.scss */
-  .examples article .input {
-    width: 320px;
-  }
-  /* line 77, /Users/tim.wood/github/momentjs.com/source/css/pages/_home.scss */
-  .examples article .output {
-    margin-left: 320px;
-  }
-}
-@media screen and (max-width: 480px) {
-  /* line 31, /Users/tim.wood/github/momentjs.com/source/css/pages/_home.scss */
-  .examples article {
-    margin-right: 0;
-  }
-  /* line 85, /Users/tim.wood/github/momentjs.com/source/css/pages/_home.scss */
-  .examples article .input {
-    float: none;
-    width: 100%;
-  }
-  /* line 89, /Users/tim.wood/github/momentjs.com/source/css/pages/_home.scss */
-  .examples article .input pre {
-    border-radius: 5px;
-    margin: 0 0 10px;
-  }
-  /* line 95, /Users/tim.wood/github/momentjs.com/source/css/pages/_home.scss */
-  .examples article .output {
-    margin-left: 0;
-  }
-  /* line 98, /Users/tim.wood/github/momentjs.com/source/css/pages/_home.scss */
-  .examples article .output pre {
-    border-left-width: 1px;
-    border-radius: 5px;
-  }
-}
-
 /* line 2, /Users/tim.wood/github/momentjs.com/source/css/pages/_docs.scss */
 .docs article {
   position: relative;
@@ -1296,4 +1115,239 @@ nav.subnav .section:hover .dropdown {
   font-weight: 100;
   margin: 0;
   padding: 0;
+}
+
+/* line 1, /Users/tim.wood/github/momentjs.com/source/css/pages/_core-home.scss */
+.langs {
+  margin-bottom: 20px;
+}
+/* line 4, /Users/tim.wood/github/momentjs.com/source/css/pages/_core-home.scss */
+.langs h2 {
+  padding: 0 0 20px;
+  margin: 0;
+}
+/* line 9, /Users/tim.wood/github/momentjs.com/source/css/pages/_core-home.scss */
+.langs .button {
+  display: inline-block;
+  padding: 5px 10px;
+  margin: 4px 2px;
+  background: #fff;
+  border-radius: 3px;
+  border: 1px solid #999;
+  cursor: pointer;
+}
+/* line 18, /Users/tim.wood/github/momentjs.com/source/css/pages/_core-home.scss */
+.langs .button:hover {
+  box-shadow: 1px 0 5px rgba(0, 0, 0, 0.2);
+}
+/* line 22, /Users/tim.wood/github/momentjs.com/source/css/pages/_core-home.scss */
+.langs .button.active {
+  background: #333;
+  color: #ccc;
+  border-color: #000;
+}
+
+/* line 31, /Users/tim.wood/github/momentjs.com/source/css/pages/_core-home.scss */
+.examples article {
+  overflow: hidden;
+}
+/* line 34, /Users/tim.wood/github/momentjs.com/source/css/pages/_core-home.scss */
+.examples article .input {
+  float: left;
+  width: 370px;
+}
+/* line 38, /Users/tim.wood/github/momentjs.com/source/css/pages/_core-home.scss */
+.examples article .input pre {
+  border-radius: 5px 0 0 5px;
+}
+/* line 43, /Users/tim.wood/github/momentjs.com/source/css/pages/_core-home.scss */
+.examples article .output {
+  margin-left: 370px;
+}
+/* line 46, /Users/tim.wood/github/momentjs.com/source/css/pages/_core-home.scss */
+.examples article .output pre {
+  border-radius: 0 5px 5px 0;
+  color: #ccc;
+  position: relative;
+  border-left: 0;
+  background: url(../img/header.png);
+}
+/* line 55, /Users/tim.wood/github/momentjs.com/source/css/pages/_core-home.scss */
+.examples article h2 {
+  padding: 0 0 20px;
+  margin: 0;
+}
+@media screen and (min-width: 769px) and (max-width: 1200px) {
+  /* line 61, /Users/tim.wood/github/momentjs.com/source/css/pages/_core-home.scss */
+  .examples article pre {
+    font-size: 13px;
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  /* line 31, /Users/tim.wood/github/momentjs.com/source/css/pages/_core-home.scss */
+  .examples article {
+    margin-right: 0;
+  }
+  /* line 69, /Users/tim.wood/github/momentjs.com/source/css/pages/_core-home.scss */
+  .examples article pre {
+    font-size: 12px;
+  }
+  /* line 73, /Users/tim.wood/github/momentjs.com/source/css/pages/_core-home.scss */
+  .examples article .input {
+    width: 320px;
+  }
+  /* line 77, /Users/tim.wood/github/momentjs.com/source/css/pages/_core-home.scss */
+  .examples article .output {
+    margin-left: 320px;
+  }
+}
+@media screen and (max-width: 480px) {
+  /* line 31, /Users/tim.wood/github/momentjs.com/source/css/pages/_core-home.scss */
+  .examples article {
+    margin-right: 0;
+  }
+  /* line 85, /Users/tim.wood/github/momentjs.com/source/css/pages/_core-home.scss */
+  .examples article .input {
+    float: none;
+    width: 100%;
+  }
+  /* line 89, /Users/tim.wood/github/momentjs.com/source/css/pages/_core-home.scss */
+  .examples article .input pre {
+    border-radius: 5px;
+    margin: 0 0 10px;
+  }
+  /* line 95, /Users/tim.wood/github/momentjs.com/source/css/pages/_core-home.scss */
+  .examples article .output {
+    margin-left: 0;
+  }
+  /* line 98, /Users/tim.wood/github/momentjs.com/source/css/pages/_core-home.scss */
+  .examples article .output pre {
+    border-left-width: 1px;
+    border-radius: 5px;
+  }
+}
+
+/* line 1, /Users/tim.wood/github/momentjs.com/source/css/pages/_timezone-home.scss */
+.map {
+  background: url(../img/header.png);
+  padding: 5px;
+  border-radius: 3px;
+  position: relative;
+}
+
+/* line 8, /Users/tim.wood/github/momentjs.com/source/css/pages/_timezone-home.scss */
+.map-label {
+  line-height: 60px;
+  font-size: 32px;
+  margin: 0;
+}
+/* line 13, /Users/tim.wood/github/momentjs.com/source/css/pages/_timezone-home.scss */
+.map-label span {
+  display: block;
+}
+/* line 17, /Users/tim.wood/github/momentjs.com/source/css/pages/_timezone-home.scss */
+.map-label .map-label-name {
+  float: left;
+  width: 50%;
+  padding-right: 10px;
+  text-align: right;
+}
+/* line 24, /Users/tim.wood/github/momentjs.com/source/css/pages/_timezone-home.scss */
+.map-label .map-label-time {
+  margin-left: 50%;
+  padding-left: 10px;
+  text-align: left;
+}
+
+/* line 31, /Users/tim.wood/github/momentjs.com/source/css/pages/_timezone-home.scss */
+.map-inset {
+  padding-bottom: 50%;
+  background: url(../img/world.png) 50% 50%;
+  background-size: cover;
+  position: relative;
+}
+/* line 37, /Users/tim.wood/github/momentjs.com/source/css/pages/_timezone-home.scss */
+.map-inset span {
+  width: 6px;
+  height: 6px;
+  margin: -3px 0 0 -3px;
+  background: #fff;
+  position: absolute;
+  border-radius: 3px;
+  border: 1px solid #111;
+}
+/* line 46, /Users/tim.wood/github/momentjs.com/source/css/pages/_timezone-home.scss */
+.map-inset span.active {
+  background: #f00;
+}
+/* line 51, /Users/tim.wood/github/momentjs.com/source/css/pages/_timezone-home.scss */
+.map-inset .map-axis-x {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: url(../img/header.png);
+  border-left: 1px solid #111;
+  width: 0;
+}
+/* line 60, /Users/tim.wood/github/momentjs.com/source/css/pages/_timezone-home.scss */
+.map-inset .map-axis-y {
+  position: absolute;
+  left: 0;
+  right: 0;
+  background: url(../img/header.png);
+  border-top: 1px solid #111;
+  height: 0;
+}
+
+/* line 3, /Users/tim.wood/github/momentjs.com/source/css/pages/_timezone-data.scss */
+.zones .button,
+.zones-output .button {
+  display: inline-block;
+  padding: 2px 5px;
+  margin: 2px 1px;
+  background: #fff;
+  border-radius: 3px;
+  border: 1px solid #999;
+  cursor: pointer;
+}
+/* line 12, /Users/tim.wood/github/momentjs.com/source/css/pages/_timezone-data.scss */
+.zones .button:hover,
+.zones-output .button:hover {
+  box-shadow: 1px 0 5px rgba(0, 0, 0, 0.2);
+}
+/* line 16, /Users/tim.wood/github/momentjs.com/source/css/pages/_timezone-data.scss */
+.zones .button.active,
+.zones-output .button.active {
+  background: #333;
+  color: #ccc;
+  border-color: #000;
+}
+
+/* line 24, /Users/tim.wood/github/momentjs.com/source/css/pages/_timezone-data.scss */
+.zones-output {
+  width: 50%;
+  float: right;
+  padding-left: 20px;
+}
+/* line 29, /Users/tim.wood/github/momentjs.com/source/css/pages/_timezone-data.scss */
+.zones-output h3 {
+  margin-top: 0;
+}
+/* line 33, /Users/tim.wood/github/momentjs.com/source/css/pages/_timezone-data.scss */
+.zones-output textarea {
+  width: 100%;
+  margin-top: 20px;
+  display: block;
+  border-radius: 3px;
+  border: 1px solid #000;
+  background: url(../img/header.png);
+  color: #ccc;
+  padding: 5px 10px;
+  min-height: 1200px;
+  font-family: Consolas, monaco, monospace;
+  font-size: 12px;
+}
+/* line 46, /Users/tim.wood/github/momentjs.com/source/css/pages/_timezone-data.scss */
+.zones-output textarea:focus {
+  outline: 0;
 }

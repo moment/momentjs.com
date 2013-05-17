@@ -54,7 +54,9 @@ function render(data, cb) {
             renderSingle('core-docs.html', 'docs/index.html', data, function(){
                 renderSingle('timezone-home.html', 'timezone/index.html', data, function(){
                     renderSingle('timezone-test.html', 'timezone/test/index.html', data, function(){
-                        renderSingle('timezone-test.html', 'timezone/test/index.html', data, cb);
+                        renderSingle('timezone-data.html', 'timezone/data/index.html', data, function(){
+                            renderSingle('timezone-data.html', 'timezone/data/index.html', data, cb);
+                        });
                     });
                 });
             });

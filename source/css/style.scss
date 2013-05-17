@@ -9,8 +9,9 @@
 @import "global";
 @import "header";
 @import "nav";
-@import "map";
 
-@import "pages/home";
 @import "pages/docs";
 @import "pages/test";
+@import "pages/core-home";
+@import "pages/timezone-home";
+@import "pages/timezone-data";

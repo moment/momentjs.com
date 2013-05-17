@@ -2,38 +2,29 @@
 	background: url(../img/header.png);
 	padding: 5px;
 	border-radius: 3px;
-	margin-top: 60px;
 	position: relative;
 }
 
 .map-label {
-	background: $background-color;
-	border: 5px solid #111;
 	line-height: 60px;
-	height: 70px;
-	top: -45px;
-	left: 10%;
-	right: 10%;
-	position: absolute;
-	border-radius: 3px;
+	font-size: 32px;
 	margin: 0;
 
 	span {
-		position: absolute;
-		top: 0;
+		display: block;
+	}
+
+	.map-label-name {
+		float: left;
 		width: 50%;
+		padding-right: 10px;
+		text-align: right;
+	}
 
-		&.map-label-name {
-			left: 0;
-			padding-right: 10px;
-			text-align: right;
-		}
-
-		&.map-label-time {
-			right: 0;
-			padding-left: 10px;
-			text-align: left;
-		}
+	.map-label-time {
+		margin-left: 50%;
+		padding-left: 10px;
+		text-align: left;
 	}
 }
 

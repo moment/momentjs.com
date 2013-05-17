@@ -21,6 +21,10 @@ module.exports = function(grunt) {
 				src: 'source/js/timezone-home.js',
 				dest: 'static/js/timezone-home.js'
 			},
+			timezone_data: {
+				src: 'source/js/timezone-data.js',
+				dest: 'static/js/timezone-data.js'
+			},
 			timezone_test: {
 				src: [
 					'source/js/test-start.js',
