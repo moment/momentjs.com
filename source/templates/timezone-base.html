@@ -29,20 +29,20 @@
 	</div>
 	<div class="title">
 		<div class="title-inset">
-			<h1>Moment Timezone<span>{{ timezone.version }}</span></h1>
+			<h1>Moment Timezone<span>{{ library.timezone_version }}</span></h1>
 			{% block header %}{% endblock header %}
 		</div>
 	</div>
 </header>
 <aside>
 	<div class="download">
-		<a class="button gzipped" href="https://raw.github.com/timrwood/moment-timezone/{{ timezone.version }}/min/moment-timezone.min.js">
+		<a class="button gzipped" href="https://raw.github.com/timrwood/moment-timezone/{{ library.timezone_version }}/min/moment-timezone.min.js">
 			<strong>Minified Source</strong>
-			<span class="filesize">{{ timezone.gzipped }}</span>
+			<span class="filesize">{{ library.timezone_gzipped }}</span>
 		</a>
-		<a class="button source" href="https://raw.github.com/timrwood/moment-timezone/{{ timezone.version }}/moment-timezone.js">
+		<a class="button source" href="https://raw.github.com/timrwood/moment-timezone/{{ library.timezone_version }}/moment-timezone.js">
 			<strong>Full Source</strong>
-			<span class="filesize">{{ timezone.size }} </span>
+			<span class="filesize">{{ library.timezone_size }} </span>
 		</a>
 	</div>
 </aside>

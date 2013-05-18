@@ -4965,6 +4965,9 @@ moment.lang('en');
 // github.com/timrwood/moment-timezone
 
 (function () {
+
+	var VERSION = "0.0.1";
+
 	function onload(moment) {
 		var oldZoneName = moment.fn.zoneName,
 			oldZoneAbbr = moment.fn.zoneAbbr,
@@ -5438,6 +5441,8 @@ moment.lang('en');
 		moment.tz.add = add;
 		moment.tz.addRule = addRule;
 		moment.tz.addZone = addZone;
+
+		moment.tz.version = VERSION;
 
 		// add default rule
 		defaultRule = addRule("- 0 9999 0 0 0 0 0 0");
