@@ -4,7 +4,7 @@ var data = require("../../libs/moment-timezone/moment-timezone.json"),
 
 module.exports = {};
 
-for (i in data.zones) {
+for (i in data.meta) {
 	name = i.split('/');
 	group = name.shift();
 

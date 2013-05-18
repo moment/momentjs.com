@@ -16,10 +16,16 @@
 	function addZone (name, op) {
 		var rule, rules, i,
 			zone = window.momentTZData.zones[name],
-			meta = window.momentTZData.meta[name];
+			meta = window.momentTZData.meta[name],
+			link = window.momentTZData.links[name];
 
 		if (zone) {
 			op.zones[name] = zone;
+		}
+
+		if (link) {
+			op.links[name] = link;
+			addZone(link, op);
 		}
 
 		if (meta) {
@@ -33,7 +39,8 @@
 	function rebuild () {
 		var op = {
 				zones : {},
-				rules : {}
+				rules : {},
+				links : {}
 			};
 
 		$('[data-zone].active').each(function(){

@@ -4974,6 +4974,7 @@ moment.lang('en');
 			ruleSets = {},
 			zones = {},
 			zoneSets = {},
+			links = {},
 
 			TIME_RULE_WALL_CLOCK = 0,
 			TIME_RULE_UTC        = 1,
@@ -5241,7 +5242,8 @@ moment.lang('en');
 		}
 
 		function ZoneSet (name) {
-			this.name = name;
+			this.name = normalizeName(name);
+			this.displayName = name;
 			this.zones = [];
 		}
 
@@ -5326,6 +5328,13 @@ moment.lang('en');
 			}
 		}
 
+		function addLinks (linksToAdd) {
+			var i;
+			for (i in linksToAdd) {
+				links[normalizeName(i)] = normalizeName(linksToAdd[i]);
+			}
+		}
+
 		function addZone (zoneString) {
 			// don't duplicate zones
 			if (zones[zoneString]) {
@@ -5340,7 +5349,7 @@ moment.lang('en');
 			zones[zoneString] = zone;
 
 			// add to the zoneset
-			getZoneSet(name).add(zone);
+			getZoneSet(p[0]).add(zone);
 
 			return zone;
 		}
@@ -5354,11 +5363,14 @@ moment.lang('en');
 		}
 
 		function getZoneSet (name) {
-			name = normalizeName(name);
-			if (!zoneSets[name]) {
-				zoneSets[name] = new ZoneSet(name);
+			var machineName = normalizeName(name);
+			if (links[machineName]) {
+				machineName = links[machineName];
 			}
-			return zoneSets[name];
+			if (!zoneSets[machineName]) {
+				zoneSets[machineName] = new ZoneSet(name);
+			}
+			return zoneSets[machineName];
 		}
 
 		function add (data) {
@@ -5370,6 +5382,9 @@ moment.lang('en');
 			}
 			if (data.rules) {
 				addRules(data.rules);
+			}
+			if (data.links) {
+				addLinks(data.links);
 			}
 		}
 
@@ -5386,11 +5401,16 @@ moment.lang('en');
 		};
 
 		moment.fn.tz = function (name) {
-			this._z = zoneSets[normalizeName(name)];
-			if (this._z) {
-				moment.updateOffset(this);
+			if (name) {
+				this._z = getZoneSet(name);
+				if (this._z) {
+					moment.updateOffset(this);
+				}
+				return this;
 			}
-			return this;
+			if (this._z) {
+				return this._z.displayName;
+			}
 		};
 
 		moment.fn.zoneName = function () {
@@ -5438,6 +5458,30 @@ moment.lang('en');
     window.momentTZData =
 
 {
+	"links": {
+		"America/Kralendijk": "America/Curacao",
+		"America/Lower_Princes": "America/Curacao",
+		"America/Marigot": "America/Guadeloupe",
+		"America/Shiprock": "America/Denver",
+		"America/St_Barthelemy": "America/Guadeloupe",
+		"Antarctica/South_Pole": "Antarctica/McMurdo",
+		"Arctic/Longyearbyen": "Europe/Oslo",
+		"Asia/Istanbul": "Europe/Istanbul",
+		"Europe/Bratislava": "Europe/Prague",
+		"Europe/Busingen": "Europe/Zurich",
+		"Europe/Guernsey": "Europe/London",
+		"Europe/Isle_of_Man": "Europe/London",
+		"Europe/Jersey": "Europe/London",
+		"Europe/Ljubljana": "Europe/Belgrade",
+		"Europe/Mariehamn": "Europe/Helsinki",
+		"Europe/Nicosia": "Asia/Nicosia",
+		"Europe/Podgorica": "Europe/Belgrade",
+		"Europe/San_Marino": "Europe/Rome",
+		"Europe/Sarajevo": "Europe/Belgrade",
+		"Europe/Skopje": "Europe/Belgrade",
+		"Europe/Vatican": "Europe/Rome",
+		"Europe/Zagreb": "Europe/Belgrade"
+	},
 	"meta": {
 		"Africa/Abidjan": {
 			"lat": 5.3167,
