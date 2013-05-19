@@ -26,3 +26,9 @@
 		}
 	}
 }
+
+@mixin width-under($size) {
+	@media screen and (max-width: $size) {
+		@content;
+	}
+}

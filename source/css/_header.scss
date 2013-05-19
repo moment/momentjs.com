@@ -4,6 +4,12 @@ header {
 	min-height: 300px;
 	position: relative;
 
+	@include width-under(1200px) {
+		width: auto;
+		margin-left: 40px;
+		margin-right: 40px;
+	}
+
 	.share {
 		position: absolute;
 		top: 0;
@@ -118,6 +124,26 @@ header {
 			color: #222;
 			font-weight: 300;
 			margin: 0;
+		}
+
+		@include width-under(1000px) {
+			h1 {
+				line-height: 70px;
+				font-size: 50px;
+			}
+			h2 {
+				font-size: 30px;
+			}
+		}
+
+		@include width-under(920px) {
+			h1 {
+				line-height: 60px;
+				font-size: 40px;
+			}
+			h2 {
+				font-size: 24px;
+			}
 		}
 	}
 }

@@ -545,13 +545,21 @@ header {
   min-height: 300px;
   position: relative;
 }
-/* line 7, ../../source/css/_header.scss */
+@media screen and (max-width: 1200px) {
+  /* line 1, ../../source/css/_header.scss */
+  header {
+    width: auto;
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+}
+/* line 13, ../../source/css/_header.scss */
 header .share {
   position: absolute;
   top: 0;
   right: 0;
 }
-/* line 13, ../../source/css/_header.scss */
+/* line 19, ../../source/css/_header.scss */
 header .circle {
   width: 260px;
   height: 260px;
@@ -559,7 +567,7 @@ header .circle {
   top: 20px;
   position: absolute;
 }
-/* line 21, ../../source/css/_header.scss */
+/* line 27, ../../source/css/_header.scss */
 header .face {
   width: 100%;
   height: 100%;
@@ -568,7 +576,7 @@ header .face {
   border-radius: 50%;
   position: relative;
 }
-/* line 29, ../../source/css/_header.scss */
+/* line 35, ../../source/css/_header.scss */
 header .face:after {
   position: absolute;
   top: 50%;
@@ -581,7 +589,7 @@ header .face:after {
   content: "";
   display: block;
 }
-/* line 43, ../../source/css/_header.scss */
+/* line 49, ../../source/css/_header.scss */
 header .face .map-thumb, header .face:before {
   position: absolute;
   top: 10px;
@@ -593,7 +601,7 @@ header .face .map-thumb, header .face:before {
   content: "";
   display: block;
 }
-/* line 56, ../../source/css/_header.scss */
+/* line 62, ../../source/css/_header.scss */
 header #hour {
   width: 0;
   height: 0;
@@ -609,7 +617,7 @@ header #hour {
   transform-origin: 100% 50%;
   border-radius: 5px 0 0 5px;
 }
-/* line 69, ../../source/css/_header.scss */
+/* line 75, ../../source/css/_header.scss */
 header #minute {
   width: 0;
   height: 0;
@@ -625,7 +633,7 @@ header #minute {
   transform-origin: 50% 100%;
   border-radius: 5px 5px 0 0;
 }
-/* line 82, ../../source/css/_header.scss */
+/* line 88, ../../source/css/_header.scss */
 header #second {
   width: 0;
   height: 0;
@@ -640,45 +648,67 @@ header #second {
   -ms-transform-origin: 50% 100%;
   transform-origin: 50% 100%;
 }
-/* line 94, ../../source/css/_header.scss */
+/* line 100, ../../source/css/_header.scss */
 header .title {
   padding-left: 300px;
   height: 300px;
   display: table;
 }
-/* line 99, ../../source/css/_header.scss */
+/* line 105, ../../source/css/_header.scss */
 header .title .title-inset {
   display: table-cell;
   vertical-align: middle;
 }
-/* line 104, ../../source/css/_header.scss */
+/* line 110, ../../source/css/_header.scss */
 header .title h1 {
   line-height: 80px;
   font-size: 60px;
   margin: 0;
   font-weight: 100;
 }
-/* line 110, ../../source/css/_header.scss */
+/* line 116, ../../source/css/_header.scss */
 header .title h1 span {
   font-size: 30px;
   padding: 0 10px;
   color: #999;
 }
-/* line 117, ../../source/css/_header.scss */
+/* line 123, ../../source/css/_header.scss */
 header .title h2 {
   color: #222;
   font-weight: 300;
   margin: 0;
 }
+@media screen and (max-width: 1000px) {
+  /* line 130, ../../source/css/_header.scss */
+  header .title h1 {
+    line-height: 70px;
+    font-size: 50px;
+  }
+  /* line 134, ../../source/css/_header.scss */
+  header .title h2 {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 920px) {
+  /* line 140, ../../source/css/_header.scss */
+  header .title h1 {
+    line-height: 60px;
+    font-size: 40px;
+  }
+  /* line 144, ../../source/css/_header.scss */
+  header .title h2 {
+    font-size: 24px;
+  }
+}
 
-/* line 125, ../../source/css/_header.scss */
+/* line 151, ../../source/css/_header.scss */
 aside {
   width: 400px;
   margin: 0 auto;
   padding: 20px 0;
   overflow: hidden;
 }
-/* line 131, ../../source/css/_header.scss */
+/* line 157, ../../source/css/_header.scss */
 aside a {
   display: block;
   width: 200px;
@@ -691,7 +721,7 @@ aside a {
   color: #ccc;
   padding: 20px 0;
 }
-/* line 143, ../../source/css/_header.scss */
+/* line 169, ../../source/css/_header.scss */
 aside a + a {
   border-left: 0;
   border-radius: 0 5px 5px 0;
@@ -699,16 +729,16 @@ aside a + a {
   color: #666;
   border: 1px solid #999;
 }
-/* line 151, ../../source/css/_header.scss */
+/* line 177, ../../source/css/_header.scss */
 aside a:hover {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
-/* line 162, ../../source/css/_header.scss */
+/* line 188, ../../source/css/_header.scss */
 .is-timezone header .circle .face:before, .is-timezone header .circle .face:after {
   display: none;
 }
-/* line 166, ../../source/css/_header.scss */
+/* line 192, ../../source/css/_header.scss */
 .is-timezone header .circle .face .map-thumb {
   background: url(../img/world.png);
   background-size: cover;
@@ -728,42 +758,42 @@ aside a:hover {
 }
 
 @-moz-keyframes map {
-  /* line 181, ../../source/css/_header.scss */
+  /* line 207, ../../source/css/_header.scss */
   from {
     background-position: 625% 0;
   }
 
-  /* line 184, ../../source/css/_header.scss */
+  /* line 210, ../../source/css/_header.scss */
   to {
     background-position: 25% 0;
   }
 }
 
 @-webkit-keyframes map {
-  /* line 181, ../../source/css/_header.scss */
+  /* line 207, ../../source/css/_header.scss */
   from {
     background-position: 625% 0;
   }
 
-  /* line 184, ../../source/css/_header.scss */
+  /* line 210, ../../source/css/_header.scss */
   to {
     background-position: 25% 0;
   }
 }
 
 @keyframes map {
-  /* line 181, ../../source/css/_header.scss */
+  /* line 207, ../../source/css/_header.scss */
   from {
     background-position: 625% 0;
   }
 
-  /* line 184, ../../source/css/_header.scss */
+  /* line 210, ../../source/css/_header.scss */
   to {
     background-position: 25% 0;
   }
 }
 
-/* line 189, ../../source/css/_header.scss */
+/* line 215, ../../source/css/_header.scss */
 footer {
   background: url(../img/header.png);
   padding: 40px;
