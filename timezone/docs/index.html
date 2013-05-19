@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:300,700' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="/static/css/style.css?v=2013-05-19T10:45:15-07:00" />
+		<link rel="stylesheet" href="/static/css/style.css?v=2013-05-19T15:28:36-07:00" />
 		<title>Moment.js | Documentation</title>
 	</head>
 	<body class="is-timezone is-docs">
@@ -73,8 +73,8 @@
 			<article class="section">
 				<a class="target" name="/use-it/"></a>
 				<h2><a href='#/use-it/'><span class="hash">#</span>Where to use it</a></h2>
-				<p>Moment was designed to work both in the browser and in Node.JS.</p>
-<p>All code will work in both environments. All unit tests are run in both environments.</p>
+				<p>In order to use moment-timezone, you will need <code>moment@2.1.0</code> or greater, the core <code>moment-timezone</code> library, and the <code>moment-timezone</code> data.</p>
+<p>You can use the data builder at <a href="/timezone/data/">momentjs.com/timezone/data/</a> to construct a data set with only the zones needed.</p>
 
 			</article>
 			
@@ -86,9 +86,9 @@
 					</h3>
 					<div class="prose">
 						
-						<pre><code>npm install moment</code></pre>
-<pre><code class="lang-javascript"><span class="keyword">var</span> moment = require(<span class="string">'moment'</span>);
-moment().format();</code></pre>
+						<pre><code>npm install moment-timezone</code></pre>
+<pre><code class="lang-javascript"><span class="keyword">var</span> moment = require(<span class="string">'moment-timezone'</span>);
+moment().tz(<span class="string">"America/Los_Angeles"</span>).format();</code></pre>
 
 					</div>
 				</article>
@@ -101,10 +101,12 @@ moment().format();</code></pre>
 					</h3>
 					<div class="prose">
 						
-						<pre><code>&lt;script src=&quot;moment.js&quot;&gt;&lt;/script&gt;
-&lt;script&gt;
-    moment().format();
-&lt;/script&gt;</code></pre>
+						<pre><code class="lang-html"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"moment.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"moment-timezone.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"moment-timezone-data.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+<span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">
+    moment().tz(<span class="string">"America/Los_Angeles"</span>).format();
+</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></pre>
 
 					</div>
 				</article>
@@ -120,10 +122,12 @@ moment().format();</code></pre>
 						<pre><code class="lang-javascript">require.config({
     paths: {
         <span class="string">"moment"</span>: <span class="string">"path/to/moment"</span>,
+        <span class="string">"moment-timezone"</span>: <span class="string">"path/to/moment-timezone"</span>,
+        <span class="string">"moment-timezone-data"</span>: <span class="string">"path/to/moment-timezone-data"</span>
     }
 });
-define([<span class="string">"moment"</span>], <span class="function"><span class="keyword">function</span> <span class="params">(moment)</span> {</span>
-    moment().format();
+define([<span class="string">"moment-timezone"</span>, <span class="string">"moment-timezone-data"</span>], <span class="function"><span class="keyword">function</span> <span class="params">(moment)</span> {</span>
+    moment().tz(<span class="string">"America/Los_Angeles"</span>).format();
 });</code></pre>
 
 					</div>
@@ -139,7 +143,7 @@ define([<span class="string">"moment"</span>], <span class="function"><span clas
 		</footer>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-		<script src="/static/js/global.min.js?v=2013-05-19T10:45:15-07:00"></script>
+		<script src="/static/js/global.min.js?v=2013-05-19T15:28:36-07:00"></script>
 		
 
 		<script>

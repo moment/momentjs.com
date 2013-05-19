@@ -1,12 +1,13 @@
 var fs            = require('fs'),
 	highlight     = require("highlight.js").highlight,
-	marked        = require('marked'),
-	core_docs     = require("./core_docs.json"),
-	timezone_docs = require("./timezone_docs.json");
+	marked        = require('marked');
 
 marked.setOptions({
 	highlight : function (code, lang) {
-		if (lang === "javascript") {
+		switch(lang) {
+		case "html":
+			return highlight("xml", code).value;
+		case "javascript":
 			return highlight("javascript", code).value;
 		}
 		return code;
@@ -28,13 +29,14 @@ function machineFriendly(str) {
 	return str.replace(/[^a-z0-9]+/gi, '-').toLowerCase();
 }
 
-function normalizeDocs(docs) {
-	var method, section, i, j;
+function normalizeDocs(folder) {
+	var method, section, i, j,
+		docs = require('./' + folder + '.json');
 	for (i = 0; i < docs.length; i++) {
 		section = docs[i];
 		section.title = section.title || section.key;
 		section.key = machineFriendly(section.key);
-		section.body = docsAtPath(filename(['source', 'docs', section.key + '.md']));
+		section.body = docsAtPath(filename(['source', folder, section.key + '.md']));
 
 		for (j = 0; j < section.methods.length; j++) {
 			method = section.methods[j];
@@ -45,7 +47,7 @@ function normalizeDocs(docs) {
 				method.signature = method.signature.join('\n');
 			}
 
-			method.body = docsAtPath(filename(['source', 'docs', section.key, method.key + '.md']));
+			method.body = docsAtPath(filename(['source', folder, section.key, method.key + '.md']));
 		}
 	}
 	return docs;
@@ -60,9 +62,9 @@ function docsAtPath(p) {
 
 module.exports = {
 	core : function () {
-		return normalizeDocs(core_docs);
+		return normalizeDocs('core_docs');
 	},
 	timezone : function () {
-		return normalizeDocs(timezone_docs);
+		return normalizeDocs('timezone_docs');
 	}
 };

@@ -78,8 +78,9 @@ module.exports = function(grunt) {
 			},
 			html: {
 				files: [
-					"source/docs/**/*",
-					"source/templates/*"
+					"source/**/*.md",
+					"source/**/*.html",
+					"source/**/*.json"
 				],
 				tasks: ["html"]
 			}

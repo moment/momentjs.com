@@ -52,7 +52,6 @@ pre {
 	margin: 0 0 20px;
 	white-space: pre;
 	line-height: 24px;
-	background: #222 url(../img/header.png);
 	background: #fff;
 	font-weight: 100;
 
@@ -73,7 +72,11 @@ pre {
 	.literal,
 	.property {
 		font-weight: 700;
-		color: #666;
+	}
+
+	.title,
+	.params {
+		font-style: italic;
 	}
 
 	.literal,
@@ -81,6 +84,7 @@ pre {
 		color: #A0B1E4;
 	}
 
+	.value,
 	.string {
 		color: #ED7677;
 	}
