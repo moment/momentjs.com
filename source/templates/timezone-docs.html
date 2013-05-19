@@ -1,4 +1,4 @@
-{% extends "core-base.html" %}
+{% extends "timezone-base.html" %}
 
 {% block title %}Documentation{% endblock title %}
 
@@ -11,7 +11,7 @@
 {% block content %}
 
 	<nav class="subnav">
-		{% for section in core_docs %}
+		{% for section in timezone_docs %}
 			<div class="section">
 				<a href='#/{{ section.key }}/'>{{ section.title }}</a>
 				<div class="dropdown">
@@ -24,7 +24,7 @@
 	</nav>
 
 	<div class="docs">
-		{% for section in core_docs %}
+		{% for section in timezone_docs %}
 			<article class="section">
 				<a class="target" name="/{{ section.key }}/"></a>
 				<h2><a href='#/{{ section.key }}/'><span class="hash">#</span>{{ section.title }}</a></h2>

@@ -4,9 +4,9 @@
 		<meta charset="utf-8" />
 		<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:300,700' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="/static/css/style.css?v=2013-05-19T10:45:15-07:00" />
-		<title>Moment.js | Timezone support for Moment.js</title>
+		<title>Moment.js | Documentation</title>
 	</head>
-	<body class="is-timezone is-home">
+	<body class="is-timezone is-docs">
 		<nav class="top">
 			<a class="logo core-nav" href="/">Moment.js</a>
 			<a class="logo timezone-nav" href="/timezone/">Moment Timezone</a>
@@ -30,6 +30,8 @@
 		<div class="title-inset">
 			<h1>Moment Timezone<span>0.0.1</span></h1>
 			
+	<h2>Documentation</h2>
+
 		</div>
 	</div>
 </header>
@@ -48,16 +50,88 @@
 
 		<div class="container">
 			
-	<h3 class="map-label">
-		<span class="map-label-name"></span>
-		<span class="map-label-time"></span>
-	</h3>
-	<div class="map">
-		<div class="map-inset">
-			<div class="map-axis-x"></div>
-			<div class="map-axis-y"></div>
-		</div>
+
+	<nav class="subnav">
+		
+			<div class="section">
+				<a href='#/use-it/'>Where to use it</a>
+				<div class="dropdown">
+					
+						<a href="#/use-it/node-js/">Node.js</a>
+					
+						<a href="#/use-it/browser/">Browser</a>
+					
+						<a href="#/use-it/require-js/">Require.js</a>
+					
+				</div>
+			</div>
+		
+	</nav>
+
+	<div class="docs">
+		
+			<article class="section">
+				<a class="target" name="/use-it/"></a>
+				<h2><a href='#/use-it/'><span class="hash">#</span>Where to use it</a></h2>
+				<p>Moment was designed to work both in the browser and in Node.JS.</p>
+<p>All code will work in both environments. All unit tests are run in both environments.</p>
+
+			</article>
+			
+				<article class="method">
+					<a class="target" name="/use-it/node-js/"></a>
+					<h3>
+						<a href='#/use-it/node-js/'><span class="hash">#</span>Node.js</a>
+						<span></span>
+					</h3>
+					<div class="prose">
+						
+						<pre><code>npm install moment</code></pre>
+<pre><code class="lang-javascript"><span class="keyword">var</span> moment = require(<span class="string">'moment'</span>);
+moment().format();</code></pre>
+
+					</div>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/use-it/browser/"></a>
+					<h3>
+						<a href='#/use-it/browser/'><span class="hash">#</span>Browser</a>
+						<span></span>
+					</h3>
+					<div class="prose">
+						
+						<pre><code>&lt;script src=&quot;moment.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    moment().format();
+&lt;/script&gt;</code></pre>
+
+					</div>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/use-it/require-js/"></a>
+					<h3>
+						<a href='#/use-it/require-js/'><span class="hash">#</span>Require.js</a>
+						<span></span>
+					</h3>
+					<div class="prose">
+						
+						<pre><code class="lang-javascript">require.config({
+    paths: {
+        <span class="string">"moment"</span>: <span class="string">"path/to/moment"</span>,
+    }
+});
+define([<span class="string">"moment"</span>], <span class="function"><span class="keyword">function</span> <span class="params">(moment)</span> {</span>
+    moment().format();
+});</code></pre>
+
+					</div>
+				</article>
+			
+		
 	</div>
+
 
 		</div>
 		<footer>
@@ -67,8 +141,6 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 		<script src="/static/js/global.min.js?v=2013-05-19T10:45:15-07:00"></script>
 		
-	<script src="/static/js/timezone-home.js?v=2013-05-19T10:45:15-07:00"></script>
-
 
 		<script>
 			window._gaq = [['_setAccount','UA-10641787-5'],['_trackPageview'],['_trackPageLoadTime']];

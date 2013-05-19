@@ -61,12 +61,6 @@ module.exports = function(grunt) {
 				}
 			}
 		},
-		html: {
-			files: [
-				"source/docs/**/*",
-				"source/templates/*"
-			]
-		},
 		watch: {
 			css: {
 				files: [
@@ -81,6 +75,13 @@ module.exports = function(grunt) {
 					'libs/**/*.js'
 				],
 				tasks: ['concat', 'uglify']
+			},
+			html: {
+				files: [
+					"source/docs/**/*",
+					"source/templates/*"
+				],
+				tasks: ["html"]
 			}
 		}
 	});

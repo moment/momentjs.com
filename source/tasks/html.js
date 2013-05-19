@@ -28,7 +28,8 @@ function filename(fn) {
 function main(cb) {
     var data = {
         library : library,
-        docs : docs,
+        core_docs : docs.core(),
+        timezone_docs : docs.timezone(),
         zones : zones,
         langs : langs,
         cachebust : moment().format()
@@ -55,7 +56,7 @@ function render(data, cb) {
                 renderSingle('timezone-home.html', 'timezone/index.html', data, function(){
                     renderSingle('timezone-test.html', 'timezone/test/index.html', data, function(){
                         renderSingle('timezone-data.html', 'timezone/data/index.html', data, function(){
-                            renderSingle('timezone-data.html', 'timezone/data/index.html', data, cb);
+                            renderSingle('timezone-docs.html', 'timezone/docs/index.html', data, cb);
                         });
                     });
                 });
