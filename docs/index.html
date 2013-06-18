@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:300,700' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="/static/css/style.css?v=2013-06-17T17:05:28-07:00" />
+		<link rel="stylesheet" href="/static/css/style.css?v=2013-06-17T17:15:06-07:00" />
 		<title>Moment.js | Documentation</title>
 	</head>
 	<body class="is-core is-docs">
@@ -1882,6 +1882,16 @@ b.diff(a) <span class="comment">// b - a &lt; 0</span></code></pre>
 						
 						<p>Get the timezone offset in minutes.</p>
 <pre><code class="lang-javascript">moment().zone(); <span class="comment">// (60, 120, 240, etc.)</span></code></pre>
+<p>As of version <strong>2.1.0</strong>, it is possible to set the offset by passing in the number of minutes offset from GMT.</p>
+<pre><code class="lang-javascript">moment().zone(<span class="number">120</span>);</code></pre>
+<p>If the input is less than <code>16</code> and greater than <code>-16</code>, it will interpret your input as hours instead.</p>
+<pre><code class="lang-javascript"><span class="comment">// these are equivalent</span>
+moment().zone(<span class="number">480</span>);
+moment().zone(<span class="number">8</span>);</code></pre>
+<p>It is also possible to set the zone from a string.</p>
+<pre><code class="lang-javascript">moment().zone(<span class="string">"-08:00"</span>);</code></pre>
+<p><code>moment#zone</code> will search the string for the first match of <code>+00:00 +0000 -00:00 -0000</code>, so you can even pass an ISO8601 formatted string and the moment will be changed to that zone.</p>
+<pre><code class="lang-javascript">moment().zone(<span class="string">"2013-03-07T07:00:00-08:00"</span>);</code></pre>
 
 					</div>
 				</article>
@@ -3004,7 +3014,7 @@ t.simpleFormat(<span class="string">"h:m"</span>); <span class="comment">//=&gt;
 		</footer>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-		<script src="/static/js/global.min.js?v=2013-06-17T17:05:28-07:00"></script>
+		<script src="/static/js/global.min.js?v=2013-06-17T17:15:06-07:00"></script>
 		
 
 		<script>
