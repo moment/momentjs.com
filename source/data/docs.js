@@ -232,9 +232,9 @@ var exp = [
 			{
 				key : "Month",
 				signature : [
-					"moment().month(Number);",
+					"moment().month(Number|String);",
 					"moment().month(); // Number",
-					"moment().months(Number);",
+					"moment().months(Number|String);",
 					"moment().months(); // Number"
 				],
 				version : "1.0.0"
@@ -377,7 +377,10 @@ var exp = [
 			},
 			{
 				key : "Timezone Offset",
-				signature : "moment().zone();",
+				signature : [
+					"moment().zone();",
+					"moment().zone(Number|String);"
+				],
 				version : "1.2.0"
 			},
 			{
