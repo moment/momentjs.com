@@ -305,6 +305,18 @@ var exp = [
 				version : "1.7.0"
 			},
 			{
+				key : "max",
+				title : "Maximum",
+				signature : "moment().max(Moment|String|Number|Date|Array);",
+				version : "2.1.0"
+			},
+			{
+				key : "min",
+				title : "Minimum",
+				signature : "moment().min(Moment|String|Number|Date|Array);",
+				version : "2.1.0"
+			},
+			{
 				key : "Local",
 				signature : "moment().local();",
 				version : "1.5.0"
@@ -313,6 +325,14 @@ var exp = [
 				key : "UTC",
 				signature : "moment().utc();",
 				version : "1.5.0"
+			},
+			{
+				key : "Timezone Offset",
+				signature : [
+					"moment().zone();",
+					"moment().zone(Number|String);"
+				],
+				version : "1.2.0"
 			}
 		]
 	},
@@ -374,14 +394,6 @@ var exp = [
 				title : "Unix Timestamp (seconds)",
 				signature : "moment().unix();",
 				version : "1.6.0"
-			},
-			{
-				key : "Timezone Offset",
-				signature : [
-					"moment().zone();",
-					"moment().zone(Number|String);"
-				],
-				version : "1.2.0"
 			},
 			{
 				key : "Days in Month",

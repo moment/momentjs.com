@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:300,700' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="/static/css/style.css?v=2013-06-17T17:18:21-07:00" />
+		<link rel="stylesheet" href="/static/css/style.css?v=2013-06-18T15:26:35-07:00" />
 		<title>Moment.js | Documentation</title>
 	</head>
 	<body class="is-core is-docs">
@@ -145,9 +145,15 @@
 					
 						<a href="#/manipulating/end-of/">End of Time</a>
 					
+						<a href="#/manipulating/max/">Maximum</a>
+					
+						<a href="#/manipulating/min/">Minimum</a>
+					
 						<a href="#/manipulating/local/">Local</a>
 					
 						<a href="#/manipulating/utc/">UTC</a>
+					
+						<a href="#/manipulating/timezone-offset/">Timezone Offset</a>
 					
 				</div>
 			</div>
@@ -169,8 +175,6 @@
 						<a href="#/displaying/unix-offset/">Unix Offset (milliseconds)</a>
 					
 						<a href="#/displaying/unix-timestamp/">Unix Timestamp (seconds)</a>
-					
-						<a href="#/displaying/timezone-offset/">Timezone Offset</a>
 					
 						<a href="#/displaying/days-in-month/">Days in Month</a>
 					
@@ -1241,6 +1245,50 @@ moment().minutes(<span class="number">0</span>).seconds(<span class="number">0</
 				</article>
 			
 				<article class="method">
+					<a class="target" name="/manipulating/max/"></a>
+					<h3>
+						<a href='#/manipulating/max/'><span class="hash">#</span>Maximum</a>
+						<span>2.1.0</span>
+					</h3>
+					<div class="prose">
+						
+							<pre lang="javascript">moment().max(Moment|String|Number|Date|Array);</pre>
+						
+						<p>Set the maximum value for a moment.</p>
+<p>Sometimes, server clocks are not quite in sync with client clocks. This ends up displaying humanized strings such as &quot;in a few seconds&quot; rather than &quot;a few seconds ago&quot;.</p>
+<p><code>moment#max</code> was added to allow you to set the maximum value for a moment.</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> momentFromServer = moment(input);
+<span class="keyword">var</span> now = moment();
+<span class="keyword">var</span> clampedMoment = momentFromServer.max(now);</code></pre>
+<p>You can pass anything to <code>moment#max</code> that you would pass to <code>moment()</code>.</p>
+<pre><code class="lang-javascript">moment().max(<span class="string">"2013-04-20T20:00:00+0800"</span>);
+moment().max(<span class="string">"Jan 1 2001"</span>, <span class="string">"MMM D YYYY"</span>);</code></pre>
+
+					</div>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/manipulating/min/"></a>
+					<h3>
+						<a href='#/manipulating/min/'><span class="hash">#</span>Minimum</a>
+						<span>2.1.0</span>
+					</h3>
+					<div class="prose">
+						
+							<pre lang="javascript">moment().min(Moment|String|Number|Date|Array);</pre>
+						
+						<p>Set the minimum value for a moment.</p>
+<p>This is the counterpart for <code>moment#max</code>.</p>
+<pre><code class="lang-javascript">moment().min(<span class="string">"2013-04-20T20:00:00+0800"</span>);</code></pre>
+<p>This can be used in conjunction with <code>moment#max</code> to clamp a moment to a range.</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> start  = moment().startOf(<span class="string">'week'</span>);
+<span class="keyword">var</span> end    = moment().endOf(<span class="string">'week'</span>);
+<span class="keyword">var</span> actual = moment().min(start).max(end);</code></pre>
+
+					</div>
+				</article>
+			
+				<article class="method">
 					<a class="target" name="/manipulating/local/"></a>
 					<h3>
 						<a href='#/manipulating/local/'><span class="hash">#</span>Local</a>
@@ -1276,6 +1324,33 @@ a.hours(); <span class="comment">// 8 PST</span>
 a.utc();
 a.hours(); <span class="comment">// 16 UTC</span></code></pre>
 <p>See <a href="#/parsing/utc/">moment.utc()</a> for more information on UTC mode.</p>
+
+					</div>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/manipulating/timezone-offset/"></a>
+					<h3>
+						<a href='#/manipulating/timezone-offset/'><span class="hash">#</span>Timezone Offset</a>
+						<span>1.2.0</span>
+					</h3>
+					<div class="prose">
+						
+							<pre lang="javascript">moment().zone();
+moment().zone(Number|String);</pre>
+						
+						<p>Get the timezone offset in minutes.</p>
+<pre><code class="lang-javascript">moment().zone(); <span class="comment">// (60, 120, 240, etc.)</span></code></pre>
+<p>As of version <strong>2.1.0</strong>, it is possible to set the offset by passing in the number of minutes offset from GMT.</p>
+<pre><code class="lang-javascript">moment().zone(<span class="number">120</span>);</code></pre>
+<p>If the input is less than <code>16</code> and greater than <code>-16</code>, it will interpret your input as hours instead.</p>
+<pre><code class="lang-javascript"><span class="comment">// these are equivalent</span>
+moment().zone(<span class="number">480</span>);
+moment().zone(<span class="number">8</span>);</code></pre>
+<p>It is also possible to set the zone from a string.</p>
+<pre><code class="lang-javascript">moment().zone(<span class="string">"-08:00"</span>);</code></pre>
+<p><code>moment#zone</code> will search the string for the first match of <code>+00:00 +0000 -00:00 -0000</code>, so you can even pass an ISO8601 formatted string and the moment will be changed to that zone.</p>
+<pre><code class="lang-javascript">moment().zone(<span class="string">"2013-03-07T07:00:00-08:00"</span>);</code></pre>
 
 					</div>
 				</article>
@@ -1869,33 +1944,6 @@ b.diff(a) <span class="comment">// b - a &lt; 0</span></code></pre>
 						<p><code>moment#unix</code> outputs a Unix timestamp (the of seconds since the Unix Epoch).</p>
 <pre><code class="lang-javascript">moment(<span class="number">1318874398806</span>).unix(); <span class="comment">// 1318874398</span></code></pre>
 <p>This value is floored to the nearest second, and does not include a milliseconds component.</p>
-
-					</div>
-				</article>
-			
-				<article class="method">
-					<a class="target" name="/displaying/timezone-offset/"></a>
-					<h3>
-						<a href='#/displaying/timezone-offset/'><span class="hash">#</span>Timezone Offset</a>
-						<span>1.2.0</span>
-					</h3>
-					<div class="prose">
-						
-							<pre lang="javascript">moment().zone();
-moment().zone(Number|String);</pre>
-						
-						<p>Get the timezone offset in minutes.</p>
-<pre><code class="lang-javascript">moment().zone(); <span class="comment">// (60, 120, 240, etc.)</span></code></pre>
-<p>As of version <strong>2.1.0</strong>, it is possible to set the offset by passing in the number of minutes offset from GMT.</p>
-<pre><code class="lang-javascript">moment().zone(<span class="number">120</span>);</code></pre>
-<p>If the input is less than <code>16</code> and greater than <code>-16</code>, it will interpret your input as hours instead.</p>
-<pre><code class="lang-javascript"><span class="comment">// these are equivalent</span>
-moment().zone(<span class="number">480</span>);
-moment().zone(<span class="number">8</span>);</code></pre>
-<p>It is also possible to set the zone from a string.</p>
-<pre><code class="lang-javascript">moment().zone(<span class="string">"-08:00"</span>);</code></pre>
-<p><code>moment#zone</code> will search the string for the first match of <code>+00:00 +0000 -00:00 -0000</code>, so you can even pass an ISO8601 formatted string and the moment will be changed to that zone.</p>
-<pre><code class="lang-javascript">moment().zone(<span class="string">"2013-03-07T07:00:00-08:00"</span>);</code></pre>
 
 					</div>
 				</article>
@@ -3018,7 +3066,7 @@ t.simpleFormat(<span class="string">"h:m"</span>); <span class="comment">//=&gt;
 		</footer>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-		<script src="/static/js/global.min.js?v=2013-06-17T17:18:21-07:00"></script>
+		<script src="/static/js/global.min.js?v=2013-06-18T15:26:35-07:00"></script>
 		
 
 		<script>
