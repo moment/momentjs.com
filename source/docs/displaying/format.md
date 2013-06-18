@@ -90,6 +90,21 @@ There are a couple conventions used with the naming of the
       <td>Sunday Monday ... Friday Saturday</td>
     </tr>
     <tr>
+      <td></td>
+      <td>dddd</td>
+      <td>Sunday Monday ... Friday Saturday</td>
+    </tr>
+    <tr>
+      <td><b>Day of Week (Locale)</b></td>
+      <td>e</td>
+      <td>0 1 ... 5 6</td>
+    </tr>
+    <tr>
+      <td><b>Day of Week (ISO)</b></td>
+      <td>E</td>
+      <td>1 2 ... 6 7</td>
+    </tr>
+    <tr>
       <td><b>Week of Year</b></td>
       <td>w</td>
       <td>1 2 ... 52 53</td>
@@ -105,7 +120,7 @@ There are a couple conventions used with the naming of the
       <td>01 02 ... 52 53</td>
     </tr>
     <tr>
-      <td><b>ISO Week of Year</b></td>
+      <td><b>Week of Year (ISO)</b></td>
       <td>W</td>
       <td>1 2 ... 52 53</td>
     </tr>
@@ -127,6 +142,26 @@ There are a couple conventions used with the naming of the
     <tr>
       <td></td>
       <td>YYYY</td>
+      <td>1970 1971 ... 2029 2030</td>
+    </tr>
+    <tr>
+      <td><b>Week Year</b></td>
+      <td>gg</td>
+      <td>70 71 ... 29 30</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>gggg</td>
+      <td>1970 1971 ... 2029 2030</td>
+    </tr>
+    <tr>
+      <td><b>Week Year (ISO)</b></td>
+      <td>GG</td>
+      <td>70 71 ... 29 30</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>GGGG</td>
       <td>1970 1971 ... 2029 2030</td>
     </tr>
     <tr>
@@ -195,11 +230,6 @@ There are a couple conventions used with the naming of the
       <td>0 1 ... 998 999</td>
     </tr>
     <tr>
-      <td></td>
-      <td>ss</td>
-      <td>00 01 ... 58 59</td>
-    </tr>
-    <tr>
       <td><b>Timezone</b></td>
       <td>z or zz</td>
       <td>
@@ -228,7 +258,13 @@ There are a couple conventions used with the naming of the
   </tbody>
 </table>
 
-`Z ZZ` were added in **1.2.0**. `S SS SSS` were added in **1.6.0**. `X` was added in `2.0.0`.
+`Z ZZ` were added in **1.2.0**.
+
+`S SS SSS` were added in **1.6.0**.
+
+`X` was added in **2.0.0**.
+
+`e E gg gggg GG GGGG` were added in **2.1.0**.
 
 #### Localized formats
 

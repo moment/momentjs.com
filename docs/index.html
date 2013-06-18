@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:300,700' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="/static/css/style.css?v=2013-05-17T10:56:04-07:00" />
+		<link rel="stylesheet" href="/static/css/style.css?v=2013-06-17T17:05:28-07:00" />
 		<title>Moment.js | Documentation</title>
 	</head>
 	<body class="is-core is-docs">
@@ -112,6 +112,10 @@
 					
 						<a href="#/get-set/day/">Day of Week</a>
 					
+						<a href="#/get-set/weekday/">Day of Week (Locale Aware)</a>
+					
+						<a href="#/get-set/iso-weekday/">ISO Day of Week</a>
+					
 						<a href="#/get-set/day-of-year/">Day of Year</a>
 					
 						<a href="#/get-set/week/">Week of Year</a>
@@ -121,6 +125,10 @@
 						<a href="#/get-set/month/">Month</a>
 					
 						<a href="#/get-set/year/">Year</a>
+					
+						<a href="#/get-set/week-year/">Week Year</a>
+					
+						<a href="#/get-set/iso-week-year/">Week Year (ISO)</a>
 					
 				</div>
 			</div>
@@ -861,9 +869,9 @@ moment().dates(); // Number</pre>
 					</h3>
 					<div class="prose">
 						
-							<pre lang="javascript">moment().day(Number);
+							<pre lang="javascript">moment().day(Number|String);
 moment().day(); // Number
-moment().days(Number);
+moment().days(Number|String);
 moment().days(); // Number</pre>
 						
 						<p>Gets or sets the day of the week.</p>
@@ -874,6 +882,52 @@ moment().day(<span class="number">7</span>); <span class="comment">// next Sunda
 moment().day(<span class="number">10</span>); <span class="comment">// next Wednesday (3 + 7)</span>
 moment().day(<span class="number">24</span>); <span class="comment">// 3 Wednesdays from now (3 + 7 + 7 + 7)</span></code></pre>
 <p><em>Note:</em> <code>Moment#date</code> is for the date of the month, and <code>Moment#day</code> is for the day of the week.</p>
+<p>As of <strong>2.1.0</strong>, a week name is also supported. This is parsed in the moment&#39;s current locale.</p>
+<pre><code class="lang-javascript">moment().day(<span class="string">"Sunday"</span>);
+moment().day(<span class="string">"Monday"</span>);</code></pre>
+
+					</div>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/get-set/weekday/"></a>
+					<h3>
+						<a href='#/get-set/weekday/'><span class="hash">#</span>Day of Week (Locale Aware)</a>
+						<span>2.1.0</span>
+					</h3>
+					<div class="prose">
+						
+							<pre lang="javascript">moment().weekday(Number);
+moment().weekday(); // Number</pre>
+						
+						<p>Gets or sets the day of the week according to the locale.</p>
+<p>If the locale assigns Monday as the first day of the week, <code>moment().weekday(0)</code> will be Monday.
+If Sunday is the first day of the week, <code>moment().weekday(0)</code> will be Sunday.</p>
+<p>As with <code>moment#day</code>, if the range is exceeded, it will bubble up to other weeks.</p>
+<pre><code class="lang-javascript"><span class="comment">// when Monday is the first day of the week</span>
+moment().weekday(-<span class="number">7</span>); <span class="comment">// last Monday</span>
+moment().weekday(<span class="number">7</span>); <span class="comment">// next Monday</span>
+<span class="comment">// when Sunday is the first day of the week</span>
+moment().weekday(-<span class="number">7</span>); <span class="comment">// last Sunday</span>
+moment().weekday(<span class="number">7</span>); <span class="comment">// next Sunday</span></code></pre>
+
+					</div>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/get-set/iso-weekday/"></a>
+					<h3>
+						<a href='#/get-set/iso-weekday/'><span class="hash">#</span>ISO Day of Week</a>
+						<span>2.1.0</span>
+					</h3>
+					<div class="prose">
+						
+							<pre lang="javascript">moment().isoWeekday(Number);
+moment().isoWeekday(); // Number</pre>
+						
+						<p>Gets or sets the <a href="http://en.wikipedia.org/wiki/ISO_week_date">ISO day of the week</a> with <code>1</code> being Monday and <code>7</code> being Sunday.</p>
+<pre><code class="lang-javascript">moment().isoWeekday(<span class="number">1</span>); <span class="comment">// Monday</span>
+moment().isoWeekday(<span class="number">7</span>); <span class="comment">// Sunday</span></code></pre>
 
 					</div>
 				</article>
@@ -973,6 +1027,40 @@ moment().years(); // Number</pre>
 						
 						<p>Gets or sets the year.</p>
 <p>Accepts numbers from -270,000 to 270,000.</p>
+
+					</div>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/get-set/week-year/"></a>
+					<h3>
+						<a href='#/get-set/week-year/'><span class="hash">#</span>Week Year</a>
+						<span>2.1.0</span>
+					</h3>
+					<div class="prose">
+						
+							<pre lang="javascript">moment().weekYear(Number);
+moment().weekYear(); // Number</pre>
+						
+						<p>Gets or sets the week-year according to the locale.</p>
+<p>Because the first day of the first week does not always fall on the first day of the year, sometimes the week-year will differ from the month year.</p>
+<p>For example, in the US, the week that contains Jan 1 is always the first week. In the US, weeks also start on Sunday. If Jan 1 was a Monday, Dec 31 would belong to the same week as Jan 1, and thus the same week-year as Jan 1. Dec 30 would have a different week-year than Dec 31.</p>
+
+					</div>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/get-set/iso-week-year/"></a>
+					<h3>
+						<a href='#/get-set/iso-week-year/'><span class="hash">#</span>Week Year (ISO)</a>
+						<span>2.1.0</span>
+					</h3>
+					<div class="prose">
+						
+							<pre lang="javascript">moment().isoWeekYear(Number);
+moment().isoWeekYear(); // Number</pre>
+						
+						<p>Gets or sets the <a href="http://en.wikipedia.org/wiki/ISO_week_date">ISO week-year</a>.</p>
 
 					</div>
 				</article>
@@ -1125,6 +1213,7 @@ moment().month(<span class="number">0</span>).date(<span class="number">1</span>
 <pre><code class="lang-javascript">moment().startOf(<span class="string">'hour'</span>);
 moment().minutes(<span class="number">0</span>).seconds(<span class="number">0</span>).milliseconds(<span class="number">0</span>)</code></pre>
 <p>As of version <strong>2.0.0</strong>, <code>moment#startOf(&#39;day&#39;)</code> replaced <code>moment#sod</code>.</p>
+<p>As of version <strong>2.1.0</strong>, <code>moment#startOf(&#39;week&#39;)</code> uses the locale aware week start day.</p>
 
 					</div>
 				</article>
@@ -1143,6 +1232,7 @@ moment().minutes(<span class="number">0</span>).seconds(<span class="number">0</
 <p>This is the same as <code>moment#startOf</code>, only instead of setting to the start of a unit of time, it sets to the end of a unit of time.</p>
 <pre><code class="lang-javascript">moment().endOf(<span class="string">"year"</span>); <span class="comment">// set the moment to 12-31 11:59:59.999 pm this year</span></code></pre>
 <p>As of version <strong>2.0.0</strong>, <code>moment#endOf(&#39;day&#39;)</code> replaced <code>moment#eod</code>.</p>
+<p>As of version <strong>2.1.0</strong>, <code>moment#endOf(&#39;week&#39;)</code> uses the locale aware week start day.</p>
 
 					</div>
 				</article>
@@ -1293,6 +1383,21 @@ moment().format(<span class="string">"ddd, hA"</span>);                       <s
       <td>Sunday Monday ... Friday Saturday</td>
     </tr>
     <tr>
+      <td></td>
+      <td>dddd</td>
+      <td>Sunday Monday ... Friday Saturday</td>
+    </tr>
+    <tr>
+      <td><b>Day of Week (Locale)</b></td>
+      <td>e</td>
+      <td>0 1 ... 5 6</td>
+    </tr>
+    <tr>
+      <td><b>Day of Week (ISO)</b></td>
+      <td>E</td>
+      <td>1 2 ... 6 7</td>
+    </tr>
+    <tr>
       <td><b>Week of Year</b></td>
       <td>w</td>
       <td>1 2 ... 52 53</td>
@@ -1308,7 +1413,7 @@ moment().format(<span class="string">"ddd, hA"</span>);                       <s
       <td>01 02 ... 52 53</td>
     </tr>
     <tr>
-      <td><b>ISO Week of Year</b></td>
+      <td><b>Week of Year (ISO)</b></td>
       <td>W</td>
       <td>1 2 ... 52 53</td>
     </tr>
@@ -1330,6 +1435,26 @@ moment().format(<span class="string">"ddd, hA"</span>);                       <s
     <tr>
       <td></td>
       <td>YYYY</td>
+      <td>1970 1971 ... 2029 2030</td>
+    </tr>
+    <tr>
+      <td><b>Week Year</b></td>
+      <td>gg</td>
+      <td>70 71 ... 29 30</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>gggg</td>
+      <td>1970 1971 ... 2029 2030</td>
+    </tr>
+    <tr>
+      <td><b>Week Year (ISO)</b></td>
+      <td>GG</td>
+      <td>70 71 ... 29 30</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>GGGG</td>
       <td>1970 1971 ... 2029 2030</td>
     </tr>
     <tr>
@@ -1398,11 +1523,6 @@ moment().format(<span class="string">"ddd, hA"</span>);                       <s
       <td>0 1 ... 998 999</td>
     </tr>
     <tr>
-      <td></td>
-      <td>ss</td>
-      <td>00 01 ... 58 59</td>
-    </tr>
-    <tr>
       <td><b>Timezone</b></td>
       <td>z or zz</td>
       <td>
@@ -1431,7 +1551,10 @@ moment().format(<span class="string">"ddd, hA"</span>);                       <s
   </tbody>
 </table>
 
-<p><code>Z ZZ</code> were added in <strong>1.2.0</strong>. <code>S SS SSS</code> were added in <strong>1.6.0</strong>. <code>X</code> was added in <code>2.0.0</code>.</p>
+<p><code>Z ZZ</code> were added in <strong>1.2.0</strong>.</p>
+<p><code>S SS SSS</code> were added in <strong>1.6.0</strong>.</p>
+<p><code>X</code> was added in <strong>2.0.0</strong>.</p>
+<p><code>e E gg gggg GG GGGG</code> were added in <strong>2.1.0</strong>.</p>
 <h4>Localized formats</h4>
 <p>Because preferred formatting differs based on locale, there are a few tokens that can be used to format a moment based on its language.</p>
 <p>There are upper and lower case variations on the same formats. The lowercase version is intended to be the shortened version of its uppercase counterpart.</p>
@@ -2881,7 +3004,7 @@ t.simpleFormat(<span class="string">"h:m"</span>); <span class="comment">//=&gt;
 		</footer>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-		<script src="/static/js/global.min.js?v=2013-05-17T10:56:04-07:00"></script>
+		<script src="/static/js/global.min.js?v=2013-06-17T17:05:28-07:00"></script>
 		
 
 		<script>

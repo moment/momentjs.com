@@ -23,3 +23,5 @@ moment().minutes(0).seconds(0).milliseconds(0)
 ```
 
 As of version **2.0.0**, `moment#startOf('day')` replaced `moment#sod`.
+
+As of version **2.1.0**, `moment#startOf('week')` uses the locale aware week start day.

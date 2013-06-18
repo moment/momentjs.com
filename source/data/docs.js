@@ -174,12 +174,30 @@ var exp = [
 				key : "Day",
 				title : "Day of Week",
 				signature : [
-					"moment().day(Number);",
+					"moment().day(Number|String);",
 					"moment().day(); // Number",
-					"moment().days(Number);",
+					"moment().days(Number|String);",
 					"moment().days(); // Number"
 				],
 				version : "1.3.0"
+			},
+			{
+				key : "Weekday",
+				title : "Day of Week (Locale Aware)",
+				signature : [
+					"moment().weekday(Number);",
+					"moment().weekday(); // Number"
+				],
+				version : "2.1.0"
+			},
+			{
+				key : "ISO Weekday",
+				title : "ISO Day of Week",
+				signature : [
+					"moment().isoWeekday(Number);",
+					"moment().isoWeekday(); // Number"
+				],
+				version : "2.1.0"
 			},
 			{
 				key : "Day of Year",
@@ -230,6 +248,23 @@ var exp = [
 					"moment().years(); // Number"
 				],
 				version : "1.0.0"
+			},
+			{
+				key : "Week Year",
+				signature : [
+					"moment().weekYear(Number);",
+					"moment().weekYear(); // Number"
+				],
+				version : "2.1.0"
+			},
+			{
+				key : "ISO Week Year",
+				title : "Week Year (ISO)",
+				signature : [
+					"moment().isoWeekYear(Number);",
+					"moment().isoWeekYear(); // Number"
+				],
+				version : "2.1.0"
 			}
 		]
 	},
