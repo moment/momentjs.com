@@ -1,6 +1,6 @@
 ```
-&lt;script src="moment.js">&lt;/script>
-&lt;script>
+<script src="moment.js"></script>
+<script>
 	moment().format();
-&lt;/script>
+</script>
 ```
