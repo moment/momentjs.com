@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:300,700' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="/static/css/style.css?v=2013-06-18T15:26:35-07:00" />
+		<link rel="stylesheet" href="/static/css/style.css?v=2013-06-27T11:09:39-07:00" />
 		<title>Moment.js | Documentation</title>
 	</head>
 	<body class="is-core is-docs">
@@ -184,6 +184,8 @@
 					
 						<a href="#/displaying/as-json/">As JSON</a>
 					
+						<a href="#/displaying/as-iso-string/">As ISO 8601 String</a>
+					
 				</div>
 			</div>
 		
@@ -245,6 +247,8 @@
 					
 						<a href="#/customization/am-pm/">AM/PM</a>
 					
+						<a href="#/customization/am-pm-parsing/">AM/PM Parsing</a>
+					
 						<a href="#/customization/calendar/">Calendar</a>
 					
 						<a href="#/customization/ordinal/">Ordinal</a>
@@ -273,6 +277,14 @@
 						<a href="#/durations/months/">Months</a>
 					
 						<a href="#/durations/years/">Years</a>
+					
+						<a href="#/durations/add/">Add Time</a>
+					
+						<a href="#/durations/subtract/">Subtract Time</a>
+					
+						<a href="#/durations/as/">As Unit of Time</a>
+					
+						<a href="#/durations/get/">Get Unit of Time</a>
 					
 				</div>
 			</div>
@@ -329,10 +341,10 @@ moment().format();</code></pre>
 					</h3>
 					<div class="prose">
 						
-						<pre><code>&amp;lt;script src=&quot;moment.js&quot;&gt;&amp;lt;/script&gt;
-&amp;lt;script&gt;
+						<pre><code>&lt;script src=&quot;moment.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
     moment().format();
-&amp;lt;/script&gt;</code></pre>
+&lt;/script&gt;</code></pre>
 
 					</div>
 				</article>
@@ -2016,6 +2028,22 @@ moment(<span class="string">"2012-01"</span>, <span class="string">"YYYY-MM"</sp
 					</div>
 				</article>
 			
+				<article class="method">
+					<a class="target" name="/displaying/as-iso-string/"></a>
+					<h3>
+						<a href='#/displaying/as-iso-string/'><span class="hash">#</span>As ISO 8601 String</a>
+						<span>2.1.0</span>
+					</h3>
+					<div class="prose">
+						
+							<pre lang="javascript">moment().toISOString();</pre>
+						
+						<p>Formats a string to the ISO8601 standard.</p>
+<pre><code class="lang-javascript">moment().toISOString() <span class="comment">// 2013-02-04T22:44:30.652Z</span></code></pre>
+
+					</div>
+				</article>
+			
 		
 			<article class="section">
 				<a class="target" name="/query/"></a>
@@ -2638,6 +2666,33 @@ The function should return a string.</p>
 				</article>
 			
 				<article class="method">
+					<a class="target" name="/customization/am-pm-parsing/"></a>
+					<h3>
+						<a href='#/customization/am-pm-parsing/'><span class="hash">#</span>AM/PM Parsing</a>
+						<span>2.1.0</span>
+					</h3>
+					<div class="prose">
+						
+							<pre lang="javascript">moment.lang('en', {
+    meridiemParse : RegExp
+    isPM : Function
+});</pre>
+						
+						<p><code>Language#isPM</code> should return true if the input string is past 12 noon. This is used in parsing the <code>a A</code> tokens.</p>
+<pre><code class="lang-javascript">moment.lang(<span class="string">'en'</span>, {
+    isPM : <span class="function"><span class="keyword">function</span> <span class="params">(input)</span> {</span>
+        <span class="keyword">return</span> ((input + <span class="string">''</span>).toLowerCase()[<span class="number">0</span>] === <span class="string">'p'</span>);
+    }
+});</code></pre>
+<p>To configure what strings should be parsed as input, set the <code>meridiemParse</code> property.</p>
+<pre><code class="lang-javascript">moment.lang(<span class="string">'en'</span>, {
+    meridiemParse : <span class="regexp">/[ap]\.?m?\.?/i</span>
+});</code></pre>
+
+					</div>
+				</article>
+			
+				<article class="method">
 					<a class="target" name="/customization/calendar/"></a>
 					<h3>
 						<a href='#/customization/calendar/'><span class="hash">#</span>Calendar</a>
@@ -2682,7 +2737,7 @@ The function should return a string.</p>
 						
 						<p><code>Language#ordinal</code> should be a function that returns the ordinal for a given number.</p>
 <pre><code class="lang-javascript">moment.lang(<span class="string">'en'</span>, {
-    ordinal : <span class="function"><span class="keyword">function</span> <span class="params">(number)</span> {</span>
+    ordinal : <span class="function"><span class="keyword">function</span> <span class="params">(number, token)</span> {</span>
         <span class="keyword">var</span> b = number % <span class="number">10</span>;
         <span class="keyword">var</span> output = (~~ (number % <span class="number">100</span> / <span class="number">10</span>) === <span class="number">1</span>) ? <span class="string">'th'</span> :
             (b === <span class="number">1</span>) ? <span class="string">'st'</span> :
@@ -2692,6 +2747,7 @@ The function should return a string.</p>
     }
 });</code></pre>
 <p>As of <strong>2.0.0</strong>, the ordinal function should return both the number and the ordinal. Previously, only the ordinal was returned.</p>
+<p>As of <strong>2.1.0</strong>, the token parameter was added. It is a string of the token that is being ordinalized, for example: <code>M</code> or <code>d</code>.</p>
 <p>For more information on ordinal numbers, see <a href="http://en.wikipedia.org/wiki/Ordinal_number_%28linguistics%29">wikipedia</a></p>
 
 					</div>
@@ -2944,6 +3000,86 @@ moment.duration().asYears();</pre>
 					</div>
 				</article>
 			
+				<article class="method">
+					<a class="target" name="/durations/add/"></a>
+					<h3>
+						<a href='#/durations/add/'><span class="hash">#</span>Add Time</a>
+						<span>2.1.0</span>
+					</h3>
+					<div class="prose">
+						
+							<pre lang="javascript">moment.duration().add(Number, String);
+moment.duration().add(Number);
+moment.duration().add(Duration);
+moment.duration().add(Object);</pre>
+						
+						<p>Mutates the original duration by adding time.</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> a = moment.duration(<span class="number">1</span>, <span class="string">'d'</span>);
+<span class="keyword">var</span> b = moment.duration(<span class="number">2</span>, <span class="string">'d'</span>);
+a.add(b).days(); <span class="comment">// 3</span></code></pre>
+
+					</div>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/durations/subtract/"></a>
+					<h3>
+						<a href='#/durations/subtract/'><span class="hash">#</span>Subtract Time</a>
+						<span>2.1.0</span>
+					</h3>
+					<div class="prose">
+						
+							<pre lang="javascript">moment.duration().subtract(Number, String);
+moment.duration().subtract(Number);
+moment.duration().subtract(Duration);
+moment.duration().subtract(Object);</pre>
+						
+						<p>Mutates the original duration by subtracting time.</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> a = moment.duration(<span class="number">3</span>, <span class="string">'d'</span>);
+<span class="keyword">var</span> b = moment.duration(<span class="number">2</span>, <span class="string">'d'</span>);
+a.subtract(b).days(); <span class="comment">// 3</span></code></pre>
+
+					</div>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/durations/as/"></a>
+					<h3>
+						<a href='#/durations/as/'><span class="hash">#</span>As Unit of Time</a>
+						<span>2.1.0</span>
+					</h3>
+					<div class="prose">
+						
+							<pre lang="javascript">moment.duration().as(String);</pre>
+						
+						<p>As an alternate to <code>Duration#asX</code>, you can use <code>Duration#as(&#39;x&#39;)</code>. All the <a href="#/manipulating/add/">shorthand keys from</a> <code>moment#add</code> apply here as well.</p>
+<pre><code class="lang-javascript">duration.as(<span class="string">'hours'</span>);
+duration.as(<span class="string">'minutes'</span>);
+duration.as(<span class="string">'seconds'</span>);
+duration.as(<span class="string">'milliseconds'</span>);</code></pre>
+
+					</div>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/durations/get/"></a>
+					<h3>
+						<a href='#/durations/get/'><span class="hash">#</span>Get Unit of Time</a>
+						<span>2.1.0</span>
+					</h3>
+					<div class="prose">
+						
+							<pre lang="javascript">moment.duration().get(String);</pre>
+						
+						<p>As an alternate to <code>Duration#x()</code> getters, you can use <code>Duration#get(&#39;x&#39;)</code>. All the <a href="#/manipulating/add/">shorthand keys from</a> <code>moment#add</code> apply here as well.</p>
+<pre><code class="lang-javascript">duration.get(<span class="string">'hours'</span>);
+duration.get(<span class="string">'minutes'</span>);
+duration.get(<span class="string">'seconds'</span>);
+duration.get(<span class="string">'milliseconds'</span>);</code></pre>
+
+					</div>
+				</article>
+			
 		
 			<article class="section">
 				<a class="target" name="/plugins/"></a>
@@ -3066,7 +3202,7 @@ t.simpleFormat(<span class="string">"h:m"</span>); <span class="comment">//=&gt;
 		</footer>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-		<script src="/static/js/global.min.js?v=2013-06-18T15:26:35-07:00"></script>
+		<script src="/static/js/global.min.js?v=2013-06-27T11:09:39-07:00"></script>
 		
 
 		<script>

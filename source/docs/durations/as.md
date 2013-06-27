@@ -1,4 +1,4 @@
-As an alternate to `Duration#asX`, you can use `Duration#as('x')`.
+As an alternate to `Duration#asX`, you can use `Duration#as('x')`. All the [shorthand keys from](#/manipulating/add/) `moment#add` apply here as well.
 
 ```javascript
 duration.as('hours');
