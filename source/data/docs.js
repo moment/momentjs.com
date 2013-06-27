@@ -600,6 +600,16 @@ var exp = [
 				version : "1.6.0"
 			},
 			{
+				key : "AM/PM Parsing",
+				signature : [
+					"moment.lang('en', {",
+					"    meridiemParse : RegExp",
+					"    isPM : Function",
+					"});"
+				],
+				version : "2.1.0"
+			},
+			{
 				key : "Calendar",
 				signature : [
 					"moment.lang('en', {",
