@@ -683,6 +683,40 @@ var exp = [
 				key : "Years",
 				signature : "moment.duration().years();\nmoment.duration().asYears();",
 				version : "1.6.0"
+			},
+			{
+				key : "add",
+				title : "Add Time",
+				signature : [
+					"moment.duration().add(Number, String);",
+					"moment.duration().add(Number);",
+					"moment.duration().add(Duration);",
+					"moment.duration().add(Object);"
+				],
+				version : "2.1.0"
+			},
+			{
+				key : "subtract",
+				title : "Subtract Time",
+				signature : [
+					"moment.duration().subtract(Number, String);",
+					"moment.duration().subtract(Number);",
+					"moment.duration().subtract(Duration);",
+					"moment.duration().subtract(Object);"
+				],
+				version : "2.1.0"
+			},
+			{
+				key : "as",
+				title : "As Unit of Time",
+				signature : "moment.duration().as(String);",
+				version : "2.1.0"
+			},
+			{
+				key : "get",
+				title : "Get Unit of Time",
+				signature : "moment.duration().get(String);",
+				version : "2.1.0"
 			}
 		]
 	},
