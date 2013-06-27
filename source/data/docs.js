@@ -414,6 +414,12 @@ var exp = [
 				key : "As JSON",
 				signature : "moment().toJSON();",
 				version : "2.0.0"
+			},
+			{
+				key : "as-iso-string",
+				title : "As ISO 8601 String",
+				signature : "moment().toISOString();",
+				version : "2.1.0"
 			}
 		]
 	},
