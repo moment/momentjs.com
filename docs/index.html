@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:300,700' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="/static/css/style.css?v=2013-06-27T11:09:39-07:00" />
+		<link rel="stylesheet" href="/static/css/style.css?v=2013-07-07T10:08:40-07:00" />
 		<title>Moment.js | Documentation</title>
 	</head>
 	<body class="is-core is-docs">
@@ -2774,7 +2774,8 @@ The function should return a string.</p>
 						
 							<pre lang="javascript">moment.duration(Number, String);
 moment.duration(Number);
-moment.duration(Object);</pre>
+moment.duration(Object);
+moment.duration(String);</pre>
 						
 						<p>To create a duration, call <code>moment.duration()</code> with the length of time in milliseconds.</p>
 <pre><code class="lang-javascript">moment.duration(<span class="number">100</span>); <span class="comment">// 100 milliseconds</span></code></pre>
@@ -2838,6 +2839,11 @@ moment.duration(<span class="number">2</span>, <span class="string">'years'</spa
     months: <span class="number">2</span>,
     years: <span class="number">2</span>
 });</code></pre>
+<p>As of <strong>2.1.0</strong>, moment supports parsing ASP.NET style time spans. The following formats are supported.</p>
+<p>The format is an hour, minute, second string separated by colons like <code>23:59:59</code>. The number of days can be prefixed with a dot separator like so <code>7.23:59:59</code>. Partial seconds are supported as well <code>23:59:59.999</code>.</p>
+<pre><code class="lang-javascript">moment.duration(<span class="string">'23:59:59'</span>);
+moment.duration(<span class="string">'23:59:59.999'</span>);
+moment.duration(<span class="string">'7.23:59:59.999'</span>);</code></pre>
 
 					</div>
 				</article>
@@ -3037,7 +3043,7 @@ moment.duration().subtract(Object);</pre>
 						<p>Mutates the original duration by subtracting time.</p>
 <pre><code class="lang-javascript"><span class="keyword">var</span> a = moment.duration(<span class="number">3</span>, <span class="string">'d'</span>);
 <span class="keyword">var</span> b = moment.duration(<span class="number">2</span>, <span class="string">'d'</span>);
-a.subtract(b).days(); <span class="comment">// 3</span></code></pre>
+a.subtract(b).days(); <span class="comment">// 1</span></code></pre>
 
 					</div>
 				</article>
@@ -3202,7 +3208,7 @@ t.simpleFormat(<span class="string">"h:m"</span>); <span class="comment">//=&gt;
 		</footer>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-		<script src="/static/js/global.min.js?v=2013-06-27T11:09:39-07:00"></script>
+		<script src="/static/js/global.min.js?v=2013-07-07T10:08:40-07:00"></script>
 		
 
 		<script>

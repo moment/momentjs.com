@@ -641,7 +641,12 @@ var exp = [
 		methods : [
 			{
 				key : "Creating",
-				signature : "moment.duration(Number, String);\nmoment.duration(Number);\nmoment.duration(Object);",
+				signature : [
+					"moment.duration(Number, String);",
+					"moment.duration(Number);",
+					"moment.duration(Object);",
+					"moment.duration(String);"
+				],
 				version : "1.6.0"
 			},
 			{
