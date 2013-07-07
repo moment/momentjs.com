@@ -3,13 +3,15 @@
 	<head>
 		<meta charset="utf-8" />
 		<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:300,700' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="/static/css/style.css?v=2013-07-07T11:52:44-07:00" />
+		<link rel="stylesheet" href="/static/css/style.css?v=2013-07-07T12:43:03-07:00" />
 		<title>Moment.js | Documentation</title>
 	</head>
 	<body class="is-core is-docs">
 		<nav class="top">
 			<a class="logo core-nav" href="/">Moment.js</a>
+			<!--
 			<a class="logo timezone-nav" href="/timezone/">Moment Timezone</a>
+			-->
 			
 	<a class="home-nav" href="/">Home</a>
 	<a class="docs-nav" href="/docs/">Docs</a>
@@ -27,7 +29,7 @@
 	</div>
 	<div class="title">
 		<div class="title-inset">
-			<h1>Moment.js<span>2.0.0</span></h1>
+			<h1>Moment.js<span>2.1.0</span></h1>
 			
 	<h2>Documentation</h2>
 
@@ -36,13 +38,13 @@
 </header>
 <aside>
 	<div class="download">
-		<a class="button gzipped" href="https://rawgithub.com/timrwood/moment/2.0.0/min/moment.min.js">
+		<a class="button gzipped" href="https://rawgithub.com/timrwood/moment/2.1.0/min/moment.min.js">
 			<strong>Minified Source</strong>
-			<span class="filesize">6kb</span>
+			<span class="filesize">6.5kb</span>
 		</a>
-		<a class="button source" href="https://rawgithub.com/timrwood/moment/2.0.0/moment.js">
+		<a class="button source" href="https://rawgithub.com/timrwood/moment/2.1.0/moment.js">
 			<strong>Full Source</strong>
-			<span class="filesize">50.2kb </span>
+			<span class="filesize">53.2kb </span>
 		</a>
 	</div>
 </aside>
@@ -2077,6 +2079,8 @@ moment().isBefore(Moment|String|Number|Date|Array, String);</pre>
 <pre><code class="lang-javascript">moment(<span class="string">'2010-10-20'</span>).isBefore(<span class="string">'2010-12-31'</span>, <span class="string">'year'</span>); <span class="comment">// false</span>
 moment(<span class="string">'2010-10-20'</span>).isBefore(<span class="string">'2011-01-01'</span>, <span class="string">'year'</span>); <span class="comment">// true</span></code></pre>
 <p>Like <code>moment#isAfter</code> and <code>moment#isSame</code>, any of the units of time that are supported for <code>moment#startOf</code> are supported for <code>moment#isBefore</code>. Year, month, week, day, hour, minute, and second.</p>
+<p>If nothing is passed to <code>moment#isBefore</code>, it will default to the current time.</p>
+<pre><code class="lang-javascript">moment().isBefore(); <span class="comment">// false</span></code></pre>
 
 					</div>
 				</article>
@@ -2100,6 +2104,8 @@ moment(<span class="string">'2010-10-20'</span>).isSame(<span class="string">'20
 moment(<span class="string">'2010-10-20'</span>).isSame(<span class="string">'2010-12-31'</span>, <span class="string">'year'</span>); <span class="comment">// true</span>
 moment(<span class="string">'2010-10-20'</span>).isSame(<span class="string">'2011-01-01'</span>, <span class="string">'year'</span>); <span class="comment">// false</span></code></pre>
 <p>Like <code>moment#isAfter</code> and <code>moment#isBefore</code>, any of the units of time that are supported for <code>moment#startOf</code> are supported for <code>moment#isSame</code>. Year, month, week, day, hour, minute, and second.</p>
+<p>If nothing is passed to <code>moment#isSame</code>, it will default to the current time.</p>
+<pre><code class="lang-javascript">moment().isSame(); <span class="comment">// true</span></code></pre>
 
 					</div>
 				</article>
@@ -2121,6 +2127,8 @@ moment().isAfter(Moment|String|Number|Date|Array, String);</pre>
 <pre><code class="lang-javascript">moment(<span class="string">'2010-10-20'</span>).isAfter(<span class="string">'2010-01-01'</span>, <span class="string">'year'</span>); <span class="comment">// false</span>
 moment(<span class="string">'2010-10-20'</span>).isAfter(<span class="string">'2009-12-31'</span>, <span class="string">'year'</span>); <span class="comment">// true</span></code></pre>
 <p>Like <code>moment#isSame</code> and <code>moment#isBefore</code>, any of the units of time that are supported for <code>moment#startOf</code> are supported for <code>moment#isAfter</code>. Year, month, week, day, hour, minute, and second.</p>
+<p>If nothing is passed to <code>moment#isAfter</code>, it will default to the current time.</p>
+<pre><code class="lang-javascript">moment().isAfter(); <span class="comment">// false</span></code></pre>
 
 					</div>
 				</article>
@@ -3218,7 +3226,7 @@ t.simpleFormat(<span class="string">"h:m"</span>); <span class="comment">//=&gt;
 		</footer>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-		<script src="/static/js/global.min.js?v=2013-07-07T11:52:44-07:00"></script>
+		<script src="/static/js/global.min.js?v=2013-07-07T12:43:03-07:00"></script>
 		
 
 		<script>
