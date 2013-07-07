@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:300,700' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="/static/css/style.css?v=2013-07-07T10:08:40-07:00" />
+		<link rel="stylesheet" href="/static/css/style.css?v=2013-07-07T10:24:10-07:00" />
 		<title>Moment.js | Documentation</title>
 	</head>
 	<body class="is-core is-docs">
@@ -1027,6 +1027,12 @@ moment().months(); // Number</pre>
 <p>As of <strong>2.1.0</strong>, a month name is also supported. This is parsed in the moment&#39;s current locale.</p>
 <pre><code class="lang-javascript">moment().month(<span class="string">"January"</span>);
 moment().month(<span class="string">"Feb"</span>);</code></pre>
+<p>Before version <strong>2.1.0</strong>, if a moment changed months and the new month did not have enough days to keep the current day of month, it would overflow to the next month.</p>
+<p>As of version <strong>2.1.0</strong>, this was changed to be clamped to the end of the target month.</p>
+<pre><code class="lang-javascript"><span class="comment">// before 2.1.0</span>
+moment([<span class="number">2012</span>, <span class="number">0</span>, <span class="number">31</span>]).month(<span class="number">1</span>).format(<span class="string">"YYYY-MM-DD"</span>); <span class="comment">// 2012-03-02</span>
+<span class="comment">// after 2.1.0</span>
+moment([<span class="number">2012</span>, <span class="number">0</span>, <span class="number">31</span>]).month(<span class="number">1</span>).format(<span class="string">"YYYY-MM-DD"</span>); <span class="comment">// 2012-02-29</span></code></pre>
 
 					</div>
 				</article>
@@ -3208,7 +3214,7 @@ t.simpleFormat(<span class="string">"h:m"</span>); <span class="comment">//=&gt;
 		</footer>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-		<script src="/static/js/global.min.js?v=2013-07-07T10:08:40-07:00"></script>
+		<script src="/static/js/global.min.js?v=2013-07-07T10:24:10-07:00"></script>
 		
 
 		<script>
