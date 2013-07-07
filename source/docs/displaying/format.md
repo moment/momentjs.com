@@ -81,13 +81,13 @@ There are a couple conventions used with the naming of the
     </tr>
     <tr>
       <td></td>
-      <td>ddd</td>
-      <td>Sun Mon ... Fri Sat</td>
+      <td>dd</td>
+      <td>Su Mo ... Fr Sa</td>
     </tr>
     <tr>
       <td></td>
-      <td>dddd</td>
-      <td>Sunday Monday ... Friday Saturday</td>
+      <td>ddd</td>
+      <td>Sun Mon ... Fri Sat</td>
     </tr>
     <tr>
       <td></td>
