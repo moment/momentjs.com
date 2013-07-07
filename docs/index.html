@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:300,700' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="/static/css/style.css?v=2013-05-19T15:28:36-07:00" />
+		<link rel="stylesheet" href="/static/css/style.css?v=2013-07-07T13:08:23-07:00" />
 		<title>Moment.js | Documentation</title>
 	</head>
 	<body class="is-core is-docs">
@@ -27,7 +27,7 @@
 	</div>
 	<div class="title">
 		<div class="title-inset">
-			<h1>Moment.js<span>2.0.0</span></h1>
+			<h1>Moment.js<span>2.1.0</span></h1>
 			
 	<h2>Documentation</h2>
 
@@ -36,13 +36,13 @@
 </header>
 <aside>
 	<div class="download">
-		<a class="button gzipped" href="https://raw.github.com/timrwood/moment/2.0.0/min/moment.min.js">
+		<a class="button gzipped" href="https://rawgithub.com/timrwood/moment//min/moment.min.js">
 			<strong>Minified Source</strong>
-			<span class="filesize">6kb</span>
+			<span class="filesize">6.5kb</span>
 		</a>
-		<a class="button source" href="https://raw.github.com/timrwood/moment/2.0.0/moment.js">
+		<a class="button source" href="https://rawgithub.com/timrwood/moment//moment.js">
 			<strong>Full Source</strong>
-			<span class="filesize">50.2kb </span>
+			<span class="filesize">53.2kb </span>
 		</a>
 	</div>
 </aside>
@@ -112,6 +112,10 @@
 					
 						<a href="#/get-set/day/">Day of Week</a>
 					
+						<a href="#/get-set/weekday/">Day of Week (Locale Aware)</a>
+					
+						<a href="#/get-set/iso-weekday/">ISO Day of Week</a>
+					
 						<a href="#/get-set/day-of-year/">Day of Year</a>
 					
 						<a href="#/get-set/week/">Week of Year</a>
@@ -121,6 +125,10 @@
 						<a href="#/get-set/month/">Month</a>
 					
 						<a href="#/get-set/year/">Year</a>
+					
+						<a href="#/get-set/week-year/">Week Year</a>
+					
+						<a href="#/get-set/iso-week-year/">Week Year (ISO)</a>
 					
 				</div>
 			</div>
@@ -137,9 +145,15 @@
 					
 						<a href="#/manipulating/end-of/">End of Time</a>
 					
+						<a href="#/manipulating/max/">Maximum</a>
+					
+						<a href="#/manipulating/min/">Minimum</a>
+					
 						<a href="#/manipulating/local/">Local</a>
 					
 						<a href="#/manipulating/utc/">UTC</a>
+					
+						<a href="#/manipulating/timezone-offset/">Timezone Offset</a>
 					
 				</div>
 			</div>
@@ -162,8 +176,6 @@
 					
 						<a href="#/displaying/unix-timestamp/">Unix Timestamp (seconds)</a>
 					
-						<a href="#/displaying/timezone-offset/">Timezone Offset</a>
-					
 						<a href="#/displaying/days-in-month/">Days in Month</a>
 					
 						<a href="#/displaying/as-javascript-date/">As Javascript Date</a>
@@ -171,6 +183,8 @@
 						<a href="#/displaying/as-array/">As Array</a>
 					
 						<a href="#/displaying/as-json/">As JSON</a>
+					
+						<a href="#/displaying/as-iso-string/">As ISO 8601 String</a>
 					
 				</div>
 			</div>
@@ -233,6 +247,8 @@
 					
 						<a href="#/customization/am-pm/">AM/PM</a>
 					
+						<a href="#/customization/am-pm-parsing/">AM/PM Parsing</a>
+					
 						<a href="#/customization/calendar/">Calendar</a>
 					
 						<a href="#/customization/ordinal/">Ordinal</a>
@@ -261,6 +277,14 @@
 						<a href="#/durations/months/">Months</a>
 					
 						<a href="#/durations/years/">Years</a>
+					
+						<a href="#/durations/add/">Add Time</a>
+					
+						<a href="#/durations/subtract/">Subtract Time</a>
+					
+						<a href="#/durations/as/">As Unit of Time</a>
+					
+						<a href="#/durations/get/">Get Unit of Time</a>
 					
 				</div>
 			</div>
@@ -321,6 +345,7 @@ moment().format();</code></pre>
 &lt;script&gt;
     moment().format();
 &lt;/script&gt;</code></pre>
+<p>Moment.js is available on <a href="http://cdnjs.com">cdnjs.com</a>. Remember though, cool kids concatenate their scripts to minimize http requests.</p>
 
 					</div>
 				</article>
@@ -492,7 +517,7 @@ moment(<span class="string">"12\25\1995"</span>, <span class="string">"MM-DD-YYY
     <tr>
       <td>Z, ZZ</td>
       <td>
-        Timezone offset as <code>+0700</code> or <code>+07:30</code>
+        Timezone offset as <code>+07:00</code> or <code>+0700</code>
       </td>
     </tr>
     <tr>
@@ -861,9 +886,9 @@ moment().dates(); // Number</pre>
 					</h3>
 					<div class="prose">
 						
-							<pre lang="javascript">moment().day(Number);
+							<pre lang="javascript">moment().day(Number|String);
 moment().day(); // Number
-moment().days(Number);
+moment().days(Number|String);
 moment().days(); // Number</pre>
 						
 						<p>Gets or sets the day of the week.</p>
@@ -874,6 +899,52 @@ moment().day(<span class="number">7</span>); <span class="comment">// next Sunda
 moment().day(<span class="number">10</span>); <span class="comment">// next Wednesday (3 + 7)</span>
 moment().day(<span class="number">24</span>); <span class="comment">// 3 Wednesdays from now (3 + 7 + 7 + 7)</span></code></pre>
 <p><em>Note:</em> <code>Moment#date</code> is for the date of the month, and <code>Moment#day</code> is for the day of the week.</p>
+<p>As of <strong>2.1.0</strong>, a week name is also supported. This is parsed in the moment&#39;s current locale.</p>
+<pre><code class="lang-javascript">moment().day(<span class="string">"Sunday"</span>);
+moment().day(<span class="string">"Monday"</span>);</code></pre>
+
+					</div>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/get-set/weekday/"></a>
+					<h3>
+						<a href='#/get-set/weekday/'><span class="hash">#</span>Day of Week (Locale Aware)</a>
+						<span>2.1.0</span>
+					</h3>
+					<div class="prose">
+						
+							<pre lang="javascript">moment().weekday(Number);
+moment().weekday(); // Number</pre>
+						
+						<p>Gets or sets the day of the week according to the locale.</p>
+<p>If the locale assigns Monday as the first day of the week, <code>moment().weekday(0)</code> will be Monday.
+If Sunday is the first day of the week, <code>moment().weekday(0)</code> will be Sunday.</p>
+<p>As with <code>moment#day</code>, if the range is exceeded, it will bubble up to other weeks.</p>
+<pre><code class="lang-javascript"><span class="comment">// when Monday is the first day of the week</span>
+moment().weekday(-<span class="number">7</span>); <span class="comment">// last Monday</span>
+moment().weekday(<span class="number">7</span>); <span class="comment">// next Monday</span>
+<span class="comment">// when Sunday is the first day of the week</span>
+moment().weekday(-<span class="number">7</span>); <span class="comment">// last Sunday</span>
+moment().weekday(<span class="number">7</span>); <span class="comment">// next Sunday</span></code></pre>
+
+					</div>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/get-set/iso-weekday/"></a>
+					<h3>
+						<a href='#/get-set/iso-weekday/'><span class="hash">#</span>ISO Day of Week</a>
+						<span>2.1.0</span>
+					</h3>
+					<div class="prose">
+						
+							<pre lang="javascript">moment().isoWeekday(Number);
+moment().isoWeekday(); // Number</pre>
+						
+						<p>Gets or sets the <a href="http://en.wikipedia.org/wiki/ISO_week_date">ISO day of the week</a> with <code>1</code> being Monday and <code>7</code> being Sunday.</p>
+<pre><code class="lang-javascript">moment().isoWeekday(<span class="number">1</span>); <span class="comment">// Monday</span>
+moment().isoWeekday(<span class="number">7</span>); <span class="comment">// Sunday</span></code></pre>
 
 					</div>
 				</article>
@@ -946,14 +1017,23 @@ moment().isoWeeks(); // Number</pre>
 					</h3>
 					<div class="prose">
 						
-							<pre lang="javascript">moment().month(Number);
+							<pre lang="javascript">moment().month(Number|String);
 moment().month(); // Number
-moment().months(Number);
+moment().months(Number|String);
 moment().months(); // Number</pre>
 						
 						<p>Gets or sets the month.</p>
 <p>Accepts numbers from 0 to 11. If the range is exceeded, it will bubble up to the year.</p>
 <p><strong>Note</strong>: Months are zero indexed, so January is month 0.</p>
+<p>As of <strong>2.1.0</strong>, a month name is also supported. This is parsed in the moment&#39;s current locale.</p>
+<pre><code class="lang-javascript">moment().month(<span class="string">"January"</span>);
+moment().month(<span class="string">"Feb"</span>);</code></pre>
+<p>Before version <strong>2.1.0</strong>, if a moment changed months and the new month did not have enough days to keep the current day of month, it would overflow to the next month.</p>
+<p>As of version <strong>2.1.0</strong>, this was changed to be clamped to the end of the target month.</p>
+<pre><code class="lang-javascript"><span class="comment">// before 2.1.0</span>
+moment([<span class="number">2012</span>, <span class="number">0</span>, <span class="number">31</span>]).month(<span class="number">1</span>).format(<span class="string">"YYYY-MM-DD"</span>); <span class="comment">// 2012-03-02</span>
+<span class="comment">// after 2.1.0</span>
+moment([<span class="number">2012</span>, <span class="number">0</span>, <span class="number">31</span>]).month(<span class="number">1</span>).format(<span class="string">"YYYY-MM-DD"</span>); <span class="comment">// 2012-02-29</span></code></pre>
 
 					</div>
 				</article>
@@ -973,6 +1053,40 @@ moment().years(); // Number</pre>
 						
 						<p>Gets or sets the year.</p>
 <p>Accepts numbers from -270,000 to 270,000.</p>
+
+					</div>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/get-set/week-year/"></a>
+					<h3>
+						<a href='#/get-set/week-year/'><span class="hash">#</span>Week Year</a>
+						<span>2.1.0</span>
+					</h3>
+					<div class="prose">
+						
+							<pre lang="javascript">moment().weekYear(Number);
+moment().weekYear(); // Number</pre>
+						
+						<p>Gets or sets the week-year according to the locale.</p>
+<p>Because the first day of the first week does not always fall on the first day of the year, sometimes the week-year will differ from the month year.</p>
+<p>For example, in the US, the week that contains Jan 1 is always the first week. In the US, weeks also start on Sunday. If Jan 1 was a Monday, Dec 31 would belong to the same week as Jan 1, and thus the same week-year as Jan 1. Dec 30 would have a different week-year than Dec 31.</p>
+
+					</div>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/get-set/iso-week-year/"></a>
+					<h3>
+						<a href='#/get-set/iso-week-year/'><span class="hash">#</span>Week Year (ISO)</a>
+						<span>2.1.0</span>
+					</h3>
+					<div class="prose">
+						
+							<pre lang="javascript">moment().isoWeekYear(Number);
+moment().isoWeekYear(); // Number</pre>
+						
+						<p>Gets or sets the <a href="http://en.wikipedia.org/wiki/ISO_week_date">ISO week-year</a>.</p>
 
 					</div>
 				</article>
@@ -1125,6 +1239,8 @@ moment().month(<span class="number">0</span>).date(<span class="number">1</span>
 <pre><code class="lang-javascript">moment().startOf(<span class="string">'hour'</span>);
 moment().minutes(<span class="number">0</span>).seconds(<span class="number">0</span>).milliseconds(<span class="number">0</span>)</code></pre>
 <p>As of version <strong>2.0.0</strong>, <code>moment#startOf(&#39;day&#39;)</code> replaced <code>moment#sod</code>.</p>
+<p><strong>Note:</strong> <code>moment#startOf(&#39;week&#39;)</code> was added in version <strong>2.0.0</strong>.</p>
+<p>As of version <strong>2.1.0</strong>, <code>moment#startOf(&#39;week&#39;)</code> uses the locale aware week start day.</p>
 
 					</div>
 				</article>
@@ -1143,6 +1259,52 @@ moment().minutes(<span class="number">0</span>).seconds(<span class="number">0</
 <p>This is the same as <code>moment#startOf</code>, only instead of setting to the start of a unit of time, it sets to the end of a unit of time.</p>
 <pre><code class="lang-javascript">moment().endOf(<span class="string">"year"</span>); <span class="comment">// set the moment to 12-31 11:59:59.999 pm this year</span></code></pre>
 <p>As of version <strong>2.0.0</strong>, <code>moment#endOf(&#39;day&#39;)</code> replaced <code>moment#eod</code>.</p>
+<p><strong>Note:</strong> <code>moment#endOf(&#39;week&#39;)</code> was added in version <strong>2.0.0</strong>.</p>
+<p>As of version <strong>2.1.0</strong>, <code>moment#endOf(&#39;week&#39;)</code> uses the locale aware week start day.</p>
+
+					</div>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/manipulating/max/"></a>
+					<h3>
+						<a href='#/manipulating/max/'><span class="hash">#</span>Maximum</a>
+						<span>2.1.0</span>
+					</h3>
+					<div class="prose">
+						
+							<pre lang="javascript">moment().max(Moment|String|Number|Date|Array);</pre>
+						
+						<p>Set the maximum value for a moment.</p>
+<p>Sometimes, server clocks are not quite in sync with client clocks. This ends up displaying humanized strings such as &quot;in a few seconds&quot; rather than &quot;a few seconds ago&quot;.</p>
+<p><code>moment#max</code> was added to allow you to set the maximum value for a moment.</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> momentFromServer = moment(input);
+<span class="keyword">var</span> now = moment();
+<span class="keyword">var</span> clampedMoment = momentFromServer.max(now);</code></pre>
+<p>You can pass anything to <code>moment#max</code> that you would pass to <code>moment()</code>.</p>
+<pre><code class="lang-javascript">moment().max(<span class="string">"2013-04-20T20:00:00+0800"</span>);
+moment().max(<span class="string">"Jan 1 2001"</span>, <span class="string">"MMM D YYYY"</span>);</code></pre>
+
+					</div>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/manipulating/min/"></a>
+					<h3>
+						<a href='#/manipulating/min/'><span class="hash">#</span>Minimum</a>
+						<span>2.1.0</span>
+					</h3>
+					<div class="prose">
+						
+							<pre lang="javascript">moment().min(Moment|String|Number|Date|Array);</pre>
+						
+						<p>Set the minimum value for a moment.</p>
+<p>This is the counterpart for <code>moment#max</code>.</p>
+<pre><code class="lang-javascript">moment().min(<span class="string">"2013-04-20T20:00:00+0800"</span>);</code></pre>
+<p>This can be used in conjunction with <code>moment#max</code> to clamp a moment to a range.</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> start  = moment().startOf(<span class="string">'week'</span>);
+<span class="keyword">var</span> end    = moment().endOf(<span class="string">'week'</span>);
+<span class="keyword">var</span> actual = moment().min(start).max(end);</code></pre>
 
 					</div>
 				</article>
@@ -1183,6 +1345,33 @@ a.hours(); <span class="comment">// 8 PST</span>
 a.utc();
 a.hours(); <span class="comment">// 16 UTC</span></code></pre>
 <p>See <a href="#/parsing/utc/">moment.utc()</a> for more information on UTC mode.</p>
+
+					</div>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/manipulating/timezone-offset/"></a>
+					<h3>
+						<a href='#/manipulating/timezone-offset/'><span class="hash">#</span>Timezone Offset</a>
+						<span>1.2.0</span>
+					</h3>
+					<div class="prose">
+						
+							<pre lang="javascript">moment().zone();
+moment().zone(Number|String);</pre>
+						
+						<p>Get the timezone offset in minutes.</p>
+<pre><code class="lang-javascript">moment().zone(); <span class="comment">// (60, 120, 240, etc.)</span></code></pre>
+<p>As of version <strong>2.1.0</strong>, it is possible to set the offset by passing in the number of minutes offset from GMT.</p>
+<pre><code class="lang-javascript">moment().zone(<span class="number">120</span>);</code></pre>
+<p>If the input is less than <code>16</code> and greater than <code>-16</code>, it will interpret your input as hours instead.</p>
+<pre><code class="lang-javascript"><span class="comment">// these are equivalent</span>
+moment().zone(<span class="number">480</span>);
+moment().zone(<span class="number">8</span>);</code></pre>
+<p>It is also possible to set the zone from a string.</p>
+<pre><code class="lang-javascript">moment().zone(<span class="string">"-08:00"</span>);</code></pre>
+<p><code>moment#zone</code> will search the string for the first match of <code>+00:00 +0000 -00:00 -0000</code>, so you can even pass an ISO8601 formatted string and the moment will be changed to that zone.</p>
+<pre><code class="lang-javascript">moment().zone(<span class="string">"2013-03-07T07:00:00-08:00"</span>);</code></pre>
 
 					</div>
 				</article>
@@ -1284,6 +1473,11 @@ moment().format(<span class="string">"ddd, hA"</span>);                       <s
     </tr>
     <tr>
       <td></td>
+      <td>dd</td>
+      <td>Su Mo ... Fr Sa</td>
+    </tr>
+    <tr>
+      <td></td>
       <td>ddd</td>
       <td>Sun Mon ... Fri Sat</td>
     </tr>
@@ -1291,6 +1485,16 @@ moment().format(<span class="string">"ddd, hA"</span>);                       <s
       <td></td>
       <td>dddd</td>
       <td>Sunday Monday ... Friday Saturday</td>
+    </tr>
+    <tr>
+      <td><b>Day of Week (Locale)</b></td>
+      <td>e</td>
+      <td>0 1 ... 5 6</td>
+    </tr>
+    <tr>
+      <td><b>Day of Week (ISO)</b></td>
+      <td>E</td>
+      <td>1 2 ... 6 7</td>
     </tr>
     <tr>
       <td><b>Week of Year</b></td>
@@ -1308,7 +1512,7 @@ moment().format(<span class="string">"ddd, hA"</span>);                       <s
       <td>01 02 ... 52 53</td>
     </tr>
     <tr>
-      <td><b>ISO Week of Year</b></td>
+      <td><b>Week of Year (ISO)</b></td>
       <td>W</td>
       <td>1 2 ... 52 53</td>
     </tr>
@@ -1330,6 +1534,26 @@ moment().format(<span class="string">"ddd, hA"</span>);                       <s
     <tr>
       <td></td>
       <td>YYYY</td>
+      <td>1970 1971 ... 2029 2030</td>
+    </tr>
+    <tr>
+      <td><b>Week Year</b></td>
+      <td>gg</td>
+      <td>70 71 ... 29 30</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>gggg</td>
+      <td>1970 1971 ... 2029 2030</td>
+    </tr>
+    <tr>
+      <td><b>Week Year (ISO)</b></td>
+      <td>GG</td>
+      <td>70 71 ... 29 30</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>GGGG</td>
       <td>1970 1971 ... 2029 2030</td>
     </tr>
     <tr>
@@ -1398,11 +1622,6 @@ moment().format(<span class="string">"ddd, hA"</span>);                       <s
       <td>0 1 ... 998 999</td>
     </tr>
     <tr>
-      <td></td>
-      <td>ss</td>
-      <td>00 01 ... 58 59</td>
-    </tr>
-    <tr>
       <td><b>Timezone</b></td>
       <td>z or zz</td>
       <td>
@@ -1431,7 +1650,10 @@ moment().format(<span class="string">"ddd, hA"</span>);                       <s
   </tbody>
 </table>
 
-<p><code>Z ZZ</code> were added in <strong>1.2.0</strong>. <code>S SS SSS</code> were added in <strong>1.6.0</strong>. <code>X</code> was added in <code>2.0.0</code>.</p>
+<p><code>Z ZZ</code> were added in <strong>1.2.0</strong>.</p>
+<p><code>S SS SSS</code> were added in <strong>1.6.0</strong>.</p>
+<p><code>X</code> was added in <strong>2.0.0</strong>.</p>
+<p><code>e E gg gggg GG GGGG</code> were added in <strong>2.1.0</strong>.</p>
 <h4>Localized formats</h4>
 <p>Because preferred formatting differs based on locale, there are a few tokens that can be used to format a moment based on its language.</p>
 <p>There are upper and lower case variations on the same formats. The lowercase version is intended to be the shortened version of its uppercase counterpart.</p>
@@ -1748,22 +1970,6 @@ b.diff(a) <span class="comment">// b - a &lt; 0</span></code></pre>
 				</article>
 			
 				<article class="method">
-					<a class="target" name="/displaying/timezone-offset/"></a>
-					<h3>
-						<a href='#/displaying/timezone-offset/'><span class="hash">#</span>Timezone Offset</a>
-						<span>1.2.0</span>
-					</h3>
-					<div class="prose">
-						
-							<pre lang="javascript">moment().zone();</pre>
-						
-						<p>Get the timezone offset in minutes.</p>
-<pre><code class="lang-javascript">moment().zone(); <span class="comment">// (60, 120, 240, etc.)</span></code></pre>
-
-					</div>
-				</article>
-			
-				<article class="method">
 					<a class="target" name="/displaying/days-in-month/"></a>
 					<h3>
 						<a href='#/displaying/days-in-month/'><span class="hash">#</span>Days in Month</a>
@@ -1831,6 +2037,22 @@ moment(<span class="string">"2012-01"</span>, <span class="string">"YYYY-MM"</sp
 					</div>
 				</article>
 			
+				<article class="method">
+					<a class="target" name="/displaying/as-iso-string/"></a>
+					<h3>
+						<a href='#/displaying/as-iso-string/'><span class="hash">#</span>As ISO 8601 String</a>
+						<span>2.1.0</span>
+					</h3>
+					<div class="prose">
+						
+							<pre lang="javascript">moment().toISOString();</pre>
+						
+						<p>Formats a string to the ISO8601 standard.</p>
+<pre><code class="lang-javascript">moment().toISOString() <span class="comment">// 2013-02-04T22:44:30.652Z</span></code></pre>
+
+					</div>
+				</article>
+			
 		
 			<article class="section">
 				<a class="target" name="/query/"></a>
@@ -1855,6 +2077,8 @@ moment().isBefore(Moment|String|Number|Date|Array, String);</pre>
 <pre><code class="lang-javascript">moment(<span class="string">'2010-10-20'</span>).isBefore(<span class="string">'2010-12-31'</span>, <span class="string">'year'</span>); <span class="comment">// false</span>
 moment(<span class="string">'2010-10-20'</span>).isBefore(<span class="string">'2011-01-01'</span>, <span class="string">'year'</span>); <span class="comment">// true</span></code></pre>
 <p>Like <code>moment#isAfter</code> and <code>moment#isSame</code>, any of the units of time that are supported for <code>moment#startOf</code> are supported for <code>moment#isBefore</code>. Year, month, week, day, hour, minute, and second.</p>
+<p>If nothing is passed to <code>moment#isBefore</code>, it will default to the current time.</p>
+<pre><code class="lang-javascript">moment().isBefore(); <span class="comment">// false</span></code></pre>
 
 					</div>
 				</article>
@@ -1878,6 +2102,8 @@ moment(<span class="string">'2010-10-20'</span>).isSame(<span class="string">'20
 moment(<span class="string">'2010-10-20'</span>).isSame(<span class="string">'2010-12-31'</span>, <span class="string">'year'</span>); <span class="comment">// true</span>
 moment(<span class="string">'2010-10-20'</span>).isSame(<span class="string">'2011-01-01'</span>, <span class="string">'year'</span>); <span class="comment">// false</span></code></pre>
 <p>Like <code>moment#isAfter</code> and <code>moment#isBefore</code>, any of the units of time that are supported for <code>moment#startOf</code> are supported for <code>moment#isSame</code>. Year, month, week, day, hour, minute, and second.</p>
+<p>If nothing is passed to <code>moment#isSame</code>, it will default to the current time.</p>
+<pre><code class="lang-javascript">moment().isSame(); <span class="comment">// true</span></code></pre>
 
 					</div>
 				</article>
@@ -1899,6 +2125,8 @@ moment().isAfter(Moment|String|Number|Date|Array, String);</pre>
 <pre><code class="lang-javascript">moment(<span class="string">'2010-10-20'</span>).isAfter(<span class="string">'2010-01-01'</span>, <span class="string">'year'</span>); <span class="comment">// false</span>
 moment(<span class="string">'2010-10-20'</span>).isAfter(<span class="string">'2009-12-31'</span>, <span class="string">'year'</span>); <span class="comment">// true</span></code></pre>
 <p>Like <code>moment#isSame</code> and <code>moment#isBefore</code>, any of the units of time that are supported for <code>moment#startOf</code> are supported for <code>moment#isAfter</code>. Year, month, week, day, hour, minute, and second.</p>
+<p>If nothing is passed to <code>moment#isAfter</code>, it will default to the current time.</p>
+<pre><code class="lang-javascript">moment().isAfter(); <span class="comment">// false</span></code></pre>
 
 					</div>
 				</article>
@@ -2062,9 +2290,9 @@ localLang.format(<span class="string">'LLLL'</span>); <span class="comment">// D
 globalLang.format(<span class="string">'LLLL'</span>); <span class="comment">// Domingo 15 Julio 2012 11:03</span></code></pre>
 <p>If you call <code>moment#lang</code> with no parameters, you get back the language configuration that would be used for that moment.</p>
 <pre><code class="lang-javascript"><span class="keyword">var</span> fr = moment().lang(<span class="string">'fr'</span>);
-fr.lang().months <span class="comment">// ["janvier", "février", "mars", ...]</span>
+fr.lang().months(moment([<span class="number">2012</span>, <span class="number">0</span>])) <span class="comment">// "janvier"</span>
 fr.lang(<span class="string">'en'</span>);
-fr.lang().months <span class="comment">// ["January", "February", "March", ...]</span></code></pre>
+fr.lang().months(moment([<span class="number">2012</span>, <span class="number">0</span>])) <span class="comment">// "January"</span></code></pre>
 <p>If you need to access the language data for a moment, this is the preferred way to do so.</p>
 
 					</div>
@@ -2100,14 +2328,15 @@ moment(<span class="number">1316116057189</span>).fromNow(); <span class="commen
 							<pre lang="javascript">moment.lang(String, Object);</pre>
 						
 						<p>Loading languages in the browser just requires you to include the language files.</p>
-<pre><code class="lang-html">&amp;lt;script src="moment.min.js"&gt;&amp;lt;/script&gt;
-&amp;lt;script src="lang/fr.js"&gt;&amp;lt;/script&gt;
-&amp;lt;script src="lang/pt.js"&gt;&amp;lt;/script&gt;</code></pre>
+<pre><code class="lang-html"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"moment.min.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"min/lang/fr.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"min/lang/pt.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></pre>
 <p>There are minified versions of each of these languages. There is also a minified version of all of the languages bundled together.</p>
-<pre><code class="lang-html">&amp;lt;script src="moment.min.js"&gt;&amp;lt;/script&gt;
-&amp;lt;script src="lang/all.min.js"&gt;&amp;lt;/script&gt;</code></pre>
+<pre><code class="lang-html"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"moment.min.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"lang/all.min.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></pre>
 <p>Ideally, you would bundle all the files you need into one file to minimize http requests.</p>
-<pre><code class="lang-html">&amp;lt;script src="moment-fr-it.min.js"&gt;&amp;lt;/script&gt;</code></pre>
+<pre><code class="lang-html"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"moment-fr-it.min.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></pre>
+<p><strong>Note:</strong> the files in the <code>/lang/</code> folder are optimized for use in Node.js. If you want to use language files in the browser, use the minified version that are included in <code>/min/lang/</code>.</p>
 
 					</div>
 				</article>
@@ -2423,7 +2652,7 @@ The function should return a string.</p>
 						
 						<p>If your language uses &#39;am/pm&#39;, <code>Language#meridiem</code> can be ommitted, as those values are the defaults.</p>
 <p>If your language needs any different computation for am/pm, <code>Language#meridiem</code> should be a callback function that returns the correct string based on hour, minute, and upper/lowercase.</p>
-<pre><code class="lang-javascript">moment.lang(<span class="string">'en'</span>, {
+<pre><code class="lang-javascript">moment.lang(<span class="string">'zh-cn'</span>, {
     meridiem : <span class="function"><span class="keyword">function</span> <span class="params">(hour, minute, isLowercase)</span> {</span>
         <span class="keyword">if</span> (hour &lt; <span class="number">9</span>) {
             <span class="keyword">return</span> <span class="string">"早上"</span>;
@@ -2448,6 +2677,33 @@ The function should return a string.</p>
     }
 });</code></pre>
 <p>This has been deprecated. The <strong>1.6.0</strong> callback function syntax is now used instead.</p>
+
+					</div>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/customization/am-pm-parsing/"></a>
+					<h3>
+						<a href='#/customization/am-pm-parsing/'><span class="hash">#</span>AM/PM Parsing</a>
+						<span>2.1.0</span>
+					</h3>
+					<div class="prose">
+						
+							<pre lang="javascript">moment.lang('en', {
+    meridiemParse : RegExp
+    isPM : Function
+});</pre>
+						
+						<p><code>Language#isPM</code> should return true if the input string is past 12 noon. This is used in parsing the <code>a A</code> tokens.</p>
+<pre><code class="lang-javascript">moment.lang(<span class="string">'en'</span>, {
+    isPM : <span class="function"><span class="keyword">function</span> <span class="params">(input)</span> {</span>
+        <span class="keyword">return</span> ((input + <span class="string">''</span>).toLowerCase()[<span class="number">0</span>] === <span class="string">'p'</span>);
+    }
+});</code></pre>
+<p>To configure what strings should be parsed as input, set the <code>meridiemParse</code> property.</p>
+<pre><code class="lang-javascript">moment.lang(<span class="string">'en'</span>, {
+    meridiemParse : <span class="regexp">/[ap]\.?m?\.?/i</span>
+});</code></pre>
 
 					</div>
 				</article>
@@ -2497,7 +2753,7 @@ The function should return a string.</p>
 						
 						<p><code>Language#ordinal</code> should be a function that returns the ordinal for a given number.</p>
 <pre><code class="lang-javascript">moment.lang(<span class="string">'en'</span>, {
-    ordinal : <span class="function"><span class="keyword">function</span> <span class="params">(number)</span> {</span>
+    ordinal : <span class="function"><span class="keyword">function</span> <span class="params">(number, token)</span> {</span>
         <span class="keyword">var</span> b = number % <span class="number">10</span>;
         <span class="keyword">var</span> output = (~~ (number % <span class="number">100</span> / <span class="number">10</span>) === <span class="number">1</span>) ? <span class="string">'th'</span> :
             (b === <span class="number">1</span>) ? <span class="string">'st'</span> :
@@ -2507,6 +2763,7 @@ The function should return a string.</p>
     }
 });</code></pre>
 <p>As of <strong>2.0.0</strong>, the ordinal function should return both the number and the ordinal. Previously, only the ordinal was returned.</p>
+<p>As of <strong>2.1.0</strong>, the token parameter was added. It is a string of the token that is being ordinalized, for example: <code>M</code> or <code>d</code>.</p>
 <p>For more information on ordinal numbers, see <a href="http://en.wikipedia.org/wiki/Ordinal_number_%28linguistics%29">wikipedia</a></p>
 
 					</div>
@@ -2533,7 +2790,8 @@ The function should return a string.</p>
 						
 							<pre lang="javascript">moment.duration(Number, String);
 moment.duration(Number);
-moment.duration(Object);</pre>
+moment.duration(Object);
+moment.duration(String);</pre>
 						
 						<p>To create a duration, call <code>moment.duration()</code> with the length of time in milliseconds.</p>
 <pre><code class="lang-javascript">moment.duration(<span class="number">100</span>); <span class="comment">// 100 milliseconds</span></code></pre>
@@ -2597,6 +2855,11 @@ moment.duration(<span class="number">2</span>, <span class="string">'years'</spa
     months: <span class="number">2</span>,
     years: <span class="number">2</span>
 });</code></pre>
+<p>As of <strong>2.1.0</strong>, moment supports parsing ASP.NET style time spans. The following formats are supported.</p>
+<p>The format is an hour, minute, second string separated by colons like <code>23:59:59</code>. The number of days can be prefixed with a dot separator like so <code>7.23:59:59</code>. Partial seconds are supported as well <code>23:59:59.999</code>.</p>
+<pre><code class="lang-javascript">moment.duration(<span class="string">'23:59:59'</span>);
+moment.duration(<span class="string">'23:59:59.999'</span>);
+moment.duration(<span class="string">'7.23:59:59.999'</span>);</code></pre>
 
 					</div>
 				</article>
@@ -2759,6 +3022,86 @@ moment.duration().asYears();</pre>
 					</div>
 				</article>
 			
+				<article class="method">
+					<a class="target" name="/durations/add/"></a>
+					<h3>
+						<a href='#/durations/add/'><span class="hash">#</span>Add Time</a>
+						<span>2.1.0</span>
+					</h3>
+					<div class="prose">
+						
+							<pre lang="javascript">moment.duration().add(Number, String);
+moment.duration().add(Number);
+moment.duration().add(Duration);
+moment.duration().add(Object);</pre>
+						
+						<p>Mutates the original duration by adding time.</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> a = moment.duration(<span class="number">1</span>, <span class="string">'d'</span>);
+<span class="keyword">var</span> b = moment.duration(<span class="number">2</span>, <span class="string">'d'</span>);
+a.add(b).days(); <span class="comment">// 3</span></code></pre>
+
+					</div>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/durations/subtract/"></a>
+					<h3>
+						<a href='#/durations/subtract/'><span class="hash">#</span>Subtract Time</a>
+						<span>2.1.0</span>
+					</h3>
+					<div class="prose">
+						
+							<pre lang="javascript">moment.duration().subtract(Number, String);
+moment.duration().subtract(Number);
+moment.duration().subtract(Duration);
+moment.duration().subtract(Object);</pre>
+						
+						<p>Mutates the original duration by subtracting time.</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> a = moment.duration(<span class="number">3</span>, <span class="string">'d'</span>);
+<span class="keyword">var</span> b = moment.duration(<span class="number">2</span>, <span class="string">'d'</span>);
+a.subtract(b).days(); <span class="comment">// 1</span></code></pre>
+
+					</div>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/durations/as/"></a>
+					<h3>
+						<a href='#/durations/as/'><span class="hash">#</span>As Unit of Time</a>
+						<span>2.1.0</span>
+					</h3>
+					<div class="prose">
+						
+							<pre lang="javascript">moment.duration().as(String);</pre>
+						
+						<p>As an alternate to <code>Duration#asX</code>, you can use <code>Duration#as(&#39;x&#39;)</code>. All the <a href="#/manipulating/add/">shorthand keys from</a> <code>moment#add</code> apply here as well.</p>
+<pre><code class="lang-javascript">duration.as(<span class="string">'hours'</span>);
+duration.as(<span class="string">'minutes'</span>);
+duration.as(<span class="string">'seconds'</span>);
+duration.as(<span class="string">'milliseconds'</span>);</code></pre>
+
+					</div>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/durations/get/"></a>
+					<h3>
+						<a href='#/durations/get/'><span class="hash">#</span>Get Unit of Time</a>
+						<span>2.1.0</span>
+					</h3>
+					<div class="prose">
+						
+							<pre lang="javascript">moment.duration().get(String);</pre>
+						
+						<p>As an alternate to <code>Duration#x()</code> getters, you can use <code>Duration#get(&#39;x&#39;)</code>. All the <a href="#/manipulating/add/">shorthand keys from</a> <code>moment#add</code> apply here as well.</p>
+<pre><code class="lang-javascript">duration.get(<span class="string">'hours'</span>);
+duration.get(<span class="string">'minutes'</span>);
+duration.get(<span class="string">'seconds'</span>);
+duration.get(<span class="string">'milliseconds'</span>);</code></pre>
+
+					</div>
+				</article>
+			
 		
 			<article class="section">
 				<a class="target" name="/plugins/"></a>
@@ -2881,7 +3224,7 @@ t.simpleFormat(<span class="string">"h:m"</span>); <span class="comment">//=&gt;
 		</footer>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-		<script src="/static/js/global.min.js?v=2013-05-19T15:28:36-07:00"></script>
+		<script src="/static/js/global.min.js?v=2013-07-07T13:08:23-07:00"></script>
 		
 
 		<script>

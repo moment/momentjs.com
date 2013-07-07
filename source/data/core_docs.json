@@ -155,12 +155,30 @@
 				"key": "Day",
 				"title": "Day of Week",
 				"signature": [
-					"moment().day(Number);",
+					"moment().day(Number|String);",
 					"moment().day(); // Number",
-					"moment().days(Number);",
+					"moment().days(Number|String);",
 					"moment().days(); // Number"
 				],
 				"version": "1.3.0"
+			},
+			{
+				"key": "Weekday",
+				"title": "Day of Week (Locale Aware)",
+				"signature": [
+					"moment().weekday(Number);",
+					"moment().weekday(); // Number"
+				],
+				"version": "2.1.0"
+			},
+			{
+				"key": "ISO Weekday",
+				"title": "ISO Day of Week",
+				"signature": [
+					"moment().isoWeekday(Number);",
+					"moment().isoWeekday(); // Number"
+				],
+				"version": "2.1.0"
 			},
 			{
 				"key": "Day of Year",
@@ -195,9 +213,9 @@
 			{
 				"key": "Month",
 				"signature": [
-					"moment().month(Number);",
+					"moment().month(Number|String);",
 					"moment().month(); // Number",
-					"moment().months(Number);",
+					"moment().months(Number|String);",
 					"moment().months(); // Number"
 				],
 				"version": "1.0.0"
@@ -211,6 +229,23 @@
 					"moment().years(); // Number"
 				],
 				"version": "1.0.0"
+			},
+			{
+				"key": "Week Year",
+				"signature": [
+					"moment().weekYear(Number);",
+					"moment().weekYear(); // Number"
+				],
+				"version": "2.1.0"
+			},
+			{
+				"key": "ISO Week Year",
+				"title": "Week Year (ISO)",
+				"signature": [
+					"moment().isoWeekYear(Number);",
+					"moment().isoWeekYear(); // Number"
+				],
+				"version": "2.1.0"
 			}
 		]
 	},
@@ -251,6 +286,18 @@
 				"version": "1.7.0"
 			},
 			{
+				"key": "max",
+				"title": "Maximum",
+				"signature": "moment().max(Moment|String|Number|Date|Array);",
+				"version": "2.1.0"
+			},
+			{
+				"key": "min",
+				"title": "Minimum",
+				"signature": "moment().min(Moment|String|Number|Date|Array);",
+				"version": "2.1.0"
+			},
+			{
 				"key": "Local",
 				"signature": "moment().local();",
 				"version": "1.5.0"
@@ -259,6 +306,14 @@
 				"key": "UTC",
 				"signature": "moment().utc();",
 				"version": "1.5.0"
+			},
+			{
+				"key": "Timezone Offset",
+				"signature": [
+					"moment().zone();",
+					"moment().zone(Number|String);"
+				],
+				"version": "1.2.0"
 			}
 		]
 	},
@@ -322,11 +377,6 @@
 				"version": "1.6.0"
 			},
 			{
-				"key": "Timezone Offset",
-				"signature": "moment().zone();",
-				"version": "1.2.0"
-			},
-			{
 				"key": "Days in Month",
 				"signature": "moment().daysInMonth();",
 				"version": "1.5.0"
@@ -345,6 +395,12 @@
 				"key": "As JSON",
 				"signature": "moment().toJSON();",
 				"version": "2.0.0"
+			},
+			{
+				"key": "as-iso-string",
+				"title": "As ISO 8601 String",
+				"signature": "moment().toISOString();",
+				"version": "2.1.0"
 			}
 		]
 	},
@@ -531,6 +587,16 @@
 				"version": "1.6.0"
 			},
 			{
+				"key": "AM/PM Parsing",
+				"signature": [
+					"moment.lang('en', {",
+					"    meridiemParse : RegExp",
+					"    isPM : Function",
+					"});"
+				],
+				"version": "2.1.0"
+			},
+			{
 				"key": "Calendar",
 				"signature": [
 					"moment.lang('en', {",
@@ -559,7 +625,8 @@
 				"signature": [
 					"moment.duration(Number, String);",
 					"moment.duration(Number);",
-					"moment.duration(Object);"
+					"moment.duration(Object);",
+					"moment.duration(String);"
 				],
 				"version": "1.6.0"
 			},
@@ -570,59 +637,72 @@
 			},
 			{
 				"key": "Milliseconds",
-				"signature": [
-					"moment.duration().milliseconds();",
-					"moment.duration().asMilliseconds();"
-				],
+				"signature": "moment.duration().milliseconds();\nmoment.duration().asMilliseconds();",
 				"version": "1.6.0"
 			},
 			{
 				"key": "Seconds",
-				"signature": [
-					"moment.duration().seconds();",
-					"moment.duration().asSeconds();"
-				],
+				"signature": "moment.duration().seconds();\nmoment.duration().asSeconds();",
 				"version": "1.6.0"
 			},
 			{
 				"key": "Minutes",
-				"signature": [
-					"moment.duration().minutes();",
-					"moment.duration().asMinutes();"
-				],
+				"signature": "moment.duration().minutes();\nmoment.duration().asMinutes();",
 				"version": "1.6.0"
 			},
 			{
 				"key": "Hours",
-				"signature": [
-					"moment.duration().hours();",
-					"moment.duration().asHours();"
-				],
+				"signature": "moment.duration().hours();\nmoment.duration().asHours();",
 				"version": "1.6.0"
 			},
 			{
 				"key": "Days",
-				"signature": [
-					"moment.duration().days();",
-					"moment.duration().asDays();"
-				],
+				"signature": "moment.duration().days();\nmoment.duration().asDays();",
 				"version": "1.6.0"
 			},
 			{
 				"key": "Months",
-				"signature": [
-					"moment.duration().months();",
-					"moment.duration().asMonths();"
-				],
+				"signature": "moment.duration().months();\nmoment.duration().asMonths();",
 				"version": "1.6.0"
 			},
 			{
 				"key": "Years",
-				"signature": [
-					"moment.duration().years();",
-					"moment.duration().asYears();"
-				],
+				"signature": "moment.duration().years();\nmoment.duration().asYears();",
 				"version": "1.6.0"
+			},
+			{
+				"key": "add",
+				"title": "Add Time",
+				"signature": [
+					"moment.duration().add(Number, String);",
+					"moment.duration().add(Number);",
+					"moment.duration().add(Duration);",
+					"moment.duration().add(Object);"
+				],
+				"version": "2.1.0"
+			},
+			{
+				"key": "subtract",
+				"title": "Subtract Time",
+				"signature": [
+					"moment.duration().subtract(Number, String);",
+					"moment.duration().subtract(Number);",
+					"moment.duration().subtract(Duration);",
+					"moment.duration().subtract(Object);"
+				],
+				"version": "2.1.0"
+			},
+			{
+				"key": "as",
+				"title": "As Unit of Time",
+				"signature": "moment.duration().as(String);",
+				"version": "2.1.0"
+			},
+			{
+				"key": "get",
+				"title": "Get Unit of Time",
+				"signature": "moment.duration().get(String);",
+				"version": "2.1.0"
 			}
 		]
 	},

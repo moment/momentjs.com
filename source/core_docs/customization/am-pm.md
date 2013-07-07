@@ -3,7 +3,7 @@ If your language uses 'am/pm', `Language#meridiem` can be ommitted, as those val
 If your language needs any different computation for am/pm, `Language#meridiem` should be a callback function that returns the correct string based on hour, minute, and upper/lowercase.
 
 ```javascript
-moment.lang('en', {
+moment.lang('zh-cn', {
     meridiem : function (hour, minute, isLowercase) {
         if (hour < 9) {
             return "早上";

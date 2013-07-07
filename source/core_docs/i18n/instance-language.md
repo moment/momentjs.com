@@ -24,9 +24,9 @@ If you call `moment#lang` with no parameters, you get back the language configur
 
 ```javascript
 var fr = moment().lang('fr');
-fr.lang().months // ["janvier", "février", "mars", ...]
+fr.lang().months(moment([2012, 0])) // "janvier"
 fr.lang('en');
-fr.lang().months // ["January", "February", "March", ...]
+fr.lang().months(moment([2012, 0])) // "January"
 ```
 
 If you need to access the language data for a moment, this is the preferred way to do so.

@@ -82,7 +82,7 @@ The parsing tokens are similar to the formatting tokens used in `moment#format`.
     <tr>
       <td>Z, ZZ</td>
       <td>
-        Timezone offset as `+0700` or `+07:30`
+        Timezone offset as `+07:00` or `+0700`
       </td>
     </tr>
     <tr>
