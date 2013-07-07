@@ -14,3 +14,9 @@ moment('2010-10-20').isSame('2011-01-01', 'year'); // false
 ```
 
 Like `moment#isAfter` and `moment#isBefore`, any of the units of time that are supported for `moment#startOf` are supported for `moment#isSame`. Year, month, week, day, hour, minute, and second.
+
+If nothing is passed to `moment#isSame`, it will default to the current time.
+
+```javascript
+moment().isSame(); // true
+```

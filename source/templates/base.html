@@ -2,53 +2,19 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<link rel="stylesheet" href="/css/style.css?v={{ cachebust }}" />
+		<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:300,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="/static/css/style.css?v={{ cachebust }}" />
 		<title>Moment.js | {% block title %}{% endblock title %}</title>
 	</head>
 	<body class="{% block body_class %}{% endblock body_class %}">
 		<nav class="top">
-			<a class="logo home-nav" href="/">Moment.js</a>
-			<a class="docs-nav" href="/docs/">Docs</a>
-			<a class="test-nav" href="/test/">Tests</a>
-			<a class="github" href="https://github.com/timrwood/moment/">Github</a>
-			<a class="twitter" href="https://twitter.com/momentjs">@momentjs</a>
-			<iframe src="http://ghbtns.com/github-btn.html?user=timrwood&repo=moment&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+			<a class="logo core-nav" href="/">Moment.js</a>
+			<!--
+			<a class="logo timezone-nav" href="/timezone/">Moment Timezone</a>
+			-->
+			{% block nav %}{% endblock nav %}
 		</nav>
-		<header>
-			<div class="share">
-				<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://momentjs.com" data-via="momentjs" data-lang="en" data-count="vertical"></a>
-				<div class="g-plusone" data-size="tall" data-href="http://momentjs.com"></div>
-			</div>
-			<div class="watch">
-				<div class="band">
-					<div class="face">
-						<div id="hour"></div>
-						<div id="minute"></div>
-						<div id="second"></div>
-					</div>
-				</div>
-				<h1>Moment.js<span>{{ library.version }}</span></h1>
-			</div>
-			<hgroup>
-				{% block header %}
-
-				{% endblock header %}
-			</hgroup>
-			<aside>
-				{% block header_aside %}
-					<div class="download">
-						<a class="button gzipped" href="https://raw.github.com/timrwood/moment/{{ library.version }}/min/moment.min.js">
-							<strong>Minified Source</strong>
-							<span class="filesize">{{ library.gzipped }}</span>
-						</a>
-						<a class="button source" href="https://raw.github.com/timrwood/moment/{{ library.version }}/moment.js">
-							<strong>Full Source</strong>
-							<span class="filesize">{{ library.size }} </span>
-						</a>
-					</div>
-				{% endblock header_aside %}
-			</aside>
-		</header>
+		{% block site_header %}{% endblock site_header %}
 		<div class="container">
 			{% block content %}{% endblock content %}
 		</div>
@@ -57,8 +23,7 @@
 		</footer>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-		<script src="../js/home.min.js?v={{ cachebust }}"></script>
-
+		<script src="/static/js/global.min.js?v={{ cachebust }}"></script>
 		{% block scripts %}{% endblock scripts %}
 
 		<script>

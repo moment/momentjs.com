@@ -23,7 +23,8 @@ h3,
 h4,
 h5,
 h6 {
-	font-weight: 200;
+	font-family: 'Roboto Slab', serif;
+	font-weight: 700;
 }
 
 h2 {
@@ -102,4 +103,10 @@ code {
 	background: #fff;
 	border-radius: 3px;
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+pre code {
+	padding: 0;
+	background: #fff;
+	border-radius: 0;
+	box-shadow: none;
 }

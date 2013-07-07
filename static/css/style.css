@@ -1,0 +1,1355 @@
+/* normalize.css 2011-09-22T17:42 UTC - http://github.com/necolas/normalize.css */
+/* =============================================================================
+   HTML5 display definitions
+   ========================================================================== */
+/*
+ * Corrects block display not defined in IE6/7/8/9 & FF3
+ */
+/* line 11, /Users/tim.wood/github/momentjs.com/source/css/_normalize.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section {
+  display: block;
+}
+
+/*
+ * Corrects inline-block display not defined in IE6/7/8/9 & FF3
+ */
+/* line 19, /Users/tim.wood/github/momentjs.com/source/css/_normalize.scss */
+audio, canvas, video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+
+/*
+ * Prevents modern browsers from displaying 'audio' without controls
+ */
+/* line 29, /Users/tim.wood/github/momentjs.com/source/css/_normalize.scss */
+audio:not([controls]) {
+  display: none;
+}
+
+/*
+ * Addresses styling for 'hidden' attribute not present in IE7/8/9, FF3, S4
+ * Known issue: no IE6 support
+ */
+/* line 38, /Users/tim.wood/github/momentjs.com/source/css/_normalize.scss */
+[hidden] {
+  display: none;
+}
+
+/* =============================================================================
+   Base
+   ========================================================================== */
+/*
+ * 1. Corrects text resizing oddly in IE6/7 when body font-size is set using em units
+ *    http://clagnut.com/blog/348/#c790
+ * 2. Keeps page centred in all browsers regardless of content height
+ * 3. Prevents iOS text size adjust after orientation change, without disabling user zoom
+ *    www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/
+ */
+/* line 55, /Users/tim.wood/github/momentjs.com/source/css/_normalize.scss */
+html {
+  font-size: 100%;
+  /* 1 */
+  overflow-y: scroll;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  /* 3 */
+}
+
+/*
+ * Addresses margins handled incorrectly in IE6/7
+ */
+/* line 65, /Users/tim.wood/github/momentjs.com/source/css/_normalize.scss */
+body {
+  margin: 0;
+}
+
+/*
+ * Addresses font-family inconsistency between 'textarea' and other form elements.
+ */
+/* line 73, /Users/tim.wood/github/momentjs.com/source/css/_normalize.scss */
+body, button, input, select, textarea {
+  font-family: sans-serif;
+}
+
+/* =============================================================================
+   Links
+   ========================================================================== */
+/* line 82, /Users/tim.wood/github/momentjs.com/source/css/_normalize.scss */
+a {
+  color: #333333;
+}
+
+/*
+ * Addresses outline displayed oddly in Chrome
+ */
+/* line 90, /Users/tim.wood/github/momentjs.com/source/css/_normalize.scss */
+a:focus {
+  outline: thin dotted;
+}
+
+/*
+ * Improves readability when focused and also mouse hovered in all browsers
+ * people.opera.com/patrickl/experiments/keyboard/test
+ */
+/* line 99, /Users/tim.wood/github/momentjs.com/source/css/_normalize.scss */
+a:hover, a:active {
+  outline: 0;
+}
+
+/* =============================================================================
+   Typography
+   ========================================================================== */
+/*
+ * Addresses styling not present in IE7/8/9, S5, Chrome
+ */
+/* line 112, /Users/tim.wood/github/momentjs.com/source/css/_normalize.scss */
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/*
+ * Addresses style set to 'bolder' in FF3/4, S4/5, Chrome
+*/
+/* line 120, /Users/tim.wood/github/momentjs.com/source/css/_normalize.scss */
+b, strong {
+  font-weight: bold;
+}
+
+/* line 124, /Users/tim.wood/github/momentjs.com/source/css/_normalize.scss */
+blockquote {
+  margin: 1em 40px;
+}
+
+/*
+ * Addresses styling not present in S5, Chrome
+ */
+/* line 132, /Users/tim.wood/github/momentjs.com/source/css/_normalize.scss */
+dfn {
+  font-style: italic;
+}
+
+/*
+ * Addresses styling not present in IE6/7/8/9
+ */
+/* line 140, /Users/tim.wood/github/momentjs.com/source/css/_normalize.scss */
+mark {
+  background: #ff0;
+  color: #777777;
+}
+
+/*
+ * Corrects font family set oddly in IE6, S4/5, Chrome
+ * en.wikipedia.org/wiki/User:Davidgothberg/Test59
+ */
+/* line 150, /Users/tim.wood/github/momentjs.com/source/css/_normalize.scss */
+pre, code, kbd, samp {
+  font-family: monospace, serif;
+  _font-family: 'courier new', monospace;
+  font-size: 1em;
+}
+
+/*
+ * Improves readability of pre-formatted text in all browsers
+ */
+/* line 160, /Users/tim.wood/github/momentjs.com/source/css/_normalize.scss */
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/*
+ * 1. Addresses CSS quotes not supported in IE6/7
+ * 2. Addresses quote property not supported in S4
+ */
+/* 1 */
+/* line 173, /Users/tim.wood/github/momentjs.com/source/css/_normalize.scss */
+q {
+  quotes: none;
+}
+
+/* 2 */
+/* line 179, /Users/tim.wood/github/momentjs.com/source/css/_normalize.scss */
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+/* line 184, /Users/tim.wood/github/momentjs.com/source/css/_normalize.scss */
+small {
+  font-size: 75%;
+}
+
+/*
+ * Prevents sub and sup affecting line-height in all browsers
+ * gist.github.com/413930
+ */
+/* line 193, /Users/tim.wood/github/momentjs.com/source/css/_normalize.scss */
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+/* line 200, /Users/tim.wood/github/momentjs.com/source/css/_normalize.scss */
+sup {
+  top: -0.5em;
+}
+
+/* line 204, /Users/tim.wood/github/momentjs.com/source/css/_normalize.scss */
+sub {
+  bottom: -0.25em;
+}
+
+/* =============================================================================
+   Lists
+   ========================================================================== */
+/* line 213, /Users/tim.wood/github/momentjs.com/source/css/_normalize.scss */
+ul, ol {
+  margin: 1em 0;
+  padding: 0 0 0 40px;
+}
+
+/* line 218, /Users/tim.wood/github/momentjs.com/source/css/_normalize.scss */
+dd {
+  margin: 0 0 0 40px;
+}
+
+/* line 222, /Users/tim.wood/github/momentjs.com/source/css/_normalize.scss */
+nav ul, nav ol {
+  list-style: none;
+  list-style-image: none;
+}
+
+/* =============================================================================
+   Embedded content
+   ========================================================================== */
+/*
+ * 1. Removes border when inside 'a' element in IE6/7/8/9, FF3
+ * 2. Improves image quality when scaled in IE7
+ *    code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
+ */
+/* line 238, /Users/tim.wood/github/momentjs.com/source/css/_normalize.scss */
+img {
+  border: 0;
+  /* 1 */
+  -ms-interpolation-mode: bicubic;
+  /* 2 */
+}
+
+/*
+ * Corrects overflow displayed oddly in IE9
+ */
+/* line 247, /Users/tim.wood/github/momentjs.com/source/css/_normalize.scss */
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* =============================================================================
+   Figures
+   ========================================================================== */
+/*
+ * Addresses margin not present in IE6/7/8/9, S5, O11
+ */
+/* line 260, /Users/tim.wood/github/momentjs.com/source/css/_normalize.scss */
+figure {
+  margin: 0;
+}
+
+/* =============================================================================
+   Forms
+   ========================================================================== */
+/*
+ * Corrects margin displayed oddly in IE6/7
+ */
+/* line 273, /Users/tim.wood/github/momentjs.com/source/css/_normalize.scss */
+form {
+  margin: 0;
+}
+
+/*
+ * Define consistent border, margin, and padding
+ */
+/* line 281, /Users/tim.wood/github/momentjs.com/source/css/_normalize.scss */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/*
+ * 1. Corrects color not being inherited in IE6/7/8/9
+ * 2. Corrects alignment displayed oddly in IE6/7
+ */
+/* line 292, /Users/tim.wood/github/momentjs.com/source/css/_normalize.scss */
+legend {
+  border: 0;
+  /* 1 */
+  *margin-left: -7px;
+  /* 2 */
+}
+
+/*
+ * 1. Corrects font size not being inherited in all browsers
+ * 2. Addresses margins set differently in IE6/7, FF3/4, S5, Chrome
+ * 3. Improves appearance and consistency in all browsers
+ */
+/* line 303, /Users/tim.wood/github/momentjs.com/source/css/_normalize.scss */
+button, input, select, textarea {
+  font-size: 100%;
+  /* 1 */
+  margin: 0;
+  /* 2 */
+  vertical-align: baseline;
+  /* 3 */
+  *vertical-align: middle;
+  /* 3 */
+}
+
+/*
+ * Addresses FF3/4 setting line-height on 'input' using !important in the UA stylesheet
+ */
+/* line 314, /Users/tim.wood/github/momentjs.com/source/css/_normalize.scss */
+button, input {
+  line-height: normal;
+  /* 1 */
+}
+
+/*
+ * 1. Improves usability and consistency of cursor style between image-type 'input' and others
+ * 2. Corrects inability to style clickable 'input' types in iOS
+ * 3. Corrects inner spacing displayed oddly in IE7 without effecting normal text inputs
+ *    Known issue: inner spacing remains in IE6
+ */
+/* line 325, /Users/tim.wood/github/momentjs.com/source/css/_normalize.scss */
+button, input[type="button"], input[type="reset"], input[type="submit"] {
+  cursor: pointer;
+  /* 1 */
+  -webkit-appearance: button;
+  /* 2 */
+  *overflow: visible;
+  /* 3 */
+}
+
+/*
+ * 1. Addresses box sizing set to content-box in IE8/9
+ * 2. Addresses excess padding in IE8/9
+ */
+/* line 336, /Users/tim.wood/github/momentjs.com/source/css/_normalize.scss */
+input[type="checkbox"], input[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/*
+ * 1. Addresses appearance set to searchfield in S5, Chrome
+ * 2. Addresses box sizing set to border-box in S5, Chrome (include -moz to future-proof)
+ */
+/* line 346, /Users/tim.wood/github/momentjs.com/source/css/_normalize.scss */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  /* 2 */
+  box-sizing: content-box;
+}
+
+/*
+ * Corrects inner padding displayed oddly in S5, Chrome on OSX
+ */
+/* line 357, /Users/tim.wood/github/momentjs.com/source/css/_normalize.scss */
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/*
+ * Corrects inner padding and border displayed oddly in FF3/4
+ * www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/
+ */
+/* line 366, /Users/tim.wood/github/momentjs.com/source/css/_normalize.scss */
+button::-moz-focus-inner, input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/*
+ * 1. Removes default vertical scrollbar in IE6/7/8/9
+ * 2. Improves readability and alignment in all browsers
+ */
+/* line 376, /Users/tim.wood/github/momentjs.com/source/css/_normalize.scss */
+textarea {
+  overflow: auto;
+  /* 1 */
+  vertical-align: top;
+  /* 2 */
+}
+
+/* =============================================================================
+   Tables
+   ========================================================================== */
+/*
+ * Remove most spacing between table cells
+ */
+/* line 390, /Users/tim.wood/github/momentjs.com/source/css/_normalize.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 1, /Users/tim.wood/github/momentjs.com/source/css/_global.scss */
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  background: whitesmoke;
+}
+
+/* line 8, /Users/tim.wood/github/momentjs.com/source/css/_global.scss */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 12, /Users/tim.wood/github/momentjs.com/source/css/_global.scss */
+.container {
+  padding: 20px;
+}
+@media screen and (max-width: 480px) {
+  /* line 12, /Users/tim.wood/github/momentjs.com/source/css/_global.scss */
+  .container {
+    padding: 10px;
+  }
+}
+
+/* line 25, /Users/tim.wood/github/momentjs.com/source/css/_global.scss */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Roboto Slab', serif;
+  font-weight: 700;
+}
+
+/* line 30, /Users/tim.wood/github/momentjs.com/source/css/_global.scss */
+h2 {
+  font-size: 30px;
+}
+
+/* line 34, /Users/tim.wood/github/momentjs.com/source/css/_global.scss */
+h3 {
+  font-size: 24px;
+}
+
+/* line 38, /Users/tim.wood/github/momentjs.com/source/css/_global.scss */
+h4 {
+  font-size: 20px;
+}
+
+/* line 42, /Users/tim.wood/github/momentjs.com/source/css/_global.scss */
+pre, code, kbd, samp {
+  font-family: Consolas, monaco, monospace;
+}
+
+/* line 46, /Users/tim.wood/github/momentjs.com/source/css/_global.scss */
+pre {
+  border: 1px solid #e3e3e3;
+  border-radius: 3px;
+  color: #333;
+  font-size: 14px;
+  padding: 5px 8px;
+  margin: 0 0 20px;
+  white-space: pre;
+  line-height: 24px;
+  background: #222222 url(../img/header.png);
+  background: #fff;
+  font-weight: 100;
+}
+/* line 59, /Users/tim.wood/github/momentjs.com/source/css/_global.scss */
+pre a {
+  color: #666;
+}
+/* line 74, /Users/tim.wood/github/momentjs.com/source/css/_global.scss */
+pre .keyword,
+pre .type,
+pre .symbol,
+pre .cbracket,
+pre .date,
+pre .time,
+pre .file,
+pre .variable,
+pre .difflines,
+pre .selector,
+pre .literal,
+pre .property {
+  font-weight: 700;
+  color: #666;
+}
+/* line 80, /Users/tim.wood/github/momentjs.com/source/css/_global.scss */
+pre .literal,
+pre .type {
+  color: #A0B1E4;
+}
+/* line 84, /Users/tim.wood/github/momentjs.com/source/css/_global.scss */
+pre .string {
+  color: #ED7677;
+}
+/* line 88, /Users/tim.wood/github/momentjs.com/source/css/_global.scss */
+pre .number {
+  color: #4baa8f;
+}
+/* line 92, /Users/tim.wood/github/momentjs.com/source/css/_global.scss */
+pre .regexp {
+  color: #092;
+}
+/* line 96, /Users/tim.wood/github/momentjs.com/source/css/_global.scss */
+pre .comment {
+  color: #666;
+}
+
+/* line 101, /Users/tim.wood/github/momentjs.com/source/css/_global.scss */
+code {
+  padding: 1px 4px;
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* line 107, /Users/tim.wood/github/momentjs.com/source/css/_global.scss */
+pre code {
+  padding: 0;
+  background: #fff;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* line 1, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+header {
+  margin: 90px auto 0;
+  width: 80%;
+  min-height: 300px;
+  position: relative;
+}
+/* line 7, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+header .share {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+/* line 13, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+header .circle {
+  width: 260px;
+  height: 260px;
+  left: 20px;
+  top: 20px;
+  position: absolute;
+}
+/* line 21, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+header .face {
+  width: 100%;
+  height: 100%;
+  background: url(../img/header.png);
+  border: 5px solid whitesmoke;
+  border-radius: 50%;
+  position: relative;
+}
+/* line 29, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+header .face:after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  margin: -5px 0 0 -5px;
+  background: url(../img/header.png);
+  border-radius: 5px;
+  content: "";
+  display: block;
+}
+/* line 43, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+header .face .map-thumb, header .face:before {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  background: whitesmoke;
+  border-radius: 50%;
+  content: "";
+  display: block;
+}
+/* line 56, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+header #hour {
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -5px 0 -5px -25%;
+  padding: 5px 0 5px 25%;
+  background: #222;
+  -webkit-transform-origin: 100% 50%;
+  -moz-transform-origin: 100% 50%;
+  -ms-transform-origin: 100% 50%;
+  transform-origin: 100% 50%;
+  border-radius: 5px 0 0 5px;
+}
+/* line 69, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+header #minute {
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -40% -5px 0;
+  padding: 40% 5px 0;
+  background: #222;
+  -webkit-transform-origin: 50% 100%;
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  border-radius: 5px 5px 0 0;
+}
+/* line 82, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+header #second {
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -40% -1px 0 0;
+  padding: 40% 1px 0;
+  background: #222;
+  -webkit-transform-origin: 50% 100%;
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+}
+/* line 94, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+header .title {
+  padding-left: 300px;
+  height: 300px;
+  display: table;
+}
+/* line 99, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+header .title .title-inset {
+  display: table-cell;
+  vertical-align: middle;
+}
+/* line 104, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+header .title h1 {
+  line-height: 80px;
+  font-size: 60px;
+  margin: 0;
+  font-weight: 100;
+}
+/* line 110, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+header .title h1 span {
+  font-size: 30px;
+  padding: 0 10px;
+  color: #999;
+}
+/* line 117, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+header .title h2 {
+  color: #222;
+  font-weight: 300;
+  margin: 0;
+}
+
+/* line 125, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+aside {
+  width: 400px;
+  margin: 0 auto;
+  padding: 20px 0;
+  overflow: hidden;
+}
+/* line 131, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+aside a {
+  display: block;
+  width: 200px;
+  float: left;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 5px 0 0 5px;
+  border: 1px solid #000;
+  background: url(../img/header.png);
+  color: #ccc;
+  padding: 20px 0;
+}
+/* line 143, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+aside a + a {
+  border-left: 0;
+  border-radius: 0 5px 5px 0;
+  background: #fff;
+  color: #666;
+  border: 1px solid #999;
+}
+/* line 151, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+aside a:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+/* line 162, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+.is-timezone header .circle .face:before, .is-timezone header .circle .face:after {
+  display: none;
+}
+/* line 166, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+.is-timezone header .circle .face .map-thumb {
+  background: url(../img/world.png);
+  background-size: cover;
+  background-position: 25% 0;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-duration: 3s;
+  -moz-animation-duration: 3s;
+  animation-duration: 3s;
+  -webkit-animation-delay: 2s;
+  -moz-animation-delay: 2s;
+  animation-delay: 2s;
+  -webkit-animation-name: map;
+  -moz-animation-name: map;
+  animation-name: map;
+}
+
+@-moz-keyframes map {
+  /* line 181, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+  from {
+    background-position: 625% 0;
+  }
+
+  /* line 184, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+  to {
+    background-position: 25% 0;
+  }
+}
+
+@-webkit-keyframes map {
+  /* line 181, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+  from {
+    background-position: 625% 0;
+  }
+
+  /* line 184, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+  to {
+    background-position: 25% 0;
+  }
+}
+
+@keyframes map {
+  /* line 181, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+  from {
+    background-position: 625% 0;
+  }
+
+  /* line 184, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+  to {
+    background-position: 25% 0;
+  }
+}
+
+/* line 189, /Users/tim.wood/github/momentjs.com/source/css/_header.scss */
+footer {
+  background: url(../img/header.png);
+  padding: 40px;
+  color: #fff;
+  font-weight: 100;
+  font-size: 30px;
+  text-align: center;
+}
+
+/* line 6, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+.is-timezone .timezone-nav,
+.is-core .core-nav,
+.is-home .home-nav,
+.is-test .test-nav,
+.is-data .data-nav,
+.is-docs .docs-nav {
+  background: whitesmoke;
+  color: #333;
+}
+
+/* line 11, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+nav.top {
+  height: 50px;
+  background: url(../img/header.png);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 0 20px;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 300;
+  z-index: 2001;
+}
+/* line 23, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+nav.top a {
+  float: left;
+  color: #ccc;
+  margin: 5px 0 5px 5px;
+  line-height: 40px;
+  padding: 0 15px;
+  text-decoration: none;
+  font-size: 16px;
+  display: block;
+}
+/* line 33, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+nav.top a.logo {
+  margin: 0;
+  line-height: 50px;
+}
+/* line 38, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+nav.top a:hover {
+  background: whitesmoke;
+  color: #333;
+}
+/* line 44, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+nav.top iframe {
+  margin: 14px 0 0 15px;
+  float: right;
+}
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  /* line 11, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+  nav.top {
+    padding: 0 10px;
+  }
+  /* line 52, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+  nav.top a {
+    padding: 0 10px;
+  }
+  /* line 56, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+  nav.top iframe {
+    display: none;
+  }
+}
+@media screen and (max-width: 480px) {
+  /* line 11, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+  nav.top {
+    height: auto;
+    padding: 0;
+    position: static;
+    overflow: hidden;
+  }
+  /* line 67, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+  nav.top a {
+    float: none;
+    border: 0;
+    margin-bottom: 0;
+    line-height: 30px;
+    padding: 5px 10px;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  /* line 76, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+  nav.top a.logo {
+    border-bottom: 1px solid #000;
+  }
+  /* line 83, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+  nav.top a.docs, nav.top a.test, nav.top a.github, nav.top a.twitter {
+    float: left;
+    width: 23%;
+    text-align: center;
+  }
+  /* line 91, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+  nav.top a.test, nav.top a.github, nav.top a.twitter {
+    border: 0;
+    border-left: 1px solid #000;
+  }
+  /* line 96, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+  nav.top a.twitter {
+    width: 31%;
+  }
+  /* line 101, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+  nav.top iframe {
+    display: none;
+  }
+}
+
+/* line 108, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+nav.subnav {
+  height: 45px;
+  background: whitesmoke;
+  color: #333;
+  position: fixed;
+  top: 50px;
+  left: 0;
+  right: 0;
+  padding: 0 20px;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 300;
+  z-index: 2000;
+  border-bottom: 5px solid #111;
+}
+@media screen and (max-width: 480px) {
+  /* line 108, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+  nav.subnav {
+    display: none;
+  }
+}
+/* line 126, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+nav.subnav .section {
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  position: relative;
+}
+/* line 132, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+nav.subnav .section a {
+  padding: 0 5px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-width: 0 1px;
+  display: block;
+  font-size: 14px;
+}
+/* line 141, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+nav.subnav .section .dropdown {
+  position: absolute;
+  top: 41px;
+  left: 0;
+  background: #fff;
+  min-width: 100%;
+  border: 1px solid #333;
+  border-top: 0;
+  display: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* line 152, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+nav.subnav .section .dropdown a {
+  padding: 0 10px;
+  white-space: nowrap;
+  line-height: 30px;
+  color: #333;
+}
+/* line 158, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+nav.subnav .section .dropdown a:hover {
+  background: #eee;
+}
+/* line 165, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+nav.subnav .section:hover > a {
+  border-color: #333;
+  padding-bottom: 1px;
+  background: #fff;
+  color: #333;
+}
+/* line 171, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+nav.subnav .section:hover .dropdown {
+  display: block;
+}
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  /* line 108, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+  nav.subnav {
+    padding: 0 10px;
+    height: auto;
+  }
+  /* line 182, /Users/tim.wood/github/momentjs.com/source/css/_nav.scss */
+  nav.subnav .section a {
+    padding: 0 5px;
+    font-size: 14px;
+  }
+}
+
+/* line 2, /Users/tim.wood/github/momentjs.com/source/css/pages/_docs.scss */
+.docs article {
+  position: relative;
+  margin: 0 0 20px;
+}
+/* line 7, /Users/tim.wood/github/momentjs.com/source/css/pages/_docs.scss */
+.docs article h2,
+.docs article h3 {
+  color: rgba(0, 0, 0, 0.8);
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+/* line 13, /Users/tim.wood/github/momentjs.com/source/css/pages/_docs.scss */
+.docs article h2 a,
+.docs article h3 a {
+  color: rgba(0, 0, 0, 0.8);
+  text-decoration: none;
+}
+/* line 17, /Users/tim.wood/github/momentjs.com/source/css/pages/_docs.scss */
+.docs article h2 a:hover,
+.docs article h3 a:hover {
+  color: #000;
+  text-decoration: underline;
+}
+/* line 23, /Users/tim.wood/github/momentjs.com/source/css/pages/_docs.scss */
+.docs article h2 span.hash,
+.docs article h3 span.hash {
+  position: absolute;
+  top: 0;
+  right: 100%;
+  display: block;
+}
+/* line 30, /Users/tim.wood/github/momentjs.com/source/css/pages/_docs.scss */
+.docs article h2 span,
+.docs article h3 span {
+  color: rgba(0, 0, 0, 0.2);
+}
+/* line 35, /Users/tim.wood/github/momentjs.com/source/css/pages/_docs.scss */
+.docs article h2 {
+  font-size: 50px;
+}
+/* line 39, /Users/tim.wood/github/momentjs.com/source/css/pages/_docs.scss */
+.docs article h3 {
+  padding: 20px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 30px;
+  margin: 0;
+}
+/* line 45, /Users/tim.wood/github/momentjs.com/source/css/pages/_docs.scss */
+.docs article h3 span.hash {
+  top: 20px;
+}
+/* line 50, /Users/tim.wood/github/momentjs.com/source/css/pages/_docs.scss */
+.docs article p {
+  margin: 0 0 10px;
+}
+/* line 54, /Users/tim.wood/github/momentjs.com/source/css/pages/_docs.scss */
+.docs article.method {
+  border-radius: 3px;
+  position: relative;
+}
+/* line 60, /Users/tim.wood/github/momentjs.com/source/css/pages/_docs.scss */
+.docs article .prose pre {
+  padding: 5px 10px;
+}
+/* line 65, /Users/tim.wood/github/momentjs.com/source/css/pages/_docs.scss */
+.docs article table {
+  width: 100%;
+  margin-bottom: 20px;
+}
+/* line 71, /Users/tim.wood/github/momentjs.com/source/css/pages/_docs.scss */
+.docs article td,
+.docs article th {
+  padding: 7px 10px;
+  border-top: 1px solid #ddd;
+  background: #fff;
+  text-align: left;
+}
+/* line 79, /Users/tim.wood/github/momentjs.com/source/css/pages/_docs.scss */
+.docs article tr:nth-child(odd) td,
+.docs article tr:nth-child(odd) th {
+  background: #f8f8f8;
+}
+/* line 83, /Users/tim.wood/github/momentjs.com/source/css/pages/_docs.scss */
+.docs article .target {
+  position: relative;
+  display: block;
+  top: -110px;
+}
+@media screen and (min-width: 1201px) {
+  /* line 2, /Users/tim.wood/github/momentjs.com/source/css/pages/_docs.scss */
+  .docs article {
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+}
+
+/* line 1, /Users/tim.wood/github/momentjs.com/source/css/pages/_test.scss */
+#nodeunit-tests {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* line 6, /Users/tim.wood/github/momentjs.com/source/css/pages/_test.scss */
+#nodeunit-tests li {
+  margin: 0 0 5px;
+  background: #fff;
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  list-style: none;
+  cursor: pointer;
+}
+/* line 16, /Users/tim.wood/github/momentjs.com/source/css/pages/_test.scss */
+#nodeunit-tests ul {
+  margin: 0;
+  padding: 5px 0 0;
+}
+/* line 22, /Users/tim.wood/github/momentjs.com/source/css/pages/_test.scss */
+#nodeunit-tests .test ul {
+  display: none;
+}
+/* line 26, /Users/tim.wood/github/momentjs.com/source/css/pages/_test.scss */
+#nodeunit-tests .test pre {
+  margin: 5px 0;
+}
+/* line 30, /Users/tim.wood/github/momentjs.com/source/css/pages/_test.scss */
+#nodeunit-tests .test.fail {
+  background: #d11;
+}
+/* line 33, /Users/tim.wood/github/momentjs.com/source/css/pages/_test.scss */
+#nodeunit-tests .test.fail .title {
+  color: #fff;
+}
+/* line 38, /Users/tim.wood/github/momentjs.com/source/css/pages/_test.scss */
+#nodeunit-tests .test .fail {
+  color: #d11;
+}
+/* line 43, /Users/tim.wood/github/momentjs.com/source/css/pages/_test.scss */
+#nodeunit-tests .test.open ul {
+  display: block;
+}
+
+/* line 51, /Users/tim.wood/github/momentjs.com/source/css/pages/_test.scss */
+#nodeunit-banner.fail {
+  color: #d11;
+}
+/* line 55, /Users/tim.wood/github/momentjs.com/source/css/pages/_test.scss */
+#nodeunit-banner h3 {
+  font-size: 40px;
+  font-weight: 100;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 1, /Users/tim.wood/github/momentjs.com/source/css/pages/_core-home.scss */
+.langs {
+  margin-bottom: 20px;
+}
+/* line 4, /Users/tim.wood/github/momentjs.com/source/css/pages/_core-home.scss */
+.langs h2 {
+  padding: 0 0 20px;
+  margin: 0;
+}
+/* line 9, /Users/tim.wood/github/momentjs.com/source/css/pages/_core-home.scss */
+.langs .button {
+  display: inline-block;
+  padding: 5px 10px;
+  margin: 4px 2px;
+  background: #fff;
+  border-radius: 3px;
+  border: 1px solid #999;
+  cursor: pointer;
+}
+/* line 18, /Users/tim.wood/github/momentjs.com/source/css/pages/_core-home.scss */
+.langs .button:hover {
+  box-shadow: 1px 0 5px rgba(0, 0, 0, 0.2);
+}
+/* line 22, /Users/tim.wood/github/momentjs.com/source/css/pages/_core-home.scss */
+.langs .button.active {
+  background: #333;
+  color: #ccc;
+  border-color: #000;
+}
+
+/* line 31, /Users/tim.wood/github/momentjs.com/source/css/pages/_core-home.scss */
+.examples article {
+  overflow: hidden;
+}
+/* line 34, /Users/tim.wood/github/momentjs.com/source/css/pages/_core-home.scss */
+.examples article .input {
+  float: left;
+  width: 370px;
+}
+/* line 38, /Users/tim.wood/github/momentjs.com/source/css/pages/_core-home.scss */
+.examples article .input pre {
+  border-radius: 5px 0 0 5px;
+}
+/* line 43, /Users/tim.wood/github/momentjs.com/source/css/pages/_core-home.scss */
+.examples article .output {
+  margin-left: 370px;
+}
+/* line 46, /Users/tim.wood/github/momentjs.com/source/css/pages/_core-home.scss */
+.examples article .output pre {
+  border-radius: 0 5px 5px 0;
+  color: #ccc;
+  position: relative;
+  border-left: 0;
+  background: url(../img/header.png);
+}
+/* line 55, /Users/tim.wood/github/momentjs.com/source/css/pages/_core-home.scss */
+.examples article h2 {
+  padding: 0 0 20px;
+  margin: 0;
+}
+@media screen and (min-width: 769px) and (max-width: 1200px) {
+  /* line 61, /Users/tim.wood/github/momentjs.com/source/css/pages/_core-home.scss */
+  .examples article pre {
+    font-size: 13px;
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  /* line 31, /Users/tim.wood/github/momentjs.com/source/css/pages/_core-home.scss */
+  .examples article {
+    margin-right: 0;
+  }
+  /* line 69, /Users/tim.wood/github/momentjs.com/source/css/pages/_core-home.scss */
+  .examples article pre {
+    font-size: 12px;
+  }
+  /* line 73, /Users/tim.wood/github/momentjs.com/source/css/pages/_core-home.scss */
+  .examples article .input {
+    width: 320px;
+  }
+  /* line 77, /Users/tim.wood/github/momentjs.com/source/css/pages/_core-home.scss */
+  .examples article .output {
+    margin-left: 320px;
+  }
+}
+@media screen and (max-width: 480px) {
+  /* line 31, /Users/tim.wood/github/momentjs.com/source/css/pages/_core-home.scss */
+  .examples article {
+    margin-right: 0;
+  }
+  /* line 85, /Users/tim.wood/github/momentjs.com/source/css/pages/_core-home.scss */
+  .examples article .input {
+    float: none;
+    width: 100%;
+  }
+  /* line 89, /Users/tim.wood/github/momentjs.com/source/css/pages/_core-home.scss */
+  .examples article .input pre {
+    border-radius: 5px;
+    margin: 0 0 10px;
+  }
+  /* line 95, /Users/tim.wood/github/momentjs.com/source/css/pages/_core-home.scss */
+  .examples article .output {
+    margin-left: 0;
+  }
+  /* line 98, /Users/tim.wood/github/momentjs.com/source/css/pages/_core-home.scss */
+  .examples article .output pre {
+    border-left-width: 1px;
+    border-radius: 5px;
+  }
+}
+
+/* line 1, /Users/tim.wood/github/momentjs.com/source/css/pages/_timezone-home.scss */
+.map {
+  background: url(../img/header.png);
+  padding: 5px;
+  border-radius: 3px;
+  position: relative;
+}
+
+/* line 8, /Users/tim.wood/github/momentjs.com/source/css/pages/_timezone-home.scss */
+.map-label {
+  line-height: 60px;
+  font-size: 32px;
+  margin: 0;
+}
+/* line 13, /Users/tim.wood/github/momentjs.com/source/css/pages/_timezone-home.scss */
+.map-label span {
+  display: block;
+}
+/* line 17, /Users/tim.wood/github/momentjs.com/source/css/pages/_timezone-home.scss */
+.map-label .map-label-name {
+  float: left;
+  width: 50%;
+  padding-right: 10px;
+  text-align: right;
+}
+/* line 24, /Users/tim.wood/github/momentjs.com/source/css/pages/_timezone-home.scss */
+.map-label .map-label-time {
+  margin-left: 50%;
+  padding-left: 10px;
+  text-align: left;
+}
+
+/* line 31, /Users/tim.wood/github/momentjs.com/source/css/pages/_timezone-home.scss */
+.map-inset {
+  padding-bottom: 50%;
+  background: url(../img/world.png) 50% 50%;
+  background-size: cover;
+  position: relative;
+}
+/* line 37, /Users/tim.wood/github/momentjs.com/source/css/pages/_timezone-home.scss */
+.map-inset span {
+  width: 6px;
+  height: 6px;
+  margin: -3px 0 0 -3px;
+  background: #fff;
+  position: absolute;
+  border-radius: 3px;
+  border: 1px solid #111;
+}
+/* line 46, /Users/tim.wood/github/momentjs.com/source/css/pages/_timezone-home.scss */
+.map-inset span.active {
+  background: #f00;
+}
+/* line 51, /Users/tim.wood/github/momentjs.com/source/css/pages/_timezone-home.scss */
+.map-inset .map-axis-x {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: url(../img/header.png);
+  border-left: 1px solid #111;
+  width: 0;
+}
+/* line 60, /Users/tim.wood/github/momentjs.com/source/css/pages/_timezone-home.scss */
+.map-inset .map-axis-y {
+  position: absolute;
+  left: 0;
+  right: 0;
+  background: url(../img/header.png);
+  border-top: 1px solid #111;
+  height: 0;
+}
+
+/* line 3, /Users/tim.wood/github/momentjs.com/source/css/pages/_timezone-data.scss */
+.zones .button,
+.zones-output .button {
+  display: inline-block;
+  padding: 2px 5px;
+  margin: 2px 1px;
+  background: #fff;
+  border-radius: 3px;
+  border: 1px solid #999;
+  cursor: pointer;
+}
+/* line 12, /Users/tim.wood/github/momentjs.com/source/css/pages/_timezone-data.scss */
+.zones .button:hover,
+.zones-output .button:hover {
+  box-shadow: 1px 0 5px rgba(0, 0, 0, 0.2);
+}
+/* line 16, /Users/tim.wood/github/momentjs.com/source/css/pages/_timezone-data.scss */
+.zones .button.active,
+.zones-output .button.active {
+  background: #333;
+  color: #ccc;
+  border-color: #000;
+}
+
+/* line 24, /Users/tim.wood/github/momentjs.com/source/css/pages/_timezone-data.scss */
+.zones-output {
+  width: 50%;
+  float: right;
+  padding-left: 20px;
+}
+/* line 29, /Users/tim.wood/github/momentjs.com/source/css/pages/_timezone-data.scss */
+.zones-output h3 {
+  margin-top: 0;
+}
+/* line 33, /Users/tim.wood/github/momentjs.com/source/css/pages/_timezone-data.scss */
+.zones-output textarea {
+  width: 100%;
+  margin-top: 20px;
+  display: block;
+  border-radius: 3px;
+  border: 1px solid #000;
+  background: url(../img/header.png);
+  color: #ccc;
+  padding: 5px 10px;
+  min-height: 1200px;
+  font-family: Consolas, monaco, monospace;
+  font-size: 12px;
+  white-space: pre;
+}
+/* line 47, /Users/tim.wood/github/momentjs.com/source/css/pages/_timezone-data.scss */
+.zones-output textarea:focus {
+  outline: 0;
+}

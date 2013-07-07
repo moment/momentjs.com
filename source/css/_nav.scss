@@ -1,32 +1,39 @@
+.is-timezone .timezone-nav,
+.is-core .core-nav,
 .is-home .home-nav,
-.is-test .test-nav {
+.is-test .test-nav,
+.is-data .data-nav,
+.is-docs .docs-nav {
 	background: $background-color;
 	color: #333;
 }
 
-.is-docs .docs-nav {
-	background: #333;
-}
-
 nav.top {
 	height: 50px;
-	background: #111;
+	background: url(../img/header.png);
 	position: fixed;
 	top: 0;
 	left: 0;
 	right: 0;
 	padding: 0 20px;
-	font-weight: 200;
+	font-family: 'Roboto Slab', serif;
+	font-weight: 300;
 	z-index: 2001;
 
 	a {
 		float: left;
 		color: #ccc;
-		line-height: 50px;
+		margin: 5px 0 5px 5px;
+		line-height: 40px;
 		padding: 0 15px;
 		text-decoration: none;
 		font-size: 16px;
 		display: block;
+
+		&.logo {
+			margin: 0;
+			line-height: 50px;
+		}
 
 		&:hover {
 			background: $background-color;
@@ -36,6 +43,7 @@ nav.top {
 
 	iframe {
 		margin: 14px 0 0 15px;
+		float: right;
 	}
 
 	@include size(tablet) {
@@ -98,15 +106,18 @@ nav.top {
 }
 
 nav.subnav {
-	height: 40px;
-	background: #333;
+	height: 45px;
+	background: $background-color;
+	color: #333;
 	position: fixed;
 	top: 50px;
 	left: 0;
 	right: 0;
 	padding: 0 20px;
-	font-weight: 200;
+	font-family: 'Roboto Slab', serif;
+	font-weight: 300;
 	z-index: 2000;
+	border-bottom: 5px solid #111;
 
 	@include size(mobile) {
 		display: none;
@@ -125,12 +136,11 @@ nav.subnav {
 			border-width: 0 1px;
 			display: block;
 			font-size: 14px;
-			color: #ccc;
 		}
 
 		.dropdown {
 			position: absolute;
-			top: 40px;
+			top: 41px;
 			left: 0;
 			background: #fff;
 			min-width: 100%;
@@ -154,6 +164,7 @@ nav.subnav {
 		&:hover {
 			> a {
 				border-color: #333;
+				padding-bottom: 1px;
 				background: #fff;
 				color: #333;
 			}

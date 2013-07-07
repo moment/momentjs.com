@@ -1,6 +1,8 @@
 ```
-&lt;script src="moment.js">&lt;/script>
-&lt;script>
+<script src="moment.js"></script>
+<script>
 	moment().format();
-&lt;/script>
+</script>
 ```
+
+Moment.js is available on [cdnjs.com](http://cdnjs.com). Remember though, cool kids concatenate their scripts to minimize http requests.

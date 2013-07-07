@@ -1,0 +1,957 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:300,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="/static/css/style.css?v=2013-07-07T12:43:03-07:00" />
+		<title>Moment.js | Timezone support for Moment.js</title>
+	</head>
+	<body class="is-timezone is-data">
+		<nav class="top">
+			<a class="logo core-nav" href="/">Moment.js</a>
+			<!--
+			<a class="logo timezone-nav" href="/timezone/">Moment Timezone</a>
+			-->
+			
+	<a class="home-nav" href="/timezone/">Home</a>
+	<a class="data-nav" href="/timezone/data/">Data</a>
+	<a class="test-nav" href="/timezone/test/">Tests</a>
+
+		</nav>
+		
+<header>
+	<div class="circle">
+		<div class="face">
+			<div class="map-thumb">
+				<div class="map-thumb-inset"></div>
+			</div>
+		</div>
+	</div>
+	<div class="title">
+		<div class="title-inset">
+			<h1>Moment Timezone<span></span></h1>
+			
+		</div>
+	</div>
+</header>
+<aside>
+	<div class="download">
+		<a class="button gzipped" href="https://rawgithub.com/timrwood/moment-timezone//min/moment-timezone.min.js">
+			<strong>Minified Source</strong>
+			<span class="filesize"></span>
+		</a>
+		<a class="button source" href="https://rawgithub.com/timrwood/moment-timezone//moment-timezone.js">
+			<strong>Full Source</strong>
+			<span class="filesize"> </span>
+		</a>
+	</div>
+</aside>
+
+		<div class="container">
+			
+	<h2>Timezone Data Builder</h2>
+	<div class="zones-output">
+		<h3>Output</h3>
+		<div class="button active" data-env="browser">Browser</div>
+		<div class="button" data-env="json">JSON</div>
+		<div class="button" data-env="amd">AMD</div>
+		<textarea id="output" wrap="off"></textarea>
+	</div>
+	<div class="zones">
+		
+			<h3>Africa</h3>
+			<div class="button" data-toggle-group="Africa">All</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/Abidjan">Abidjan</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/Accra">Accra</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/Addis_Ababa">Addis_Ababa</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/Algiers">Algiers</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/Asmara">Asmara</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/Bamako">Bamako</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/Bangui">Bangui</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/Banjul">Banjul</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/Bissau">Bissau</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/Blantyre">Blantyre</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/Brazzaville">Brazzaville</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/Bujumbura">Bujumbura</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/Cairo">Cairo</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/Casablanca">Casablanca</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/Ceuta">Ceuta</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/Conakry">Conakry</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/Dakar">Dakar</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/Dar_es_Salaam">Dar_es_Salaam</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/Djibouti">Djibouti</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/Douala">Douala</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/El_Aaiun">El_Aaiun</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/Freetown">Freetown</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/Gaborone">Gaborone</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/Harare">Harare</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/Johannesburg">Johannesburg</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/Juba">Juba</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/Kampala">Kampala</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/Khartoum">Khartoum</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/Kigali">Kigali</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/Kinshasa">Kinshasa</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/Lagos">Lagos</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/Libreville">Libreville</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/Lome">Lome</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/Luanda">Luanda</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/Lubumbashi">Lubumbashi</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/Lusaka">Lusaka</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/Malabo">Malabo</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/Maputo">Maputo</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/Maseru">Maseru</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/Mbabane">Mbabane</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/Mogadishu">Mogadishu</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/Monrovia">Monrovia</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/Nairobi">Nairobi</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/Ndjamena">Ndjamena</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/Niamey">Niamey</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/Nouakchott">Nouakchott</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/Ouagadougou">Ouagadougou</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/Porto-Novo">Porto-Novo</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/Sao_Tome">Sao_Tome</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/Tripoli">Tripoli</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/Tunis">Tunis</div>
+			
+				<div class="button" data-group="Africa" data-zone="Africa/Windhoek">Windhoek</div>
+			
+		
+			<h3>America</h3>
+			<div class="button" data-toggle-group="America">All</div>
+			
+				<div class="button" data-group="America" data-zone="America/Adak">Adak</div>
+			
+				<div class="button" data-group="America" data-zone="America/Anchorage">Anchorage</div>
+			
+				<div class="button" data-group="America" data-zone="America/Anguilla">Anguilla</div>
+			
+				<div class="button" data-group="America" data-zone="America/Antigua">Antigua</div>
+			
+				<div class="button" data-group="America" data-zone="America/Araguaina">Araguaina</div>
+			
+				<div class="button" data-group="America" data-zone="America/Argentina/Buenos_Aires">Argentina/Buenos_Aires</div>
+			
+				<div class="button" data-group="America" data-zone="America/Argentina/Catamarca">Argentina/Catamarca</div>
+			
+				<div class="button" data-group="America" data-zone="America/Argentina/Cordoba">Argentina/Cordoba</div>
+			
+				<div class="button" data-group="America" data-zone="America/Argentina/Jujuy">Argentina/Jujuy</div>
+			
+				<div class="button" data-group="America" data-zone="America/Argentina/La_Rioja">Argentina/La_Rioja</div>
+			
+				<div class="button" data-group="America" data-zone="America/Argentina/Mendoza">Argentina/Mendoza</div>
+			
+				<div class="button" data-group="America" data-zone="America/Argentina/Rio_Gallegos">Argentina/Rio_Gallegos</div>
+			
+				<div class="button" data-group="America" data-zone="America/Argentina/Salta">Argentina/Salta</div>
+			
+				<div class="button" data-group="America" data-zone="America/Argentina/San_Juan">Argentina/San_Juan</div>
+			
+				<div class="button" data-group="America" data-zone="America/Argentina/San_Luis">Argentina/San_Luis</div>
+			
+				<div class="button" data-group="America" data-zone="America/Argentina/Tucuman">Argentina/Tucuman</div>
+			
+				<div class="button" data-group="America" data-zone="America/Argentina/Ushuaia">Argentina/Ushuaia</div>
+			
+				<div class="button" data-group="America" data-zone="America/Aruba">Aruba</div>
+			
+				<div class="button" data-group="America" data-zone="America/Asuncion">Asuncion</div>
+			
+				<div class="button" data-group="America" data-zone="America/Atikokan">Atikokan</div>
+			
+				<div class="button" data-group="America" data-zone="America/Bahia">Bahia</div>
+			
+				<div class="button" data-group="America" data-zone="America/Bahia_Banderas">Bahia_Banderas</div>
+			
+				<div class="button" data-group="America" data-zone="America/Barbados">Barbados</div>
+			
+				<div class="button" data-group="America" data-zone="America/Belem">Belem</div>
+			
+				<div class="button" data-group="America" data-zone="America/Belize">Belize</div>
+			
+				<div class="button" data-group="America" data-zone="America/Blanc-Sablon">Blanc-Sablon</div>
+			
+				<div class="button" data-group="America" data-zone="America/Boa_Vista">Boa_Vista</div>
+			
+				<div class="button" data-group="America" data-zone="America/Bogota">Bogota</div>
+			
+				<div class="button" data-group="America" data-zone="America/Boise">Boise</div>
+			
+				<div class="button" data-group="America" data-zone="America/Cambridge_Bay">Cambridge_Bay</div>
+			
+				<div class="button" data-group="America" data-zone="America/Campo_Grande">Campo_Grande</div>
+			
+				<div class="button" data-group="America" data-zone="America/Cancun">Cancun</div>
+			
+				<div class="button" data-group="America" data-zone="America/Caracas">Caracas</div>
+			
+				<div class="button" data-group="America" data-zone="America/Cayenne">Cayenne</div>
+			
+				<div class="button" data-group="America" data-zone="America/Cayman">Cayman</div>
+			
+				<div class="button" data-group="America" data-zone="America/Chicago">Chicago</div>
+			
+				<div class="button" data-group="America" data-zone="America/Chihuahua">Chihuahua</div>
+			
+				<div class="button" data-group="America" data-zone="America/Costa_Rica">Costa_Rica</div>
+			
+				<div class="button" data-group="America" data-zone="America/Creston">Creston</div>
+			
+				<div class="button" data-group="America" data-zone="America/Cuiaba">Cuiaba</div>
+			
+				<div class="button" data-group="America" data-zone="America/Curacao">Curacao</div>
+			
+				<div class="button" data-group="America" data-zone="America/Danmarkshavn">Danmarkshavn</div>
+			
+				<div class="button" data-group="America" data-zone="America/Dawson">Dawson</div>
+			
+				<div class="button" data-group="America" data-zone="America/Dawson_Creek">Dawson_Creek</div>
+			
+				<div class="button" data-group="America" data-zone="America/Denver">Denver</div>
+			
+				<div class="button" data-group="America" data-zone="America/Detroit">Detroit</div>
+			
+				<div class="button" data-group="America" data-zone="America/Dominica">Dominica</div>
+			
+				<div class="button" data-group="America" data-zone="America/Edmonton">Edmonton</div>
+			
+				<div class="button" data-group="America" data-zone="America/Eirunepe">Eirunepe</div>
+			
+				<div class="button" data-group="America" data-zone="America/El_Salvador">El_Salvador</div>
+			
+				<div class="button" data-group="America" data-zone="America/Fortaleza">Fortaleza</div>
+			
+				<div class="button" data-group="America" data-zone="America/Glace_Bay">Glace_Bay</div>
+			
+				<div class="button" data-group="America" data-zone="America/Godthab">Godthab</div>
+			
+				<div class="button" data-group="America" data-zone="America/Goose_Bay">Goose_Bay</div>
+			
+				<div class="button" data-group="America" data-zone="America/Grand_Turk">Grand_Turk</div>
+			
+				<div class="button" data-group="America" data-zone="America/Grenada">Grenada</div>
+			
+				<div class="button" data-group="America" data-zone="America/Guadeloupe">Guadeloupe</div>
+			
+				<div class="button" data-group="America" data-zone="America/Guatemala">Guatemala</div>
+			
+				<div class="button" data-group="America" data-zone="America/Guayaquil">Guayaquil</div>
+			
+				<div class="button" data-group="America" data-zone="America/Guyana">Guyana</div>
+			
+				<div class="button" data-group="America" data-zone="America/Halifax">Halifax</div>
+			
+				<div class="button" data-group="America" data-zone="America/Havana">Havana</div>
+			
+				<div class="button" data-group="America" data-zone="America/Hermosillo">Hermosillo</div>
+			
+				<div class="button" data-group="America" data-zone="America/Indiana/Indianapolis">Indiana/Indianapolis</div>
+			
+				<div class="button" data-group="America" data-zone="America/Indiana/Knox">Indiana/Knox</div>
+			
+				<div class="button" data-group="America" data-zone="America/Indiana/Marengo">Indiana/Marengo</div>
+			
+				<div class="button" data-group="America" data-zone="America/Indiana/Petersburg">Indiana/Petersburg</div>
+			
+				<div class="button" data-group="America" data-zone="America/Indiana/Tell_City">Indiana/Tell_City</div>
+			
+				<div class="button" data-group="America" data-zone="America/Indiana/Vevay">Indiana/Vevay</div>
+			
+				<div class="button" data-group="America" data-zone="America/Indiana/Vincennes">Indiana/Vincennes</div>
+			
+				<div class="button" data-group="America" data-zone="America/Indiana/Winamac">Indiana/Winamac</div>
+			
+				<div class="button" data-group="America" data-zone="America/Inuvik">Inuvik</div>
+			
+				<div class="button" data-group="America" data-zone="America/Iqaluit">Iqaluit</div>
+			
+				<div class="button" data-group="America" data-zone="America/Jamaica">Jamaica</div>
+			
+				<div class="button" data-group="America" data-zone="America/Juneau">Juneau</div>
+			
+				<div class="button" data-group="America" data-zone="America/Kentucky/Louisville">Kentucky/Louisville</div>
+			
+				<div class="button" data-group="America" data-zone="America/Kentucky/Monticello">Kentucky/Monticello</div>
+			
+				<div class="button" data-group="America" data-zone="America/La_Paz">La_Paz</div>
+			
+				<div class="button" data-group="America" data-zone="America/Lima">Lima</div>
+			
+				<div class="button" data-group="America" data-zone="America/Los_Angeles">Los_Angeles</div>
+			
+				<div class="button" data-group="America" data-zone="America/Maceio">Maceio</div>
+			
+				<div class="button" data-group="America" data-zone="America/Managua">Managua</div>
+			
+				<div class="button" data-group="America" data-zone="America/Manaus">Manaus</div>
+			
+				<div class="button" data-group="America" data-zone="America/Martinique">Martinique</div>
+			
+				<div class="button" data-group="America" data-zone="America/Matamoros">Matamoros</div>
+			
+				<div class="button" data-group="America" data-zone="America/Mazatlan">Mazatlan</div>
+			
+				<div class="button" data-group="America" data-zone="America/Menominee">Menominee</div>
+			
+				<div class="button" data-group="America" data-zone="America/Merida">Merida</div>
+			
+				<div class="button" data-group="America" data-zone="America/Metlakatla">Metlakatla</div>
+			
+				<div class="button" data-group="America" data-zone="America/Mexico_City">Mexico_City</div>
+			
+				<div class="button" data-group="America" data-zone="America/Miquelon">Miquelon</div>
+			
+				<div class="button" data-group="America" data-zone="America/Moncton">Moncton</div>
+			
+				<div class="button" data-group="America" data-zone="America/Monterrey">Monterrey</div>
+			
+				<div class="button" data-group="America" data-zone="America/Montevideo">Montevideo</div>
+			
+				<div class="button" data-group="America" data-zone="America/Montreal">Montreal</div>
+			
+				<div class="button" data-group="America" data-zone="America/Montserrat">Montserrat</div>
+			
+				<div class="button" data-group="America" data-zone="America/Nassau">Nassau</div>
+			
+				<div class="button" data-group="America" data-zone="America/New_York">New_York</div>
+			
+				<div class="button" data-group="America" data-zone="America/Nipigon">Nipigon</div>
+			
+				<div class="button" data-group="America" data-zone="America/Nome">Nome</div>
+			
+				<div class="button" data-group="America" data-zone="America/Noronha">Noronha</div>
+			
+				<div class="button" data-group="America" data-zone="America/North_Dakota/Beulah">North_Dakota/Beulah</div>
+			
+				<div class="button" data-group="America" data-zone="America/North_Dakota/Center">North_Dakota/Center</div>
+			
+				<div class="button" data-group="America" data-zone="America/North_Dakota/New_Salem">North_Dakota/New_Salem</div>
+			
+				<div class="button" data-group="America" data-zone="America/Ojinaga">Ojinaga</div>
+			
+				<div class="button" data-group="America" data-zone="America/Panama">Panama</div>
+			
+				<div class="button" data-group="America" data-zone="America/Pangnirtung">Pangnirtung</div>
+			
+				<div class="button" data-group="America" data-zone="America/Paramaribo">Paramaribo</div>
+			
+				<div class="button" data-group="America" data-zone="America/Phoenix">Phoenix</div>
+			
+				<div class="button" data-group="America" data-zone="America/Port-au-Prince">Port-au-Prince</div>
+			
+				<div class="button" data-group="America" data-zone="America/Port_of_Spain">Port_of_Spain</div>
+			
+				<div class="button" data-group="America" data-zone="America/Porto_Velho">Porto_Velho</div>
+			
+				<div class="button" data-group="America" data-zone="America/Puerto_Rico">Puerto_Rico</div>
+			
+				<div class="button" data-group="America" data-zone="America/Rainy_River">Rainy_River</div>
+			
+				<div class="button" data-group="America" data-zone="America/Rankin_Inlet">Rankin_Inlet</div>
+			
+				<div class="button" data-group="America" data-zone="America/Recife">Recife</div>
+			
+				<div class="button" data-group="America" data-zone="America/Regina">Regina</div>
+			
+				<div class="button" data-group="America" data-zone="America/Resolute">Resolute</div>
+			
+				<div class="button" data-group="America" data-zone="America/Rio_Branco">Rio_Branco</div>
+			
+				<div class="button" data-group="America" data-zone="America/Santa_Isabel">Santa_Isabel</div>
+			
+				<div class="button" data-group="America" data-zone="America/Santarem">Santarem</div>
+			
+				<div class="button" data-group="America" data-zone="America/Santiago">Santiago</div>
+			
+				<div class="button" data-group="America" data-zone="America/Santo_Domingo">Santo_Domingo</div>
+			
+				<div class="button" data-group="America" data-zone="America/Sao_Paulo">Sao_Paulo</div>
+			
+				<div class="button" data-group="America" data-zone="America/Scoresbysund">Scoresbysund</div>
+			
+				<div class="button" data-group="America" data-zone="America/Sitka">Sitka</div>
+			
+				<div class="button" data-group="America" data-zone="America/St_Johns">St_Johns</div>
+			
+				<div class="button" data-group="America" data-zone="America/St_Kitts">St_Kitts</div>
+			
+				<div class="button" data-group="America" data-zone="America/St_Lucia">St_Lucia</div>
+			
+				<div class="button" data-group="America" data-zone="America/St_Thomas">St_Thomas</div>
+			
+				<div class="button" data-group="America" data-zone="America/St_Vincent">St_Vincent</div>
+			
+				<div class="button" data-group="America" data-zone="America/Swift_Current">Swift_Current</div>
+			
+				<div class="button" data-group="America" data-zone="America/Tegucigalpa">Tegucigalpa</div>
+			
+				<div class="button" data-group="America" data-zone="America/Thule">Thule</div>
+			
+				<div class="button" data-group="America" data-zone="America/Thunder_Bay">Thunder_Bay</div>
+			
+				<div class="button" data-group="America" data-zone="America/Tijuana">Tijuana</div>
+			
+				<div class="button" data-group="America" data-zone="America/Toronto">Toronto</div>
+			
+				<div class="button" data-group="America" data-zone="America/Tortola">Tortola</div>
+			
+				<div class="button" data-group="America" data-zone="America/Vancouver">Vancouver</div>
+			
+				<div class="button" data-group="America" data-zone="America/Whitehorse">Whitehorse</div>
+			
+				<div class="button" data-group="America" data-zone="America/Winnipeg">Winnipeg</div>
+			
+				<div class="button" data-group="America" data-zone="America/Yakutat">Yakutat</div>
+			
+				<div class="button" data-group="America" data-zone="America/Yellowknife">Yellowknife</div>
+			
+		
+			<h3>Antarctica</h3>
+			<div class="button" data-toggle-group="Antarctica">All</div>
+			
+				<div class="button" data-group="Antarctica" data-zone="Antarctica/Casey">Casey</div>
+			
+				<div class="button" data-group="Antarctica" data-zone="Antarctica/Davis">Davis</div>
+			
+				<div class="button" data-group="Antarctica" data-zone="Antarctica/DumontDUrville">DumontDUrville</div>
+			
+				<div class="button" data-group="Antarctica" data-zone="Antarctica/Macquarie">Macquarie</div>
+			
+				<div class="button" data-group="Antarctica" data-zone="Antarctica/Mawson">Mawson</div>
+			
+				<div class="button" data-group="Antarctica" data-zone="Antarctica/McMurdo">McMurdo</div>
+			
+				<div class="button" data-group="Antarctica" data-zone="Antarctica/Palmer">Palmer</div>
+			
+				<div class="button" data-group="Antarctica" data-zone="Antarctica/Rothera">Rothera</div>
+			
+				<div class="button" data-group="Antarctica" data-zone="Antarctica/Syowa">Syowa</div>
+			
+				<div class="button" data-group="Antarctica" data-zone="Antarctica/Vostok">Vostok</div>
+			
+		
+			<h3>Asia</h3>
+			<div class="button" data-toggle-group="Asia">All</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Aden">Aden</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Almaty">Almaty</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Amman">Amman</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Anadyr">Anadyr</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Aqtau">Aqtau</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Aqtobe">Aqtobe</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Ashgabat">Ashgabat</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Baghdad">Baghdad</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Bahrain">Bahrain</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Baku">Baku</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Bangkok">Bangkok</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Beirut">Beirut</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Bishkek">Bishkek</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Brunei">Brunei</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Choibalsan">Choibalsan</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Chongqing">Chongqing</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Colombo">Colombo</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Damascus">Damascus</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Dhaka">Dhaka</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Dili">Dili</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Dubai">Dubai</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Dushanbe">Dushanbe</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Gaza">Gaza</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Harbin">Harbin</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Hebron">Hebron</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Ho_Chi_Minh">Ho_Chi_Minh</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Hong_Kong">Hong_Kong</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Hovd">Hovd</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Irkutsk">Irkutsk</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Jakarta">Jakarta</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Jayapura">Jayapura</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Jerusalem">Jerusalem</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Kabul">Kabul</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Kamchatka">Kamchatka</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Karachi">Karachi</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Kashgar">Kashgar</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Kathmandu">Kathmandu</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Khandyga">Khandyga</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Kolkata">Kolkata</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Krasnoyarsk">Krasnoyarsk</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Kuala_Lumpur">Kuala_Lumpur</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Kuching">Kuching</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Kuwait">Kuwait</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Macau">Macau</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Magadan">Magadan</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Makassar">Makassar</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Manila">Manila</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Muscat">Muscat</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Nicosia">Nicosia</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Novokuznetsk">Novokuznetsk</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Novosibirsk">Novosibirsk</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Omsk">Omsk</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Oral">Oral</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Phnom_Penh">Phnom_Penh</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Pontianak">Pontianak</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Pyongyang">Pyongyang</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Qatar">Qatar</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Qyzylorda">Qyzylorda</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Rangoon">Rangoon</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Riyadh">Riyadh</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Sakhalin">Sakhalin</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Samarkand">Samarkand</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Seoul">Seoul</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Shanghai">Shanghai</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Singapore">Singapore</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Taipei">Taipei</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Tashkent">Tashkent</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Tbilisi">Tbilisi</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Tehran">Tehran</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Thimphu">Thimphu</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Tokyo">Tokyo</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Ulaanbaatar">Ulaanbaatar</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Urumqi">Urumqi</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Ust-Nera">Ust-Nera</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Vientiane">Vientiane</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Vladivostok">Vladivostok</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Yakutsk">Yakutsk</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Yekaterinburg">Yekaterinburg</div>
+			
+				<div class="button" data-group="Asia" data-zone="Asia/Yerevan">Yerevan</div>
+			
+		
+			<h3>Atlantic</h3>
+			<div class="button" data-toggle-group="Atlantic">All</div>
+			
+				<div class="button" data-group="Atlantic" data-zone="Atlantic/Azores">Azores</div>
+			
+				<div class="button" data-group="Atlantic" data-zone="Atlantic/Bermuda">Bermuda</div>
+			
+				<div class="button" data-group="Atlantic" data-zone="Atlantic/Canary">Canary</div>
+			
+				<div class="button" data-group="Atlantic" data-zone="Atlantic/Cape_Verde">Cape_Verde</div>
+			
+				<div class="button" data-group="Atlantic" data-zone="Atlantic/Faroe">Faroe</div>
+			
+				<div class="button" data-group="Atlantic" data-zone="Atlantic/Madeira">Madeira</div>
+			
+				<div class="button" data-group="Atlantic" data-zone="Atlantic/Reykjavik">Reykjavik</div>
+			
+				<div class="button" data-group="Atlantic" data-zone="Atlantic/South_Georgia">South_Georgia</div>
+			
+				<div class="button" data-group="Atlantic" data-zone="Atlantic/St_Helena">St_Helena</div>
+			
+				<div class="button" data-group="Atlantic" data-zone="Atlantic/Stanley">Stanley</div>
+			
+		
+			<h3>Australia</h3>
+			<div class="button" data-toggle-group="Australia">All</div>
+			
+				<div class="button" data-group="Australia" data-zone="Australia/Adelaide">Adelaide</div>
+			
+				<div class="button" data-group="Australia" data-zone="Australia/Brisbane">Brisbane</div>
+			
+				<div class="button" data-group="Australia" data-zone="Australia/Broken_Hill">Broken_Hill</div>
+			
+				<div class="button" data-group="Australia" data-zone="Australia/Currie">Currie</div>
+			
+				<div class="button" data-group="Australia" data-zone="Australia/Darwin">Darwin</div>
+			
+				<div class="button" data-group="Australia" data-zone="Australia/Eucla">Eucla</div>
+			
+				<div class="button" data-group="Australia" data-zone="Australia/Hobart">Hobart</div>
+			
+				<div class="button" data-group="Australia" data-zone="Australia/Lindeman">Lindeman</div>
+			
+				<div class="button" data-group="Australia" data-zone="Australia/Lord_Howe">Lord_Howe</div>
+			
+				<div class="button" data-group="Australia" data-zone="Australia/Melbourne">Melbourne</div>
+			
+				<div class="button" data-group="Australia" data-zone="Australia/Perth">Perth</div>
+			
+				<div class="button" data-group="Australia" data-zone="Australia/Sydney">Sydney</div>
+			
+		
+			<h3>Generic</h3>
+			<div class="button" data-toggle-group="Generic">All</div>
+			
+				<div class="button" data-group="Generic" data-zone="CET">CET</div>
+			
+				<div class="button" data-group="Generic" data-zone="CST6CDT">CST6CDT</div>
+			
+				<div class="button" data-group="Generic" data-zone="EET">EET</div>
+			
+				<div class="button" data-group="Generic" data-zone="EST">EST</div>
+			
+				<div class="button" data-group="Generic" data-zone="EST5EDT">EST5EDT</div>
+			
+				<div class="button" data-group="Generic" data-zone="HST">HST</div>
+			
+				<div class="button" data-group="Generic" data-zone="MET">MET</div>
+			
+				<div class="button" data-group="Generic" data-zone="MST">MST</div>
+			
+				<div class="button" data-group="Generic" data-zone="MST7MDT">MST7MDT</div>
+			
+				<div class="button" data-group="Generic" data-zone="PST8PDT">PST8PDT</div>
+			
+				<div class="button" data-group="Generic" data-zone="WET">WET</div>
+			
+		
+			<h3>Europe</h3>
+			<div class="button" data-toggle-group="Europe">All</div>
+			
+				<div class="button" data-group="Europe" data-zone="Europe/Amsterdam">Amsterdam</div>
+			
+				<div class="button" data-group="Europe" data-zone="Europe/Andorra">Andorra</div>
+			
+				<div class="button" data-group="Europe" data-zone="Europe/Athens">Athens</div>
+			
+				<div class="button" data-group="Europe" data-zone="Europe/Belgrade">Belgrade</div>
+			
+				<div class="button" data-group="Europe" data-zone="Europe/Berlin">Berlin</div>
+			
+				<div class="button" data-group="Europe" data-zone="Europe/Brussels">Brussels</div>
+			
+				<div class="button" data-group="Europe" data-zone="Europe/Bucharest">Bucharest</div>
+			
+				<div class="button" data-group="Europe" data-zone="Europe/Budapest">Budapest</div>
+			
+				<div class="button" data-group="Europe" data-zone="Europe/Chisinau">Chisinau</div>
+			
+				<div class="button" data-group="Europe" data-zone="Europe/Copenhagen">Copenhagen</div>
+			
+				<div class="button" data-group="Europe" data-zone="Europe/Dublin">Dublin</div>
+			
+				<div class="button" data-group="Europe" data-zone="Europe/Gibraltar">Gibraltar</div>
+			
+				<div class="button" data-group="Europe" data-zone="Europe/Helsinki">Helsinki</div>
+			
+				<div class="button" data-group="Europe" data-zone="Europe/Istanbul">Istanbul</div>
+			
+				<div class="button" data-group="Europe" data-zone="Europe/Kaliningrad">Kaliningrad</div>
+			
+				<div class="button" data-group="Europe" data-zone="Europe/Kiev">Kiev</div>
+			
+				<div class="button" data-group="Europe" data-zone="Europe/Lisbon">Lisbon</div>
+			
+				<div class="button" data-group="Europe" data-zone="Europe/London">London</div>
+			
+				<div class="button" data-group="Europe" data-zone="Europe/Luxembourg">Luxembourg</div>
+			
+				<div class="button" data-group="Europe" data-zone="Europe/Madrid">Madrid</div>
+			
+				<div class="button" data-group="Europe" data-zone="Europe/Malta">Malta</div>
+			
+				<div class="button" data-group="Europe" data-zone="Europe/Minsk">Minsk</div>
+			
+				<div class="button" data-group="Europe" data-zone="Europe/Monaco">Monaco</div>
+			
+				<div class="button" data-group="Europe" data-zone="Europe/Moscow">Moscow</div>
+			
+				<div class="button" data-group="Europe" data-zone="Europe/Oslo">Oslo</div>
+			
+				<div class="button" data-group="Europe" data-zone="Europe/Paris">Paris</div>
+			
+				<div class="button" data-group="Europe" data-zone="Europe/Prague">Prague</div>
+			
+				<div class="button" data-group="Europe" data-zone="Europe/Riga">Riga</div>
+			
+				<div class="button" data-group="Europe" data-zone="Europe/Rome">Rome</div>
+			
+				<div class="button" data-group="Europe" data-zone="Europe/Samara">Samara</div>
+			
+				<div class="button" data-group="Europe" data-zone="Europe/Simferopol">Simferopol</div>
+			
+				<div class="button" data-group="Europe" data-zone="Europe/Sofia">Sofia</div>
+			
+				<div class="button" data-group="Europe" data-zone="Europe/Stockholm">Stockholm</div>
+			
+				<div class="button" data-group="Europe" data-zone="Europe/Tallinn">Tallinn</div>
+			
+				<div class="button" data-group="Europe" data-zone="Europe/Tirane">Tirane</div>
+			
+				<div class="button" data-group="Europe" data-zone="Europe/Uzhgorod">Uzhgorod</div>
+			
+				<div class="button" data-group="Europe" data-zone="Europe/Vaduz">Vaduz</div>
+			
+				<div class="button" data-group="Europe" data-zone="Europe/Vienna">Vienna</div>
+			
+				<div class="button" data-group="Europe" data-zone="Europe/Vilnius">Vilnius</div>
+			
+				<div class="button" data-group="Europe" data-zone="Europe/Volgograd">Volgograd</div>
+			
+				<div class="button" data-group="Europe" data-zone="Europe/Warsaw">Warsaw</div>
+			
+				<div class="button" data-group="Europe" data-zone="Europe/Zaporozhye">Zaporozhye</div>
+			
+				<div class="button" data-group="Europe" data-zone="Europe/Zurich">Zurich</div>
+			
+		
+			<h3>Indian</h3>
+			<div class="button" data-toggle-group="Indian">All</div>
+			
+				<div class="button" data-group="Indian" data-zone="Indian/Antananarivo">Antananarivo</div>
+			
+				<div class="button" data-group="Indian" data-zone="Indian/Chagos">Chagos</div>
+			
+				<div class="button" data-group="Indian" data-zone="Indian/Christmas">Christmas</div>
+			
+				<div class="button" data-group="Indian" data-zone="Indian/Cocos">Cocos</div>
+			
+				<div class="button" data-group="Indian" data-zone="Indian/Comoro">Comoro</div>
+			
+				<div class="button" data-group="Indian" data-zone="Indian/Kerguelen">Kerguelen</div>
+			
+				<div class="button" data-group="Indian" data-zone="Indian/Mahe">Mahe</div>
+			
+				<div class="button" data-group="Indian" data-zone="Indian/Maldives">Maldives</div>
+			
+				<div class="button" data-group="Indian" data-zone="Indian/Mauritius">Mauritius</div>
+			
+				<div class="button" data-group="Indian" data-zone="Indian/Mayotte">Mayotte</div>
+			
+				<div class="button" data-group="Indian" data-zone="Indian/Reunion">Reunion</div>
+			
+		
+			<h3>Pacific</h3>
+			<div class="button" data-toggle-group="Pacific">All</div>
+			
+				<div class="button" data-group="Pacific" data-zone="Pacific/Apia">Apia</div>
+			
+				<div class="button" data-group="Pacific" data-zone="Pacific/Auckland">Auckland</div>
+			
+				<div class="button" data-group="Pacific" data-zone="Pacific/Chatham">Chatham</div>
+			
+				<div class="button" data-group="Pacific" data-zone="Pacific/Chuuk">Chuuk</div>
+			
+				<div class="button" data-group="Pacific" data-zone="Pacific/Easter">Easter</div>
+			
+				<div class="button" data-group="Pacific" data-zone="Pacific/Efate">Efate</div>
+			
+				<div class="button" data-group="Pacific" data-zone="Pacific/Enderbury">Enderbury</div>
+			
+				<div class="button" data-group="Pacific" data-zone="Pacific/Fakaofo">Fakaofo</div>
+			
+				<div class="button" data-group="Pacific" data-zone="Pacific/Fiji">Fiji</div>
+			
+				<div class="button" data-group="Pacific" data-zone="Pacific/Funafuti">Funafuti</div>
+			
+				<div class="button" data-group="Pacific" data-zone="Pacific/Galapagos">Galapagos</div>
+			
+				<div class="button" data-group="Pacific" data-zone="Pacific/Gambier">Gambier</div>
+			
+				<div class="button" data-group="Pacific" data-zone="Pacific/Guadalcanal">Guadalcanal</div>
+			
+				<div class="button" data-group="Pacific" data-zone="Pacific/Guam">Guam</div>
+			
+				<div class="button" data-group="Pacific" data-zone="Pacific/Honolulu">Honolulu</div>
+			
+				<div class="button" data-group="Pacific" data-zone="Pacific/Johnston">Johnston</div>
+			
+				<div class="button" data-group="Pacific" data-zone="Pacific/Kiritimati">Kiritimati</div>
+			
+				<div class="button" data-group="Pacific" data-zone="Pacific/Kosrae">Kosrae</div>
+			
+				<div class="button" data-group="Pacific" data-zone="Pacific/Kwajalein">Kwajalein</div>
+			
+				<div class="button" data-group="Pacific" data-zone="Pacific/Majuro">Majuro</div>
+			
+				<div class="button" data-group="Pacific" data-zone="Pacific/Marquesas">Marquesas</div>
+			
+				<div class="button" data-group="Pacific" data-zone="Pacific/Midway">Midway</div>
+			
+				<div class="button" data-group="Pacific" data-zone="Pacific/Nauru">Nauru</div>
+			
+				<div class="button" data-group="Pacific" data-zone="Pacific/Niue">Niue</div>
+			
+				<div class="button" data-group="Pacific" data-zone="Pacific/Norfolk">Norfolk</div>
+			
+				<div class="button" data-group="Pacific" data-zone="Pacific/Noumea">Noumea</div>
+			
+				<div class="button" data-group="Pacific" data-zone="Pacific/Pago_Pago">Pago_Pago</div>
+			
+				<div class="button" data-group="Pacific" data-zone="Pacific/Palau">Palau</div>
+			
+				<div class="button" data-group="Pacific" data-zone="Pacific/Pitcairn">Pitcairn</div>
+			
+				<div class="button" data-group="Pacific" data-zone="Pacific/Pohnpei">Pohnpei</div>
+			
+				<div class="button" data-group="Pacific" data-zone="Pacific/Port_Moresby">Port_Moresby</div>
+			
+				<div class="button" data-group="Pacific" data-zone="Pacific/Rarotonga">Rarotonga</div>
+			
+				<div class="button" data-group="Pacific" data-zone="Pacific/Saipan">Saipan</div>
+			
+				<div class="button" data-group="Pacific" data-zone="Pacific/Tahiti">Tahiti</div>
+			
+				<div class="button" data-group="Pacific" data-zone="Pacific/Tarawa">Tarawa</div>
+			
+				<div class="button" data-group="Pacific" data-zone="Pacific/Tongatapu">Tongatapu</div>
+			
+				<div class="button" data-group="Pacific" data-zone="Pacific/Wake">Wake</div>
+			
+				<div class="button" data-group="Pacific" data-zone="Pacific/Wallis">Wallis</div>
+			
+		
+	</div>
+
+		</div>
+		<footer>
+			<p>Moment.js is freely distributable under the terms of the MIT license.</p>
+		</footer>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script src="/static/js/global.min.js?v=2013-07-07T12:43:03-07:00"></script>
+		
+	<script src="/static/js/timezone-data.js?v=2013-07-07T12:43:03-07:00"></script>
+
+
+		<script>
+			window._gaq = [['_setAccount','UA-10641787-5'],['_trackPageview'],['_trackPageLoadTime']];
+			(function(d, c) {
+				var ga = d.createElement(c); ga.async = true;
+				ga.src = "http://www.google-analytics.com/ga.js";
+				var s = d.getElementsByTagName(c)[0];
+				s.parentNode.insertBefore(ga, s);
+			})(document, 'script');
+			;(function(d,s,id){
+				var js,fjs=d.getElementsByTagName(s)[0];
+				if(!d.getElementById(id)){
+					js=d.createElement(s);
+					js.id=id;
+					js.src="https://platform.twitter.com/widgets.js";
+					fjs.parentNode.insertBefore(js,fjs);
+				}
+			})(document,"script","twitter-wjs")
+			;(function() {
+				var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+				po.src = 'https://apis.google.com/js/plusone.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+			})();
+		</script>
+	</body>
+</html>

@@ -1,92 +1,104 @@
 header {
+	margin: 90px auto 0;
+	width: 80%;
 	min-height: 300px;
-	padding: 190px 0 40px;
-	color: #ccc;
-	overflow: hidden;
+	position: relative;
 
-	.watch {
+	.share {
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+
+	.circle {
+		width: 260px;
+		height: 260px;
+		left: 20px;
+		top: 20px;
+		position: absolute;
+	}
+
+	.face {
+		width: 100%;
+		height: 100%;
 		background: url(../img/header.png);
-		height: 80px;
-		text-shadow: 1px 1px 0 #000;
+		border: 5px solid $background-color;
+		border-radius: 50%;
+		position: relative;
 
-		.band {
-			margin: -10px 20px -10px 10%;
-			float: left;
-			width: 300px;
+		&:after {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 10px;
+			height: 10px;
+			margin: -5px 0 0 -5px;
 			background: url(../img/header.png);
-			border: 5px solid $background-color;
-			height: 100px;
+			border-radius: 5px;
+			content: "";
+			display: block;
 		}
 
-		.face {
-			width: 260px;
-			height: 260px;
-			margin: -85px auto 0;
-			background: url(../img/header.png);
-			border: 5px solid $background-color;
-			border-radius: 130px;
-			position: relative;
-
-			&:after {
-				position: absolute;
-				top: 115px;
-				left: 115px;
-				width: 10px;
-				height: 10px;
-				background: url(../img/header.png);
-				border: 5px solid $background-color;
-				border-radius: 10px;
-				content: "";
-				display: block;
-			}
-
-			&:before {
-				position: absolute;
-				top: 15px;
-				left: 15px;
-				width: 220px;
-				height: 220px;
-				background: $background-color;
-				border-radius: 115px;
-				content: "";
-				display: block;
-			}
-		}
-
-		#hour {
-			width: 0;
-			height: 0;
+		.map-thumb,
+		&:before {
 			position: absolute;
-			top: 50%;
-			left: 50%;
-			margin: -5px 0 -5px -70px;
-			padding: 5px 0 5px 70px;
-			background: #222;
-			@include transform-origin(100%, 50%);
+			top: 10px;
+			left: 10px;
+			right: 10px;
+			bottom: 10px;
+			background: $background-color;
+			border-radius: 50%;
+			content: "";
+			display: block;
 		}
+	}
 
-		#minute {
-			width: 0;
-			height: 0;
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			margin: -105px -5px 0;
-			padding: 105px 5px 0;
-			background: #222;
-			@include transform-origin(50%, 100%);
-		}
+	#hour {
+		width: 0;
+		height: 0;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin: -5px 0 -5px -25%;
+		padding: 5px 0 5px 25%;
+		background: #222;
+		@include transform-origin(100%, 50%);
+		border-radius: 5px 0 0 5px;
+	}
 
-		#second {
-			width: 0;
-			height: 0;
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			margin: -105px -1px 0 0;
-			padding: 105px 1px 0 0;
-			background: #222;
-			@include transform-origin(50%, 100%);
+	#minute {
+		width: 0;
+		height: 0;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin: -40% -5px 0;
+		padding: 40% 5px 0;
+		background: #222;
+		@include transform-origin(50%, 100%);
+		border-radius: 5px 5px 0 0;
+	}
+
+	#second {
+		width: 0;
+		height: 0;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin: -40% -1px 0 0;
+		padding: 40% 1px 0;
+		background: #222;
+		@include transform-origin(50%, 100%);
+	}
+
+	.title {
+		padding-left: 300px;
+		height: 300px;
+		display: table;
+
+		.title-inset {
+			display: table-cell;
+			vertical-align: middle;
 		}
 
 		h1 {
@@ -94,175 +106,83 @@ header {
 			font-size: 60px;
 			margin: 0;
 			font-weight: 100;
-			color: $background-color;
 
 			span {
 				font-size: 30px;
 				padding: 0 10px;
-				color: #666;
+				color: #999;
 			}
 		}
-	}
 
-	h2 {
-		margin: 0 0 0 10%;
-		padding: 20px 0 0 320px;
-		color: #222;
-		min-height: 100px;
+		h2 {
+			color: #222;
+			font-weight: 300;
+			margin: 0;
+		}
 	}
+}
 
-	.share {
-		position: absolute;
-		top: 100px;
-		right: 30px;
-	}
+aside {
+	width: 400px;
+	margin: 0 auto;
+	padding: 20px 0;
+	overflow: hidden;
 
-	aside {
-		width: 400px;
-		margin: 0 auto;
+	a {
+		display: block;
+		width: 200px;
+		float: left;
+		text-decoration: none;
+		text-align: center;
+		border-radius: 5px 0 0 5px;
+		border: 1px solid #000;
+		background: url(../img/header.png);
+		color: #ccc;
 		padding: 20px 0;
 
-		a {
-			display: block;
-			width: 200px;
-			float: left;
-			text-decoration: none;
-			text-align: center;
-			border-radius: 5px 0 0 5px;
-			border: 1px solid #000;
-			background: url(../img/header.png);
-			color: #ccc;
-			padding: 20px 0;
-
-			+ a {
-				border-left: 0;
-				border-radius: 0 5px 5px 0;
-				background: #fff;
-				color: #666;
-				border: 1px solid #999;
-			}
-
-			&:hover {
-				box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-			}
+		+ a {
+			border-left: 0;
+			border-radius: 0 5px 5px 0;
+			background: #fff;
+			color: #666;
+			border: 1px solid #999;
 		}
 
-		.share {
-			height: 60px;
-			text-align: center;
+		&:hover {
+			box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 		}
 	}
+}
 
-	@include size(tablet) {
-		.watch {
-			height: 60px;
-
-			.band {
-				margin: -10px 20px -10px 20px;
-				width: 200px;
-				height: 80px;
-			}
-
+.is-timezone {
+	header {
+		.circle {
 			.face {
-				width: 160px;
-				height: 160px;
-				margin: -45px auto 0;
-				border-radius: 130px;
-
+				&:before,
 				&:after {
-					top: 65px;
-					left: 65px;
-					width: 10px;
-					height: 10px;
-					border-radius: 10px;
+					display: none;
 				}
 
-				&:before {
-					top: 15px;
-					left: 15px;
-					width: 120px;
-					height: 120px;
-					border-radius: 115px;
+				.map-thumb {
+					background: url(../img/world.png);
+					background-size: cover;
+					background-position: 25% 0;
+					@include animation-iteration-count(1);
+					@include animation-duration(3s);
+					@include animation-delay(2s);
+					@include animation-name(map);
 				}
 			}
-
-			#hour {
-				margin: -5px 0 -5px -30px;
-				padding: 5px 0 5px 30px;
-			}
-
-			#minute {
-				margin: -55px -5px 0;
-				padding: 55px 5px 0;
-			}
-
-			#second {
-				margin: -55px -1px 0 0;
-				padding: 55px 1px 0 0;
-			}
-
-			h1 {
-				line-height: 60px;
-				font-size: 40px;
-			}
-		}
-
-		h2 {
-			margin: 0;
-			padding: 10px 0 0 220px;
-			color: #222;
-			min-height: 100px;
 		}
 	}
+}
 
-	@include size(mobile) {
-		height: auto;
-		min-height: 0px;
-
-		.watch {
-			position: relative;
-			margin-bottom: 100px;
-
-			.band {
-				margin: 0 auto;
-				position: relative;
-				top: -10px;
-				float: none;
-			}
-
-			h1 {
-				position: absolute;
-				top: -180px;
-				left: 0;
-				right: 0;
-				text-align: center;
-				color: #222;
-				text-shadow: none;
-			}
-		}
-
-		hgroup {
-			float: none;
-			width: 100%;
-		}
-
-		aside {
-			width: auto;
-			margin: 0 10px;
-
-			a {
-				width: 50%;
-			}
-		}
-
-		h2 {
-			padding: 0;
-			margin: 0 20px;
-		}
-
-		.share {
-			display: none;
-		}
+@include keyframes("map") {
+	from {
+		background-position: 625% 0;
+	}
+	to {
+		background-position: 25% 0;
 	}
 }
 

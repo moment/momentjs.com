@@ -72,3 +72,13 @@ moment.duration({
     years: 2
 });
 ```
+
+As of **2.1.0**, moment supports parsing ASP.NET style time spans. The following formats are supported.
+
+The format is an hour, minute, second string separated by colons like `23:59:59`. The number of days can be prefixed with a dot separator like so `7.23:59:59`. Partial seconds are supported as well `23:59:59.999`.
+
+```javascript
+moment.duration('23:59:59');
+moment.duration('23:59:59.999');
+moment.duration('7.23:59:59.999');
+```

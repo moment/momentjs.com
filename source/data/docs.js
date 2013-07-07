@@ -1,5 +1,15 @@
 var fs        = require('fs'),
-	ghm       = require('github-flavored-markdown');
+	highlight = require("highlight.js").highlight,
+	marked    = require('marked');
+
+marked.setOptions({
+	highlight : function (code, lang) {
+		if (lang === "javascript") {
+			return highlight("javascript", code).value;
+		}
+		return code;
+	}
+});
 
 function filename(fn) {
 	fn.unshift(process.cwd());
@@ -164,12 +174,30 @@ var exp = [
 				key : "Day",
 				title : "Day of Week",
 				signature : [
-					"moment().day(Number);",
+					"moment().day(Number|String);",
 					"moment().day(); // Number",
-					"moment().days(Number);",
+					"moment().days(Number|String);",
 					"moment().days(); // Number"
 				],
 				version : "1.3.0"
+			},
+			{
+				key : "Weekday",
+				title : "Day of Week (Locale Aware)",
+				signature : [
+					"moment().weekday(Number);",
+					"moment().weekday(); // Number"
+				],
+				version : "2.1.0"
+			},
+			{
+				key : "ISO Weekday",
+				title : "ISO Day of Week",
+				signature : [
+					"moment().isoWeekday(Number);",
+					"moment().isoWeekday(); // Number"
+				],
+				version : "2.1.0"
 			},
 			{
 				key : "Day of Year",
@@ -204,9 +232,9 @@ var exp = [
 			{
 				key : "Month",
 				signature : [
-					"moment().month(Number);",
+					"moment().month(Number|String);",
 					"moment().month(); // Number",
-					"moment().months(Number);",
+					"moment().months(Number|String);",
 					"moment().months(); // Number"
 				],
 				version : "1.0.0"
@@ -220,6 +248,23 @@ var exp = [
 					"moment().years(); // Number"
 				],
 				version : "1.0.0"
+			},
+			{
+				key : "Week Year",
+				signature : [
+					"moment().weekYear(Number);",
+					"moment().weekYear(); // Number"
+				],
+				version : "2.1.0"
+			},
+			{
+				key : "ISO Week Year",
+				title : "Week Year (ISO)",
+				signature : [
+					"moment().isoWeekYear(Number);",
+					"moment().isoWeekYear(); // Number"
+				],
+				version : "2.1.0"
 			}
 		]
 	},
@@ -260,6 +305,18 @@ var exp = [
 				version : "1.7.0"
 			},
 			{
+				key : "max",
+				title : "Maximum",
+				signature : "moment().max(Moment|String|Number|Date|Array);",
+				version : "2.1.0"
+			},
+			{
+				key : "min",
+				title : "Minimum",
+				signature : "moment().min(Moment|String|Number|Date|Array);",
+				version : "2.1.0"
+			},
+			{
 				key : "Local",
 				signature : "moment().local();",
 				version : "1.5.0"
@@ -268,6 +325,14 @@ var exp = [
 				key : "UTC",
 				signature : "moment().utc();",
 				version : "1.5.0"
+			},
+			{
+				key : "Timezone Offset",
+				signature : [
+					"moment().zone();",
+					"moment().zone(Number|String);"
+				],
+				version : "1.2.0"
 			}
 		]
 	},
@@ -331,11 +396,6 @@ var exp = [
 				version : "1.6.0"
 			},
 			{
-				key : "Timezone Offset",
-				signature : "moment().zone();",
-				version : "1.2.0"
-			},
-			{
 				key : "Days in Month",
 				signature : "moment().daysInMonth();",
 				version : "1.5.0"
@@ -354,6 +414,12 @@ var exp = [
 				key : "As JSON",
 				signature : "moment().toJSON();",
 				version : "2.0.0"
+			},
+			{
+				key : "as-iso-string",
+				title : "As ISO 8601 String",
+				signature : "moment().toISOString();",
+				version : "2.1.0"
 			}
 		]
 	},
@@ -540,6 +606,16 @@ var exp = [
 				version : "1.6.0"
 			},
 			{
+				key : "AM/PM Parsing",
+				signature : [
+					"moment.lang('en', {",
+					"    meridiemParse : RegExp",
+					"    isPM : Function",
+					"});"
+				],
+				version : "2.1.0"
+			},
+			{
 				key : "Calendar",
 				signature : [
 					"moment.lang('en', {",
@@ -565,7 +641,12 @@ var exp = [
 		methods : [
 			{
 				key : "Creating",
-				signature : "moment.duration(Number, String);\nmoment.duration(Number);\nmoment.duration(Object);",
+				signature : [
+					"moment.duration(Number, String);",
+					"moment.duration(Number);",
+					"moment.duration(Object);",
+					"moment.duration(String);"
+				],
 				version : "1.6.0"
 			},
 			{
@@ -607,6 +688,40 @@ var exp = [
 				key : "Years",
 				signature : "moment.duration().years();\nmoment.duration().asYears();",
 				version : "1.6.0"
+			},
+			{
+				key : "add",
+				title : "Add Time",
+				signature : [
+					"moment.duration().add(Number, String);",
+					"moment.duration().add(Number);",
+					"moment.duration().add(Duration);",
+					"moment.duration().add(Object);"
+				],
+				version : "2.1.0"
+			},
+			{
+				key : "subtract",
+				title : "Subtract Time",
+				signature : [
+					"moment.duration().subtract(Number, String);",
+					"moment.duration().subtract(Number);",
+					"moment.duration().subtract(Duration);",
+					"moment.duration().subtract(Object);"
+				],
+				version : "2.1.0"
+			},
+			{
+				key : "as",
+				title : "As Unit of Time",
+				signature : "moment.duration().as(String);",
+				version : "2.1.0"
+			},
+			{
+				key : "get",
+				title : "Get Unit of Time",
+				signature : "moment.duration().get(String);",
+				version : "2.1.0"
 			}
 		]
 	},
@@ -679,7 +794,7 @@ function normalizeDocs(docs) {
 
 function docsAtPath(p) {
 	if (fs.existsSync(p)) {
-		return ghm.parse(fs.readFileSync(p, 'utf8'), "timrwood/moment");
+		return marked(fs.readFileSync(p, 'utf8'));
 	}
 	return '';
 }
