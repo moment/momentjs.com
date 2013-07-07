@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:300,700' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="/static/css/style.css?v=2013-07-07T11:47:01-07:00" />
+		<link rel="stylesheet" href="/static/css/style.css?v=2013-07-07T11:52:44-07:00" />
 		<title>Moment.js | Documentation</title>
 	</head>
 	<body class="is-core is-docs">
@@ -2284,9 +2284,9 @@ localLang.format(<span class="string">'LLLL'</span>); <span class="comment">// D
 globalLang.format(<span class="string">'LLLL'</span>); <span class="comment">// Domingo 15 Julio 2012 11:03</span></code></pre>
 <p>If you call <code>moment#lang</code> with no parameters, you get back the language configuration that would be used for that moment.</p>
 <pre><code class="lang-javascript"><span class="keyword">var</span> fr = moment().lang(<span class="string">'fr'</span>);
-fr.lang().months <span class="comment">// ["janvier", "février", "mars", ...]</span>
+fr.lang().months(moment([<span class="number">2012</span>, <span class="number">0</span>])) <span class="comment">// "janvier"</span>
 fr.lang(<span class="string">'en'</span>);
-fr.lang().months <span class="comment">// ["January", "February", "March", ...]</span></code></pre>
+fr.lang().months(moment([<span class="number">2012</span>, <span class="number">0</span>])) <span class="comment">// "January"</span></code></pre>
 <p>If you need to access the language data for a moment, this is the preferred way to do so.</p>
 
 					</div>
@@ -2646,7 +2646,7 @@ The function should return a string.</p>
 						
 						<p>If your language uses &#39;am/pm&#39;, <code>Language#meridiem</code> can be ommitted, as those values are the defaults.</p>
 <p>If your language needs any different computation for am/pm, <code>Language#meridiem</code> should be a callback function that returns the correct string based on hour, minute, and upper/lowercase.</p>
-<pre><code class="lang-javascript">moment.lang(<span class="string">'en'</span>, {
+<pre><code class="lang-javascript">moment.lang(<span class="string">'zh-cn'</span>, {
     meridiem : <span class="function"><span class="keyword">function</span> <span class="params">(hour, minute, isLowercase)</span> {</span>
         <span class="keyword">if</span> (hour &lt; <span class="number">9</span>) {
             <span class="keyword">return</span> <span class="string">"早上"</span>;
@@ -3218,7 +3218,7 @@ t.simpleFormat(<span class="string">"h:m"</span>); <span class="comment">//=&gt;
 		</footer>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-		<script src="/static/js/global.min.js?v=2013-07-07T11:47:01-07:00"></script>
+		<script src="/static/js/global.min.js?v=2013-07-07T11:52:44-07:00"></script>
 		
 
 		<script>
