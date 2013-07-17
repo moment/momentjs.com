@@ -65,9 +65,10 @@
         $('#js-lang').html(langHtml());
 
         var now = moment(),
-            hour = ((now.hours() % 12) / 12) * 360 + 90,
             second = now.seconds() * 6,
-            minute = now.minutes() * 6;
+            minute = now.minutes() * 6,
+            hour = ((now.hours() % 12) / 12) * 360 + 90 + minute/12;
+
 
         $('#hour').css("transform", "rotate(" + hour + "deg)");
         $('#minute').css("transform", "rotate(" + minute + "deg)");
