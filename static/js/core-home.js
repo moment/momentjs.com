@@ -46,9 +46,13 @@
     function langHtml() {
         var arr = [];
         arr.push(moment().format('L'));
+        arr.push(moment().format('l'));
         arr.push(moment().format('LL'));
+        arr.push(moment().format('ll'));
         arr.push(moment().format('LLL'));
+        arr.push(moment().format('lll'));
         arr.push(moment().format('LLLL'));
+        arr.push(moment().format('llll'));
         return formatArray(arr);
     }
 
@@ -65,9 +69,10 @@
         $('#js-lang').html(langHtml());
 
         var now = moment(),
-            hour = ((now.hours() % 12) / 12) * 360 + 90,
             second = now.seconds() * 6,
-            minute = now.minutes() * 6;
+            minute = now.minutes() * 6,
+            hour = ((now.hours() % 12) / 12) * 360 + 90 + minute/12;
+
 
         $('#hour').css("transform", "rotate(" + hour + "deg)");
         $('#minute').css("transform", "rotate(" + minute + "deg)");

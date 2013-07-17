@@ -46,9 +46,13 @@
     function langHtml() {
         var arr = [];
         arr.push(moment().format('L'));
+        arr.push(moment().format('l'));
         arr.push(moment().format('LL'));
+        arr.push(moment().format('ll'));
         arr.push(moment().format('LLL'));
+        arr.push(moment().format('lll'));
         arr.push(moment().format('LLLL'));
+        arr.push(moment().format('llll'));
         return formatArray(arr);
     }
 
