@@ -292,7 +292,7 @@ There are upper and lower case variations on the same formats. The lowercase ver
     <tr>
       <td><b>Month name, day of month, year</b></td>
       <td>LL</td>
-      <td>September 4th 1986</td>
+      <td>September 4 1986</td>
     </tr>
     <tr>
       <td></td>
@@ -302,7 +302,7 @@ There are upper and lower case variations on the same formats. The lowercase ver
     <tr>
       <td><b>Month name, day of month, year, time</b></td>
       <td>LLL</td>
-      <td>September 4th 1986 8:30 PM</td>
+      <td>September 4 1986 8:30 PM</td>
     </tr>
     <tr>
       <td></td>
@@ -312,7 +312,7 @@ There are upper and lower case variations on the same formats. The lowercase ver
     <tr>
       <td><b>Month name, day of month, day of week, year, time</b></td>
       <td>LLLL</td>
-      <td>Thursday, September 4th 1986 8:30 PM</td>
+      <td>Thursday, September 4 1986 8:30 PM</td>
     </tr>
     <tr>
       <td></td>
