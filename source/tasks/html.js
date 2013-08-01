@@ -25,14 +25,16 @@ function filename(fn) {
     return output;
 }
 
-function main(cb) {
+function main(grunt, cb) {
     var data = {
         library : library,
         core_docs : docs.core(),
         timezone_docs : docs.timezone(),
         zones : zones,
         langs : langs,
-        cachebust : moment().format()
+        cachebust : moment().format(),
+        global : grunt.option("localhost") && 'global' || 'global.min',
+        localhost : grunt.option("localhost") && process.cwd() || ''
     };
     library.ready(function(){
         render(data, cb);
@@ -67,6 +69,6 @@ function render(data, cb) {
 
 module.exports = function(grunt) {
     grunt.registerTask('html', 'Build HTML', function() {
-        main(this.async());
+        main(grunt, this.async());
     });
 };
