@@ -55,6 +55,7 @@
 			// each assert
 			for (var i = 0; i < assertions.length; i++) {
 				assert = assertions[i];
+				assert.test_name = name;
 				assertLi = $('<li>');
 				assertHtml = '<strong>' + total + '.' + (i + 1) + '</strong> ';
 				assertHtml += (assert.message || assert.method || 'no message');
@@ -76,8 +77,9 @@
 		done : function (assertions) {
 			var duration = moment().diff(start),
 				failures = assertions.failures(),
+				assert, error, i, preText, toStr;
 
-				toStr = '<pre>' + [
+				preText = [
 					"Please submit an issue to " +
 					"<a href='https://github.com/timrwood/moment/issues'>github.com/timrwood/moment/issues</a> " +
 					"with the information below and the failing tests.",
@@ -85,8 +87,22 @@
 					"Date.prototype.toString = " + (new Date()).toString(),
 					"Date.prototype.toLocaleString = " + (new Date()).toLocaleString(),
 					"Date.prototype.getTimezoneOffset = " + (new Date(1000)).getTimezoneOffset(),
-					"navigator.userAgent = " + navigator.userAgent
-				].join("<br/>") + '</pre>';
+					"navigator.userAgent = " + navigator.userAgent,
+				];
+
+				for (i = 0; i < assertions.length; ++i) {
+					assert = assertions[i];
+					error = assert.error;
+					if (assert.failed()) {
+						preText.push('');
+						preText.push('============================');
+						preText.push('[' + assert.test_name + '] ' +
+								assert.message + ' (' + error.expected + ' ' +
+									error.operator + ' ' + error.actual + ')');
+						preText.push(error.stack || error);
+					}
+				}
+				toStr = '<pre>' + preText.join('</br>') + '</pre>';
 
 			if (failures) {
 				banner.after('<p>' + [
