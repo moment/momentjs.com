@@ -25334,6 +25334,7 @@ exports["lang:zh-tw"] = {
 			// each assert
 			for (var i = 0; i < assertions.length; i++) {
 				assert = assertions[i];
+				assert.test_name = name;
 				assertLi = $('<li>');
 				assertHtml = '<strong>' + total + '.' + (i + 1) + '</strong> ';
 				assertHtml += (assert.message || assert.method || 'no message');
@@ -25355,17 +25356,40 @@ exports["lang:zh-tw"] = {
 		done : function (assertions) {
 			var duration = moment().diff(start),
 				failures = assertions.failures(),
+				assert, error, i, preText, toStr, lastTestName;
 
-				toStr = '<pre>' + [
-					"Please submit an issue to " +
-					"<a href='https://github.com/timrwood/moment/issues'>github.com/timrwood/moment/issues</a> " +
-					"with the information below and the failing tests.",
-					"",
+				header = "Please <a href='https://github.com/moment/moment/issues/new'>submit an issue</a> " +
+						"to moment&quot;s github repo with the following content:";
+				titleText = "" + failures + " test" + (failures !== 1 ? "s" : "") + " failed";
+				bodyText = [
+					"### Client info",
 					"Date.prototype.toString = " + (new Date()).toString(),
 					"Date.prototype.toLocaleString = " + (new Date()).toLocaleString(),
 					"Date.prototype.getTimezoneOffset = " + (new Date(1000)).getTimezoneOffset(),
-					"navigator.userAgent = " + navigator.userAgent
-				].join("<br/>") + '</pre>';
+					"navigator.userAgent = " + navigator.userAgent,
+				];
+
+				for (i = 0; i < assertions.length; ++i) {
+					assert = assertions[i];
+					error = assert.error;
+					if (assert.failed()) {
+						bodyText.push('');
+						if (lastTestName !== assert.test_name) {
+							lastTestName = assert.test_name;
+							bodyText.push('====');
+							bodyText.push('### ' + lastTestName);
+						}
+						bodyText.push(assert.message);
+						bodyText.push('(' + error.expected + ' ' +
+									error.operator + ' ' + error.actual + ')');
+						bodyText.push('```');
+						bodyText.push(error.stack || error);
+						bodyText.push('```');
+					}
+				}
+				toStr = '<p>' + header + '</p>' +
+						'<pre>' + titleText + '</pre>' +
+						'<pre>' + bodyText.join('</br>') + '</pre>';
 
 			if (failures) {
 				banner.after('<p>' + [
