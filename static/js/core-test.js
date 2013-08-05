@@ -25288,6 +25288,7 @@ exports["lang:zh-tw"] = {
 	var passed = 0;
 	var failed = 0;
 	var total = 0;
+	var currentTestModule;
 
 	function updateTest(_passed, _failed) {
 		passed += _passed;
@@ -25307,6 +25308,7 @@ exports["lang:zh-tw"] = {
 	nodeunit.runModules(exports, {
 		moduleStart : function (name) {
 			tests.append('<h3>' + name + '</h3>');
+			currentTestModule = name;
 		},
 		testDone : function (name, assertions) {
 			var testEl = $('<li>'),
@@ -25335,6 +25337,7 @@ exports["lang:zh-tw"] = {
 			for (var i = 0; i < assertions.length; i++) {
 				assert = assertions[i];
 				assert.test_name = name;
+				assert.module_name = currentTestModule;
 				assertLi = $('<li>');
 				assertHtml = '<strong>' + total + '.' + (i + 1) + '</strong> ';
 				assertHtml += (assert.message || assert.method || 'no message');
@@ -25356,11 +25359,12 @@ exports["lang:zh-tw"] = {
 		done : function (assertions) {
 			var duration = moment().diff(start),
 				failures = assertions.failures(),
-				assert, error, i, preText, toStr, lastTestName;
+				assert, error, i,
+				toStr, header, lastHeader,
 
-				header = "Please <a href='https://github.com/moment/moment/issues/new'>submit an issue</a> " +
-						"to moment&quot;s github repo with the following content:";
-				titleText = "" + failures + " test" + (failures !== 1 ? "s" : "") + " failed";
+				headerText = "Please <a href='https://github.com/moment/moment/issues/new'>submit an issue</a> " +
+						"to moment&quot;s github repo with the following content:",
+				titleText = "" + failures + " test" + (failures !== 1 ? "s" : "") + " failed",
 				bodyText = [
 					"### Client info",
 					"Date.prototype.toString = " + (new Date()).toString(),
@@ -25374,10 +25378,11 @@ exports["lang:zh-tw"] = {
 					error = assert.error;
 					if (assert.failed()) {
 						bodyText.push('');
-						if (lastTestName !== assert.test_name) {
-							lastTestName = assert.test_name;
+						header = "" + assert.module_name + " - " + assert.test_name;
+						if (lastHeader !== header) {
+							lastHeader = header;
 							bodyText.push('====');
-							bodyText.push('### ' + lastTestName);
+							bodyText.push('### ' + lastHeader);
 						}
 						bodyText.push(assert.message);
 						bodyText.push('(' + error.expected + ' ' +
@@ -25387,7 +25392,7 @@ exports["lang:zh-tw"] = {
 						bodyText.push('```');
 					}
 				}
-				toStr = '<p>' + header + '</p>' +
+				toStr = '<p>' + headerText + '</p>' +
 						'<pre>' + titleText + '</pre>' +
 						'<pre>' + bodyText.join('</br>') + '</pre>';
 
