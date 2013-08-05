@@ -77,11 +77,13 @@
 		done : function (assertions) {
 			var duration = moment().diff(start),
 				failures = assertions.failures(),
-				assert, error, i, preText, toStr;
+				assert, error, i, preText, toStr, lastTestName;
 
-				header = "Please <a href='https://github.com/moment/moment/issues/new'>submit an issue</a>" +
+				header = "Please <a href='https://github.com/moment/moment/issues/new'>submit an issue</a> " +
 						"to moment&quot;s github repo with the following content:";
-				preText = [
+				titleText = "" + failures + " test" + (failures !== 1 ? "s" : "") + " failed";
+				bodyText = [
+					"### Client info",
 					"Date.prototype.toString = " + (new Date()).toString(),
 					"Date.prototype.toLocaleString = " + (new Date()).toLocaleString(),
 					"Date.prototype.getTimezoneOffset = " + (new Date(1000)).getTimezoneOffset(),
@@ -92,18 +94,23 @@
 					assert = assertions[i];
 					error = assert.error;
 					if (assert.failed()) {
-						preText.push('');
-						preText.push('----');
-						preText.push('[' + assert.test_name + '] ' +
-								assert.message + ' (' + error.expected + ' ' +
+						bodyText.push('');
+						if (lastTestName !== assert.test_name) {
+							lastTestName = assert.test_name;
+							bodyText.push('====');
+							bodyText.push('### ' + lastTestName);
+						}
+						bodyText.push(assert.message);
+						bodyText.push('(' + error.expected + ' ' +
 									error.operator + ' ' + error.actual + ')');
-						preText('```');
-						preText.push(error.stack || error);
-						preText('```');
+						bodyText.push('```');
+						bodyText.push(error.stack || error);
+						bodyText.push('```');
 					}
 				}
 				toStr = '<p>' + header + '</p>' +
-						'<pre>' + preText.join('</br>') + '</pre>';
+						'<pre>' + titleText + '</pre>' +
+						'<pre>' + bodyText.join('</br>') + '</pre>';
 
 			if (failures) {
 				banner.after('<p>' + [
