@@ -79,11 +79,9 @@
 				failures = assertions.failures(),
 				assert, error, i, preText, toStr;
 
+				header = "Please <a href='https://github.com/moment/moment/issues/new'>submit an issue</a>" +
+						"to moment&quot;s github repo with the following content:";
 				preText = [
-					"Please submit an issue to " +
-					"<a href='https://github.com/timrwood/moment/issues'>github.com/timrwood/moment/issues</a> " +
-					"with the information below and the failing tests.",
-					"",
 					"Date.prototype.toString = " + (new Date()).toString(),
 					"Date.prototype.toLocaleString = " + (new Date()).toLocaleString(),
 					"Date.prototype.getTimezoneOffset = " + (new Date(1000)).getTimezoneOffset(),
@@ -95,14 +93,17 @@
 					error = assert.error;
 					if (assert.failed()) {
 						preText.push('');
-						preText.push('============================');
+						preText.push('----');
 						preText.push('[' + assert.test_name + '] ' +
 								assert.message + ' (' + error.expected + ' ' +
 									error.operator + ' ' + error.actual + ')');
+						preText('```');
 						preText.push(error.stack || error);
+						preText('```');
 					}
 				}
-				toStr = '<pre>' + preText.join('</br>') + '</pre>';
+				toStr = '<p>' + header + '</p>' +
+						'<pre>' + preText.join('</br>') + '</pre>';
 
 			if (failures) {
 				banner.after('<p>' + [
