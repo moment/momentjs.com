@@ -57,10 +57,11 @@
 			// each assert
 			for (var i = 0; i < assertions.length; i++) {
 				assert = assertions[i];
+				assert.uid = total + '.' + (i + 1);
 				assert.test_name = name;
 				assert.module_name = currentTestModule;
 				assertLi = $('<li>');
-				assertHtml = '<strong>' + total + '.' + (i + 1) + '</strong> ';
+				assertHtml = '<strong>' + assert.uid + '</strong> ';
 				assertHtml += (assert.message || assert.method || 'no message');
 				if (assert.failed()) {
 					assertHtml += ' (' + assert.error.expected + ' ' + assert.error.operator + ' ' + assert.error.actual + ')';
@@ -81,51 +82,76 @@
 			var duration = moment().diff(start),
 				failures = assertions.failures(),
 				assert, error, i,
-				toStr, header, lastHeader,
-
-				headerText = "Please <a href='https://github.com/moment/moment/issues/new'>submit an issue</a> " +
-						"to moment&quot;s github repo with the following content:",
-				titleText = "" + failures + " test" + (failures !== 1 ? "s" : "") + " failed",
+				reportHTML = '',
+				header,
+				expression,
+				submitUrl = "https://github.com/moment/moment/issues/new",
+				searchUrl = "https://github.com/moment/moment/search",
+				titleText = "" + failures + " test" + (failures !== 1 ? "s" : "") + " failed. ",
 				bodyText = [
 					"### Client info",
-					"Date.prototype.toString = " + (new Date()).toString(),
-					"Date.prototype.toLocaleString = " + (new Date()).toLocaleString(),
-					"Date.prototype.getTimezoneOffset = " + (new Date(1000)).getTimezoneOffset(),
-					"navigator.userAgent = " + navigator.userAgent,
+					'```',
+					"Date String   : " + (new Date()).toString(),
+					"Locale String : " + (new Date()).toLocaleString(),
+					"Offset        : " + (new Date(1000)).getTimezoneOffset(),
+					"User Agent    : " + navigator.userAgent,
+					'```'
 				];
 
-				for (i = 0; i < assertions.length; ++i) {
-					assert = assertions[i];
-					error = assert.error;
-					if (assert.failed()) {
-						bodyText.push('');
-						header = "" + assert.module_name + " - " + assert.test_name;
-						if (lastHeader !== header) {
-							lastHeader = header;
-							bodyText.push('====');
-							bodyText.push('### ' + lastHeader);
-						}
-						bodyText.push(assert.message);
-						bodyText.push('(' + error.expected + ' ' +
-									error.operator + ' ' + error.actual + ')');
-						bodyText.push('```');
-						bodyText.push(error.stack || error);
-						bodyText.push('```');
-					}
+			for (i = 0; i < assertions.length; ++i) {
+				assert = assertions[i];
+				error = assert.error;
+
+				if (!assert.failed()) {
+					continue;
 				}
-				toStr = '<p>' + headerText + '</p>' +
-						'<pre>' + titleText + '</pre>' +
-						'<pre>' + bodyText.join('</br>') + '</pre>';
+
+				header = assert.module_name + ':' + assert.test_name + ' (' + assert.uid + ') ';
+				titleText += header;
+
+				bodyText.push('');
+				bodyText.push('====');
+				bodyText.push('');
+				bodyText.push('### ' + header);
+				bodyText.push('');
+				bodyText.push(assert.message);
+				bodyText.push('');
+				bodyText.push('```javascript');
+				bodyText.push('// Expected ' + error.expected);
+				bodyText.push('// Actual   ' + error.actual);
+
+				expression = typeof error.actual === 'string' ? '"' + error.actual.replace('"', '\\"') + '"' : error.actual;
+				expression += ' ' + error.operator + ' ';
+				expression += typeof error.expected === 'string' ? '"' + error.expected.replace('"', '\\"') + '"' : error.expected;
+
+				bodyText.push(expression);
+				bodyText.push('```');
+				console.log(assert, error);
+			}
+
+			bodyText = bodyText.join('\n');
+
+			submitUrl += '?title=' + encodeURIComponent(titleText);
+			submitUrl += '&body=' + encodeURIComponent(bodyText);
+
+			searchUrl += '?type=Issues&q=' + encodeURIComponent(titleText);
 
 			if (failures) {
-				banner.after('<p>' + [
-					"Hmm, looks like some of the unit tests are failing.",
-					"It's hard to catch all the bugs across all browsers and timezones, so if you have a minute, " +
-						"please submit an issue with the failing test and the info below. Thanks!",
-					toStr].join('</p><p>') + '</p>');
+				reportHTML += '<h2>Hmm, looks like some of the unit tests are failing.</h2>';
+				reportHTML += "<p>It's hard to catch bugs across all browsers and timezones. If you have a minute, please report the failing test.</p>";
+				reportHTML += "<p>First, check if the issue has already been reported by searching the issues on github.</p>";
+				reportHTML += "<a class='button' href='" + searchUrl + "' target='_blank'>Search failed tests</a>";
+				reportHTML += "<p>If it doesn't look like this failed test has been reported yet, submit an issue with the following info.</p>";
+				reportHTML += "<a class='button' href='" + submitUrl + "' target='_blank'>Report failed test</a>";
+				reportHTML += '<h3>Title</h3>';
+				reportHTML += '<pre>' + titleText + '</pre>';
+				reportHTML += '<h3>Body</h3>';
+				reportHTML += '<pre>' + bodyText.replace(/\n/g, '<br/>') + '</pre>';
 			} else {
-				banner.after("<p class='success'>Awesome, all the unit tests passed!</p>");
+				reportHTML += "<p class='success'>Awesome, all the unit tests passed!</p>";
 			}
+
+			banner.after('<div class="test-reporting">' + reportHTML + '<div>');
 
 			updateTotals(assertions.passes(), failures);
 		}
