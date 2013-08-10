@@ -1928,8 +1928,8 @@ a.diff(b) <span class="comment">// 86400000</span></code></pre>
 a.diff(b, <span class="string">'days'</span>) <span class="comment">// 1</span></code></pre>
 <p>The supported measurements are years, months, weeks, days, hours, minutes, and seconds. For ease of development, the singular forms are supported as of <strong>2.0.0</strong>. Units of measurement other than milliseconds are available in version <strong>1.1.1</strong>.</p>
 <p>By default, <code>moment#diff</code> will return number rounded down. If you want the floating point number, pass <code>true</code> as the third argument. Before <strong>2.0.0</strong>, <code>moment#diff</code> returned rounded number, not a rounded <em>down</em> number.</p>
-<pre><code class="lang-javascript"><span class="keyword">var</span> a = moment([<span class="number">2007</span>, <span class="number">0</span>]);
-<span class="keyword">var</span> b = moment([<span class="number">2008</span>, <span class="number">5</span>]);
+<pre><code class="lang-javascript"><span class="keyword">var</span> a = moment([<span class="number">2008</span>, <span class="number">5</span>]);
+<span class="keyword">var</span> b = moment([<span class="number">2007</span>, <span class="number">0</span>]);
 a.diff(b, <span class="string">'years'</span>)       <span class="comment">// 1</span>
 a.diff(b, <span class="string">'years'</span>, <span class="literal">true</span>) <span class="comment">// 1.5</span></code></pre>
 <p>If the moment is later than the moment you are passing to <code>moment.fn.diff</code>, the return value will be negative.</p>
