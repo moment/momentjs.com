@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:300,700' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="/static/css/style.css?v=2013-08-08T11:22:10-07:00" />
+		<link rel="stylesheet" href="/static/css/style.css?v=2013-08-12T10:42:41-07:00" />
 		<title>Moment.js | Documentation</title>
 	</head>
 	<body class="is-core is-docs">
@@ -1928,10 +1928,10 @@ a.diff(b) <span class="comment">// 86400000</span></code></pre>
 a.diff(b, <span class="string">'days'</span>) <span class="comment">// 1</span></code></pre>
 <p>The supported measurements are years, months, weeks, days, hours, minutes, and seconds. For ease of development, the singular forms are supported as of <strong>2.0.0</strong>. Units of measurement other than milliseconds are available in version <strong>1.1.1</strong>.</p>
 <p>By default, <code>moment#diff</code> will return number rounded down. If you want the floating point number, pass <code>true</code> as the third argument. Before <strong>2.0.0</strong>, <code>moment#diff</code> returned rounded number, not a rounded <em>down</em> number.</p>
-<pre><code class="lang-javascript"><span class="keyword">var</span> a = moment([<span class="number">2007</span>, <span class="number">0</span>]);
-<span class="keyword">var</span> b = moment([<span class="number">2008</span>, <span class="number">5</span>]);
-a.diff(b, <span class="string">'years'</span>)       <span class="comment">// 1</span>
-a.diff(b, <span class="string">'years'</span>, <span class="literal">true</span>) <span class="comment">// 1.5</span></code></pre>
+<pre><code class="lang-javascript"><span class="keyword">var</span> a = moment([<span class="number">2008</span>, <span class="number">6</span>]);
+<span class="keyword">var</span> b = moment([<span class="number">2007</span>, <span class="number">0</span>]);
+a.diff(b, <span class="string">'years'</span>);       <span class="comment">// 1</span>
+a.diff(b, <span class="string">'years'</span>, <span class="literal">true</span>); <span class="comment">// 1.5</span></code></pre>
 <p>If the moment is later than the moment you are passing to <code>moment.fn.diff</code>, the return value will be negative.</p>
 <pre><code class="lang-javascript"><span class="keyword">var</span> a = moment();
 <span class="keyword">var</span> b = moment().add(<span class="string">'seconds'</span>, <span class="number">1</span>);
@@ -3243,7 +3243,7 @@ t.simpleFormat(<span class="string">"h:m"</span>); <span class="comment">//=&gt;
 		</footer>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-		<script src="/static/js/global.min.js?v=2013-08-08T11:22:10-07:00"></script>
+		<script src="/static/js/global.min.js?v=2013-08-12T10:42:41-07:00"></script>
 		
 
 		<script>

@@ -19,10 +19,10 @@ The supported measurements are years, months, weeks, days, hours, minutes, and s
 By default, `moment#diff` will return number rounded down. If you want the floating point number, pass `true` as the third argument. Before **2.0.0**, `moment#diff` returned rounded number, not a rounded *down* number.
 
 ```javascript
-var a = moment([2007, 0]);
-var b = moment([2008, 5]);
-a.diff(b, 'years')       // 1
-a.diff(b, 'years', true) // 1.5
+var a = moment([2008, 6]);
+var b = moment([2007, 0]);
+a.diff(b, 'years');       // 1
+a.diff(b, 'years', true); // 1.5
 ```
 
 If the moment is later than the moment you are passing to `moment.fn.diff`, the return value will be negative.
