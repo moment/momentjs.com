@@ -1,31 +1,37 @@
-If you are using OLE Automation dates, or "MSDates", check out Markit On Demand's plugin:
+If you are using OLE Automation dates in .NET check out Markit On Demand's plugin:
 
 `moment-msdate`
 
-Using this plugin formats OA dates into JavaScript dates and `moment` chaining is available.
+Using this plugin allows you to format OA dates into JavaScript dates and vice-versa.
 
-For date:
+Convert a `moment` to an OA date:
 
-`moment().fromOADate(41493)` returns `Wed Aug 07 2013 00:00:00 GMT-0600 (MDT)`
+`moment().toOADate();`
 
-For precise date _and_ time:
+This API returns a floating-point number (the OA date).
 
-`moment().fromOADate(41493.706892280097000)` returns `Wed Aug 07 2013 16:57:55 GMT-0600 (MDT)`
+Or, convert an OA date to a `moment`:
 
-For Moment formatting:
+`moment.fromOADate(41493);` returns `Wed Aug 07 2013 00:00:00 GMT-0600 (MDT)`
+
+For exact date _and_ time (time is the value right of the decimal):
+
+`moment.fromOADate(41493.706892280097000);` returns `Wed Aug 07 2013 16:57:55 GMT-0600 (MDT)`
+
+To use with Moment formatting:
 
 ```javascript
-//convert OADate into JavaScript date
-var jsDate = moment().fromOADate(41493.706892280097000);
+//convert OA Date into JavaScript date
+var momentDate = moment.fromOADate(41493.706892280097000);
 
 //use Moment's awesomeness
-var formattedDate = moment(jsDate).format('MMM Do YY);
+var formattedDate = momentDate.format('MMM Do YY);
 
 //formattedDate === "Aug 7th 13"
 ```
 
 This could easily be chained together as:
 
-`moment().fromOADate(41493.706892280097000).format('MMM Do YY); //Aug 7th 13`
+`moment.fromOADate(41493.706892280097000).format('MMM Do YY); //Aug 7th 13`
 
-The repository is located at [github.com/markitondemand/moment-msdate](https://github.com/markitondemand/moment-msdate).
+More information can be found on GitHub at [http://markitondemand.github.io/moment-msdate/](http://markitondemand.github.io/moment-msdate/).
