@@ -742,6 +742,13 @@
 			{
 				"key": "twitter",
 				"title": "Twitter"
+			},
+			{
+				"key": "jalaali",
+				"title": "Jalaali Calendar",
+				"signature": [
+					"npm install moment-jalaali"
+				]
 			}
 		]
 	}
