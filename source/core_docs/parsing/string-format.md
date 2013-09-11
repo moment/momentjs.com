@@ -91,10 +91,15 @@ The parsing tokens are similar to the formatting tokens used in `moment#format`.
         Unix timestamp
       </td>
     </tr>
+	<tr>
+	  <td>LT, L, LL, LLL, LLLL</td>
+	  <td>Locale dependent date and time representation</td>
+	</tr>
   </tbody>
 </table>
 
-`Z ZZ` were added in **1.2.0**. `S SS SSS` were added in **1.6.0**. `X` was added in `2.0.0`.
+`Z ZZ` were added in **1.2.0**. `S SS SSS` were added in **1.6.0**. `X` was
+added in `2.0.0`, `LT`, `L`, `LL`, `LLL`, `LLLL` was added in `2.2.0`.
 
 Unless you specify a timezone offset, parsing a string will create a date in the current timezone.
 

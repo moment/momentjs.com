@@ -38,6 +38,14 @@
 			<strong>Full Source</strong>
 			<span class="filesize">{{ library.core_size }} </span>
 		</a>
+		<a class="button gzipped" href="https://rawgithub.com/timrwood/moment/{{ library.core_version }}/min/moment+langs.min.js">
+			<strong>Minified Source + Languages</strong>
+			<span class="filesize">{{ library.bundle_gzipped }}</span>
+		</a>
+		<a class="button source" href="https://rawgithub.com/timrwood/moment/{{ library.core_version }}/min/moment+langs.js">
+			<strong>Full Source + Languages</strong>
+			<span class="filesize">{{ library.bundle_size }} </span>
+		</a>
 	</div>
 </aside>
 {% endblock site_header %}
