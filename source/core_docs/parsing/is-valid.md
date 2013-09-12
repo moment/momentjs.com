@@ -42,22 +42,15 @@ m.invalidAt(); // 5 for seconds
 
 The return value has the following meaning:
 
-<dl>
-  <dt>0</dt>
-  <dd>years</dd>
-  <dt>1</dt>
-  <dd>months</dd>
-  <dt>2</dt>
-  <dd>days</dd>
-  <dt>3</dt>
-  <dd>hours</dd>
-  <dt>4</dt>
-  <dd>minutes</dd>
-  <dt>5</dt>
-  <dd>seconds</dd>
-  <dt>6</dt>
-  <dd>milliseconds</dd>
-</dl>
+<ol>
+  <li>years</li>
+  <li>months</li>
+  <li>days</li>
+  <li>hours</li>
+  <li>minutes</li>
+  <li>seconds</li>
+  <li>milliseconds</li>
+</ol>
 
 **Note:** In case of multiple wrong units the first one is returned (because
 days validity may depend on month, for example).
