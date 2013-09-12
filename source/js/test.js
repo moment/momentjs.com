@@ -23,7 +23,7 @@
 			banner.removeClass('pass');
 			banner.addClass('fail');
 		}
-		banner.html('<h3>' + _passed + ' tests passed. ' + _failed + ' failed.</h3>');
+		banner.html('<h3><span class="counter">' + _passed + '</span> tests passed. <span class="counter">' + _failed + '</span> failed.</h3>');
 	}
 
 	nodeunit.runModules(exports, {
