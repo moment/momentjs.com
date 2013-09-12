@@ -1,1 +1,1 @@
-*.png -text
+static/img/*.png eof=crlf
