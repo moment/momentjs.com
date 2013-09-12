@@ -163,24 +163,26 @@ aside {
 		border: 1px solid #000;
 		padding: 20px 0;
 
-                &.left {
-                  background: url(../img/header.png);
-                  color: #ccc;
-                }
-                &.right {
-                  background: url(../img/bg.png);
-                  color: #666;
-                }
-                &.bottom {
-                  opacity: 0.9;
-                }
-                &.top.left { border-top-left-radius: 5px; }
-                &.top.right { border-top-right-radius: 5px; border-width: 1px 1px 1px 0; }
-                &.bottom.left { border-bottom-left-radius: 5px; border-width: 0 1px 1px 1px; }
-                &.bottom.right { border-bottom-right-radius: 5px; border-width: 0 1px 1px 0; }
+		&.left {
+			background: url(../img/header.png);
+			color: #ccc;
+		}
+		&.right {
+			background: url(../img/bg.png);
+			color: #666;
+		}
+		&.bottom {
+			opacity: 0.9;
+		}
+		&.top.left { border-top-left-radius: 5px; }
+		&.top.right { border-top-right-radius: 5px; border-width: 1px 1px 1px 0; }
+		&.bottom.left { border-bottom-left-radius: 5px; border-width: 0 1px 1px 1px; }
+		&.bottom.right { border-bottom-right-radius: 5px; border-width: 0 1px 1px 0; }
 
 		&:hover {
 			box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+			position: relative;
+			z-index: 1;
 		}
 	}
 }
