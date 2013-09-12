@@ -42,7 +42,7 @@ There are a couple conventions used with the naming of the
     <tr>
       <td><b>Day of Month</b></td>
       <td>D</td>
-      <td>1 2 ... 30 30</td>
+      <td>1 2 ... 30 31</td>
     </tr>
     <tr>
       <td></td>
