@@ -158,27 +158,26 @@ aside {
 		display: inline-block;
 		box-sizing: border-box;
 		width: 200px;
-		// float: left;
 		text-decoration: none;
 		text-align: center;
-		// border-radius: 5px 0 0 5px;
 		border: 1px solid #000;
-		background: url(../img/header.png);
-		color: #ccc;
 		padding: 20px 0;
 
-		border-radius: 5px 0 0 0;
-		// + a {
-		// 	border-left: 0;
-		// 	border-radius: 0 5px 5px 0;
-		// 	background: #fff;
-		// 	color: #666;
-		// 	border: 1px solid #999;
-		// }
-
-		+ a { border-radius: 0 5px 0 0; border-width: 1px 1px 1px 0; background: #fff; }
-		+ a + a { border-radius: 0 0 0 5px; border-width: 0 1px 1px 1px; background: url(../img/header.png); }
-		+ a + a + a { border-radius: 0 0 5px 0; border-width: 0 1px 1px 0; background: #fff; }
+                &.left {
+                  background: url(../img/header.png);
+                  color: #ccc;
+                }
+                &.right {
+                  background: url(../img/bg.png);
+                  color: #666;
+                }
+                &.bottom {
+                  opacity: 0.9;
+                }
+                &.top.left { border-top-left-radius: 5px; }
+                &.top.right { border-top-right-radius: 5px; border-width: 1px 1px 1px 0; }
+                &.bottom.left { border-bottom-left-radius: 5px; border-width: 0 1px 1px 1px; }
+                &.bottom.right { border-bottom-right-radius: 5px; border-width: 0 1px 1px 0; }
 
 		&:hover {
 			box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);

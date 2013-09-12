@@ -714,39 +714,51 @@ aside a {
   text-decoration: none;
   text-align: center;
   border: 1px solid #000;
+  padding: 20px 0;
+}
+/* line 166, ../../source/css/_header.scss */
+aside a.left {
   background: url(../img/header.png);
   color: #ccc;
-  padding: 20px 0;
-  border-radius: 5px 0 0 0;
+}
+/* line 170, ../../source/css/_header.scss */
+aside a.right {
+  background: url(../img/bg.png);
+  color: #666;
+}
+/* line 174, ../../source/css/_header.scss */
+aside a.bottom {
+  opacity: 0.9;
+}
+/* line 177, ../../source/css/_header.scss */
+aside a.top.left {
+  border-top-left-radius: 5px;
+}
+/* line 178, ../../source/css/_header.scss */
+aside a.top.right {
+  border-top-right-radius: 5px;
+  border-width: 1px 1px 1px 0;
 }
 /* line 179, ../../source/css/_header.scss */
-aside a + a {
-  border-radius: 0 5px 0 0;
-  border-width: 1px 1px 1px 0;
-  background: #fff;
+aside a.bottom.left {
+  border-bottom-left-radius: 5px;
+  border-width: 0 1px 1px 1px;
 }
 /* line 180, ../../source/css/_header.scss */
-aside a + a + a {
-  border-radius: 0 0 0 5px;
-  border-width: 0 1px 1px 1px;
-  background: url(../img/header.png);
-}
-/* line 181, ../../source/css/_header.scss */
-aside a + a + a + a {
-  border-radius: 0 0 5px 0;
+aside a.bottom.right {
+  border-bottom-right-radius: 5px;
   border-width: 0 1px 1px 0;
-  background: #fff;
 }
-/* line 183, ../../source/css/_header.scss */
+/* line 186, ../../source/css/_header.scss */
 aside a:hover {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
-/* line 194, ../../source/css/_header.scss */
+/* line 197, ../../source/css/_header.scss */
 .is-timezone header .circle .face:before, .is-timezone header .circle .face:after {
   display: none;
 }
-/* line 198, ../../source/css/_header.scss */
+/* line 201, ../../source/css/_header.scss */
 .is-timezone header .circle .face .map-thumb {
   background: url(../img/world.png);
   background-size: cover;
@@ -766,42 +778,42 @@ aside a:hover {
 }
 
 @-moz-keyframes map {
-  /* line 213, ../../source/css/_header.scss */
+  /* line 216, ../../source/css/_header.scss */
   from {
     background-position: 625% 0;
   }
 
-  /* line 216, ../../source/css/_header.scss */
+  /* line 219, ../../source/css/_header.scss */
   to {
     background-position: 25% 0;
   }
 }
 
 @-webkit-keyframes map {
-  /* line 213, ../../source/css/_header.scss */
+  /* line 216, ../../source/css/_header.scss */
   from {
     background-position: 625% 0;
   }
 
-  /* line 216, ../../source/css/_header.scss */
+  /* line 219, ../../source/css/_header.scss */
   to {
     background-position: 25% 0;
   }
 }
 
 @keyframes map {
-  /* line 213, ../../source/css/_header.scss */
+  /* line 216, ../../source/css/_header.scss */
   from {
     background-position: 625% 0;
   }
 
-  /* line 216, ../../source/css/_header.scss */
+  /* line 219, ../../source/css/_header.scss */
   to {
     background-position: 25% 0;
   }
 }
 
-/* line 221, ../../source/css/_header.scss */
+/* line 224, ../../source/css/_header.scss */
 footer {
   background: url(../img/header.png);
   padding: 40px;
