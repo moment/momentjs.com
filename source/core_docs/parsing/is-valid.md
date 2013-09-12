@@ -32,7 +32,31 @@ It also works with a string that gets passed to `Date.parse()`
 moment("not a date").isValid(); // false
 ```
 
-**Note:** The `moment#isValid` method will not work after manipulating the moment object with any of the manipulation methods.
+You may get the index of the invalid unit using `moment().invalidAt()`:
+
+```javascript
+var m = moment("2011-10-10T10:20:90");
+m.isValid(); // false
+m.invalidAt(); // 5 for seconds
+```
+
+The return value has the following meaning:
+
+<ol>
+  <li>years</li>
+  <li>months</li>
+  <li>days</li>
+  <li>hours</li>
+  <li>minutes</li>
+  <li>seconds</li>
+  <li>milliseconds</li>
+</ol>
+
+**Note:** In case of multiple wrong units the first one is returned (because
+days validity may depend on month, for example).
+
+**Note:** The `moment#isValid` method will not work after manipulating the
+moment object with any of the manipulation methods.
 
 ```javascript
 moment("2011-10-10", "YYYY-MM-DD").isValid(); // true

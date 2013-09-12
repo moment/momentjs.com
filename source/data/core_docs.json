@@ -10,7 +10,13 @@
 				"key": "Browser"
 			},
 			{
+				"key": "Bower"
+			},
+			{
 				"key": "Require.js"
+			},
+			{
+				"key": "Troubleshooting"
 			}
 		]
 	},
@@ -40,6 +46,11 @@
 				"key": "String + Formats",
 				"signature": "moment(String, String[]);",
 				"version": "1.0.0"
+			},
+			{
+				"key": "Object",
+				"signature": "moment({unit: value, ...});",
+				"version": "2.2.1"
 			},
 			{
 				"key": "Unix Offset",
@@ -93,6 +104,11 @@
 				"title": "Validation",
 				"signature": "moment().isValid();",
 				"version": "1.7.0"
+			},
+			{
+				"key": "Defaults",
+				"signature": "moment(\"15\", \"hh\")",
+				"version": "2.2.1"
 			}
 		]
 	},
@@ -246,6 +262,32 @@
 					"moment().isoWeekYear(); // Number"
 				],
 				"version": "2.1.0"
+			},
+			{
+				"key": "get",
+				"signature": [
+					"moment().get('year');",
+					"moment().get('month');  // 0 to 11",
+					"moment().get('date');",
+					"moment().get('hour');",
+					"moment().get('minute');",
+					"moment().get('second');",
+					"moment().get('millisecond');"
+				],
+				"version": "2.2.1"
+			},
+			{
+				"key": "set",
+				"signature": [
+					"moment().set('year', 2013);",
+					"moment().set('month', 3);  // April",
+					"moment().set('date', 1);",
+					"moment().set('hour', 13);",
+					"moment().set('minute', 20);",
+					"moment().set('second', 30);",
+					"moment().set('millisecond', 123);"
+				],
+				"version": "2.2.1"
 			}
 		]
 	},

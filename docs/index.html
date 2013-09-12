@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:300,700' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="/static/css/style.css?v=2013-08-04T23:40:46-07:00" />
+		<link rel="stylesheet" href="/static/css/style.css?v=2013-09-12T02:31:48-07:00" />
 		<title>Moment.js | Documentation</title>
 	</head>
 	<body class="is-core is-docs">
@@ -30,7 +30,7 @@
 	</div>
 	<div class="title">
 		<div class="title-inset">
-			<h1>Moment.js<span>2.1.0</span></h1>
+			<h1>Moment.js<span>2.2.1</span></h1>
 			
 	<h2>Documentation</h2>
 
@@ -39,13 +39,18 @@
 </header>
 <aside>
 	<div class="download">
-		<a class="button gzipped" href="https://rawgithub.com/timrwood/moment/2.1.0/min/moment.min.js">
+		<a class="button gzipped" href="https://rawgithub.com/timrwood/moment/2.2.1/min/moment.min.js">
 			<strong>Minified Source</strong>
-			<span class="filesize">6.5kb</span>
-		</a>
-		<a class="button source" href="https://rawgithub.com/timrwood/moment/2.1.0/moment.js">
+			<span class="filesize">6.9kb</span>
+		</a><a class="button source" href="https://rawgithub.com/timrwood/moment/2.2.1/moment.js">
 			<strong>Full Source</strong>
-			<span class="filesize">53.3kb </span>
+			<span class="filesize">56.7kb </span>
+		</a><a class="button gzipped" href="https://rawgithub.com/timrwood/moment/2.2.1/min/moment+langs.min.js">
+			<strong>Minified Source + Languages</strong>
+			<span class="filesize">26kb</span>
+		</a><a class="button source" href="https://rawgithub.com/timrwood/moment/2.2.1/min/moment+langs.js">
+			<strong>Full Source + Languages</strong>
+			<span class="filesize">196.2kb </span>
 		</a>
 	</div>
 </aside>
@@ -63,7 +68,11 @@
 					
 						<a href="#/use-it/browser/">Browser</a>
 					
+						<a href="#/use-it/bower/">Bower</a>
+					
 						<a href="#/use-it/require-js/">Require.js</a>
+					
+						<a href="#/use-it/troubleshooting/">Troubleshooting</a>
 					
 				</div>
 			</div>
@@ -80,6 +89,8 @@
 					
 						<a href="#/parsing/string-formats/">String + Formats</a>
 					
+						<a href="#/parsing/object/">Object</a>
+					
 						<a href="#/parsing/unix-offset/">Unix Offset (milliseconds)</a>
 					
 						<a href="#/parsing/unix-timestamp/">Unix Timestamp (seconds)</a>
@@ -95,6 +106,8 @@
 						<a href="#/parsing/utc/">UTC</a>
 					
 						<a href="#/parsing/is-valid/">Validation</a>
+					
+						<a href="#/parsing/defaults/">Defaults</a>
 					
 				</div>
 			</div>
@@ -132,6 +145,10 @@
 						<a href="#/get-set/week-year/">Week Year</a>
 					
 						<a href="#/get-set/iso-week-year/">Week Year (ISO)</a>
+					
+						<a href="#/get-set/get/">get</a>
+					
+						<a href="#/get-set/set/">set</a>
 					
 				</div>
 			</div>
@@ -354,6 +371,20 @@ moment().format();</code></pre>
 				</article>
 			
 				<article class="method">
+					<a class="target" name="/use-it/bower/"></a>
+					<h3>
+						<a href='#/use-it/bower/'><span class="hash">#</span>Bower</a>
+						<span></span>
+					</h3>
+					<div class="prose">
+						
+						<pre><code>bower install --save momentjs</code></pre>
+<p>Notable files are <code>moment.js</code>, <code>lang/*.js</code> and <code>min/moment+langs.js</code>.</p>
+
+					</div>
+				</article>
+			
+				<article class="method">
 					<a class="target" name="/use-it/require-js/"></a>
 					<h3>
 						<a href='#/use-it/require-js/'><span class="hash">#</span>Require.js</a>
@@ -369,6 +400,20 @@ moment().format();</code></pre>
 define([<span class="string">"moment"</span>], <span class="function"><span class="keyword">function</span> <span class="params">(moment)</span> {</span>
     moment().format();
 });</code></pre>
+
+					</div>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/use-it/troubleshooting/"></a>
+					<h3>
+						<a href='#/use-it/troubleshooting/'><span class="hash">#</span>Troubleshooting</a>
+						<span></span>
+					</h3>
+					<div class="prose">
+						
+						<p>If you are having any troubles, try asking a question on <a href="http://stackoverflow.com/questions/tagged/momentjs">Stack Overflow</a> with the <code>momentjs</code> tag.</p>
+<p>You can also use the <a href="https://github.com/moment/moment/issues">GitHub issue tracker</a> to find related issues or open a new issue.</p>
 
 					</div>
 				</article>
@@ -529,10 +574,15 @@ moment(<span class="string">"12\25\1995"</span>, <span class="string">"MM-DD-YYY
         Unix timestamp
       </td>
     </tr>
+    <tr>
+      <td>LT, L, LL, LLL, LLLL</td>
+      <td>Locale dependent date and time representation</td>
+    </tr>
   </tbody>
 </table>
 
-<p><code>Z ZZ</code> were added in <strong>1.2.0</strong>. <code>S SS SSS</code> were added in <strong>1.6.0</strong>. <code>X</code> was added in <code>2.0.0</code>.</p>
+<p><code>Z ZZ</code> were added in <strong>1.2.0</strong>. <code>S SS SSS</code> were added in <strong>1.6.0</strong>. <code>X</code> was
+added in <code>2.0.0</code>, <code>LT</code>, <code>L</code>, <code>LL</code>, <code>LLL</code>, <code>LLLL</code> were added in <code>2.2.1</code>.</p>
 <p>Unless you specify a timezone offset, parsing a string will create a date in the current timezone.</p>
 <pre><code class="lang-javascript">moment(<span class="string">"2010-10-20 4:30"</span>, <span class="string">"YYYY-MM-DD HH:mm"</span>); <span class="comment">// parsed as 4:30 local time</span>
 moment(<span class="string">"2010-10-20 4:30 +0000"</span>, <span class="string">"YYYY-MM-DD HH:mm Z"</span>); <span class="comment">// parsed as 4:30 GMT</span></code></pre>
@@ -566,6 +616,26 @@ moment(<span class="string">'2012 July'</span>, <span class="string">'YYYY MMM'<
 moment(<span class="string">"040506"</span>, [<span class="string">"MMDDYY"</span>, <span class="string">"DDMMYY"</span>, <span class="string">"YYMMDD"</span>]); <span class="comment">// Apr 5 2006, May 4 2006, or May 6 2004?</span></code></pre>
 <p>This is also the reason Moment.js does not do &quot;magical&quot; string parsing.</p>
 <p><strong>Note:</strong> Parsing multiple formats is considerably slower than parsing a single format. If you can avoid it, it is much faster to parse a single format.</p>
+
+					</div>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/parsing/object/"></a>
+					<h3>
+						<a href='#/parsing/object/'><span class="hash">#</span>Object</a>
+						<span>2.2.1</span>
+					</h3>
+					<div class="prose">
+						
+							<pre lang="javascript">moment({unit: value, ...});</pre>
+						
+						<pre><code class="lang-javascript">moment({hour: <span class="number">15</span>, minute: <span class="number">10</span>});
+moment({y: <span class="number">2010</span>, M: <span class="number">3</span>, d: <span class="number">5</span>, h: <span class="number">15</span>, m: <span class="number">10</span>, s: <span class="number">3</span>, ms: <span class="number">123</span>});
+moment({year: <span class="number">2010</span>, month: <span class="number">3</span>, day: <span class="number">5</span>, hour: <span class="number">15</span>, minute: <span class="number">10</span>, second: <span class="number">3</span>, millisecond: <span class="number">123</span>});
+moment({years: <span class="number">2010</span>, months: <span class="number">3</span>, days: <span class="number">5</span>, hours: <span class="number">15</span>, minutes: <span class="number">10</span>, seconds: <span class="number">3</span>, milliseconds: <span class="number">123</span>});</code></pre>
+<p>You can create a moment object specifying some of the units in an object.
+Omitted units are defaulted to 0 or current date/month/year.</p>
 
 					</div>
 				</article>
@@ -761,9 +831,58 @@ moment(<span class="string">"2011-10-50"</span>, <span class="string">"YYYY-MM-D
 moment([<span class="number">2011</span>, <span class="number">0</span>, <span class="number">50</span>]).isValid(); <span class="comment">// false (bad day of month)</span></code></pre>
 <p>It also works with a string that gets passed to <code>Date.parse()</code></p>
 <pre><code class="lang-javascript">moment(<span class="string">"not a date"</span>).isValid(); <span class="comment">// false</span></code></pre>
-<p><strong>Note:</strong> The <code>moment#isValid</code> method will not work after manipulating the moment object with any of the manipulation methods.</p>
+<p>You may get the index of the invalid unit using <code>moment().invalidAt()</code>:</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> m = moment(<span class="string">"2011-10-10T10:20:90"</span>);
+m.isValid(); <span class="comment">// false</span>
+m.invalidAt(); <span class="comment">// 5 for seconds</span></code></pre>
+<p>The return value has the following meaning:</p>
+<ol>
+  <li>years</li>
+  <li>months</li>
+  <li>days</li>
+  <li>hours</li>
+  <li>minutes</li>
+  <li>seconds</li>
+  <li>milliseconds</li>
+</ol>
+
+<p><strong>Note:</strong> In case of multiple wrong units the first one is returned (because
+days validity may depend on month, for example).</p>
+<p><strong>Note:</strong> The <code>moment#isValid</code> method will not work after manipulating the
+moment object with any of the manipulation methods.</p>
 <pre><code class="lang-javascript">moment(<span class="string">"2011-10-10"</span>, <span class="string">"YYYY-MM-DD"</span>).isValid(); <span class="comment">// true</span>
 moment(<span class="string">"2011-10-10"</span>, <span class="string">"YYYY-MM-DD"</span>).date(<span class="number">20</span>).isValid(); <span class="comment">// false</span></code></pre>
+
+					</div>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/parsing/defaults/"></a>
+					<h3>
+						<a href='#/parsing/defaults/'><span class="hash">#</span>Defaults</a>
+						<span>2.2.1</span>
+					</h3>
+					<div class="prose">
+						
+							<pre lang="javascript">moment("15", "hh")</pre>
+						
+						<p>You can create a moment object specifying only some of the units, and the rest
+will be defaulted to the current day, month or year, or 0 for hours, minutes,
+seconds and milliseconds.</p>
+<p>Defaulting to now, when nothing is passed:</p>
+<pre><code class="lang-javascript">moment();  <span class="comment">// current date and time</span></code></pre>
+<p>Defaulting to today, when only hours, minutes, seconds and milliseconds are passed:</p>
+<pre><code class="lang-javasript">moment(5, &quot;HH&quot;);  // today, 5:00:00.000
+moment({hour: 5});  // today, 5:00:00.000
+moment({hour: 5, minute: 10});  // today, 5:10.00.000
+moment({hour: 5, minute: 10, seconds: 20});  // today, 5:10.20.000
+moment({hour: 5, minute: 10, seconds: 20, milliseconds: 300});  // today, 5:10.20.300</code></pre>
+<p>Defaulting to this month and year, when only days and smaller units are passed:</p>
+<pre><code class="lang-javascript">moment(<span class="number">5</span>, <span class="string">"DD"</span>);  <span class="comment">// this month, 5th day-of-month</span>
+moment(<span class="string">"4 05:06:07"</span>, <span class="string">"DD hh:mm:ss"</span>);  <span class="comment">// this month, 4th day-of-month, 05:06:07.000</span></code></pre>
+<p>Defaulting to this year, if year is not specified:</p>
+<pre><code class="lang-javascript">moment(<span class="number">3</span>, <span class="string">"MM"</span>);  <span class="comment">// this year, 3th month (April)</span>
+moment(<span class="string">"Apr 4 05:06:07"</span>, <span class="string">"MMM DD hh:mm:ss"</span>);  <span class="comment">// this year, 5th April, 05:06:07.000</span></code></pre>
 
 					</div>
 				</article>
@@ -1090,6 +1209,56 @@ moment().weekYear(); // Number</pre>
 moment().isoWeekYear(); // Number</pre>
 						
 						<p>Gets or sets the <a href="http://en.wikipedia.org/wiki/ISO_week_date">ISO week-year</a>.</p>
+
+					</div>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/get-set/get/"></a>
+					<h3>
+						<a href='#/get-set/get/'><span class="hash">#</span>get</a>
+						<span>2.2.1</span>
+					</h3>
+					<div class="prose">
+						
+							<pre lang="javascript">moment().get('year');
+moment().get('month');  // 0 to 11
+moment().get('date');
+moment().get('hour');
+moment().get('minute');
+moment().get('second');
+moment().get('millisecond');</pre>
+						
+						<p>String getter. In general</p>
+<pre><code class="lang-javascript">moment().get(unit) === moment()[unit]()</code></pre>
+<p>Units are case insensitive, and support plural and short forms: year (years,
+y), month (months, M), date (dates, d), hour (hours, h), minute (minutes, m),
+second (seconds, s), millisecond (milliseconds, ms).</p>
+
+					</div>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/get-set/set/"></a>
+					<h3>
+						<a href='#/get-set/set/'><span class="hash">#</span>set</a>
+						<span>2.2.1</span>
+					</h3>
+					<div class="prose">
+						
+							<pre lang="javascript">moment().set('year', 2013);
+moment().set('month', 3);  // April
+moment().set('date', 1);
+moment().set('hour', 13);
+moment().set('minute', 20);
+moment().set('second', 30);
+moment().set('millisecond', 123);</pre>
+						
+						<p>String setter. In general</p>
+<pre><code class="lang-javascript">moment().set(unit, value) <span class="comment">// same as moment()[unit](value)</span></code></pre>
+<p>Units are case insensitive, and support plural and short forms: year (years,
+y), month (months, M), date (dates, d), hour (hours, h), minute (minutes, m),
+second (seconds, s), millisecond (milliseconds, ms).</p>
 
 					</div>
 				</article>
@@ -1912,10 +2081,10 @@ a.diff(b) <span class="comment">// 86400000</span></code></pre>
 a.diff(b, <span class="string">'days'</span>) <span class="comment">// 1</span></code></pre>
 <p>The supported measurements are years, months, weeks, days, hours, minutes, and seconds. For ease of development, the singular forms are supported as of <strong>2.0.0</strong>. Units of measurement other than milliseconds are available in version <strong>1.1.1</strong>.</p>
 <p>By default, <code>moment#diff</code> will return number rounded down. If you want the floating point number, pass <code>true</code> as the third argument. Before <strong>2.0.0</strong>, <code>moment#diff</code> returned rounded number, not a rounded <em>down</em> number.</p>
-<pre><code class="lang-javascript"><span class="keyword">var</span> a = moment([<span class="number">2007</span>, <span class="number">0</span>]);
-<span class="keyword">var</span> b = moment([<span class="number">2008</span>, <span class="number">5</span>]);
-a.diff(b, <span class="string">'years'</span>)       <span class="comment">// 1</span>
-a.diff(b, <span class="string">'years'</span>, <span class="literal">true</span>) <span class="comment">// 1.5</span></code></pre>
+<pre><code class="lang-javascript"><span class="keyword">var</span> a = moment([<span class="number">2008</span>, <span class="number">6</span>]);
+<span class="keyword">var</span> b = moment([<span class="number">2007</span>, <span class="number">0</span>]);
+a.diff(b, <span class="string">'years'</span>);       <span class="comment">// 1</span>
+a.diff(b, <span class="string">'years'</span>, <span class="literal">true</span>); <span class="comment">// 1.5</span></code></pre>
 <p>If the moment is later than the moment you are passing to <code>moment.fn.diff</code>, the return value will be negative.</p>
 <pre><code class="lang-javascript"><span class="keyword">var</span> a = moment();
 <span class="keyword">var</span> b = moment().add(<span class="string">'seconds'</span>, <span class="number">1</span>);
@@ -3227,7 +3396,7 @@ t.simpleFormat(<span class="string">"h:m"</span>); <span class="comment">//=&gt;
 		</footer>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-		<script src="/static/js/global.min.js?v=2013-08-04T23:40:46-07:00"></script>
+		<script src="/static/js/global.min.js?v=2013-09-12T02:31:48-07:00"></script>
 		
 
 		<script>

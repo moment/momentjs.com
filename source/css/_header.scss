@@ -151,28 +151,34 @@ header {
 aside {
 	width: 400px;
 	margin: 0 auto;
-	padding: 20px 0;
-	overflow: hidden;
+	// padding: 20px 0;
+	// overflow: hidden;
 
 	a {
-		display: block;
+		display: inline-block;
+		box-sizing: border-box;
 		width: 200px;
-		float: left;
+		// float: left;
 		text-decoration: none;
 		text-align: center;
-		border-radius: 5px 0 0 5px;
+		// border-radius: 5px 0 0 5px;
 		border: 1px solid #000;
 		background: url(../img/header.png);
 		color: #ccc;
 		padding: 20px 0;
 
-		+ a {
-			border-left: 0;
-			border-radius: 0 5px 5px 0;
-			background: #fff;
-			color: #666;
-			border: 1px solid #999;
-		}
+		border-radius: 5px 0 0 0;
+		// + a {
+		// 	border-left: 0;
+		// 	border-radius: 0 5px 5px 0;
+		// 	background: #fff;
+		// 	color: #666;
+		// 	border: 1px solid #999;
+		// }
+
+		+ a { border-radius: 0 5px 0 0; border-width: 1px 1px 1px 0; background: #fff; }
+		+ a + a { border-radius: 0 0 0 5px; border-width: 0 1px 1px 1px; background: url(../img/header.png); }
+		+ a + a + a { border-radius: 0 0 5px 0; border-width: 0 1px 1px 0; background: #fff; }
 
 		&:hover {
 			box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);

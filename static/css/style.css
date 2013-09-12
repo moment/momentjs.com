@@ -1,4 +1,4 @@
-/* normalize.css 2011-09-22T17:42 UTC - http://github.com/necolas/normalize.css */
+/*! normalize.css 2011-09-22T17:42 UTC - http://github.com/necolas/normalize.css */
 /* =============================================================================
    HTML5 display definitions
    ========================================================================== */
@@ -705,40 +705,48 @@ header .title h2 {
 aside {
   width: 400px;
   margin: 0 auto;
-  padding: 20px 0;
-  overflow: hidden;
 }
 /* line 157, ../../source/css/_header.scss */
 aside a {
-  display: block;
+  display: inline-block;
+  box-sizing: border-box;
   width: 200px;
-  float: left;
   text-decoration: none;
   text-align: center;
-  border-radius: 5px 0 0 5px;
   border: 1px solid #000;
   background: url(../img/header.png);
   color: #ccc;
   padding: 20px 0;
+  border-radius: 5px 0 0 0;
 }
-/* line 169, ../../source/css/_header.scss */
+/* line 179, ../../source/css/_header.scss */
 aside a + a {
-  border-left: 0;
-  border-radius: 0 5px 5px 0;
+  border-radius: 0 5px 0 0;
+  border-width: 1px 1px 1px 0;
   background: #fff;
-  color: #666;
-  border: 1px solid #999;
 }
-/* line 177, ../../source/css/_header.scss */
+/* line 180, ../../source/css/_header.scss */
+aside a + a + a {
+  border-radius: 0 0 0 5px;
+  border-width: 0 1px 1px 1px;
+  background: url(../img/header.png);
+}
+/* line 181, ../../source/css/_header.scss */
+aside a + a + a + a {
+  border-radius: 0 0 5px 0;
+  border-width: 0 1px 1px 0;
+  background: #fff;
+}
+/* line 183, ../../source/css/_header.scss */
 aside a:hover {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
-/* line 188, ../../source/css/_header.scss */
+/* line 194, ../../source/css/_header.scss */
 .is-timezone header .circle .face:before, .is-timezone header .circle .face:after {
   display: none;
 }
-/* line 192, ../../source/css/_header.scss */
+/* line 198, ../../source/css/_header.scss */
 .is-timezone header .circle .face .map-thumb {
   background: url(../img/world.png);
   background-size: cover;
@@ -758,42 +766,42 @@ aside a:hover {
 }
 
 @-moz-keyframes map {
-  /* line 207, ../../source/css/_header.scss */
+  /* line 213, ../../source/css/_header.scss */
   from {
     background-position: 625% 0;
   }
 
-  /* line 210, ../../source/css/_header.scss */
+  /* line 216, ../../source/css/_header.scss */
   to {
     background-position: 25% 0;
   }
 }
 
 @-webkit-keyframes map {
-  /* line 207, ../../source/css/_header.scss */
+  /* line 213, ../../source/css/_header.scss */
   from {
     background-position: 625% 0;
   }
 
-  /* line 210, ../../source/css/_header.scss */
+  /* line 216, ../../source/css/_header.scss */
   to {
     background-position: 25% 0;
   }
 }
 
 @keyframes map {
-  /* line 207, ../../source/css/_header.scss */
+  /* line 213, ../../source/css/_header.scss */
   from {
     background-position: 625% 0;
   }
 
-  /* line 210, ../../source/css/_header.scss */
+  /* line 216, ../../source/css/_header.scss */
   to {
     background-position: 25% 0;
   }
 }
 
-/* line 215, ../../source/css/_header.scss */
+/* line 221, ../../source/css/_header.scss */
 footer {
   background: url(../img/header.png);
   padding: 40px;
@@ -1093,6 +1101,18 @@ nav.subnav .section:hover .dropdown {
     margin-right: 100px;
   }
 }
+/* line 95, ../../source/css/pages/_docs.scss */
+.docs ol {
+  counter-reset: li -1;
+  list-style: none;
+  padding-left: 15px;
+}
+/* line 99, ../../source/css/pages/_docs.scss */
+.docs ol > li:before {
+  content: counter(li) " ";
+  counter-increment: li;
+  font-weight: bold;
+}
 
 /* line 1, ../../source/css/pages/_test.scss */
 #nodeunit-tests {
@@ -1150,6 +1170,27 @@ nav.subnav .section:hover .dropdown {
   font-weight: 100;
   margin: 0;
   padding: 0;
+}
+
+/* line 64, ../../source/css/pages/_test.scss */
+.test-reporting .button {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #fff;
+  border-radius: 3px;
+  border: 1px solid #999;
+  cursor: pointer;
+  text-decoration: none;
+}
+/* line 73, ../../source/css/pages/_test.scss */
+.test-reporting .button:hover {
+  box-shadow: 1px 0 5px rgba(0, 0, 0, 0.2);
+}
+/* line 77, ../../source/css/pages/_test.scss */
+.test-reporting .button.active {
+  background: #333;
+  color: #ccc;
+  border-color: #000;
 }
 
 /* line 1, ../../source/css/pages/_core-home.scss */
