@@ -235,7 +235,7 @@ There are a couple conventions used with the naming of the
       <td>
         EST CST ... MST PST
         <br/>
-        <b>Note:</b> as of <b>1.6.0</b>, the z/zz format tokens have been deprecated. <a href="https://github.com/timrwood/moment/issues/162">Read more about it here.</a>
+        <b>Note:</b> as of <b>1.6.0</b>, the z/zz format tokens have been deprecated. <a href="https://github.com/moment/moment/issues/162">Read more about it here.</a>
       </td>
     </tr>
     <tr>
