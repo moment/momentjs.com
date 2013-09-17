@@ -94,4 +94,25 @@
         update();
     });
 
+	// Modified version of
+	// http://stackoverflow.com/questions/11128130/select-text-in-javascript
+	function selectText(element) {
+		if (document.body.createTextRange) { // ms
+			var range = document.body.createTextRange();
+			range.moveToElementText(element);
+			range.select();
+		} else if (window.getSelection) { // moz, opera, webkit
+			var selection = window.getSelection();
+			var range = document.createRange();
+			range.selectNodeContents(element);
+			selection.removeAllRanges();
+			selection.addRange(range);
+		}
+	}
+
+	$('.selectable').on('click', function(event) {
+		// console.log("got click");
+		// console.log(event);
+		selectText(event.currentTarget);
+	});
 })();
