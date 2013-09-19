@@ -3,9 +3,9 @@
 {% block body_class %}is-core{% endblock body_class %}
 
 {% block nav %}
-	<a class="home-nav" href="/">Home</a>
-	<a class="docs-nav" href="/docs/">Docs</a>
-	<a class="test-nav" href="/test/">Tests</a>
+	<a class="home-nav" href="{{ nav('') }}">Home</a>
+	<a class="docs-nav" href="{{ nav('/docs') }}">Docs</a>
+	<a class="test-nav" href="{{ nav('/test') }}">Tests</a>
 {% endblock nav %}
 
 {% block github_button %}
