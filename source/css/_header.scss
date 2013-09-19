@@ -196,10 +196,12 @@ aside {
 		border: 1px solid #e3e3e3;
 		border-radius: 3px;
 		background: #fff;
-		padding: 28px;
+		padding: 10px;
+		padding-left: 18px;
 
 		margin-bottom: $section-margin;
-		&:before { content: '$ '; }
+		&.shell:before { content: '$ '; }
+		&.pm:before { content: 'PM> '; }
 		&:last-child { margin-bottom: 0; }
 	}
 	.selectable {
