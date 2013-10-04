@@ -794,7 +794,11 @@
 				"signature": [
 					"npm install moment-jalaali"
 				]
-			}
+			},
+                        {
+				"key": "msdate",
+				"title": "MSDate"
+                        }
 		]
 	}
 ]
