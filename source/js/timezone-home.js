@@ -1,4 +1,5 @@
 (function(){
+        moment.lang("en");
 
 	var $map = $('.map-inset'),
 		$labelName = $('.map-label-name'),
