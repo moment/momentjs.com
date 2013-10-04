@@ -1,4 +1,4 @@
-Set the minimum value for a moment.
+Retrieves the lesser of two moment values.
 
 This is the counterpart for `moment#max`.
 
@@ -13,3 +13,5 @@ var start  = moment().startOf('week');
 var end    = moment().endOf('week');
 var actual = moment().min(start).max(end);
 ```
+
+**Note:** `moment#min` doesn't actually mutate the moment; it simly returns the input moment if the input moment is earlier, and `this` otherwise.

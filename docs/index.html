@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:300,700' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="/static/css/style.css?v=2013-10-04T01:23:40-04:00" />
+		<link rel="stylesheet" href="/static/css/style.css?v=2013-10-04T14:45:10-04:00" />
 		<title>Moment.js | Documentation</title>
 	</head>
 	<body class="is-core is-docs">
@@ -75,6 +75,8 @@
 						<a href="#/use-it/require-js/">Require.js</a>
 					
 						<a href="#/use-it/nuget/">NuGet</a>
+					
+						<a href="#/use-it/other/">Other</a>
 					
 						<a href="#/use-it/troubleshooting/">Troubleshooting</a>
 					
@@ -329,6 +331,8 @@
 					
 						<a href="#/plugins/jalaali/">Jalaali Calendar</a>
 					
+						<a href="#/plugins/msdate/">MSDate</a>
+					
 				</div>
 			</div>
 		
@@ -419,6 +423,20 @@ define([<span class="string">"moment"</span>], <span class="function"><span clas
 					<div class="prose">
 						
 						<pre><code>Install-Package Moment.js</code></pre>
+
+					</div>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/use-it/other/"></a>
+					<h3>
+						<a href='#/use-it/other/'><span class="hash">#</span>Other</a>
+						<span></span>
+					</h3>
+					<div class="prose">
+						
+						<p>To use under <strong>Java/Rhino</strong>, follow check out <a href="https://gist.github.com/UnquietCode/5614860">these instructions</a>.</p>
+<p>To use in <strong>Demandware</strong>, see <a href="https://github.com/moment/moment/issues/1034">these instructions</a>.</p>
 
 					</div>
 				</article>
@@ -706,6 +724,7 @@ Omitted units are defaulted to 0 or current date/month/year.</p>
 						<p>You can create a <code>Moment</code> with a pre-existing native Javascript <code>Date</code> object.</p>
 <pre><code class="lang-javascript"><span class="keyword">var</span> day = <span class="keyword">new</span> Date(<span class="number">2011</span>, <span class="number">9</span>, <span class="number">16</span>);
 <span class="keyword">var</span> dayWrapper = moment(day);</code></pre>
+<p>This clones <code>Date</code> object; futher changes to the <code>Date</code> won&#39;t affect the <code>Moment</code>, and vice-versa.</p>
 <p>This is the fastest way to get a Moment.js wrapper.</p>
 
 					</div>
@@ -1466,15 +1485,16 @@ moment().minutes(<span class="number">0</span>).seconds(<span class="number">0</
 						
 							<pre lang="javascript">moment().max(Moment|String|Number|Date|Array);</pre>
 						
-						<p>Set the maximum value for a moment.</p>
-<p>Sometimes, server clocks are not quite in sync with client clocks. This ends up displaying humanized strings such as &quot;in a few seconds&quot; rather than &quot;a few seconds ago&quot;.</p>
-<p><code>moment#max</code> was added to allow you to set the maximum value for a moment.</p>
+						<p>Retrieves the greater of two moment values.</p>
+<p>Sometimes, server clocks are not quite in sync with client clocks. This ends up displaying humanized strings such as &quot;in a few seconds&quot; rather than &quot;a few seconds ago&quot;. You can prevent that with <code>moment#max()</code>:</p>
 <pre><code class="lang-javascript"><span class="keyword">var</span> momentFromServer = moment(input);
-<span class="keyword">var</span> now = moment();
-<span class="keyword">var</span> clampedMoment = momentFromServer.max(now);</code></pre>
+<span class="keyword">var</span> clampedMoment = momentFromServer.max();</code></pre>
 <p>You can pass anything to <code>moment#max</code> that you would pass to <code>moment()</code>.</p>
-<pre><code class="lang-javascript">moment().max(<span class="string">"2013-04-20T20:00:00+0800"</span>);
-moment().max(<span class="string">"Jan 1 2001"</span>, <span class="string">"MMM D YYYY"</span>);</code></pre>
+<pre><code class="lang-javascript">moment().max(moment().add(<span class="number">1</span>, <span class="string">'d'</span>));
+moment().max(<span class="string">"2013-04-20T20:00:00+0800"</span>);
+moment().max(<span class="string">"Jan 1 2001"</span>, <span class="string">"MMM D YYYY"</span>);
+moment().max(<span class="keyword">new</span> Date(<span class="number">2012</span>, <span class="number">1</span>, <span class="number">8</span>));</code></pre>
+<p><strong>Note:</strong> <code>moment#max</code> doesn&#39;t actually mutate the moment; it simly returns the input moment if the input moment is later, and <code>this</code> otherwise.</p>
 
 					</div>
 				</article>
@@ -1489,13 +1509,14 @@ moment().max(<span class="string">"Jan 1 2001"</span>, <span class="string">"MMM
 						
 							<pre lang="javascript">moment().min(Moment|String|Number|Date|Array);</pre>
 						
-						<p>Set the minimum value for a moment.</p>
+						<p>Retrieves the lesser of two moment values.</p>
 <p>This is the counterpart for <code>moment#max</code>.</p>
 <pre><code class="lang-javascript">moment().min(<span class="string">"2013-04-20T20:00:00+0800"</span>);</code></pre>
 <p>This can be used in conjunction with <code>moment#max</code> to clamp a moment to a range.</p>
 <pre><code class="lang-javascript"><span class="keyword">var</span> start  = moment().startOf(<span class="string">'week'</span>);
 <span class="keyword">var</span> end    = moment().endOf(<span class="string">'week'</span>);
 <span class="keyword">var</span> actual = moment().min(start).max(end);</code></pre>
+<p><strong>Note:</strong> <code>moment#min</code> doesn&#39;t actually mutate the moment; it simly returns the input moment if the input moment is later, and <code>this</code> otherwise.</p>
 
 					</div>
 				</article>
@@ -3424,6 +3445,24 @@ m.format(&#39;jYYYY/jM/jD [is] YYYY/M/D&#39;); // 1360/5/26 is 1981/8/17</code><
 					</div>
 				</article>
 			
+				<article class="method">
+					<a class="target" name="/plugins/msdate/"></a>
+					<h3>
+						<a href='#/plugins/msdate/'><span class="hash">#</span>MSDate</a>
+						<span></span>
+					</h3>
+					<div class="prose">
+						
+						<p>If you are using OLE Automation dates in .NET check out Markit On Demand&#39;s <code>moment-msdate</code>. Using this plugin allows you to format OA dates into JavaScript dates and vice-versa.</p>
+<p>Convert a <code>moment</code> to an OA date:</p>
+<pre><code class="lang-js">moment().toOADate(); //=&gt; a floating point number</code></pre>
+<p>Or, convert an OA date to a <code>moment</code>:</p>
+<pre><code class="lang-js">moment.fromOADate(41493); //=&gt; Wed Aug 07 2013 00:00:00 GMT-0600 (MDT)</code></pre>
+<p>More information and detailed docs can be found on GitHub at <a href="http://markitondemand.github.io/moment-msdate/"><a href="http://markitondemand.github.io/moment-msdate/">http://markitondemand.github.io/moment-msdate/</a></a>.</p>
+
+					</div>
+				</article>
+			
 		
 	</div>
 
@@ -3434,7 +3473,7 @@ m.format(&#39;jYYYY/jM/jD [is] YYYY/M/D&#39;); // 1360/5/26 is 1981/8/17</code><
 		</footer>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-		<script src="/static/js/global.min.js?v=2013-10-04T01:23:40-04:00"></script>
+		<script src="/static/js/global.min.js?v=2013-10-04T14:45:10-04:00"></script>
 		
 
 		<script>
