@@ -33,8 +33,15 @@ function main(grunt, cb) {
         zones : zones,
         langs : langs,
         cachebust : moment().format(),
-        global : grunt.option("localhost") && 'global' || 'global.min',
-        localhost : grunt.option("localhost") && process.cwd() || ''
+        global : grunt.option('localhost') && 'global' || 'global.min',
+        localhost : grunt.option('localhost') && process.cwd() || '',
+        nav : function (path) {
+            if (grunt.option('localhost')) {
+                return process.cwd() + path + "/index.html";
+            } else {
+                return path + "/";
+            }
+        }
     };
     library.ready(function(){
         render(data, cb);

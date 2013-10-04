@@ -703,64 +703,81 @@ header .title h2 {
 
 /* line 151, ../../source/css/_header.scss */
 aside {
-  width: 400px;
+  width: 615px;
   margin: 0 auto;
 }
 /* line 157, ../../source/css/_header.scss */
+aside .section {
+  display: inline-block;
+  width: 290px;
+  vertical-align: middle;
+  margin-right: 25px;
+}
+/* line 162, ../../source/css/_header.scss */
+aside .section:last-child {
+  margin-right: 0px;
+}
+/* line 166, ../../source/css/_header.scss */
 aside a {
   display: inline-block;
   box-sizing: border-box;
-  width: 200px;
+  width: 290px;
   text-decoration: none;
   text-align: center;
-  border: 1px solid #000;
+  border: 1px solid #e3e3e3;
+  border-bottom: 0;
   padding: 20px 0;
-}
-/* line 166, ../../source/css/_header.scss */
-aside a.left {
-  background: url(../img/header.png);
-  color: #ccc;
-}
-/* line 170, ../../source/css/_header.scss */
-aside a.right {
-  background: url(../img/bg.png);
-  color: #666;
-}
-/* line 174, ../../source/css/_header.scss */
-aside a.bottom {
-  opacity: 0.9;
-}
-/* line 177, ../../source/css/_header.scss */
-aside a.top.left {
-  border-top-left-radius: 5px;
+  font-size: 14px;
+  background: #fff;
 }
 /* line 178, ../../source/css/_header.scss */
-aside a.top.right {
-  border-top-right-radius: 5px;
-  border-width: 1px 1px 1px 0;
-}
-/* line 179, ../../source/css/_header.scss */
-aside a.bottom.left {
-  border-bottom-left-radius: 5px;
-  border-width: 0 1px 1px 1px;
-}
-/* line 180, ../../source/css/_header.scss */
-aside a.bottom.right {
-  border-bottom-right-radius: 5px;
-  border-width: 0 1px 1px 0;
+aside a:first-child {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
 }
 /* line 182, ../../source/css/_header.scss */
+aside a:last-child {
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-bottom: 1px solid #e3e3e3;
+}
+/* line 188, ../../source/css/_header.scss */
 aside a:hover {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   position: relative;
   z-index: 1;
 }
-
 /* line 195, ../../source/css/_header.scss */
+aside pre {
+  border: 1px solid #e3e3e3;
+  border-radius: 3px;
+  background: #fff;
+  padding: 10px;
+  padding-left: 18px;
+  margin-bottom: 25px;
+}
+/* line 203, ../../source/css/_header.scss */
+aside pre.shell:before {
+  content: '$ ';
+}
+/* line 204, ../../source/css/_header.scss */
+aside pre.pm:before {
+  content: 'PM> ';
+}
+/* line 205, ../../source/css/_header.scss */
+aside pre:last-child {
+  margin-bottom: 0;
+}
+/* line 207, ../../source/css/_header.scss */
+aside .selectable {
+  cursor: pointer;
+}
+
+/* line 217, ../../source/css/_header.scss */
 .is-timezone header .circle .face:before, .is-timezone header .circle .face:after {
   display: none;
 }
-/* line 199, ../../source/css/_header.scss */
+/* line 221, ../../source/css/_header.scss */
 .is-timezone header .circle .face .map-thumb {
   background: url(../img/world.png);
   background-size: cover;
@@ -780,42 +797,42 @@ aside a:hover {
 }
 
 @-moz-keyframes map {
-  /* line 214, ../../source/css/_header.scss */
+  /* line 236, ../../source/css/_header.scss */
   from {
     background-position: 625% 0;
   }
 
-  /* line 217, ../../source/css/_header.scss */
+  /* line 239, ../../source/css/_header.scss */
   to {
     background-position: 25% 0;
   }
 }
 
 @-webkit-keyframes map {
-  /* line 214, ../../source/css/_header.scss */
+  /* line 236, ../../source/css/_header.scss */
   from {
     background-position: 625% 0;
   }
 
-  /* line 217, ../../source/css/_header.scss */
+  /* line 239, ../../source/css/_header.scss */
   to {
     background-position: 25% 0;
   }
 }
 
 @keyframes map {
-  /* line 214, ../../source/css/_header.scss */
+  /* line 236, ../../source/css/_header.scss */
   from {
     background-position: 625% 0;
   }
 
-  /* line 217, ../../source/css/_header.scss */
+  /* line 239, ../../source/css/_header.scss */
   to {
     background-position: 25% 0;
   }
 }
 
-/* line 222, ../../source/css/_header.scss */
+/* line 244, ../../source/css/_header.scss */
 footer {
   background: url(../img/header.png);
   padding: 40px;

@@ -9,10 +9,10 @@
 {% endblock header %}
 
 {% block nav %}
-	<a class="home-nav" href="/timezone/">Home</a>
-	<a class="docs-nav" href="/timezone/docs/">Docs</a>
-	<a class="data-nav" href="/timezone/data/">Data</a>
-	<a class="test-nav" href="/timezone/test/">Tests</a>
+	<a class="home-nav" href="{{ nav('/timezone') }}">Home</a>
+	<a class="docs-nav" href="{{ nav('/timezone/docs') }}">Docs</a>
+	<a class="data-nav" href="{{ nav('/timezone/data') }}">Data</a>
+	<a class="test-nav" href="{{ nav('/timezone/test') }}">Tests</a>
 {% endblock nav %}
 
 {% block github_button %}

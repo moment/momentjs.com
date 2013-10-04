@@ -3,9 +3,9 @@
 {% block body_class %}is-core{% endblock body_class %}
 
 {% block nav %}
-	<a class="home-nav" href="/">Home</a>
-	<a class="docs-nav" href="/docs/">Docs</a>
-	<a class="test-nav" href="/test/">Tests</a>
+	<a class="home-nav" href="{{ nav('') }}">Home</a>
+	<a class="docs-nav" href="{{ nav('/docs') }}">Docs</a>
+	<a class="test-nav" href="{{ nav('/test') }}">Tests</a>
 {% endblock nav %}
 
 {% block github_button %}
@@ -29,20 +29,22 @@
 	</div>
 </header>
 <aside>
-	<div class="download">
-		<a class="top left button gzipped" href="downloads/moment.min.js">
-			<strong>Minified Source</strong>
-			<span class="filesize">{{ library.core_gzipped }}</span>
-		</a><a class="top right button source" href="{{ localhost }}/downloads/moment.js">
-			<strong>Full Source</strong>
-			<span class="filesize">{{ library.core_size }} </span>
-		</a><a class="bottom left button gzipped" href="{{ localhost }}/downloads/moment+langs.min.js">
-			<strong>Minified Source + Languages</strong>
-			<span class="filesize">{{ library.bundle_gzipped }}</span>
-		</a><a class="bottom right button source" href="{{ localhost }}/downloads/moment+langs.js">
-			<strong>Full Source + Languages</strong>
+	<div class="download section">
+                <a class="button source" href="{{ localhost}}/downloads/moment+langs.js">
+			<strong>moment+langs.js</strong>
 			<span class="filesize">{{ library.bundle_size }} </span>
+		</a><a class="button gzipped" href="{{ localhost}}/downloads/moment+langs.min.js">
+			<strong>moment+langs.min.js</strong>
+			<span class="filesize">{{ library.bundle_gzipped }}</span>
+		</a><a class="button gzipped" href="{{ localhost}}/downloads/moment.min.js">
+			<strong>moment.min.js</strong>
+			<span class="filesize">{{ library.core_gzipped }}</span>
 		</a>
+	</div>
+	<div class="section">
+		<pre class="selectable shell"><code>bower install -S momentjs</code></pre>
+		<pre class="selectable shell"><code>npm install --save moment</code></pre>
+		<pre class="selectable pm"><code>Install-Package Moment.js</code></pre>
 	</div>
 </aside>
 {% endblock site_header %}

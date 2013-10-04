@@ -8,8 +8,8 @@
 	</head>
 	<body class="{% block body_class %}{% endblock body_class %}">
 		<nav class="top">
-			<a class="logo core-nav" href="/">Moment.js</a>
-			<a class="logo timezone-nav" href="/timezone/">Moment Timezone</a>
+			<a class="logo core-nav" href="{{ nav('') }}">Moment.js</a>
+			<a class="logo timezone-nav" href="{{ nav('/timezone') }}">Moment Timezone</a>
 			{% block nav %}{% endblock nav %}
 			{% block github_button %}{% endblock github_button %}
 		</nav>

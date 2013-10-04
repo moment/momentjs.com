@@ -16,6 +16,9 @@
 				"key": "Require.js"
 			},
 			{
+				"key": "NuGet"
+			},
+			{
 				"key": "Troubleshooting"
 			}
 		]
