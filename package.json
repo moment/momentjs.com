@@ -6,6 +6,7 @@
     "homepage": "http://momentjs.com",
     "author": "Tim Wood <washwithcare@gmail.com> (http://timwoodcreates.com/)",
     "devDependencies" : {
+        "async"                     : "0.2.5",
         "swig"                      : "0.13.5",
         "marked"                    : "0.2.8",
         "highlight.js"              : "7.3.0",

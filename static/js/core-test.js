@@ -3554,7 +3554,7 @@ exports.format = {
         var b = moment(new Date(2010, 1, 14, 15, 25, 50, 125)),
             explanation = 'moment().format("z") = ' + b.format('z') + ' It should be something like "PST"';
         if (moment().zone() === -60) {
-            explanation += "For UTC+1 this is a known issue, see https://github.com/moment/moment/issues/162";
+            explanation += "For UTC+1 this is a known issue, see https://github.com/timrwood/moment/issues/162";
         }
         test.ok(b.format('Z').match(/^[\+\-]\d\d:\d\d$/), b.format('Z') + ' should be something like "+07:30"');
         test.ok(b.format('ZZ').match(/^[\+\-]\d{4}$/), b.format('ZZ') + ' should be something like "+0700"');
@@ -3934,7 +3934,7 @@ exports.getters_setters = {
         test.equal(a.seconds(), 8, 'second');
         test.equal(a.milliseconds(), 9, 'milliseconds');
 
-        // Test month() behavior. See https://github.com/moment/moment/pull/822
+        // Test month() behavior. See https://github.com/timrwood/moment/pull/822
         a = moment('20130531', 'YYYYMMDD');
         a.month(3);
         test.equal(a.month(), 3, 'month edge case');
@@ -3962,7 +3962,7 @@ exports.getters_setters = {
         test.equal(a.seconds(), 8, 'second');
         test.equal(a.milliseconds(), 9, 'milliseconds');
 
-        // Test month() behavior. See https://github.com/moment/moment/pull/822
+        // Test month() behavior. See https://github.com/timrwood/moment/pull/822
         a = moment('20130531', 'YYYYMMDD');
         a.month(3);
         test.equal(a.month(), 3, 'month edge case');

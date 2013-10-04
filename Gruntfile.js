@@ -87,7 +87,7 @@ module.exports = function(grunt) {
 		}
 	});
 
-	grunt.registerTask("default", ["html", "concat", "uglify", "compass"]);
+	grunt.registerTask("default", ["html", "downloads", "concat", "uglify", "compass"]);
 
 	// plugin tasks
 	grunt.loadNpmTasks("grunt-contrib-compass");
