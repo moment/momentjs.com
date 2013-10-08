@@ -1,38 +1,29 @@
-The main `moment()` function is very flexible and will allow overflowing in parsing input. For example, `moment("2012-01-40", "YYYY-MM-DD")` will overflow the date value into the months, making the actual moment Feb 9 (31 days in Jan + 9 days into Feb).
+Moment applies stricter initialization rules than the `Date` constructor:
 
-This can be useful when getting things like the 150th day of the year, or the 500th minute in a day, however, it can be problematic when trying to parse user input.
-
-`moment#isValid` was added to check if the input for a moment is indeed a valid date.
-
-**Note:** It is not intended to be used to validate that the input string matches the format string. Because the strictness of format matching can vary depending on the application and business requirements, this sort of validation is not included in Moment.js.
-
-Instead, `moment#isValid` answers questions like "Does March 32nd exist?" and "Does February 29th 2011 exist?".
-
-```javascript
-moment("2011-10-10", "YYYY-MM-DD").isValid(); // true
-moment("2011-10-50", "YYYY-MM-DD").isValid(); // false (bad day of month)
+```js
+new Date(2013, 25, 14).toString(); //=> "Sat Feb 14 2015 00:00:00 GMT-0500 (EST)"
+moment([2015, 25, 35]).format(); //=> 'Invalid date'
 ```
 
-It works with ISO 8601 parsing.
+You can check whether the Moment considers the date invalid using `moment#isValid`. You can check the metrics used by `#isValid` using `moment#parsingFlags` which returns an object
 
-```javascript
-moment("2011-10-10T10:20:90").isValid(); // false (bad seconds)
-```
+The following parsing flags result in an invalid date:
 
-It works with an array of numbers that mirror the parameters passed to `new Date()`.
+ * `overflow`: An overflow of a date field, such as a 13th month, a 32nd day of the month (or a 29th of February on non-leap years), a 367th day of the year, etc. `overflow` contains the index of the invalid unit to match `#invalidAt` (see below); `-1` means no overflow.
+ * `invalidMonth`: An invalid month name, such as ```moment('Marbruary', 'MMMM');```. Contains the invalid month string itself, or else null.
+ * `empty`: An input string that contains nothing parsable, such as `moment('this is nonsense');`. Boolean.
+ * `nullInput`: A `null` input, like `moment(null);`. Boolean.
+ * `invalidFormat`: An empty list of formats, such as `moment('2013-05-25', [])`. Boolean.
+ * `userInvalidated`: A date created explicitly as invalid, such as `moment.invalidDate()`. Boolean.
 
-```javascript
-moment([2011, 0, 1]).isValid(); // true
-moment([2011, 0, 50]).isValid(); // false (bad day of month)
-```
+Additionally, if the Moment is parsed in strict mode, these flags must be empty for the Moment to be valid:
 
-It also works with a string that gets passed to `Date.parse()`
+ * `unusedTokens`: array of format substrings not found in the input string
+ * `unusedInputs`: array of input substrings not matched to the format string
 
-```javascript
-moment("not a date").isValid(); // false
-```
+**Note:** Moment's concept of validity became more strict and consistent between 2.2 and 2.3.
 
-You may get the index of the invalid unit using `moment().invalidAt()`:
+Additionally, you can use `moment#invalidAt` to determine which date unit overflowed:
 
 ```javascript
 var m = moment("2011-10-10T10:20:90");

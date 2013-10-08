@@ -15,9 +15,9 @@ function toKb(input){
 }
 
 var core_src = fs.readFileSync(process.cwd() + '/libs/moment/moment.js', 'utf8');
-var bundle_src = fs.readFileSync(process.cwd() + '/libs/moment/min/moment+langs.js', 'utf8');
+var bundle_src = fs.readFileSync(process.cwd() + '/libs/moment/min/moment-with-langs.js', 'utf8');
 var core_min = fs.readFileSync(process.cwd() + '/libs/moment/min/moment.min.js', 'utf8');
-var bundle_min = fs.readFileSync(process.cwd() + '/libs/moment/min/moment+langs.min.js', 'utf8');
+var bundle_min = fs.readFileSync(process.cwd() + '/libs/moment/min/moment-with-langs.min.js', 'utf8');
 var timezone_src = fs.readFileSync(process.cwd() + '/libs/moment-timezone/moment-timezone.js', 'utf8');
 var timezone_min = fs.readFileSync(process.cwd() + '/libs/moment-timezone/min/moment-timezone.min.js', 'utf8');
 

@@ -11,8 +11,8 @@ function copyDownloads(grunt, cb) {
     async.parallel([
         copier(["libs", "moment", "moment.js"]),
         copier(["libs", "moment", "min", "moment.min.js"]),
-        copier(["libs", "moment", "min", "moment+langs.js"]),
-        copier(["libs", "moment", "min", "moment+langs.min.js"]),
+        copier(["libs", "moment", "min", "moment-with-langs.js"]),
+        copier(["libs", "moment", "min", "moment-with-langs.min.js"]),
         copier(["libs", "moment-timezone", "moment-timezone.js"]),
         copier(["libs", "moment-timezone", "min", "moment-timezone.min.js"])
     ], cb);
