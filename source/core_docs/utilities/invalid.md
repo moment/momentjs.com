@@ -9,7 +9,7 @@ m.parsingFlags().userInvalidated; // true
 
 `invalid` also accepts an object which specifies which parsing flags to set. This will *not* set the `userInvalidated` parsing flag unless it's one of the properties specified.
 
-```js
+```javascript
 var m = moment.invalid({invalidMonth: 'Actober'});
 m.parsingFlags().invalidMonth; // 'Actober'
 ```
