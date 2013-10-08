@@ -105,6 +105,14 @@
 				],
 				"version": "1.5.0"
 			},
+                        {
+                                "key": "parse-zone",
+                                "title": "parseZone",
+                                "signature": [
+                                          "moment.parseZone(String)"
+                                ],
+                                "version": "2.3.0"
+                        },
 			{
 				"key": "is-valid",
 				"title": "Validation",
