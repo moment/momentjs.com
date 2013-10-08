@@ -157,3 +157,16 @@ As of version **2.0.0**, a language key can be passed as the third parameter to 
 moment('2012 juillet', 'YYYY MMM', 'fr');
 moment('2012 July', 'YYYY MMM', 'en');
 ```
+
+Moment's parser is very forgiving, and this can lead to undesired behavior. As of version **2.3.0**, you may specify a boolean for the last argument to make Moment use strict parsing. Strict parsing requires that the format and input match exactly.
+
+```javascript
+moment('It is 2012-05-25').isValid();        // true
+moment('It is 2012-05-25', true).isValid();  // false
+```
+
+You can use both language and strictness.
+
+```javascript
+moment('2012-10-14', 'YYYY-MM-DD', 'fr', true);
+```

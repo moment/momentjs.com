@@ -44,13 +44,18 @@
 				"key": "String + Format",
 				"signature": [
 					"moment(String, String);",
-					"moment(String, String, String);"
+					"moment(String, String, String);",
+					"moment(String, String, Boolean);",
+					"moment(String, String, String, Boolean);"
 				],
 				"version": "1.0.0"
 			},
 			{
 				"key": "String + Formats",
 				"signature": "moment(String, String[]);",
+				"signature": "moment(String, String[], String);",
+				"signature": "moment(String, String[], Boolean);",
+				"signature": "moment(String, String[], String, Boolean);",
 				"version": "1.0.0"
 			},
 			{

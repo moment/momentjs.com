@@ -6,13 +6,17 @@ This is the same as [String + Format](#/parsing/string-format/), only it will tr
 moment("12-25-1995", ["MM-DD-YYYY", "YYYY-MM-DD"]);
 ```
 
-This approach is fundamentally problematic in cases like the following, where there is a difference in big, medium, or little endian date formats.
+Starting in **2.3.0**, Moment uses some simple heuristics to determine which format to use. In order:
+
+ * Prefer formats resulting in [valid](#/parsing/is-valid/) dates over invalid ones.
+ * Prefer formats that parse more of the string than less and use more of the format more of the format than less, i.e. prefer stricter parsing.
+ * Prefer formats earlier in the array than later.
 
 ```javascript
-moment("05-06-1995", ["MM-DD-YYYY", "DD-MM-YYYY"]); // June 5th or May 6th?
-moment("040506", ["MMDDYY", "DDMMYY", "YYMMDD"]); // Apr 5 2006, May 4 2006, or May 6 2004?
+moment("29-06-1995", ["MM-DD-YYYY", "DD-MM", "DD-MM-YYYY"]); //uses the last format
+moment("05-06-1995", ["MM-DD-YYYY", "DD-MM-YYYY"]); // uses the first format
 ```
 
-This is also the reason Moment.js does not do "magical" string parsing.
+You may also specify a language and strictness argument; they work the same was as they do in the single format case.
 
 **Note:** Parsing multiple formats is considerably slower than parsing a single format. If you can avoid it, it is much faster to parse a single format.
