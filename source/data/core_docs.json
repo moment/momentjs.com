@@ -284,6 +284,7 @@
 			},
 			{
 				"key": "get",
+                                "title": "Get",
 				"signature": [
 					"moment().get('year');",
 					"moment().get('month');  // 0 to 11",
@@ -297,6 +298,7 @@
 			},
 			{
 				"key": "set",
+                                "title": "Set",
 				"signature": [
 					"moment().set('year', 2013);",
 					"moment().set('month', 3);  // April",
@@ -791,12 +793,12 @@
                 "methods": [
                         {
                                 "key": "normalize-units",
-                                "title": "normalizeUnits",
+                                "title": "Normalize Units",
                                 "signature": "moment.normalizeUnits(String);",
                                 "version": "2.3.0"
                         },
                         {
-                                "key": "invalid",
+                                "key": "Invalid",
                                 "signature": "moment.normalizeUnits(String);",
                                 "version": "2.3.0"
                         }
@@ -807,6 +809,7 @@
 		"methods": [
 			{
 				"key": "strftime",
+				"title": "Strftime",
 				"signature": [
 					"npm install moment-strftime"
 				]
