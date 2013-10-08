@@ -490,6 +490,12 @@
 				"signature": "moment().isDST();",
 				"version": "1.2.0"
 			},
+                        {
+                                "key": "is-dst-shifted",
+                                "title": "Is DST Shifted",
+                                "signature": "moment('2013-03-10 2:30', 'YYYY-MM-DD HH:mm').isDSTShifted()",
+                                "version": "2.3.0"
+                        },
 			{
 				"key": "Is a Moment",
 				"signature": "moment.isMoment(obj);",
