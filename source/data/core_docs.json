@@ -553,7 +553,19 @@
 				"title": "Checking the current Moment.js language",
 				"signature": "moment.lang();",
 				"version": "1.6.0"
-			}
+			},
+                        {
+                                "key": "listing-months-weekdays",
+                                "title": "Listing the months and weekdays of the current Moment.js language",
+                                "signature": [
+                                          "moment.months()",
+                                          "moment.monthsShort()",
+                                          "moment.weekdays()",
+                                          "moment.weekdaysShort()",
+                                          "moment.weekdaysMin()"
+                                ],
+                                "version": "2.3.0"
+                        }
 		]
 	},
 	{
