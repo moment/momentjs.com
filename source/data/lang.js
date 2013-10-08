@@ -1,6 +1,7 @@
 module.exports = {
     'ar'     : 'Arabic',
     'ar-ma'  : 'Moroccan Arabic',
+    'bs'     : 'Bosnian',
     'bg'     : 'Bulgarian',
     'br'     : 'Breton',
     'ca'     : 'Catalan',
@@ -9,8 +10,9 @@ module.exports = {
     'da'     : 'Danish',
     'de'     : 'German',
     'el'     : 'Greek',
-    'en-ca'  : 'English (Canada)',
     'en'     : 'English',
+    'en-au'  : 'English (Australia)',
+    'en-ca'  : 'English (Canada)',
     'en-gb'  : 'English (England)',
     'eo'     : 'Esperanto',
     'es'     : 'Spanish',
@@ -52,6 +54,7 @@ module.exports = {
     'tr'     : 'Turkish',
     'tzm-la' : 'Tamaziɣt',
     'uk'     : 'Ukrainian',
+    'uz'     : 'Uzbek',
     'zh-cn'  : 'Chinese',
     'zh-tw'  : 'Chinese (Traditional)'
 };

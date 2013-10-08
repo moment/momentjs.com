@@ -37,8 +37,26 @@ The parsing tokens are similar to the formatting tokens used in `moment#format`.
     </tr>
     <tr>
       <td>d, dd, ddd, dddd</td>
-      <td>Day of week (NOTE: the input for these tokens is ignored, as there are 4-5 weeks in a month, and it would be impossible to get the day of the month based off the day of the week)</td>
+      <td>Day of week (NOTE: these formats only make sense when combined with "ww")
     </tr>
+    <tr>
+      <td>e</td>
+      <td>Day of week (locale) (NOTE: these formats only make sense when combined with "ww")
+    </tr>
+    <tr>
+      <td>E</td>
+      <td>Day of week (ISO) (NOTE: this format only make sense when combined with "WW")
+    </tr>
+    <tr>
+      <td>w, ww</td>
+      <td>Week of the year (NOTE: combine this format with "gg" or "gggg" instead of "YY" or "YYYY")
+    </tr>
+    <tr>
+    <tr>
+      <td>W, WW</td>
+      <td>Week of the year (NOTE: combine this format with "GG" or "GGGG" instead of "YY" or "YYYY")
+    </tr>
+    <tr>
     <tr>
       <td>YY</td>
       <td>2 digit year (if greater than 68 will return 1900's, otherwise 2000's)</td>
@@ -46,6 +64,22 @@ The parsing tokens are similar to the formatting tokens used in `moment#format`.
     <tr>
       <td>YYYY</td>
       <td>4 digit year</td>
+    </tr>
+    <tr>
+      <td>gg</td>
+      <td>2 digit week year (if greater than 68 will return 1900's, otherwise 2000's)</td>
+    </tr>
+    <tr>
+      <td>gggg</td>
+      <td>4 digit week year</td>
+    </tr>
+    <tr>
+      <td>GG</td>
+      <td>2 digit week year (ISO) (if greater than 68 will return 1900's, otherwise 2000's)</td>
+    </tr>
+    <tr>
+      <td>GGGG</td>
+      <td>4 digit week year (ISO)</td>
     </tr>
     <tr>
       <td>a, A</td>
