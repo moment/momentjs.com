@@ -1,8 +1,8 @@
 Moment applies stricter initialization rules than the `Date` constructor:
 
 ```js
-new Date(2013, 25, 14).toString(); //=> "Sat Feb 14 2015 00:00:00 GMT-0500 (EST)"
-moment([2015, 25, 35]).format(); //=> 'Invalid date'
+new Date(2013, 25, 14).toString(); // "Sat Feb 14 2015 00:00:00 GMT-0500 (EST)"
+moment([2015, 25, 35]).format();   // 'Invalid date'
 ```
 
 You can check whether the Moment considers the date invalid using `moment#isValid`. You can check the metrics used by `#isValid` using `moment#parsingFlags` which returns an object
@@ -14,7 +14,7 @@ The following parsing flags result in an invalid date:
  * `empty`: An input string that contains nothing parsable, such as `moment('this is nonsense');`. Boolean.
  * `nullInput`: A `null` input, like `moment(null);`. Boolean.
  * `invalidFormat`: An empty list of formats, such as `moment('2013-05-25', [])`. Boolean.
- * `userInvalidated`: A date created explicitly as invalid, such as `moment.invalidDate()`. Boolean.
+ * `userInvalidated`: A date created explicitly as invalid, such as `moment.invalid()`. Boolean.
 
 Additionally, if the Moment is parsed in strict mode, these flags must be empty for the Moment to be valid:
 

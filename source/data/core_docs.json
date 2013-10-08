@@ -780,6 +780,22 @@
 			}
 		]
 	},
+        {
+                "key": "Utilities",
+                "methods": [
+                        {
+                                "key": "normalize-units",
+                                "title": "normalizeUnits",
+                                "signature": "moment.normalizeUnits(String);",
+                                "version": "2.3.0"
+                        },
+                        {
+                                "key": "invalid",
+                                "signature": "moment.normalizeUnits(String);",
+                                "version": "2.3.0"
+                        }
+                ]
+        },
 	{
 		"key": "Plugins",
 		"methods": [

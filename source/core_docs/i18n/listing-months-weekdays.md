@@ -26,7 +26,7 @@ Similarly, `moment.monthsShort` returns abbreviated month names, and `moment.wee
 You can pass an integer into each of those functions to get a specific month or weekday:
 
 ```js
-moment.weekday(3); //=> 'Wednesday'
+moment.weekday(3); // 'Wednesday'
 ```
 
 **Note:** Currently, weekdays always have Sunday as index 0, regardless of the local first day of the week.
@@ -35,12 +35,12 @@ Some languages make special considerations into account when formatting month na
 
 ```js
 moment.lang('nl');
-moment.monthsShort(); // => ['jan.', 'feb.', 'mrt.', ...]
-moment.monthsShort('-MMM-'); //=> [ 'jan', 'feb', 'mrt', ...]
+moment.monthsShort(); // ['jan.', 'feb.', 'mrt.', ...]
+moment.monthsShort('-MMM-'); // [ 'jan', 'feb', 'mrt', ...]
 ```
 
 And finally, you can combine both the format option and the integer option:
 
 ```js
-moment.monthsShort('-MMM-', 3); //=> 'apr'
+moment.monthsShort('-MMM-', 3); // 'apr'
 ```
