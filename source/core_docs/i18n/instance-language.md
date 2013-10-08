@@ -30,3 +30,5 @@ fr.lang().months(moment([2012, 0])) // "January"
 ```
 
 If you need to access the language data for a moment, this is the preferred way to do so.
+
+As of **2.3.0**, you can also specify an array of language identifiers. It works the same was it does in the [global language configuration](http://localhost:8000/docs/#/i18n/changing-language/).

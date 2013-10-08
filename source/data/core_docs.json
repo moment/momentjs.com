@@ -520,6 +520,7 @@
 				"title": "Changing language globally",
 				"signature": [
 					"moment.lang(String);",
+					"moment.lang(String[]);",
 					"moment.lang(String, Object);"
 				],
 				"version": "1.0.0"

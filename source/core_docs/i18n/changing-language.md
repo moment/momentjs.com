@@ -59,3 +59,28 @@ moment(1316116057189).fromNow() // il y a une heure
 moment.lang('en');
 moment(1316116057189).fromNow() // an hour ago
 ```
+
+As of **2.3.0**, `moment.lang` returns the language used. This is useful because Moment won't change languages if it doesn't know the one you specify.
+
+```javascript
+moment.lang('fr'); // 'fr'
+moment.lang('tq'); // 'fr'
+```
+
+Starting in **2.3.0**, you may also specify a list of languages, and Moment will use the first one it has localizations for.
+
+```javascript
+moment.lang(['tq', 'fr']); // 'fr'
+```
+
+Moment will also try language specifier substrings from most-specific to least-specific until it finds a language it knows. This is useful when supplying Moment with a language string pulled from the user's environment, such as `window.navigator.language`.
+
+```javascript
+moment.lang('en-NZ'); // 'en'
+```
+
+Finally, Moment will search intelligently through an array of languages and their substrings.
+
+```javascript
+moment.lang('en-NZ', 'en-AU'); // 'en-au', not 'en'
+```
