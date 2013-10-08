@@ -1,4 +1,4 @@
-Many of Moment's functions allow the caller to pass in aliases for unit enums. For example, all of these are equivalent:
+Many of Moment's functions allow the caller to pass in aliases for unit enums. For example, all of the `get`s below are equivalent.
 
 ```javascript
 var m = moment();
@@ -11,6 +11,8 @@ If you're extending the library, you may want access to Moment's facilities for 
 
 ```javascript
 moment.normalizeUnits('y');      // 'year'
+moment.normalizeUnits('Y');      // 'year'
 moment.normalizeUnits('year');   // 'year'
 moment.normalizeUnits('years');  // 'year'
+moment.normalizeUnits('YeARS');  // 'year'
 ```

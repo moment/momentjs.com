@@ -11,7 +11,7 @@ moment().day(10); // next Wednesday (3 + 7)
 moment().day(24); // 3 Wednesdays from now (3 + 7 + 7 + 7)
 ```
 
-*Note:* `Moment#date` is for the date of the month, and `Moment#day` is for the day of the week.
+**Note:** `Moment#date` is for the date of the month, and `Moment#day` is for the day of the week.
 
 As of **2.1.0**, a week name is also supported. This is parsed in the moment's current locale.
 

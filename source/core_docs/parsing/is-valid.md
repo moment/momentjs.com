@@ -1,4 +1,4 @@
-Moment applies stricter initialization rules than the `Date` constructor:
+Moment applies stricter initialization rules than the `Date` constructor.
 
 ```js
 new Date(2013, 25, 14).toString(); // "Sat Feb 14 2015 00:00:00 GMT-0500 (EST)"
@@ -23,7 +23,7 @@ Additionally, if the Moment is parsed in strict mode, these flags must be empty 
 
 **Note:** Moment's concept of validity became more strict and consistent between 2.2 and 2.3.
 
-Additionally, you can use `moment#invalidAt` to determine which date unit overflowed:
+Additionally, you can use `moment#invalidAt` to determine which date unit overflowed.
 
 ```javascript
 var m = moment("2011-10-10T10:20:90");
