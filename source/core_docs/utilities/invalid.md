@@ -1,6 +1,6 @@
 You can create your own invalid Moment objects, which is useful in making your own parser.
 
-```js
+```javascript
 var m = moment.invalid();
 m.isValid();                      // false
 m.format();                       // 'Invalid date'
@@ -15,5 +15,3 @@ m.parsingFlags().invalidMonth; // 'Actober'
 ```
 
 You need not specify parsing flags recognized by Moment; the Moment will be invalid nonetheless, and the parsing flags will be returned by `parsingFlags()`.
-
-

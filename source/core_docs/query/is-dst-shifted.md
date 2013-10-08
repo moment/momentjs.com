@@ -1,6 +1,6 @@
 Another important piece of validation is to know if the date has been moved by a DST. For example, in most of the United States:
 
-```js
+```javascript
 moment('2013-03-10 2:30', 'YYYY-MM-DD HH:mm').format(); //=> '2013-03-10T01:30:00-05:00'
 ```
 
