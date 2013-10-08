@@ -81,4 +81,5 @@ The format is an hour, minute, second string separated by colons like `23:59:59`
 moment.duration('23:59:59');
 moment.duration('23:59:59.999');
 moment.duration('7.23:59:59.999');
+moment.duration('23:59');          //added in 2.3.0
 ```
