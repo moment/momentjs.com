@@ -1,4 +1,4 @@
-Retrieves the greater of two moment values.
+Limits the moment to a maximum of another moment value.
 
 Sometimes, server clocks are not quite in sync with client clocks. This ends up displaying humanized strings such as "in a few seconds" rather than "a few seconds ago". You can prevent that with `moment#max()`:
 
