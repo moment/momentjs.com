@@ -1,4 +1,4 @@
-Retrieves the lesser of two moment values.
+Limits the moment to a minimum of another moment value.
 
 This is the counterpart for `moment#max`.
 
