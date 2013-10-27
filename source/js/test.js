@@ -26,6 +26,40 @@
 		banner.html('<h3><span class="counter">' + _passed + '</span> tests passed. <span class="counter">' + _failed + '</span> failed.</h3>');
 	}
 
+	(function() {
+		var queryArgs = {}, query = window.location.search, pieces, i, key_val,
+			filtered, suite, test;
+		if (!query) { return; }
+		if (query[query.length - 1] === '/') {
+			query = query.slice(0, query.length - 1);
+		}
+		pieces = query.slice(1).split('&');
+		for (i = 0; i < pieces.length; ++i) {
+			key_val = pieces[i].split('=');
+			queryArgs[decodeURIComponent(key_val[0])] = decodeURIComponent(key_val[1]);
+		}
+		if (queryArgs.suite !== undefined) {
+			filtered = {};
+			for (suite in exports) {
+				if (suite.match(queryArgs.suite)) {
+					filtered[suite] = exports[suite];
+				}
+			}
+			exports = filtered;
+		}
+		if (queryArgs.test !== undefined) {
+			for (suite in exports) {
+				filtered = {};
+				for (test in exports[suite]) {
+					if (test === 'setUp' || test === 'tearDown' || test.match(queryArgs.test)) {
+						filtered[test] = exports[suite][test];
+					}
+				}
+				exports[suite] = filtered;
+			}
+		}
+	}());
+
 	nodeunit.runModules(exports, {
 		moduleStart : function (name) {
 			tests.append('<h3>' + name + '</h3>');
