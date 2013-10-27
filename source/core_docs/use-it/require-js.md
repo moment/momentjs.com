@@ -16,3 +16,7 @@ require.config({
   noGlobal: true
 });
 ```
+
+If you don't specify `noGlobal` then the globally exported moment will print
+a deprecation warning. From next major release you'll have to export it
+yourself if you want that behavior.
