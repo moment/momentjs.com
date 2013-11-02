@@ -36,6 +36,7 @@ module.exports = {
     'ka'     : 'Georgian',
     'ko'     : 'Korean',
     'lv'     : 'Latvian',
+    'lt'     : 'Lithuanian',
     'ml'     : 'Malayalam',
     'mr'     : 'Marathi',
     'ms-my'  : 'Bahasa Malaysian',
