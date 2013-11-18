@@ -13,5 +13,19 @@
 				"key": "Require.js"
 			}
 		]
+	},
+	{
+		"key": "how-to",
+		"title": "How to use it",
+		"methods": [
+			{
+				"key": "Constructor",
+				"signature": "moment.tz(..., String);"
+			},
+			{
+				"key": "Mutator",
+				"signature": "moment(...).tz(String);"
+			}
+		]
 	}
 ]
