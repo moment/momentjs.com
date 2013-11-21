@@ -1651,7 +1651,7 @@ moment().max(<span class="keyword">new</span> Date(<span class="number">2012</sp
 						
 							<pre lang="javascript">moment().local();</pre>
 						
-						<p>Toggles a flag on the original moment to internally use <code>Date#get*</code> and <code>Date#set*</code> instead of <code>Date#getUTC*</code> and <code>Date#setUTC*</code>.</p>
+						<p>Sets a flag on the original moment to internally use <code>Date#get*</code> and <code>Date#set*</code> instead of <code>Date#getUTC*</code> and <code>Date#setUTC*</code>.</p>
 <pre><code class="lang-javascript"><span class="keyword">var</span> a = moment.utc([<span class="number">2011</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">8</span>]);
 a.hours(); <span class="comment">// 8 UTC</span>
 a.local();
@@ -1671,7 +1671,7 @@ a.hours(); <span class="comment">// 0 PST</span></code></pre>
 						
 							<pre lang="javascript">moment().utc();</pre>
 						
-						<p>Toggles a flag on the original moment to internally use <code>Date#getUTC*</code> and <code>Date#setUTC*</code> instead of <code>Date#get*</code> and <code>Date#set*</code>.</p>
+						<p>Sets a flag on the original moment to internally use <code>Date#getUTC*</code> and <code>Date#setUTC*</code> instead of <code>Date#get*</code> and <code>Date#set*</code>.</p>
 <pre><code class="lang-javascript"><span class="keyword">var</span> a = moment([<span class="number">2011</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">8</span>]);
 a.hours(); <span class="comment">// 8 PST</span>
 a.utc();
