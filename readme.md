@@ -1,19 +1,22 @@
+## Installing
+
+```
+npm install
+git submodule init
+git submodule update --recursive
+git submodule foreach npm install
+npm install -g grunt-cli
+```
+
 ## Running locally
 
-Just run `./runlocal.sh`
+```
+./runlocal.sh`
+```
 
 ## Regenerating HTML and JS
 
-You do that by running the default grunt task, but before that:
-
-* Make sure you have the git submodules
 ```
-git submodule update --init
+grunt
 ```
 
-* Install dependencies
-```
-npm install
-cd libs/moment-timezone
-npm install
-```
