@@ -1,4 +1,4 @@
-`moment#unix` outputs a Unix timestamp (the of seconds since the Unix Epoch).
+`moment#unix` outputs a Unix timestamp (the number of seconds since the Unix Epoch).
 
 ```javascript
 moment(1318874398806).unix(); // 1318874398
