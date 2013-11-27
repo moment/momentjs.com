@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:300,700' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="/static/css/style.css?v=2013-10-26T19:37:51-07:00" />
+		<link rel="stylesheet" href="/static/css/style.css?v=2013-11-26T23:22:52-08:00" />
 		<title>Moment.js | Documentation</title>
 	</head>
 	<body class="is-timezone is-docs">
@@ -65,6 +65,17 @@
 						<a href="#/use-it/browser/">Browser</a>
 					
 						<a href="#/use-it/require-js/">Require.js</a>
+					
+				</div>
+			</div>
+		
+			<div class="section">
+				<a href='#/how-to/'>How to use it</a>
+				<div class="dropdown">
+					
+						<a href="#/how-to/constructor/">Constructor</a>
+					
+						<a href="#/how-to/mutator/">Mutator</a>
 					
 				</div>
 			</div>
@@ -137,6 +148,55 @@ define([<span class="string">"moment-timezone"</span>, <span class="string">"mom
 				</article>
 			
 		
+			<article class="section">
+				<a class="target" name="/how-to/"></a>
+				<h2><a href='#/how-to/'><span class="hash">#</span>How to use it</a></h2>
+				
+			</article>
+			
+				<article class="method">
+					<a class="target" name="/how-to/constructor/"></a>
+					<h3>
+						<a href='#/how-to/constructor/'><span class="hash">#</span>Constructor</a>
+						<span></span>
+					</h3>
+					<div class="prose">
+						
+							<pre lang="javascript">moment.tz(..., String);</pre>
+						
+						<p>The <code>moment.tz</code> constructor takes all the same arguments as the <code>moment</code>
+constructor, but will interpret the last argument as a time zone identifier.</p>
+<pre><code class="lang-javascript">moment.tz(<span class="string">"2013-11-18 11:55"</span>, <span class="string">"America/Toronto"</span>).format(); <span class="comment">// "2013-11-18T11:55:00-05:00"</span>
+moment.tz(<span class="keyword">new</span> Date(<span class="number">2013</span>, <span class="number">11</span>, <span class="number">18</span>), <span class="string">"America/Toronto"</span>).format(); <span class="comment">// "2013-12-18T00:00:00-05:00"</span></code></pre>
+
+					</div>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/how-to/mutator/"></a>
+					<h3>
+						<a href='#/how-to/mutator/'><span class="hash">#</span>Mutator</a>
+						<span></span>
+					</h3>
+					<div class="prose">
+						
+							<pre lang="javascript">moment(...).tz(String);</pre>
+						
+						<p>The <code>.tz</code> mutator will set the timezone to the provided time zone identifier and 
+update the offset.</p>
+<pre><code class="lang-javascript">moment(<span class="string">"2013-11-18"</span>).tz(<span class="string">"America/Toronto"</span>).zone(); <span class="comment">// 300</span>
+moment(<span class="string">"2013-11-18"</span>).tz(<span class="string">"Europe/Berlin"</span>).zone(); <span class="comment">// -60</span></code></pre>
+<p>This information is used consistently in other operations, like calculating the 
+start of the day.</p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> m = moment(<span class="string">"2013-11-18 11:55"</span>);
+m.tz(<span class="string">"America/Toronto"</span>).format(); <span class="comment">// "2013-11-18T11:55:00-05:00"</span>
+m.startOf(<span class="string">"day"</span>).format(); <span class="comment">// "2013-11-18T00:00:00-05:00"</span>
+m.tz(<span class="string">"Europe/Berlin"</span>).format(); <span class="comment">// "2013-11-18T06:00:00+01:00"</span></code></pre>
+
+					</div>
+				</article>
+			
+		
 	</div>
 
 
@@ -146,7 +206,7 @@ define([<span class="string">"moment-timezone"</span>, <span class="string">"mom
 		</footer>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-		<script src="/static/js/global.min.js?v=2013-10-26T19:37:51-07:00"></script>
+		<script src="/static/js/global.min.js?v=2013-11-26T23:22:52-08:00"></script>
 		
 
 		<script>
