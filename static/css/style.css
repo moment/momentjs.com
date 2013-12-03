@@ -747,7 +747,11 @@ aside a:hover {
   position: relative;
   z-index: 1;
 }
-/* line 195, ../../source/css/_header.scss */
+/* line 194, ../../source/css/_header.scss */
+aside a .zipped {
+  color: #aaa;
+}
+/* line 199, ../../source/css/_header.scss */
 aside pre {
   border: 1px solid #e3e3e3;
   border-radius: 3px;
@@ -756,28 +760,28 @@ aside pre {
   padding-left: 18px;
   margin-bottom: 25px;
 }
-/* line 203, ../../source/css/_header.scss */
+/* line 207, ../../source/css/_header.scss */
 aside pre.shell:before {
   content: '$ ';
 }
-/* line 204, ../../source/css/_header.scss */
+/* line 208, ../../source/css/_header.scss */
 aside pre.pm:before {
   content: 'PM> ';
 }
-/* line 205, ../../source/css/_header.scss */
+/* line 209, ../../source/css/_header.scss */
 aside pre:last-child {
   margin-bottom: 0;
 }
-/* line 207, ../../source/css/_header.scss */
+/* line 211, ../../source/css/_header.scss */
 aside .selectable {
   cursor: pointer;
 }
 
-/* line 217, ../../source/css/_header.scss */
+/* line 221, ../../source/css/_header.scss */
 .is-timezone header .circle .face:before, .is-timezone header .circle .face:after {
   display: none;
 }
-/* line 221, ../../source/css/_header.scss */
+/* line 225, ../../source/css/_header.scss */
 .is-timezone header .circle .face .map-thumb {
   background: url(../img/world.png);
   background-size: cover;
@@ -797,42 +801,42 @@ aside .selectable {
 }
 
 @-moz-keyframes map {
-  /* line 236, ../../source/css/_header.scss */
+  /* line 240, ../../source/css/_header.scss */
   from {
     background-position: 625% 0;
   }
 
-  /* line 239, ../../source/css/_header.scss */
+  /* line 243, ../../source/css/_header.scss */
   to {
     background-position: 25% 0;
   }
 }
 
 @-webkit-keyframes map {
-  /* line 236, ../../source/css/_header.scss */
+  /* line 240, ../../source/css/_header.scss */
   from {
     background-position: 625% 0;
   }
 
-  /* line 239, ../../source/css/_header.scss */
+  /* line 243, ../../source/css/_header.scss */
   to {
     background-position: 25% 0;
   }
 }
 
 @keyframes map {
-  /* line 236, ../../source/css/_header.scss */
+  /* line 240, ../../source/css/_header.scss */
   from {
     background-position: 625% 0;
   }
 
-  /* line 239, ../../source/css/_header.scss */
+  /* line 243, ../../source/css/_header.scss */
   to {
     background-position: 25% 0;
   }
 }
 
-/* line 244, ../../source/css/_header.scss */
+/* line 248, ../../source/css/_header.scss */
 footer {
   background: url(../img/header.png);
   padding: 40px;
