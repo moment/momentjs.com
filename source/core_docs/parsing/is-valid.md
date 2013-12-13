@@ -45,11 +45,3 @@ The return value has the following meaning:
 
 **Note:** In case of multiple wrong units the first one is returned (because
 days validity may depend on month, for example).
-
-**Note:** The `moment#isValid` method will not work after manipulating the
-moment object with any of the manipulation methods.
-
-```javascript
-moment("2011-10-10", "YYYY-MM-DD").isValid(); // true
-moment("2011-10-10", "YYYY-MM-DD").date(20).isValid(); // false
-```
