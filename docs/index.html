@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:300,700' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="/static/css/style.css?v=2013-12-03T14:30:24-05:00" />
+		<link rel="stylesheet" href="/static/css/style.css?v=2013-12-17T13:45:02-05:00" />
 		<title>Moment.js | Documentation</title>
 	</head>
 	<body class="is-core is-docs">
@@ -352,6 +352,8 @@
 						<a href="#/plugins/jalaali/">Jalaali Calendar</a>
 					
 						<a href="#/plugins/msdate/">MSDate</a>
+					
+						<a href="#/plugins/fquarter/">Fiscal Quarters</a>
 					
 				</div>
 			</div>
@@ -3773,6 +3775,28 @@ m.format(&#39;jYYYY/jM/jD [is] YYYY/M/D&#39;); // 1360/5/26 is 1981/8/17</code><
 					</div>
 				</article>
 			
+				<article class="method">
+					<a class="target" name="/plugins/fquarter/"></a>
+					<h3>
+						<a href='#/plugins/fquarter/'><span class="hash">#</span>Fiscal Quarters</a>
+						<span></span>
+					</h3>
+					<div class="prose">
+						
+						<p>If you ever have need for <a href="http://en.wikipedia.org/wiki/Fiscal_year">Fiscal</a>, Calendar or Academic quarters, you can use the <a href="https://github.com/robgallen/moment-fquarter">moment-fquarter</a> plugin by <a href="https://github.com/robgallen">@robgallen</a>.</p>
+<p>At it&#39;s simplest, just call the fquarter method on any moment object. It returns a formatted string with April being the first quarter.</p>
+<pre><code class="lang-javascript">moment(<span class="string">"2013-01-01"</span>).fquarter();
+<span class="comment">// Q4 2012/13</span></code></pre>
+<p>You can pass in any month as the starting quarter, e.g. July</p>
+<pre><code class="lang-javascript">moment(<span class="string">"2013-01-01"</span>).fquarter(<span class="number">7</span>);
+<span class="comment">// Q3 2012/13</span></code></pre>
+<p>If you want calendar quarters, start in January</p>
+<pre><code class="lang-javascript">moment(<span class="string">"2013-01-01"</span>).fquarter(<span class="number">1</span>);
+<span class="comment">// Q1 2013</span></code></pre>
+
+					</div>
+				</article>
+			
 		
 	</div>
 
@@ -3783,7 +3807,7 @@ m.format(&#39;jYYYY/jM/jD [is] YYYY/M/D&#39;); // 1360/5/26 is 1981/8/17</code><
 		</footer>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-		<script src="/static/js/global.min.js?v=2013-12-03T14:30:24-05:00"></script>
+		<script src="/static/js/global.min.js?v=2013-12-17T13:45:02-05:00"></script>
 		
 
 		<script>
