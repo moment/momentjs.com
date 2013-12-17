@@ -846,10 +846,14 @@
 					"npm install moment-jalaali"
 				]
 			},
-                        {
+			{
 				"key": "msdate",
 				"title": "MSDate"
-                        }
+			},
+			{
+				"key": "fquarter",
+				"title": "Fiscal Quarters"
+			}
 		]
 	}
 ]
