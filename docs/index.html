@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:300,700' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="/static/css/style.css?v=2013-12-23T21:17:34+00:00" />
+		<link rel="stylesheet" href="/static/css/style.css?v=2013-12-27T17:13:25+01:00" />
 		<title>Moment.js | Documentation</title>
 	</head>
 	<body class="is-core is-docs">
@@ -148,6 +148,8 @@
 						<a href="#/get-set/iso-week/">Week of Year (ISO)</a>
 					
 						<a href="#/get-set/month/">Month</a>
+					
+						<a href="#/get-set/quarter/">Quarter</a>
 					
 						<a href="#/get-set/year/">Year</a>
 					
@@ -1324,6 +1326,29 @@ moment([<span class="number">2012</span>, <span class="number">0</span>, <span c
 				</article>
 			
 				<article class="method">
+					<a class="target" name="/get-set/quarter/"></a>
+					<h3>
+						<a href='#/get-set/quarter/'><span class="hash">#</span>Quarter</a>
+						<span>2.5.0</span>
+					</h3>
+					<div class="prose">
+						
+							<pre lang="javascript">moment().quarter(); // Number</pre>
+						
+						<p>Gets the quarter (1 to 4).</p>
+<pre><code class="lang-javascript">moment(<span class="string">'2013-01-01T00:00:00.000'</span>).quarter() <span class="comment">// 1</span>
+moment(<span class="string">'2013-04-01T00:00:00.000'</span>).subtract(<span class="number">1</span>, <span class="string">'ms'</span>).quarter() <span class="comment">// 1</span>
+moment(<span class="string">'2013-04-01T00:00:00.000'</span>).quarter() <span class="comment">// 2</span>
+moment(<span class="string">'2013-07-01T00:00:00.000'</span>).subtract(<span class="number">1</span>, <span class="string">'ms'</span>).quarter() <span class="comment">// 2</span>
+moment(<span class="string">'2013-07-01T00:00:00.000'</span>).quarter() <span class="comment">// 3</span>
+moment(<span class="string">'2013-10-01T00:00:00.000'</span>).subtract(<span class="number">1</span>, <span class="string">'ms'</span>).quarter() <span class="comment">// 3</span>
+moment(<span class="string">'2013-10-01T00:00:00.000'</span>).quarter() <span class="comment">// 4</span>
+moment(<span class="string">'2014-01-01T00:00:00.000'</span>).subtract(<span class="number">1</span>, <span class="string">'ms'</span>).quarter() <span class="comment">// 4</span></code></pre>
+
+					</div>
+				</article>
+			
+				<article class="method">
 					<a class="target" name="/get-set/year/"></a>
 					<h3>
 						<a href='#/get-set/year/'><span class="hash">#</span>Year</a>
@@ -1768,6 +1793,11 @@ moment(<span class="string">'gibberish'</span>).format(<span class="string">'YYY
       <td></td>
       <td>MMMM</td>
       <td>January February ... November December</td>
+    </tr>
+    <tr>
+      <td>Quarter</td>
+      <td>Q</td>
+      <td>1 2 3 4</td>
     </tr>
     <tr>
       <td><b>Day of Month</b></td>
@@ -3807,7 +3837,7 @@ m.format(&#39;jYYYY/jM/jD [is] YYYY/M/D&#39;); // 1360/5/26 is 1981/8/17</code><
 		</footer>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-		<script src="/static/js/global.min.js?v=2013-12-23T21:17:34+00:00"></script>
+		<script src="/static/js/global.min.js?v=2013-12-27T17:13:25+01:00"></script>
 		
 
 		<script>
