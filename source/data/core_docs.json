@@ -256,6 +256,13 @@
                 "version": "1.0.0"
             },
             {
+                "key": "Quarter",
+                "signature": [
+                    "moment().quarter(); // Number"
+                ],
+                "version": "2.5.0"
+            },
+            {
                 "key": "Year",
                 "signature": [
                     "moment().year(Number);",

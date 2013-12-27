@@ -41,6 +41,11 @@ There are a couple conventions used with the naming of the
       <td>January February ... November December</td>
     </tr>
     <tr>
+      <td>Quarter</td>
+      <td>Q</td>
+      <td>1 2 3 4</td>
+    </tr>
+    <tr>
       <td><b>Day of Month</b></td>
       <td>D</td>
       <td>1 2 ... 30 31</td>
