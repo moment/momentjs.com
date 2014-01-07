@@ -11,7 +11,7 @@ npm install -g grunt-cli
 ## Running locally
 
 ```
-./runlocal.sh`
+./runlocal.sh
 ```
 
 ## Regenerating HTML and JS
