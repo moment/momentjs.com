@@ -33,7 +33,7 @@ function main(grunt, cb) {
         zones : zones,
         langs : langs,
         cachebust : moment().format(),
-        global : grunt.option('localhost') && 'global' || 'global.min',
+        global : 'global',
         localhost : grunt.option('localhost') && process.cwd() || '',
         nav : function (path) {
             if (grunt.option('localhost')) {
