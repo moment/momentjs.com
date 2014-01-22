@@ -29,6 +29,7 @@ module.exports = {
     'hi'     : 'Hindi',
     'hr'     : 'Croatian',
     'hu'     : 'Hungarian',
+    'hy-am'  : 'Armenian',
     'id'     : 'Bahasa Indonesia',
     'is'     : 'Icelandic',
     'it'     : 'Italian',
