@@ -1,6 +1,6 @@
 To get the number of milliseconds in a duration, use `moment.duration().milliseconds()`.
 
-It will return a number between 0 and 1000.
+It will return a number between 0 and 999.
 
 ```javascript
 moment.duration(500).milliseconds(); // 500
