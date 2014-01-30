@@ -886,6 +886,13 @@
             {
                 "key": "fquarter",
                 "title": "Fiscal Quarters"
+            },
+            {
+                "key": "recur",
+                "title": "Recur",
+                "signature": [
+                    "npm install moment-recur"
+                ]
             }
         ]
     }
