@@ -54,6 +54,7 @@ module.exports = {
     'sl'     : 'Slovenian',
     'sq'     : 'Albanian',
     'sv'     : 'Swedish',
+    'ta'     : 'Tamil',
     'th'     : 'Thai',
     'tl-ph'  : 'Tagalog (Filipino)',
     'tr'     : 'Turkish',
