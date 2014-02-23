@@ -357,6 +357,7 @@
 					
 						<a href="#/plugins/fquarter/">Fiscal Quarters</a>
 					
+						<a href="#/plugins/preciserange/">Precise Range</a>
 				</div>
 			</div>
 		
@@ -3830,6 +3831,24 @@ m.format(&#39;jYYYY/jM/jD [is] YYYY/M/D&#39;); // 1360/5/26 is 1981/8/17</code><
 					</div>
 				</article>
 			
+				<article class="method">
+					<a class="target" name="/plugins/preciserange/"></a>
+					<h3>
+						<a href='#/plugins/preciserange/'><span class="hash">#</span>Precise Range</a>
+						<span></span>
+					</h3>
+					<div class="prose">
+						<p>
+							The <a href="http://codebox.org.uk/pages/moment-date-range-plugin">Precise Range</a> plugin, written by <a href="https://github.com/codebox">Rob Dawson</a>, can be used to display exact, human-readable representations of date/time ranges.
+						</p>
+<pre><code class="lang-javascript">moment(<span class="string">"2014-01-01 12:00:00"</span>).preciseDiff(<span class="string">"2015-03-04 16:05:06"</span>);
+<span class="comment">// 1 year 2 months 3 days 4 hours 5 minutes 6 seconds</span></code>
+</pre>
+<pre><code class="lang-javascript">moment.preciseDiff(<span class="string">"2014-01-01 12:00:00"</span>, <span class="string">"2014-04-20 12:00:00"</span>);
+<span class="comment">// 3 months 19 days</span></code>
+</pre>
+					</div>
+				</article>
 		
 	</div>
 
