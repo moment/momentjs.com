@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:300,700' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="/static/css/style.css?v=2014-02-25T17:08:46-05:00" />
+		<link rel="stylesheet" href="/static/css/style.css?v=2014-02-25T17:12:53-05:00" />
 		<title>Moment.js | Documentation</title>
 	</head>
 	<body class="is-core is-docs">
@@ -3844,7 +3844,12 @@ m.format(&#39;jYYYY/jM/jD [is] YYYY/M/D&#39;); // 1360/5/26 is 1981/8/17</code><
 					</h3>
 					<div class="prose">
 						
-						
+						<p>The <a href="http://codebox.org.uk/pages/moment-date-range-plugin">Precise Range</a> plugin, written by <a href="https://github.com/codebox">Rob Dawson</a>, can be used to display exact, human-readable representations of date/time ranges</p>
+<pre><code class="lang-javascript">moment(<span class="string">"2014-01-01 12:00:00"</span>).preciseDiff(<span class="string">"2015-03-04 16:05:06"</span>);
+ <span class="comment">// 1 year 2 months 3 days 4 hours 5 minutes 6 seconds</span></code></pre>
+<pre><code class="lang-javascript">moment.preciseDiff(<span class="string">"2014-01-01 12:00:00"</span>, <span class="string">"2014-04-20 12:00:00"</span>);
+<span class="comment">// 3 months 19 days</span></code></pre>
+
 					</div>
 				</article>
 			
@@ -3883,7 +3888,7 @@ interval.previous( 2, &quot;L&quot; ); // [&quot;12/10/2013&quot;, &quot;11/10/2
 		</footer>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-		<script src="/static/js/global.js?v=2014-02-25T17:08:46-05:00"></script>
+		<script src="/static/js/global.js?v=2014-02-25T17:12:53-05:00"></script>
 		
 
 		<script>
