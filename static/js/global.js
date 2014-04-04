@@ -8242,14 +8242,14 @@
 }));
 
 // moment-timezone.js
-// version : 0.0.3
+// version : 0.0.1
 // author : Tim Wood
 // license : MIT
 // github.com/timrwood/moment-timezone
 
 (function () {
 
-	var VERSION = "0.0.3";
+	var VERSION = "0.0.1";
 
 	function onload(moment) {
 		var oldZoneName = moment.fn.zoneName,
@@ -8686,15 +8686,6 @@
 			}
 		};
 
-		function getZoneSets() {
-			var sets = [],
-				zoneName;
-			for (zoneName in zoneSets) {
-				sets.push(zoneSets[zoneName]);
-			}
-			return sets;
-		}
-
 		moment.fn.tz = function (name) {
 			if (name) {
 				this._z = getZoneSet(name);
@@ -8727,16 +8718,12 @@
 			for (i = 0; i < len; i++) {
 				args[i] = arguments[i];
 			}
-			var m = moment.apply(null, args);
-			var preTzOffset = m.zone();
-			m.tz(arguments[len]);
-			return m.add('minutes', m.zone() - preTzOffset);
+			return moment.apply(null, args).tz(arguments[len]);
 		};
 
 		moment.tz.add = add;
 		moment.tz.addRule = addRule;
 		moment.tz.addZone = addZone;
-		moment.tz.zones = getZoneSets;
 
 		moment.tz.version = VERSION;
 
@@ -8760,81 +8747,14 @@
 
 {
 	"links": {
-		"Africa/Asmera": "Africa/Asmara",
-		"Africa/Timbuktu": "Africa/Bamako",
-		"America/Argentina/ComodRivadavia": "America/Argentina/Catamarca",
-		"America/Atka": "America/Adak",
-		"America/Buenos_Aires": "America/Argentina/Buenos_Aires",
-		"America/Catamarca": "America/Argentina/Catamarca",
-		"America/Coral_Harbour": "America/Atikokan",
-		"America/Cordoba": "America/Argentina/Cordoba",
-		"America/Ensenada": "America/Tijuana",
-		"America/Fort_Wayne": "America/Indiana/Indianapolis",
-		"America/Indianapolis": "America/Indiana/Indianapolis",
-		"America/Jujuy": "America/Argentina/Jujuy",
-		"America/Knox_IN": "America/Indiana/Knox",
 		"America/Kralendijk": "America/Curacao",
-		"America/Louisville": "America/Kentucky/Louisville",
 		"America/Lower_Princes": "America/Curacao",
 		"America/Marigot": "America/Guadeloupe",
-		"America/Mendoza": "America/Argentina/Mendoza",
-		"America/Porto_Acre": "America/Rio_Branco",
-		"America/Rosario": "America/Argentina/Cordoba",
 		"America/Shiprock": "America/Denver",
 		"America/St_Barthelemy": "America/Guadeloupe",
-		"America/Virgin": "America/St_Thomas",
 		"Antarctica/South_Pole": "Antarctica/McMurdo",
 		"Arctic/Longyearbyen": "Europe/Oslo",
-		"Asia/Ashkhabad": "Asia/Ashgabat",
-		"Asia/Calcutta": "Asia/Kolkata",
-		"Asia/Chungking": "Asia/Chongqing",
-		"Asia/Dacca": "Asia/Dhaka",
 		"Asia/Istanbul": "Europe/Istanbul",
-		"Asia/Katmandu": "Asia/Kathmandu",
-		"Asia/Macao": "Asia/Macau",
-		"Asia/Saigon": "Asia/Ho_Chi_Minh",
-		"Asia/Tel_Aviv": "Asia/Jerusalem",
-		"Asia/Thimbu": "Asia/Thimphu",
-		"Asia/Ujung_Pandang": "Asia/Makassar",
-		"Asia/Ulan_Bator": "Asia/Ulaanbaatar",
-		"Atlantic/Faeroe": "Atlantic/Faroe",
-		"Atlantic/Jan_Mayen": "Europe/Oslo",
-		"Australia/ACT": "Australia/Sydney",
-		"Australia/Canberra": "Australia/Sydney",
-		"Australia/LHI": "Australia/Lord_Howe",
-		"Australia/NSW": "Australia/Sydney",
-		"Australia/North": "Australia/Darwin",
-		"Australia/Queensland": "Australia/Brisbane",
-		"Australia/South": "Australia/Adelaide",
-		"Australia/Tasmania": "Australia/Hobart",
-		"Australia/Victoria": "Australia/Melbourne",
-		"Australia/West": "Australia/Perth",
-		"Australia/Yancowinna": "Australia/Broken_Hill",
-		"Brazil/Acre": "America/Rio_Branco",
-		"Brazil/DeNoronha": "America/Noronha",
-		"Brazil/East": "America/Sao_Paulo",
-		"Brazil/West": "America/Manaus",
-		"Canada/Atlantic": "America/Halifax",
-		"Canada/Central": "America/Winnipeg",
-		"Canada/East-Saskatchewan": "America/Regina",
-		"Canada/Eastern": "America/Toronto",
-		"Canada/Mountain": "America/Edmonton",
-		"Canada/Newfoundland": "America/St_Johns",
-		"Canada/Pacific": "America/Vancouver",
-		"Canada/Saskatchewan": "America/Regina",
-		"Canada/Yukon": "America/Whitehorse",
-		"Chile/Continental": "America/Santiago",
-		"Chile/EasterIsland": "Pacific/Easter",
-		"Cuba": "America/Havana",
-		"Egypt": "Africa/Cairo",
-		"Eire": "Europe/Dublin",
-		"Etc/GMT+0": "Etc/GMT",
-		"Etc/GMT-0": "Etc/GMT",
-		"Etc/GMT0": "Etc/GMT",
-		"Etc/Greenwich": "Etc/GMT",
-		"Etc/Universal": "Etc/UTC",
-		"Etc/Zulu": "Etc/UTC",
-		"Europe/Belfast": "Europe/London",
 		"Europe/Bratislava": "Europe/Prague",
 		"Europe/Busingen": "Europe/Zurich",
 		"Europe/Guernsey": "Europe/London",
@@ -8847,58 +8767,8 @@
 		"Europe/San_Marino": "Europe/Rome",
 		"Europe/Sarajevo": "Europe/Belgrade",
 		"Europe/Skopje": "Europe/Belgrade",
-		"Europe/Tiraspol": "Europe/Chisinau",
 		"Europe/Vatican": "Europe/Rome",
-		"Europe/Zagreb": "Europe/Belgrade",
-		"GB": "Europe/London",
-		"GB-Eire": "Europe/London",
-		"GMT": "Etc/GMT",
-		"GMT+0": "Etc/GMT",
-		"GMT-0": "Etc/GMT",
-		"GMT0": "Etc/GMT",
-		"Greenwich": "Etc/GMT",
-		"Hongkong": "Asia/Hong_Kong",
-		"Iceland": "Atlantic/Reykjavik",
-		"Iran": "Asia/Tehran",
-		"Israel": "Asia/Jerusalem",
-		"Jamaica": "America/Jamaica",
-		"Japan": "Asia/Tokyo",
-		"Kwajalein": "Pacific/Kwajalein",
-		"Libya": "Africa/Tripoli",
-		"Mexico/BajaNorte": "America/Tijuana",
-		"Mexico/BajaSur": "America/Mazatlan",
-		"Mexico/General": "America/Mexico_City",
-		"NZ": "Pacific/Auckland",
-		"NZ-CHAT": "Pacific/Chatham",
-		"Navajo": "America/Denver",
-		"PRC": "Asia/Shanghai",
-		"Pacific/Ponape": "Pacific/Pohnpei",
-		"Pacific/Samoa": "Pacific/Pago_Pago",
-		"Pacific/Truk": "Pacific/Chuuk",
-		"Pacific/Yap": "Pacific/Chuuk",
-		"Poland": "Europe/Warsaw",
-		"Portugal": "Europe/Lisbon",
-		"ROC": "Asia/Taipei",
-		"ROK": "Asia/Seoul",
-		"Singapore": "Asia/Singapore",
-		"Turkey": "Europe/Istanbul",
-		"UCT": "Etc/UCT",
-		"US/Alaska": "America/Anchorage",
-		"US/Aleutian": "America/Adak",
-		"US/Arizona": "America/Phoenix",
-		"US/Central": "America/Chicago",
-		"US/East-Indiana": "America/Indiana/Indianapolis",
-		"US/Eastern": "America/New_York",
-		"US/Hawaii": "Pacific/Honolulu",
-		"US/Indiana-Starke": "America/Indiana/Knox",
-		"US/Michigan": "America/Detroit",
-		"US/Mountain": "America/Denver",
-		"US/Pacific": "America/Los_Angeles",
-		"US/Samoa": "Pacific/Pago_Pago",
-		"UTC": "Etc/UTC",
-		"Universal": "Etc/UTC",
-		"W-SU": "Europe/Moscow",
-		"Zulu": "Etc/UTC"
+		"Europe/Zagreb": "Europe/Belgrade"
 	},
 	"meta": {
 		"Africa/Abidjan": {
@@ -10480,93 +10350,6 @@
 		},
 		"EST5EDT": {
 			"rules": "US"
-		},
-		"Etc/GMT": {
-			"rules": ""
-		},
-		"Etc/GMT+1": {
-			"rules": ""
-		},
-		"Etc/GMT+10": {
-			"rules": ""
-		},
-		"Etc/GMT+11": {
-			"rules": ""
-		},
-		"Etc/GMT+12": {
-			"rules": ""
-		},
-		"Etc/GMT+2": {
-			"rules": ""
-		},
-		"Etc/GMT+3": {
-			"rules": ""
-		},
-		"Etc/GMT+4": {
-			"rules": ""
-		},
-		"Etc/GMT+5": {
-			"rules": ""
-		},
-		"Etc/GMT+6": {
-			"rules": ""
-		},
-		"Etc/GMT+7": {
-			"rules": ""
-		},
-		"Etc/GMT+8": {
-			"rules": ""
-		},
-		"Etc/GMT+9": {
-			"rules": ""
-		},
-		"Etc/GMT-1": {
-			"rules": ""
-		},
-		"Etc/GMT-10": {
-			"rules": ""
-		},
-		"Etc/GMT-11": {
-			"rules": ""
-		},
-		"Etc/GMT-12": {
-			"rules": ""
-		},
-		"Etc/GMT-13": {
-			"rules": ""
-		},
-		"Etc/GMT-14": {
-			"rules": ""
-		},
-		"Etc/GMT-2": {
-			"rules": ""
-		},
-		"Etc/GMT-3": {
-			"rules": ""
-		},
-		"Etc/GMT-4": {
-			"rules": ""
-		},
-		"Etc/GMT-5": {
-			"rules": ""
-		},
-		"Etc/GMT-6": {
-			"rules": ""
-		},
-		"Etc/GMT-7": {
-			"rules": ""
-		},
-		"Etc/GMT-8": {
-			"rules": ""
-		},
-		"Etc/GMT-9": {
-			"rules": ""
-		},
-		"Etc/UCT": {
-			"rules": ""
-		},
-		"Etc/UTC": {
-			"rules": ""
 		},
 		"Europe/Amsterdam": {
 			"lat": 52.3667,
@@ -15548,93 +15331,6 @@
 		],
 		"EST5EDT": [
 			"-5 US E%sT"
-		],
-		"Etc/GMT": [
-			"0 - GMT"
-		],
-		"Etc/GMT+1": [
-			"-1 - GMT+1"
-		],
-		"Etc/GMT+10": [
-			"-10 - GMT+10"
-		],
-		"Etc/GMT+11": [
-			"-11 - GMT+11"
-		],
-		"Etc/GMT+12": [
-			"-12 - GMT+12"
-		],
-		"Etc/GMT+2": [
-			"-2 - GMT+2"
-		],
-		"Etc/GMT+3": [
-			"-3 - GMT+3"
-		],
-		"Etc/GMT+4": [
-			"-4 - GMT+4"
-		],
-		"Etc/GMT+5": [
-			"-5 - GMT+5"
-		],
-		"Etc/GMT+6": [
-			"-6 - GMT+6"
-		],
-		"Etc/GMT+7": [
-			"-7 - GMT+7"
-		],
-		"Etc/GMT+8": [
-			"-8 - GMT+8"
-		],
-		"Etc/GMT+9": [
-			"-9 - GMT+9"
-		],
-		"Etc/GMT-1": [
-			"1 - GMT-1"
-		],
-		"Etc/GMT-10": [
-			"10 - GMT-10"
-		],
-		"Etc/GMT-11": [
-			"11 - GMT-11"
-		],
-		"Etc/GMT-12": [
-			"12 - GMT-12"
-		],
-		"Etc/GMT-13": [
-			"13 - GMT-13"
-		],
-		"Etc/GMT-14": [
-			"14 - GMT-14"
-		],
-		"Etc/GMT-2": [
-			"2 - GMT-2"
-		],
-		"Etc/GMT-3": [
-			"3 - GMT-3"
-		],
-		"Etc/GMT-4": [
-			"4 - GMT-4"
-		],
-		"Etc/GMT-5": [
-			"5 - GMT-5"
-		],
-		"Etc/GMT-6": [
-			"6 - GMT-6"
-		],
-		"Etc/GMT-7": [
-			"7 - GMT-7"
-		],
-		"Etc/GMT-8": [
-			"8 - GMT-8"
-		],
-		"Etc/GMT-9": [
-			"9 - GMT-9"
-		],
-		"Etc/UCT": [
-			"0 - UCT"
-		],
-		"Etc/UTC": [
-			"0 - UTC"
 		],
 		"Europe/Amsterdam": [
 			"0:19:32 - LMT 1835 0:19:32",

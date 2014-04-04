@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:300,700' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="/static/css/style.css?v=2014-03-20T16:43:00-04:00" />
+		<link rel="stylesheet" href="/static/css/style.css?v=2014-04-03T23:59:12-07:00" />
 		<title>Moment.js | Documentation</title>
 	</head>
 	<body class="is-core is-docs">
@@ -450,6 +450,10 @@ define([<span class="string">"moment"</span>], <span class="function"><span clas
 <p>If you don&#39;t specify <code>noGlobal</code> then the globally exported moment will print
 a deprecation warning. From next major release you&#39;ll have to export it
 yourself if you want that behavior.</p>
+<p>For version <code>2.5.x</code>, in case you use other plugins that rely on Moment but are
+not AMD-compatible you may need to add <a href="https://github.com/jrburke/r.js/blob/b8a6982d2923ae8389355edaa50d2b7f8065a01a/build/example.build.js#L68-L78"><code>wrapShim:
+true</code></a>
+to your r.js config.</p>
 
 					</div>
 				</article>
@@ -1427,7 +1431,7 @@ moment().get('millisecond');</pre>
 						<p>String getter. In general</p>
 <pre><code class="lang-javascript">moment().get(unit) === moment()[unit]()</code></pre>
 <p>Units are case insensitive, and support plural and short forms: year (years,
-y), month (months, M), date (dates, d), hour (hours, h), minute (minutes, m),
+y), month (months, M), date (dates, D), hour (hours, h), minute (minutes, m),
 second (seconds, s), millisecond (milliseconds, ms).</p>
 
 					</div>
@@ -1452,7 +1456,7 @@ moment().set('millisecond', 123);</pre>
 						<p>String setter. In general</p>
 <pre><code class="lang-javascript">moment().set(unit, value) <span class="comment">// same as moment()[unit](value)</span></code></pre>
 <p>Units are case insensitive, and support plural and short forms: year (years,
-y), month (months, M), date (dates, d), hour (hours, h), minute (minutes, m),
+y), month (months, M), date (dates, D), hour (hours, h), minute (minutes, m),
 second (seconds, s), millisecond (milliseconds, ms).</p>
 
 					</div>
@@ -3888,7 +3892,7 @@ interval.previous( 2, &quot;L&quot; ); // [&quot;12/10/2013&quot;, &quot;11/10/2
 		</footer>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-		<script src="/static/js/global.js?v=2014-03-20T16:43:00-04:00"></script>
+		<script src="/static/js/global.js?v=2014-04-03T23:59:12-07:00"></script>
 		
 
 		<script>

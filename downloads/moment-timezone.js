@@ -1,12 +1,12 @@
 // moment-timezone.js
-// version : 0.0.3
+// version : 0.0.1
 // author : Tim Wood
 // license : MIT
 // github.com/timrwood/moment-timezone
 
 (function () {
 
-	var VERSION = "0.0.3";
+	var VERSION = "0.0.1";
 
 	function onload(moment) {
 		var oldZoneName = moment.fn.zoneName,
@@ -443,15 +443,6 @@
 			}
 		};
 
-		function getZoneSets() {
-			var sets = [],
-				zoneName;
-			for (zoneName in zoneSets) {
-				sets.push(zoneSets[zoneName]);
-			}
-			return sets;
-		}
-
 		moment.fn.tz = function (name) {
 			if (name) {
 				this._z = getZoneSet(name);
@@ -484,16 +475,12 @@
 			for (i = 0; i < len; i++) {
 				args[i] = arguments[i];
 			}
-			var m = moment.apply(null, args);
-			var preTzOffset = m.zone();
-			m.tz(arguments[len]);
-			return m.add('minutes', m.zone() - preTzOffset);
+			return moment.apply(null, args).tz(arguments[len]);
 		};
 
 		moment.tz.add = add;
 		moment.tz.addRule = addRule;
 		moment.tz.addZone = addZone;
-		moment.tz.zones = getZoneSets;
 
 		moment.tz.version = VERSION;
 
