@@ -20,3 +20,8 @@ require.config({
 If you don't specify `noGlobal` then the globally exported moment will print
 a deprecation warning. From next major release you'll have to export it
 yourself if you want that behavior.
+
+For version `2.5.x`, in case you use other plugins that rely on Moment but are
+not AMD-compatible you may need to add [`wrapShim:
+true`](https://github.com/jrburke/r.js/blob/b8a6982d2923ae8389355edaa50d2b7f8065a01a/build/example.build.js#L68-L78)
+to your r.js config.
