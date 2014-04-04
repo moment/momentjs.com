@@ -5,5 +5,5 @@ moment().set(unit, value) // same as moment()[unit](value)
 ```
 
 Units are case insensitive, and support plural and short forms: year (years,
-y), month (months, M), date (dates, d), hour (hours, h), minute (minutes, m),
+y), month (months, M), date (dates, D), hour (hours, h), minute (minutes, m),
 second (seconds, s), millisecond (milliseconds, ms).
