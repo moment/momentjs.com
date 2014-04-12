@@ -2043,10 +2043,17 @@ return nodeunit; })();
 var moment = require("../../moment");
 
 exports.add = {
-    "add short" : function (test) {
-        test.expect(12);
+    setUp : function (done) {
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
+        done();
+    },
 
-        var a = moment(), b, c;
+    "add short" : function (test) {
+        test.expect(16);
+
+        var a = moment(), b, c, d;
         a.year(2011);
         a.month(9);
         a.date(12);
@@ -2063,19 +2070,24 @@ exports.add = {
         test.equal(a.add({w: 1}).date(), 20, 'Add week');
         test.equal(a.add({M: 1}).month(), 10, 'Add month');
         test.equal(a.add({y: 1}).year(), 2012, 'Add year');
+        test.equal(a.add({Q: 1}).month(), 1, 'Add quarter');
 
         b = moment([2010, 0, 31]).add({M: 1});
         c = moment([2010, 1, 28]).subtract({M: 1});
+        d = moment([2010, 1, 28]).subtract({Q: 1});
 
         test.equal(b.month(), 1, 'add month, jan 31st to feb 28th');
         test.equal(b.date(), 28, 'add month, jan 31st to feb 28th');
         test.equal(c.month(), 0, 'subtract month, feb 28th to jan 28th');
         test.equal(c.date(), 28, 'subtract month, feb 28th to jan 28th');
+        test.equal(d.month(), 10, 'subtract quarter, feb 28th 2010 to nov 28th 2009');
+        test.equal(d.date(), 28, 'subtract quarter, feb 28th 2010 to nov 28th 2009');
+        test.equal(d.year(), 2009, 'subtract quarter, feb 28th 2010 to nov 28th 2009');
         test.done();
     },
 
     "add long" : function (test) {
-        test.expect(8);
+        test.expect(9);
 
         var a = moment();
         a.year(2011);
@@ -2094,11 +2106,12 @@ exports.add = {
         test.equal(a.add({weeks: 1}).date(), 20, 'Add week');
         test.equal(a.add({months: 1}).month(), 10, 'Add month');
         test.equal(a.add({years: 1}).year(), 2012, 'Add year');
+        test.equal(a.add({quarters: 1}).month(), 1, 'Add quarter');
         test.done();
     },
 
     "add long singular" : function (test) {
-        test.expect(8);
+        test.expect(9);
 
         var a = moment();
         a.year(2011);
@@ -2117,11 +2130,12 @@ exports.add = {
         test.equal(a.add({week: 1}).date(), 20, 'Add week');
         test.equal(a.add({month: 1}).month(), 10, 'Add month');
         test.equal(a.add({year: 1}).year(), 2012, 'Add year');
+        test.equal(a.add({quarter: 1}).month(), 1, 'Add quarter');
         test.done();
     },
 
     "add string long" : function (test) {
-        test.expect(9);
+        test.expect(10);
 
         var a = moment(), b;
         a.year(2011);
@@ -2143,11 +2157,12 @@ exports.add = {
         test.equal(a.add('month', 1).month(), 10, 'Add month');
         test.equal(a.add('year', 1).year(), 2012, 'Add year');
         test.equal(b.add('day', '01').date(), 13, 'Add date');
+        test.equal(a.add('quarter', 1).month(), 1, 'Add quarter');
         test.done();
     },
 
     "add string long singular" : function (test) {
-        test.expect(9);
+        test.expect(10);
 
         var a = moment(), b;
         a.year(2011);
@@ -2169,11 +2184,12 @@ exports.add = {
         test.equal(a.add('months', 1).month(), 10, 'Add month');
         test.equal(a.add('years', 1).year(), 2012, 'Add year');
         test.equal(b.add('days', '01').date(), 13, 'Add date');
+        test.equal(a.add('quarters', 1).month(), 1, 'Add quarter');
         test.done();
     },
 
     "add string short" : function (test) {
-        test.expect(8);
+        test.expect(9);
 
         var a = moment();
         a.year(2011);
@@ -2192,11 +2208,12 @@ exports.add = {
         test.equal(a.add('w', 1).date(), 20, 'Add week');
         test.equal(a.add('M', 1).month(), 10, 'Add month');
         test.equal(a.add('y', 1).year(), 2012, 'Add year');
+        test.equal(a.add('Q', 1).month(), 1, 'Add quarter');
         test.done();
     },
 
     "add string long reverse args" : function (test) {
-        test.expect(8);
+        test.expect(9);
 
         var a = moment();
         a.year(2011);
@@ -2208,18 +2225,19 @@ exports.add = {
         a.milliseconds(500);
 
         test.equal(a.add(50, 'millisecond').milliseconds(), 550, 'Add milliseconds');
-        test.equal(a.add(1, 'second', 1).seconds(), 9, 'Add seconds');
-        test.equal(a.add(1, 'minute', 1).minutes(), 8, 'Add minutes');
-        test.equal(a.add(1, 'hour', 1).hours(), 7, 'Add hours');
-        test.equal(a.add(1, 'day', 1).date(), 13, 'Add date');
-        test.equal(a.add(1, 'week', 1).date(), 20, 'Add week');
-        test.equal(a.add(1, 'month', 1).month(), 10, 'Add month');
-        test.equal(a.add(1, 'year', 1).year(), 2012, 'Add year');
+        test.equal(a.add(1, 'second').seconds(), 9, 'Add seconds');
+        test.equal(a.add(1, 'minute').minutes(), 8, 'Add minutes');
+        test.equal(a.add(1, 'hour').hours(), 7, 'Add hours');
+        test.equal(a.add(1, 'day').date(), 13, 'Add date');
+        test.equal(a.add(1, 'week').date(), 20, 'Add week');
+        test.equal(a.add(1, 'month').month(), 10, 'Add month');
+        test.equal(a.add(1, 'year').year(), 2012, 'Add year');
+        test.equal(a.add(1, 'quarter').month(), 1, 'Add quarter');
         test.done();
     },
 
     "add string long singular reverse args" : function (test) {
-        test.expect(8);
+        test.expect(9);
 
         var a = moment();
         a.year(2011);
@@ -2238,11 +2256,12 @@ exports.add = {
         test.equal(a.add(1, 'weeks').date(), 20, 'Add week');
         test.equal(a.add(1, 'months').month(), 10, 'Add month');
         test.equal(a.add(1, 'years').year(), 2012, 'Add year');
+        test.equal(a.add(1, 'quarters').month(), 1, 'Add quarter');
         test.done();
     },
 
     "add string short reverse args" : function (test) {
-        test.expect(8);
+        test.expect(9);
 
         var a = moment();
         a.year(2011);
@@ -2261,19 +2280,27 @@ exports.add = {
         test.equal(a.add(1, 'w').date(), 20, 'Add week');
         test.equal(a.add(1, 'M').month(), 10, 'Add month');
         test.equal(a.add(1, 'y').year(), 2012, 'Add year');
+        test.equal(a.add(1, 'Q').month(), 1, 'Add quarter');
         test.done();
     },
 
     "add across DST" : function (test) {
-        test.expect(3);
+        // Detect Safari bug and bail. Hours on 13th March 2011 are shifted
+        // with 1 ahead.
+        if (new Date(2011, 2, 13, 5, 0, 0).getHours() !== 5) {
+            test.done();
+            return;
+        }
 
         var a = moment(new Date(2011, 2, 12, 5, 0, 0)),
             b = moment(new Date(2011, 2, 12, 5, 0, 0)),
             c = moment(new Date(2011, 2, 12, 5, 0, 0)),
-            d = moment(new Date(2011, 2, 12, 5, 0, 0));
+            d = moment(new Date(2011, 2, 12, 5, 0, 0)),
+            e = moment(new Date(2011, 2, 12, 5, 0, 0));
         a.add('days', 1);
         b.add('hours', 24);
         c.add('months', 1);
+        e.add('quarter', 1);
         test.equal(a.hours(), 5, 'adding days over DST difference should result in the same hour');
         if (b.isDST() && !d.isDST()) {
             test.equal(b.hours(), 6, 'adding hours over DST difference should result in a different hour');
@@ -2283,6 +2310,7 @@ exports.add = {
             test.equal(b.hours(), 5, 'adding hours over DST difference should result in a same hour if the timezone does not have daylight savings time');
         }
         test.equal(c.hours(), 5, 'adding months over DST difference should result in the same hour');
+        test.equal(e.hours(), 5, 'adding quarters over DST difference should result in the same hour');
         test.done();
     }
 };
@@ -2302,6 +2330,13 @@ var getVerifier = function (test) {
 };
 
 exports.create = {
+    setUp : function (done) {
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
+        done();
+    },
+
     "array" : function (test) {
         test.expect(8);
         test.ok(moment([2010]).toDate() instanceof Date, "[2010]");
@@ -2417,13 +2452,6 @@ exports.create = {
         test.done();
     },
 
-    "string without format" : function (test) {
-        test.expect(2);
-        test.ok(moment("Aug 9, 1995").toDate() instanceof Date, "Aug 9, 1995");
-        test.ok(moment("Mon, 25 Dec 1995 13:30:00 GMT").toDate() instanceof Date, "Mon, 25 Dec 1995 13:30:00 GMT");
-        test.done();
-    },
-
     "string without format - json" : function (test) {
         test.expect(5);
         test.equal(moment("Date(1325132654000)").valueOf(), 1325132654000, "Date(1325132654000)");
@@ -2509,6 +2537,7 @@ exports.create = {
     "string with format" : function (test) {
         moment.lang('en');
         var a = [
+                ['YYYY-Q',              '2014-4'],
                 ['MM-DD-YYYY',          '12-02-1999'],
                 ['DD-MM-YYYY',          '12-02-1999'],
                 ['DD/MM/YYYY',          '12/02/1999'],
@@ -2889,6 +2918,12 @@ exports.create = {
         test.done();
     },
 
+    "parsing iso with more subsecond precision digits" : function (test) {
+        test.equal(moment.utc("2013-07-31T22:00:00.0000000Z").format(),
+                "2013-07-31T22:00:00+00:00", "more than 3 subsecond digits");
+        test.done();
+    },
+
     "null or empty" : function (test) {
         test.expect(8);
         test.equal(moment('').isValid(), false, "moment('') is not valid");
@@ -2937,6 +2972,8 @@ exports.create = {
     },
 
     "strict parsing" : function (test) {
+        test.equal(moment("2014-", "YYYY-Q", true).isValid(), false, "fail missing quarter");
+
         test.equal(moment("2012-05", "YYYY-MM", true).format("YYYY-MM"), "2012-05", "parse correct string");
         test.equal(moment(" 2012-05", "YYYY-MM", true).isValid(), false, "fail on extra whitespace");
         test.equal(moment("foo 2012-05", "[foo] YYYY-MM", true).format('YYYY-MM'), "2012-05", "handle fixed text");
@@ -3100,12 +3137,38 @@ exports.create = {
             moment.lang('en');
             test.done();
         }
+    },
+
+    'parsing with customized two-digit year' : function (test) {
+        var original = moment.parseTwoDigitYear;
+        try {
+            test.equal(moment('68', 'YY').year(), 2068);
+            test.equal(moment('69', 'YY').year(), 1969);
+            moment.parseTwoDigitYear = function (input) {
+                return +input + (+input > 30 ? 1900 : 2000);
+            };
+            test.equal(moment('68', 'YY').year(), 1968);
+            test.equal(moment('67', 'YY').year(), 1967);
+            test.equal(moment('31', 'YY').year(), 1931);
+            test.equal(moment('30', 'YY').year(), 2030);
+        }
+        finally {
+            moment.parseTwoDigitYear = original;
+            test.done();
+        }
     }
 };
 
 var moment = require("../../moment");
 
-exports.days_in_month = {
+exports.daysInMonth = {
+    setUp : function (done) {
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
+        done();
+    },
+
     "days in month" : function (test) {
         test.expect(24);
         var months = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31], i;
@@ -3167,6 +3230,13 @@ function dstForYear(year) {
 }
 
 exports.diff = {
+    setUp : function (done) {
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
+        done();
+    },
+
     "diff" : function (test) {
         test.expect(5);
 
@@ -3374,6 +3444,13 @@ exports.diff = {
 var moment = require("../../moment");
 
 exports.duration = {
+    setUp : function (done) {
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
+        done();
+    },
+
     "object instantiation" : function (test) {
         var d = moment.duration({
             years: 2,
@@ -3914,6 +3991,13 @@ exports.duration = {
 var moment = require("../../moment");
 
 exports.format = {
+    setUp : function (done) {
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
+        done();
+    },
+
     "format YY" : function (test) {
         test.expect(1);
 
@@ -4323,7 +4407,14 @@ exports.format = {
 
 var moment = require("../../moment");
 
-exports.getters_setters = {
+exports.gettersSetters = {
+    setUp : function (done) {
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
+        done();
+    },
+
     "getters" : function (test) {
         test.expect(8);
 
@@ -4569,6 +4660,13 @@ exports.getters_setters = {
 var moment = require("../../moment");
 
 exports.invalid = {
+    setUp : function (done) {
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
+        done();
+    },
+
     "invalid" : function (test) {
         var m = moment.invalid();
         test.equals(m.isValid(), false);
@@ -4598,7 +4696,14 @@ exports.invalid = {
 
 var moment = require("../../moment");
 
-exports.is_after = {
+exports.isAfter = {
+    setUp : function (done) {
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
+        done();
+    },
+
     "is after without units" : function (test) {
         test.expect(17);
 
@@ -4787,7 +4892,14 @@ exports.is_after = {
 
 var moment = require("../../moment");
 
-exports.is_before = {
+exports.isBefore = {
+    setUp : function (done) {
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
+        done();
+    },
+
     "is after without units" : function (test) {
         test.expect(17);
 
@@ -4975,7 +5087,14 @@ exports.is_before = {
 
 var moment = require('../../moment');
 
-exports.is_moment = {
+exports.isMoment = {
+    setUp : function (done) {
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
+        done();
+    },
+
     "is moment object": function (test) {
         test.expect(13);
 
@@ -4992,7 +5111,7 @@ exports.is_moment = {
         };
 
         test.ok(moment.isMoment(moment()), 'simple moment object');
-        test.ok(moment.isMoment(moment('invalid date')), 'invalid moment object');
+        test.ok(moment.isMoment(moment(null)), 'invalid moment object');
         test.ok(moment.isMoment(extend({}, moment())), 'externally cloned moments are moments');
         test.ok(moment.isMoment(extend({}, moment.utc())), 'externally cloned utc moments are moments');
 
@@ -5012,7 +5131,14 @@ exports.is_moment = {
 
 var moment = require("../../moment");
 
-exports.is_same = {
+exports.isSame = {
+    setUp : function (done) {
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
+        done();
+    },
+
     "is same without units" : function (test) {
         test.expect(17);
 
@@ -5185,7 +5311,14 @@ exports.is_same = {
 
 var moment = require("../../moment");
 
-exports.is_valid = {
+exports.isValid = {
+    setUp : function (done) {
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
+        done();
+    },
+
     "array bad month" : function (test) {
         test.expect(2);
         test.equal(moment([2010, -1]).isValid(), false, 'month -1 invalid');
@@ -5253,13 +5386,6 @@ exports.is_valid = {
         test.equal(moment('12-13-2012', ['DD-MM-YYYY', 'DD-MM-YYYY']).isValid(), false, 'month rollover');
         test.equal(moment('38-12-2012', ['DD-MM-YYYY']).isValid(), false, 'day rollover');
 
-        test.done();
-    },
-
-    "string nonsensical" : function (test) {
-        test.expect(1);
-
-        test.equal(moment('fail').isValid(), false, 'string "fail"');
         test.done();
     },
 
@@ -5417,7 +5543,6 @@ exports.is_valid = {
     "empty" : function (test) {
         test.equal(moment(null).isValid(), false, 'null');
         test.equal(moment('').isValid(), false, 'empty string');
-        test.equal(moment(' ').isValid(), false, 'empty when trimmed');
 
         test.equal(moment(null, 'YYYY').isValid(), false, 'format + null');
         test.equal(moment('', 'YYYY').isValid(), false, 'format + empty string');
@@ -5450,6 +5575,13 @@ exports.is_valid = {
 var moment = require("../../moment");
 
 exports.lang = {
+    setUp : function (done) {
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
+        done();
+    },
+
     "library getter" : function (test) {
         var r;
         test.expect(8);
@@ -5761,6 +5893,13 @@ exports.lang = {
 var moment = require("../../moment");
 
 exports.leapyear = {
+    setUp : function (done) {
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
+        done();
+    },
+
     "leap year" : function (test) {
         test.expect(4);
 
@@ -5777,6 +5916,10 @@ var moment = require("../../moment");
 exports.listers = {
     setUp : function (cb) {
         moment.lang('en');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
+
         cb();
     },
 
@@ -5876,9 +6019,12 @@ var equalMoment = function (test, a, b, msg) {
     test.equal(a.valueOf(), b.valueOf(), msg);
 };
 
-exports.min_max = {
+exports.minMax = {
     setUp : function (cb) {
         moment.lang('en');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -5930,6 +6076,13 @@ exports.min_max = {
 var moment = require("../../moment");
 
 exports.mutable = {
+    setUp : function (done) {
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
+        done();
+    },
+
     "manipulation methods" : function (test) {
 
         var mutableMethods = {
@@ -5988,9 +6141,16 @@ exports.mutable = {
 var moment = require("../../moment");
 
 exports.normalizeUnits = {
+    setUp : function (done) {
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
+        done();
+    },
+
     "normalize units" : function (test) {
-        var fullKeys = ["year", "month", "isoWeek", "week", "day", "hour", "minute", "second", "millisecond", "date", 'dayOfYear', 'weekday', 'isoWeekday', 'weekYear', 'isoWeekYear'],
-            aliases = ["y", "M", "W", "w", "d", "h", "m", "s", "ms", "D", 'DDD', 'e', 'E', 'gg', 'GG'],
+        var fullKeys = ["year", "quarter", "month", "isoWeek", "week", "day", "hour", "minute", "second", "millisecond", "date", 'dayOfYear', 'weekday', 'isoWeekday', 'weekYear', 'isoWeekYear'],
+            aliases = ["y", "Q", "M", "W", "w", "d", "h", "m", "s", "ms", "D", 'DDD', 'e', 'E', 'gg', 'GG'],
             length = fullKeys.length,
             fullKey,
             fullKeyCaps,
@@ -6023,7 +6183,14 @@ var moment = require('../../moment'),
         return moment.apply(null, arguments).parsingFlags();
     };
 
-exports.parsing_flags = {
+exports.parsingFlags = {
+    setUp : function (done) {
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
+        done();
+    },
+
 
     'overflow with array' : function (test) {
 
@@ -6246,9 +6413,13 @@ var symbolLang = {
     }
 };
 
-exports.preparse_postformat = {
+exports.preparsePostformat = {
     setUp: function (cb) {
         moment.lang('symbol', symbolLang);
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
+
         cb();
     },
 
@@ -6298,7 +6469,14 @@ exports.preparse_postformat = {
 var moment = require("../../moment");
 
 exports.quarter = {
-    "library quarter" : function (test) {
+    setUp : function (done) {
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
+        done();
+    },
+
+    "library quarter getter" : function (test) {
         test.expect(7);
 
         test.equal(moment([1985, 1,  4]).quarter(), 1, "Feb  4 1985 is Q1");
@@ -6310,15 +6488,131 @@ exports.quarter = {
         test.equal(moment([2000, 0,  2]).quarter(), 1, "Jan  2 2000 is Q1");
 
         test.done();
+    },
+
+    "quarter setter singular" : function (test) {
+        var m;
+        test.expect(4);
+
+        m = moment([2014, 4, 11]);
+        test.equal(m.quarter(2).month(), 4, "set same quarter");
+        test.equal(m.quarter(3).month(), 7, "set 3rd quarter");
+        test.equal(m.quarter(1).month(), 1, "set 1st quarter");
+        test.equal(m.quarter(4).month(), 10, "set 4th quarter");
+
+        test.done();
+    },
+
+    "quarter setter plural" : function (test) {
+        var m;
+        test.expect(4);
+
+        m = moment([2014, 4, 11]);
+        test.equal(m.quarters(2).month(), 4, "set same quarter");
+        test.equal(m.quarters(3).month(), 7, "set 3rd quarter");
+        test.equal(m.quarters(1).month(), 1, "set 1st quarter");
+        test.equal(m.quarters(4).month(), 10, "set 4th quarter");
+
+        test.done();
+    },
+
+    "quarter setter programmatic" : function (test) {
+        var m;
+        test.expect(4);
+
+        m = moment([2014, 4, 11]);
+        test.equal(m.set("quarter", 2).month(), 4, "set same quarter");
+        test.equal(m.set("quarter", 3).month(), 7, "set 3rd quarter");
+        test.equal(m.set("quarter", 1).month(), 1, "set 1st quarter");
+        test.equal(m.set("quarter", 4).month(), 10, "set 4th quarter");
+
+        test.done();
+    },
+
+    "quarter setter programmatic plural" : function (test) {
+        var m;
+        test.expect(4);
+
+        m = moment([2014, 4, 11]);
+        test.equal(m.set("quarters", 2).month(), 4, "set same quarter");
+        test.equal(m.set("quarters", 3).month(), 7, "set 3rd quarter");
+        test.equal(m.set("quarters", 1).month(), 1, "set 1st quarter");
+        test.equal(m.set("quarters", 4).month(), 10, "set 4th quarter");
+
+        test.done();
+    },
+
+    "quarter setter programmatic abbr" : function (test) {
+        var m;
+        test.expect(4);
+
+        m = moment([2014, 4, 11]);
+        test.equal(m.set("Q", 2).month(), 4, "set same quarter");
+        test.equal(m.set("Q", 3).month(), 7, "set 3rd quarter");
+        test.equal(m.set("Q", 1).month(), 1, "set 1st quarter");
+        test.equal(m.set("Q", 4).month(), 10, "set 4th quarter");
+
+        test.done();
+    },
+
+    "quarter setter only month changes" : function (test) {
+        var m;
+        test.expect(7);
+
+        m = moment([2014, 4, 11, 1, 2, 3, 4]).quarter(4);
+        test.equal(m.year(), 2014, "keep year");
+        test.equal(m.month(), 10, "set month");
+        test.equal(m.date(), 11, "keep date");
+        test.equal(m.hour(), 1, "keep hour");
+        test.equal(m.minute(), 2, "keep minutes");
+        test.equal(m.second(), 3, "keep seconds");
+        test.equal(m.millisecond(), 4, "keep milliseconds");
+
+        test.done();
+    },
+
+    "quarter setter bubble to next year" : function (test) {
+        var m;
+        test.expect(7);
+
+        m = moment([2014, 4, 11, 1, 2, 3, 4]).quarter(7);
+        test.equal(m.year(), 2015, "year bubbled");
+        test.equal(m.month(), 7, "set month");
+        test.equal(m.date(), 11, "keep date");
+        test.equal(m.hour(), 1, "keep hour");
+        test.equal(m.minute(), 2, "keep minutes");
+        test.equal(m.second(), 3, "keep seconds");
+        test.equal(m.millisecond(), 4, "keep milliseconds");
+
+        test.done();
+    },
+
+    "quarter setter bubble to previous year" : function (test) {
+        var m;
+        test.expect(7);
+
+        m = moment([2014, 4, 11, 1, 2, 3, 4]).quarter(-3);
+        test.equal(m.year(), 2013, "year bubbled");
+        test.equal(m.month(), 1, "set month");
+        test.equal(m.date(), 11, "keep date");
+        test.equal(m.hour(), 1, "keep hour");
+        test.equal(m.minute(), 2, "keep minutes");
+        test.equal(m.second(), 3, "keep seconds");
+        test.equal(m.millisecond(), 4, "keep milliseconds");
+
+        test.done();
     }
 };
 
 var moment = require("../../moment");
 
-exports.end_start_of = {
-    setUp : function (cb) {
+exports.endStartOf = {
+    setUp : function (done) {
         moment.lang('en');
-        cb();
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
+        done();
     },
 
     tearDown : function (cb) {
@@ -6355,6 +6649,44 @@ exports.end_start_of = {
         test.equal(m.year(), 2011, "keep the year");
         test.equal(m.month(), 11, "set the month");
         test.equal(m.date(), 31, "set the day");
+        test.equal(m.hours(), 23, "set the hours");
+        test.equal(m.minutes(), 59, "set the minutes");
+        test.equal(m.seconds(), 59, "set the seconds");
+        test.equal(m.milliseconds(), 999, "set the seconds");
+        test.done();
+    },
+
+    "start of quarter" : function (test) {
+        test.expect(10);
+
+        var m = moment(new Date(2011, 4, 2, 3, 4, 5, 6)).startOf('quarter'),
+            ms = moment(new Date(2011, 4, 2, 3, 4, 5, 6)).startOf('quarters'),
+            ma = moment(new Date(2011, 4, 2, 3, 4, 5, 6)).startOf('Q');
+        test.equal(+m, +ms, "Plural or singular should work");
+        test.equal(+m, +ma, "Full or abbreviated should work");
+        test.equal(m.year(), 2011, "keep the year");
+        test.equal(m.quarter(), 2, "keep the quarter");
+        test.equal(m.month(), 3, "strip out the month");
+        test.equal(m.date(), 1, "strip out the day");
+        test.equal(m.hours(), 0, "strip out the hours");
+        test.equal(m.minutes(), 0, "strip out the minutes");
+        test.equal(m.seconds(), 0, "strip out the seconds");
+        test.equal(m.milliseconds(), 0, "strip out the milliseconds");
+        test.done();
+    },
+
+    "end of quarter" : function (test) {
+        test.expect(10);
+
+        var m = moment(new Date(2011, 4, 2, 3, 4, 5, 6)).endOf('quarter'),
+            ms = moment(new Date(2011, 4, 2, 3, 4, 5, 6)).endOf('quarters'),
+            ma = moment(new Date(2011, 4, 2, 3, 4, 5, 6)).endOf('Q');
+        test.equal(+m, +ms, "Plural or singular should work");
+        test.equal(+m, +ma, "Full or abbreviated should work");
+        test.equal(m.year(), 2011, "keep the year");
+        test.equal(m.quarter(), 2, "keep the quarter");
+        test.equal(m.month(), 5, "set the month");
+        test.equal(m.date(), 30, "set the day");
         test.equal(m.hours(), 23, "set the hours");
         test.equal(m.minutes(), 59, "set the minutes");
         test.equal(m.seconds(), 59, "set the seconds");
@@ -6616,12 +6948,101 @@ exports.end_start_of = {
         test.equal(m.seconds(), 5, "keep the seconds");
         test.equal(m.milliseconds(), 999, "set the seconds");
         test.done();
+    },
+
+    "startOf across DST +1" : function (test) {
+        var oldUpdateOffset = moment.updateOffset,
+            // Based on a real story somewhere in America/Los_Angeles
+            dstAt = moment("2014-03-09T02:00:00-08:00").parseZone(),
+            m;
+
+        moment.updateOffset = function (mom, keepTime) {
+            if (mom.isBefore(dstAt)) {
+                mom.zone(8, keepTime);
+            } else {
+                mom.zone(7, keepTime);
+            }
+        };
+
+        m = moment("2014-03-15T00:00:00-07:00").parseZone();
+        m.startOf('M');
+        test.equal(m.format(), "2014-03-01T00:00:00-08:00",
+                "startOf('month') across +1");
+
+        m = moment("2014-03-09T09:00:00-07:00").parseZone();
+        m.startOf('d');
+        test.equal(m.format(), "2014-03-09T00:00:00-08:00",
+                "startOf('day') across +1");
+
+        m = moment("2014-03-09T03:05:00-07:00").parseZone();
+        m.startOf('h');
+        test.equal(m.format(), "2014-03-09T03:00:00-07:00",
+                "startOf('hour') after +1");
+
+        m = moment("2014-03-09T01:35:00-08:00").parseZone();
+        m.startOf('h');
+        test.equal(m.format(), "2014-03-09T01:00:00-08:00",
+                "startOf('hour') before +1");
+
+        // There is no such time as 2:30-7 to try startOf('hour') across that
+
+        moment.updateOffset = oldUpdateOffset;
+
+        test.done();
+    },
+
+    "startOf across DST -1" : function (test) {
+        var oldUpdateOffset = moment.updateOffset,
+            // Based on a real story somewhere in America/Los_Angeles
+            dstAt = moment("2014-11-02T02:00:00-07:00").parseZone(),
+            m;
+
+        moment.updateOffset = function (mom, keepTime) {
+            if (mom.isBefore(dstAt)) {
+                mom.zone(7, keepTime);
+            } else {
+                mom.zone(8, keepTime);
+            }
+        };
+
+        m = moment("2014-11-15T00:00:00-08:00").parseZone();
+        m.startOf('M');
+        test.equal(m.format(), "2014-11-01T00:00:00-07:00",
+                "startOf('month') across -1");
+
+        m = moment("2014-11-02T09:00:00-08:00").parseZone();
+        m.startOf('d');
+        test.equal(m.format(), "2014-11-02T00:00:00-07:00",
+                "startOf('day') across -1");
+
+        // note that zone is -8
+        m = moment("2014-11-02T01:30:00-08:00").parseZone();
+        m.startOf('h');
+        test.equal(m.format(), "2014-11-02T01:00:00-08:00",
+                "startOf('hour') after +1");
+
+        // note that zone is -7
+        m = moment("2014-11-02T01:30:00-07:00").parseZone();
+        m.startOf('h');
+        test.equal(m.format(), "2014-11-02T01:00:00-07:00",
+                "startOf('hour') before +1");
+
+        moment.updateOffset = oldUpdateOffset;
+
+        test.done();
     }
 };
 
 var moment = require("../../moment");
 
-exports.string_prototype = {
+exports.stringPrototype = {
+    setUp : function (done) {
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
+        done();
+    },
+
     "string prototype overrides call" : function (test) {
         test.expect(1);
 
@@ -6641,9 +7062,13 @@ exports.string_prototype = {
 var moment = require("../../moment");
 
 exports.utc = {
-    setUp : function (cb) {
+    setUp : function (done) {
         moment.lang('en');
-        cb();
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
+
+        done();
     },
 
     tearDown : function (cb) {
@@ -6752,7 +7177,14 @@ exports.utc = {
 
 var moment = require("../../moment");
 
-exports.week_year = {
+exports.weekYear = {
+    setUp : function (done) {
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
+        done();
+    },
+
     "iso week year": function (test) {
         test.expect(19);
 
@@ -6825,7 +7257,14 @@ exports.week_year = {
 
 var moment = require("../../moment");
 
-exports.week_year = {
+exports.weekYear = {
+    setUp : function (done) {
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
+        done();
+    },
+
     "iso weekday": function (test) {
         var i;
         test.expect(7 * 7);
@@ -6986,9 +7425,13 @@ exports.week_year = {
 var moment = require("../../moment");
 
 exports.weeks = {
-    setUp : function (cb) {
+    setUp : function (done) {
         moment.lang('en');
-        cb();
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
+
+        done();
     },
 
     tearDown : function (cb) {
@@ -7287,10 +7730,111 @@ exports.weeks = {
 
 var moment = require("../../moment");
 
+exports.weeksInYear = {
+    "isoWeeksInYear": function (test) {
+        test.equal(moment([2004]).isoWeeksInYear(), 53, "2004 has 53 iso weeks");
+        test.equal(moment([2005]).isoWeeksInYear(), 52, "2005 has 53 iso weeks");
+        test.equal(moment([2006]).isoWeeksInYear(), 52, "2006 has 53 iso weeks");
+        test.equal(moment([2007]).isoWeeksInYear(), 52, "2007 has 52 iso weeks");
+        test.equal(moment([2008]).isoWeeksInYear(), 52, "2008 has 53 iso weeks");
+        test.equal(moment([2009]).isoWeeksInYear(), 53, "2009 has 53 iso weeks");
+        test.equal(moment([2010]).isoWeeksInYear(), 52, "2010 has 52 iso weeks");
+        test.equal(moment([2011]).isoWeeksInYear(), 52, "2011 has 52 iso weeks");
+        test.equal(moment([2012]).isoWeeksInYear(), 52, "2012 has 52 iso weeks");
+        test.equal(moment([2013]).isoWeeksInYear(), 52, "2013 has 52 iso weeks");
+        test.equal(moment([2014]).isoWeeksInYear(), 52, "2014 has 52 iso weeks");
+        test.equal(moment([2015]).isoWeeksInYear(), 53, "2015 has 53 iso weeks");
+
+        test.done();
+    },
+
+    "weeksInYear doy/dow = 1/4": function (test) {
+        moment.lang('1/4', {week: {dow: 1, doy: 4}});
+
+        test.equal(moment([2004]).weeksInYear(), 53, "2004 has 53 weeks");
+        test.equal(moment([2005]).weeksInYear(), 52, "2005 has 53 weeks");
+        test.equal(moment([2006]).weeksInYear(), 52, "2006 has 53 weeks");
+        test.equal(moment([2007]).weeksInYear(), 52, "2007 has 52 weeks");
+        test.equal(moment([2008]).weeksInYear(), 52, "2008 has 53 weeks");
+        test.equal(moment([2009]).weeksInYear(), 53, "2009 has 53 weeks");
+        test.equal(moment([2010]).weeksInYear(), 52, "2010 has 52 weeks");
+        test.equal(moment([2011]).weeksInYear(), 52, "2011 has 52 weeks");
+        test.equal(moment([2012]).weeksInYear(), 52, "2012 has 52 weeks");
+        test.equal(moment([2013]).weeksInYear(), 52, "2013 has 52 weeks");
+        test.equal(moment([2014]).weeksInYear(), 52, "2014 has 52 weeks");
+        test.equal(moment([2015]).weeksInYear(), 53, "2015 has 53 weeks");
+
+        test.done();
+    },
+
+    "weeksInYear doy/dow = 6/12": function (test) {
+        moment.lang('6/12', {week: {dow: 6, doy: 12}});
+
+        test.equal(moment([2004]).weeksInYear(), 53, "2004 has 53 weeks");
+        test.equal(moment([2005]).weeksInYear(), 52, "2005 has 53 weeks");
+        test.equal(moment([2006]).weeksInYear(), 52, "2006 has 53 weeks");
+        test.equal(moment([2007]).weeksInYear(), 52, "2007 has 52 weeks");
+        test.equal(moment([2008]).weeksInYear(), 52, "2008 has 53 weeks");
+        test.equal(moment([2009]).weeksInYear(), 52, "2009 has 53 weeks");
+        test.equal(moment([2010]).weeksInYear(), 53, "2010 has 52 weeks");
+        test.equal(moment([2011]).weeksInYear(), 52, "2011 has 52 weeks");
+        test.equal(moment([2012]).weeksInYear(), 52, "2012 has 52 weeks");
+        test.equal(moment([2013]).weeksInYear(), 52, "2013 has 52 weeks");
+        test.equal(moment([2014]).weeksInYear(), 52, "2014 has 52 weeks");
+        test.equal(moment([2015]).weeksInYear(), 52, "2015 has 53 weeks");
+
+        test.done();
+    },
+
+    "weeksInYear doy/dow = 1/7": function (test) {
+        moment.lang('1/7', {week: {dow: 1, doy: 7}});
+
+        test.equal(moment([2004]).weeksInYear(), 52, "2004 has 53 weeks");
+        test.equal(moment([2005]).weeksInYear(), 52, "2005 has 53 weeks");
+        test.equal(moment([2006]).weeksInYear(), 53, "2006 has 53 weeks");
+        test.equal(moment([2007]).weeksInYear(), 52, "2007 has 52 weeks");
+        test.equal(moment([2008]).weeksInYear(), 52, "2008 has 53 weeks");
+        test.equal(moment([2009]).weeksInYear(), 52, "2009 has 53 weeks");
+        test.equal(moment([2010]).weeksInYear(), 52, "2010 has 52 weeks");
+        test.equal(moment([2011]).weeksInYear(), 52, "2011 has 52 weeks");
+        test.equal(moment([2012]).weeksInYear(), 53, "2012 has 52 weeks");
+        test.equal(moment([2013]).weeksInYear(), 52, "2013 has 52 weeks");
+        test.equal(moment([2014]).weeksInYear(), 52, "2014 has 52 weeks");
+        test.equal(moment([2015]).weeksInYear(), 52, "2015 has 53 weeks");
+
+        test.done();
+    },
+
+    "weeksInYear doy/dow = 0/6": function (test) {
+        moment.lang('0/6', {week: {dow: 0, doy: 6}});
+
+        test.equal(moment([2004]).weeksInYear(), 52, "2004 has 53 weeks");
+        test.equal(moment([2005]).weeksInYear(), 53, "2005 has 53 weeks");
+        test.equal(moment([2006]).weeksInYear(), 52, "2006 has 53 weeks");
+        test.equal(moment([2007]).weeksInYear(), 52, "2007 has 52 weeks");
+        test.equal(moment([2008]).weeksInYear(), 52, "2008 has 53 weeks");
+        test.equal(moment([2009]).weeksInYear(), 52, "2009 has 53 weeks");
+        test.equal(moment([2010]).weeksInYear(), 52, "2010 has 52 weeks");
+        test.equal(moment([2011]).weeksInYear(), 53, "2011 has 52 weeks");
+        test.equal(moment([2012]).weeksInYear(), 52, "2012 has 52 weeks");
+        test.equal(moment([2013]).weeksInYear(), 52, "2013 has 52 weeks");
+        test.equal(moment([2014]).weeksInYear(), 52, "2014 has 52 weeks");
+        test.equal(moment([2015]).weeksInYear(), 52, "2015 has 53 weeks");
+
+        test.done();
+    }
+};
+
+var moment = require("../../moment");
+
 exports.zones = {
-    setUp : function (cb) {
+    setUp : function (done) {
         moment.lang('en');
-        cb();
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
+
+        done();
     },
 
     tearDown : function (cb) {
@@ -7414,12 +7958,12 @@ exports.zones = {
         var oldOffset = moment.updateOffset,
             m = moment.utc([2000, 6, 1]);
 
-        moment.updateOffset = function (mom) {
+        moment.updateOffset = function (mom, keepTime) {
             if (mom.__doChange) {
                 if (+mom > 962409600000) {
-                    mom.zone(120);
+                    mom.zone(120, keepTime);
                 } else {
-                    mom.zone(60);
+                    mom.zone(60, keepTime);
                 }
             }
         };
@@ -7620,11 +8164,11 @@ exports.zones = {
         var oldOffset = moment.updateOffset,
             m = moment.utc([2000, 2, 31, 3]);
 
-        moment.updateOffset = function (mom) {
+        moment.updateOffset = function (mom, keepTime) {
             if (mom.clone().utc().month() > 2) {
-                mom.zone(-60);
+                mom.zone(-60, keepTime);
             } else {
-                mom.zone(0);
+                mom.zone(0, keepTime);
             }
         };
 
@@ -7662,11 +8206,11 @@ exports.zones = {
     "isDST" : function (test) {
         var oldOffset = moment.updateOffset;
 
-        moment.updateOffset = function (mom) {
+        moment.updateOffset = function (mom, keepTime) {
             if (mom.month() > 2 && mom.month() < 9) {
-                mom.zone(-60);
+                mom.zone(-60, keepTime);
             } else {
-                mom.zone(0);
+                mom.zone(0, keepTime);
             }
         };
 
@@ -7768,12 +8312,26 @@ exports.zones = {
         test.equal(m.hours(), 0);
         test.done();
     },
-    
+
+    "parse zone with more arguments" : function (test) {
+        var m;
+        test.expect(3);
+
+        m = moment.parseZone("2013 01 01 05 -13:00", "YYYY MM DD HH ZZ");
+        test.equal(m.format(), "2013-01-01T05:00:00-13:00", "accept input and format");
+        m = moment.parseZone("2013-01-01-13:00", "YYYY MM DD ZZ", true);
+        test.equal(m.isValid(), false, "accept input, format and strict flag");
+        m = moment.parseZone("2013-01-01-13:00", ["DD MM YYYY ZZ", "YYYY MM DD ZZ"]);
+        test.equal(m.format(), "2013-01-01T00:00:00-13:00", "accept input and array of formats");
+
+        test.done();
+    },
+
     "parse zone with a timezone from the format string" : function (test) {
         test.expect(1);
-        
+
         var m = moment("11-12-2013 -0400 +1100", "DD-MM-YYYY ZZ #####").parseZone();
-        
+
         test.equal(m.zone(), 4 * 60);
         test.done();
     },
@@ -7806,6 +8364,9 @@ var moment = require("../../moment");
 exports["lang:ar-ma"] = {
     setUp : function (cb) {
         moment.lang('ar-ma');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -8159,6 +8720,9 @@ var moment = require("../../moment");
 exports["lang:ar"] = {
     setUp : function (cb) {
         moment.lang('ar');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -8524,6 +9088,9 @@ var moment = require("../../moment");
 exports["lang:bg"] = {
     setUp : function (cb) {
         moment.lang('bg');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -8897,6 +9464,9 @@ var moment = require("../../moment");
 exports["lang:br"] = {
     setUp : function (cb) {
         moment.lang('br');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -9157,12 +9727,12 @@ exports["lang:br"] = {
         test.equal(start.from(moment([2007, 1, 28]).add({y: 261}), true), "261 bloaz", "mutation 261 years");
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
             test.equal(require('../../lang/br'), 'br', "module should export br");
         }
-        
+
         test.done();
     }
 };
@@ -9177,6 +9747,9 @@ var moment = require("../../moment");
 exports["lang:bs"] = {
     setUp : function (cb) {
         moment.lang('bs');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -9571,6 +10144,9 @@ var moment = require("../../moment");
 exports["lang:ca"] = {
     setUp : function (cb) {
         moment.lang('ca');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -9878,12 +10454,12 @@ exports["lang:ca"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
             test.equal(require('../../lang/ca'), 'ca', "module should export ca");
         }
-        
+
         test.done();
     }
 };
@@ -9898,6 +10474,9 @@ var moment = require("../../moment");
 exports["lang:cs"] = {
     setUp : function (cb) {
         moment.lang('cs');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -9943,14 +10522,14 @@ exports["lang:cs"] = {
                 ['s ss',                         '50 50'],
                 ['a A',                          'pm PM'],
                 ['DDDo [den v roce]',            '45. den v roce'],
-                ['L',                            '14.02.2010'],
+                ['L',                            '14. 02. 2010'],
                 ['LL',                           '14. únor 2010'],
-                ['LLL',                          '14. únor 2010 15:25'],
-                ['LLLL',                         'neděle 14. únor 2010 15:25'],
-                ['l',                            '14.2.2010'],
+                ['LLL',                          '14. únor 2010 15.25'],
+                ['LLLL',                         'neděle 14. únor 2010 15.25'],
+                ['l',                            '14. 2. 2010'],
                 ['ll',                           '14. úno 2010'],
-                ['lll',                          '14. úno 2010 15:25'],
-                ['llll',                         'ne 14. úno 2010 15:25']
+                ['lll',                          '14. úno 2010 15.25'],
+                ['llll',                         'ne 14. úno 2010 15.25']
             ],
             b = moment(new Date(2010, 1, 14, 15, 25, 50, 125)),
             i;
@@ -10020,7 +10599,7 @@ exports["lang:cs"] = {
     "from" : function (test) {
         test.expect(30);
         var start = moment([2007, 1, 28]);
-        test.equal(start.from(moment([2007, 1, 28]).add({s: 44}), true),  "pár vteřin",  "44 seconds = a few seconds");
+        test.equal(start.from(moment([2007, 1, 28]).add({s: 44}), true),  "pár sekund",  "44 seconds = a few seconds");
         test.equal(start.from(moment([2007, 1, 28]).add({s: 45}), true),  "minuta",        "45 seconds = a minute");
         test.equal(start.from(moment([2007, 1, 28]).add({s: 89}), true),  "minuta",        "89 seconds = a minute");
         test.equal(start.from(moment([2007, 1, 28]).add({s: 90}), true),  "2 minuty",      "90 seconds = 2 minutes");
@@ -10055,20 +10634,20 @@ exports["lang:cs"] = {
 
     "suffix" : function (test) {
         test.expect(2);
-        test.equal(moment(30000).from(0), "za pár vteřin",  "prefix");
-        test.equal(moment(0).from(30000), "před pár vteřinami", "suffix");
+        test.equal(moment(30000).from(0), "za pár sekund",  "prefix");
+        test.equal(moment(0).from(30000), "před pár sekundami", "suffix");
         test.done();
     },
 
     "now from now" : function (test) {
         test.expect(1);
-        test.equal(moment().fromNow(), "před pár vteřinami",  "now from now should display as in the past");
+        test.equal(moment().fromNow(), "před pár sekundami",  "now from now should display as in the past");
         test.done();
     },
 
     "fromNow (future)" : function (test) {
         test.expect(16);
-        test.equal(moment().add({s: 30}).fromNow(), "za pár vteřin", "in a few seconds");
+        test.equal(moment().add({s: 30}).fromNow(), "za pár sekund", "in a few seconds");
         test.equal(moment().add({m: 1}).fromNow(), "za minutu", "in a minute");
         test.equal(moment().add({m: 3}).fromNow(), "za 3 minuty", "in 3 minutes");
         test.equal(moment().add({m: 10}).fromNow(), "za 10 minut", "in 10 minutes");
@@ -10089,7 +10668,7 @@ exports["lang:cs"] = {
 
     "fromNow (past)" : function (test) {
         test.expect(16);
-        test.equal(moment().subtract({s: 30}).fromNow(), "před pár vteřinami", "a few seconds ago");
+        test.equal(moment().subtract({s: 30}).fromNow(), "před pár sekundami", "a few seconds ago");
         test.equal(moment().subtract({m: 1}).fromNow(), "před minutou", "a minute ago");
         test.equal(moment().subtract({m: 3}).fromNow(), "před 3 minutami", "3 minutes ago");
         test.equal(moment().subtract({m: 10}).fromNow(), "před 10 minutami", "10 minutes ago");
@@ -10113,12 +10692,12 @@ exports["lang:cs"] = {
 
         var a = moment().hours(2).minutes(0).seconds(0);
 
-        test.equal(moment(a).calendar(),                     "dnes v 2:00",     "today at the same time");
-        test.equal(moment(a).add({ m: 25 }).calendar(),      "dnes v 2:25",     "Now plus 25 min");
-        test.equal(moment(a).add({ h: 1 }).calendar(),       "dnes v 3:00",     "Now plus 1 hour");
-        test.equal(moment(a).add({ d: 1 }).calendar(),       "zítra v 2:00",  "tomorrow at the same time");
-        test.equal(moment(a).subtract({ h: 1 }).calendar(),  "dnes v 1:00",     "Now minus 1 hour");
-        test.equal(moment(a).subtract({ d: 1 }).calendar(),  "včera v 2:00",     "yesterday at the same time");
+        test.equal(moment(a).calendar(),                     "dnes v 2.00",     "today at the same time");
+        test.equal(moment(a).add({ m: 25 }).calendar(),      "dnes v 2.25",     "Now plus 25 min");
+        test.equal(moment(a).add({ h: 1 }).calendar(),       "dnes v 3.00",     "Now plus 1 hour");
+        test.equal(moment(a).add({ d: 1 }).calendar(),       "zítra v 2.00",  "tomorrow at the same time");
+        test.equal(moment(a).subtract({ h: 1 }).calendar(),  "dnes v 1.00",     "Now minus 1 hour");
+        test.equal(moment(a).subtract({ d: 1 }).calendar(),  "včera v 2.00",     "yesterday at the same time");
         test.done();
     },
 
@@ -10328,12 +10907,12 @@ exports["lang:cs"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
             test.equal(require('../../lang/cs'), 'cs', "module should export cs");
         }
-        
+
         test.done();
     }
 };
@@ -10348,6 +10927,9 @@ var moment = require("../../moment");
 exports["lang:cv"] = {
     setUp : function (cb) {
         moment.lang('cv');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -10694,12 +11276,12 @@ exports["lang:cv"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
             test.equal(require('../../lang/cv'), 'cv', "module should export cv");
         }
-        
+
         test.done();
     }
 };
@@ -10714,6 +11296,9 @@ var moment = require("../../moment");
 exports["lang:cy"] = {
     setUp : function (cb) {
         moment.lang('cy');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -11057,12 +11642,12 @@ exports["lang:cy"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
             test.equal(require('../../lang/cy'), 'cy', "module should export cy");
         }
-        
+
         test.done();
     }
 };
@@ -11077,6 +11662,9 @@ var moment = require("../../moment");
 exports["lang:da"] = {
     setUp : function (cb) {
         moment.lang('da');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -11355,12 +11943,12 @@ exports["lang:da"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
             test.equal(require('../../lang/da'), 'da', "module should export da");
         }
-        
+
         test.done();
     }
 };
@@ -11375,6 +11963,9 @@ var moment = require("../../moment");
 exports["lang:de"] = {
     setUp : function (cb) {
         moment.lang('de');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -11554,12 +12145,12 @@ exports["lang:de"] = {
 
         var a = moment().hours(2).minutes(0).seconds(0);
 
-        test.equal(moment(a).calendar(),                     "Heute um 2:00 Uhr",   "today at the same time");
-        test.equal(moment(a).add({ m: 25 }).calendar(),      "Heute um 2:25 Uhr",   "Now plus 25 min");
-        test.equal(moment(a).add({ h: 1 }).calendar(),       "Heute um 3:00 Uhr",   "Now plus 1 hour");
-        test.equal(moment(a).add({ d: 1 }).calendar(),       "Morgen um 2:00 Uhr",  "tomorrow at the same time");
-        test.equal(moment(a).subtract({ h: 1 }).calendar(),  "Heute um 1:00 Uhr",   "Now minus 1 hour");
-        test.equal(moment(a).subtract({ d: 1 }).calendar(),  "Gestern um 2:00 Uhr", "yesterday at the same time");
+        test.equal(moment(a).calendar(),                     "Heute um 02:00 Uhr",   "today at the same time");
+        test.equal(moment(a).add({ m: 25 }).calendar(),      "Heute um 02:25 Uhr",   "Now plus 25 min");
+        test.equal(moment(a).add({ h: 1 }).calendar(),       "Heute um 03:00 Uhr",   "Now plus 1 hour");
+        test.equal(moment(a).add({ d: 1 }).calendar(),       "Morgen um 02:00 Uhr",  "tomorrow at the same time");
+        test.equal(moment(a).subtract({ h: 1 }).calendar(),  "Heute um 01:00 Uhr",   "Now minus 1 hour");
+        test.equal(moment(a).subtract({ d: 1 }).calendar(),  "Gestern um 02:00 Uhr", "yesterday at the same time");
         test.done();
     },
 
@@ -11714,12 +12305,12 @@ exports["lang:de"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
             test.equal(require('../../lang/de'), 'de', "module should export de");
         }
-        
+
         test.done();
     }
 };
@@ -11734,6 +12325,9 @@ var moment = require("../../moment");
 exports["lang:el"] = {
     setUp : function (cb) {
         moment.lang('el');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -12104,12 +12698,12 @@ exports["lang:el"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
             test.equal(require('../../lang/el'), 'el', "module should export el");
         }
-        
+
         test.done();
     }
 };
@@ -12124,6 +12718,9 @@ var moment = require("../../moment");
 exports["lang:en-au"] = {
     setUp : function (cb) {
         moment.lang('en-au');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -12484,6 +13081,9 @@ var moment = require("../../moment");
 exports["lang:en-ca"] = {
     setUp : function (cb) {
         moment.lang('en-ca');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -12852,12 +13452,12 @@ exports["lang:en-ca"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
             test.equal(require('../../lang/en-ca'), 'en-ca', "module should export en-ca");
         }
-        
+
         test.done();
     }
 };
@@ -12872,6 +13472,9 @@ var moment = require("../../moment");
 exports["lang:en-gb"] = {
     setUp : function (cb) {
         moment.lang('en-gb');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -13233,6 +13836,9 @@ var moment = require("../../moment");
 exports["lang:en"] = {
     setUp : function (cb) {
         moment.lang('en');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -13613,6 +14219,9 @@ var moment = require("../../moment");
 exports["lang:eo"] = {
     setUp : function (cb) {
         moment.lang('eo');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -13961,12 +14570,12 @@ exports["lang:eo"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
             test.equal(require('../../lang/eo'), 'eo', "module should export eo");
         }
-        
+
         test.done();
     }
 };
@@ -13981,6 +14590,9 @@ var moment = require("../../moment");
 exports["lang:es"] = {
     setUp : function (cb) {
         moment.lang('es');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -14010,7 +14622,7 @@ exports["lang:es"] = {
     },
 
     "format" : function (test) {
-        test.expect(22);
+        test.expect(23);
         var a = [
                 ['dddd, MMMM Do YYYY, h:mm:ss a',      'domingo, febrero 14º 2010, 3:25:50 pm'],
                 ['ddd, hA',                            'dom., 3PM'],
@@ -14020,6 +14632,7 @@ exports["lang:es"] = {
                 ['d do dddd ddd dd',                   '0 0º domingo dom. Do'],
                 ['DDD DDDo DDDD',                      '45 45º 045'],
                 ['w wo ww',                            '6 6º 06'],
+                ['YYYY-MMM-DD',                        '2010-feb-14'],
                 ['h hh',                               '3 03'],
                 ['H HH',                               '15 15'],
                 ['m mm',                               '25 25'],
@@ -14027,13 +14640,13 @@ exports["lang:es"] = {
                 ['a A',                                'pm PM'],
                 ['[the] DDDo [day of the year]',       'the 45º day of the year'],
                 ['L',                                  '14/02/2010'],
-                ['LL',                                 '14 de febrero de 2010'],
-                ['LLL',                                '14 de febrero de 2010 15:25'],
-                ['LLLL',                               'domingo, 14 de febrero de 2010 15:25'],
+                ['LL',                                 '14 de febrero del 2010'],
+                ['LLL',                                '14 de febrero del 2010 15:25'],
+                ['LLLL',                               'domingo, 14 de febrero del 2010 15:25'],
                 ['l',                                  '14/2/2010'],
-                ['ll',                                 '14 de feb. de 2010'],
-                ['lll',                                '14 de feb. de 2010 15:25'],
-                ['llll',                               'dom., 14 de feb. de 2010 15:25']
+                ['ll',                                 '14 de feb. del 2010'],
+                ['lll',                                '14 de feb. del 2010 15:25'],
+                ['llll',                               'dom., 14 de feb. del 2010 15:25']
             ],
             b = moment(new Date(2010, 1, 14, 15, 25, 50, 125)),
             i;
@@ -14324,12 +14937,12 @@ exports["lang:es"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
             test.equal(require('../../lang/es'), 'es', "module should export es");
         }
-        
+
         test.done();
     }
 };
@@ -14344,6 +14957,9 @@ var moment = require("../../moment");
 exports["lang:et"] = {
     setUp : function (cb) {
         moment.lang('et');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -14525,7 +15141,7 @@ exports["lang:et"] = {
 
         test.equal(moment().add({s: 30}).fromNow(), "mõne sekundi pärast", "in a few seconds");
         test.equal(moment().subtract({s: 30}).fromNow(), "mõni sekund tagasi", "a few seconds ago");
-        
+
         test.equal(moment().add({m: 1}).fromNow(), "ühe minuti pärast", "in a minute");
         test.equal(moment().subtract({m: 1}).fromNow(), "üks minut tagasi", "a minute ago");
 
@@ -14717,12 +15333,12 @@ exports["lang:et"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
             test.equal(require('../../lang/et'), 'et', "module should export et");
         }
-        
+
         test.done();
     }
 };
@@ -14737,6 +15353,9 @@ var moment = require("../../moment");
 exports["lang:eu"] = {
     setUp : function (cb) {
         moment.lang('eu');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -15082,12 +15701,12 @@ exports["lang:eu"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
             test.equal(require('../../lang/eu'), 'eu', "module should export eu");
         }
-        
+
         test.done();
     }
 };
@@ -15099,6 +15718,9 @@ var moment = require("../../moment");
 exports["lang:fa"] = {
     setUp : function (cb) {
         moment.lang('fa');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -15429,12 +16051,12 @@ exports["lang:fa"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
             test.equal(require('../../lang/fa'), 'fa', "module should export fa");
         }
-        
+
         test.done();
     }
 };
@@ -15449,6 +16071,9 @@ var moment = require("../../moment");
 exports["lang:fi"] = {
     setUp : function (cb) {
         moment.lang('fi');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -15789,12 +16414,12 @@ exports["lang:fi"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
             test.equal(require('../../lang/fi'), 'fi', "module should export fi");
         }
-        
+
         test.done();
     }
 };
@@ -15809,6 +16434,9 @@ var moment = require("../../moment");
 exports["lang:fo"] = {
     setUp : function (cb) {
         moment.lang('fo');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -16087,12 +16715,12 @@ exports["lang:fo"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
             test.equal(require('../../lang/fo'), 'fo', "module should export fo");
         }
-        
+
         test.done();
     }
 };
@@ -16106,6 +16734,9 @@ var moment = require("../../moment");
 exports["lang:fr-ca"] = {
     setUp : function (cb) {
         moment.lang('fr-ca');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -16467,12 +17098,12 @@ exports["lang:fr-ca"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
             test.equal(require('../../lang/fr-ca'), 'fr-ca', "module should export fr-ca");
         }
-        
+
         test.done();
     }
 };
@@ -16487,6 +17118,9 @@ var moment = require("../../moment");
 exports["lang:fr"] = {
     setUp : function (cb) {
         moment.lang('fr');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -16830,12 +17464,12 @@ exports["lang:fr"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
             test.equal(require('../../lang/fr'), 'fr', "module should export fr");
         }
-        
+
         test.done();
     }
 };
@@ -16850,6 +17484,9 @@ var moment = require("../../moment");
 exports["lang:gl"] = {
     setUp : function (cb) {
         moment.lang('gl');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -17174,12 +17811,12 @@ exports["lang:gl"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
             test.equal(require('../../lang/gl'), 'gl', "module should export gl");
         }
-        
+
         test.done();
     }
 };
@@ -17194,6 +17831,9 @@ var moment = require("../../moment");
 exports["lang:he"] = {
     setUp : function (cb) {
         moment.lang('he');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -17497,12 +18137,12 @@ exports["lang:he"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
             test.equal(require('../../lang/he'), 'he', "module should export he");
         }
-        
+
         test.done();
     }
 };
@@ -17517,6 +18157,9 @@ var moment = require("../../moment");
 exports["lang:hi"] = {
     setUp : function (cb) {
         moment.lang('hi');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -17883,12 +18526,12 @@ exports["lang:hi"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
             test.equal(require('../../lang/hi'), 'hi', "module should export hi");
         }
-        
+
         test.done();
     }
 };
@@ -17903,6 +18546,9 @@ var moment = require("../../moment");
 exports["lang:hr"] = {
     setUp : function (cb) {
         moment.lang('hr');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -18277,12 +18923,12 @@ exports["lang:hr"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
             test.equal(require('../../lang/hr'), 'hr', "module should export hr");
         }
-        
+
         test.done();
     }
 };
@@ -18296,6 +18942,9 @@ var moment = require("../../moment");
 exports["lang:hu"] = {
     setUp : function (cb) {
         moment.lang('hu');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -18356,6 +19005,22 @@ exports["lang:hu"] = {
         for (i = 0; i < a.length; i++) {
             test.equal(b.format(a[i][0]), a[i][1], a[i][0] + ' ---> ' + a[i][1]);
         }
+        test.done();
+    },
+
+    "meridiem" : function (test) {
+        test.expect(8);
+
+        test.equal(moment([2011, 2, 23,  0,  0]).format('a'), "de", "am");
+        test.equal(moment([2011, 2, 23, 11, 59]).format('a'), "de", "am");
+        test.equal(moment([2011, 2, 23, 12,  0]).format('a'), "du", "pm");
+        test.equal(moment([2011, 2, 23, 23, 59]).format('a'), "du", "pm");
+
+        test.equal(moment([2011, 2, 23,  0,  0]).format('A'), "DE", "AM");
+        test.equal(moment([2011, 2, 23, 11, 59]).format('A'), "DE", "AM");
+        test.equal(moment([2011, 2, 23, 12,  0]).format('A'), "DU", "PM");
+        test.equal(moment([2011, 2, 23, 23, 59]).format('A'), "DU", "PM");
+
         test.done();
     },
 
@@ -18642,12 +19307,12 @@ exports["lang:hu"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
             test.equal(require('../../lang/hu'), 'hu', "module should export hu");
         }
-        
+
         test.done();
     }
 };
@@ -18662,6 +19327,9 @@ var moment = require("../../moment");
 exports["lang:hy-am"] = {
     setUp : function (cb) {
         moment.lang('hy-am');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -19092,15 +19760,15 @@ exports["lang:hy-am"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
             test.equal(require('../../lang/hy-am'), 'hy-am', "module should export hy");
         }
-        
+
         test.done();
     }
-    
+
 };
 
 var moment = require("../../moment");
@@ -19113,6 +19781,9 @@ var moment = require("../../moment");
 exports["lang:id"] = {
     setUp : function (cb) {
         moment.lang('id');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -19413,12 +20084,12 @@ exports["lang:id"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
             test.equal(require('../../lang/id'), 'id', "module should export id");
         }
-        
+
         test.done();
     }
 };
@@ -19433,6 +20104,9 @@ var moment = require("../../moment");
 exports["lang:is"] = {
     setUp : function (cb) {
         moment.lang('is');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -19786,13 +20460,13 @@ exports["lang:is"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
-        
+
             test.equal(require('../../lang/is'), 'is', "module should export is");
         }
-        
+
         test.done();
     }
 };
@@ -19807,6 +20481,9 @@ var moment = require("../../moment");
 exports["lang:it"] = {
     setUp : function (cb) {
         moment.lang('it');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -20148,12 +20825,12 @@ exports["lang:it"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
             test.equal(require('../../lang/it'), 'it', "module should export it");
         }
-        
+
         test.done();
     }
 };
@@ -20168,6 +20845,9 @@ var moment = require("../../moment");
 exports["lang:ja"] = {
     setUp : function (cb) {
         moment.lang('ja');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -20473,12 +21153,12 @@ exports["lang:ja"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
             test.equal(require('../../lang/ja'), 'ja', "module should export ja");
         }
-        
+
         test.done();
     }
 };
@@ -20492,6 +21172,9 @@ var moment = require("../../moment");
 exports["lang:ka"] = {
     setUp : function (cb) {
         moment.lang('ka');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -20872,6 +21555,457 @@ exports["lang:ka"] = {
 var moment = require("../../moment");
 
 
+/**************************************************
+      Khmer
+     *************************************************/
+
+exports["lang:km"] = {
+    setUp: function (cb) {
+        moment.lang('km');
+        cb();
+    },
+
+    tearDown: function (cb) {
+        moment.lang('km');
+        cb();
+    },
+
+    "parse": function (test) {
+        test.expect(96);
+        var tests = 'មករា មករា_កុម្ភៈ កុម្ភៈ_មិនា មិនា_មេសា មេសា_ឧសភា ឧសភា_មិថុនា មិថុនា_កក្កដា កក្កដា_សីហា សីហា_កញ្ញា កញ្ញា_តុលា តុលា_វិច្ឆិកា វិច្ឆិកា_ធ្នូ ធ្នូ'.split("_"),
+            i;
+
+        function equalTest(input, mmm, i) {
+            test.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
+        }
+        for (i = 0; i < 12; i++) {
+            tests[i] = tests[i].split(' ');
+            equalTest(tests[i][0], 'MMM', i);
+            equalTest(tests[i][1], 'MMM', i);
+            equalTest(tests[i][0], 'MMMM', i);
+            equalTest(tests[i][1], 'MMMM', i);
+            equalTest(tests[i][0].toLocaleLowerCase(), 'MMMM', i);
+            equalTest(tests[i][1].toLocaleLowerCase(), 'MMMM', i);
+            equalTest(tests[i][0].toLocaleUpperCase(), 'MMMM', i);
+            equalTest(tests[i][1].toLocaleUpperCase(), 'MMMM', i);
+        }
+        test.done();
+    },
+
+    "format": function (test) {
+        test.expect(22);
+        var a = [
+            ['dddd, MMMM Do YYYY, h:mm:ss a', 'អាទិត្យ, កុម្ភៈ 14 2010, 3:25:50 pm'],
+            ['ddd, hA', 'អាទិត្យ, 3PM'],
+            ['M Mo MM MMMM MMM', '2 2 02 កុម្ភៈ កុម្ភៈ'],
+            ['YYYY YY', '2010 10'],
+            ['D Do DD', '14 14 14'],
+            ['d do dddd ddd dd', '0 0 អាទិត្យ អាទិត្យ អាទិត្យ'],
+            ['DDD DDDo DDDD', '45 45 045'],
+            ['w wo ww', '6 6 06'],
+            ['h hh', '3 03'],
+            ['H HH', '15 15'],
+            ['m mm', '25 25'],
+            ['s ss', '50 50'],
+            ['a A', 'pm PM'],
+            ['[the] DDDo [day of the year]', 'the 45 day of the year'],
+            ['L', '14/02/2010'],
+            ['LL', '14 កុម្ភៈ 2010'],
+            ['LLL', '14 កុម្ភៈ 2010 15:25'],
+            ['LLLL', 'អាទិត្យ, 14 កុម្ភៈ 2010 15:25'],
+            ['l', '14/2/2010'],
+            ['ll', '14 កុម្ភៈ 2010'],
+            ['lll', '14 កុម្ភៈ 2010 15:25'],
+            ['llll', 'អាទិត្យ, 14 កុម្ភៈ 2010 15:25']
+        ],
+            b = moment(new Date(2010, 1, 14, 15, 25, 50, 125)),
+            i;
+        for (i = 0; i < a.length; i++) {
+            test.equal(b.format(a[i][0]), a[i][1], a[i][0] + ' ---> ' + a[i][1]);
+        }
+        test.done();
+    },
+
+    "format ordinal": function (test) {
+        test.expect(31);
+        test.equal(moment([2011, 0, 1]).format('DDDo'), '1', '1st');
+        test.equal(moment([2011, 0, 2]).format('DDDo'), '2', '2nd');
+        test.equal(moment([2011, 0, 3]).format('DDDo'), '3', '3rd');
+        test.equal(moment([2011, 0, 4]).format('DDDo'), '4', '4th');
+        test.equal(moment([2011, 0, 5]).format('DDDo'), '5', '5th');
+        test.equal(moment([2011, 0, 6]).format('DDDo'), '6', '6th');
+        test.equal(moment([2011, 0, 7]).format('DDDo'), '7', '7th');
+        test.equal(moment([2011, 0, 8]).format('DDDo'), '8', '8th');
+        test.equal(moment([2011, 0, 9]).format('DDDo'), '9', '9th');
+        test.equal(moment([2011, 0, 10]).format('DDDo'), '10', '10th');
+
+        test.equal(moment([2011, 0, 11]).format('DDDo'), '11', '11th');
+        test.equal(moment([2011, 0, 12]).format('DDDo'), '12', '12th');
+        test.equal(moment([2011, 0, 13]).format('DDDo'), '13', '13th');
+        test.equal(moment([2011, 0, 14]).format('DDDo'), '14', '14th');
+        test.equal(moment([2011, 0, 15]).format('DDDo'), '15', '15th');
+        test.equal(moment([2011, 0, 16]).format('DDDo'), '16', '16th');
+        test.equal(moment([2011, 0, 17]).format('DDDo'), '17', '17th');
+        test.equal(moment([2011, 0, 18]).format('DDDo'), '18', '18th');
+        test.equal(moment([2011, 0, 19]).format('DDDo'), '19', '19th');
+        test.equal(moment([2011, 0, 20]).format('DDDo'), '20', '20th');
+ 
+        test.equal(moment([2011, 0, 21]).format('DDDo'), '21', '21st');
+        test.equal(moment([2011, 0, 22]).format('DDDo'), '22', '22nd');
+        test.equal(moment([2011, 0, 23]).format('DDDo'), '23', '23rd');
+        test.equal(moment([2011, 0, 24]).format('DDDo'), '24', '24th');
+        test.equal(moment([2011, 0, 25]).format('DDDo'), '25', '25th');
+        test.equal(moment([2011, 0, 26]).format('DDDo'), '26', '26th');
+        test.equal(moment([2011, 0, 27]).format('DDDo'), '27', '27th');
+        test.equal(moment([2011, 0, 28]).format('DDDo'), '28', '28th');
+        test.equal(moment([2011, 0, 29]).format('DDDo'), '29', '29th');
+        test.equal(moment([2011, 0, 30]).format('DDDo'), '30', '30th');
+ 
+        test.equal(moment([2011, 0, 31]).format('DDDo'), '31', '31st');
+        test.done();
+    },
+
+    "format month": function (test) {
+        test.expect(12);
+        var expected = 'មករា មករា_កុម្ភៈ កុម្ភៈ_មិនា មិនា_មេសា មេសា_ឧសភា ឧសភា_មិថុនា មិថុនា_កក្កដា កក្កដា_សីហា សីហា_កញ្ញា កញ្ញា_តុលា តុលា_វិច្ឆិកា វិច្ឆិកា_ធ្នូ ធ្នូ'.split("_"),
+            i;
+        for (i = 0; i < expected.length; i++) {
+            test.equal(moment([2011, i, 1]).format('MMMM MMM'), expected[i], expected[i]);
+        }
+        test.done();
+    },
+
+    "format week": function (test) {
+        test.expect(7);
+        var expected = 'អាទិត្យ អាទិត្យ អាទិត្យ_ច័ន្ទ ច័ន្ទ ច័ន្ទ_អង្គារ អង្គារ អង្គារ_ពុធ ពុធ ពុធ_ព្រហស្បតិ៍ ព្រហស្បតិ៍ ព្រហស្បតិ៍_សុក្រ សុក្រ សុក្រ_សៅរ៍ សៅរ៍ សៅរ៍'.split("_"),
+            i;
+        for (i = 0; i < expected.length; i++) {
+            test.equal(moment([2011, 0, 2 + i]).format('dddd ddd dd'), expected[i], expected[i]);
+        }
+        test.done();
+    },
+
+    "from": function (test) {
+        test.expect(30);
+        var start = moment([2007, 1, 28]);
+        test.equal(start.from(moment([2007, 1, 28]).add({
+            s: 44
+        }), true), "ប៉ុន្មានវិនាទី", "44 seconds = ប៉ុន្មានវិនាទី");
+        test.equal(start.from(moment([2007, 1, 28]).add({
+            s: 45
+        }), true), "មួយនាទី", "45 seconds = មួយនាទី");
+        test.equal(start.from(moment([2007, 1, 28]).add({
+            s: 89
+        }), true), "មួយនាទី", "89 seconds = មួយនាទី");
+        test.equal(start.from(moment([2007, 1, 28]).add({
+            s: 90
+        }), true), "2 នាទី", "90 seconds = 2 នាទី");
+        test.equal(start.from(moment([2007, 1, 28]).add({
+            m: 44
+        }), true), "44 នាទី", "44 minutes = 44 នាទី");
+        test.equal(start.from(moment([2007, 1, 28]).add({
+            m: 45
+        }), true), "មួយម៉ោង", "45 minutes = មួយម៉ោង");
+        test.equal(start.from(moment([2007, 1, 28]).add({
+            m: 89
+        }), true), "មួយម៉ោង", "89 minutes = មួយម៉ោង");
+        test.equal(start.from(moment([2007, 1, 28]).add({
+            m: 90
+        }), true), "2 ម៉ោង", "90 minutes = 2 ម៉ោង");
+        test.equal(start.from(moment([2007, 1, 28]).add({
+            h: 5
+        }), true), "5 ម៉ោង", "5 hours = 5 ម៉ោង");
+        test.equal(start.from(moment([2007, 1, 28]).add({
+            h: 21
+        }), true), "21 ម៉ោង", "21 hours = 21 ម៉ោង");
+        test.equal(start.from(moment([2007, 1, 28]).add({
+            h: 22
+        }), true), "មួយថ្ងៃ", "22 hours = មួយថ្ងៃ");
+        test.equal(start.from(moment([2007, 1, 28]).add({
+            h: 35
+        }), true), "មួយថ្ងៃ", "35 hours = មួយថ្ងៃ");
+        test.equal(start.from(moment([2007, 1, 28]).add({
+            h: 36
+        }), true), "2 ថ្ងៃ", "36 hours = 2 ថ្ងៃ");
+        test.equal(start.from(moment([2007, 1, 28]).add({
+            d: 1
+        }), true), "មួយថ្ងៃ", "1 day = មួយថ្ងៃ");
+        test.equal(start.from(moment([2007, 1, 28]).add({
+            d: 5
+        }), true), "5 ថ្ងៃ", "5 days = 5 ថ្ងៃ");
+        test.equal(start.from(moment([2007, 1, 28]).add({
+            d: 25
+        }), true), "25 ថ្ងៃ", "25 days = 25 ថ្ងៃ");
+        test.equal(start.from(moment([2007, 1, 28]).add({
+            d: 26
+        }), true), "មួយខែ", "26 days = មួយខែ");
+        test.equal(start.from(moment([2007, 1, 28]).add({
+            d: 30
+        }), true), "មួយខែ", "30 days = មួយខែ");
+        test.equal(start.from(moment([2007, 1, 28]).add({
+            d: 45
+        }), true), "មួយខែ", "45 days = មួយខែ");
+        test.equal(start.from(moment([2007, 1, 28]).add({
+            d: 46
+        }), true), "2 ខែ", "46 days = 2 ខែ");
+        test.equal(start.from(moment([2007, 1, 28]).add({
+            d: 74
+        }), true), "2 ខែ", "75 days = 2 ខែ");
+        test.equal(start.from(moment([2007, 1, 28]).add({
+            d: 76
+        }), true), "3 ខែ", "76 days = 3 ខែ");
+        test.equal(start.from(moment([2007, 1, 28]).add({
+            M: 1
+        }), true), "មួយខែ", "1 month = មួយខែ");
+        test.equal(start.from(moment([2007, 1, 28]).add({
+            M: 5
+        }), true), "5 ខែ", "5 months = 5 ខែ");
+        test.equal(start.from(moment([2007, 1, 28]).add({
+            d: 344
+        }), true), "11 ខែ", "344 days = 11 ខែ");
+        test.equal(start.from(moment([2007, 1, 28]).add({
+            d: 345
+        }), true), "មួយឆ្នាំ", "345 days = មួយឆ្នាំ");
+        test.equal(start.from(moment([2007, 1, 28]).add({
+            d: 547
+        }), true), "មួយឆ្នាំ", "547 days = មួយឆ្នាំ");
+        test.equal(start.from(moment([2007, 1, 28]).add({
+            d: 548
+        }), true), "2 ឆ្នាំ", "548 days = 2 ឆ្នាំ");
+        test.equal(start.from(moment([2007, 1, 28]).add({
+            y: 1
+        }), true), "មួយឆ្នាំ", "1 year = មួយឆ្នាំ");
+        test.equal(start.from(moment([2007, 1, 28]).add({
+            y: 5
+        }), true), "5 ឆ្នាំ", "5 years = 5 ឆ្នាំ");
+        test.done();
+    },
+
+    "suffix": function (test) {
+        test.expect(2);
+        test.equal(moment(30000).from(0), "ប៉ុន្មានវិនាទីទៀត", "prefix");
+        test.equal(moment(0).from(30000), "ប៉ុន្មានវិនាទីមុន", "suffix");
+        test.done();
+    },
+
+    "now from now": function (test) {
+        test.expect(1);
+        test.equal(moment().fromNow(), "ប៉ុន្មានវិនាទីមុន", "now from now should display as in the past");
+        test.done();
+    },
+
+    "fromNow": function (test) {
+        test.expect(2);
+        test.equal(moment().add({
+            s: 30
+        }).fromNow(), "ប៉ុន្មានវិនាទីទៀត", "in a few seconds");
+        test.equal(moment().add({
+            d: 5
+        }).fromNow(), "5 ថ្ងៃទៀត", "in 5 days");
+        test.done();
+    },
+
+    "calendar day": function (test) {
+        test.expect(6);
+
+        var a = moment().hours(2).minutes(0).seconds(0);
+
+        test.equal(moment(a).calendar(), "ថ្ងៃនៈ ម៉ោង 02:00", "today at the same time");
+        test.equal(moment(a).add({
+            m: 25
+        }).calendar(), "ថ្ងៃនៈ ម៉ោង 02:25", "Now plus 25 min");
+        test.equal(moment(a).add({
+            h: 1
+        }).calendar(), "ថ្ងៃនៈ ម៉ោង 03:00", "Now plus 1 hour");
+        test.equal(moment(a).add({
+            d: 1
+        }).calendar(), "ស្អែក ម៉ោង 02:00", "tomorrow at the same time");
+        test.equal(moment(a).subtract({
+            h: 1
+        }).calendar(), "ថ្ងៃនៈ ម៉ោង 01:00", "Now minus 1 hour");
+        test.equal(moment(a).subtract({
+            d: 1
+        }).calendar(), "ម្សិលមិញ ម៉ោង 02:00", "yesterday at the same time");
+        test.done();
+    },
+
+    "calendar next week": function (test) {
+        test.expect(15);
+
+        var i, m;
+        for (i = 2; i < 7; i++) {
+            m = moment().add({
+                d: i
+            });
+            test.equal(m.calendar(), m.format('dddd [ម៉ោង] LT'), "Today + " + i + " days current time");
+            m.hours(0).minutes(0).seconds(0).milliseconds(0);
+            test.equal(m.calendar(), m.format('dddd [ម៉ោង] LT'), "Today + " + i + " days beginning of day");
+            m.hours(23).minutes(59).seconds(59).milliseconds(999);
+            test.equal(m.calendar(), m.format('dddd [ម៉ោង] LT'), "Today + " + i + " days end of day");
+        }
+        test.done();
+    },
+
+    "calendar last week": function (test) {
+        test.expect(15);
+
+        var i, m;
+
+        for (i = 2; i < 7; i++) {
+            m = moment().subtract({
+                d: i
+            });
+            test.equal(m.calendar(), m.format('dddd [សប្តាហ៍មុន] [ម៉ោង] LT'), "Today - " + i + " days current time");
+            m.hours(0).minutes(0).seconds(0).milliseconds(0);
+            test.equal(m.calendar(), m.format('dddd [សប្តាហ៍មុន] [ម៉ោង] LT'), "Today - " + i + " days beginning of day");
+            m.hours(23).minutes(59).seconds(59).milliseconds(999);
+            test.equal(m.calendar(), m.format('dddd [សប្តាហ៍មុន] [ម៉ោង] LT'), "Today - " + i + " days end of day");
+        }
+        test.done();
+    },
+
+    "calendar all else": function (test) {
+        test.expect(4);
+
+        var weeksAgo = moment().subtract({
+            w: 1
+        }),
+            weeksFromNow = moment().add({
+                w: 1
+            });
+
+        test.equal(weeksAgo.calendar(), weeksAgo.format('L'), "1 week ago");
+        test.equal(weeksFromNow.calendar(), weeksFromNow.format('L'), "in 1 week");
+
+        weeksAgo = moment().subtract({
+            w: 2
+        });
+        weeksFromNow = moment().add({
+            w: 2
+        });
+
+        test.equal(weeksAgo.calendar(), weeksAgo.format('L'), "2 weeks ago");
+        test.equal(weeksFromNow.calendar(), weeksFromNow.format('L'), "in 2 weeks");
+
+        test.done();
+    },
+
+    // Monday is the first day of the week.
+    // The week that contains Jan 4th is the first week of the year.
+
+    "weeks year starting sunday": function (test) {
+        test.expect(5);
+
+        test.equal(moment([2012, 0, 1]).week(), 52, "Jan  1 2012 should be week 52");
+        test.equal(moment([2012, 0, 2]).week(), 1, "Jan  2 2012 should be week 1");
+        test.equal(moment([2012, 0, 8]).week(), 1, "Jan  8 2012 should be week 1");
+        test.equal(moment([2012, 0, 9]).week(), 2, "Jan  9 2012 should be week 2");
+        test.equal(moment([2012, 0, 15]).week(), 2, "Jan 15 2012 should be week 2");
+
+        test.done();
+    },
+
+    "weeks year starting monday": function (test) {
+        test.expect(5);
+
+        test.equal(moment([2007, 0, 1]).week(), 1, "Jan  1 2007 should be week 1");
+        test.equal(moment([2007, 0, 7]).week(), 1, "Jan  7 2007 should be week 1");
+        test.equal(moment([2007, 0, 8]).week(), 2, "Jan  8 2007 should be week 2");
+        test.equal(moment([2007, 0, 14]).week(), 2, "Jan 14 2007 should be week 2");
+        test.equal(moment([2007, 0, 15]).week(), 3, "Jan 15 2007 should be week 3");
+
+        test.done();
+    },
+
+    "weeks year starting tuesday": function (test) {
+        test.expect(6);
+
+        test.equal(moment([2007, 11, 31]).week(), 1, "Dec 31 2007 should be week 1");
+        test.equal(moment([2008, 0, 1]).week(), 1, "Jan  1 2008 should be week 1");
+        test.equal(moment([2008, 0, 6]).week(), 1, "Jan  6 2008 should be week 1");
+        test.equal(moment([2008, 0, 7]).week(), 2, "Jan  7 2008 should be week 2");
+        test.equal(moment([2008, 0, 13]).week(), 2, "Jan 13 2008 should be week 2");
+        test.equal(moment([2008, 0, 14]).week(), 3, "Jan 14 2008 should be week 3");
+
+        test.done();
+    },
+
+    "weeks year starting wednesday": function (test) {
+        test.expect(6);
+
+        test.equal(moment([2002, 11, 30]).week(), 1, "Dec 30 2002 should be week 1");
+        test.equal(moment([2003, 0, 1]).week(), 1, "Jan  1 2003 should be week 1");
+        test.equal(moment([2003, 0, 5]).week(), 1, "Jan  5 2003 should be week 1");
+        test.equal(moment([2003, 0, 6]).week(), 2, "Jan  6 2003 should be week 2");
+        test.equal(moment([2003, 0, 12]).week(), 2, "Jan 12 2003 should be week 2");
+        test.equal(moment([2003, 0, 13]).week(), 3, "Jan 13 2003 should be week 3");
+
+        test.done();
+    },
+
+    "weeks year starting thursday": function (test) {
+        test.expect(6);
+
+        test.equal(moment([2008, 11, 29]).week(), 1, "Dec 29 2008 should be week 1");
+        test.equal(moment([2009, 0, 1]).week(), 1, "Jan  1 2009 should be week 1");
+        test.equal(moment([2009, 0, 4]).week(), 1, "Jan  4 2009 should be week 1");
+        test.equal(moment([2009, 0, 5]).week(), 2, "Jan  5 2009 should be week 2");
+        test.equal(moment([2009, 0, 11]).week(), 2, "Jan 11 2009 should be week 2");
+        test.equal(moment([2009, 0, 13]).week(), 3, "Jan 12 2009 should be week 3");
+
+        test.done();
+    },
+
+    "weeks year starting friday": function (test) {
+        test.expect(6);
+
+        test.equal(moment([2009, 11, 28]).week(), 53, "Dec 28 2009 should be week 53");
+        test.equal(moment([2010, 0, 1]).week(), 53, "Jan  1 2010 should be week 53");
+        test.equal(moment([2010, 0, 3]).week(), 53, "Jan  3 2010 should be week 53");
+        test.equal(moment([2010, 0, 4]).week(), 1, "Jan  4 2010 should be week 1");
+        test.equal(moment([2010, 0, 10]).week(), 1, "Jan 10 2010 should be week 1");
+        test.equal(moment([2010, 0, 11]).week(), 2, "Jan 11 2010 should be week 2");
+
+        test.done();
+    },
+
+    "weeks year starting saturday": function (test) {
+        test.expect(6);
+
+        test.equal(moment([2010, 11, 27]).week(), 52, "Dec 27 2010 should be week 52");
+        test.equal(moment([2011, 0, 1]).week(), 52, "Jan  1 2011 should be week 52");
+        test.equal(moment([2011, 0, 2]).week(), 52, "Jan  2 2011 should be week 52");
+        test.equal(moment([2011, 0, 3]).week(), 1, "Jan  3 2011 should be week 1");
+        test.equal(moment([2011, 0, 9]).week(), 1, "Jan  9 2011 should be week 1");
+        test.equal(moment([2011, 0, 10]).week(), 2, "Jan 10 2011 should be week 2");
+
+        test.done();
+    },
+
+    "weeks year starting sunday formatted": function (test) {
+        test.expect(5);
+
+        test.equal(moment([2012, 0, 1]).format('w ww wo'), '52 52 52', "Jan  1 2012 should be week 52");
+        test.equal(moment([2012, 0, 2]).format('w ww wo'), '1 01 1', "Jan  2 2012 should be week 1");
+        test.equal(moment([2012, 0, 8]).format('w ww wo'), '1 01 1', "Jan  8 2012 should be week 1");
+        test.equal(moment([2012, 0, 9]).format('w ww wo'), '2 02 2', "Jan  9 2012 should be week 2");
+        test.equal(moment([2012, 0, 15]).format('w ww wo'), '2 02 2', "Jan 15 2012 should be week 2");
+
+        test.done();
+    },
+
+    "returns the name of the language": function (test) {
+        if (typeof module !== 'undefined' && module.exports) {
+            test.equal(require('../../lang/km'), 'km', "module should export km");
+        }
+
+        test.done();
+    }
+};
+
+var moment = require("../../moment");
+
+
     /**************************************************
       Korean
      *************************************************/
@@ -20879,6 +22013,9 @@ var moment = require("../../moment");
 exports["lang:kr"] = {
     setUp : function (cb) {
         moment.lang('ko');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -21290,6 +22427,9 @@ var moment = require("../../moment");
 exports["lang:lb"] = {
     setUp: function (cb) {
         moment.lang('lb');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -21476,6 +22616,9 @@ var moment = require("../../moment");
 exports["lang:lt"] = {
     setUp : function (cb) {
         moment.lang('lt');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -21827,12 +22970,12 @@ exports["lang:lt"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
             test.equal(require('../../lang/lt'), 'lt', "module should export lt");
         }
-        
+
         test.done();
     }
 };
@@ -21847,6 +22990,9 @@ var moment = require("../../moment");
 exports["lang:lv"] = {
     setUp : function (cb) {
         moment.lang('lv');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -22191,12 +23337,12 @@ exports["lang:lv"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
             test.equal(require('../../lang/lv'), 'lv', "module should export lv");
         }
-        
+
         test.done();
     }
 };
@@ -22211,6 +23357,9 @@ var moment = require("../../moment");
 exports["lang:mk"] = {
     "setUp" : function (cb) {
         moment.lang('mk');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -22584,6 +23733,9 @@ var moment = require("../../moment");
 exports["lang:ml"] = {
     setUp : function (cb) {
         moment.lang('ml');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -22950,12 +24102,12 @@ exports["lang:ml"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
             test.equal(require('../../lang/ml'), 'ml', "module should export ml");
         }
-        
+
         test.done();
     }
 };
@@ -22970,6 +24122,9 @@ var moment = require("../../moment");
 exports["lang:mr"] = {
     setUp : function (cb) {
         moment.lang('mr');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -23336,12 +24491,12 @@ exports["lang:mr"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
             test.equal(require('../../lang/mr'), 'mr', "module should export mr");
         }
-        
+
         test.done();
     }
 };
@@ -23356,6 +24511,9 @@ var moment = require("../../moment");
 exports["lang:ms-my"] = {
     setUp : function (cb) {
         moment.lang('ms-my');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -23722,12 +24880,12 @@ exports["lang:ms-my"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
             test.equal(require('../../lang/ms-my'), 'ms-my', "module should export ms-my");
         }
-        
+
         test.done();
     }
 };
@@ -23742,6 +24900,9 @@ var moment = require("../../moment");
 exports["lang:nb"] = {
     setUp : function (cb) {
         moment.lang('nb');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -24087,12 +25248,12 @@ exports["lang:nb"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
             test.equal(require('../../lang/nb'), 'nb', "module should export nb");
         }
-        
+
         test.done();
     }
 };
@@ -24107,6 +25268,9 @@ var moment = require("../../moment");
 exports["lang:ne"] = {
     setUp : function (cb) {
         moment.lang('ne');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -24471,12 +25635,12 @@ exports["lang:ne"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
             test.equal(require('../../lang/ne'), 'ne', "module should export ne");
         }
-        
+
         test.done();
     }
 };
@@ -24491,6 +25655,9 @@ var moment = require("../../moment");
 exports["lang:nl"] = {
     setUp : function (cb) {
         moment.lang('nl');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -24846,12 +26013,12 @@ exports["lang:nl"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
             test.equal(require('../../lang/nl'), 'nl', "module should export nl");
         }
-        
+
         test.done();
     }
 };
@@ -24866,6 +26033,9 @@ var moment = require("../../moment");
 exports["lang:nn"] = {
     setUp : function (cb) {
         moment.lang('nn');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -24994,55 +26164,55 @@ exports["lang:nn"] = {
         test.expect(30);
 
         var start = moment([2007, 1, 28]);
-        test.equal(start.from(moment([2007, 1, 28]).add({s: 44}), true),  "noen sekund", "44 sekunder = a few seconds");
-        test.equal(start.from(moment([2007, 1, 28]).add({s: 45}), true),  "ett minutt",      "45 seconds = a minute");
-        test.equal(start.from(moment([2007, 1, 28]).add({s: 89}), true),  "ett minutt",      "89 seconds = a minute");
+        test.equal(start.from(moment([2007, 1, 28]).add({s: 44}), true),  "nokre sekund", "44 sekunder = a few seconds");
+        test.equal(start.from(moment([2007, 1, 28]).add({s: 45}), true),  "eit minutt",   "45 seconds = a minute");
+        test.equal(start.from(moment([2007, 1, 28]).add({s: 89}), true),  "eit minutt",   "89 seconds = a minute");
         test.equal(start.from(moment([2007, 1, 28]).add({s: 90}), true),  "2 minutt",     "90 seconds = 2 minutes");
         test.equal(start.from(moment([2007, 1, 28]).add({m: 44}), true),  "44 minutt",    "44 minutes = 44 minutes");
-        test.equal(start.from(moment([2007, 1, 28]).add({m: 45}), true),  "en time",       "45 minutes = an hour");
-        test.equal(start.from(moment([2007, 1, 28]).add({m: 89}), true),  "en time",       "89 minutes = an hour");
-        test.equal(start.from(moment([2007, 1, 28]).add({m: 90}), true),  "2 timar",       "90 minutes = 2 hours");
-        test.equal(start.from(moment([2007, 1, 28]).add({h: 5}), true),   "5 timar",       "5 hours = 5 hours");
-        test.equal(start.from(moment([2007, 1, 28]).add({h: 21}), true),  "21 timar",      "21 hours = 21 hours");
-        test.equal(start.from(moment([2007, 1, 28]).add({h: 22}), true),  "en dag",         "22 hours = a day");
-        test.equal(start.from(moment([2007, 1, 28]).add({h: 35}), true),  "en dag",         "35 hours = a day");
-        test.equal(start.from(moment([2007, 1, 28]).add({h: 36}), true),  "2 dagar",        "36 hours = 2 days");
-        test.equal(start.from(moment([2007, 1, 28]).add({d: 1}), true),   "en dag",         "1 day = a day");
-        test.equal(start.from(moment([2007, 1, 28]).add({d: 5}), true),   "5 dagar",        "5 days = 5 days");
-        test.equal(start.from(moment([2007, 1, 28]).add({d: 25}), true),  "25 dagar",       "25 days = 25 days");
-        test.equal(start.from(moment([2007, 1, 28]).add({d: 26}), true),  "en månad",       "26 days = a month");
-        test.equal(start.from(moment([2007, 1, 28]).add({d: 30}), true),  "en månad",       "30 days = a month");
-        test.equal(start.from(moment([2007, 1, 28]).add({d: 45}), true),  "en månad",       "45 days = a month");
-        test.equal(start.from(moment([2007, 1, 28]).add({d: 46}), true),  "2 månader",      "46 days = 2 months");
-        test.equal(start.from(moment([2007, 1, 28]).add({d: 74}), true),  "2 månader",      "75 days = 2 months");
-        test.equal(start.from(moment([2007, 1, 28]).add({d: 76}), true),  "3 månader",      "76 days = 3 months");
-        test.equal(start.from(moment([2007, 1, 28]).add({M: 1}), true),   "en månad",       "1 month = a month");
-        test.equal(start.from(moment([2007, 1, 28]).add({M: 5}), true),   "5 månader",      "5 months = 5 months");
-        test.equal(start.from(moment([2007, 1, 28]).add({d: 344}), true), "11 månader",     "344 days = 11 months");
-        test.equal(start.from(moment([2007, 1, 28]).add({d: 345}), true), "ett år",        "345 days = a year");
-        test.equal(start.from(moment([2007, 1, 28]).add({d: 547}), true), "ett år",        "547 days = a year");
-        test.equal(start.from(moment([2007, 1, 28]).add({d: 548}), true), "2 år",       "548 days = 2 years");
-        test.equal(start.from(moment([2007, 1, 28]).add({y: 1}), true),   "ett år",        "1 year = a year");
-        test.equal(start.from(moment([2007, 1, 28]).add({y: 5}), true),   "5 år",       "5 years = 5 years");
+        test.equal(start.from(moment([2007, 1, 28]).add({m: 45}), true),  "ein time",     "45 minutes = an hour");
+        test.equal(start.from(moment([2007, 1, 28]).add({m: 89}), true),  "ein time",     "89 minutes = an hour");
+        test.equal(start.from(moment([2007, 1, 28]).add({m: 90}), true),  "2 timar",      "90 minutes = 2 hours");
+        test.equal(start.from(moment([2007, 1, 28]).add({h: 5}), true),   "5 timar",      "5 hours = 5 hours");
+        test.equal(start.from(moment([2007, 1, 28]).add({h: 21}), true),  "21 timar",     "21 hours = 21 hours");
+        test.equal(start.from(moment([2007, 1, 28]).add({h: 22}), true),  "ein dag",      "22 hours = a day");
+        test.equal(start.from(moment([2007, 1, 28]).add({h: 35}), true),  "ein dag",      "35 hours = a day");
+        test.equal(start.from(moment([2007, 1, 28]).add({h: 36}), true),  "2 dagar",      "36 hours = 2 days");
+        test.equal(start.from(moment([2007, 1, 28]).add({d: 1}), true),   "ein dag",      "1 day = a day");
+        test.equal(start.from(moment([2007, 1, 28]).add({d: 5}), true),   "5 dagar",      "5 days = 5 days");
+        test.equal(start.from(moment([2007, 1, 28]).add({d: 25}), true),  "25 dagar",     "25 days = 25 days");
+        test.equal(start.from(moment([2007, 1, 28]).add({d: 26}), true),  "ein månad",    "26 days = a month");
+        test.equal(start.from(moment([2007, 1, 28]).add({d: 30}), true),  "ein månad",    "30 days = a month");
+        test.equal(start.from(moment([2007, 1, 28]).add({d: 45}), true),  "ein månad",    "45 days = a month");
+        test.equal(start.from(moment([2007, 1, 28]).add({d: 46}), true),  "2 månader",    "46 days = 2 months");
+        test.equal(start.from(moment([2007, 1, 28]).add({d: 74}), true),  "2 månader",    "75 days = 2 months");
+        test.equal(start.from(moment([2007, 1, 28]).add({d: 76}), true),  "3 månader",    "76 days = 3 months");
+        test.equal(start.from(moment([2007, 1, 28]).add({M: 1}), true),   "ein månad",    "1 month = a month");
+        test.equal(start.from(moment([2007, 1, 28]).add({M: 5}), true),   "5 månader",    "5 months = 5 months");
+        test.equal(start.from(moment([2007, 1, 28]).add({d: 344}), true), "11 månader",   "344 days = 11 months");
+        test.equal(start.from(moment([2007, 1, 28]).add({d: 345}), true), "eit år",       "345 days = a year");
+        test.equal(start.from(moment([2007, 1, 28]).add({d: 547}), true), "eit år",       "547 days = a year");
+        test.equal(start.from(moment([2007, 1, 28]).add({d: 548}), true), "2 år",         "548 days = 2 years");
+        test.equal(start.from(moment([2007, 1, 28]).add({y: 1}), true),   "eit år",       "1 year = a year");
+        test.equal(start.from(moment([2007, 1, 28]).add({y: 5}), true),   "5 år",         "5 years = 5 years");
         test.done();
     },
 
     "suffix" : function (test) {
         test.expect(2);
-        test.equal(moment(30000).from(0), "om noen sekund",  "prefix");
-        test.equal(moment(0).from(30000), "for noen sekund siden", "suffix");
+        test.equal(moment(30000).from(0), "om nokre sekund",  "prefix");
+        test.equal(moment(0).from(30000), "for nokre sekund sidan", "suffix");
         test.done();
     },
 
     "now from now" : function (test) {
         test.expect(1);
-        test.equal(moment().fromNow(), "for noen sekund siden",  "now from now should display as in the past");
+        test.equal(moment().fromNow(), "for nokre sekund sidan",  "now from now should display as in the past");
         test.done();
     },
 
     "fromNow" : function (test) {
         test.expect(2);
-        test.equal(moment().add({s: 30}).fromNow(), "om noen sekund", "in a few seconds");
+        test.equal(moment().add({s: 30}).fromNow(), "om nokre sekund", "in a few seconds");
         test.equal(moment().add({d: 5}).fromNow(), "om 5 dagar", "in 5 days");
         test.done();
     },
@@ -25082,11 +26252,11 @@ exports["lang:nn"] = {
         var i, m;
         for (i = 2; i < 7; i++) {
             m = moment().subtract({ d: i });
-            test.equal(m.calendar(),       m.format('[Føregående] dddd [klokka] LT'),  "Today - " + i + " days current time");
+            test.equal(m.calendar(),       m.format('[Føregåande] dddd [klokka] LT'),  "Today - " + i + " days current time");
             m.hours(0).minutes(0).seconds(0).milliseconds(0);
-            test.equal(m.calendar(),       m.format('[Føregående] dddd [klokka] LT'),  "Today - " + i + " days beginning of day");
+            test.equal(m.calendar(),       m.format('[Føregåande] dddd [klokka] LT'),  "Today - " + i + " days beginning of day");
             m.hours(23).minutes(59).seconds(59).milliseconds(999);
-            test.equal(m.calendar(),       m.format('[Føregående] dddd [klokka] LT'),  "Today - " + i + " days end of day");
+            test.equal(m.calendar(),       m.format('[Føregåande] dddd [klokka] LT'),  "Today - " + i + " days end of day");
         }
         test.done();
     },
@@ -25210,12 +26380,12 @@ exports["lang:nn"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
             test.equal(require('../../lang/nn'), 'nn', "module should export nn");
         }
-        
+
         test.done();
     }
 };
@@ -25230,6 +26400,9 @@ var moment = require("../../moment");
 exports["lang:pl"] = {
     setUp : function (cb) {
         moment.lang('pl');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -25597,12 +26770,12 @@ exports["lang:pl"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
             test.equal(require('../../lang/pl'), 'pl', "module should export pl");
         }
-        
+
         test.done();
     }
 };
@@ -25617,6 +26790,9 @@ var moment = require("../../moment");
 exports["lang:pt-br"] = {
     setUp : function (cb) {
         moment.lang('pt-br');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -25628,7 +26804,7 @@ exports["lang:pt-br"] = {
     "parse" : function (test) {
         test.expect(96);
 
-        var tests = 'Janeiro Jan_Fevereiro Fev_Março Mar_Abril Abr_Maio Mai_Junho Jun_Julho Jul_Agosto Ago_Setembro Set_Outubro Out_Novembro Nov_Dezembro Dez'.split("_"), i;
+        var tests = 'janeiro jan_fevereiro fev_março mar_abril abr_maio mai_junho jun_julho jul_agosto ago_setembro set_outubro out_novembro nov_dezembro dez'.split("_"), i;
 
         function equalTest(input, mmm, i) {
             test.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
@@ -25653,12 +26829,12 @@ exports["lang:pt-br"] = {
         test.expect(22);
 
         var a = [
-                ['dddd, MMMM Do YYYY, h:mm:ss a',      'Domingo, Fevereiro 14º 2010, 3:25:50 pm'],
-                ['ddd, hA',                            'Dom, 3PM'],
-                ['M Mo MM MMMM MMM',                   '2 2º 02 Fevereiro Fev'],
+                ['dddd, MMMM Do YYYY, h:mm:ss a',      'domingo, fevereiro 14º 2010, 3:25:50 pm'],
+                ['ddd, hA',                            'dom, 3PM'],
+                ['M Mo MM MMMM MMM',                   '2 2º 02 fevereiro fev'],
                 ['YYYY YY',                            '2010 10'],
                 ['D Do DD',                            '14 14º 14'],
-                ['d do dddd ddd',                      '0 0º Domingo Dom'],
+                ['d do dddd ddd',                      '0 0º domingo dom'],
                 ['DDD DDDo DDDD',                      '45 45º 045'],
                 ['w wo ww',                            '8 8º 08'],
                 ['h hh',                               '3 03'],
@@ -25668,13 +26844,13 @@ exports["lang:pt-br"] = {
                 ['a A',                                'pm PM'],
                 ['[the] DDDo [day of the year]',       'the 45º day of the year'],
                 ['L',                                  '14/02/2010'],
-                ['LL',                                 '14 de Fevereiro de 2010'],
-                ['LLL',                                '14 de Fevereiro de 2010 15:25'],
-                ['LLLL',                               'Domingo, 14 de Fevereiro de 2010 15:25'],
+                ['LL',                                 '14 de fevereiro de 2010'],
+                ['LLL',                                '14 de fevereiro de 2010 às 15:25'],
+                ['LLLL',                               'domingo, 14 de fevereiro de 2010 às 15:25'],
                 ['l',                                  '14/2/2010'],
-                ['ll',                                 '14 de Fev de 2010'],
-                ['lll',                                '14 de Fev de 2010 15:25'],
-                ['llll',                               'Dom, 14 de Fev de 2010 15:25']
+                ['ll',                                 '14 de fev de 2010'],
+                ['lll',                                '14 de fev de 2010 às 15:25'],
+                ['llll',                               'dom, 14 de fev de 2010 às 15:25']
             ],
             b = moment(new Date(2010, 1, 14, 15, 25, 50, 125)),
             i;
@@ -25727,7 +26903,7 @@ exports["lang:pt-br"] = {
     "format month" : function (test) {
         test.expect(12);
 
-        var expected = 'Janeiro Jan_Fevereiro Fev_Março Mar_Abril Abr_Maio Mai_Junho Jun_Julho Jul_Agosto Ago_Setembro Set_Outubro Out_Novembro Nov_Dezembro Dez'.split("_"), i;
+        var expected = 'janeiro jan_fevereiro fev_março mar_abril abr_maio mai_junho jun_julho jul_agosto ago_setembro set_outubro out_novembro nov_dezembro dez'.split("_"), i;
         for (i = 0; i < expected.length; i++) {
             test.equal(moment([2011, i, 1]).format('MMMM MMM'), expected[i], expected[i]);
         }
@@ -25737,7 +26913,7 @@ exports["lang:pt-br"] = {
     "format week" : function (test) {
         test.expect(7);
 
-        var expected = 'Domingo Dom_Segunda-feira Seg_Terça-feira Ter_Quarta-feira Qua_Quinta-feira Qui_Sexta-feira Sex_Sábado Sáb'.split("_"), i;
+        var expected = 'domingo dom_segunda-feira seg_terça-feira ter_quarta-feira qua_quinta-feira qui_sexta-feira sex_sábado sáb'.split("_"), i;
         for (i = 0; i < expected.length; i++) {
             test.equal(moment([2011, 0, 2 + i]).format('dddd ddd'), expected[i], expected[i]);
         }
@@ -25963,12 +27139,12 @@ exports["lang:pt-br"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
             test.equal(require('../../lang/pt-br'), 'pt-br', "module should export pt-br");
         }
-        
+
         test.done();
     }
 };
@@ -25983,6 +27159,9 @@ var moment = require("../../moment");
 exports["lang:pt"] = {
     setUp : function (cb) {
         moment.lang('pt');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -26016,12 +27195,12 @@ exports["lang:pt"] = {
         test.expect(22);
 
         var a = [
-                ['dddd, MMMM Do YYYY, h:mm:ss a',      'Domingo, Fevereiro 14º 2010, 3:25:50 pm'],
-                ['ddd, hA',                            'Dom, 3PM'],
-                ['M Mo MM MMMM MMM',                   '2 2º 02 Fevereiro Fev'],
+                ['dddd, MMMM Do YYYY, h:mm:ss a',      'domingo, fevereiro 14º 2010, 3:25:50 pm'],
+                ['ddd, hA',                            'dom, 3PM'],
+                ['M Mo MM MMMM MMM',                   '2 2º 02 fevereiro fev'],
                 ['YYYY YY',                            '2010 10'],
                 ['D Do DD',                            '14 14º 14'],
-                ['d do dddd ddd dd',                   '0 0º Domingo Dom Dom'],
+                ['d do dddd ddd dd',                   '0 0º domingo dom dom'],
                 ['DDD DDDo DDDD',                      '45 45º 045'],
                 ['w wo ww',                            '6 6º 06'],
                 ['h hh',                               '3 03'],
@@ -26031,13 +27210,13 @@ exports["lang:pt"] = {
                 ['a A',                                'pm PM'],
                 ['[the] DDDo [day of the year]',       'the 45º day of the year'],
                 ['L',                                  '14/02/2010'],
-                ['LL',                                 '14 de Fevereiro de 2010'],
-                ['LLL',                                '14 de Fevereiro de 2010 15:25'],
-                ['LLLL',                               'Domingo, 14 de Fevereiro de 2010 15:25'],
+                ['LL',                                 '14 de fevereiro de 2010'],
+                ['LLL',                                '14 de fevereiro de 2010 15:25'],
+                ['LLLL',                               'domingo, 14 de fevereiro de 2010 15:25'],
                 ['l',                                  '14/2/2010'],
-                ['ll',                                 '14 de Fev de 2010'],
-                ['lll',                                '14 de Fev de 2010 15:25'],
-                ['llll',                               'Dom, 14 de Fev de 2010 15:25']
+                ['ll',                                 '14 de fev de 2010'],
+                ['lll',                                '14 de fev de 2010 15:25'],
+                ['llll',                               'dom, 14 de fev de 2010 15:25']
             ],
             b = moment(new Date(2010, 1, 14, 15, 25, 50, 125)),
             i;
@@ -26088,7 +27267,7 @@ exports["lang:pt"] = {
 
     "format month" : function (test) {
         test.expect(12);
-        var expected = 'Janeiro Jan_Fevereiro Fev_Março Mar_Abril Abr_Maio Mai_Junho Jun_Julho Jul_Agosto Ago_Setembro Set_Outubro Out_Novembro Nov_Dezembro Dez'.split("_"), i;
+        var expected = 'janeiro jan_fevereiro fev_março mar_abril abr_maio mai_junho jun_julho jul_agosto ago_setembro set_outubro out_novembro nov_dezembro dez'.split("_"), i;
         for (i = 0; i < expected.length; i++) {
             test.equal(moment([2011, i, 1]).format('MMMM MMM'), expected[i], expected[i]);
         }
@@ -26097,7 +27276,7 @@ exports["lang:pt"] = {
 
     "format week" : function (test) {
         test.expect(7);
-        var expected = 'Domingo Dom Dom_Segunda-feira Seg 2ª_Terça-feira Ter 3ª_Quarta-feira Qua 4ª_Quinta-feira Qui 5ª_Sexta-feira Sex 6ª_Sábado Sáb Sáb'.split("_"), i;
+        var expected = 'domingo dom dom_segunda-feira seg 2ª_terça-feira ter 3ª_quarta-feira qua 4ª_quinta-feira qui 5ª_sexta-feira sex 6ª_sábado sáb sáb'.split("_"), i;
         for (i = 0; i < expected.length; i++) {
             test.equal(moment([2011, 0, 2 + i]).format('dddd ddd dd'), expected[i], expected[i]);
         }
@@ -26319,12 +27498,12 @@ exports["lang:pt"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
             test.equal(require('../../lang/pt'), 'pt', "module should export pt");
         }
-        
+
         test.done();
     }
 };
@@ -26339,6 +27518,9 @@ var moment = require("../../moment");
 exports["lang:ro"] = {
     setUp : function (cb) {
         moment.lang('ro');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -26350,7 +27532,7 @@ exports["lang:ro"] = {
     "parse" : function (test) {
         test.expect(96);
 
-        var tests = 'ianuarie ian_februarie feb_martie mar_aprilie apr_mai mai_iunie iun_iulie iul_august aug_septembrie sep_octombrie oct_noiembrie noi_decembrie dec'.split("_"), i;
+        var tests = 'ianuarie ian._februarie febr._martie mart._aprilie apr._mai mai_iunie iun._iulie iul._august aug._septembrie sept._octombrie oct._noiembrie nov._decembrie dec.'.split("_"), i;
         function equalTest(input, mmm, i) {
             test.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
@@ -26374,7 +27556,7 @@ exports["lang:ro"] = {
         var a = [
                 ['dddd, MMMM Do YYYY, h:mm:ss A',  'duminică, februarie 14 2010, 3:25:50 PM'],
                 ['ddd, hA',                        'Dum, 3PM'],
-                ['M Mo MM MMMM MMM',               '2 2 02 februarie feb'],
+                ['M Mo MM MMMM MMM',               '2 2 02 februarie febr.'],
                 ['YYYY YY',                        '2010 10'],
                 ['D Do DD',                        '14 14 14'],
                 ['d do dddd ddd dd',               '0 0 duminică Dum Du'],
@@ -26391,9 +27573,9 @@ exports["lang:ro"] = {
                 ['LLL',                            '14 februarie 2010 15:25'],
                 ['LLLL',                           'duminică, 14 februarie 2010 15:25'],
                 ['l',                              '14.2.2010'],
-                ['ll',                             '14 feb 2010'],
-                ['lll',                            '14 feb 2010 15:25'],
-                ['llll',                           'Dum, 14 feb 2010 15:25']
+                ['ll',                             '14 febr. 2010'],
+                ['lll',                            '14 febr. 2010 15:25'],
+                ['llll',                           'Dum, 14 febr. 2010 15:25']
             ],
             b = moment(new Date(2010, 1, 14, 15, 25, 50, 125)),
             i;
@@ -26446,7 +27628,7 @@ exports["lang:ro"] = {
     "format month" : function (test) {
         test.expect(12);
 
-        var expected = 'ianuarie ian_februarie feb_martie mar_aprilie apr_mai mai_iunie iun_iulie iul_august aug_septembrie sep_octombrie oct_noiembrie noi_decembrie dec'.split("_"), i;
+        var expected = 'ianuarie ian._februarie febr._martie mart._aprilie apr._mai mai_iunie iun._iulie iul._august aug._septembrie sept._octombrie oct._noiembrie nov._decembrie dec.'.split("_"), i;
         for (i = 0; i < expected.length; i++) {
             test.equal(moment([2011, i, 1]).format('MMMM MMM'), expected[i], expected[i]);
         }
@@ -26692,404 +27874,10 @@ exports["lang:ro"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
             test.equal(require('../../lang/ro'), 'ro', "module should export ro");
-        }
-        
-        test.done();
-    }
-};
-
-var moment = require("../../moment");
-
-
-    /**************************************************
-      Serbian
-     *************************************************/
-
-exports["lang:rs"] = {
-    setUp : function (cb) {
-        moment.lang('rs');
-        cb();
-    },
-
-    tearDown : function (cb) {
-        moment.lang('en');
-        cb();
-    },
-
-    "parse" : function (test) {
-        test.expect(96);
-
-        var tests = 'januar jan._februar feb._mart mar._april apr._maj maj._jun jun._jul jul._avgust avg._septembar sep._oktobar okt._novembar nov._decembar dec.'.split("_"), i;
-        function equalTest(input, mmm, i) {
-            test.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
-        }
-        for (i = 0; i < 12; i++) {
-            tests[i] = tests[i].split(' ');
-            equalTest(tests[i][0], 'MMM', i);
-            equalTest(tests[i][1], 'MMM', i);
-            equalTest(tests[i][0], 'MMMM', i);
-            equalTest(tests[i][1], 'MMMM', i);
-            equalTest(tests[i][0].toLocaleLowerCase(), 'MMMM', i);
-            equalTest(tests[i][1].toLocaleLowerCase(), 'MMMM', i);
-            equalTest(tests[i][0].toLocaleUpperCase(), 'MMMM', i);
-            equalTest(tests[i][1].toLocaleUpperCase(), 'MMMM', i);
-        }
-        test.done();
-    },
-
-    "format" : function (test) {
-        test.expect(22);
-        var a = [
-                ['dddd, Do MMMM YYYY, h:mm:ss a',      'nedelja, 14. februar 2010, 3:25:50 pm'],
-                ['ddd, hA',                            'ned., 3PM'],
-                ['M Mo MM MMMM MMM',                   '2 2. 02 februar feb.'],
-                ['YYYY YY',                            '2010 10'],
-                ['D Do DD',                            '14 14. 14'],
-                ['d do dddd ddd dd',                   '0 0. nedelja ned. ne'],
-                ['DDD DDDo DDDD',                      '45 45. 045'],
-                ['w wo ww',                            '7 7. 07'],
-                ['h hh',                               '3 03'],
-                ['H HH',                               '15 15'],
-                ['m mm',                               '25 25'],
-                ['s ss',                               '50 50'],
-                ['a A',                                'pm PM'],
-                ['[the] DDDo [day of the year]',       'the 45. day of the year'],
-                ['L',                                  '14. 02. 2010'],
-                ['LL',                                 '14. februar 2010'],
-                ['LLL',                                '14. februar 2010 15:25'],
-                ['LLLL',                               'nedelja, 14. februar 2010 15:25'],
-                ['l',                                  '14. 2. 2010'],
-                ['ll',                                 '14. feb. 2010'],
-                ['lll',                                '14. feb. 2010 15:25'],
-                ['llll',                               'ned., 14. feb. 2010 15:25']
-            ],
-            b = moment(new Date(2010, 1, 14, 15, 25, 50, 125)),
-            i;
-        for (i = 0; i < a.length; i++) {
-            test.equal(b.format(a[i][0]), a[i][1], a[i][0] + ' ---> ' + a[i][1]);
-        }
-        test.done();
-    },
-
-    "format ordinal" : function (test) {
-        test.expect(31);
-        test.equal(moment([2011, 0, 1]).format('DDDo'), '1.', '1.');
-        test.equal(moment([2011, 0, 2]).format('DDDo'), '2.', '2.');
-        test.equal(moment([2011, 0, 3]).format('DDDo'), '3.', '3.');
-        test.equal(moment([2011, 0, 4]).format('DDDo'), '4.', '4.');
-        test.equal(moment([2011, 0, 5]).format('DDDo'), '5.', '5.');
-        test.equal(moment([2011, 0, 6]).format('DDDo'), '6.', '6.');
-        test.equal(moment([2011, 0, 7]).format('DDDo'), '7.', '7.');
-        test.equal(moment([2011, 0, 8]).format('DDDo'), '8.', '8.');
-        test.equal(moment([2011, 0, 9]).format('DDDo'), '9.', '9.');
-        test.equal(moment([2011, 0, 10]).format('DDDo'), '10.', '10.');
-
-        test.equal(moment([2011, 0, 11]).format('DDDo'), '11.', '11.');
-        test.equal(moment([2011, 0, 12]).format('DDDo'), '12.', '12.');
-        test.equal(moment([2011, 0, 13]).format('DDDo'), '13.', '13.');
-        test.equal(moment([2011, 0, 14]).format('DDDo'), '14.', '14.');
-        test.equal(moment([2011, 0, 15]).format('DDDo'), '15.', '15.');
-        test.equal(moment([2011, 0, 16]).format('DDDo'), '16.', '16.');
-        test.equal(moment([2011, 0, 17]).format('DDDo'), '17.', '17.');
-        test.equal(moment([2011, 0, 18]).format('DDDo'), '18.', '18.');
-        test.equal(moment([2011, 0, 19]).format('DDDo'), '19.', '19.');
-        test.equal(moment([2011, 0, 20]).format('DDDo'), '20.', '20.');
-
-        test.equal(moment([2011, 0, 21]).format('DDDo'), '21.', '21.');
-        test.equal(moment([2011, 0, 22]).format('DDDo'), '22.', '22.');
-        test.equal(moment([2011, 0, 23]).format('DDDo'), '23.', '23.');
-        test.equal(moment([2011, 0, 24]).format('DDDo'), '24.', '24.');
-        test.equal(moment([2011, 0, 25]).format('DDDo'), '25.', '25.');
-        test.equal(moment([2011, 0, 26]).format('DDDo'), '26.', '26.');
-        test.equal(moment([2011, 0, 27]).format('DDDo'), '27.', '27.');
-        test.equal(moment([2011, 0, 28]).format('DDDo'), '28.', '28.');
-        test.equal(moment([2011, 0, 29]).format('DDDo'), '29.', '29.');
-        test.equal(moment([2011, 0, 30]).format('DDDo'), '30.', '30.');
-
-        test.equal(moment([2011, 0, 31]).format('DDDo'), '31.', '31.');
-        test.done();
-    },
-
-    "format month" : function (test) {
-        test.expect(12);
-        var expected = 'januar jan._februar feb._mart mar._april apr._maj maj._jun jun._jul jul._avgust avg._septembar sep._oktobar okt._novembar nov._decembar dec.'.split("_"), i;
-        for (i = 0; i < expected.length; i++) {
-            test.equal(moment([2011, i, 1]).format('MMMM MMM'), expected[i], expected[i]);
-        }
-        test.done();
-    },
-
-    "format week" : function (test) {
-        test.expect(7);
-        var expected = 'nedelja ned. ne_ponedeljak pon. po_utorak uto. ut_sreda sre. sr_četvrtak čet. če_petak pet. pe_subota sub. su'.split("_"), i;
-        for (i = 0; i < expected.length; i++) {
-            test.equal(moment([2011, 0, 2 + i]).format('dddd ddd dd'), expected[i], expected[i]);
-        }
-        test.done();
-    },
-
-    "from" : function (test) {
-        test.expect(30);
-        var start = moment([2007, 1, 28]);
-        test.equal(start.from(moment([2007, 1, 28]).add({s: 44}), true),  "par sekundi", "44 seconds = a few seconds");
-        test.equal(start.from(moment([2007, 1, 28]).add({s: 45}), true),  "jedna minuta",   "45 seconds = a minute");
-        test.equal(start.from(moment([2007, 1, 28]).add({s: 89}), true),  "jedna minuta",   "89 seconds = a minute");
-        test.equal(start.from(moment([2007, 1, 28]).add({s: 90}), true),  "2 minute",     "90 seconds = 2 minutes");
-        test.equal(start.from(moment([2007, 1, 28]).add({m: 44}), true),  "44 minuta",     "44 minutes = 44 minutes");
-        test.equal(start.from(moment([2007, 1, 28]).add({m: 45}), true),  "jedan sat",      "45 minutes = an hour");
-        test.equal(start.from(moment([2007, 1, 28]).add({m: 89}), true),  "jedan sat",      "89 minutes = an hour");
-        test.equal(start.from(moment([2007, 1, 28]).add({m: 90}), true),  "2 sata",        "90 minutes = 2 hours");
-        test.equal(start.from(moment([2007, 1, 28]).add({h: 5}), true),   "5 sati",         "5 hours = 5 hours");
-        test.equal(start.from(moment([2007, 1, 28]).add({h: 21}), true),  "21 sati",        "21 hours = 21 hours");
-        test.equal(start.from(moment([2007, 1, 28]).add({h: 22}), true),  "dan",       "22 hours = a day");
-        test.equal(start.from(moment([2007, 1, 28]).add({h: 35}), true),  "dan",       "35 hours = a day");
-        test.equal(start.from(moment([2007, 1, 28]).add({h: 36}), true),  "2 dana",        "36 hours = 2 days");
-        test.equal(start.from(moment([2007, 1, 28]).add({d: 1}), true),   "dan",       "1 day = a day");
-        test.equal(start.from(moment([2007, 1, 28]).add({d: 5}), true),   "5 dana",        "5 days = 5 days");
-        test.equal(start.from(moment([2007, 1, 28]).add({d: 25}), true),  "25 dana",       "25 days = 25 days");
-        test.equal(start.from(moment([2007, 1, 28]).add({d: 26}), true),  "mesec",     "26 days = a month");
-        test.equal(start.from(moment([2007, 1, 28]).add({d: 30}), true),  "mesec",     "30 days = a month");
-        test.equal(start.from(moment([2007, 1, 28]).add({d: 45}), true),  "mesec",     "45 days = a month");
-        test.equal(start.from(moment([2007, 1, 28]).add({d: 46}), true),  "2 meseca",     "46 days = 2 months");
-        test.equal(start.from(moment([2007, 1, 28]).add({d: 74}), true),  "2 meseca",     "75 days = 2 months");
-        test.equal(start.from(moment([2007, 1, 28]).add({d: 76}), true),  "3 meseca",     "76 days = 3 months");
-        test.equal(start.from(moment([2007, 1, 28]).add({M: 1}), true),   "mesec",     "1 month = a month");
-        test.equal(start.from(moment([2007, 1, 28]).add({M: 5}), true),   "5 meseci",    "5 months = 5 months");
-        test.equal(start.from(moment([2007, 1, 28]).add({d: 344}), true), "11 meseci",   "344 days = 11 months");
-        test.equal(start.from(moment([2007, 1, 28]).add({d: 345}), true), "godinu",     "345 days = a year");
-        test.equal(start.from(moment([2007, 1, 28]).add({d: 547}), true), "godinu",     "547 days = a year");
-        test.equal(start.from(moment([2007, 1, 28]).add({d: 548}), true), "2 godine",       "548 days = 2 years");
-        test.equal(start.from(moment([2007, 1, 28]).add({y: 1}), true),   "godinu",     "1 year = a year");
-        test.equal(start.from(moment([2007, 1, 28]).add({y: 5}), true),   "5 godina",        "5 years = 5 years");
-        test.done();
-    },
-
-    "suffix" : function (test) {
-        test.expect(2);
-        test.equal(moment(30000).from(0), "za par sekundi",  "prefix");
-        test.equal(moment(0).from(30000), "pre par sekundi", "prefix");
-        test.done();
-    },
-
-    "now from now" : function (test) {
-        test.expect(1);
-        test.equal(moment().fromNow(), "pre par sekundi",  "now from now should display as in the past");
-        test.done();
-    },
-
-    "fromNow" : function (test) {
-        test.expect(2);
-        test.equal(moment().add({s: 30}).fromNow(), "za par sekundi", "in a few seconds");
-        test.equal(moment().add({d: 5}).fromNow(), "za 5 dana", "in 5 days");
-        test.done();
-    },
-
-    "calendar day" : function (test) {
-        test.expect(6);
-
-        var a = moment().hours(2).minutes(0).seconds(0);
-
-        test.equal(moment(a).calendar(),                     "danas u 2:00",  "today at the same time");
-        test.equal(moment(a).add({ m: 25 }).calendar(),      "danas u 2:25",  "Now plus 25 min");
-        test.equal(moment(a).add({ h: 1 }).calendar(),       "danas u 3:00",  "Now plus 1 hour");
-        test.equal(moment(a).add({ d: 1 }).calendar(),       "sutra u 2:00",  "tomorrow at the same time");
-        test.equal(moment(a).subtract({ h: 1 }).calendar(),  "danas u 1:00",  "Now minus 1 hour");
-        test.equal(moment(a).subtract({ d: 1 }).calendar(),  "juče u 2:00", "yesterday at the same time");
-        test.done();
-    },
-
-    "calendar next week" : function (test) {
-        test.expect(15);
-
-        var i, m;
-
-        function makeFormat(d) {
-            switch (d.day()) {
-            case 0:
-                return '[u] [nedelju] [u] LT';
-            case 3:
-                return '[u] [sredu] [u] LT';
-            case 6:
-                return '[u] [subotu] [u] LT';
-            case 1:
-            case 2:
-            case 4:
-            case 5:
-                return '[u] dddd [u] LT';
-            }
-        }
-
-        for (i = 2; i < 7; i++) {
-            m = moment().add({ d: i });
-            test.equal(m.calendar(),       m.format(makeFormat(m)),  "Today + " + i + " days current time");
-            m.hours(0).minutes(0).seconds(0).milliseconds(0);
-            test.equal(m.calendar(),       m.format(makeFormat(m)),  "Today + " + i + " days beginning of day");
-            m.hours(23).minutes(59).seconds(59).milliseconds(999);
-            test.equal(m.calendar(),       m.format(makeFormat(m)),  "Today + " + i + " days end of day");
-        }
-        test.done();
-    },
-
-    "calendar last week" : function (test) {
-        test.expect(15);
-
-        var i, m;
-
-        function makeFormat(d) {
-            switch (d.day()) {
-            case 0:
-            case 3:
-                return '[prošlu] dddd [u] LT';
-            case 6:
-                return '[prošle] [subote] [u] LT';
-            case 1:
-            case 2:
-            case 4:
-            case 5:
-                return '[prošli] dddd [u] LT';
-            }
-        }
-
-        for (i = 2; i < 7; i++) {
-            m = moment().subtract({ d: i });
-            test.equal(m.calendar(),       m.format(makeFormat(m)),  "Today - " + i + " days current time");
-            m.hours(0).minutes(0).seconds(0).milliseconds(0);
-            test.equal(m.calendar(),       m.format(makeFormat(m)),  "Today - " + i + " days beginning of day");
-            m.hours(23).minutes(59).seconds(59).milliseconds(999);
-            test.equal(m.calendar(),       m.format(makeFormat(m)),  "Today - " + i + " days end of day");
-        }
-        test.done();
-    },
-
-    "calendar all else" : function (test) {
-        test.expect(4);
-
-        var weeksAgo = moment().subtract({ w: 1 }),
-            weeksFromNow = moment().add({ w: 1 });
-
-        test.equal(weeksAgo.calendar(),       weeksAgo.format('L'),  "1 week ago");
-        test.equal(weeksFromNow.calendar(),   weeksFromNow.format('L'),  "in 1 week");
-
-        weeksAgo = moment().subtract({ w: 2 });
-        weeksFromNow = moment().add({ w: 2 });
-
-        test.equal(weeksAgo.calendar(),       weeksAgo.format('L'),  "2 weeks ago");
-        test.equal(weeksFromNow.calendar(),   weeksFromNow.format('L'),  "in 2 weeks");
-
-        test.done();
-    },
-
-    // Monday is the first day of the week.
-    // The week that contains Jan 1st is the first week of the year.
-
-    "weeks year starting sunday" : function (test) {
-        test.expect(5);
-
-        test.equal(moment([2011, 11, 26]).week(), 1, "Dec 26 2011 should be week 1");
-        test.equal(moment([2012,  0,  1]).week(), 1, "Jan  1 2012 should be week 1");
-        test.equal(moment([2012,  0,  2]).week(), 2, "Jan  2 2012 should be week 2");
-        test.equal(moment([2012,  0,  8]).week(), 2, "Jan  8 2012 should be week 2");
-        test.equal(moment([2012,  0,  9]).week(), 3, "Jan  9 2012 should be week 3");
-
-        test.done();
-    },
-
-    "weeks year starting monday" : function (test) {
-        test.expect(5);
-
-        test.equal(moment([2007, 0, 1]).week(),  1, "Jan  1 2007 should be week 1");
-        test.equal(moment([2007, 0, 7]).week(),  1, "Jan  7 2007 should be week 1");
-        test.equal(moment([2007, 0, 8]).week(),  2, "Jan  8 2007 should be week 2");
-        test.equal(moment([2007, 0, 14]).week(), 2, "Jan 14 2007 should be week 2");
-        test.equal(moment([2007, 0, 15]).week(), 3, "Jan 15 2007 should be week 3");
-
-        test.done();
-    },
-
-    "weeks year starting tuesday" : function (test) {
-        test.expect(6);
-
-        test.equal(moment([2007, 11, 31]).week(), 1, "Dec 31 2007 should be week 1");
-        test.equal(moment([2008,  0,  1]).week(), 1, "Jan  1 2008 should be week 1");
-        test.equal(moment([2008,  0,  6]).week(), 1, "Jan  6 2008 should be week 1");
-        test.equal(moment([2008,  0,  7]).week(), 2, "Jan  7 2008 should be week 2");
-        test.equal(moment([2008,  0, 13]).week(), 2, "Jan 13 2008 should be week 2");
-        test.equal(moment([2008,  0, 14]).week(), 3, "Jan 14 2008 should be week 3");
-
-        test.done();
-    },
-
-    "weeks year starting wednesday" : function (test) {
-        test.expect(6);
-
-        test.equal(moment([2002, 11, 30]).week(), 1, "Dec 30 2002 should be week 1");
-        test.equal(moment([2003,  0,  1]).week(), 1, "Jan  1 2003 should be week 1");
-        test.equal(moment([2003,  0,  5]).week(), 1, "Jan  5 2003 should be week 1");
-        test.equal(moment([2003,  0,  6]).week(), 2, "Jan  6 2003 should be week 2");
-        test.equal(moment([2003,  0, 12]).week(), 2, "Jan 12 2003 should be week 2");
-        test.equal(moment([2003,  0, 13]).week(), 3, "Jan 13 2003 should be week 3");
-
-        test.done();
-    },
-
-    "weeks year starting thursday" : function (test) {
-        test.expect(6);
-
-        test.equal(moment([2008, 11, 29]).week(), 1, "Dec 29 2008 should be week 1");
-        test.equal(moment([2009,  0,  1]).week(), 1, "Jan  1 2009 should be week 1");
-        test.equal(moment([2009,  0,  4]).week(), 1, "Jan  4 2009 should be week 1");
-        test.equal(moment([2009,  0,  5]).week(), 2, "Jan  5 2009 should be week 2");
-        test.equal(moment([2009,  0, 11]).week(), 2, "Jan 11 2009 should be week 2");
-        test.equal(moment([2009,  0, 12]).week(), 3, "Jan 12 2009 should be week 3");
-
-        test.done();
-    },
-
-    "weeks year starting friday" : function (test) {
-        test.expect(6);
-
-        test.equal(moment([2009, 11, 28]).week(), 1, "Dec 28 2009 should be week 1");
-        test.equal(moment([2010,  0,  1]).week(), 1, "Jan  1 2010 should be week 1");
-        test.equal(moment([2010,  0,  3]).week(), 1, "Jan  3 2010 should be week 1");
-        test.equal(moment([2010,  0,  4]).week(), 2, "Jan  4 2010 should be week 2");
-        test.equal(moment([2010,  0, 10]).week(), 2, "Jan 10 2010 should be week 2");
-        test.equal(moment([2010,  0, 11]).week(), 3, "Jan 11 2010 should be week 3");
-
-        test.done();
-    },
-
-    "weeks year starting saturday" : function (test) {
-        test.expect(6);
-
-        test.equal(moment([2010, 11, 27]).week(), 1, "Dec 27 2010 should be week 1");
-        test.equal(moment([2011,  0,  1]).week(), 1, "Jan  1 2011 should be week 1");
-        test.equal(moment([2011,  0,  2]).week(), 1, "Jan  2 2011 should be week 1");
-        test.equal(moment([2011,  0,  3]).week(), 2, "Jan  3 2011 should be week 2");
-        test.equal(moment([2011,  0,  9]).week(), 2, "Jan  9 2011 should be week 2");
-        test.equal(moment([2011,  0, 10]).week(), 3, "Jan 10 2011 should be week 3");
-
-        test.done();
-    },
-
-    "weeks year starting sunday formatted" : function (test) {
-        test.expect(5);
-
-        test.equal(moment([2011, 11, 26]).format('w ww wo'), '1 01 1.', "Dec 26 2011 should be week 1");
-        test.equal(moment([2012,  0,  1]).format('w ww wo'), '1 01 1.', "Jan  1 2012 should be week 1");
-        test.equal(moment([2012,  0,  2]).format('w ww wo'), '2 02 2.', "Jan  2 2012 should be week 2");
-        test.equal(moment([2012,  0,  8]).format('w ww wo'), '2 02 2.', "Jan  8 2012 should be week 2");
-        test.equal(moment([2012,  0,  9]).format('w ww wo'), '3 03 3.', "Jan  9 2012 should be week 3");
-
-        test.done();
-    },
-
-    "returns the name of the language" : function (test) {
-        if (typeof module !== 'undefined' && module.exports) {
-            test.equal(require('../../lang/rs'), 'rs', "module should export rs");
         }
 
         test.done();
@@ -27106,6 +27894,9 @@ var moment = require("../../moment");
 exports["lang:ru"] = {
     setUp : function (cb) {
         moment.lang('ru');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -27311,12 +28102,13 @@ exports["lang:ru"] = {
     },
 
     "from" : function (test) {
-        test.expect(32);
+        test.expect(33);
         var start = moment([2007, 1, 28]);
         test.equal(start.from(moment([2007, 1, 28]).add({s: 44}), true),  "несколько секунд",    "44 seconds = seconds");
         test.equal(start.from(moment([2007, 1, 28]).add({s: 45}), true),  "минута",   "45 seconds = a minute");
         test.equal(start.from(moment([2007, 1, 28]).add({s: 89}), true),  "минута",   "89 seconds = a minute");
         test.equal(start.from(moment([2007, 1, 28]).add({s: 90}), true),  "2 минуты",  "90 seconds = 2 minutes");
+        test.equal(start.from(moment([2007, 1, 28]).add({m: 31}), true),  "31 минута",  "31 minutes = 31 minutes");
         test.equal(start.from(moment([2007, 1, 28]).add({m: 44}), true),  "44 минуты", "44 minutes = 44 minutes");
         test.equal(start.from(moment([2007, 1, 28]).add({m: 45}), true),  "час",    "45 minutes = an hour");
         test.equal(start.from(moment([2007, 1, 28]).add({m: 89}), true),  "час",    "89 minutes = an hour");
@@ -27356,9 +28148,11 @@ exports["lang:ru"] = {
     },
 
     "fromNow" : function (test) {
-        test.expect(2);
+        test.expect(4);
         test.equal(moment().add({s: 30}).fromNow(), "через несколько секунд", "in seconds");
         test.equal(moment().add({d: 5}).fromNow(), "через 5 дней", "in 5 days");
+        test.equal(moment().add({m: 31}).fromNow(), "через 31 минуту", "in 31 minutes = in 31 minutes");
+        test.equal(moment().subtract({m: 31}).fromNow(), "31 минуту назад", "31 minutes ago = 31 minutes ago");
         test.done();
     },
 
@@ -27547,12 +28341,12 @@ exports["lang:ru"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
             test.equal(require('../../lang/ru'), 'ru', "module should export ru");
         }
-        
+
         test.done();
     }
 };
@@ -27567,6 +28361,9 @@ var moment = require("../../moment");
 exports["lang:sk"] = {
     setUp : function (cb) {
         moment.lang('sk');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -27997,12 +28794,12 @@ exports["lang:sk"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
             test.equal(require('../../lang/sk'), 'sk', "module should export sk");
         }
-        
+
         test.done();
     }
 };
@@ -28017,6 +28814,9 @@ var moment = require("../../moment");
 exports["lang:sl"] = {
     setUp : function (cb) {
         moment.lang('sl');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -28390,12 +29190,12 @@ exports["lang:sl"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
             test.equal(require('../../lang/sl'), 'sl', "module should export sl");
         }
-        
+
         test.done();
     }
 };
@@ -28410,6 +29210,9 @@ var moment = require("../../moment");
 exports["lang:sq"] = {
     setUp : function (cb) {
         moment.lang('sq');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -28459,7 +29262,7 @@ exports["lang:sq"] = {
                 ['H HH',                               '15 15'],
                 ['m mm',                               '25 25'],
                 ['s ss',                               '50 50'],
-                ['a A',                                'pm PM'],
+                ['a A',                                'MD MD'],
                 ['[the] DDDo [day of the year]',       'the 45. day of the year'],
                 ['L',                                  '14/02/2010'],
                 ['LL',                                 '14 Shkurt 2010'],
@@ -28476,6 +29279,15 @@ exports["lang:sq"] = {
         for (i = 0; i < a.length; i++) {
             test.equal(b.format(a[i][0]), a[i][1], a[i][0] + ' ---> ' + a[i][1]);
         }
+
+        test.done();
+    },
+
+    "meridiem" : function (test) {
+        test.expect(2);
+
+        test.equal(moment([2011, 2, 23,  0, 0]).format('A'), "PD", "before dawn");
+        test.equal(moment([2011, 2, 23, 12, 0]).format('A'), "MD", "noon");
 
         test.done();
     },
@@ -28536,7 +29348,7 @@ exports["lang:sq"] = {
         test.expect(7);
 
         var i,
-            expected = 'E Diel Die D_E Hënë Hën H_E Marte Mar Ma_E Mërkure Mër Më_E Enjte Enj E_E Premte Pre P_E Shtunë Sht Sh'.split("_");
+            expected = 'E Diel Die D_E Hënë Hën H_E Martë Mar Ma_E Mërkurë Mër Më_E Enjte Enj E_E Premte Pre P_E Shtunë Sht Sh'.split("_");
 
         for (i = 0; i < expected.length; i++) {
             test.equal(moment([2011, 0, 2 + i]).format('dddd ddd dd'), expected[i], expected[i]);
@@ -28551,8 +29363,8 @@ exports["lang:sq"] = {
         var start = moment([2007, 1, 28]);
 
         test.equal(start.from(moment([2007, 1, 28]).add({s: 44}), true),  "disa sekonda", "44 seconds = a few seconds");
-        test.equal(start.from(moment([2007, 1, 28]).add({s: 45}), true),  "një minut",      "45 seconds = a minute");
-        test.equal(start.from(moment([2007, 1, 28]).add({s: 89}), true),  "një minut",      "89 seconds = a minute");
+        test.equal(start.from(moment([2007, 1, 28]).add({s: 45}), true),  "një minutë",      "45 seconds = a minute");
+        test.equal(start.from(moment([2007, 1, 28]).add({s: 89}), true),  "një minutë",      "89 seconds = a minute");
         test.equal(start.from(moment([2007, 1, 28]).add({s: 90}), true),  "2 minuta",     "90 seconds = 2 minutes");
         test.equal(start.from(moment([2007, 1, 28]).add({m: 44}), true),  "44 minuta",    "44 minutes = 44 minutes");
         test.equal(start.from(moment([2007, 1, 28]).add({m: 45}), true),  "një orë",       "45 minutes = an hour");
@@ -28588,7 +29400,7 @@ exports["lang:sq"] = {
         test.expect(2);
 
         test.equal(moment(30000).from(0), "në disa sekonda",  "prefix");
-        test.equal(moment(0).from(30000), "disa sekonda me parë", "suffix");
+        test.equal(moment(0).from(30000), "disa sekonda më parë", "suffix");
 
         test.done();
     },
@@ -28596,7 +29408,7 @@ exports["lang:sq"] = {
     "now from now" : function (test) {
         test.expect(1);
 
-        test.equal(moment().fromNow(), "disa sekonda me parë",  "now from now should display as in the past");
+        test.equal(moment().fromNow(), "disa sekonda më parë",  "now from now should display as in the past");
 
         test.done();
     },
@@ -28618,7 +29430,7 @@ exports["lang:sq"] = {
         test.equal(moment(a).calendar(),                     "Sot në 02:00",     "today at the same time");
         test.equal(moment(a).add({ m: 25 }).calendar(),      "Sot në 02:25",     "Now plus 25 min");
         test.equal(moment(a).add({ h: 1 }).calendar(),       "Sot në 03:00",     "Now plus 1 hour");
-        test.equal(moment(a).add({ d: 1 }).calendar(),       "Neser në 02:00",  "tomorrow at the same time");
+        test.equal(moment(a).add({ d: 1 }).calendar(),       "Nesër në 02:00",  "tomorrow at the same time");
         test.equal(moment(a).subtract({ h: 1 }).calendar(),  "Sot në 01:00",     "Now minus 1 hour");
         test.equal(moment(a).subtract({ d: 1 }).calendar(),  "Dje në 02:00", "yesterday at the same time");
 
@@ -28777,12 +29589,810 @@ exports["lang:sq"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
             test.equal(require('../../lang/sq'), 'sq', "module should export sq");
         }
-        
+
+        test.done();
+    }
+};
+
+var moment = require("../../moment");
+
+
+    /**************************************************
+      Serbian-cyrillic (sr-cyr)
+     *************************************************/
+
+exports["lang:sr-cyr"] = {
+    setUp : function (cb) {
+        moment.lang('sr-cyr');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
+        cb();
+    },
+
+    tearDown : function (cb) {
+        moment.lang('en');
+        cb();
+    },
+
+    "parse" : function (test) {
+        test.expect(96);
+
+        var tests = 'јануар јан._фебруар феб._март мар._април апр._мај мај_јун јун_јул јул_август авг._септембар сеп._октобар окт._новембар нов._децембар дец.'.split("_"),
+            i;
+        function equalTest(input, mmm, i) {
+            test.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
+        }
+        for (i = 0; i < 12; i++) {
+            tests[i] = tests[i].split(' ');
+            equalTest(tests[i][0], 'MMM', i);
+            equalTest(tests[i][1], 'MMM', i);
+            equalTest(tests[i][0], 'MMMM', i);
+            equalTest(tests[i][1], 'MMMM', i);
+            equalTest(tests[i][0].toLocaleLowerCase(), 'MMMM', i);
+            equalTest(tests[i][1].toLocaleLowerCase(), 'MMMM', i);
+            equalTest(tests[i][0].toLocaleUpperCase(), 'MMMM', i);
+            equalTest(tests[i][1].toLocaleUpperCase(), 'MMMM', i);
+        }
+        test.done();
+    },
+
+    "format" : function (test) {
+        test.expect(22);
+        var a = [
+                ['dddd, Do MMMM YYYY, h:mm:ss a',      'недеља, 14. фебруар 2010, 3:25:50 pm'],
+                ['ddd, hA',                            'нед., 3PM'],
+                ['M Mo MM MMMM MMM',                   '2 2. 02 фебруар феб.'],
+                ['YYYY YY',                            '2010 10'],
+                ['D Do DD',                            '14 14. 14'],
+                ['d do dddd ddd dd',                   '0 0. недеља нед. не'],
+                ['DDD DDDo DDDD',                      '45 45. 045'],
+                ['w wo ww',                            '7 7. 07'],
+                ['h hh',                               '3 03'],
+                ['H HH',                               '15 15'],
+                ['m mm',                               '25 25'],
+                ['s ss',                               '50 50'],
+                ['a A',                                'pm PM'],
+                ['[the] DDDo [day of the year]',       'the 45. day of the year'],
+                ['L',                                  '14. 02. 2010'],
+                ['LL',                                 '14. фебруар 2010'],
+                ['LLL',                                '14. фебруар 2010 15:25'],
+                ['LLLL',                               'недеља, 14. фебруар 2010 15:25'],
+                ['l',                                  '14. 2. 2010'],
+                ['ll',                                 '14. феб. 2010'],
+                ['lll',                                '14. феб. 2010 15:25'],
+                ['llll',                               'нед., 14. феб. 2010 15:25']
+            ],
+            b = moment(new Date(2010, 1, 14, 15, 25, 50, 125)),
+            i;
+        for (i = 0; i < a.length; i++) {
+            test.equal(b.format(a[i][0]), a[i][1], a[i][0] + ' ---> ' + a[i][1]);
+        }
+        test.done();
+    },
+
+    "format ordinal" : function (test) {
+        test.expect(31);
+        test.equal(moment([2011, 0, 1]).format('DDDo'), '1.', '1.');
+        test.equal(moment([2011, 0, 2]).format('DDDo'), '2.', '2.');
+        test.equal(moment([2011, 0, 3]).format('DDDo'), '3.', '3.');
+        test.equal(moment([2011, 0, 4]).format('DDDo'), '4.', '4.');
+        test.equal(moment([2011, 0, 5]).format('DDDo'), '5.', '5.');
+        test.equal(moment([2011, 0, 6]).format('DDDo'), '6.', '6.');
+        test.equal(moment([2011, 0, 7]).format('DDDo'), '7.', '7.');
+        test.equal(moment([2011, 0, 8]).format('DDDo'), '8.', '8.');
+        test.equal(moment([2011, 0, 9]).format('DDDo'), '9.', '9.');
+        test.equal(moment([2011, 0, 10]).format('DDDo'), '10.', '10.');
+
+        test.equal(moment([2011, 0, 11]).format('DDDo'), '11.', '11.');
+        test.equal(moment([2011, 0, 12]).format('DDDo'), '12.', '12.');
+        test.equal(moment([2011, 0, 13]).format('DDDo'), '13.', '13.');
+        test.equal(moment([2011, 0, 14]).format('DDDo'), '14.', '14.');
+        test.equal(moment([2011, 0, 15]).format('DDDo'), '15.', '15.');
+        test.equal(moment([2011, 0, 16]).format('DDDo'), '16.', '16.');
+        test.equal(moment([2011, 0, 17]).format('DDDo'), '17.', '17.');
+        test.equal(moment([2011, 0, 18]).format('DDDo'), '18.', '18.');
+        test.equal(moment([2011, 0, 19]).format('DDDo'), '19.', '19.');
+        test.equal(moment([2011, 0, 20]).format('DDDo'), '20.', '20.');
+
+        test.equal(moment([2011, 0, 21]).format('DDDo'), '21.', '21.');
+        test.equal(moment([2011, 0, 22]).format('DDDo'), '22.', '22.');
+        test.equal(moment([2011, 0, 23]).format('DDDo'), '23.', '23.');
+        test.equal(moment([2011, 0, 24]).format('DDDo'), '24.', '24.');
+        test.equal(moment([2011, 0, 25]).format('DDDo'), '25.', '25.');
+        test.equal(moment([2011, 0, 26]).format('DDDo'), '26.', '26.');
+        test.equal(moment([2011, 0, 27]).format('DDDo'), '27.', '27.');
+        test.equal(moment([2011, 0, 28]).format('DDDo'), '28.', '28.');
+        test.equal(moment([2011, 0, 29]).format('DDDo'), '29.', '29.');
+        test.equal(moment([2011, 0, 30]).format('DDDo'), '30.', '30.');
+
+        test.equal(moment([2011, 0, 31]).format('DDDo'), '31.', '31.');
+        test.done();
+    },
+
+    "format month" : function (test) {
+        test.expect(12);
+        var expected = 'јануар јан._фебруар феб._март мар._април апр._мај мај_јун јун_јул јул_август авг._септембар сеп._октобар окт._новембар нов._децембар дец.'.split("_"),
+            i;
+        for (i = 0; i < expected.length; i++) {
+            test.equal(moment([2011, i, 1]).format('MMMM MMM'), expected[i], expected[i]);
+        }
+        test.done();
+    },
+
+    "format week" : function (test) {
+        test.expect(7);
+        var expected = 'недеља нед. не_понедељак пон. по_уторак уто. ут_среда сре. ср_четвртак чет. че_петак пет. пе_субота суб. су'.split("_"),
+            i;
+        for (i = 0; i < expected.length; i++) {
+            test.equal(moment([2011, 0, 2 + i]).format('dddd ddd dd'), expected[i], expected[i]);
+        }
+        test.done();
+    },
+
+    "from" : function (test) {
+        test.expect(30);
+        var start = moment([2007, 1, 28]);
+        test.equal(start.from(moment([2007, 1, 28]).add({s: 44}), true),  "неколико секунди", "44 seconds = a few seconds");
+        test.equal(start.from(moment([2007, 1, 28]).add({s: 45}), true),  "један минут",   "45 seconds = a minute");
+        test.equal(start.from(moment([2007, 1, 28]).add({s: 89}), true),  "један минут",   "89 seconds = a minute");
+        test.equal(start.from(moment([2007, 1, 28]).add({s: 90}), true),  "2 минуте",     "90 seconds = 2 minutes");
+        test.equal(start.from(moment([2007, 1, 28]).add({m: 44}), true),  "44 минута",     "44 minutes = 44 minutes");
+        test.equal(start.from(moment([2007, 1, 28]).add({m: 45}), true),  "један сат",      "45 minutes = an hour");
+        test.equal(start.from(moment([2007, 1, 28]).add({m: 89}), true),  "један сат",      "89 minutes = an hour");
+        test.equal(start.from(moment([2007, 1, 28]).add({m: 90}), true),  "2 сата",        "90 minutes = 2 hours");
+        test.equal(start.from(moment([2007, 1, 28]).add({h: 5}), true),   "5 сати",         "5 hours = 5 hours");
+        test.equal(start.from(moment([2007, 1, 28]).add({h: 21}), true),  "21 сати",        "21 hours = 21 hours");
+        test.equal(start.from(moment([2007, 1, 28]).add({h: 22}), true),  "дан",       "22 hours = a day");
+        test.equal(start.from(moment([2007, 1, 28]).add({h: 35}), true),  "дан",       "35 hours = a day");
+        test.equal(start.from(moment([2007, 1, 28]).add({h: 36}), true),  "2 дана",        "36 hours = 2 days");
+        test.equal(start.from(moment([2007, 1, 28]).add({d: 1}), true),   "дан",       "1 day = a day");
+        test.equal(start.from(moment([2007, 1, 28]).add({d: 5}), true),   "5 дана",        "5 days = 5 days");
+        test.equal(start.from(moment([2007, 1, 28]).add({d: 25}), true),  "25 дана",       "25 days = 25 days");
+        test.equal(start.from(moment([2007, 1, 28]).add({d: 26}), true),  "месец",     "26 days = a month");
+        test.equal(start.from(moment([2007, 1, 28]).add({d: 30}), true),  "месец",     "30 days = a month");
+        test.equal(start.from(moment([2007, 1, 28]).add({d: 45}), true),  "месец",     "45 days = a month");
+        test.equal(start.from(moment([2007, 1, 28]).add({d: 46}), true),  "2 месеца",     "46 days = 2 months");
+        test.equal(start.from(moment([2007, 1, 28]).add({d: 74}), true),  "2 месеца",     "75 days = 2 months");
+        test.equal(start.from(moment([2007, 1, 28]).add({d: 76}), true),  "3 месеца",     "76 days = 3 months");
+        test.equal(start.from(moment([2007, 1, 28]).add({M: 1}), true),   "месец",     "1 month = a month");
+        test.equal(start.from(moment([2007, 1, 28]).add({M: 5}), true),   "5 месеци",    "5 months = 5 months");
+        test.equal(start.from(moment([2007, 1, 28]).add({d: 344}), true), "11 месеци",   "344 days = 11 months");
+        test.equal(start.from(moment([2007, 1, 28]).add({d: 345}), true), "годину",     "345 days = a year");
+        test.equal(start.from(moment([2007, 1, 28]).add({d: 547}), true), "годину",     "547 days = a year");
+        test.equal(start.from(moment([2007, 1, 28]).add({d: 548}), true), "2 године",       "548 days = 2 years");
+        test.equal(start.from(moment([2007, 1, 28]).add({y: 1}), true),   "годину",     "1 year = a year");
+        test.equal(start.from(moment([2007, 1, 28]).add({y: 5}), true),   "5 година",        "5 years = 5 years");
+        test.done();
+    },
+
+    "suffix" : function (test) {
+        test.expect(2);
+        test.equal(moment(30000).from(0), "за неколико секунди",  "prefix");
+        test.equal(moment(0).from(30000), "пре неколико секунди", "prefix");
+        test.done();
+    },
+
+    "now from now" : function (test) {
+        test.expect(1);
+        test.equal(moment().fromNow(), "пре неколико секунди",  "now from now should display as in the past");
+        test.done();
+    },
+
+    "fromNow" : function (test) {
+        test.expect(2);
+        test.equal(moment().add({s: 30}).fromNow(), "за неколико секунди", "in a few seconds");
+        test.equal(moment().add({d: 5}).fromNow(), "за 5 дана", "in 5 days");
+        test.done();
+    },
+
+    "calendar day" : function (test) {
+        test.expect(6);
+
+        var a = moment().hours(2).minutes(0).seconds(0);
+
+        test.equal(moment(a).calendar(),                     "данас у 2:00",  "today at the same time");
+        test.equal(moment(a).add({ m: 25 }).calendar(),      "данас у 2:25",  "Now plus 25 min");
+        test.equal(moment(a).add({ h: 1 }).calendar(),       "данас у 3:00",  "Now plus 1 hour");
+        test.equal(moment(a).add({ d: 1 }).calendar(),       "сутра у 2:00",  "tomorrow at the same time");
+        test.equal(moment(a).subtract({ h: 1 }).calendar(),  "данас у 1:00",  "Now minus 1 hour");
+        test.equal(moment(a).subtract({ d: 1 }).calendar(),  "јуче у 2:00", "yesterday at the same time");
+        test.done();
+    },
+
+    "calendar next week" : function (test) {
+        test.expect(15);
+
+        var i, m;
+
+        function makeFormat(d) {
+            switch (d.day()) {
+            case 0:
+                return '[у] [недељу] [у] LT';
+            case 3:
+                return '[у] [среду] [у] LT';
+            case 6:
+                return '[у] [суботу] [у] LT';
+            case 1:
+            case 2:
+            case 4:
+            case 5:
+                return '[у] dddd [у] LT';
+            }
+        }
+
+        for (i = 2; i < 7; i++) {
+            m = moment().add({ d: i });
+            test.equal(m.calendar(),       m.format(makeFormat(m)),  "Today + " + i + " days current time");
+            m.hours(0).minutes(0).seconds(0).milliseconds(0);
+            test.equal(m.calendar(),       m.format(makeFormat(m)),  "Today + " + i + " days beginning of day");
+            m.hours(23).minutes(59).seconds(59).milliseconds(999);
+            test.equal(m.calendar(),       m.format(makeFormat(m)),  "Today + " + i + " days end of day");
+        }
+        test.done();
+    },
+
+    "calendar last week" : function (test) {
+        test.expect(15);
+
+        var i, m;
+
+        function makeFormat(d) {
+            var lastWeekDay = [
+                    '[прошле] [недеље] [у] LT',
+                    '[прошлог] [понедељка] [у] LT',
+                    '[прошлог] [уторка] [у] LT',
+                    '[прошле] [среде] [у] LT',
+                    '[прошлог] [четвртка] [у] LT',
+                    '[прошлог] [петка] [у] LT',
+                    '[прошле] [суботе] [у] LT'
+                ];
+
+            return lastWeekDay[d.day()];
+        }
+
+        for (i = 2; i < 7; i++) {
+            m = moment().subtract({ d: i });
+            test.equal(m.calendar(),       m.format(makeFormat(m)),  "Today - " + i + " days current time");
+            m.hours(0).minutes(0).seconds(0).milliseconds(0);
+            test.equal(m.calendar(),       m.format(makeFormat(m)),  "Today - " + i + " days beginning of day");
+            m.hours(23).minutes(59).seconds(59).milliseconds(999);
+            test.equal(m.calendar(),       m.format(makeFormat(m)),  "Today - " + i + " days end of day");
+        }
+        test.done();
+    },
+
+    "calendar all else" : function (test) {
+        test.expect(4);
+
+        var weeksAgo = moment().subtract({ w: 1 }),
+            weeksFromNow = moment().add({ w: 1 });
+
+        test.equal(weeksAgo.calendar(),       weeksAgo.format('L'),  "1 week ago");
+        test.equal(weeksFromNow.calendar(),   weeksFromNow.format('L'),  "in 1 week");
+
+        weeksAgo = moment().subtract({ w: 2 });
+        weeksFromNow = moment().add({ w: 2 });
+
+        test.equal(weeksAgo.calendar(),       weeksAgo.format('L'),  "2 weeks ago");
+        test.equal(weeksFromNow.calendar(),   weeksFromNow.format('L'),  "in 2 weeks");
+
+        test.done();
+    },
+
+    // Monday is the first day of the week.
+    // The week that contains Jan 1st is the first week of the year.
+
+    "weeks year starting sunday" : function (test) {
+        test.expect(5);
+
+        test.equal(moment([2011, 11, 26]).week(), 1, "Dec 26 2011 should be week 1");
+        test.equal(moment([2012,  0,  1]).week(), 1, "Jan  1 2012 should be week 1");
+        test.equal(moment([2012,  0,  2]).week(), 2, "Jan  2 2012 should be week 2");
+        test.equal(moment([2012,  0,  8]).week(), 2, "Jan  8 2012 should be week 2");
+        test.equal(moment([2012,  0,  9]).week(), 3, "Jan  9 2012 should be week 3");
+
+        test.done();
+    },
+
+    "weeks year starting monday" : function (test) {
+        test.expect(5);
+
+        test.equal(moment([2007, 0, 1]).week(),  1, "Jan  1 2007 should be week 1");
+        test.equal(moment([2007, 0, 7]).week(),  1, "Jan  7 2007 should be week 1");
+        test.equal(moment([2007, 0, 8]).week(),  2, "Jan  8 2007 should be week 2");
+        test.equal(moment([2007, 0, 14]).week(), 2, "Jan 14 2007 should be week 2");
+        test.equal(moment([2007, 0, 15]).week(), 3, "Jan 15 2007 should be week 3");
+
+        test.done();
+    },
+
+    "weeks year starting tuesday" : function (test) {
+        test.expect(6);
+
+        test.equal(moment([2007, 11, 31]).week(), 1, "Dec 31 2007 should be week 1");
+        test.equal(moment([2008,  0,  1]).week(), 1, "Jan  1 2008 should be week 1");
+        test.equal(moment([2008,  0,  6]).week(), 1, "Jan  6 2008 should be week 1");
+        test.equal(moment([2008,  0,  7]).week(), 2, "Jan  7 2008 should be week 2");
+        test.equal(moment([2008,  0, 13]).week(), 2, "Jan 13 2008 should be week 2");
+        test.equal(moment([2008,  0, 14]).week(), 3, "Jan 14 2008 should be week 3");
+
+        test.done();
+    },
+
+    "weeks year starting wednesday" : function (test) {
+        test.expect(6);
+
+        test.equal(moment([2002, 11, 30]).week(), 1, "Dec 30 2002 should be week 1");
+        test.equal(moment([2003,  0,  1]).week(), 1, "Jan  1 2003 should be week 1");
+        test.equal(moment([2003,  0,  5]).week(), 1, "Jan  5 2003 should be week 1");
+        test.equal(moment([2003,  0,  6]).week(), 2, "Jan  6 2003 should be week 2");
+        test.equal(moment([2003,  0, 12]).week(), 2, "Jan 12 2003 should be week 2");
+        test.equal(moment([2003,  0, 13]).week(), 3, "Jan 13 2003 should be week 3");
+
+        test.done();
+    },
+
+    "weeks year starting thursday" : function (test) {
+        test.expect(6);
+
+        test.equal(moment([2008, 11, 29]).week(), 1, "Dec 29 2008 should be week 1");
+        test.equal(moment([2009,  0,  1]).week(), 1, "Jan  1 2009 should be week 1");
+        test.equal(moment([2009,  0,  4]).week(), 1, "Jan  4 2009 should be week 1");
+        test.equal(moment([2009,  0,  5]).week(), 2, "Jan  5 2009 should be week 2");
+        test.equal(moment([2009,  0, 11]).week(), 2, "Jan 11 2009 should be week 2");
+        test.equal(moment([2009,  0, 12]).week(), 3, "Jan 12 2009 should be week 3");
+
+        test.done();
+    },
+
+    "weeks year starting friday" : function (test) {
+        test.expect(6);
+
+        test.equal(moment([2009, 11, 28]).week(), 1, "Dec 28 2009 should be week 1");
+        test.equal(moment([2010,  0,  1]).week(), 1, "Jan  1 2010 should be week 1");
+        test.equal(moment([2010,  0,  3]).week(), 1, "Jan  3 2010 should be week 1");
+        test.equal(moment([2010,  0,  4]).week(), 2, "Jan  4 2010 should be week 2");
+        test.equal(moment([2010,  0, 10]).week(), 2, "Jan 10 2010 should be week 2");
+        test.equal(moment([2010,  0, 11]).week(), 3, "Jan 11 2010 should be week 3");
+
+        test.done();
+    },
+
+    "weeks year starting saturday" : function (test) {
+        test.expect(6);
+
+        test.equal(moment([2010, 11, 27]).week(), 1, "Dec 27 2010 should be week 1");
+        test.equal(moment([2011,  0,  1]).week(), 1, "Jan  1 2011 should be week 1");
+        test.equal(moment([2011,  0,  2]).week(), 1, "Jan  2 2011 should be week 1");
+        test.equal(moment([2011,  0,  3]).week(), 2, "Jan  3 2011 should be week 2");
+        test.equal(moment([2011,  0,  9]).week(), 2, "Jan  9 2011 should be week 2");
+        test.equal(moment([2011,  0, 10]).week(), 3, "Jan 10 2011 should be week 3");
+
+        test.done();
+    },
+
+    "weeks year starting sunday formatted" : function (test) {
+        test.expect(5);
+
+        test.equal(moment([2011, 11, 26]).format('w ww wo'), '1 01 1.', "Dec 26 2011 should be week 1");
+        test.equal(moment([2012,  0,  1]).format('w ww wo'), '1 01 1.', "Jan  1 2012 should be week 1");
+        test.equal(moment([2012,  0,  2]).format('w ww wo'), '2 02 2.', "Jan  2 2012 should be week 2");
+        test.equal(moment([2012,  0,  8]).format('w ww wo'), '2 02 2.', "Jan  8 2012 should be week 2");
+        test.equal(moment([2012,  0,  9]).format('w ww wo'), '3 03 3.', "Jan  9 2012 should be week 3");
+
+        test.done();
+    },
+
+    "returns the name of the language" : function (test) {
+        if (typeof module !== 'undefined' && module.exports) {
+            test.equal(require('../../lang/sr-cyr'), 'sr-cyr', "module should export sr-cyr");
+        }
+
+        test.done();
+    }
+};
+
+var moment = require("../../moment");
+
+
+    /**************************************************
+      Serbian-latin (sr)
+     *************************************************/
+
+exports["lang:sr"] = {
+    setUp : function (cb) {
+        moment.lang('sr');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
+        cb();
+    },
+
+    tearDown : function (cb) {
+        moment.lang('en');
+        cb();
+    },
+
+    "parse" : function (test) {
+        test.expect(96);
+
+        var tests = 'januar jan._februar feb._mart mar._april apr._maj maj_jun jun_jul jul_avgust avg._septembar sep._oktobar okt._novembar nov._decembar dec.'.split("_"),
+            i;
+        function equalTest(input, mmm, i) {
+            test.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
+        }
+        for (i = 0; i < 12; i++) {
+            tests[i] = tests[i].split(' ');
+            equalTest(tests[i][0], 'MMM', i);
+            equalTest(tests[i][1], 'MMM', i);
+            equalTest(tests[i][0], 'MMMM', i);
+            equalTest(tests[i][1], 'MMMM', i);
+            equalTest(tests[i][0].toLocaleLowerCase(), 'MMMM', i);
+            equalTest(tests[i][1].toLocaleLowerCase(), 'MMMM', i);
+            equalTest(tests[i][0].toLocaleUpperCase(), 'MMMM', i);
+            equalTest(tests[i][1].toLocaleUpperCase(), 'MMMM', i);
+        }
+        test.done();
+    },
+
+    "format" : function (test) {
+        test.expect(22);
+        var a = [
+                ['dddd, Do MMMM YYYY, h:mm:ss a',      'nedelja, 14. februar 2010, 3:25:50 pm'],
+                ['ddd, hA',                            'ned., 3PM'],
+                ['M Mo MM MMMM MMM',                   '2 2. 02 februar feb.'],
+                ['YYYY YY',                            '2010 10'],
+                ['D Do DD',                            '14 14. 14'],
+                ['d do dddd ddd dd',                   '0 0. nedelja ned. ne'],
+                ['DDD DDDo DDDD',                      '45 45. 045'],
+                ['w wo ww',                            '7 7. 07'],
+                ['h hh',                               '3 03'],
+                ['H HH',                               '15 15'],
+                ['m mm',                               '25 25'],
+                ['s ss',                               '50 50'],
+                ['a A',                                'pm PM'],
+                ['[the] DDDo [day of the year]',       'the 45. day of the year'],
+                ['L',                                  '14. 02. 2010'],
+                ['LL',                                 '14. februar 2010'],
+                ['LLL',                                '14. februar 2010 15:25'],
+                ['LLLL',                               'nedelja, 14. februar 2010 15:25'],
+                ['l',                                  '14. 2. 2010'],
+                ['ll',                                 '14. feb. 2010'],
+                ['lll',                                '14. feb. 2010 15:25'],
+                ['llll',                               'ned., 14. feb. 2010 15:25']
+            ],
+            b = moment(new Date(2010, 1, 14, 15, 25, 50, 125)),
+            i;
+        for (i = 0; i < a.length; i++) {
+            test.equal(b.format(a[i][0]), a[i][1], a[i][0] + ' ---> ' + a[i][1]);
+        }
+        test.done();
+    },
+
+    "format ordinal" : function (test) {
+        test.expect(31);
+        test.equal(moment([2011, 0, 1]).format('DDDo'), '1.', '1.');
+        test.equal(moment([2011, 0, 2]).format('DDDo'), '2.', '2.');
+        test.equal(moment([2011, 0, 3]).format('DDDo'), '3.', '3.');
+        test.equal(moment([2011, 0, 4]).format('DDDo'), '4.', '4.');
+        test.equal(moment([2011, 0, 5]).format('DDDo'), '5.', '5.');
+        test.equal(moment([2011, 0, 6]).format('DDDo'), '6.', '6.');
+        test.equal(moment([2011, 0, 7]).format('DDDo'), '7.', '7.');
+        test.equal(moment([2011, 0, 8]).format('DDDo'), '8.', '8.');
+        test.equal(moment([2011, 0, 9]).format('DDDo'), '9.', '9.');
+        test.equal(moment([2011, 0, 10]).format('DDDo'), '10.', '10.');
+
+        test.equal(moment([2011, 0, 11]).format('DDDo'), '11.', '11.');
+        test.equal(moment([2011, 0, 12]).format('DDDo'), '12.', '12.');
+        test.equal(moment([2011, 0, 13]).format('DDDo'), '13.', '13.');
+        test.equal(moment([2011, 0, 14]).format('DDDo'), '14.', '14.');
+        test.equal(moment([2011, 0, 15]).format('DDDo'), '15.', '15.');
+        test.equal(moment([2011, 0, 16]).format('DDDo'), '16.', '16.');
+        test.equal(moment([2011, 0, 17]).format('DDDo'), '17.', '17.');
+        test.equal(moment([2011, 0, 18]).format('DDDo'), '18.', '18.');
+        test.equal(moment([2011, 0, 19]).format('DDDo'), '19.', '19.');
+        test.equal(moment([2011, 0, 20]).format('DDDo'), '20.', '20.');
+
+        test.equal(moment([2011, 0, 21]).format('DDDo'), '21.', '21.');
+        test.equal(moment([2011, 0, 22]).format('DDDo'), '22.', '22.');
+        test.equal(moment([2011, 0, 23]).format('DDDo'), '23.', '23.');
+        test.equal(moment([2011, 0, 24]).format('DDDo'), '24.', '24.');
+        test.equal(moment([2011, 0, 25]).format('DDDo'), '25.', '25.');
+        test.equal(moment([2011, 0, 26]).format('DDDo'), '26.', '26.');
+        test.equal(moment([2011, 0, 27]).format('DDDo'), '27.', '27.');
+        test.equal(moment([2011, 0, 28]).format('DDDo'), '28.', '28.');
+        test.equal(moment([2011, 0, 29]).format('DDDo'), '29.', '29.');
+        test.equal(moment([2011, 0, 30]).format('DDDo'), '30.', '30.');
+
+        test.equal(moment([2011, 0, 31]).format('DDDo'), '31.', '31.');
+        test.done();
+    },
+
+    "format month" : function (test) {
+        test.expect(12);
+        var expected = 'januar jan._februar feb._mart mar._april apr._maj maj_jun jun_jul jul_avgust avg._septembar sep._oktobar okt._novembar nov._decembar dec.'.split("_"),
+            i;
+        for (i = 0; i < expected.length; i++) {
+            test.equal(moment([2011, i, 1]).format('MMMM MMM'), expected[i], expected[i]);
+        }
+        test.done();
+    },
+
+    "format week" : function (test) {
+        test.expect(7);
+        var expected = 'nedelja ned. ne_ponedeljak pon. po_utorak uto. ut_sreda sre. sr_četvrtak čet. če_petak pet. pe_subota sub. su'.split("_"),
+            i;
+        for (i = 0; i < expected.length; i++) {
+            test.equal(moment([2011, 0, 2 + i]).format('dddd ddd dd'), expected[i], expected[i]);
+        }
+        test.done();
+    },
+
+    "from" : function (test) {
+        test.expect(30);
+        var start = moment([2007, 1, 28]);
+        test.equal(start.from(moment([2007, 1, 28]).add({s: 44}), true),  "nekoliko sekundi", "44 seconds = a few seconds");
+        test.equal(start.from(moment([2007, 1, 28]).add({s: 45}), true),  "jedan minut",   "45 seconds = a minute");
+        test.equal(start.from(moment([2007, 1, 28]).add({s: 89}), true),  "jedan minut",   "89 seconds = a minute");
+        test.equal(start.from(moment([2007, 1, 28]).add({s: 90}), true),  "2 minute",     "90 seconds = 2 minutes");
+        test.equal(start.from(moment([2007, 1, 28]).add({m: 44}), true),  "44 minuta",     "44 minutes = 44 minutes");
+        test.equal(start.from(moment([2007, 1, 28]).add({m: 45}), true),  "jedan sat",      "45 minutes = an hour");
+        test.equal(start.from(moment([2007, 1, 28]).add({m: 89}), true),  "jedan sat",      "89 minutes = an hour");
+        test.equal(start.from(moment([2007, 1, 28]).add({m: 90}), true),  "2 sata",        "90 minutes = 2 hours");
+        test.equal(start.from(moment([2007, 1, 28]).add({h: 5}), true),   "5 sati",         "5 hours = 5 hours");
+        test.equal(start.from(moment([2007, 1, 28]).add({h: 21}), true),  "21 sati",        "21 hours = 21 hours");
+        test.equal(start.from(moment([2007, 1, 28]).add({h: 22}), true),  "dan",       "22 hours = a day");
+        test.equal(start.from(moment([2007, 1, 28]).add({h: 35}), true),  "dan",       "35 hours = a day");
+        test.equal(start.from(moment([2007, 1, 28]).add({h: 36}), true),  "2 dana",        "36 hours = 2 days");
+        test.equal(start.from(moment([2007, 1, 28]).add({d: 1}), true),   "dan",       "1 day = a day");
+        test.equal(start.from(moment([2007, 1, 28]).add({d: 5}), true),   "5 dana",        "5 days = 5 days");
+        test.equal(start.from(moment([2007, 1, 28]).add({d: 25}), true),  "25 dana",       "25 days = 25 days");
+        test.equal(start.from(moment([2007, 1, 28]).add({d: 26}), true),  "mesec",     "26 days = a month");
+        test.equal(start.from(moment([2007, 1, 28]).add({d: 30}), true),  "mesec",     "30 days = a month");
+        test.equal(start.from(moment([2007, 1, 28]).add({d: 45}), true),  "mesec",     "45 days = a month");
+        test.equal(start.from(moment([2007, 1, 28]).add({d: 46}), true),  "2 meseca",     "46 days = 2 months");
+        test.equal(start.from(moment([2007, 1, 28]).add({d: 74}), true),  "2 meseca",     "75 days = 2 months");
+        test.equal(start.from(moment([2007, 1, 28]).add({d: 76}), true),  "3 meseca",     "76 days = 3 months");
+        test.equal(start.from(moment([2007, 1, 28]).add({M: 1}), true),   "mesec",     "1 month = a month");
+        test.equal(start.from(moment([2007, 1, 28]).add({M: 5}), true),   "5 meseci",    "5 months = 5 months");
+        test.equal(start.from(moment([2007, 1, 28]).add({d: 344}), true), "11 meseci",   "344 days = 11 months");
+        test.equal(start.from(moment([2007, 1, 28]).add({d: 345}), true), "godinu",     "345 days = a year");
+        test.equal(start.from(moment([2007, 1, 28]).add({d: 547}), true), "godinu",     "547 days = a year");
+        test.equal(start.from(moment([2007, 1, 28]).add({d: 548}), true), "2 godine",       "548 days = 2 years");
+        test.equal(start.from(moment([2007, 1, 28]).add({y: 1}), true),   "godinu",     "1 year = a year");
+        test.equal(start.from(moment([2007, 1, 28]).add({y: 5}), true),   "5 godina",        "5 years = 5 years");
+        test.done();
+    },
+
+    "suffix" : function (test) {
+        test.expect(2);
+        test.equal(moment(30000).from(0), "za nekoliko sekundi",  "prefix");
+        test.equal(moment(0).from(30000), "pre nekoliko sekundi", "prefix");
+        test.done();
+    },
+
+    "now from now" : function (test) {
+        test.expect(1);
+        test.equal(moment().fromNow(), "pre nekoliko sekundi",  "now from now should display as in the past");
+        test.done();
+    },
+
+    "fromNow" : function (test) {
+        test.expect(2);
+        test.equal(moment().add({s: 30}).fromNow(), "za nekoliko sekundi", "in a few seconds");
+        test.equal(moment().add({d: 5}).fromNow(), "za 5 dana", "in 5 days");
+        test.done();
+    },
+
+    "calendar day" : function (test) {
+        test.expect(6);
+
+        var a = moment().hours(2).minutes(0).seconds(0);
+
+        test.equal(moment(a).calendar(),                     "danas u 2:00",  "today at the same time");
+        test.equal(moment(a).add({ m: 25 }).calendar(),      "danas u 2:25",  "Now plus 25 min");
+        test.equal(moment(a).add({ h: 1 }).calendar(),       "danas u 3:00",  "Now plus 1 hour");
+        test.equal(moment(a).add({ d: 1 }).calendar(),       "sutra u 2:00",  "tomorrow at the same time");
+        test.equal(moment(a).subtract({ h: 1 }).calendar(),  "danas u 1:00",  "Now minus 1 hour");
+        test.equal(moment(a).subtract({ d: 1 }).calendar(),  "juče u 2:00", "yesterday at the same time");
+        test.done();
+    },
+
+    "calendar next week" : function (test) {
+        test.expect(15);
+
+        var i, m;
+
+        function makeFormat(d) {
+            switch (d.day()) {
+            case 0:
+                return '[u] [nedelju] [u] LT';
+            case 3:
+                return '[u] [sredu] [u] LT';
+            case 6:
+                return '[u] [subotu] [u] LT';
+            case 1:
+            case 2:
+            case 4:
+            case 5:
+                return '[u] dddd [u] LT';
+            }
+        }
+
+        for (i = 2; i < 7; i++) {
+            m = moment().add({ d: i });
+            test.equal(m.calendar(),       m.format(makeFormat(m)),  "Today + " + i + " days current time");
+            m.hours(0).minutes(0).seconds(0).milliseconds(0);
+            test.equal(m.calendar(),       m.format(makeFormat(m)),  "Today + " + i + " days beginning of day");
+            m.hours(23).minutes(59).seconds(59).milliseconds(999);
+            test.equal(m.calendar(),       m.format(makeFormat(m)),  "Today + " + i + " days end of day");
+        }
+        test.done();
+    },
+
+    "calendar last week" : function (test) {
+        test.expect(15);
+
+        var i, m;
+
+        function makeFormat(d) {
+            var lastWeekDay = [
+                    '[prošle] [nedelje] [u] LT',
+                    '[prošlog] [ponedeljka] [u] LT',
+                    '[prošlog] [utorka] [u] LT',
+                    '[prošle] [srede] [u] LT',
+                    '[prošlog] [četvrtka] [u] LT',
+                    '[prošlog] [petka] [u] LT',
+                    '[prošle] [subote] [u] LT'
+                ];
+
+            return lastWeekDay[d.day()];
+        }
+
+        for (i = 2; i < 7; i++) {
+            m = moment().subtract({ d: i });
+            test.equal(m.calendar(),       m.format(makeFormat(m)),  "Today - " + i + " days current time");
+            m.hours(0).minutes(0).seconds(0).milliseconds(0);
+            test.equal(m.calendar(),       m.format(makeFormat(m)),  "Today - " + i + " days beginning of day");
+            m.hours(23).minutes(59).seconds(59).milliseconds(999);
+            test.equal(m.calendar(),       m.format(makeFormat(m)),  "Today - " + i + " days end of day");
+        }
+        test.done();
+    },
+
+    "calendar all else" : function (test) {
+        test.expect(4);
+
+        var weeksAgo = moment().subtract({ w: 1 }),
+            weeksFromNow = moment().add({ w: 1 });
+
+        test.equal(weeksAgo.calendar(),       weeksAgo.format('L'),  "1 week ago");
+        test.equal(weeksFromNow.calendar(),   weeksFromNow.format('L'),  "in 1 week");
+
+        weeksAgo = moment().subtract({ w: 2 });
+        weeksFromNow = moment().add({ w: 2 });
+
+        test.equal(weeksAgo.calendar(),       weeksAgo.format('L'),  "2 weeks ago");
+        test.equal(weeksFromNow.calendar(),   weeksFromNow.format('L'),  "in 2 weeks");
+
+        test.done();
+    },
+
+    // Monday is the first day of the week.
+    // The week that contains Jan 1st is the first week of the year.
+
+    "weeks year starting sunday" : function (test) {
+        test.expect(5);
+
+        test.equal(moment([2011, 11, 26]).week(), 1, "Dec 26 2011 should be week 1");
+        test.equal(moment([2012,  0,  1]).week(), 1, "Jan  1 2012 should be week 1");
+        test.equal(moment([2012,  0,  2]).week(), 2, "Jan  2 2012 should be week 2");
+        test.equal(moment([2012,  0,  8]).week(), 2, "Jan  8 2012 should be week 2");
+        test.equal(moment([2012,  0,  9]).week(), 3, "Jan  9 2012 should be week 3");
+
+        test.done();
+    },
+
+    "weeks year starting monday" : function (test) {
+        test.expect(5);
+
+        test.equal(moment([2007, 0, 1]).week(),  1, "Jan  1 2007 should be week 1");
+        test.equal(moment([2007, 0, 7]).week(),  1, "Jan  7 2007 should be week 1");
+        test.equal(moment([2007, 0, 8]).week(),  2, "Jan  8 2007 should be week 2");
+        test.equal(moment([2007, 0, 14]).week(), 2, "Jan 14 2007 should be week 2");
+        test.equal(moment([2007, 0, 15]).week(), 3, "Jan 15 2007 should be week 3");
+
+        test.done();
+    },
+
+    "weeks year starting tuesday" : function (test) {
+        test.expect(6);
+
+        test.equal(moment([2007, 11, 31]).week(), 1, "Dec 31 2007 should be week 1");
+        test.equal(moment([2008,  0,  1]).week(), 1, "Jan  1 2008 should be week 1");
+        test.equal(moment([2008,  0,  6]).week(), 1, "Jan  6 2008 should be week 1");
+        test.equal(moment([2008,  0,  7]).week(), 2, "Jan  7 2008 should be week 2");
+        test.equal(moment([2008,  0, 13]).week(), 2, "Jan 13 2008 should be week 2");
+        test.equal(moment([2008,  0, 14]).week(), 3, "Jan 14 2008 should be week 3");
+
+        test.done();
+    },
+
+    "weeks year starting wednesday" : function (test) {
+        test.expect(6);
+
+        test.equal(moment([2002, 11, 30]).week(), 1, "Dec 30 2002 should be week 1");
+        test.equal(moment([2003,  0,  1]).week(), 1, "Jan  1 2003 should be week 1");
+        test.equal(moment([2003,  0,  5]).week(), 1, "Jan  5 2003 should be week 1");
+        test.equal(moment([2003,  0,  6]).week(), 2, "Jan  6 2003 should be week 2");
+        test.equal(moment([2003,  0, 12]).week(), 2, "Jan 12 2003 should be week 2");
+        test.equal(moment([2003,  0, 13]).week(), 3, "Jan 13 2003 should be week 3");
+
+        test.done();
+    },
+
+    "weeks year starting thursday" : function (test) {
+        test.expect(6);
+
+        test.equal(moment([2008, 11, 29]).week(), 1, "Dec 29 2008 should be week 1");
+        test.equal(moment([2009,  0,  1]).week(), 1, "Jan  1 2009 should be week 1");
+        test.equal(moment([2009,  0,  4]).week(), 1, "Jan  4 2009 should be week 1");
+        test.equal(moment([2009,  0,  5]).week(), 2, "Jan  5 2009 should be week 2");
+        test.equal(moment([2009,  0, 11]).week(), 2, "Jan 11 2009 should be week 2");
+        test.equal(moment([2009,  0, 12]).week(), 3, "Jan 12 2009 should be week 3");
+
+        test.done();
+    },
+
+    "weeks year starting friday" : function (test) {
+        test.expect(6);
+
+        test.equal(moment([2009, 11, 28]).week(), 1, "Dec 28 2009 should be week 1");
+        test.equal(moment([2010,  0,  1]).week(), 1, "Jan  1 2010 should be week 1");
+        test.equal(moment([2010,  0,  3]).week(), 1, "Jan  3 2010 should be week 1");
+        test.equal(moment([2010,  0,  4]).week(), 2, "Jan  4 2010 should be week 2");
+        test.equal(moment([2010,  0, 10]).week(), 2, "Jan 10 2010 should be week 2");
+        test.equal(moment([2010,  0, 11]).week(), 3, "Jan 11 2010 should be week 3");
+
+        test.done();
+    },
+
+    "weeks year starting saturday" : function (test) {
+        test.expect(6);
+
+        test.equal(moment([2010, 11, 27]).week(), 1, "Dec 27 2010 should be week 1");
+        test.equal(moment([2011,  0,  1]).week(), 1, "Jan  1 2011 should be week 1");
+        test.equal(moment([2011,  0,  2]).week(), 1, "Jan  2 2011 should be week 1");
+        test.equal(moment([2011,  0,  3]).week(), 2, "Jan  3 2011 should be week 2");
+        test.equal(moment([2011,  0,  9]).week(), 2, "Jan  9 2011 should be week 2");
+        test.equal(moment([2011,  0, 10]).week(), 3, "Jan 10 2011 should be week 3");
+
+        test.done();
+    },
+
+    "weeks year starting sunday formatted" : function (test) {
+        test.expect(5);
+
+        test.equal(moment([2011, 11, 26]).format('w ww wo'), '1 01 1.', "Dec 26 2011 should be week 1");
+        test.equal(moment([2012,  0,  1]).format('w ww wo'), '1 01 1.', "Jan  1 2012 should be week 1");
+        test.equal(moment([2012,  0,  2]).format('w ww wo'), '2 02 2.', "Jan  2 2012 should be week 2");
+        test.equal(moment([2012,  0,  8]).format('w ww wo'), '2 02 2.', "Jan  8 2012 should be week 2");
+        test.equal(moment([2012,  0,  9]).format('w ww wo'), '3 03 3.', "Jan  9 2012 should be week 3");
+
+        test.done();
+    },
+
+    "returns the name of the language" : function (test) {
+        if (typeof module !== 'undefined' && module.exports) {
+            test.equal(require('../../lang/sr'), 'sr', "module should export sr");
+        }
+
         test.done();
     }
 };
@@ -28796,6 +30406,9 @@ var moment = require("../../moment");
 exports["lang:sv"] = {
     setUp : function (cb) {
         moment.lang('sv');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -29135,12 +30748,12 @@ exports["lang:sv"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
             test.equal(require('../../lang/sv'), 'sv', "module should export sv");
         }
-        
+
         test.done();
     }
 };
@@ -29155,6 +30768,9 @@ var moment = require("../../moment");
 exports["lang:ta"] = {
     setUp : function (cb) {
         moment.lang('ta');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -29186,28 +30802,28 @@ exports["lang:ta"] = {
     "format" : function (test) {
         test.expect(22);
         var a = [
-                ['dddd, MMMM Do YYYY, h:mm:ss a',              'ஞாயிற்றுக்கிழமை, பிப்ரவரி 14வது 2010, 3:25:50  எற்பாடு'],   
-                ['ddd, hA',                       'ஞாயிறு, 3 எற்பாடு'],                                        
-                ['M Mo MM MMMM MMM',              '2 2வது 02 பிப்ரவரி பிப்ரவரி'],                              
-                ['YYYY YY',                       '2010 10'],                                                  
-                ['D Do DD',                       '14 14வது 14'],                                              
-                ['d do dddd ddd dd',              '0 0வது ஞாயிற்றுக்கிழமை ஞாயிறு ஞா'],                         
-                ['DDD DDDo DDDD',                 '45 45வது 045'],                                             
-                ['w wo ww',                       '8 8வது 08'],                                                
-                ['h hh',                          '3 03'],                                                     
-                ['H HH',                          '15 15'],                                                    
-                ['m mm',                          '25 25'],                                                    
-                ['s ss',                          '50 50'],                                                    
-                ['a A',                           ' எற்பாடு  எற்பாடு'],                                        
-                ['[ஆண்டின்] DDDo  [நாள்]',        'ஆண்டின் 45வது  நாள்'],                                      
-                ['L',                             '14/02/2010'],                                               
-                ['LL',                            '14 பிப்ரவரி 2010'],                                         
-                ['LLL',                           '14 பிப்ரவரி 2010, 15:25'],                                  
-                ['LLLL',                          'ஞாயிற்றுக்கிழமை, 14 பிப்ரவரி 2010, 15:25'],                 
-                ['l',                             '14/2/2010'],                                                
-                ['ll',                            '14 பிப்ரவரி 2010'],                                         
-                ['lll',                           '14 பிப்ரவரி 2010, 15:25'],                                  
-                ['llll',                          'ஞாயிறு, 14 பிப்ரவரி 2010, 15:25']     
+                ['dddd, MMMM Do YYYY, h:mm:ss a',              'ஞாயிற்றுக்கிழமை, பிப்ரவரி 14வது 2010, 3:25:50  எற்பாடு'],
+                ['ddd, hA',                       'ஞாயிறு, 3 எற்பாடு'],
+                ['M Mo MM MMMM MMM',              '2 2வது 02 பிப்ரவரி பிப்ரவரி'],
+                ['YYYY YY',                       '2010 10'],
+                ['D Do DD',                       '14 14வது 14'],
+                ['d do dddd ddd dd',              '0 0வது ஞாயிற்றுக்கிழமை ஞாயிறு ஞா'],
+                ['DDD DDDo DDDD',                 '45 45வது 045'],
+                ['w wo ww',                       '8 8வது 08'],
+                ['h hh',                          '3 03'],
+                ['H HH',                          '15 15'],
+                ['m mm',                          '25 25'],
+                ['s ss',                          '50 50'],
+                ['a A',                           ' எற்பாடு  எற்பாடு'],
+                ['[ஆண்டின்] DDDo  [நாள்]',        'ஆண்டின் 45வது  நாள்'],
+                ['L',                             '14/02/2010'],
+                ['LL',                            '14 பிப்ரவரி 2010'],
+                ['LLL',                           '14 பிப்ரவரி 2010, 15:25'],
+                ['LLLL',                          'ஞாயிற்றுக்கிழமை, 14 பிப்ரவரி 2010, 15:25'],
+                ['l',                             '14/2/2010'],
+                ['ll',                            '14 பிப்ரவரி 2010'],
+                ['lll',                           '14 பிப்ரவரி 2010, 15:25'],
+                ['llll',                          'ஞாயிறு, 14 பிப்ரவரி 2010, 15:25']
             ],
             b = moment(new Date(2010, 1, 14, 15, 25, 50, 125)),
             i;
@@ -29257,7 +30873,7 @@ exports["lang:ta"] = {
     },
 
     "format month" : function (test) {
-        test.expect(12); 
+        test.expect(12);
         var expected = 'ஜனவரி ஜனவரி_பிப்ரவரி பிப்ரவரி_மார்ச் மார்ச்_ஏப்ரல் ஏப்ரல்_மே மே_ஜூன் ஜூன்_ஜூலை ஜூலை_ஆகஸ்ட் ஆகஸ்ட்_செப்டெம்பர் செப்டெம்பர்_அக்டோபர் அக்டோபர்_நவம்பர் நவம்பர்_டிசம்பர் டிசம்பர்'.split("_"), i;
         for (i = 0; i < expected.length; i++) {
             test.equal(moment([2011, i, 1]).format('MMMM MMM'), expected[i], expected[i]);
@@ -29519,6 +31135,9 @@ var moment = require("../../moment");
 exports["lang:th"] = {
     setUp : function (cb) {
         moment.lang('th');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -29824,12 +31443,12 @@ exports["lang:th"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
             test.equal(require('../../lang/th'), 'th', "module should export th");
         }
-        
+
         test.done();
     }
 };
@@ -29844,6 +31463,9 @@ var moment = require("../../moment");
 exports["lang:tl-ph"] = {
     setUp : function (cb) {
         moment.lang('tl-ph');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -30207,6 +31829,9 @@ var moment = require("../../moment");
 exports["lang:tr"] = {
     setUp : function (cb) {
         moment.lang('tr');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -30563,12 +32188,12 @@ exports["lang:tr"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
             test.equal(require('../../lang/tr'), 'tr', "module should export tr");
         }
-        
+
         test.done();
     }
 };
@@ -30581,6 +32206,9 @@ var moment = require("../../moment");
 exports["lang:tzm-la"] = {
     setUp : function (cb) {
         moment.lang('tzm-la');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -30927,12 +32555,12 @@ exports["lang:tzm-la"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
             test.equal(require('../../lang/tzm-la'), 'tzm-la', "module should export tzm-la");
         }
-        
+
         test.done();
     }
 };
@@ -30945,6 +32573,9 @@ var moment = require("../../moment");
 exports["lang:tzm"] = {
     setUp : function (cb) {
         moment.lang('tzm');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -31302,6 +32933,9 @@ var moment = require("../../moment");
 exports["lang:uk"] = {
     setUp : function (cb) {
         moment.lang('uk');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -31677,12 +33311,12 @@ exports["lang:uk"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
             test.equal(require('../../lang/uk'), 'uk', "module should export uk");
         }
-        
+
         test.done();
     }
 };
@@ -31697,6 +33331,9 @@ var moment = require("../../moment");
 exports["lang:uz"] = {
     setUp : function (cb) {
         moment.lang('uz');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -32039,12 +33676,12 @@ exports["lang:uz"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
             test.equal(require('../../lang/uz'), 'uz', "module should export uz");
         }
-        
+
         test.done();
     }
 };
@@ -32056,9 +33693,12 @@ var moment = require("../../moment");
       Vietnamese
      *************************************************/
 
-exports["lang:vn"] = {
+exports["lang:vi"] = {
     setUp : function (cb) {
-        moment.lang('vn');
+        moment.lang('vi');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -32427,12 +34067,12 @@ exports["lang:vn"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
-            test.equal(require('../../lang/vn'), 'vn', "module should export vn");
+            test.equal(require('../../lang/vi'), 'vi', "module should export vi");
         }
-        
+
         test.done();
     }
 };
@@ -32447,6 +34087,9 @@ var moment = require("../../moment");
 exports["lang:zh-cn"] = {
     setUp : function (cb) {
         moment.lang('zh-cn');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -32805,6 +34448,9 @@ var moment = require("../../moment");
 exports["lang:zh-tw"] = {
     setUp : function (cb) {
         moment.lang('zh-tw');
+        moment.createFromInputFallback = function () {
+            throw new Error("input not handled by moment");
+        };
         cb();
     },
 
@@ -33145,12 +34791,12 @@ exports["lang:zh-tw"] = {
 
         test.done();
     },
-    
+
     "returns the name of the language" : function (test) {
         if (typeof module !== 'undefined' && module.exports) {
             test.equal(require('../../lang/zh-tw'), 'zh-tw', "module should export zh-tw");
         }
-        
+
         test.done();
     }
 };
