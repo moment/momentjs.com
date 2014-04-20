@@ -290,6 +290,22 @@
                 "version": "2.1.0"
             },
             {
+                "key": "Weeks In Year",
+                "title": "Weeks In Year",
+                "signature": [
+                    "moment().weeksInYear();"
+                ],
+                "version": "2.6.0"
+            },
+            {
+                "key": "ISO Weeks In Year",
+                "title": "Weeks In Year (ISO)",
+                "signature": [
+                    "moment().isoWeeksInYear();"
+                ],
+                "version": "2.6.0"
+            },
+            {
                 "key": "get",
                                 "title": "Get",
                 "signature": [
