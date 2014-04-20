@@ -8481,14 +8481,14 @@
 }));
 
 // moment-timezone.js
-// version : 0.0.5
+// version : 0.0.6
 // author : Tim Wood
 // license : MIT
 // github.com/timrwood/moment-timezone
 
 (function () {
 
-	var VERSION = "0.0.5";
+	var VERSION = "0.0.6";
 
 	function onload(moment) {
 		var oldZoneName = moment.fn.zoneName,
@@ -8510,7 +8510,7 @@
 
 		if (moment.tz !== undefined) {
 			// Do not load moment-timezone a second time.
-			return;
+			return moment;
 		}
 
 		// converts time in the HH:mm:ss format to absolute number of minutes
