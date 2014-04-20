@@ -32,6 +32,10 @@ The parsing tokens are similar to the formatting tokens used in `moment#format`.
       <td>Day of month</td>
     </tr>
     <tr>
+      <td>Do</td>
+      <td>Ordinal day of month (from `2.6.0`)</td>
+    </tr>
+    <tr>
       <td>DDD, DDDD</td>
       <td>Day of year</td>
     </tr>
