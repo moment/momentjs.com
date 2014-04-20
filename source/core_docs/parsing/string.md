@@ -1,10 +1,14 @@
-You can create a moment from a string that can be parsed by `Date.parse`.
+You can create a moment from a string. Moment would try a few ISO patterns and then try the native js Date.
 
 ```javascript
 var day = moment("Dec 25, 1995");
 ```
 
 **Warning** Browser support for this is inconsistent. Because there is no specification on which formats should be supported, what works in some browsers will not work in other browsers.
+
+<!--
+**Note**: This has been the source of a lot of confustion, because moments created via `Date` constructor don't support `isValid` and also work unreliably. So it would be soon deprecated. From version 2.6.0 there is a way to prevent Date constructor usage -- just set `moment.createFromInputFallback` to an empty function.
+-->
 
 For more consistent results, you should use [String + Format](#/parsing/string-format/).
 
