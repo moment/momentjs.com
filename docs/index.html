@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:300,700' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="/static/css/style.css?v=2014-04-20T10:51:46-07:00" />
+		<link rel="stylesheet" href="/static/css/style.css?v=2014-04-20T11:55:00-07:00" />
 		<title>Moment.js | Documentation</title>
 	</head>
 	<body class="is-core is-docs">
@@ -156,6 +156,10 @@
 						<a href="#/get-set/week-year/">Week Year</a>
 					
 						<a href="#/get-set/iso-week-year/">Week Year (ISO)</a>
+					
+						<a href="#/get-set/weeks-in-year/">Weeks In Year</a>
+					
+						<a href="#/get-set/iso-weeks-in-year/">Weeks In Year (ISO)</a>
 					
 						<a href="#/get-set/get/">Get</a>
 					
@@ -536,9 +540,13 @@ to your r.js config.</p>
 						
 							<pre lang="javascript">moment(String);</pre>
 						
-						<p>You can create a moment from a string that can be parsed by <code>Date.parse</code>.</p>
+						<p>You can create a moment from a string. Moment would try a few ISO patterns and then try the native js Date.</p>
 <pre><code class="lang-javascript"><span class="keyword">var</span> day = moment(<span class="string">"Dec 25, 1995"</span>);</code></pre>
 <p><strong>Warning</strong> Browser support for this is inconsistent. Because there is no specification on which formats should be supported, what works in some browsers will not work in other browsers.</p>
+<!--
+**Note**: This has been the source of a lot of confustion, because moments created via `Date` constructor don't support `isValid` and also work unreliably. So it would be soon deprecated. From version 2.6.0 there is a way to prevent Date constructor usage -- just set `moment.createFromInputFallback` to an empty function.
+-->
+
 <p>For more consistent results, you should use <a href="#/parsing/string-format/">String + Format</a>.</p>
 <p>There is one exception: Moment.js does detect if you are using an ISO-8601 string and will parse that correctly without a format string.</p>
 <p>The following ISO-8601 formats are supported across all browsers.</p>
@@ -616,8 +624,15 @@ moment(<span class="string">"12\25\1995"</span>, <span class="string">"MM-DD-YYY
       <td>Month Name (In currently language set by <code>moment.lang()</code>)</td>
     </tr>
     <tr>
+      <td>Q</td>
+      <td>Quarter (1 - 4) -- sets the month to the first month in that quarter</td>
+    <tr>
       <td>D, DD</td>
       <td>Day of month</td>
+    </tr>
+    <tr>
+      <td>Do</td>
+      <td>Ordinal day of month (from <code>2.6.0</code>)</td>
     </tr>
     <tr>
       <td>DDD, DDDD</td>
@@ -647,7 +662,7 @@ moment(<span class="string">"12\25\1995"</span>, <span class="string">"MM-DD-YYY
     <tr>
     <tr>
       <td>YY</td>
-      <td>2 digit year (if greater than 68 will return 1900&#39;s, otherwise 2000&#39;s)</td>
+      <td>2 digit year (see below)</td>
     </tr>
     <tr>
       <td>YYYY</td>
@@ -739,6 +754,9 @@ moment(<span class="string">'It is 2012-05-25'</span>, <span class="string">'YYY
 moment(<span class="string">'2012-05-25'</span>, <span class="string">'YYYY-MM-DD'</span>, <span class="literal">true</span>).isValid();        <span class="comment">// true</span></code></pre>
 <p>You can use both language and strictness.</p>
 <pre><code class="lang-javascript">moment(<span class="string">'2012-10-14'</span>, <span class="string">'YYYY-MM-DD'</span>, <span class="string">'fr'</span>, <span class="literal">true</span>);</code></pre>
+<p>Two digit year parser by default assumes years above 68 to be in the 1900&#39;s and
+below in the 2000&#39;s. This can be changed by replacing the
+<code>moment.parseTwoDigitYear</code>.</p>
 
 					</div>
 				</article>
@@ -1340,11 +1358,12 @@ moment([<span class="number">2012</span>, <span class="number">0</span>, <span c
 					<a class="target" name="/get-set/quarter/"></a>
 					<h3>
 						<a href='#/get-set/quarter/'><span class="hash">#</span>Quarter</a>
-						<span>2.5.0</span>
+						<span>2.6.0</span>
 					</h3>
 					<div class="prose">
 						
-							<pre lang="javascript">moment().quarter(); // Number</pre>
+							<pre lang="javascript">moment().quarter(); // Number
+moment().quarter(Number);</pre>
 						
 						<p>Gets the quarter (1 to 4).</p>
 <pre><code class="lang-javascript">moment(<span class="string">'2013-01-01T00:00:00.000'</span>).quarter() <span class="comment">// 1</span>
@@ -1355,6 +1374,9 @@ moment(<span class="string">'2013-07-01T00:00:00.000'</span>).quarter() <span cl
 moment(<span class="string">'2013-10-01T00:00:00.000'</span>).subtract(<span class="number">1</span>, <span class="string">'ms'</span>).quarter() <span class="comment">// 3</span>
 moment(<span class="string">'2013-10-01T00:00:00.000'</span>).quarter() <span class="comment">// 4</span>
 moment(<span class="string">'2014-01-01T00:00:00.000'</span>).subtract(<span class="number">1</span>, <span class="string">'ms'</span>).quarter() <span class="comment">// 4</span></code></pre>
+<p>Sets the quarter (1 to 4).</p>
+<pre><code class="lang-javascript">moment(<span class="string">'2013-01-01T00:00:00.000'</span>).quarter(<span class="number">2</span>) <span class="comment">// '2013-01-01T00:00:00.000'</span>
+moment(<span class="string">'2013-02-05T05:06:07.000'</span>).quarter(<span class="number">2</span>).format() <span class="comment">// '2013-05-05T05:06:07-07:00'</span></code></pre>
 
 					</div>
 				</article>
@@ -1408,6 +1430,36 @@ moment().weekYear(); // Number</pre>
 moment().isoWeekYear(); // Number</pre>
 						
 						<p>Gets or sets the <a href="http://en.wikipedia.org/wiki/ISO_week_date">ISO week-year</a>.</p>
+
+					</div>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/get-set/weeks-in-year/"></a>
+					<h3>
+						<a href='#/get-set/weeks-in-year/'><span class="hash">#</span>Weeks In Year</a>
+						<span>2.6.0</span>
+					</h3>
+					<div class="prose">
+						
+							<pre lang="javascript">moment().weeksInYear();</pre>
+						
+						<p>Gets the number of weeks according to locale in the current moment&#39;s year.</p>
+
+					</div>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/get-set/iso-weeks-in-year/"></a>
+					<h3>
+						<a href='#/get-set/iso-weeks-in-year/'><span class="hash">#</span>Weeks In Year (ISO)</a>
+						<span>2.6.0</span>
+					</h3>
+					<div class="prose">
+						
+							<pre lang="javascript">moment().isoWeeksInYear();</pre>
+						
+						<p>Gets the number of weeks in the current moment&#39;s year, according to <a href="http://en.wikipedia.org/wiki/ISO_week_date">ISO weeks</a>.</p>
 
 					</div>
 				</article>
@@ -1599,6 +1651,7 @@ moment().subtract(Object);</pre>
 						<p>Mutates the original moment by setting it to the start of a unit of time.</p>
 <pre><code class="lang-javascript">moment().startOf(<span class="string">'year'</span>);    <span class="comment">// set to January 1st, 12:00 am this year</span>
 moment().startOf(<span class="string">'month'</span>);   <span class="comment">// set to the first of this month, 12:00 am</span>
+moment().startOf(<span class="string">'quarter'</span>);  <span class="comment">// set to the beginning of the current quarter, 1st day of months, 12:00 am</span>
 moment().startOf(<span class="string">'week'</span>);    <span class="comment">// set to the first day of this week, 12:00 am</span>
 moment().startOf(<span class="string">'isoWeek'</span>); <span class="comment">// set to the first day of this week according to ISO 8601, 12:00 am</span>
 moment().startOf(<span class="string">'day'</span>);     <span class="comment">// set to 12:00 am today</span>
@@ -3892,7 +3945,7 @@ interval.previous( 2, &quot;L&quot; ); // [&quot;12/10/2013&quot;, &quot;11/10/2
 		</footer>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-		<script src="/static/js/global.js?v=2014-04-20T10:51:46-07:00"></script>
+		<script src="/static/js/global.js?v=2014-04-20T11:55:00-07:00"></script>
 		
 
 		<script>
