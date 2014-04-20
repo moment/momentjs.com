@@ -28,6 +28,9 @@ The parsing tokens are similar to the formatting tokens used in `moment#format`.
       <td>Month Name (In currently language set by `moment.lang()`)</td>
     </tr>
     <tr>
+      <td>Q</td>
+      <td>Quarter (1 - 4) -- sets the month to the first month in that quarter</td>
+    <tr>
       <td>D, DD</td>
       <td>Day of month</td>
     </tr>
@@ -63,7 +66,7 @@ The parsing tokens are similar to the formatting tokens used in `moment#format`.
     <tr>
     <tr>
       <td>YY</td>
-      <td>2 digit year (if greater than 68 will return 1900's, otherwise 2000's)</td>
+      <td>2 digit year (see below)</td>
     </tr>
     <tr>
       <td>YYYY</td>
@@ -175,3 +178,7 @@ You can use both language and strictness.
 ```javascript
 moment('2012-10-14', 'YYYY-MM-DD', 'fr', true);
 ```
+
+Two digit year parser by default assumes years above 68 to be in the 1900's and
+below in the 2000's. This can be changed by replacing the
+`moment.parseTwoDigitYear`.

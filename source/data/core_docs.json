@@ -258,9 +258,10 @@
             {
                 "key": "Quarter",
                 "signature": [
-                    "moment().quarter(); // Number"
+                    "moment().quarter(); // Number",
+                    "moment().quarter(Number);"
                 ],
-                "version": "2.5.0"
+                "version": "2.6.0"
             },
             {
                 "key": "Year",

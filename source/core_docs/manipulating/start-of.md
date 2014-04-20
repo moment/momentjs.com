@@ -3,6 +3,7 @@ Mutates the original moment by setting it to the start of a unit of time.
 ```javascript
 moment().startOf('year');    // set to January 1st, 12:00 am this year
 moment().startOf('month');   // set to the first of this month, 12:00 am
+moment().startOf('quarter');  // set to the beginning of the current quarter, 1st day of months, 12:00 am
 moment().startOf('week');    // set to the first day of this week, 12:00 am
 moment().startOf('isoWeek'); // set to the first day of this week according to ISO 8601, 12:00 am
 moment().startOf('day');     // set to 12:00 am today
