@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:300,700' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="/static/css/style.css?v=2014-04-20T11:55:00-07:00" />
+		<link rel="stylesheet" href="/static/css/style.css?v=2014-04-21T23:34:55-07:00" />
 		<title>Moment.js | Documentation</title>
 	</head>
 	<body class="is-core is-docs">
@@ -2512,7 +2512,12 @@ moment().isBefore(Moment|String|Number|Date|Array, String);</pre>
 moment(<span class="string">'2010-10-20'</span>).isBefore(<span class="string">'2011-01-01'</span>, <span class="string">'year'</span>); <span class="comment">// true</span></code></pre>
 <p>Like <code>moment#isAfter</code> and <code>moment#isSame</code>, any of the units of time that are supported for <code>moment#startOf</code> are supported for <code>moment#isBefore</code>. Year, month, week, day, hour, minute, and second.</p>
 <p>If nothing is passed to <code>moment#isBefore</code>, it will default to the current time.</p>
-<pre><code class="lang-javascript">moment().isBefore(); <span class="comment">// false</span></code></pre>
+<p><em>NOTE</em>: <code>moment().isBefore()</code> has undefined behavior and should not be used! If
+the code runs fast the initial created moment would be the same as the one
+created in isBefore to perform the check, so the result would be <code>false</code>. But
+if the code runs slower its possible that the moment created in isBefore is
+measurably after the one created in <code>moment()</code>, so the call would return
+<code>true</code>.</p>
 
 					</div>
 				</article>
@@ -3945,7 +3950,7 @@ interval.previous( 2, &quot;L&quot; ); // [&quot;12/10/2013&quot;, &quot;11/10/2
 		</footer>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-		<script src="/static/js/global.js?v=2014-04-20T11:55:00-07:00"></script>
+		<script src="/static/js/global.js?v=2014-04-21T23:34:55-07:00"></script>
 		
 
 		<script>
