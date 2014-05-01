@@ -19,7 +19,7 @@ The following parsing flags result in an invalid date:
 Additionally, if the Moment is parsed in strict mode, these flags must be empty for the Moment to be valid:
 
  * `unusedTokens`: array of format substrings not found in the input string
- * `unusedInputs`: array of input substrings not matched to the format string
+ * `unusedInput`: array of input substrings not matched to the format string
 
 **Note:** Moment's concept of validity became more strict and consistent between 2.2 and 2.3.
 
