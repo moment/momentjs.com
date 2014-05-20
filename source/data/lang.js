@@ -41,7 +41,7 @@ module.exports = {
     'lv'     : 'Latvian',
     'ml'     : 'Malayalam',
     'mr'     : 'Marathi',
-    'ms-my'  : 'Bahasa Malaysian',
+    'ms-my'  : 'Bahasa Malayu',
     'nb'     : 'Norwegian',
     'ne'     : 'Nepalese',
     'nl'     : 'Dutch',
