@@ -921,6 +921,13 @@
                 "signature": [
                     "npm install moment-parseformat"
                 ]
+            },
+            {
+                "key": "jdateformatparser",
+                "title": "Java DateFormat Parser",
+                "signature": [
+                    "npm install moment-jdateformatparser"
+                ]
             }
         ]
     }
