@@ -57,6 +57,7 @@ module.exports = {
     'sr'     : 'Serbian',
     'sr-cyr' : 'Serbian Cyrillic',
     'sv'     : 'Swedish',
+    'ta'     : 'Tamil',
     'th'     : 'Thai',
     'tl-ph'  : 'Tagalog (Filipino)',
     'tr'     : 'Turkish',
