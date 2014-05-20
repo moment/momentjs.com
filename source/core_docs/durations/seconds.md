@@ -1,6 +1,6 @@
 To get the number of seconds in a duration, use `moment.duration().seconds()`.
 
-It will return a number between 0 and 60.
+It will return a number between 0 and 59.
 
 ```javascript
 moment.duration(500).seconds(); // 0
