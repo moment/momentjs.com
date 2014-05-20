@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:300,700' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="/static/css/style.css?v=2014-05-01T09:56:51-07:00" />
+		<link rel="stylesheet" href="/static/css/style.css?v=2014-05-20T07:10:43-07:00" />
 		<title>Moment.js | Documentation</title>
 	</head>
 	<body class="is-core is-docs">
@@ -364,6 +364,10 @@
 						<a href="#/plugins/preciserange/">Precise Range</a>
 					
 						<a href="#/plugins/recur/">Recur</a>
+					
+						<a href="#/plugins/parseformat/">Parse Date Format</a>
+					
+						<a href="#/plugins/jdateformatparser/">Java DateFormat Parser</a>
 					
 				</div>
 			</div>
@@ -1042,10 +1046,6 @@ m.invalidAt(); <span class="comment">// 5 for seconds</span></code></pre>
 
 <p><strong>Note:</strong> In case of multiple wrong units the first one is returned (because
 days validity may depend on month, for example).</p>
-<p><strong>Note:</strong> The <code>moment#isValid</code> method will not work after manipulating the
-moment object with any of the manipulation methods.</p>
-<pre><code class="lang-javascript">moment(<span class="string">"2011-10-10"</span>, <span class="string">"YYYY-MM-DD"</span>).isValid(); <span class="comment">// true</span>
-moment(<span class="string">"2011-10-10"</span>, <span class="string">"YYYY-MM-DD"</span>).date(<span class="number">20</span>).isValid(); <span class="comment">// false</span></code></pre>
 
 					</div>
 				</article>
@@ -1747,7 +1747,7 @@ moment().max(<span class="keyword">new</span> Date(<span class="number">2012</sp
 						
 							<pre lang="javascript">moment().local();</pre>
 						
-						<p>Toggles a flag on the original moment to internally use <code>Date#get*</code> and <code>Date#set*</code> instead of <code>Date#getUTC*</code> and <code>Date#setUTC*</code>.</p>
+						<p>Sets a flag on the original moment to internally use <code>Date#get*</code> and <code>Date#set*</code> instead of <code>Date#getUTC*</code> and <code>Date#setUTC*</code>.</p>
 <pre><code class="lang-javascript"><span class="keyword">var</span> a = moment.utc([<span class="number">2011</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">8</span>]);
 a.hours(); <span class="comment">// 8 UTC</span>
 a.local();
@@ -1767,7 +1767,7 @@ a.hours(); <span class="comment">// 0 PST</span></code></pre>
 						
 							<pre lang="javascript">moment().utc();</pre>
 						
-						<p>Toggles a flag on the original moment to internally use <code>Date#getUTC*</code> and <code>Date#setUTC*</code> instead of <code>Date#get*</code> and <code>Date#set*</code>.</p>
+						<p>Sets a flag on the original moment to internally use <code>Date#getUTC*</code> and <code>Date#setUTC*</code> instead of <code>Date#get*</code> and <code>Date#set*</code>.</p>
 <pre><code class="lang-javascript"><span class="keyword">var</span> a = moment([<span class="number">2011</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">8</span>]);
 a.hours(); <span class="comment">// 8 PST</span>
 a.utc();
@@ -1861,7 +1861,7 @@ moment(<span class="string">'gibberish'</span>).format(<span class="string">'YYY
       <td>January February ... November December</td>
     </tr>
     <tr>
-      <td>Quarter</td>
+      <td><b>Quarter</b></td>
       <td>Q</td>
       <td>1 2 3 4</td>
     </tr>
@@ -3468,7 +3468,7 @@ moment.duration(<span class="number">24</span>, <span class="string">"hours"</sp
 moment.duration().asMilliseconds();</pre>
 						
 						<p>To get the number of milliseconds in a duration, use <code>moment.duration().milliseconds()</code>.</p>
-<p>It will return a number between 0 and 1000.</p>
+<p>It will return a number between 0 and 999.</p>
 <pre><code class="lang-javascript">moment.duration(<span class="number">500</span>).milliseconds(); <span class="comment">// 500</span>
 moment.duration(<span class="number">1500</span>).milliseconds(); <span class="comment">// 500</span>
 moment.duration(<span class="number">15000</span>).milliseconds(); <span class="comment">// 0</span></code></pre>
@@ -3492,7 +3492,7 @@ moment.duration(<span class="number">15000</span>).asMilliseconds(); <span class
 moment.duration().asSeconds();</pre>
 						
 						<p>To get the number of seconds in a duration, use <code>moment.duration().seconds()</code>.</p>
-<p>It will return a number between 0 and 60.</p>
+<p>It will return a number between 0 and 59.</p>
 <pre><code class="lang-javascript">moment.duration(<span class="number">500</span>).seconds(); <span class="comment">// 0</span>
 moment.duration(<span class="number">1500</span>).seconds(); <span class="comment">// 1</span>
 moment.duration(<span class="number">15000</span>).seconds(); <span class="comment">// 15</span></code></pre>
@@ -3515,7 +3515,7 @@ moment.duration(<span class="number">15000</span>).asSeconds(); <span class="com
 							<pre lang="javascript">moment.duration().minutes();
 moment.duration().asMinutes();</pre>
 						
-						<p>As with the other getters for durations, <code>moment.duration().minutes()</code> gets the minutes (0 - 60).</p>
+						<p>As with the other getters for durations, <code>moment.duration().minutes()</code> gets the minutes (0 - 59).</p>
 <p><code>moment.duration().asMinutes()</code> gets the length of the duration in minutes.</p>
 
 					</div>
@@ -3532,7 +3532,7 @@ moment.duration().asMinutes();</pre>
 							<pre lang="javascript">moment.duration().hours();
 moment.duration().asHours();</pre>
 						
-						<p>As with the other getters for durations, <code>moment.duration().hours()</code> gets the hours (0 - 24).</p>
+						<p>As with the other getters for durations, <code>moment.duration().hours()</code> gets the hours (0 - 23).</p>
 <p><code>moment.duration().asHours()</code> gets the length of the duration in hours.</p>
 
 					</div>
@@ -3549,7 +3549,7 @@ moment.duration().asHours();</pre>
 							<pre lang="javascript">moment.duration().days();
 moment.duration().asDays();</pre>
 						
-						<p>As with the other getters for durations, <code>moment.duration().days()</code> gets the days (0 - 30).</p>
+						<p>As with the other getters for durations, <code>moment.duration().days()</code> gets the days (0 - 29).</p>
 <p><code>moment.duration().asDays()</code> gets the length of the duration in days.</p>
 
 					</div>
@@ -3566,7 +3566,7 @@ moment.duration().asDays();</pre>
 							<pre lang="javascript">moment.duration().months();
 moment.duration().asMonths();</pre>
 						
-						<p>As with the other getters for durations, <code>moment.duration().months()</code> gets the months (0 - 12).</p>
+						<p>As with the other getters for durations, <code>moment.duration().months()</code> gets the months (0 - 11).</p>
 <p><code>moment.duration().asMonths()</code> gets the length of the duration in months.</p>
 <p><strong>Note:</strong> The length of a duration in months is defined as 30 days.</p>
 
@@ -3940,6 +3940,51 @@ interval.previous( 2, &quot;L&quot; ); // [&quot;12/10/2013&quot;, &quot;11/10/2
 					</div>
 				</article>
 			
+				<article class="method">
+					<a class="target" name="/plugins/parseformat/"></a>
+					<h3>
+						<a href='#/plugins/parseformat/'><span class="hash">#</span>Parse Date Format</a>
+						<span></span>
+					</h3>
+					<div class="prose">
+						
+							<pre lang="javascript">npm install moment-parseformat</pre>
+						
+						<p>This plugin extracts the format of a date/time string. </p>
+<pre><code class="lang-javascript"><span class="keyword">var</span> format = moment.parseFormat(<span class="string">'Thursday, February 6th, 2014 9:20pm'</span>);
+<span class="comment">// dddd, MMMM Do, YYYY h:mma</span>
+moment().format(format); <span class="comment">// format</span></code></pre>
+<p>That allows to create smart date inputs that let your users set a
+Date/Time and lets you extract the user&#39;s preferred format for future usage.
+Find an example usage of it at <a href="https://minutes.io/new/Meeting">minutes.io</a>.</p>
+<p>The Plugin has been authored by <a href="https://github.com/gr2m">@gr2m</a>.
+Links: <a href="http://gr2m.github.io/moment.parseFormat/">Demo</a> |
+<a href="https://github.com/gr2m/moment.parseFormat">Source</a></p>
+
+					</div>
+				</article>
+			
+				<article class="method">
+					<a class="target" name="/plugins/jdateformatparser/"></a>
+					<h3>
+						<a href='#/plugins/jdateformatparser/'><span class="hash">#</span>Java DateFormat Parser</a>
+						<span></span>
+					</h3>
+					<div class="prose">
+						
+							<pre lang="javascript">npm install moment-jdateformatparser</pre>
+						
+						<p>If you want to work with the <code>java.text.DateFormat</code> you can use this plugin. </p>
+<p>For example,</p>
+<pre><code class="lang-javascript">moment(<span class="string">"2013-12-24 14:30"</span>).formatWithJavaDateFormat(<span class="string">"dd.MM.yyyy"</span>);  <span class="comment">// returns the formatted date "24.12.2013"</span>
+moment().toJavaDateFormatString(<span class="string">"DD.MM.YYYY"</span>);  <span class="comment">// returns the Java format pattern "dd.MM.yyyy"</span></code></pre>
+<p>It&#39;s available on npm like so:</p>
+<pre><code>npm install moment-jdateformatparser</code></pre>
+<p>The repository is located at <a href="https://github.com/MadMG/moment-jdateformatparser">github.com/MadMG/moment-jdateformatparser</a></p>
+
+					</div>
+				</article>
+			
 		
 	</div>
 
@@ -3950,7 +3995,7 @@ interval.previous( 2, &quot;L&quot; ); // [&quot;12/10/2013&quot;, &quot;11/10/2
 		</footer>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-		<script src="/static/js/global.js?v=2014-05-01T09:56:51-07:00"></script>
+		<script src="/static/js/global.js?v=2014-05-20T07:10:43-07:00"></script>
 		
 
 		<script>
