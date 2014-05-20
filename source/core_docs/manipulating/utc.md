@@ -1,4 +1,4 @@
-Toggles a flag on the original moment to internally use `Date#getUTC*` and `Date#setUTC*` instead of `Date#get*` and `Date#set*`.
+Sets a flag on the original moment to internally use `Date#getUTC*` and `Date#setUTC*` instead of `Date#get*` and `Date#set*`.
 
 ```javascript
 var a = moment([2011, 0, 1, 8]);
