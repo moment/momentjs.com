@@ -48,7 +48,7 @@
 			return dx * dx + dy * dy;
 		},
 		activate : function () {
-			var m = moment.tz(this.name);
+			var m = moment().tz(this.name);
 			$labelName.text(this.name);
 			$labelTime.text(m.format("hh:mm a ") + m.zoneAbbr());
 			$axisX.css('left', this.x * 100 + '%');
