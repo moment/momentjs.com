@@ -914,6 +914,13 @@
                 "signature": [
                     "npm install moment-recur"
                 ]
+            },
+            {
+                "key": "parseformat",
+                "title": "Parse Date Format",
+                "signature": [
+                    "npm install moment-parseformat"
+                ]
             }
         ]
     }
