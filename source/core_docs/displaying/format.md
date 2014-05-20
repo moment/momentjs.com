@@ -41,7 +41,7 @@ There are a couple conventions used with the naming of the
       <td>January February ... November December</td>
     </tr>
     <tr>
-      <td>Quarter</td>
+      <td><b>Quarter</b></td>
       <td>Q</td>
       <td>1 2 3 4</td>
     </tr>
