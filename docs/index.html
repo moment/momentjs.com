@@ -2542,7 +2542,12 @@ moment(<span class="string">'2010-10-20'</span>).isSame(<span class="string">'20
 moment(<span class="string">'2010-10-20'</span>).isSame(<span class="string">'2011-01-01'</span>, <span class="string">'year'</span>); <span class="comment">// false</span></code></pre>
 <p>Like <code>moment#isAfter</code> and <code>moment#isBefore</code>, any of the units of time that are supported for <code>moment#startOf</code> are supported for <code>moment#isSame</code>. Year, month, week, day, hour, minute, and second.</p>
 <p>If nothing is passed to <code>moment#isSame</code>, it will default to the current time.</p>
-<pre><code class="lang-javascript">moment().isSame(); <span class="comment">// true</span></code></pre>
+<p><em>NOTE</em>: <code>moment().isSame()</code> has undefined behavior and should not be used! If
+the code runs fast the initial created moment would be the same as the one
+created in isSame to perform the check, so the result would be <code>true</code>. But
+if the code runs slower its possible that the moment created in isSame is
+measurably after the one created in <code>moment()</code>, so the call would return
+<code>false</code>.</p>
 
 					</div>
 				</article>
