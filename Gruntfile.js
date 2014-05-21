@@ -4,5 +4,7 @@ module.exports = function(grunt) {
 
 	grunt.loadTasks('tasks');
 
-	grunt.registerTask('default', ['html', 'js', 'css']);
+	grunt.config('clean.default', 'build/*');
+
+	grunt.registerTask('default', ['clean', 'img', 'html', 'js', 'css']);
 };

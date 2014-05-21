@@ -44,34 +44,33 @@ function main(grunt, cb) {
         }
     };
     library.ready(function(){
-        render(data, cb);
+        render(data, cb, grunt);
     });
 }
 
-function renderSingle(src, dst, data, cb) {
+function renderSingle(src, dst, data, cb, grunt) {
     var template = swig.compileFile(src),
         html = template.render(data);
 
-    fs.writeFile(filename([dst]), html, 'utf8', function(err) {
-        console.log('Built html : ' + dst);
-        cb();
-    });
+    grunt.file.write(filename([dst]), html);
+    console.log('Wrote', dst);
+    cb();
 }
 
-function render(data, cb) {
+function render(data, cb, grunt) {
     renderSingle('core-home.html', 'build/index.html', data, function(){
         renderSingle('core-test.html', 'build/test/index.html', data, function(){
             renderSingle('core-docs.html', 'build/docs/index.html', data, function(){
                 renderSingle('timezone-home.html', 'build/timezone/index.html', data, function(){
                     renderSingle('timezone-test.html', 'build/timezone/test/index.html', data, function(){
                         renderSingle('timezone-data.html', 'build/timezone/data/index.html', data, function(){
-                            renderSingle('timezone-docs.html', 'build/timezone/docs/index.html', data, cb);
-                        });
-                    });
-                });
-            });
-        });
-    });
+                            renderSingle('timezone-docs.html', 'build/timezone/docs/index.html', data, cb, grunt);
+                        }, grunt);
+                    }, grunt);
+                }, grunt);
+            }, grunt);
+        }, grunt);
+    }, grunt);
 }
 
 module.exports = function(grunt) {

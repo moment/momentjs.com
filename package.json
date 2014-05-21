@@ -19,6 +19,8 @@
     "grunt-contrib-copy": "~0.5.0",
     "load-grunt-tasks": "^0.4.0",
     "time-grunt": "^0.3.1",
-    "moment": "^2.6.0"
+    "moment": "^2.6.0",
+    "grunt-gh-pages": "^0.9.1",
+    "grunt-contrib-clean": "^0.5.0"
   }
 }
