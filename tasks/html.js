@@ -1,10 +1,10 @@
 var fs        = require('fs'),
-    library   = require('../data/library'),
-    langs     = require('../data/lang'),
-    docs      = require('../data/docs'),
-    zones     = require('../data/zones'),
+    library   = require('../source/data/library'),
+    langs     = require('../source/data/lang'),
+    docs      = require('../source/data/docs'),
+    zones     = require('../source/data/zones'),
     swig      = require('swig'),
-    moment    = require("../../libs/moment");
+    moment    = require("moment");
 
 swig.init({
     allowErrors: true,
@@ -77,5 +77,14 @@ function render(data, cb) {
 module.exports = function(grunt) {
     grunt.registerTask('html', 'Build HTML', function() {
         main(grunt, this.async());
+    });
+
+    grunt.config('watch.html', {
+        files: [
+            "source/**/*.md",
+            "source/**/*.html",
+            "source/**/*.json"
+        ],
+        tasks: ["html"]
     });
 };
