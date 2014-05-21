@@ -1,20 +1,33 @@
 module.exports = function(grunt) {
-	grunt.config('compass', {
-		prod: {
-			options: {
-				sassDir: 'source/css',
-				cssDir: 'build/static/css'
-			}
+	grunt.config('sass.css', {
+		files : [{
+			expand: true,
+			cwd : 'source/css/',
+			src: '*.scss',
+			dest: '.temp/css/',
+			ext: '.css'
+		}],
+		options : {
+			outputStyle : 'compressed'
 		}
 	});
 
-	grunt.config('watch.css', {
-		files: [
-			'source/css/*',
-			'source/css/**/*'
-		],
-		tasks: 'compass'
+	grunt.config('autoprefixer.css', {
+		options: {
+			browsers: ['> 1%', 'last 2 versions', 'ie 9']
+		},
+		files : [{
+			expand: true,
+			cwd: '.temp/css/',
+			src: '*.css',
+			dest: 'build/static/css/'
+		}]
 	});
 
-	grunt.registerTask('css', ['compass']);
+	grunt.config('watch.css', {
+		files: ['source/css/**/*'],
+		tasks: ['css']
+	});
+
+	grunt.registerTask('css', ['sass:css', 'autoprefixer:css']);
 };

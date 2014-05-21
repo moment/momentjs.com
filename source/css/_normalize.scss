@@ -55,7 +55,7 @@ audio:not([controls]) {
 html {
     font-size: 100%; /* 1 */
     overflow-y: scroll; /* 2 */
-    @include experimental(text-size-adjust, 100%); /* 3 */
+    text-size-adjust: 100%; /* 3 */
 }
 
 /*

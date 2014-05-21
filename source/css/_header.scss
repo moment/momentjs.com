@@ -68,7 +68,7 @@ header {
 		margin: -5px 0 -5px -25%;
 		padding: 5px 0 5px 25%;
 		background: #222;
-		@include transform-origin(100%, 50%);
+		transform-origin: 100% 50%;
 		border-radius: 5px 0 0 5px;
 	}
 
@@ -81,7 +81,7 @@ header {
 		margin: -40% -5px 0;
 		padding: 40% 5px 0;
 		background: #222;
-		@include transform-origin(50%, 100%);
+		transform-origin: 50% 100%;
 		border-radius: 5px 5px 0 0;
 	}
 
@@ -94,7 +94,7 @@ header {
 		margin: -40% -1px 0 0;
 		padding: 40% 1px 0;
 		background: #222;
-		@include transform-origin(50%, 100%);
+		transform-origin: 50% 100%;
 	}
 
 	.title {
@@ -226,21 +226,21 @@ aside {
 					background: url(../img/world.png);
 					background-size: cover;
 					background-position: 25% 0;
-					@include animation-iteration-count(1);
-					@include animation-duration(3s);
-					@include animation-delay(2s);
-					@include animation-name(map);
+					animation-iteration-count: 1;
+					animation-duration: 3s;
+					animation-delay: 2s;
+					animation-name: map;
 				}
 			}
 		}
 	}
 }
 
-@include keyframes("map") {
-	from {
+@keyframes map {
+	0% {
 		background-position: 625% 0;
 	}
-	to {
+	100% {
 		background-position: 25% 0;
 	}
 }

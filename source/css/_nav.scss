@@ -147,7 +147,7 @@ nav.subnav {
 			border: 1px solid #333;
 			border-top: 0;
 			display: none;
-			@include box-sizing(border-box);
+			box-sizing: border-box;
 
 			a {
 				padding: 0 10px;
