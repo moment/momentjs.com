@@ -3,7 +3,7 @@ module.exports = function(grunt) {
 		prod: {
 			options: {
 				sassDir: 'source/css',
-				cssDir: 'static/css'
+				cssDir: 'build/static/css'
 			}
 		}
 	});

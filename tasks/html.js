@@ -59,13 +59,13 @@ function renderSingle(src, dst, data, cb) {
 }
 
 function render(data, cb) {
-    renderSingle('core-home.html', 'index.html', data, function(){
-        renderSingle('core-test.html', 'test/index.html', data, function(){
-            renderSingle('core-docs.html', 'docs/index.html', data, function(){
-                renderSingle('timezone-home.html', 'timezone/index.html', data, function(){
-                    renderSingle('timezone-test.html', 'timezone/test/index.html', data, function(){
-                        renderSingle('timezone-data.html', 'timezone/data/index.html', data, function(){
-                            renderSingle('timezone-docs.html', 'timezone/docs/index.html', data, cb);
+    renderSingle('core-home.html', 'build/index.html', data, function(){
+        renderSingle('core-test.html', 'build/test/index.html', data, function(){
+            renderSingle('core-docs.html', 'build/docs/index.html', data, function(){
+                renderSingle('timezone-home.html', 'build/timezone/index.html', data, function(){
+                    renderSingle('timezone-test.html', 'build/timezone/test/index.html', data, function(){
+                        renderSingle('timezone-data.html', 'build/timezone/data/index.html', data, function(){
+                            renderSingle('timezone-docs.html', 'build/timezone/docs/index.html', data, cb);
                         });
                     });
                 });
