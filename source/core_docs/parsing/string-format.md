@@ -25,7 +25,7 @@ The parsing tokens are similar to the formatting tokens used in `moment#format`.
     </tr>
     <tr>
       <td>MMM, MMMM</td>
-      <td>Month Name (In currently language set by `moment.lang()`)</td>
+      <td>Month Name (In language currently set by `moment.lang()`)</td>
     </tr>
     <tr>
       <td>Q</td>
@@ -48,11 +48,11 @@ The parsing tokens are similar to the formatting tokens used in `moment#format`.
     </tr>
     <tr>
       <td>e</td>
-      <td>Day of week (locale) (NOTE: these formats only make sense when combined with "ww")
+      <td>Day of week (locale) (NOTE: this format only makes sense when combined with "ww")
     </tr>
     <tr>
       <td>E</td>
-      <td>Day of week (ISO) (NOTE: this format only make sense when combined with "WW")
+      <td>Day of week (ISO) (NOTE: this format only makes sense when combined with "WW")
     </tr>
     <tr>
       <td>w, ww</td>
@@ -61,7 +61,7 @@ The parsing tokens are similar to the formatting tokens used in `moment#format`.
     <tr>
     <tr>
       <td>W, WW</td>
-      <td>Week of the year (NOTE: combine this format with "GG" or "GGGG" instead of "YY" or "YYYY")
+      <td>Week of the year (ISO) (NOTE: combine this format with "GG" or "GGGG" instead of "YY" or "YYYY")
     </tr>
     <tr>
     <tr>
