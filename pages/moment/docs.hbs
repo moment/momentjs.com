@@ -3,3 +3,42 @@ title  : Docs
 layout : moment-base.hbs
 intro  : Documentation
 ---
+
+<nav class="subnav">
+	{{#each docs}}
+		<div class="section">
+			<a href='#/{{ slug }}/'>{{ title }}</a>
+			<div class="dropdown">
+				{{#each items }}
+					<a href="#/{{ slug }}/">{{ title }}</a>
+				{{/each}}
+			</div>
+		</div>
+	{{/each}}
+</nav>
+
+<div class="docs">
+	{{#each docs}}
+		<article class="section">
+			<a class="target" name="/{{ slug }}/"></a>
+			<h2><a href='#/{{ slug }}/'><span class="hash">#</span>{{ title }}</a></h2>
+		</article>
+		{{#each items }}
+			<article class="method">
+				<a class="target" name="/{{ slug }}/"></a>
+				<h3>
+					<a href='#/{{ slug }}/'><span class="hash">#</span>{{ title }}</a>
+					<span>{{ version }}</span>
+				</h3>
+				<div class="prose">
+					{{#if signature}}
+						<pre>{{ signature }}</pre>
+					{{/if}}
+					{{#markdown}}
+						{{{body}}}
+					{{/markdown}}
+				</div>
+			</article>
+		{{/each}}
+	{{/each}}
+</div>
