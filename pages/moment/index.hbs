@@ -1,0 +1,59 @@
+---
+title  : Home
+layout : moment-base.hbs
+intro  : A <%= gzip %> javascript date library for parsing, validating, manipulating, and formatting dates.
+---
+
+{{#markdown}}
+## Formatting dates
+
+```js
+moment().format('MMMM Do YYYY, h:mm:ss a');
+moment().format('dddd');
+moment().format("MMM Do YY");
+moment().format('YYYY [escaped] YYYY');
+moment().format();
+```
+
+## Languages
+{{/markdown}}
+
+{{#markdown}}
+
+## Timeago
+
+```js
+moment("20111031", "YYYYMMDD").fromNow();
+moment("20120620", "YYYYMMDD").fromNow();
+moment().startOf('day').fromNow();
+moment().endOf('day').fromNow();
+moment().startOf('hour').fromNow();
+```
+
+## Calendar Time</h2>
+
+```js
+moment().subtract('days', 10).calendar();
+moment().subtract('days', 6).calendar();
+moment().subtract('days', 3).calendar();
+moment().subtract('days', 1).calendar();
+moment().calendar();
+moment().add('days', 1).calendar();
+moment().add('days', 3).calendar();
+moment().add('days', 10).calendar();
+```
+
+## Internationalization</h2>
+
+```js
+moment().format('L');
+moment().format('l');
+moment().format('LL');
+moment().format('ll');
+moment().format('LLL');
+moment().format('lll');
+moment().format('LLLL');
+moment().format('llll');
+```
+
+{{/markdown}}
