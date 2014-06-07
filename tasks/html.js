@@ -13,13 +13,15 @@ function rename (dest, src) {
 module.exports = function(grunt) {
 	grunt.config('assemble', {
 		'options' : {
+			partials   : 'pages/partials/**/*.hbs',
 			layoutdir  : 'pages/layout',
-			helpers    : ['pages/helpers/**/*.js' ],
+			helpers    : 'pages/helpers/**/*.js',
 			marked     : { sanitize: false }
 		},
 		'moment' : {
 			options : {
-				docs : grunt.file.readJSON('.temp/docs/moment.json')
+				docs : require('../.temp/docs/moment.json'),
+				lang : require('../data/lang.js')
 			},
 			files: [{
 				expand : true,
@@ -30,6 +32,9 @@ module.exports = function(grunt) {
 			}]
 		},
 		'moment-timezone' : {
+			options : {
+				docs : require('../.temp/docs/moment-timezone.json')
+			},
 			files: [{
 				expand : true,
 				rename : rename,

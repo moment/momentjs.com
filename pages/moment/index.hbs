@@ -1,7 +1,10 @@
 ---
-title  : Home
-layout : moment-base.hbs
-intro  : A <%= gzip %> javascript date library for parsing, validating, manipulating, and formatting dates.
+title   : Home
+layout  : moment-base.hbs
+intro   : A <%= gzip %> javascript date library for parsing, validating, manipulating, and formatting dates.
+order   : 0
+scripts :
+  - core-home
 ---
 
 {{#markdown}}
@@ -17,6 +20,14 @@ moment().format();
 
 ## Languages
 {{/markdown}}
+
+<div class="langs">
+	{{#each lang }}
+		<div class="button {{#is abbr "en" }}active{{/is}}" data-lang="{{ abbr }}">
+			{{ name }}
+		</div>
+	{{/each}}
+</div>
 
 {{#markdown}}
 

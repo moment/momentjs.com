@@ -1,0 +1,22 @@
+---
+repo     : moment-timezone
+layout   : base.hbs
+---
+
+<header>
+	<div class="circle">
+		<div class="face">
+			<div id="hour"></div>
+			<div id="minute"></div>
+			<div id="second"></div>
+		</div>
+	</div>
+	<div class="title">
+		<div class="title-inset">
+			<h1>Moment.js <span>{{ version }}</span></h1>
+			<h2>{{intro}}</h2>
+		</div>
+	</div>
+</header>
+
+{{>body}}
