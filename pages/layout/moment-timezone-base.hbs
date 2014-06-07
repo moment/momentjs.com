@@ -19,4 +19,18 @@ layout   : base.hbs
 	</div>
 </header>
 
+
+<aside>
+	<div class="download section">
+		<a class="button source" href="/downloads/moment-timezone.js">
+			<strong>moment-timezone.js</strong>
+			<span class="filesize">{{toKb size.moment_timezone_min.gzip }}</span>
+			<span class="zipped">gz</span>
+		</a>
+	</div>
+	<div class="section">
+		<pre class="shell"><code>npm install moment-timezone --save</code></pre>
+	</div>
+</aside>
+
 {{>body}}

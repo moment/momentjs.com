@@ -16,12 +16,13 @@ module.exports = function(grunt) {
 			partials   : 'pages/partials/**/*.hbs',
 			layoutdir  : 'pages/layout',
 			helpers    : 'pages/helpers/**/*.js',
-			marked     : { sanitize: false }
+			marked     : { sanitize: false },
+			lang       : require('../data/lang.js'),
+			size       : require('../data/size.js')
 		},
 		'moment' : {
 			options : {
-				docs : require('../.temp/docs/moment.json'),
-				lang : require('../data/lang.js')
+				docs : require('../.temp/docs/moment.json')
 			},
 			files: [{
 				expand : true,
