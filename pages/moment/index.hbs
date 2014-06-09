@@ -1,14 +1,61 @@
 ---
 title   : Home
 layout  : moment-base.hbs
-intro   : A <%= gzip %> javascript date library for parsing, validating, manipulating, and formatting dates.
+intro   : Parse, validate, manipulate, and display dates in javascript.
 order   : 0
 scripts :
   - core-home
 ---
 
+<header class="hero hero-moment">
+	<div class="centered">
+		<div class="hero-circle">
+			<div class="hero-face">
+				<div id="hour" class="hero-hour"></div>
+				<div id="minute" class="hero-minute"></div>
+				<div id="second" class="hero-second"></div>
+			</div>
+		</div>
+		<div class="hero-title">
+			<h1>Moment.js <span>{{ size.moment_version }}</span></h1>
+			<h2>{{intro}}</h2>
+		</div>
+	</div>
+</header>
+
+
+<div class="builds">
+	<div class="centered">
+		<div class="builds-download">
+			<h3>Download</h3>
+			<a class="builds-button builds-button-source" href="/downloads/moment.js">
+				moment.js
+			</a>
+			<a class="builds-button builds-button-gzipped" href="/downloads/moment.min.js">
+				moment.min.js
+				<span class="filesize">{{toKb size.moment_min.gzip }}</span>
+			</a>
+			<a class="builds-button builds-button-source" href="/downloads/moment-with-langs.js">
+				moment+langs.js
+			</a>
+			<a class="builds-button builds-button-gzipped" href="/downloads/moment-with-langs.min.js">
+				moment+langs.min.js
+				<span class="filesize">{{toKb size.moment_with_langs_min.gzip }}</span>
+			</a>
+		</div>
+		<div class="builds-packages">
+			<h3>Install</h3>
+			<pre><code>bower install moment --save <span class="comment"># bower</span>
+npm install moment --save   <span class="comment"># npm</span>
+Install-Package Moment.js   <span class="comment"># NuGet</span></code></pre>
+		</div>
+	</div>
+</div>
+
+<div class="page-moment-index">
+
 {{#markdown}}
-## Formatting dates
+### Format Dates
 
 ```js
 moment().format('MMMM Do YYYY, h:mm:ss a');
@@ -18,20 +65,7 @@ moment().format('YYYY [escaped] YYYY');
 moment().format();
 ```
 
-## Languages
-{{/markdown}}
-
-<div class="langs">
-	{{#each lang }}
-		<div class="button {{#is abbr "en" }}active{{/is}}" data-lang="{{ abbr }}">
-			{{ name }}
-		</div>
-	{{/each}}
-</div>
-
-{{#markdown}}
-
-## Timeago
+### Relative Time
 
 ```js
 moment("20111031", "YYYYMMDD").fromNow();
@@ -41,7 +75,7 @@ moment().endOf('day').fromNow();
 moment().startOf('hour').fromNow();
 ```
 
-## Calendar Time</h2>
+### Calendar Time
 
 ```js
 moment().subtract('days', 10).calendar();
@@ -54,7 +88,7 @@ moment().add('days', 3).calendar();
 moment().add('days', 10).calendar();
 ```
 
-## Internationalization</h2>
+### Multiple Language Support
 
 ```js
 moment().format('L');
@@ -68,3 +102,13 @@ moment().format('llll');
 ```
 
 {{/markdown}}
+
+<div class="langs">
+	{{#each lang }}
+		<div class="button {{#is abbr "en" }}active{{/is}}" data-lang="{{ abbr }}">
+			{{ name }}
+		</div>
+	{{/each}}
+</div>
+
+</div>

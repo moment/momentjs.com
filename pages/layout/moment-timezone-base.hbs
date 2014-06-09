@@ -3,34 +3,5 @@ repo     : moment-timezone
 layout   : base.hbs
 ---
 
-<header>
-	<div class="circle">
-		<div class="face">
-			<div id="hour"></div>
-			<div id="minute"></div>
-			<div id="second"></div>
-		</div>
-	</div>
-	<div class="title">
-		<div class="title-inset">
-			<h1>Moment.js <span>{{ version }}</span></h1>
-			<h2>{{intro}}</h2>
-		</div>
-	</div>
-</header>
-
-
-<aside>
-	<div class="download section">
-		<a class="button source" href="/downloads/moment-timezone.js">
-			<strong>moment-timezone.js</strong>
-			<span class="filesize">{{toKb size.moment_timezone_min.gzip }}</span>
-			<span class="zipped">gz</span>
-		</a>
-	</div>
-	<div class="section">
-		<pre class="shell"><code>npm install moment-timezone --save</code></pre>
-	</div>
-</aside>
 
 {{>body}}

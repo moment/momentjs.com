@@ -55,6 +55,7 @@
 		background: url(../img/header.png);
 		border-left: 1px solid #111;
 		width: 0;
+		transition: left 300ms;
 	}
 
 	.map-axis-y {
@@ -64,5 +65,6 @@
 		background: url(../img/header.png);
 		border-top: 1px solid #111;
 		height: 0;
+		transition: left 150ms ease-out;
 	}
 }

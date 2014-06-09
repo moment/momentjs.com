@@ -1,151 +1,134 @@
-header {
-	margin: 90px auto 0;
-	width: 80%;
-	min-height: 300px;
+.hero {
+	padding: 30px 0;
+	border-bottom: 1px solid rgba($black, 0.2);
+
+	.is-moment &          { background: $color-moment; }
+	.is-moment-timezone & { background: $color-moment-timezone; }
+}
+
+.hero-circle {
+	width: 180px;
+	height: 180px;
+	margin: 0 auto;
 	position: relative;
+	border: 8px solid $white;
+	border-radius: 50%;
+	box-shadow: 0 1px 8px rgba($black, 0.3), inset 0 1px 8px rgba($black, 0.3);
 
-	@include width-under(1200px) {
-		width: auto;
-		margin-left: 40px;
-		margin-right: 40px;
-	}
+	.is-moment &          { background: $color-moment; }
+	.is-moment-timezone & { background: $color-moment-timezone; }
+}
 
-	.share {
-		position: absolute;
-		top: 0;
-		right: 0;
-	}
+.hero-face {
+	width: 100%;
+	height: 100%;
 
-	.circle {
-		width: 260px;
-		height: 260px;
-		left: 20px;
-		top: 20px;
-		position: absolute;
-	}
-
-	.face {
-		width: 100%;
-		height: 100%;
-		background: url(../img/header.png);
-		border: 5px solid $background-color;
-		border-radius: 50%;
-		position: relative;
-
-		&:after {
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			width: 10px;
-			height: 10px;
-			margin: -5px 0 0 -5px;
-			background: url(../img/header.png);
-			border-radius: 5px;
-			content: "";
-			display: block;
-		}
-
-		.map-thumb,
-		&:before {
-			position: absolute;
-			top: 10px;
-			left: 10px;
-			right: 10px;
-			bottom: 10px;
-			background: $background-color;
-			border-radius: 50%;
-			content: "";
-			display: block;
-		}
-	}
-
-	#hour {
-		width: 0;
-		height: 0;
+	&:after {
 		position: absolute;
 		top: 50%;
 		left: 50%;
-		margin: -5px 0 -5px -25%;
-		padding: 5px 0 5px 25%;
-		background: #222;
-		transform-origin: 100% 50%;
-		border-radius: 5px 0 0 5px;
+		width: 12px;
+		height: 12px;
+		margin: -6px 0 0 -6px;
+		background: $white;
+		border-radius: 6px;
+		content: "";
+		display: block;
 	}
+}
 
-	#minute {
-		width: 0;
-		height: 0;
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		margin: -40% -5px 0;
-		padding: 40% 5px 0;
-		background: #222;
-		transform-origin: 50% 100%;
-		border-radius: 5px 5px 0 0;
-	}
+.hero-hour {
+	width: 0;
+	height: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -4px 0 -4px -25%;
+	padding: 4px 0 4px 25%;
+	background: $white;
+	transform-origin: 100% 50%;
+	border-radius: 4px 0 0 4px;
+}
 
-	#second {
-		width: 0;
-		height: 0;
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		margin: -40% -1px 0 0;
-		padding: 40% 1px 0;
-		background: #222;
-		transform-origin: 50% 100%;
-	}
+.hero-minute {
+	width: 0;
+	height: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -40% -3px 0;
+	padding: 40% 3px 0;
+	background: $white;
+	transform-origin: 50% 100%;
+	border-radius: 3px 3px 0 0;
+}
 
-	.title {
-		padding-left: 300px;
-		height: 300px;
-		display: table;
+.hero-second {
+	width: 0;
+	height: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -40% -1px 0 0;
+	padding: 40% 1px 0;
+	background: $white;
+	transform-origin: 50% 100%;
+}
 
-		.title-inset {
-			display: table-cell;
-			vertical-align: middle;
-		}
+.hero-oneline,
+.hero-title {
+	text-align: center;
+	color: $white;
+	text-shadow: 1px 1px 2px rgba($black, 0.3);
 
-		h1 {
-			line-height: 80px;
-			font-size: 60px;
-			margin: 0;
-			font-weight: 100;
+	h1 {
+		font-size: 60px;
+		margin: 0;
 
-			span {
-				font-size: 30px;
-				padding: 0 10px;
-				color: #999;
+		span {
+			font-size: 0.5em;
+
+			.is-moment & {
+				color: mix($white, $color-moment, 50%);
 			}
-		}
 
-		h2 {
-			color: #222;
-			font-weight: 300;
-			margin: 0;
-		}
-
-		@include width-under(1000px) {
-			h1 {
-				line-height: 70px;
-				font-size: 50px;
-			}
-			h2 {
-				font-size: 30px;
-			}
-		}
-
-		@include width-under(920px) {
-			h1 {
-				line-height: 60px;
-				font-size: 40px;
-			}
-			h2 {
-				font-size: 24px;
+			.is-moment-timezone & {
+				color: mix($white, $color-moment-timezone, 50%);
 			}
 		}
 	}
+
+	h2 {
+		font-size: 24px;
+		margin: 0;
+	}
+}
+
+.hero-oneline {
+	padding: 20px 0;
+	text-align: left;
+
+	h1 {
+		font-size: 32px;
+		max-width: 1024px;
+		margin: 0 auto;
+	}
+}
+
+.hero-world {
+	position: absolute;
+	top: 4px;
+	left: 4px;
+	right: 4px;
+	bottom: 4px;
+	border-radius: 50%;
+	background: url(../img/world.png);
+	background-size: cover;
+	background-position: 25% 0;
+	animation-iteration-count: 1;
+	animation-duration: 3s;
+	animation-delay: 1s;
+	animation-name: map;
 }
 
 aside {
@@ -220,16 +203,6 @@ aside {
 				&:before,
 				&:after {
 					display: none;
-				}
-
-				.map-thumb {
-					background: url(../img/world.png);
-					background-size: cover;
-					background-position: 25% 0;
-					animation-iteration-count: 1;
-					animation-duration: 3s;
-					animation-delay: 2s;
-					animation-name: map;
 				}
 			}
 		}

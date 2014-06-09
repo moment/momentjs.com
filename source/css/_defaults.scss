@@ -1,15 +1,22 @@
-// Not targeting Opera or KHTML
-$experimental-support-for-opera: false;
-$experimental-support-for-khtml: false;
+$white        : #f5f8f3;
+$grey         : #8d9f95;
+$black        : #262e2c;
 
-// OR IE 6
-$legacy-support-for-ie6: false;
+$yellow       : #CFF09E;
+$green-yellow : #A8DBA8;
+$green        : #79BD9A;
+$blue-green   : #3B8686;
+$blue         : #0B486B;
 
-// OR IE 7
-// $legacy-support-for-ie7: false;
+$yellow-green : $green-yellow;
+$green-blue   : $blue-green;
 
-// Defaults
-$background-color: #f5f5f5 !default;
-$alt-background-color: #333 !default;
-$text-color: #777 !default;
-$link-color: #333 !default;
+
+$color-moment          : #6e9983;
+$color-moment-timezone : #7c5287;
+
+
+$background-color: $white;
+$alt-background-color: $black;
+$text-color: $grey;
+$link-color: $blue;

@@ -23,8 +23,8 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: 'Roboto Slab', serif;
-	font-weight: 700;
+	@include source_sans_pro;
+	font-weight: 400;
 }
 
 h2 {
@@ -113,4 +113,9 @@ pre code {
 	background: #fff;
 	border-radius: 0;
 	box-shadow: none;
+}
+
+.centered {
+	max-width: 940px;
+	margin: 0 auto;
 }

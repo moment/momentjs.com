@@ -1,39 +1,87 @@
+.docs-nav {
+	@include source_sans_pro;
+	width: 25%;
+	padding-right: 20px;
+	float: left;
+
+	a {
+		display: block;
+		text-decoration: none;
+		line-height: 1.2em;
+	}
+}
+
+.docs-nav-item {
+	padding: 3px 0;
+}
+
+.docs-nav-section {
+	text-transform: uppercase;
+	font-size: 20px;
+	padding-top: 15px;
+
+	.is-moment & {
+		color: $color-moment;
+	}
+
+	.is-moment-timezone & {
+		color: $color-moment-timezone;
+	}
+}
+
+.docs-content {
+	margin-left: 25%;
+	padding-left: 20px;
+	color: $black;
+}
+
 .docs {
+	max-width: 1024px;
+	padding: 20px 0;
+	margin: 0 auto;
+
 	article {
 		position: relative;
 		margin: 0 0 20px;
 
 		h2,
 		h3 {
-			color: rgba(0, 0, 0, 0.8);
+			color: rgba($black, 0.8);
 			padding: 0;
 			margin: 0;
 			position: relative;
 
 			a {
-				color: rgba(0, 0, 0, 0.8);
+				color: rgba($black, 0.8);
 				text-decoration: none;
+				vertical-align: baseline;
 
 				&:hover {
-					color: #000;
+					color: $black;
 					text-decoration: underline;
 				}
 			}
 
-			span.hash {
+			span {
+				color: rgba($black, 0.2);
+			}
+
+			a:before {
 				position: absolute;
 				top: 0;
 				right: 100%;
+				padding-right: 10px;
 				display: block;
-			}
-
-			span {
-				color: rgba(0, 0, 0, 0.2);
+				color: #fff;
+				content: "#";
+				padding-right: 5px;
+				text-shadow: 0 1px 3px rgba($black, 0.3);
 			}
 		}
 
 		h2 {
 			font-size: 50px;
+			text-transform: uppercase;
 		}
 
 		h3 {
@@ -42,12 +90,13 @@
 			font-size: 30px;
 			margin: 0;
 
-			span.hash {
+			a:before {
 				top: 20px;
 			}
 		}
 
 		p {
+			font-size: 16px;
 			margin: 0 0 10px;
 		}
 
@@ -84,11 +133,6 @@
 			position: relative;
 			display: block;
 			top: -110px;
-		}
-
-		@include size(wide) {
-			margin-left: 100px;
-			margin-right: 100px;
 		}
 	}
 
