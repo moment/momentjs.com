@@ -1,24 +1,74 @@
 .docs-nav {
 	@include source_sans_pro;
+	position: fixed;
+	top: 150px;
+	bottom: 0;
+	left: 0;
+	max-width: 300px;
 	width: 25%;
-	padding-right: 20px;
-	float: left;
+	padding: 20px;
+	text-align: right;
+	overflow-y: auto;
+
+	.active a {
+		.is-moment & {
+			border-right-color: rgba($color-moment, 0.3);
+		}
+
+		.is-moment-timezone & {
+			border-right-color: rgba($color-moment-timezone, 0.3);
+		}
+	}
 
 	a {
 		display: block;
 		text-decoration: none;
-		line-height: 1.2em;
+		font-size: 14px;
+		line-height: 18px;
+		border-right: 2px solid transparent;
+
+		&.active {
+			.is-moment & {
+				background: rgba($color-moment, 0.1);
+				border-right-color: $color-moment;
+			}
+
+			.is-moment-timezone & {
+				background: rgba($color-moment-timezone, 0.1);
+				border-right-color: $color-moment-timezone;
+			}
+		}
 	}
 }
 
 .docs-nav-item {
-	padding: 3px 0;
+	padding: 3px 10px;
 }
 
 .docs-nav-section {
+
+	.docs-nav-item {
+		display: none;
+	}
+
+	&.active {
+		.docs-nav-item {
+			display: block;
+		}
+
+		.is-moment & {
+			background: rgba($color-moment, 0.1);
+		}
+
+		.is-moment-timezone & {
+			background: rgba($color-moment-timezone, 0.1);
+		}
+	}
+}
+
+.docs-nav-section-title {
 	text-transform: uppercase;
-	font-size: 20px;
-	padding-top: 15px;
+	padding: 5px 10px;
 
 	.is-moment & {
 		color: $color-moment;
@@ -27,18 +77,31 @@
 	.is-moment-timezone & {
 		color: $color-moment-timezone;
 	}
+
+	// .active & {
+	// 	color: $white;
+	//
+	// 	.is-moment & {
+	// 		background: $color-moment;
+	// 	}
+	//
+	// 	.is-moment-timezone & {
+	// 		background: $color-moment-timezone;
+	// 	}
+	// }
 }
 
 .docs-content {
-	margin-left: 25%;
-	padding-left: 20px;
+	//margin-left: 25%;
+	//padding-left: 20px;
 	color: $black;
 }
 
 .docs {
-	max-width: 1024px;
-	padding: 20px 0;
-	margin: 0 auto;
+	//max-width: 1024px;
+	margin: 20px 0 0 25%;
+	max-width: 800px;
+	//margin: 0 auto;
 
 	article {
 		position: relative;
@@ -132,7 +195,7 @@
 		.target {
 			position: relative;
 			display: block;
-			top: -110px;
+			//top: -110px;
 		}
 	}
 

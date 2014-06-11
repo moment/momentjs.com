@@ -1,24 +1,26 @@
 <div class="docs">
 	<div class="docs-nav">
 		{{#each docs}}
-			<a class="docs-nav-section" href='#/{{ slug }}/'>{{ title }}</a>
-			{{#each items }}
-				{{#isnt @index 0}}
-					<a class="docs-nav-item" href="#/{{ slug }}/">{{ title }}</a>
-				{{/isnt}}
-			{{/each}}
+			<div class="docs-nav-section">
+				<a class="docs-nav-section-title" href='#/{{ slug }}/'>{{ title }}</a>
+				{{#each items }}
+					{{#isnt @index 0}}
+						<a class="docs-nav-item" href="#/{{ slug }}/">{{ title }}</a>
+					{{/isnt}}
+				{{/each}}
+			</div>
 		{{/each}}
 	</div>
 
 	<div class="docs-content">
 		{{#each docs}}
 			<article class="section">
-				<a class="target" name="/{{ slug }}/"></a>
+				<a class="target" id="/{{ slug }}/" name="/{{ slug }}/"></a>
 				<h2><a href='#/{{ slug }}/'>{{ title }}</a></h2>
 			</article>
 			{{#each items }}
 				<article class="method">
-					<a class="target" name="/{{ slug }}/"></a>
+					<a class="target" id="/{{ slug }}/"  name="/{{ slug }}/"></a>
 					{{#isnt @index 0}}
 						<h3>
 							<a href='#/{{ slug }}/'>{{ title }}</a>

@@ -32,6 +32,9 @@ module.exports = function(grunt) {
 			],
 			'build/static/js/core-home.js' : [
 				'source/js/core-home.js'
+			],
+			'build/static/js/docs.js' : [
+				'source/js/docs.js'
 			]
 		}
 	});
