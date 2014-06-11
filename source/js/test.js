@@ -10,6 +10,7 @@
 	var failed = 0;
 	var total = 0;
 	var currentTestModule;
+	var currentModuleEl;
 
 	function updateTest(_passed, _failed) {
 		passed += _passed;
@@ -18,12 +19,10 @@
 	}
 
 	function updateTotals(_passed, _failed) {
-		var duration = moment().diff(start);
 		if (_failed) {
-			banner.removeClass('pass');
-			banner.addClass('fail');
+			banner.addClass('has-failed');
 		}
-		banner.html('<h3><span class="counter">' + _passed + '</span> tests passed. <span class="counter">' + _failed + '</span> failed.</h3>');
+		banner.html(_passed + ' tests passed<br/>' + _failed + ' failed');
 	}
 
 	(function() {
@@ -62,30 +61,30 @@
 
 	nodeunit.runModules(exports, {
 		moduleStart : function (name) {
-			tests.append('<h3>' + name + '</h3>');
 			currentTestModule = name;
+			currentModuleEl = $('<div>').addClass('tests-module');
+			currentModuleEl.append('<h3 class="tests-module-title">' + name + '</h3>');
+			tests.append(currentModuleEl);
 		},
 		testDone : function (name, assertions) {
-			var testEl = $('<li>'),
+			var testEl = $('<div>').addClass('tests-test'),
 				testHtml = '',
-				assertUl = $('<ul>'),
+				assertUl = $('<div>').addClass('tests-asserts'),
 				assertLi,
-				assertHtml = '';
+				assertHtml = '',
 				assert;
 
 			total++;
 
 			// each test
-			testHtml += '<div class="title"><strong>' + name + '</strong> ';
+			testHtml += '<div class="tests-test-title"><strong>' + name + '</strong> ';
 			if (assertions.failures()) {
-				testEl.addClass('fail open');
-				testHtml += assertions.passes() + ' passed,';
-				testHtml += assertions.failures() + ' failed.</div>';
+				testEl.addClass('has-failed is-open');
+				testHtml += assertions.passes() + ' passed : ';
+				testHtml += assertions.failures() + ' failed</div>';
 			} else {
-				testEl.addClass('pass');
-				testHtml += 'All ' + assertions.passes() + ' passed.</div>';
+				testHtml += 'all ' + assertions.passes() + ' passed</div>';
 			}
-			testEl.addClass('test');
 			testEl.html(testHtml);
 
 			// each assert
@@ -94,22 +93,20 @@
 				assert.uid = total + '.' + (i + 1);
 				assert.test_name = name;
 				assert.module_name = currentTestModule;
-				assertLi = $('<li>');
+				assertLi = $('<div>').addClass('tests-assert');
 				assertHtml = '<strong>' + assert.uid + '</strong> ';
 				assertHtml += (assert.message || assert.method || 'no message');
 				if (assert.failed()) {
 					assertHtml += ' (' + assert.error.expected + ' ' + assert.error.operator + ' ' + assert.error.actual + ')';
 					assertHtml += '<pre>' + (assert.error.stack || assert.error) + '</pre>';
-					assertLi.addClass('fail');
-				} else {
-					assertLi.addClass('pass');
+					assertLi.addClass('has-failed');
 				}
 				assertLi.html(assertHtml);
 				assertUl.append(assertLi);
 			}
 
 			testEl.append(assertUl);
-			tests.append(testEl);
+			currentModuleEl.append(testEl);
 			updateTest(assertions.passes(), assertions.failures());
 		},
 		done : function (assertions) {
@@ -185,13 +182,13 @@
 				reportHTML += "<p class='success'>Awesome, all the unit tests passed!</p>";
 			}
 
-			banner.after('<div class="test-reporting">' + reportHTML + '<div>');
+			$('#report-wrapper').html('<div class="test-reporting">' + reportHTML + '<div>');
 
 			updateTotals(assertions.passes(), failures);
 		}
 	});
 
-	tests.on('click', 'li.test', function(){
-		$(this).toggleClass('open');
+	tests.on('click', '.tests-test', function(){
+		$(this).toggleClass('is-open');
 	});
 })();

@@ -1,66 +1,104 @@
-#nodeunit-tests {
+$red : #a33;
+
+.tests {
+	margin: 0 auto;
+	padding: 40px 0;
+	max-width: 1024px;
+}
+
+.tests-module {
+	margin: 0 0 10px 25%;
+	border: 1px solid rgba($black, 0.3);
+	background: #fff;
+	border-radius: 4px;
+	position: relative;
+}
+
+.tests-module-title {
+	position: absolute;
+	top: 0;
+	right: 100%;
+	width: 50%;
+	padding-right: 20px;
 	margin: 0;
-	padding: 0;
-	list-style: none;
+	line-height: 32px;
+	text-align: right;
+}
 
-	li {
-		margin: 0 0 5px;
-		background: #fff;
-		padding: 5px 10px;
-		border: 1px solid #ddd;
-		border-radius: 5px;
-		list-style: none;
-		cursor: pointer;
+.tests-test {
+	font-size: 14px;
+	font-family: monospace;
+
+	+ .tests-test {
+		border-top: 1px solid rgba($black, 0.1);
 	}
 
-	ul {
-		margin: 0;
-		padding: 5px 0 0;
+	&.has-failed {
+		border: 0;
+		outline: 1px solid $red;
 	}
+}
 
-	.test {
-		ul {
-			display: none;
-		}
+.tests-test-title {
+	padding: 5px 14px;
+	text-align: right;
+	color: rgba($black, 0.5);
 
-		pre {
-			margin: 5px 0;
-		}
+	strong {
+		float: left;
+		color: $black;
 
-		&.fail {
-			background: #d11;
-
-			.title {
-				color: #fff;
-			}
-		}
-
-		.fail {
-			color: #d11;
-		}
-
-		&.open {
-			ul {
-				display: block;
-			}
+		.has-failed & {
+			color: $red;
 		}
 	}
 }
 
-#nodeunit-banner {
-	&.fail {
-		color: #d11;
+.tests-asserts {
+	display: none;
+
+	.is-open & {
+		display: block;
+	}
+}
+
+.tests-assert {
+	padding: 4px 14px 4px 29px;
+
+	&.has-failed {
+		background: rgba($red, 0.1);
+		border: 1px solid $red;
+		border-width: 1px 0;
+		color: $red;
 	}
 
-	h3 {
-		.counter {
-			font-family: monospace;
-			font-size: smaller;
-		}
-		font-size: 40px;
-		font-weight: 100;
-		margin: 0;
-		padding: 0;
+	pre {
+		margin: 10px 0;
+		word-wrap: normal;
+		overflow-x: auto;
+		background: rgba(#fff, 0.5);
+		border-color: $red;
+	}
+}
+
+#nodeunit-banner {
+	@include source_sans_pro;
+	margin-top: -5px;
+	border-radius: 4px;
+	line-height: 30px;
+	font-size: 24px;
+	text-align: right;
+	float: right;
+
+	&.has-failed:before {
+		position: absolute;
+		bottom: -10px;
+		height: 6px;
+		background: $red;
+		content: "";
+		left: 0;
+		right: 0;
+		display: block;
 	}
 }
 
@@ -83,5 +121,12 @@
 			color: #ccc;
 			border-color: #000;
 		}
+	}
+
+	.success {
+		@include source_sans_pro;
+		text-align: center;
+		font-size: 24px;
+		margin-left: 25%;
 	}
 }

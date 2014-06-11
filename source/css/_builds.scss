@@ -1,14 +1,12 @@
 .builds {
-	padding: 40px 0;
+	padding: 40px 20px;
 	overflow: hidden;
+	max-width: 800px;
+	margin: 0 auto;
 
 	h3 {
 		margin: 0 0 10px;
 		text-align: center;
-	}
-
-	.centered {
-		max-width: 640px;
 	}
 }
 
@@ -24,12 +22,13 @@
 }
 
 .builds-button {
+	@include source_sans_pro;
 	display: block;
-	border: 1px solid rgba($black, 0.3);
+	border: 1px solid rgba($black, 0.5);
 	text-decoration: none;
 	color: $black;
 	text-align: center;
-	@include source_sans_pro;
+	background: url(../img/bg.png) 0 50%;
 
 	.filesize {
 		//float: right;
@@ -40,36 +39,69 @@
 
 .builds-button-source {
 	border-radius: 4px 4px 0 0;
-	box-shadow: inset 0 1px 0 rgba($white, 0.6);
+	text-shadow: 1px 1px 2px rgba($black, 0.5);
 	padding: 10px 15px;
 	font-size: 20px;
 	font-weight: 700;
 	vertical-align: baseline;
 	line-height: 30px;
+	color: $white;
 
 	.is-moment & {
-		background: $color-moment;
+		background-color: $color-moment;
+
+		&:hover {
+			background-color: mix($color-moment, $white, 90%);
+		}
+
+		&:active {
+			background-color: mix($color-moment, $black, 90%);
+		}
 	}
 
 	.is-moment-timezone & {
-		background: $color-moment-timezone;
+		background-color: $color-moment-timezone;
+
+		&:hover {
+			background-color: mix($color-moment-timezone, $white, 90%);
+		}
+
+		&:active {
+			background-color: mix($color-moment-timezone, $black, 90%);
+		}
 	}
 }
 
 .builds-button-gzipped {
 	border-radius: 0 0 4px 4px;
-	box-shadow: inset 0 1px 0 $white;
+	border-color: rgba($black, 0.3);
 	padding: 5px 15px;
 	font-size: 14px;
 	margin-bottom: 10px;
 	border-top: 0;
 
 	.is-moment & {
-		background: rgba($color-moment, 0.3);
+		background: rgba($color-moment, 0.2);
+
+		&:hover {
+			background: rgba($color-moment, 0.1);
+		}
+
+		&:active {
+			background: rgba($color-moment, 0.4);
+		}
 	}
 
 	.is-moment-timezone & {
-		background: rgba($color-moment-timezone, 0.3);
+		background: rgba($color-moment-timezone, 0.2);
+
+		&:hover {
+			background: rgba($color-moment-timezone, 0.1);
+		}
+
+		&:active {
+			background: rgba($color-moment-timezone, 0.4);
+		}
 	}
 
 	.filesize:after {

@@ -51,9 +51,9 @@
 }
 
 .nav-project-moment-timezone {
-	line-height: 20px;
-	padding-top: 10px;
-	padding-bottom: 10px;
+	line-height: 15px;
+	padding-top: 15px;
+	padding-bottom: 15px;
 	@include nav-project-color($color-moment-timezone);
 }
 
@@ -72,13 +72,36 @@
 		font-size: 14px;
 		margin: 0 2px;
 
-		&:hover,
-		&.active {
-			background: rgba($white, 0.1);
-		}
+		.is-moment & {
+			color: $color-moment;
 
-		.is-moment &          { color: $color-moment; }
-		.is-moment-timezone & { color: $color-moment-timezone; }
+			&:hover {
+				//color: $black;
+				background: rgba($color-moment, 0.2);
+			}
+
+			&:active,
+			&:focus,
+			&.active {
+				color: $black;
+				background: $color-moment;
+			}
+		}
+		.is-moment-timezone & {
+			color: $color-moment-timezone;
+
+			&:hover {
+				//color: $black;
+				background: rgba($color-moment-timezone, 0.2);
+			}
+
+			&:active,
+			&:focus,
+			&.active {
+				color: $black;
+				background: $color-moment-timezone;
+			}
+		}
 	}
 }
 
