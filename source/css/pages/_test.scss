@@ -1,4 +1,4 @@
-$red : #a33;
+$red : #d33;
 
 .tests {
 	margin: 0 auto;
@@ -100,26 +100,52 @@ $red : #a33;
 		right: 0;
 		display: block;
 	}
+
+	&.has-failed span {
+		color: $red;
+		text-shadow: none;
+	}
 }
 
-.test-reporting {
-	.button {
-		display: inline-block;
-		padding: 10px 20px;
-		background: #fff;
-		border-radius: 3px;
-		border: 1px solid #999;
-		cursor: pointer;
-		text-decoration: none;
+.tests-reporting {
+	margin-left: 25%;
 
-		&:hover {
-			box-shadow: 1px 0 5px rgba(0, 0, 0, .2);
+	.button {
+		@include source_sans_pro;
+		display: block;
+		border: 1px solid rgba($black, 0.5);
+		text-decoration: none;
+		text-align: center;
+		background: url(../img/bg.png) 0 50%;
+		border-radius: 4px;
+		text-shadow: 1px 1px 2px rgba($black, 0.5);
+		padding: 10px 15px;
+		font-size: 20px;
+		line-height: 30px;
+		color: $white;
+
+		.is-moment & {
+			background-color: $color-moment;
+
+			&:hover {
+				background-color: mix($color-moment, $white, 90%);
+			}
+
+			&:active {
+				background-color: mix($color-moment, $black, 90%);
+			}
 		}
 
-		&.active {
-			background: #333;
-			color: #ccc;
-			border-color: #000;
+		.is-moment-timezone & {
+			background-color: $color-moment-timezone;
+
+			&:hover {
+				background-color: mix($color-moment-timezone, $white, 90%);
+			}
+
+			&:active {
+				background-color: mix($color-moment-timezone, $black, 90%);
+			}
 		}
 	}
 
@@ -127,6 +153,5 @@ $red : #a33;
 		@include source_sans_pro;
 		text-align: center;
 		font-size: 24px;
-		margin-left: 25%;
 	}
 }
