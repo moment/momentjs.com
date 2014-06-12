@@ -14,20 +14,21 @@
 
 	<div class="docs-content">
 		{{#each docs}}
-			<article class="section">
-				<a class="target" id="/{{ slug }}/" name="/{{ slug }}/"></a>
-				<h2><a href='#/{{ slug }}/'>{{ title }}</a></h2>
+			<article class="docs-section">
+				<a class="docs-section-target" id="/{{ slug }}/" name="/{{ slug }}/"></a>
+				<h2 class="docs-section-title"><a href='#/{{ slug }}/'>{{ title }}</a></h2>
 			</article>
 			{{#each items }}
-				<article class="method">
-					<a class="target" id="/{{ slug }}/"  name="/{{ slug }}/"></a>
+				<article class="docs-method">
+					<a class="docs-method-target" id="/{{ slug }}/"  name="/{{ slug }}/"></a>
 					{{#isnt @index 0}}
-						<h3>
+						<h3 class="docs-method-title">
 							<a href='#/{{ slug }}/'>{{ title }}</a>
 							<span>{{ version }}</span>
 						</h3>
+						<a class="docs-method-edit" href="{{ edit }}" target="_blank">edit</a>
 					{{/isnt}}
-					<div class="prose">
+					<div class="docs-method-prose">
 						{{#if signature}}
 							<pre>{{ signature }}</pre>
 						{{/if}}

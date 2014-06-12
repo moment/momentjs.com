@@ -1,8 +1,6 @@
 $(function(){
 	'use strict';
 
-	// SCROLLSPY CLASS DEFINITION
-	// ==========================
 	function ScrollSpy(element, options) {
 		var process  = $.proxy(this.process, this);
 
@@ -30,9 +28,6 @@ $(function(){
 	};
 
 	ScrollSpy.prototype.refresh = function () {
-		var offsetMethod = 'offset';
-		var offsetBase   = 0;
-
 		this.offsets = [];
 		this.targets = [];
 		this.scrollHeight = this.getScrollHeight();
@@ -46,7 +41,7 @@ $(function(){
 				var href  = $el.data('target') || $el.attr('href');
 				var $href = /^#./.test(href) && $('[id="' + href.replace('#', '') + '"]');
 
-				return ($href && $href.length && $href.is(':visible') && [[$href[offsetMethod]().top + offsetBase, href]]) || null;
+				return ($href && $href.length && [[$href.offset().top, href]]) || null;
 			})
 			.sort(function (a, b) { return a[0] - b[0]; })
 			.each(function () {
@@ -70,8 +65,6 @@ $(function(){
 		}
 
 		this.$target.css('top', Math.min(130, Math.max(0, 130 - elScrollTop)));
-
-		console.log(scrollTop);
 
 		if (scrollTop >= maxScroll) {
 			return activeTarget != (i = targets[targets.length - 1]) && this.activate(i);
@@ -98,9 +91,6 @@ $(function(){
 		$(selector).addClass('active').closest('.docs-nav-section').addClass('active');
 	};
 
-
-	// SCROLLSPY PLUGIN DEFINITION
-	// ===========================
 	$.fn.scrollspy = function (option) {
 		return this.each(function () {
 			var $this   = $(this);
