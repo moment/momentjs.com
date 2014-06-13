@@ -35,13 +35,39 @@ scripts :
 	</div>
 </div>
 
-<h3 class="map-label">
-	<span class="map-label-name"></span>
-	<span class="map-label-time"></span>
-</h3>
 <div class="map">
-	<div class="map-inset">
-		<div class="map-axis-x"></div>
-		<div class="map-axis-y"></div>
+	<h3 class="map-label">
+		<span class="map-label-name"></span>
+		<span class="map-label-time"></span>
+	</h3>
+	<div class="map-wrap">
+		<div class="map-inset">
+			<div class="map-axis-x"></div>
+			<div class="map-axis-y"></div>
+		</div>
 	</div>
+
+{{#markdown}}
+### Format Dates in Any Timezone
+
+```js
+var jun = moment("2014-06-01T12:00:00Z");
+var dec = moment("2014-12-01T12:00:00Z");
+
+jun.tz('America/Los_Angeles').format('ha z');  // 5am PDT
+dec.tz('America/Los_Angeles').format('ha z');  // 4am PST
+
+jun.tz('America/New_York').format('ha z');     // 8am EDT
+dec.tz('America/New_York').format('ha z');     // 7am EST
+
+jun.tz('Asia/Tokyo').format('ha z');           // 9pm JST
+dec.tz('Asia/Tokyo').format('ha z');           // 9pm JST
+
+jun.tz('Australia/Sydney').format('ha z');     // 10pm EST
+dec.tz('Australia/Sydney').format('ha z');     // 11pm EST
+```
+
+{{/markdown}}
+
 </div>
+

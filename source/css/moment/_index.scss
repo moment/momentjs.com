@@ -8,3 +8,32 @@
 		text-align: center;
 	}
 }
+
+.langs {
+	margin-bottom: 20px;
+
+	h2 {
+		padding: 0 0 20px;
+		margin: 0;
+	}
+
+	.button {
+		display: inline-block;
+		padding: 5px 10px;
+		margin: 4px 2px;
+		background: #fff;
+		border-radius: 3px;
+		border: 1px solid #999;
+		cursor: pointer;
+
+		&:hover {
+			box-shadow: 1px 0 5px rgba(0, 0, 0, .2);
+		}
+
+		&.active {
+			background: #333;
+			color: #ccc;
+			border-color: #000;
+		}
+	}
+}

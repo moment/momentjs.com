@@ -79,9 +79,6 @@ body, button, input, select, textarea {
    Links
    ========================================================================== */
 
-a {
-    color: $link-color;
-}
 
 /*
  * Addresses outline displayed oddly in Chrome
@@ -139,7 +136,6 @@ dfn {
 
 mark {
     background: #ff0;
-    color: $text-color;
 }
 
 /*

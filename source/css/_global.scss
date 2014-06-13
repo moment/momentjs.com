@@ -1,20 +1,16 @@
 body {
-	font-family: "Helvetica Neue", Arial, sans-serif;
+	@include font-body;
 	font-size: 16px;
 	line-height: 1.6;
-	background: $background-color;
+	background: $white;
 }
 
 * {
 	box-sizing: border-box;
 }
 
-.container {
-	padding: 20px;
-
-	@include size(mobile) {
-		padding: 10px;
-	}
+a {
+	color: $link-color;
 }
 
 h1,
@@ -23,7 +19,7 @@ h3,
 h4,
 h5,
 h6 {
-	@include source_sans_pro;
+	@include font-display;
 	font-weight: 400;
 }
 
@@ -44,15 +40,15 @@ pre, code, kbd, samp {
 }
 
 pre {
-	border: 1px solid #e3e3e3;
-	border-radius: 3px;
-	color: #333;
+	border: 1px solid rgba($black, 0.2);
+	border-radius: 4px;
+	color: $black;
 	font-size: 14px;
 	padding: 5px 8px;
 	margin: 0 0 20px;
 	white-space: pre;
 	line-height: 24px;
-	background: #fff;
+	background: rgba($black, 0.03);
 	font-weight: 100;
 
 	a {
@@ -86,7 +82,7 @@ pre {
 
 	.value,
 	.string {
-		color: #ED7677;
+		color: #cc3344;
 	}
 
 	.number {
@@ -98,21 +94,21 @@ pre {
 	}
 
 	.comment {
-		color: #666;
+		color: rgba($black, 0.5);
 	}
 }
 
 code {
 	padding: 1px 4px;
-	background: #fff;
+	background: rgba($black, 0.03);
 	border-radius: 3px;
-	box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+	border: 1px solid rgba($black, 0.15);
 }
+
 pre code {
 	padding: 0;
-	background: #fff;
-	border-radius: 0;
-	box-shadow: none;
+	border: 0;
+	background: none;
 }
 
 .centered {

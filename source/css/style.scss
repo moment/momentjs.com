@@ -1,6 +1,6 @@
 @import
-"defaults",
 "normalize",
+"colors",
 "mixins",
 
 "global",
@@ -8,10 +8,9 @@
 "nav",
 "builds",
 
-"pages/docs",
-"pages/test",
-"pages/core-home",
-"pages/timezone-home",
-"pages/timezone-data",
+"common/docs",
+"common/test",
 
-"moment/index";
+"moment/index",
+
+"moment-timezone/index";

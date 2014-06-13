@@ -1,14 +1,22 @@
 .map {
-	background: url(../img/header.png);
-	padding: 5px;
+	margin: 0 auto;
+	max-width: 1024px;
+	padding: 40px;
+}
+
+.map-wrap {
+	background: $color-moment-timezone url(../img/bg.png);
+	padding: 1px;
 	border-radius: 3px;
 	position: relative;
 }
 
 .map-label {
 	line-height: 60px;
-	font-size: 32px;
+	font-size: 24px;
 	margin: 0;
+	color: $color-moment-timezone;
+	font-family: monospace;
 
 	span {
 		display: block;
@@ -33,6 +41,7 @@
 	background: url(../img/world.png) 50% 50%;
 	background-size: cover;
 	position: relative;
+	border-radius: 2px;
 
 	span {
 		width: 6px;
@@ -41,10 +50,10 @@
 		background: #fff;
 		position: absolute;
 		border-radius: 3px;
-		border: 1px solid #111;
+		border: 1px solid $color-moment-timezone;
 
 		&.active {
-			background: #f00;
+			background: $color-moment-timezone;
 		}
 	}
 
@@ -52,19 +61,17 @@
 		position: absolute;
 		top: 0;
 		bottom: 0;
-		background: url(../img/header.png);
-		border-left: 1px solid #111;
+		border-left: 1px solid rgba($color-moment-timezone, 0.5);
 		width: 0;
-		transition: left 300ms;
+		transition: left 50ms ease-out;
 	}
 
 	.map-axis-y {
 		position: absolute;
 		left: 0;
 		right: 0;
-		background: url(../img/header.png);
-		border-top: 1px solid #111;
+		border-top: 1px solid rgba($color-moment-timezone, 0.5);
 		height: 0;
-		transition: left 150ms ease-out;
+		transition: top 50ms ease-out;
 	}
 }

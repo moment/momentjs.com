@@ -22,7 +22,7 @@
 }
 
 .builds-button {
-	@include source_sans_pro;
+	@include font-display;
 	display: block;
 	border: 1px solid rgba($black, 0.5);
 	text-decoration: none;

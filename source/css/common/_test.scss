@@ -82,7 +82,7 @@ $red : #d33;
 }
 
 #nodeunit-banner {
-	@include source_sans_pro;
+	@include font-display;
 	margin-top: -5px;
 	border-radius: 4px;
 	line-height: 30px;
@@ -111,7 +111,7 @@ $red : #d33;
 	margin-left: 25%;
 
 	.button {
-		@include source_sans_pro;
+		@include font-display;
 		display: block;
 		border: 1px solid rgba($black, 0.5);
 		text-decoration: none;
@@ -150,7 +150,7 @@ $red : #d33;
 	}
 
 	.success {
-		@include source_sans_pro;
+		@include font-display;
 		text-align: center;
 		font-size: 24px;
 	}

@@ -1,38 +1,17 @@
-
-@mixin grad($top, $btm) {
-	background-color: mix($top, $btm);
-	background-image: linear-gradient($top, $btm);
-}
-
-@mixin size($size) {
-	@if $size == 'mobile' {
-		@media screen and (max-width: 480px) {
-			@content;
-		}
-	}
-	@if $size == 'tablet' {
-		@media screen and (min-width: 481px) and (max-width: 768px) {
-			@content;
-		}
-	}
-	@if $size == 'desktop' {
-		@media screen and (min-width: 769px) and (max-width: 1200px) {
-			@content;
-		}
-	}
-	@if $size == 'wide' {
-		@media screen and (min-width: 1201px) {
-			@content;
-		}
-	}
-}
-
 @mixin width-under($size) {
 	@media screen and (max-width: $size) {
 		@content;
 	}
 }
 
-@mixin source_sans_pro {
+@mixin font-display {
+	font-family: 'Montserrat', sans-serif;
+}
+
+@mixin font-body {
+	font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+@mixin font-monospace {
 	font-family: 'Montserrat', sans-serif;
 }
