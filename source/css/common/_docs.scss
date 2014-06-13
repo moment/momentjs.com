@@ -115,6 +115,24 @@
 		text-align: left;
 	}
 
+	td {
+		border: 1px solid mix($black, $white, 15%);
+	}
+
+	th {
+		border: 1px solid mix($black, $white, 30%);
+	}
+
+	td:nth-of-type(1) {
+		white-space: pre;
+		text-align: right;
+		width: 0;
+	}
+
+	td:last-of-type {
+		width: 100%;
+	}
+
 	tr:nth-child(odd) td,
 	tr:nth-child(odd) th {
 		background: 0;

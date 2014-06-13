@@ -47,6 +47,8 @@ pre {
 	padding: 5px 8px;
 	margin: 0 0 20px;
 	white-space: pre;
+	word-wrap: normal;
+	overflow-x: auto;
 	line-height: 24px;
 	background: rgba($black, 0.03);
 	font-weight: 100;
