@@ -5,36 +5,36 @@ module.exports = function(grunt) {
 				'libs/moment/moment.js',
 				'libs/moment/min/langs.js',
 				'libs/moment-timezone/moment-timezone.js',
-				'source/js/timezone-data-start.js',
+				'assets/js/timezone-data-start.js',
 				'libs/moment-timezone/moment-timezone.json',
-				'source/js/timezone-data-end.js'
+				'assets/js/timezone-data-end.js'
 			],
 			'build/static/js/timezone-test.js' : [
-				'source/js/test-start.js',
+				'assets/js/test-start.js',
 				'libs/nodeunit/nodeunit.js',
 				'libs/moment-timezone/tests/**/*.js',
-				'source/js/test.js',
-				'source/js/test-end.js'
+				'assets/js/test.js',
+				'assets/js/test-end.js'
 			],
 			'build/static/js/core-test.js' : [
-				'source/js/test-start.js',
+				'assets/js/test-start.js',
 				'libs/nodeunit/nodeunit.js',
 				'libs/moment/test/moment/*.js',
 				'libs/moment/test/lang/*.js',
-				'source/js/test.js',
-				'source/js/test-end.js'
+				'assets/js/test.js',
+				'assets/js/test-end.js'
 			],
 			'build/static/js/timezone-data.js' : [
-				'source/js/timezone-data.js'
+				'assets/js/timezone-data.js'
 			],
 			'build/static/js/timezone-home.js' : [
-				'source/js/timezone-home.js'
+				'assets/js/timezone-home.js'
 			],
 			'build/static/js/core-home.js' : [
-				'source/js/core-home.js'
+				'assets/js/core-home.js'
 			],
 			'build/static/js/docs.js' : [
-				'source/js/docs.js'
+				'assets/js/docs.js'
 			]
 		}
 	});
@@ -57,7 +57,7 @@ module.exports = function(grunt) {
 
 	grunt.config('watch.js', {
 		files: [
-			'source/**/*.js',
+			'assets/**/*.js',
 			'libs/**/*.js'
 		],
 		tasks: ['js']

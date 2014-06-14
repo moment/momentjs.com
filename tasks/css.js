@@ -2,7 +2,7 @@ module.exports = function(grunt) {
 	grunt.config('sass.css', {
 		files : [{
 			expand: true,
-			cwd : 'source/css/',
+			cwd : 'assets/css/',
 			src: '*.scss',
 			dest: '.temp/css/',
 			ext: '.css'
@@ -25,7 +25,7 @@ module.exports = function(grunt) {
 	});
 
 	grunt.config('watch.css', {
-		files: ['source/css/**/*'],
+		files: ['assets/css/**/*'],
 		tasks: ['css']
 	});
 
