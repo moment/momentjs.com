@@ -24,13 +24,17 @@
 					{{#isnt @index 0}}
 						<h3 class="docs-method-title">
 							<a href='#/{{ slug }}/'>{{ title }}</a>
-							<span>{{ version }}</span>
+							{{#if version}}
+								<span>{{ version }}+</span>
+							{{/if}}
 						</h3>
 						<a class="docs-method-edit" href="{{ edit }}" target="_blank">edit</a>
 					{{/isnt}}
 					<div class="docs-method-prose">
 						{{#if signature}}
-							<pre>{{ signature }}</pre>
+							<div class="docs-method-signature">
+								{{#markdown}}```js{{{ signature }}}```{{/markdown}}
+							</div>
 						{{/if}}
 						{{#markdown}}
 							{{{body}}}

@@ -237,3 +237,27 @@
 		text-decoration: underline;
 	}
 }
+
+.docs-method-signature pre {
+	background: rgba($black, 0.2);
+	position: relative;
+
+	&:after {
+		position: absolute;
+		top: 5px;
+		right: 10px;
+		content: "Method Signature";
+		color: rgba($black, 0.3);
+		font-size: 12px;
+	}
+
+	.is-moment & {
+		border-color: rgba($color-moment, 0.7);
+		background: rgba($color-moment, 0.15);
+	}
+
+	.is-moment-timezone & {
+		border-color: rgba($color-moment-timezone, 0.7);
+		background: rgba($color-moment-timezone, 0.15);
+	}
+}
