@@ -11,12 +11,11 @@ npm install -g grunt-cli
 ## Running locally
 
 ```
-./runlocal.sh
+grunt server
 ```
 
-## Regenerating HTML and JS
+## Deploying
 
 ```
-grunt
+grunt deploy
 ```
-
