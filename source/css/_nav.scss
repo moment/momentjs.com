@@ -33,16 +33,16 @@
 }
 
 @mixin nav-project-color($color) {
-	ellipse { stroke : rgba($color, 0.4); }
-	path    { fill   : $color; }
+	ellipse { stroke : $color; }
+	path    { fill   : rgba($color, 0.6); }
 	color: $color;
 
 	&.active {
 		background: $color;
 		color: $white;
 
-		ellipse { stroke : rgba($white, 0.4); }
-		path    { fill   : $white; }
+		ellipse { stroke : $white; }
+		path    { fill   : rgba($white, 0.6); }
 	}
 }
 

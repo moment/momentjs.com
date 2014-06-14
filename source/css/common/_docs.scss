@@ -161,8 +161,17 @@
 	margin: 0 0 20px;
 	font-size: 45px;
 	line-height: 60px;
-	background: $black;
 	border-radius: 4px;
+	background: url(../img/bg.png) 0 50%;
+	border: 1px solid rgba($black, 0.3);
+
+	.is-moment & {
+		background-color: $color-moment;
+	}
+
+	.is-moment-timezone & {
+		background-color: $color-moment-timezone;
+	}
 
 	a {
 		color: $white;
