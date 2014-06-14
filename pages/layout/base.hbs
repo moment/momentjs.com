@@ -5,8 +5,9 @@
 
 		<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="/static/css/style.css" />
+		<link rel="shortcut icon" href="/static/img/{{repo}}-favicon.png" />
 
-		<title>Moment.js | {{title}}</title>
+		<title>{{#if isMoment}}Moment.js{{else}}Moment Timezone{{/if}} | {{title}}</title>
 	</head>
 
 	<body class="is-{{repo}}">
