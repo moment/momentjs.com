@@ -36,7 +36,7 @@ module.exports = function (grunt) {
 
 			item.body = data.content;
 			item.slug = groupSlug + '/' + itemSlug;
-			item.edit = 'https://github.com/moment/momentjs.com/blob/master/docs/' + groupPath + '/' + itemPath + '.md';
+			item.edit = 'https://github.com/moment/momentjs.com/blob/master/docs/' + root + '/' + groupPath + '/' + itemPath + '.md';
 		});
 
 		grunt.file.write('.temp/docs/' + root + '.json', JSON.stringify(groups, null, 4));
