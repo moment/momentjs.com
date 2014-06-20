@@ -36626,6 +36626,7 @@ exports["lang:zh-tw"] = {
 	var failed = 0;
 	var total = 0;
 	var currentTestModule;
+	var currentModuleEl;
 
 	function updateTest(_passed, _failed) {
 		passed += _passed;
@@ -36634,12 +36635,10 @@ exports["lang:zh-tw"] = {
 	}
 
 	function updateTotals(_passed, _failed) {
-		var duration = moment().diff(start);
 		if (_failed) {
-			banner.removeClass('pass');
-			banner.addClass('fail');
+			banner.addClass('has-failed');
 		}
-		banner.html('<h3><span class="counter">' + _passed + '</span> tests passed. <span class="counter">' + _failed + '</span> failed.</h3>');
+		banner.html(_passed + ' tests passed<br/><span>' + _failed + ' failed</span>');
 	}
 
 	(function() {
@@ -36678,30 +36677,30 @@ exports["lang:zh-tw"] = {
 
 	nodeunit.runModules(exports, {
 		moduleStart : function (name) {
-			tests.append('<h3>' + name + '</h3>');
 			currentTestModule = name;
+			currentModuleEl = $('<div>').addClass('tests-module');
+			currentModuleEl.append('<h3 class="tests-module-title">' + name + '</h3>');
+			tests.append(currentModuleEl);
 		},
 		testDone : function (name, assertions) {
-			var testEl = $('<li>'),
+			var testEl = $('<div>').addClass('tests-test'),
 				testHtml = '',
-				assertUl = $('<ul>'),
+				assertUl = $('<div>').addClass('tests-asserts'),
 				assertLi,
-				assertHtml = '';
+				assertHtml = '',
 				assert;
 
 			total++;
 
 			// each test
-			testHtml += '<div class="title"><strong>' + name + '</strong> ';
+			testHtml += '<div class="tests-test-title"><strong>' + name + '</strong> ';
 			if (assertions.failures()) {
-				testEl.addClass('fail open');
-				testHtml += assertions.passes() + ' passed,';
-				testHtml += assertions.failures() + ' failed.</div>';
+				testEl.addClass('has-failed is-open');
+				testHtml += assertions.passes() + ' passed : ';
+				testHtml += assertions.failures() + ' failed</div>';
 			} else {
-				testEl.addClass('pass');
-				testHtml += 'All ' + assertions.passes() + ' passed.</div>';
+				testHtml += 'all ' + assertions.passes() + ' passed</div>';
 			}
-			testEl.addClass('test');
 			testEl.html(testHtml);
 
 			// each assert
@@ -36710,22 +36709,20 @@ exports["lang:zh-tw"] = {
 				assert.uid = total + '.' + (i + 1);
 				assert.test_name = name;
 				assert.module_name = currentTestModule;
-				assertLi = $('<li>');
+				assertLi = $('<div>').addClass('tests-assert');
 				assertHtml = '<strong>' + assert.uid + '</strong> ';
 				assertHtml += (assert.message || assert.method || 'no message');
 				if (assert.failed()) {
 					assertHtml += ' (' + assert.error.expected + ' ' + assert.error.operator + ' ' + assert.error.actual + ')';
 					assertHtml += '<pre>' + (assert.error.stack || assert.error) + '</pre>';
-					assertLi.addClass('fail');
-				} else {
-					assertLi.addClass('pass');
+					assertLi.addClass('has-failed');
 				}
 				assertLi.html(assertHtml);
 				assertUl.append(assertLi);
 			}
 
 			testEl.append(assertUl);
-			tests.append(testEl);
+			currentModuleEl.append(testEl);
 			updateTest(assertions.passes(), assertions.failures());
 		},
 		done : function (assertions) {
@@ -36787,28 +36784,27 @@ exports["lang:zh-tw"] = {
 			searchUrl += '?type=Issues&q=' + encodeURIComponent(titleText);
 
 			if (failures) {
-				reportHTML += '<h2>Hmm, looks like some of the unit tests are failing.</h2>';
+				reportHTML += '<h2>Uh oh, looks like some tests failed.</h2>';
 				reportHTML += "<p>It's hard to catch bugs across all browsers and timezones. If you have a minute, please report the failing test.</p>";
-				reportHTML += "<p>First, check if the issue has already been reported by searching the issues on github.</p>";
-				reportHTML += "<a class='button' href='" + searchUrl + "' target='_blank'>Search failed tests</a>";
-				reportHTML += "<p>If it doesn't look like this failed test has been reported yet, submit an issue with the following info.</p>";
-				reportHTML += "<a class='button' href='" + submitUrl + "' target='_blank'>Report failed test</a>";
-				reportHTML += '<h3>Title</h3>';
+				reportHTML += "<a class='button' href='" + searchUrl + "' target='_blank'><b>STEP 1:</b> Search for an existing failure report</a>";
+				reportHTML += "<p>If it doesn't look like this failure has already been reported, proceed to step 2.</p>";
+				reportHTML += "<a class='button' href='" + submitUrl + "' target='_blank'><b>STEP 2:</b> Submit a failure report</a>";
+				reportHTML += '<h3>Issue title</h3>';
 				reportHTML += '<pre>' + titleText + '</pre>';
-				reportHTML += '<h3>Body</h3>';
+				reportHTML += '<h3>Issue description</h3>';
 				reportHTML += '<pre>' + bodyText.replace(/\n/g, '<br/>') + '</pre>';
 			} else {
 				reportHTML += "<p class='success'>Awesome, all the unit tests passed!</p>";
 			}
 
-			banner.after('<div class="test-reporting">' + reportHTML + '<div>');
+			$('#report-wrapper').html('<div class="tests-reporting">' + reportHTML + '<div>');
 
 			updateTotals(assertions.passes(), failures);
 		}
 	});
 
-	tests.on('click', 'li.test', function(){
-		$(this).toggleClass('open');
+	tests.on('click', '.tests-test', function(){
+		$(this).toggleClass('is-open');
 	});
 })();
 
