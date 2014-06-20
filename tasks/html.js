@@ -56,7 +56,7 @@ module.exports = function(grunt) {
 	grunt.config('watch.html-moment', {
 		files: [
 			'.temp/docs/moment.json',
-			'pages/**/*.{hbs,json,md}'
+			'pages/**/*.{hbs,json,md,js}'
 		],
 		tasks: ['assemble:moment']
 	});
@@ -64,7 +64,7 @@ module.exports = function(grunt) {
 	grunt.config('watch.html-moment-timezone', {
 		files: [
 			'.temp/docs/moment-timezone.json',
-			'pages/**/*.{hbs,json,md}'
+			'pages/**/*.{hbs,json,md,js}'
 		],
 		tasks: ['assemble:moment-timezone']
 	});
