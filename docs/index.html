@@ -81,6 +81,10 @@
 					
 				
 					
+						<a class="docs-nav-item" href="#/use-it/spm/">spm</a>
+					
+				
+					
 						<a class="docs-nav-item" href="#/use-it/other/">Other</a>
 					
 				
@@ -109,6 +113,10 @@
 				
 					
 						<a class="docs-nav-item" href="#/parsing/string-formats/">String + Formats</a>
+					
+				
+					
+						<a class="docs-nav-item" href="#/parsing/special-formats/">Special Formats</a>
 					
 				
 					
@@ -240,6 +248,14 @@
 				
 					
 						<a class="docs-nav-item" href="#/get-set/set/">Set</a>
+					
+				
+					
+						<a class="docs-nav-item" href="#/get-set/max/">Maximum</a>
+					
+				
+					
+						<a class="docs-nav-item" href="#/get-set/min/">Minimum</a>
 					
 				
 			</div>
@@ -721,7 +737,25 @@ to your r.js config.</p>
 					
 					<div class="docs-method-prose">
 						
-						<pre><code>Install-Package Moment.js</code></pre>
+						<p><a href="http://www.nuget.org/">NuGet</a></p>
+<pre><code>Install-Package Moment.js</code></pre>
+
+					</div>
+				</article>
+			
+				<article class="docs-method">
+					<a class="docs-method-target" id="/use-it/spm/"  name="/use-it/spm/"></a>
+					
+						<h3 class="docs-method-title">
+							<a href='#/use-it/spm/'>spm</a>
+							
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/00-use-it/06-spm.md" target="_blank">edit</a>
+					
+					<div class="docs-method-prose">
+						
+						<p><a href="http://spmjs.io/">Static Package Manager</a></p>
+<pre><code>spm install moment</code></pre>
 
 					</div>
 				</article>
@@ -733,7 +767,7 @@ to your r.js config.</p>
 							<a href='#/use-it/other/'>Other</a>
 							
 						</h3>
-						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/00-use-it/06-other.md" target="_blank">edit</a>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/00-use-it/07-other.md" target="_blank">edit</a>
 					
 					<div class="docs-method-prose">
 						
@@ -750,7 +784,7 @@ to your r.js config.</p>
 							<a href='#/use-it/troubleshooting/'>Troubleshooting</a>
 							
 						</h3>
-						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/00-use-it/07-troubleshooting.md" target="_blank">edit</a>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/00-use-it/08-troubleshooting.md" target="_blank">edit</a>
 					
 					<div class="docs-method-prose">
 						
@@ -1086,6 +1120,34 @@ moment(<span class="string">"05-06-1995"</span>, [<span class="string">"MM-DD-YY
 				</article>
 			
 				<article class="docs-method">
+					<a class="docs-method-target" id="/parsing/special-formats/"  name="/parsing/special-formats/"></a>
+					
+						<h3 class="docs-method-title">
+							<a href='#/parsing/special-formats/'>Special Formats</a>
+							
+								<span>2.7.0+</span>
+							
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/01-parsing/05-special-formats.md" target="_blank">edit</a>
+					
+					<div class="docs-method-prose">
+						
+							<div class="docs-method-signature">
+								<pre><code class="language-js">moment(String, moment.CUSTOM_FORMAT, [String], [Boolean]);
+moment(String, [..., moment.ISO_8601, ...], [String], [Boolean]);</code></pre>
+
+							</div>
+						
+						<p><a href="http://en.wikipedia.org/wiki/ISO_8601">ISO-8601</a> is a standart for time and duration display. Moment already supports parsing iso-8601 strings, but this can be specified explicitly in the format/list of formats when constructing a moment.</p>
+<p>To specify iso-8601 parsing use <code>moment.ISO_8601</code> constant. More formats will be added in the future.</p>
+<p>Examples:</p>
+<pre><code class="language-javascript">moment(<span class="string">"2010-01-01T05:06:07"</span>, moment.ISO_8601);
+moment(<span class="string">"2010-01-01T05:06:07"</span>, [<span class="string">"YYYY"</span>, moment.ISO_8601]);</code></pre>
+
+					</div>
+				</article>
+			
+				<article class="docs-method">
 					<a class="docs-method-target" id="/parsing/object/"  name="/parsing/object/"></a>
 					
 						<h3 class="docs-method-title">
@@ -1094,7 +1156,7 @@ moment(<span class="string">"05-06-1995"</span>, [<span class="string">"MM-DD-YY
 								<span>2.2.1+</span>
 							
 						</h3>
-						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/01-parsing/05-object.md" target="_blank">edit</a>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/01-parsing/06-object.md" target="_blank">edit</a>
 					
 					<div class="docs-method-prose">
 						
@@ -1122,7 +1184,7 @@ Omitted units are defaulted to 0 or current date/month/year.</p>
 								<span>1.0.0+</span>
 							
 						</h3>
-						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/01-parsing/06-unix-offset.md" target="_blank">edit</a>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/01-parsing/07-unix-offset.md" target="_blank">edit</a>
 					
 					<div class="docs-method-prose">
 						
@@ -1146,7 +1208,7 @@ Omitted units are defaulted to 0 or current date/month/year.</p>
 								<span>1.6.0+</span>
 							
 						</h3>
-						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/01-parsing/07-unix-timestamp.md" target="_blank">edit</a>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/01-parsing/08-unix-timestamp.md" target="_blank">edit</a>
 					
 					<div class="docs-method-prose">
 						
@@ -1172,7 +1234,7 @@ Omitted units are defaulted to 0 or current date/month/year.</p>
 								<span>1.0.0+</span>
 							
 						</h3>
-						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/01-parsing/08-date.md" target="_blank">edit</a>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/01-parsing/09-date.md" target="_blank">edit</a>
 					
 					<div class="docs-method-prose">
 						
@@ -1199,7 +1261,7 @@ Omitted units are defaulted to 0 or current date/month/year.</p>
 								<span>1.0.0+</span>
 							
 						</h3>
-						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/01-parsing/09-array.md" target="_blank">edit</a>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/01-parsing/10-array.md" target="_blank">edit</a>
 					
 					<div class="docs-method-prose">
 						
@@ -1236,7 +1298,7 @@ moment([<span class="number">2010</span>, <span class="number">1</span>, <span c
 								<span>1.3.0+</span>
 							
 						</h3>
-						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/01-parsing/10-asp-net-json-date.md" target="_blank">edit</a>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/01-parsing/11-asp-net-json-date.md" target="_blank">edit</a>
 					
 					<div class="docs-method-prose">
 						
@@ -1261,7 +1323,7 @@ moment([<span class="number">2010</span>, <span class="number">1</span>, <span c
 								<span>1.2.0+</span>
 							
 						</h3>
-						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/01-parsing/11-moment-clone.md" target="_blank">edit</a>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/01-parsing/12-moment-clone.md" target="_blank">edit</a>
 					
 					<div class="docs-method-prose">
 						
@@ -1294,7 +1356,7 @@ b.year(); <span class="comment">// 2012</span></code></pre>
 								<span>1.5.0+</span>
 							
 						</h3>
-						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/01-parsing/12-utc.md" target="_blank">edit</a>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/01-parsing/13-utc.md" target="_blank">edit</a>
 					
 					<div class="docs-method-prose">
 						
@@ -1346,7 +1408,7 @@ a.hours(); <span class="comment">// 0 PST</span></code></pre>
 								<span>2.3.0+</span>
 							
 						</h3>
-						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/01-parsing/13-parse-zone.md" target="_blank">edit</a>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/01-parsing/14-parse-zone.md" target="_blank">edit</a>
 					
 					<div class="docs-method-prose">
 						
@@ -1374,7 +1436,7 @@ moment(s).zone(s);</code></pre>
 								<span>1.7.0+</span>
 							
 						</h3>
-						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/01-parsing/14-is-valid.md" target="_blank">edit</a>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/01-parsing/15-is-valid.md" target="_blank">edit</a>
 					
 					<div class="docs-method-prose">
 						
@@ -1432,7 +1494,7 @@ days validity may depend on month, for example).</p>
 								<span>2.2.1+</span>
 							
 						</h3>
-						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/01-parsing/15-defaults.md" target="_blank">edit</a>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/01-parsing/16-defaults.md" target="_blank">edit</a>
 					
 					<div class="docs-method-prose">
 						
@@ -2063,6 +2125,62 @@ second (seconds, s), millisecond (milliseconds, ms).</p>
 					</div>
 				</article>
 			
+				<article class="docs-method">
+					<a class="docs-method-target" id="/get-set/max/"  name="/get-set/max/"></a>
+					
+						<h3 class="docs-method-title">
+							<a href='#/get-set/max/'>Maximum</a>
+							
+								<span>2.7.0+</span>
+							
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/02-get-set/21-max.md" target="_blank">edit</a>
+					
+					<div class="docs-method-prose">
+						
+							<div class="docs-method-signature">
+								<pre><code class="language-js">moment.max(Moment[,Moment...]);</code></pre>
+
+							</div>
+						
+						<p>Returns the maximum (most distant future) of the given moment instances.</p>
+<p>For example:</p>
+<pre><code class="language-javascript"><span class="keyword">var</span> a = moment().subtract(<span class="number">1</span>, <span class="string">'day'</span>);
+<span class="keyword">var</span> b = moment().add(<span class="number">1</span>, <span class="string">'day'</span>);
+moment.max(a, b);  <span class="comment">// b</span></code></pre>
+<p>With no arguments the function returns a moment instance with the current time.</p>
+
+					</div>
+				</article>
+			
+				<article class="docs-method">
+					<a class="docs-method-target" id="/get-set/min/"  name="/get-set/min/"></a>
+					
+						<h3 class="docs-method-title">
+							<a href='#/get-set/min/'>Minimum</a>
+							
+								<span>2.7.0+</span>
+							
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/02-get-set/22-min.md" target="_blank">edit</a>
+					
+					<div class="docs-method-prose">
+						
+							<div class="docs-method-signature">
+								<pre><code class="language-js">moment.min(Moment[,Moment...]);</code></pre>
+
+							</div>
+						
+						<p>Returns the minimum (most distant past) of the given moment instances.</p>
+<p>For example:</p>
+<pre><code class="language-javascript"><span class="keyword">var</span> a = moment().subtract(<span class="number">1</span>, <span class="string">'day'</span>);
+<span class="keyword">var</span> b = moment().add(<span class="number">1</span>, <span class="string">'day'</span>);
+moment.min(a, b);  <span class="comment">// a</span></code></pre>
+<p>With no arguments the function returns a moment instance with the current time.</p>
+
+					</div>
+				</article>
+			
 		
 			<article class="docs-section">
 				<a class="docs-section-target" id="/manipulating/" name="/manipulating/"></a>
@@ -2099,6 +2217,7 @@ second (seconds, s), millisecond (milliseconds, ms).</p>
 							<div class="docs-method-signature">
 								<pre><code class="language-js">moment().add(String, Number);
 moment().add(Number, String); <span class="comment">// 2.0.0</span>
+moment().add(String, String); <span class="comment">// 2.7.0</span>
 moment().add(Duration); <span class="comment">// 1.6.0</span>
 moment().add(Object);</code></pre>
 
@@ -2177,8 +2296,11 @@ moment([<span class="number">2012</span>, <span class="number">0</span>, <span c
 <pre><code class="language-javascript">moment().add(<span class="string">'seconds'</span>, <span class="number">1</span>);
 moment().add(<span class="string">'seconds'</span>, <span class="string">'1'</span>);
 moment().add(<span class="number">1</span>, <span class="string">'seconds'</span>);</code></pre>
-<p>This syntax will not work. The first parameter would need to be a number, not a string.</p>
-<pre><code class="language-javascript">moment().add(<span class="string">'1'</span>, <span class="string">'seconds'</span>);</code></pre>
+<p><del>This syntax will not work. The first parameter would need to be a number, not a string.</del></p>
+<p>As of version <strong>2.7.0</strong>, <code>add</code> supports numeric values (number of seconds, hours, days etc) to be specified in <code>String</code> form, for example:</p>
+<pre><code class="language-javascript">moment().add(<span class="string">'1'</span>, <span class="string">'seconds'</span>);
+moment().add(<span class="string">'seconds'</span>, <span class="string">'1'</span>);</code></pre>
+<p><strong>NOTE</strong>: Using <code>add(unit, value)</code> is discouraged. Prefer <code>add(value, unit)</code>, as it is easier to read and more consistent with the duration interface.</p>
 
 					</div>
 				</article>
@@ -2199,6 +2321,7 @@ moment().add(<span class="number">1</span>, <span class="string">'seconds'</span
 							<div class="docs-method-signature">
 								<pre><code class="language-js">moment().subtract(String, Number);
 moment().subtract(Number, String); <span class="comment">// 2.0.0</span>
+moment().subtract(String, String); <span class="comment">// 2.7.0</span>
 moment().subtract(Duration); <span class="comment">// 1.6.0</span>
 moment().subtract(Object);</code></pre>
 
@@ -2207,6 +2330,10 @@ moment().subtract(Object);</code></pre>
 						<p>Mutates the original moment by subtracting time.</p>
 <p>This is exactly the same as <code>moment#add</code>, only instead of adding time, it subtracts time.</p>
 <pre><code class="language-javascript">moment().subtract(<span class="string">'days'</span>, <span class="number">7</span>);</code></pre>
+<p>As of version <strong>2.7.0</strong>, <code>subtract</code> supports numeric values (number of seconds, hours, days etc) to be specified in <code>String</code> form, for example:</p>
+<pre><code class="language-javascript">moment().subtract(<span class="string">'1'</span>, <span class="string">'seconds'</span>);
+moment().subtract(<span class="string">'seconds'</span>, <span class="string">'1'</span>);</code></pre>
+<p><strong>NOTE</strong>: Using <code>subtract(unit, value)</code> is discouraged. Prefer <code>subtract(value, unit)</code>, as it is easier to read and more consistent with the duration interface.</p>
 
 					</div>
 				</article>
@@ -2286,7 +2413,7 @@ moment().minutes(<span class="number">0</span>).seconds(<span class="number">0</
 						<h3 class="docs-method-title">
 							<a href='#/manipulating/max/'>Maximum</a>
 							
-								<span>2.1.0+</span>
+								<span>2.1.0-2.6.0+</span>
 							
 						</h3>
 						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/03-manipulating/05-max.md" target="_blank">edit</a>
@@ -2298,7 +2425,9 @@ moment().minutes(<span class="number">0</span>).seconds(<span class="number">0</
 
 							</div>
 						
-						<p>Limits the moment to a maximum of another moment value.</p>
+						<p><strong>NOTE</strong>: This function has been <strong>deprecated</strong> in <strong>2.7.0</strong>. Consider <a href="/docs/#/get-set/max/"><code>moment.max</code></a> instead.</p>
+<hr>
+<p>Limits the moment to a maximum of another moment value.</p>
 <p>Sometimes, server clocks are not quite in sync with client clocks. This ends up displaying humanized strings such as &quot;in a few seconds&quot; rather than &quot;a few seconds ago&quot;. You can prevent that with <code>moment#max()</code>:</p>
 <pre><code class="language-javascript"><span class="keyword">var</span> momentFromServer = moment(input);
 <span class="keyword">var</span> clampedMoment = momentFromServer.max();</code></pre>
@@ -2318,7 +2447,7 @@ moment().max(<span class="keyword">new</span> Date(<span class="number">2012</sp
 						<h3 class="docs-method-title">
 							<a href='#/manipulating/min/'>Minimum</a>
 							
-								<span>2.1.0+</span>
+								<span>2.1.0-2.6.0+</span>
 							
 						</h3>
 						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/03-manipulating/06-min.md" target="_blank">edit</a>
@@ -2330,7 +2459,9 @@ moment().max(<span class="keyword">new</span> Date(<span class="number">2012</sp
 
 							</div>
 						
-						<p>Limits the moment to a minimum of another moment value.</p>
+						<p><strong>NOTE</strong>: This function has been <strong>deprecated</strong> in <strong>2.7.0</strong>. Consider <a href="/docs/#/get-set/min/"><code>moment.min</code></a> instead.</p>
+<hr>
+<p>Limits the moment to a minimum of another moment value.</p>
 <p>This is the counterpart for <code>moment#max</code>.</p>
 <pre><code class="language-javascript">moment().min(<span class="string">"2013-04-20T20:00:00+0800"</span>);</code></pre>
 <p>This can be used in conjunction with <code>moment#max</code> to clamp a moment to a range.</p>
@@ -2953,12 +3084,13 @@ start.from(end, <span class="literal">true</span>); <span class="comment">// "5 
 					<div class="docs-method-prose">
 						
 							<div class="docs-method-signature">
-								<pre><code class="language-js">moment().calendar();</code></pre>
+								<pre><code class="language-js">moment().calendar();
+moment().calendar(referenceTime);</code></pre>
 
 							</div>
 						
-						<p>Calendar time is displays time relative to now, but slightly differently than <code>moment#fromNow</code>.</p>
-<p><code>moment#calendar</code> will format a date with different strings depending on how close to today the date is.</p>
+						<p>Calendar time is displays time relative to given <code>referenceTime</code> (defaults to now), but slightly differently than <code>moment#fromNow</code>.</p>
+<p><code>moment#calendar</code> will format a date with different strings depending on how close to <code>referenceTime</code>&#39;s date (today by default) the date is.</p>
 <table class="table table-striped table-bordered">
   <tr>
     <td>Last week</td>
