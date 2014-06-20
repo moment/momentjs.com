@@ -49,7 +49,7 @@ module.exports = function(grunt) {
 			'build/downloads/moment-with-langs.min.js' : 'libs/moment/min/moment-with-langs.min.js',
 
 			'build/downloads/moment-timezone.js'                         : 'libs/moment-timezone/moment-timezone.js',
-			'build/downloads/moment-timezone.min.js'                     : 'libs/moment-timezone/min/moment-timezone.min.js',
+			'build/downloads/moment-timezone.min.js'                     : 'libs/moment-timezone/builds/moment-timezone.min.js',
 			'build/downloads/moment-timezone-with-data.js'               : 'libs/moment-timezone/builds/moment-timezone-with-data.js',
 			'build/downloads/moment-timezone-with-data.min.js'           : 'libs/moment-timezone/builds/moment-timezone-with-data.min.js',
 			'build/downloads/moment-timezone-with-data-2010-2020.js'     : 'libs/moment-timezone/builds/moment-timezone-with-data-2010-2020.js',
