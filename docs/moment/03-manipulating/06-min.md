@@ -1,10 +1,13 @@
 ---
 title: Minimum
-version: 2.1.0
+version: 2.1.0-2.6.0
 signature: |
   moment().min(Moment|String|Number|Date|Array);
 ---
 
+**NOTE**: This function has been **deprecated** in **2.7.0**. Consider [`moment.min`](/docs/#/get-set/min/) instead.
+
+------
 
 Limits the moment to a minimum of another moment value.
 

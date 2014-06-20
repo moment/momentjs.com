@@ -1,10 +1,13 @@
 ---
 title: Maximum
-version: 2.1.0
+version: 2.1.0-2.6.0
 signature: |
   moment().max(Moment|String|Number|Date|Array);
 ---
 
+**NOTE**: This function has been **deprecated** in **2.7.0**. Consider [`moment.max`](/docs/#/get-set/max/) instead.
+
+------
 
 Limits the moment to a maximum of another moment value.
 
