@@ -4,10 +4,7 @@ module.exports = function(grunt) {
 			'build/static/js/global.js' : [
 				'libs/moment/moment.js',
 				'libs/moment/min/langs.js',
-				'libs/moment-timezone/moment-timezone.js',
-				'assets/js/timezone-data-start.js',
-				'libs/moment-timezone/moment-timezone.json',
-				'assets/js/timezone-data-end.js'
+				'libs/moment-timezone/builds/moment-timezone-with-data.js'
 			],
 			'build/static/js/timezone-test.js' : [
 				'assets/js/test-start.js',
@@ -50,8 +47,16 @@ module.exports = function(grunt) {
 			'build/downloads/moment.min.js'            : 'libs/moment/min/moment.min.js',
 			'build/downloads/moment-with-langs.js'     : 'libs/moment/min/moment-with-langs.js',
 			'build/downloads/moment-with-langs.min.js' : 'libs/moment/min/moment-with-langs.min.js',
-			'build/downloads/moment-timezone.js'       : 'libs/moment-timezone/moment-timezone.js',
-			'build/downloads/moment-timezone.min.js'   : 'libs/moment-timezone/min/moment-timezone.min.js'
+
+			'build/downloads/moment-timezone.js'                         : 'libs/moment-timezone/moment-timezone.js',
+			'build/downloads/moment-timezone.min.js'                     : 'libs/moment-timezone/min/moment-timezone.min.js',
+			'build/downloads/moment-timezone-with-data.js'               : 'libs/moment-timezone/builds/moment-timezone-with-data.js',
+			'build/downloads/moment-timezone-with-data.min.js'           : 'libs/moment-timezone/builds/moment-timezone-with-data.min.js',
+			'build/downloads/moment-timezone-with-data-2010-2020.js'     : 'libs/moment-timezone/builds/moment-timezone-with-data-2010-2020.js',
+			'build/downloads/moment-timezone-with-data-2010-2020.min.js' : 'libs/moment-timezone/builds/moment-timezone-with-data-2010-2020.min.js',
+
+			'build/data/moment-timezone-unpacked.json' : 'libs/moment-timezone/data/unpacked/latest.json',
+			'build/data/moment-timezone-meta.json'     : 'libs/moment-timezone/data/meta/latest.json'
 		}
 	});
 
