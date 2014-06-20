@@ -4,6 +4,7 @@ version: 1.0.0
 signature: |
   moment().add(String, Number);
   moment().add(Number, String); // 2.0.0
+  moment().add(String, String); // 2.7.0
   moment().add(Duration); // 1.6.0
   moment().add(Object);
 ---
@@ -120,8 +121,13 @@ moment().add('seconds', '1');
 moment().add(1, 'seconds');
 ```
 
-This syntax will not work. The first parameter would need to be a number, not a string.
+~~This syntax will not work. The first parameter would need to be a number, not a string.~~
+
+As of version **2.7.0**, `add` supports numeric values (number of seconds, hours, days etc) to be specified in `String` form, for example:
 
 ```javascript
 moment().add('1', 'seconds');
+moment().add('seconds', '1');
 ```
+
+**NOTE**: Using `add(unit, value)` is discouraged. Prefer `add(value, unit)`, as it is easier to read and more consistent with the duration interface.
