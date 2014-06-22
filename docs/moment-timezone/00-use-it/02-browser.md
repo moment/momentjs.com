@@ -1,13 +1,14 @@
 ---
 title: Browser
+signature: |
+  <script src="moment.js"></script>
+  <script src="moment-timezone-with-data.js"></script>
 ---
 
+When using Moment Timezone in the browser, you will need to load the data as well as the library.
 
-```html
-<script src="moment.js"></script>
-<script src="moment-timezone.js"></script>
-<script src="moment-timezone-data.js"></script>
-<script>
-	moment().tz("America/Los_Angeles").format();
-</script>
+You can either use the prebuilt library and data files linked on [the homepage](/timezone/) or build a subset of the data yourself using the [data builder](/timezone/data/).
+
+```js
+moment().tz("America/Los_Angeles").format();
 ```
