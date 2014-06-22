@@ -1,9 +1,9 @@
 ---
 title: Formatting Additions
 signature: |
-  moment.tz(String).format("Z z");
-  moment.tz(String).zoneAbbr();
-  moment.tz(String).zoneName();
+  moment.tz(String).format("Z z"); // -08:00 PST
+  moment.tz(String).zoneAbbr();    // PST
+  moment.tz(String).zoneName();    // PST
 ---
 
 
