@@ -47,7 +47,8 @@ scripts :
 	</div>
 	<div class="builds-packages">
 		<h3>Install</h3>
-		<pre><code>npm install moment-timezone --save</code></pre>
+		<pre><code>bower install moment-timezone --save
+npm install moment-timezone --save</code></pre>
 	</div>
 </div>
 
@@ -81,6 +82,18 @@ dec.tz('Asia/Tokyo').format('ha z');           // 9pm JST
 
 jun.tz('Australia/Sydney').format('ha z');     // 10pm EST
 dec.tz('Australia/Sydney').format('ha z');     // 11pm EST
+```
+
+### Convert Dates Between Timezones
+
+```js
+var newYork    = moment.tz("2014-06-01 12:00", "America/New_York");
+var losAngeles = newYork.clone().tz("America/Los_Angeles");
+var london     = newYork.clone().tz("Europe/London");
+
+newYork.format();    // 2014-06-01T12:00:00-04:00
+losAngeles.format(); // 2014-06-01T09:00:00-07:00
+london.format();     // 2014-06-01T17:00:00+01:00
 ```
 
 {{/markdown}}
