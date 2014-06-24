@@ -6,13 +6,6 @@ module.exports = function(grunt) {
 				'libs/moment/min/langs.js',
 				'libs/moment-timezone/builds/moment-timezone-with-data.js'
 			],
-			'build/static/js/timezone-test.js' : [
-				'assets/js/test-start.js',
-				'libs/nodeunit/nodeunit.js',
-				'libs/moment-timezone/tests/**/*.js',
-				'assets/js/test.js',
-				'assets/js/test-end.js'
-			],
 			'build/static/js/core-test.js' : [
 				'assets/js/test-start.js',
 				'libs/nodeunit/nodeunit.js',
@@ -32,6 +25,29 @@ module.exports = function(grunt) {
 			],
 			'build/static/js/docs.js' : [
 				'assets/js/docs.js'
+			]
+		}
+	});
+
+	grunt.config('concat.tz', {
+		options : {
+			process : function (src, filepath) {
+				if (filepath.indexOf('moment-timezone/tests') > -1) {
+					return '\n(function(){\n\n' + src + '\n\n}());\n';
+				}
+				return src;
+			}
+		},
+		files : {
+			'build/static/js/timezone-test.js' : [
+				'libs/moment-timezone/moment-timezone-utils.js',
+				'assets/js/timezone-test-start.js',
+				'libs/nodeunit/nodeunit.js',
+				'libs/moment-timezone/tests/helpers/*.js',
+				'libs/moment-timezone/tests/zones/**/*.js',
+				'libs/moment-timezone/tests/moment-timezone/**/*.js',
+				'assets/js/test.js',
+				'assets/js/timezone-test-end.js'
 			]
 		}
 	});
@@ -68,5 +84,5 @@ module.exports = function(grunt) {
 		tasks: ['js']
 	});
 
-	grunt.registerTask('js', ['concat:js', 'copy:js', 'uglify:js']);
+	grunt.registerTask('js', ['concat:js', 'concat:tz', 'copy:js', 'uglify:js']);
 };
