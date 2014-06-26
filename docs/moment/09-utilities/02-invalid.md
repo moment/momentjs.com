@@ -2,7 +2,7 @@
 title: Invalid
 version: 2.3.0
 signature: |
-  moment.normalizeUnits(String);
+  moment.invalid(Object);
 ---
 
 
