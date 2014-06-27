@@ -26,6 +26,9 @@ Like `moment#isAfter` and `moment#isBefore`, any of the units of time that are s
 
 If nothing is passed to `moment#isSame`, it will default to the current time.
 
-```javascript
-moment().isSame(); // true
-```
+*NOTE*: `moment().isSame()` has undefined behavior and should not be used! If
+the code runs fast the initial created moment would be the same as the one
+created in isSame to perform the check, so the result would be `true`. But
+if the code runs slower its possible that the moment created in isSame is
+measurably after the one created in `moment()`, so the call would return
+`false`.
