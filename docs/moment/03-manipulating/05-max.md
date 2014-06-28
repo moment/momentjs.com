@@ -5,13 +5,15 @@ signature: |
   moment().max(Moment|String|Number|Date|Array);
 ---
 
-**NOTE**: This function has been **deprecated** in **2.7.0**. Consider [`moment.max`](/docs/#/get-set/max/) instead.
+**NOTE**: This function has been **deprecated** in **2.7.0**. Consider [`moment.min`](/docs/#/get-set/min/) instead.
 
 ------
 
-Limits the moment to a maximum of another moment value.
+Limits the moment to a maximum of another moment value. So `a.max(b)` is the same as `a = moment.min(a, b)` (note that `max` is converted to `min`).
 
 Sometimes, server clocks are not quite in sync with client clocks. This ends up displaying humanized strings such as "in a few seconds" rather than "a few seconds ago". You can prevent that with `moment#max()`:
+
+This is the counterpart for `moment#min`.
 
 ```javascript
 var momentFromServer = moment(input);
@@ -26,5 +28,3 @@ moment().max("2013-04-20T20:00:00+0800");
 moment().max("Jan 1 2001", "MMM D YYYY");
 moment().max(new Date(2012, 1, 8));
 ```
-
-**Note:** `moment#max` doesn't actually mutate the moment; it simly returns the input moment if the input moment is later, and `this` otherwise.

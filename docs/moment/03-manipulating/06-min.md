@@ -5,11 +5,11 @@ signature: |
   moment().min(Moment|String|Number|Date|Array);
 ---
 
-**NOTE**: This function has been **deprecated** in **2.7.0**. Consider [`moment.min`](/docs/#/get-set/min/) instead.
+**NOTE**: This function has been **deprecated** in **2.7.0**. Consider [`moment.max`](/docs/#/get-set/max/) instead.
 
 ------
 
-Limits the moment to a minimum of another moment value.
+Limits the moment to a minimum of another moment value. So `a.min(b)` is the same as `a = moment.max(a, b)` (note that `min` is converted to `max`).
 
 This is the counterpart for `moment#max`.
 
@@ -24,5 +24,3 @@ var start  = moment().startOf('week');
 var end    = moment().endOf('week');
 var actual = moment().min(start).max(end);
 ```
-
-**Note:** `moment#min` doesn't actually mutate the moment; it simly returns the input moment if the input moment is earlier, and `this` otherwise.
