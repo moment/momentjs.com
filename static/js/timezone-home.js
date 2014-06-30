@@ -1,5 +1,5 @@
 (function(){
-        moment.lang("en");
+	moment.lang("en");
 
 	var $map = $('.map-inset'),
 		$labelName = $('.map-label-name'),
@@ -8,7 +8,6 @@
 		$axisY = $('.map-axis-y'),
 		width = $map.outerWidth(),
 		height = $map.outerHeight(),
-		i,
 		lastCenter,
 		centers = [];
 
@@ -28,15 +27,15 @@
 		lastCenter = center;
 	}
 
-	function Center (data, name) {
-		this.x = (180 + data.lon) / 360;
+	function Center (data) {
+		this.name = data.name;
+		this.x = (180 + data.long) / 360;
 		this.y = (90 - data.lat) / 180;
 		this.dom = $('<span>').appendTo($map).css({
 			left: this.x * 100 + '%',
 			top: this.y * 100 + '%'
 		});
-		this.name = name;
-		if (name === 'America/Los_Angeles') {
+		if (this.name === 'America/Los_Angeles') {
 			changeCenter(this);
 		}
 	}
@@ -59,9 +58,11 @@
 		}
 	};
 
-	for (i in window.momentTZData.meta) {
-		centers.push(new Center(window.momentTZData.meta[i], i));
-	}
+	$.getJSON('/data/moment-timezone-meta.json').then(function (data) {
+		for (var i = 0; i < data.length; i++) {
+			centers.push(new Center(data[i]));
+		}
+	});
 
 	$('.map-inset').mousemove(function (e) {
 		var offset = $(this).offset(),

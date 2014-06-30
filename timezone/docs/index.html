@@ -35,6 +35,8 @@
 					
 						<a href="." class="active">Docs</a>
 					
+						<a href="../data/" >Data</a>
+					
 						<a href="../tests/" >Tests</a>
 					
 					<a href="https://github.com/moment/moment-timezone/">Fork on GitHub</a>
@@ -76,16 +78,128 @@
 			</div>
 		
 			<div class="docs-nav-section">
-				<a class="docs-nav-section-title" href='#/how-to/'>How to use it</a>
+				<a class="docs-nav-section-title" href='#/using-timezones/'>Using Timezones</a>
 				
 					
 				
 					
-						<a class="docs-nav-item" href="#/how-to/constructor/">Constructor</a>
+						<a class="docs-nav-item" href="#/using-timezones/parsing-in-zone/">Parsing in Zone</a>
 					
 				
 					
-						<a class="docs-nav-item" href="#/how-to/mutator/">Mutator</a>
+						<a class="docs-nav-item" href="#/using-timezones/parsing-ambiguous-inputs/">Parsing Ambiguities</a>
+					
+				
+					
+						<a class="docs-nav-item" href="#/using-timezones/converting-to-zone/">Converting to Zone</a>
+					
+				
+					
+						<a class="docs-nav-item" href="#/using-timezones/formatting/">Formatting Additions</a>
+					
+				
+			</div>
+		
+			<div class="docs-nav-section">
+				<a class="docs-nav-section-title" href='#/zone-object/'>Zone Object</a>
+				
+					
+				
+					
+						<a class="docs-nav-item" href="#/zone-object/name/">Name</a>
+					
+				
+					
+						<a class="docs-nav-item" href="#/zone-object/abbr/">Abbreviation</a>
+					
+				
+					
+						<a class="docs-nav-item" href="#/zone-object/offset/">Offset</a>
+					
+				
+					
+						<a class="docs-nav-item" href="#/zone-object/parse/">Parse Offset</a>
+					
+				
+			</div>
+		
+			<div class="docs-nav-section">
+				<a class="docs-nav-section-title" href='#/data-formats/'>Data Formats</a>
+				
+					
+				
+					
+						<a class="docs-nav-item" href="#/data-formats/unpacked-format/">Unpacked Format</a>
+					
+				
+					
+						<a class="docs-nav-item" href="#/data-formats/packed-format/">Packed Format</a>
+					
+				
+					
+						<a class="docs-nav-item" href="#/data-formats/link-format/">Link Format</a>
+					
+				
+			</div>
+		
+			<div class="docs-nav-section">
+				<a class="docs-nav-section-title" href='#/data-loading/'>Data Loading</a>
+				
+					
+				
+					
+						<a class="docs-nav-item" href="#/data-loading/adding-a-zone/">Adding a Zone</a>
+					
+				
+					
+						<a class="docs-nav-item" href="#/data-loading/adding-a-link/">Adding a Link</a>
+					
+				
+					
+						<a class="docs-nav-item" href="#/data-loading/loading-a-data-bundle/">Loading a Data Bundle</a>
+					
+				
+					
+						<a class="docs-nav-item" href="#/data-loading/checking-if-a-zone-exists/">Checking Zone Existence</a>
+					
+				
+					
+						<a class="docs-nav-item" href="#/data-loading/getting-zone-names/">Getting Zone Names</a>
+					
+				
+			</div>
+		
+			<div class="docs-nav-section">
+				<a class="docs-nav-section-title" href='#/data-utilities/'>Data Utilities</a>
+				
+					
+				
+					
+						<a class="docs-nav-item" href="#/data-utilities/pack/">Pack</a>
+					
+				
+					
+						<a class="docs-nav-item" href="#/data-utilities/unpack/">Unpack</a>
+					
+				
+					
+						<a class="docs-nav-item" href="#/data-utilities/pack-base-60/">Pack Base 60</a>
+					
+				
+					
+						<a class="docs-nav-item" href="#/data-utilities/unpack-base-60/">Unpack Base 60</a>
+					
+				
+					
+						<a class="docs-nav-item" href="#/data-utilities/create-links/">Create Links</a>
+					
+				
+					
+						<a class="docs-nav-item" href="#/data-utilities/filter-years/">Filter Years</a>
+					
+				
+					
+						<a class="docs-nav-item" href="#/data-utilities/filter-link-pack/">Filter Years, Create Links, and Pack</a>
 					
 				
 			</div>
@@ -104,8 +218,9 @@
 					
 					<div class="docs-method-prose">
 						
-						<p>In order to use moment-timezone, you will need <code>moment@2.6.0</code> or greater, the core <code>moment-timezone</code> library, and the <code>moment-timezone</code> data.</p>
-<p>You can use the data builder at <a href="/timezone/data/">momentjs.com/timezone/data/</a> to construct a data set with only the zones needed.</p>
+						<p>To use moment-timezone, you will need <code>moment@2.6.0+</code>, <code>moment-timezone.js</code>, and the <code>moment-timezone</code> data.</p>
+<p>For convenience, there are builds available on <a href="/timezone/">momentjs.com/timezone/</a> with all the zone data or a subset of the data with support for only 2010-2020.</p>
+<p>You can also use the data builder at <a href="/timezone/data/">momentjs.com/timezone/data/</a> to construct a data set with only the zones and years needed.</p>
 
 					</div>
 				</article>
@@ -117,11 +232,16 @@
 							<a href='#/use-it/node-js/'>Node.js</a>
 							
 						</h3>
-						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/00-use-it/01-node-js.md" target="_blank">edit</a>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment-timezone/00-use-it/01-node-js.md" target="_blank">edit</a>
 					
 					<div class="docs-method-prose">
 						
-						<pre><code>npm install moment-timezone</code></pre>
+							<div class="docs-method-signature">
+								<pre><code class="language-js">npm install moment-timezone</code></pre>
+
+							</div>
+						
+						<p>In Node.js, all the data is preloaded. No additional code is needed for loading data.</p>
 <pre><code class="language-javascript"><span class="keyword">var</span> moment = require(<span class="string">'moment-timezone'</span>);
 moment().tz(<span class="string">"America/Los_Angeles"</span>).format();</code></pre>
 
@@ -135,16 +255,19 @@ moment().tz(<span class="string">"America/Los_Angeles"</span>).format();</code><
 							<a href='#/use-it/browser/'>Browser</a>
 							
 						</h3>
-						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/00-use-it/02-browser.md" target="_blank">edit</a>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment-timezone/00-use-it/02-browser.md" target="_blank">edit</a>
 					
 					<div class="docs-method-prose">
 						
-						<pre><code class="language-html">&lt;script src=&quot;moment.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;moment-timezone.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;moment-timezone-data.js&quot;&gt;&lt;/script&gt;
-&lt;script&gt;
-    moment().tz(&quot;America/Los_Angeles&quot;).format();
-&lt;/script&gt;</code></pre>
+							<div class="docs-method-signature">
+								<pre><code class="language-js">&lt;script src=<span class="string">"moment.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"moment-timezone-with-data.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span></code></pre>
+
+							</div>
+						
+						<p>When using Moment Timezone in the browser, you will need to load the data as well as the library.</p>
+<p>You can either use the prebuilt library and data files linked on <a href="/timezone/">the homepage</a> or build a subset of the data yourself using the <a href="/timezone/data/">data builder</a>.</p>
+<pre><code class="language-js">moment().tz(<span class="string">"America/Los_Angeles"</span>).format();</code></pre>
 
 					</div>
 				</article>
@@ -156,47 +279,51 @@ moment().tz(<span class="string">"America/Los_Angeles"</span>).format();</code><
 							<a href='#/use-it/require-js/'>Require.js</a>
 							
 						</h3>
-						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/00-use-it/03-require-js.md" target="_blank">edit</a>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment-timezone/00-use-it/03-require-js.md" target="_blank">edit</a>
 					
 					<div class="docs-method-prose">
 						
-						<pre><code class="language-javascript">require.config({
+							<div class="docs-method-signature">
+								<pre><code class="language-js">require.config({
     paths: {
-        <span class="string">"moment"</span>: <span class="string">"path/to/moment"</span>,
-        <span class="string">"moment-timezone"</span>: <span class="string">"path/to/moment-timezone"</span>,
-        <span class="string">"moment-timezone-data"</span>: <span class="string">"path/to/moment-timezone-data"</span>
+        <span class="string">"moment"</span>: <span class="string">"path/to/moment"</span>
     }
 });
-define([<span class="string">"moment-timezone"</span>, <span class="string">"moment-timezone-data"</span>], <span class="function"><span class="keyword">function</span> <span class="params">(moment)</span> {</span>
+define([<span class="string">"path/to/moment-timezone-with-data"</span>], <span class="function"><span class="keyword">function</span> <span class="params">(moment)</span> {</span>
     moment().tz(<span class="string">"America/Los_Angeles"</span>).format();
 });</code></pre>
 
+							</div>
+						
+						
 					</div>
 				</article>
 			
 		
 			<article class="docs-section">
-				<a class="docs-section-target" id="/how-to/" name="/how-to/"></a>
-				<h2 class="docs-section-title"><a href='#/how-to/'>How to use it</a></h2>
+				<a class="docs-section-target" id="/using-timezones/" name="/using-timezones/"></a>
+				<h2 class="docs-section-title"><a href='#/using-timezones/'>Using Timezones</a></h2>
 			</article>
 			
 				<article class="docs-method">
-					<a class="docs-method-target" id="/how-to/intro/"  name="/how-to/intro/"></a>
+					<a class="docs-method-target" id="/using-timezones/intro/"  name="/using-timezones/intro/"></a>
 					
 					<div class="docs-method-prose">
 						
-						
+						<p>There are two interfaces for using timezones with Moment.js.</p>
+<p><code>moment.tz(..., String)</code> is used to create a moment with a timezone, and <code>moment().tz(String)</code> is used to change the timezone on an existing moment.</p>
+
 					</div>
 				</article>
 			
 				<article class="docs-method">
-					<a class="docs-method-target" id="/how-to/constructor/"  name="/how-to/constructor/"></a>
+					<a class="docs-method-target" id="/using-timezones/parsing-in-zone/"  name="/using-timezones/parsing-in-zone/"></a>
 					
 						<h3 class="docs-method-title">
-							<a href='#/how-to/constructor/'>Constructor</a>
+							<a href='#/using-timezones/parsing-in-zone/'>Parsing in Zone</a>
 							
 						</h3>
-						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/01-how-to/01-constructor.md" target="_blank">edit</a>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment-timezone/01-using-timezones/01-parsing-in-zone.md" target="_blank">edit</a>
 					
 					<div class="docs-method-prose">
 						
@@ -206,39 +333,894 @@ define([<span class="string">"moment-timezone"</span>, <span class="string">"mom
 							</div>
 						
 						<p>The <code>moment.tz</code> constructor takes all the same arguments as the <code>moment</code>
-constructor, but will interpret the last argument as a time zone identifier.</p>
-<pre><code class="language-javascript">moment.tz(<span class="string">"2013-11-18 11:55"</span>, <span class="string">"America/Toronto"</span>).format(); <span class="comment">// "2013-11-18T11:55:00-05:00"</span>
-moment.tz(<span class="keyword">new</span> Date(<span class="number">2013</span>, <span class="number">11</span>, <span class="number">18</span>), <span class="string">"America/Toronto"</span>).format(); <span class="comment">// "2013-12-18T00:00:00-05:00"</span></code></pre>
+constructor, but uses the last argument as a time zone identifier.</p>
+<pre><code class="language-js"><span class="keyword">var</span> a = moment.tz(<span class="string">"2013-11-18 11:55"</span>, <span class="string">"America/Toronto"</span>);
+<span class="keyword">var</span> b = moment.tz(<span class="string">"May 12th 2014 8PM"</span>, <span class="string">"MMM Do YYYY hA"</span>, <span class="string">"America/Toronto"</span>);
+<span class="keyword">var</span> c = moment.tz(<span class="number">1403454068850</span>, <span class="string">"America/Toronto"</span>);
+a.format(); <span class="comment">// 2013-11-18T11:55:00-05:00</span>
+b.format(); <span class="comment">// 2014-05-12T20:00:00-04:00</span>
+c.format(); <span class="comment">// 2014-06-22T12:21:08-04:00</span></code></pre>
+<p>This constructor is DST aware, and will use the correct offset when parsing.</p>
+<pre><code class="language-js">moment.tz(<span class="string">"2013-12-01"</span>, <span class="string">"America/Los_Angeles"</span>).format(); <span class="comment">// 2013-12-01T00:00:00-08:00</span>
+moment.tz(<span class="string">"2013-06-01"</span>, <span class="string">"America/Los_Angeles"</span>).format(); <span class="comment">// 2013-06-01T00:00:00-07:00</span></code></pre>
+<p>The offset is only taken into consideration when constructing with an array,
+string without offset, or object.</p>
+<pre><code class="language-js"><span class="keyword">var</span> arr = [<span class="number">2013</span>, <span class="number">5</span>, <span class="number">1</span>],
+    str = <span class="string">"2013-12-01"</span>
+    obj = { year : <span class="number">2013</span>, month : <span class="number">5</span>, day : <span class="number">1</span> };
+
+moment.tz(arr, <span class="string">"America/Los_Angeles"</span>).format(); <span class="comment">// 2013-06-01T00:00:00-07:00</span>
+moment.tz(str, <span class="string">"America/Los_Angeles"</span>).format(); <span class="comment">// 2013-06-01T00:00:00-07:00</span>
+moment.tz(obj, <span class="string">"America/Los_Angeles"</span>).format(); <span class="comment">// 2013-06-01T00:00:00-07:00</span>
+
+moment.tz(arr, <span class="string">"America/New_York"</span>).format();    <span class="comment">// 2013-06-01T00:00:00-04:00</span>
+moment.tz(str, <span class="string">"America/New_York"</span>).format();    <span class="comment">// 2013-06-01T00:00:00-04:00</span>
+moment.tz(obj, <span class="string">"America/New_York"</span>).format();    <span class="comment">// 2013-06-01T00:00:00-04:00</span></code></pre>
+<p>If the input string contains an offset, it is used instead for parsing. The parsed moment
+is then converted to the target zone.</p>
+<pre><code class="language-js"><span class="keyword">var</span> zone = <span class="string">"America/Los_Angeles"</span>;
+moment.tz(<span class="string">'2013-06-01T00:00:00'</span>,       zone).format(); <span class="comment">// 2013-06-01T00:00:00-07:00</span>
+moment.tz(<span class="string">'2013-06-01T00:00:00-04:00'</span>, zone).format(); <span class="comment">// 2013-05-31T21:00:00-07:00</span>
+moment.tz(<span class="string">'2013-06-01T00:00:00+00:00'</span>, zone).format(); <span class="comment">// 2013-05-31T17:00:00-07:00</span></code></pre>
+<p>Unix timestamps and <code>Date</code> objects refer to specific points in time, thus it doesn&#39;t
+make sense to use the timezone offset when constructing. Using <code>moment.tz(Number|Date, zone)</code>
+is functionally equivalent to <code>moment(Number|Date).tz(zone)</code>.</p>
+<pre><code class="language-js"><span class="keyword">var</span> timestamp = <span class="number">1403454068850</span>,
+    date = <span class="keyword">new</span> Date(timestamp);
+
+moment.tz(timestamp, <span class="string">"America/Los_Angeles"</span>).format(); <span class="comment">// 2014-06-22T09:21:08-07:00</span>
+moment(timestamp).tz(<span class="string">"America/Los_Angeles"</span>).format(); <span class="comment">// 2014-06-22T09:21:08-07:00</span>
+
+moment.tz(date, <span class="string">"America/Los_Angeles"</span>).format();      <span class="comment">// 2014-06-22T09:21:08-07:00</span>
+moment(date).tz(<span class="string">"America/Los_Angeles"</span>).format();      <span class="comment">// 2014-06-22T09:21:08-07:00</span></code></pre>
 
 					</div>
 				</article>
 			
 				<article class="docs-method">
-					<a class="docs-method-target" id="/how-to/mutator/"  name="/how-to/mutator/"></a>
+					<a class="docs-method-target" id="/using-timezones/parsing-ambiguous-inputs/"  name="/using-timezones/parsing-ambiguous-inputs/"></a>
 					
 						<h3 class="docs-method-title">
-							<a href='#/how-to/mutator/'>Mutator</a>
+							<a href='#/using-timezones/parsing-ambiguous-inputs/'>Parsing Ambiguities</a>
 							
 						</h3>
-						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/01-how-to/02-mutator.md" target="_blank">edit</a>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment-timezone/01-using-timezones/02-parsing-ambiguous-inputs.md" target="_blank">edit</a>
+					
+					<div class="docs-method-prose">
+						
+						<p>Due to Daylight Saving Time, there is a possibility that a time either does
+not exist, or has existed twice.</p>
+<p>In the spring, at the start of DST, clocks move forward an hour. In reality though, it
+is not time that is moving, it is the offset moving.</p>
+<p>Moving the offset forward gives the illusion that an hour has disappeared. As the
+clock ticks, you can see it move from <code>1:58</code> to <code>1:59</code> to <code>3:00</code>. It is easier to
+see what is actually happening when you include the offset.</p>
+<pre><code>1:58 -8
+1:59 -8
+3:00 -7
+3:01 -7</code></pre>
+<p>The result is that any time between <code>1:59:59</code> and <code>3:00:00</code> never actually happened.
+Moment Timezone accounts for this. If you try to parse a time that never existed,
+it will round down an hour.</p>
+<pre><code class="language-js">moment.tz(<span class="string">"2012-03-11 01:59:59"</span>, <span class="string">"America/New_York"</span>); <span class="comment">// 2012-03-11T01:59:59-05:00</span>
+moment.tz(<span class="string">"2012-03-11 02:00:00"</span>, <span class="string">"America/New_York"</span>); <span class="comment">// 2012-03-11T01:00:00-05:00</span>
+moment.tz(<span class="string">"2012-03-11 02:59:59"</span>, <span class="string">"America/New_York"</span>); <span class="comment">// 2012-03-11T01:59:59-05:00</span>
+moment.tz(<span class="string">"2012-03-11 03:00:00"</span>, <span class="string">"America/New_York"</span>); <span class="comment">// 2012-03-11T03:00:00-04:00</span></code></pre>
+<p>In the fall, at the end of DST, clocks move backward an hour. Again, time is not
+moving backwards, only the offset is. In this case, the illusion is that an hour repeats itself.</p>
+<p>Again, it is easier to see what is actually happening when you include the offset.</p>
+<pre><code>1:58 -7
+1:59 -7
+1:00 -8
+1:01 -8</code></pre>
+<p>Moment Timezone handles this by always using the earlier instance of a duplicated hour.</p>
+<pre><code class="language-js">moment.tz(<span class="string">"2012-11-04 00:59:59"</span>, <span class="string">"America/New_York"</span>); <span class="comment">// 2012-11-04T00:59:59-04:00</span>
+moment.tz(<span class="string">"2012-11-04 01:00:00"</span>, <span class="string">"America/New_York"</span>); <span class="comment">// 2012-11-04T01:00:00-04:00</span>
+moment.tz(<span class="string">"2012-11-04 01:59:59"</span>, <span class="string">"America/New_York"</span>); <span class="comment">// 2012-11-04T01:59:59-04:00</span>
+moment.tz(<span class="string">"2012-11-04 02:00:00"</span>, <span class="string">"America/New_York"</span>); <span class="comment">// 2012-11-04T02:00:00-05:00</span></code></pre>
+<p>You won&#39;t be able to create a moment with the later instance of the duplicated hour unless you
+include the offset when parsing.</p>
+<pre><code class="language-js">moment.tz(<span class="string">"2012-11-04 01:00:00-04:00"</span>, <span class="string">"America/New_York"</span>); <span class="comment">// 2012-11-04T01:00:00-04:00</span>
+moment.tz(<span class="string">"2012-11-04 01:00:00-05:00"</span>, <span class="string">"America/New_York"</span>); <span class="comment">// 2012-11-04T01:00:00-05:00</span></code></pre>
+
+					</div>
+				</article>
+			
+				<article class="docs-method">
+					<a class="docs-method-target" id="/using-timezones/converting-to-zone/"  name="/using-timezones/converting-to-zone/"></a>
+					
+						<h3 class="docs-method-title">
+							<a href='#/using-timezones/converting-to-zone/'>Converting to Zone</a>
+							
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment-timezone/01-using-timezones/03-converting-to-zone.md" target="_blank">edit</a>
 					
 					<div class="docs-method-prose">
 						
 							<div class="docs-method-signature">
-								<pre><code class="language-js">moment(...).tz(String);</code></pre>
+								<pre><code class="language-js">moment().tz(String);</code></pre>
 
 							</div>
 						
-						<p>The <code>.tz</code> mutator will set the timezone to the provided time zone identifier and 
-update the offset.</p>
-<pre><code class="language-javascript">moment(<span class="string">"2013-11-18"</span>).tz(<span class="string">"America/Toronto"</span>).zone(); <span class="comment">// 300</span>
-moment(<span class="string">"2013-11-18"</span>).tz(<span class="string">"Europe/Berlin"</span>).zone(); <span class="comment">// -60</span></code></pre>
-<p>This information is used consistently in other operations, like calculating the 
+						<p>The <code>moment#tz</code> mutator will change the time zone and update the offset.</p>
+<pre><code class="language-javascript">moment(<span class="string">"2013-11-18"</span>).tz(<span class="string">"America/Toronto"</span>).format(<span class="string">'Z'</span>); <span class="comment">// -05:00</span>
+moment(<span class="string">"2013-11-18"</span>).tz(<span class="string">"Europe/Berlin"</span>).format(<span class="string">'Z'</span>);   <span class="comment">// +01:00</span></code></pre>
+<p>This information is used consistently in other operations, like calculating the
 start of the day.</p>
-<pre><code class="language-javascript"><span class="keyword">var</span> m = moment(<span class="string">"2013-11-18 11:55"</span>);
-m.tz(<span class="string">"America/Toronto"</span>).format(); <span class="comment">// "2013-11-18T11:55:00-05:00"</span>
-m.startOf(<span class="string">"day"</span>).format(); <span class="comment">// "2013-11-18T00:00:00-05:00"</span>
-m.tz(<span class="string">"Europe/Berlin"</span>).format(); <span class="comment">// "2013-11-18T06:00:00+01:00"</span></code></pre>
+<pre><code class="language-javascript"><span class="keyword">var</span> m = moment.tz(<span class="string">"2013-11-18 11:55"</span>, <span class="string">"America/Toronto"</span>);
+m.format();                     <span class="comment">// 2013-11-18T11:55:00-05:00</span>
+m.startOf(<span class="string">"day"</span>).format();      <span class="comment">// 2013-11-18T00:00:00-05:00</span>
+m.tz(<span class="string">"Europe/Berlin"</span>).format(); <span class="comment">// 2013-11-18T06:00:00+01:00</span>
+m.startOf(<span class="string">"day"</span>).format();      <span class="comment">// 2013-11-18T00:00:00+01:00</span></code></pre>
+
+					</div>
+				</article>
+			
+				<article class="docs-method">
+					<a class="docs-method-target" id="/using-timezones/formatting/"  name="/using-timezones/formatting/"></a>
+					
+						<h3 class="docs-method-title">
+							<a href='#/using-timezones/formatting/'>Formatting Additions</a>
+							
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment-timezone/01-using-timezones/04-formatting.md" target="_blank">edit</a>
+					
+					<div class="docs-method-prose">
+						
+							<div class="docs-method-signature">
+								<pre><code class="language-js">moment.tz(String).format(<span class="string">"Z z"</span>); <span class="comment">// -08:00 PST</span>
+moment.tz(String).zoneAbbr();    <span class="comment">// PST</span>
+moment.tz(String).zoneName();    <span class="comment">// PST</span></code></pre>
+
+							</div>
+						
+						<p>In addition to including the <code>+00:00</code> formatting information, Moment Timezone also
+includes information for the abbreviated timezone name.</p>
+<pre><code class="language-js">moment.tz([<span class="number">2012</span>, <span class="number">0</span>], <span class="string">'America/New_York'</span>).format(<span class="string">'z'</span>);    <span class="comment">// EST</span>
+moment.tz([<span class="number">2012</span>, <span class="number">5</span>], <span class="string">'America/New_York'</span>).format(<span class="string">'z'</span>);    <span class="comment">// EDT</span>
+moment.tz([<span class="number">2012</span>, <span class="number">0</span>], <span class="string">'America/Los_Angeles'</span>).format(<span class="string">'z'</span>); <span class="comment">// PST</span>
+moment.tz([<span class="number">2012</span>, <span class="number">5</span>], <span class="string">'America/Los_Angeles'</span>).format(<span class="string">'z'</span>); <span class="comment">// PDT</span></code></pre>
+<p>Note that these abbreviations may change depending on the timezone offset. This helps to
+distinguish offsets between places that may or may not use DST.</p>
+<pre><code class="language-js"><span class="comment">// Denver observes DST</span>
+moment.tz([<span class="number">2012</span>, <span class="number">0</span>], <span class="string">'America/Denver'</span>).format(<span class="string">'Z z'</span>);  <span class="comment">// -07:00 MST</span>
+moment.tz([<span class="number">2012</span>, <span class="number">5</span>], <span class="string">'America/Denver'</span>).format(<span class="string">'Z z'</span>);  <span class="comment">// -06:00 MDT</span>
+<span class="comment">// Phoenix does not observe DST</span>
+moment.tz([<span class="number">2012</span>, <span class="number">0</span>], <span class="string">'America/Phoenix'</span>).format(<span class="string">'Z z'</span>); <span class="comment">// -07:00 MST</span>
+moment.tz([<span class="number">2012</span>, <span class="number">5</span>], <span class="string">'America/Phoenix'</span>).format(<span class="string">'Z z'</span>); <span class="comment">// -07:00 MST</span></code></pre>
+<p>However, these abbreviations might not change depending on the timezone offset.
+Australia uses <code>Eastern Standard Time</code> for non DST and <code>Eastern Saving Time</code> for DST.
+Because <code>Standard</code> and <code>Saving</code> both start with <code>S</code>, the abbreviations are the same.</p>
+<pre><code class="language-js">moment.tz([<span class="number">2012</span>, <span class="number">0</span>], <span class="string">'Australia/Melbourne'</span>).format(<span class="string">'Z z'</span>);  <span class="comment">// +11:00 EST</span>
+moment.tz([<span class="number">2012</span>, <span class="number">5</span>], <span class="string">'Australia/Melbourne'</span>).format(<span class="string">'Z z'</span>);  <span class="comment">// +10:00 EST</span></code></pre>
+<p>Note also that these abbreviations are not globally unique. The case below is an
+example of two locations using <code>Eastern</code> and <code>Central</code>, as both North America and
+Australia have their own east and west coasts.</p>
+<pre><code class="language-js">moment.tz([<span class="number">2012</span>, <span class="number">0</span>], <span class="string">'America/New_York'</span>).format(<span class="string">'z'</span>);      <span class="comment">// EST</span>
+moment.tz([<span class="number">2012</span>, <span class="number">0</span>], <span class="string">'Australia/Melbourne'</span>).format(<span class="string">'z'</span>);   <span class="comment">// EST</span>
+moment.tz([<span class="number">2012</span>, <span class="number">0</span>], <span class="string">'America/Chicago'</span>).format(<span class="string">'z'</span>);       <span class="comment">// CST</span>
+moment.tz([<span class="number">2012</span>, <span class="number">0</span>], <span class="string">'Australia/Broken_Hill'</span>).format(<span class="string">'z'</span>); <span class="comment">// CST</span></code></pre>
+<p>You can also use <code>moment#zoneAbbr</code> to get the zone abbreviation. This is what
+moment.js uses when formatting the <code>z</code> token.</p>
+<pre><code class="language-js">moment.tz([<span class="number">2012</span>, <span class="number">0</span>], <span class="string">'America/New_York'</span>).zoneAbbr(); <span class="comment">// EST</span>
+moment.tz([<span class="number">2012</span>, <span class="number">5</span>], <span class="string">'America/New_York'</span>).zoneAbbr(); <span class="comment">// EDT</span></code></pre>
+<p>Moment.js also provides a hook for the long form timezone name. Because these strings
+are generally localized, Moment Timezone does not provide any long names for zones.</p>
+<p>To provide long form names, you can override <code>moment.fn.zoneName</code> and use the <code>zz</code> token.</p>
+<pre><code class="language-js"><span class="keyword">var</span> abbrs = {
+    EST : <span class="string">'Eastern Standard Time'</span>,
+    EDT : <span class="string">'Eastern Daylight Time'</span>,
+    CST : <span class="string">'Central Standard Time'</span>,
+    CDT : <span class="string">'Central Daylight Time'</span>,
+    MST : <span class="string">'Mountain Standard Time'</span>,
+    MDT : <span class="string">'Mountain Daylight Time'</span>,
+    PST : <span class="string">'Pacific Standard Time'</span>,
+    PDT : <span class="string">'Pacific Daylight Time'</span>,
+};
+
+moment.fn.zoneName = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+    <span class="keyword">var</span> abbr = <span class="keyword">this</span>.zoneAbbr();
+    <span class="keyword">return</span> abbrs[abbr] || abbr;
+};
+
+moment.tz([<span class="number">2012</span>, <span class="number">0</span>], <span class="string">'America/New_York'</span>).format(<span class="string">'zz'</span>);    <span class="comment">// Eastern Standard Time</span>
+moment.tz([<span class="number">2012</span>, <span class="number">5</span>], <span class="string">'America/New_York'</span>).format(<span class="string">'zz'</span>);    <span class="comment">// Eastern Daylight Time</span>
+moment.tz([<span class="number">2012</span>, <span class="number">0</span>], <span class="string">'America/Los_Angeles'</span>).format(<span class="string">'zz'</span>); <span class="comment">// Pacific Standard Time</span>
+moment.tz([<span class="number">2012</span>, <span class="number">5</span>], <span class="string">'America/Los_Angeles'</span>).format(<span class="string">'zz'</span>); <span class="comment">// Pacific Daylight Time</span></code></pre>
+
+					</div>
+				</article>
+			
+		
+			<article class="docs-section">
+				<a class="docs-section-target" id="/zone-object/" name="/zone-object/"></a>
+				<h2 class="docs-section-title"><a href='#/zone-object/'>Zone Object</a></h2>
+			</article>
+			
+				<article class="docs-method">
+					<a class="docs-method-target" id="/zone-object/intro/"  name="/zone-object/intro/"></a>
+					
+					<div class="docs-method-prose">
+						
+						<p>In order to match a timestamp to an offset, Moment Timezone uses a <code>Zone</code> object.</p>
+<p>Though you shouldn&#39;t even need to use it, this object&#39;s constructor is available
+on the <code>moment.tz.Zone</code> namespace.</p>
+<p>This object has 4 properties.</p>
+<pre><code class="language-js">{
+    name    : <span class="string">'America/Los_Angeles'</span>,          <span class="comment">// the unique identifier</span>
+    abbrs   : [<span class="string">'PDT'</span>, <span class="string">'PST'</span>],                 <span class="comment">// the abbreviations</span>
+    untils  : [<span class="number">1414918800000</span>, <span class="number">1425808800000</span>], <span class="comment">// the timestamps in milliseconds</span>
+    offsets : [<span class="number">420</span>, <span class="number">480</span>]                      <span class="comment">// the offsets in minutes</span>
+}</code></pre>
+
+					</div>
+				</article>
+			
+				<article class="docs-method">
+					<a class="docs-method-target" id="/zone-object/name/"  name="/zone-object/name/"></a>
+					
+						<h3 class="docs-method-title">
+							<a href='#/zone-object/name/'>Name</a>
+							
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment-timezone/02-zone-object/01-name.md" target="_blank">edit</a>
+					
+					<div class="docs-method-prose">
+						
+							<div class="docs-method-signature">
+								<pre><code class="language-js">zone.name; <span class="comment">// America/Los_Angeles</span></code></pre>
+
+							</div>
+						
+						<p>The uniquely identifying name of the timezone.</p>
+
+					</div>
+				</article>
+			
+				<article class="docs-method">
+					<a class="docs-method-target" id="/zone-object/abbr/"  name="/zone-object/abbr/"></a>
+					
+						<h3 class="docs-method-title">
+							<a href='#/zone-object/abbr/'>Abbreviation</a>
+							
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment-timezone/02-zone-object/02-abbr.md" target="_blank">edit</a>
+					
+					<div class="docs-method-prose">
+						
+							<div class="docs-method-signature">
+								<pre><code class="language-js">zone.abbr(timestamp); <span class="comment">// PST</span></code></pre>
+
+							</div>
+						
+						<p>Get the abbreviation for a given timestamp from a <code>Zone</code>.</p>
+<pre><code class="language-js">moment.tz.zone(<span class="string">'America/Los_Angeles'</span>).abbr(<span class="number">1403465838805</span>); <span class="comment">// PDT</span>
+moment.tz.zone(<span class="string">'America/Los_Angeles'</span>).abbr(<span class="number">1388563200000</span>); <span class="comment">// PST</span></code></pre>
+
+					</div>
+				</article>
+			
+				<article class="docs-method">
+					<a class="docs-method-target" id="/zone-object/offset/"  name="/zone-object/offset/"></a>
+					
+						<h3 class="docs-method-title">
+							<a href='#/zone-object/offset/'>Offset</a>
+							
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment-timezone/02-zone-object/03-offset.md" target="_blank">edit</a>
+					
+					<div class="docs-method-prose">
+						
+							<div class="docs-method-signature">
+								<pre><code class="language-js">zone.offset(timestamp); <span class="comment">// 480</span></code></pre>
+
+							</div>
+						
+						<p>Get the offset for a given timestamp from a <code>Zone</code>.</p>
+<pre><code class="language-js">moment.tz.zone(<span class="string">'America/Los_Angeles'</span>).offset(<span class="number">1403465838805</span>); <span class="comment">// 420</span>
+moment.tz.zone(<span class="string">'America/Los_Angeles'</span>).offset(<span class="number">1388563200000</span>); <span class="comment">// 480</span></code></pre>
+
+					</div>
+				</article>
+			
+				<article class="docs-method">
+					<a class="docs-method-target" id="/zone-object/parse/"  name="/zone-object/parse/"></a>
+					
+						<h3 class="docs-method-title">
+							<a href='#/zone-object/parse/'>Parse Offset</a>
+							
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment-timezone/02-zone-object/04-parse.md" target="_blank">edit</a>
+					
+					<div class="docs-method-prose">
+						
+							<div class="docs-method-signature">
+								<pre><code class="language-js">zone.parse(timestamp); <span class="comment">// 480</span></code></pre>
+
+							</div>
+						
+						<p>Parse an offset for a timestamp constructed from <code>Date.UTC</code> in that zone.</p>
+<p>This is what Moment Timezone uses to parse input into a timezone. The process is
+conceptually similar to the following.</p>
+<p>Assume we want to find the exact moment of <code>March 19 2014 8:30 am</code> in New York.
+Because the offset varies between <code>-04:00</code> and <code>-05:00</code> in New York, we don&#39;t know
+what the offset was on March 19th.</p>
+<p>Instead, we create a timestamp in UTC and pass that to <code>zone.parse</code>, which will
+return the offset at that time.</p>
+<pre><code class="language-js"><span class="keyword">var</span> zone = moment.tz.zone(<span class="string">'America/New_York'</span>);
+zone.parse(Date.UTC(<span class="number">2012</span>, <span class="number">2</span>, <span class="number">19</span>, <span class="number">8</span>, <span class="number">30</span>)); <span class="comment">// 240</span></code></pre>
+<p>This is the code that handles the cases referenced in the
+<a href="#/using-timezones/parsing-ambiguous-inputs/">Parsing Ambiguities</a> section above.</p>
+<pre><code class="language-js"><span class="keyword">var</span> zone = moment.tz.zone(<span class="string">'America/New_York'</span>);
+zone.parse(Date.UTC(<span class="number">2012</span>, <span class="number">2</span>, <span class="number">11</span>, <span class="number">1</span>, <span class="number">59</span>)); <span class="comment">// 300</span>
+zone.parse(Date.UTC(<span class="number">2012</span>, <span class="number">2</span>, <span class="number">11</span>, <span class="number">2</span>, <span class="number">00</span>)); <span class="comment">// 240</span></code></pre>
+
+					</div>
+				</article>
+			
+		
+			<article class="docs-section">
+				<a class="docs-section-target" id="/data-formats/" name="/data-formats/"></a>
+				<h2 class="docs-section-title"><a href='#/data-formats/'>Data Formats</a></h2>
+			</article>
+			
+				<article class="docs-method">
+					<a class="docs-method-target" id="/data-formats/intro/"  name="/data-formats/intro/"></a>
+					
+					<div class="docs-method-prose">
+						
+						<p>Moment Timezone uses two data formats. An unpacked version for calculations and
+a packed version for minified transport.</p>
+
+					</div>
+				</article>
+			
+				<article class="docs-method">
+					<a class="docs-method-target" id="/data-formats/unpacked-format/"  name="/data-formats/unpacked-format/"></a>
+					
+						<h3 class="docs-method-title">
+							<a href='#/data-formats/unpacked-format/'>Unpacked Format</a>
+							
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment-timezone/03-data-formats/01-unpacked-format.md" target="_blank">edit</a>
+					
+					<div class="docs-method-prose">
+						
+						<p>The unpacked format looks exactly like the <a href="#/zone-object/">zone object</a>.</p>
+<p>The data below is for Los Angeles between 2014 and 2018.</p>
+<pre><code class="language-js">{
+    name    : <span class="string">'America/Los_Angeles'</span>,
+    abbrs   : [<span class="string">'PST'</span>, <span class="string">'PDT'</span>,<span class="string">'PST'</span>, <span class="string">'PDT'</span>, <span class="string">'PST'</span>, <span class="string">'PDT'</span>, <span class="string">'PST'</span>, <span class="string">'PDT'</span>, <span class="string">'PST'</span>, <span class="string">'PDT'</span>, <span class="string">'PST'</span>],
+    untils  : [<span class="number">1394359200000</span>, <span class="number">1414918800000</span>, <span class="number">1425808800000</span>, <span class="number">1446368400000</span>, <span class="number">1457863200000</span>, <span class="number">1478422800000</span>, <span class="number">1489312800000</span>, <span class="number">1509872400000</span>, <span class="number">1520762400000</span>, <span class="number">1541322000000</span>, <span class="literal">null</span>],
+    offsets : [<span class="number">480</span>, <span class="number">420</span>, <span class="number">480</span>, <span class="number">420</span>, <span class="number">480</span>, <span class="number">420</span>, <span class="number">480</span>, <span class="number">420</span>, <span class="number">480</span>, <span class="number">420</span>, <span class="number">480</span>]
+}</code></pre>
+<p>The lengths of <code>abbrs, untils, offsets</code> are all the same. The <code>offset</code> and <code>abbr</code> at
+any index are only active while the timestamp is less than the <code>until</code> at that index.</p>
+<p>An easy way to read this aloud is <em>&quot;between <code>untils[n-1]</code> and <code>untils[n]</code>, the abbr should be <code>abbrs[n]</code> and
+the offset should be <code>offsets[n]</code>&quot;</em>.</p>
+<p>Note that <code>untils</code> are measured in milliseconds and <code>offsets</code> are measured in minutes.</p>
+
+					</div>
+				</article>
+			
+				<article class="docs-method">
+					<a class="docs-method-target" id="/data-formats/packed-format/"  name="/data-formats/packed-format/"></a>
+					
+						<h3 class="docs-method-title">
+							<a href='#/data-formats/packed-format/'>Packed Format</a>
+							
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment-timezone/03-data-formats/02-packed-format.md" target="_blank">edit</a>
+					
+					<div class="docs-method-prose">
+						
+						<p>The packed format represents an unpacked zone in a single string.</p>
+<p>The data below is for Los Angeles between 2014 and 2018.</p>
+<pre><code class="language-js"><span class="string">'America/Los_Angeles|PST PDT|80 70|01010101010|1Lzm0 1zb0 Op0 1zb0 Rd0 1zb0 Op0 1zb0 Op0 1zb0'</span></code></pre>
+<p>In order to save as many bytes as possible, we used a very compact format to store the data.</p>
+<p>The data is split into 5 sections separated by pipes.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Name</td>
+<td><code>America/Los_Angeles</code></td>
+</tr>
+<tr>
+<td>1</td>
+<td>Abbr Map</td>
+<td><code>PST PDT</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Offset Map</td>
+<td><code>80 70</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Abbr/Offset&nbsp;Index</td>
+<td><code>01010101010</code></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Timestamp Diff</td>
+<td><code>1Lzm0 1zb0 Op0 1zb0 Rd0 1zb0 Op0 1zb0 Op0 1zb0</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Name:</strong> The canonical name of the timezone.</p>
+<p><strong>Abbr Map:</strong> A space separated list of all the abbreviations ever used in this timezone.</p>
+<p><strong>Offset Map:</strong> A space separated list of all the offsets ever used in this timezone in minutes in base 60.</p>
+<p><strong>Abbr/Offset Index:</strong> A tightly packed array of indices into the offset and abbr maps. These are also in base 60.</p>
+<p><strong>Timestamp Diffs:</strong> This is where the timestamps are stored.</p>
+<p>Because we are dealing with a sorted list of timestamps, we just store the
+diff from the last timestamps rather than storing the full timestamps.</p>
+<p>The first item in the array is a unix timestamp in minutes.
+All items after the first item are numbers of minutes to be added
+to the previous value during unpacking. All items are stored in base 60.</p>
+<p>As you may have seen from the example above, the timestamp diffs tend to duplicate
+the same values from year to year. These duplications allow gzip to compress the
+data even further than if we used full timestamps.</p>
+<h3 id="base-60-">Base 60?</h3>
+<p>You may be wondering why base 60 is used. Base 62 is a fairly common tool for ascii
+data compression, using <code>a-z</code> to represent <code>10-35</code> and <code>A-Z</code> to represent <code>36-61</code>.</p>
+<p>While it may have saved a few bytes to use base 62, much of the data
+in Moment Timezone maps nicely to multiples of 60.</p>
+<p>There are 60 minutes in a second and 60 seconds in a minute. 3 hours is <code>30</code>
+minutes in base 60 and <code>300</code> seconds in base 60 instead of <code>180</code> and <code>10800</code> in
+base 10 or <code>2U</code> and <code>2Oc</code> in base 62.</p>
+
+					</div>
+				</article>
+			
+				<article class="docs-method">
+					<a class="docs-method-target" id="/data-formats/link-format/"  name="/data-formats/link-format/"></a>
+					
+						<h3 class="docs-method-title">
+							<a href='#/data-formats/link-format/'>Link Format</a>
+							
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment-timezone/03-data-formats/03-link-format.md" target="_blank">edit</a>
+					
+					<div class="docs-method-prose">
+						
+						<p>In order to reduce duplication, the Moment Timezone data packer will create links
+out of two zones that share data that is exactly the same.</p>
+<p>This data is the two zone names separated by a pipe.</p>
+<pre><code class="language-js">moment.tz.add(<span class="string">'America/Los_Angeles|PST PDT|80 70|01010101010|1Lzm0 1zb0 Op0 1zb0 Rd0 1zb0 Op0 1zb0 Op0 1zb0'</span>);
+moment.tz.link(<span class="string">'America/Los_Angeles|US/Pacific'</span>);
+moment.tz(<span class="string">"2013-12-01"</span>, <span class="string">"America/Los_Angeles"</span>).format(); <span class="comment">// 2013-12-01T00:00:00-08:00</span>
+moment.tz(<span class="string">"2013-12-01"</span>, <span class="string">"US/Pacific"</span>).format();          <span class="comment">// 2013-12-01T00:00:00-08:00</span></code></pre>
+
+					</div>
+				</article>
+			
+		
+			<article class="docs-section">
+				<a class="docs-section-target" id="/data-loading/" name="/data-loading/"></a>
+				<h2 class="docs-section-title"><a href='#/data-loading/'>Data Loading</a></h2>
+			</article>
+			
+				<article class="docs-method">
+					<a class="docs-method-target" id="/data-loading/intro/"  name="/data-loading/intro/"></a>
+					
+					<div class="docs-method-prose">
+						
+						<p>Once the data has been packed and transported to the client, it must be added to
+Moment Timezone.</p>
+
+					</div>
+				</article>
+			
+				<article class="docs-method">
+					<a class="docs-method-target" id="/data-loading/adding-a-zone/"  name="/data-loading/adding-a-zone/"></a>
+					
+						<h3 class="docs-method-title">
+							<a href='#/data-loading/adding-a-zone/'>Adding a Zone</a>
+							
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment-timezone/04-data-loading/01-adding-a-zone.md" target="_blank">edit</a>
+					
+					<div class="docs-method-prose">
+						
+							<div class="docs-method-signature">
+								<pre><code class="language-js">moment.tz.add(PackedZoneString)
+moment.tz.add(PackedZoneString[])</code></pre>
+
+							</div>
+						
+						<p>To add zone data to Moment Timezone, use <code>moment.tz.add</code>.</p>
+<pre><code class="language-js">moment.tz.add(<span class="string">'America/Los_Angeles|PST PDT|80 70|0101|1Lzm0 1zb0 Op0'</span>);</code></pre>
+<p>To add more than one zone, pass an array of packed data.</p>
+<pre><code class="language-js">moment.tz.add([
+    <span class="string">'America/Los_Angeles|PST PDT|80 70|0101|1Lzm0 1zb0 Op0'</span>,
+    <span class="string">'America/New_York|EST EDT|50 40|0101|1Lz50 1zb0 Op0'</span>
+]);</code></pre>
+
+					</div>
+				</article>
+			
+				<article class="docs-method">
+					<a class="docs-method-target" id="/data-loading/adding-a-link/"  name="/data-loading/adding-a-link/"></a>
+					
+						<h3 class="docs-method-title">
+							<a href='#/data-loading/adding-a-link/'>Adding a Link</a>
+							
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment-timezone/04-data-loading/02-adding-a-link.md" target="_blank">edit</a>
+					
+					<div class="docs-method-prose">
+						
+							<div class="docs-method-signature">
+								<pre><code class="language-js">moment.tz.link(PackedLinkString)
+moment.tz.link(PackedLinkString[])</code></pre>
+
+							</div>
+						
+						<p>To link two zone names to the same data, use <code>moment.tz.link</code>.</p>
+<p>The strings passed in should be in the <a href="#/data-formats/link-format">link format</a>:
+the two zone names separated by a pipe.</p>
+<pre><code class="language-js">moment.tz.link(<span class="string">'America/Los_Angeles|US/Pacific'</span>);</code></pre>
+<p>To add more than one link at a time, pass an array of link strings.</p>
+<pre><code class="language-js">moment.tz.link([
+    <span class="string">'America/Los_Angeles|US/Pacific'</span>,
+    <span class="string">'America/New_York|US/Eastern'</span>
+]);</code></pre>
+
+					</div>
+				</article>
+			
+				<article class="docs-method">
+					<a class="docs-method-target" id="/data-loading/loading-a-data-bundle/"  name="/data-loading/loading-a-data-bundle/"></a>
+					
+						<h3 class="docs-method-title">
+							<a href='#/data-loading/loading-a-data-bundle/'>Loading a Data Bundle</a>
+							
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment-timezone/04-data-loading/03-loading-a-data-bundle.md" target="_blank">edit</a>
+					
+					<div class="docs-method-prose">
+						
+							<div class="docs-method-signature">
+								<pre><code class="language-js">moment.tz.load({
+    zones : [],
+    links : [],
+    version : <span class="string">'2014e'</span>
+});</code></pre>
+
+							</div>
+						
+						<p>The data for Moment Timezone comes from <a href="http://www.iana.org/time-zones">the IANA Time Zone Database</a>.
+New versions are released periodically as timezone laws change in various countries.</p>
+<p>The versions are named after the year and an incrementing letter. <code>2014a 2014b 2014c...</code></p>
+<p>In order to keep versions together, Moment Timezone has a bundled object format as well.</p>
+<pre><code class="language-js">{
+    version : <span class="string">'2014e'</span>,
+    zones : [
+        <span class="string">'America/Los_Angeles|PST PDT|80 70|0101|1Lzm0 1zb0 Op0'</span>,
+        <span class="string">'America/New_York|EST EDT|50 40|0101|1Lz50 1zb0 Op0'</span>
+    ],
+    links : [
+        <span class="string">'America/Los_Angeles|US/Pacific'</span>,
+        <span class="string">'America/New_York|US/Eastern'</span>
+    ]
+}</code></pre>
+<p>To load a bundle into Moment Timezone, use <code>moment.tz.load</code>.</p>
+<pre><code class="language-js">moment.tz.load({
+    version : <span class="string">'2014e'</span>,
+    zones : [...],
+    links : [...]
+})</code></pre>
+
+					</div>
+				</article>
+			
+				<article class="docs-method">
+					<a class="docs-method-target" id="/data-loading/checking-if-a-zone-exists/"  name="/data-loading/checking-if-a-zone-exists/"></a>
+					
+						<h3 class="docs-method-title">
+							<a href='#/data-loading/checking-if-a-zone-exists/'>Checking Zone Existence</a>
+							
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment-timezone/04-data-loading/04-checking-if-a-zone-exists.md" target="_blank">edit</a>
+					
+					<div class="docs-method-prose">
+						
+							<div class="docs-method-signature">
+								<pre><code class="language-js">moment.tz.zone(name); <span class="comment">// Zone or null</span></code></pre>
+
+							</div>
+						
+						<p>To check if a zone exists, use <code>moment.tz.zone</code>. It will return the Zone if it
+was loaded and <code>null</code> if it was not loaded.</p>
+<pre><code class="language-js">moment.tz.zone(<span class="string">"UnloadedZone"</span>); <span class="comment">// null</span>
+moment.tz.add(<span class="string">"UnloadedZone|UZ|0|0|"</span>);
+moment.tz.zone(<span class="string">"UnloadedZone"</span>); <span class="comment">// Zone { name : "UnloadedZone", ...}</span></code></pre>
+
+					</div>
+				</article>
+			
+				<article class="docs-method">
+					<a class="docs-method-target" id="/data-loading/getting-zone-names/"  name="/data-loading/getting-zone-names/"></a>
+					
+						<h3 class="docs-method-title">
+							<a href='#/data-loading/getting-zone-names/'>Getting Zone Names</a>
+							
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment-timezone/04-data-loading/05-getting-zone-names.md" target="_blank">edit</a>
+					
+					<div class="docs-method-prose">
+						
+							<div class="docs-method-signature">
+								<pre><code class="language-js">moment.tz.names(); <span class="comment">// String[]</span></code></pre>
+
+							</div>
+						
+						<p>To get a list of all the loaded timezone names, use <code>moment.tz.names</code>.</p>
+<pre><code class="language-js">moment.tz.names(); <span class="comment">// ["Africa/Abidjan", "Africa/Accra", "Africa/Addis_Ababa", ...]</span></code></pre>
+
+					</div>
+				</article>
+			
+		
+			<article class="docs-section">
+				<a class="docs-section-target" id="/data-utilities/" name="/data-utilities/"></a>
+				<h2 class="docs-section-title"><a href='#/data-utilities/'>Data Utilities</a></h2>
+			</article>
+			
+				<article class="docs-method">
+					<a class="docs-method-target" id="/data-utilities/intro/"  name="/data-utilities/intro/"></a>
+					
+					<div class="docs-method-prose">
+						
+						<p>Because of the complexity of the packed and unpacked data formats, Moment Timezone
+has some heavily tested utility functions for working with the data.</p>
+<p>Methods for unpacking data are included with the core library, as they are needed
+in order to use the library.</p>
+<p>Methods for packing and subsetting the data are included in an additional
+<code>moment-timezone-utils.js</code> file. This file adds some more methods to the <code>moment.tz</code>
+namespace.</p>
+<pre><code class="language-js"><span class="comment">// in moment-timezone.js</span>
+moment.tz.unpack
+moment.tz.unpackBase60
+<span class="comment">// in moment-timezone-utils.js</span>
+moment.tz.pack
+moment.tz.packBase60
+moment.tz.createLinks
+moment.tz.filterYears
+moment.tz.filterLinkPack</code></pre>
+
+					</div>
+				</article>
+			
+				<article class="docs-method">
+					<a class="docs-method-target" id="/data-utilities/pack/"  name="/data-utilities/pack/"></a>
+					
+						<h3 class="docs-method-title">
+							<a href='#/data-utilities/pack/'>Pack</a>
+							
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment-timezone/05-data-utilities/01-pack.md" target="_blank">edit</a>
+					
+					<div class="docs-method-prose">
+						
+							<div class="docs-method-signature">
+								<pre><code class="language-js">moment.tz.pack(UnpackedObject); <span class="comment">// PackedString</span></code></pre>
+
+							</div>
+						
+						<p>This converts data in the <a href="#/data-formats/unpacked-format/">unpacked format</a>
+to the <a href="#/data-formats/packed-format/">packed format</a>.</p>
+<pre><code class="language-js"><span class="keyword">var</span> unpacked = {
+    name    : <span class="string">'Indian/Mauritius'</span>,
+    abbrs   : [<span class="string">'LMT'</span>, <span class="string">'MUT'</span>, <span class="string">'MUST'</span>, <span class="string">'MUT'</span>, <span class="string">'MUST'</span>, <span class="string">'MUT'</span>],
+    offsets : [-<span class="number">230</span>, -<span class="number">240</span>, -<span class="number">300</span>, -<span class="number">240</span>, -<span class="number">300</span>, -<span class="number">240</span>],
+    untils  : [-<span class="number">1988164200000</span>, <span class="number">403041600000</span>, <span class="number">417034800000</span>, <span class="number">1224972000000</span>, <span class="number">1238274000000</span>, <span class="literal">null</span>]
+};
+moment.tz.pack(unpacked); <span class="comment">// "Indian/Mauritius|LMT MUT MUST|-3O -40 -50|012121|-2xorO 34unO 14L0 12kr0 11z0"</span></code></pre>
+
+					</div>
+				</article>
+			
+				<article class="docs-method">
+					<a class="docs-method-target" id="/data-utilities/unpack/"  name="/data-utilities/unpack/"></a>
+					
+						<h3 class="docs-method-title">
+							<a href='#/data-utilities/unpack/'>Unpack</a>
+							
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment-timezone/05-data-utilities/02-unpack.md" target="_blank">edit</a>
+					
+					<div class="docs-method-prose">
+						
+							<div class="docs-method-signature">
+								<pre><code class="language-js">moment.tz.unpack(PackedString); <span class="comment">// UnpackedObject</span></code></pre>
+
+							</div>
+						
+						<p>This converts data in the <a href="#/data-formats/packed-format/">packed format</a>
+to the <a href="#/data-formats/unpacked-format/">unpacked format</a>.</p>
+<pre><code class="language-js"><span class="keyword">var</span> packed = <span class="string">"Indian/Mauritius|LMT MUT MUST|-3O -40 -50|012121|-2xorO 34unO 14L0 12kr0 11z0"</span>;
+
+moment.tz.unpack(packed);
+<span class="comment">// {</span>
+<span class="comment">//     name    : 'Indian/Mauritius',</span>
+<span class="comment">//     abbrs   : ['LMT', 'MUT', 'MUST', 'MUT', 'MUST', 'MUT'],</span>
+<span class="comment">//     offsets : [-230, -240, -300, -240, -300, -240],</span>
+<span class="comment">//     untils  : [-1988164200000, 403041600000, 417034800000, 1224972000000, 1238274000000, null]</span>
+<span class="comment">// };</span></code></pre>
+
+					</div>
+				</article>
+			
+				<article class="docs-method">
+					<a class="docs-method-target" id="/data-utilities/pack-base-60/"  name="/data-utilities/pack-base-60/"></a>
+					
+						<h3 class="docs-method-title">
+							<a href='#/data-utilities/pack-base-60/'>Pack Base 60</a>
+							
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment-timezone/05-data-utilities/03-pack-base-60.md" target="_blank">edit</a>
+					
+					<div class="docs-method-prose">
+						
+							<div class="docs-method-signature">
+								<pre><code class="language-js">moment.tz.packBase60(Number); <span class="comment">// Base60String</span></code></pre>
+
+							</div>
+						
+						<p>Convert a base 10 number to a base 60 string.</p>
+<pre><code class="language-js">moment.tz.packBase60(<span class="number">9</span>);    <span class="comment">// 9</span>
+moment.tz.packBase60(<span class="number">10</span>);   <span class="comment">// a</span>
+moment.tz.packBase60(<span class="number">59</span>);   <span class="comment">// X</span>
+moment.tz.packBase60(<span class="number">1337</span>); <span class="comment">// mh</span></code></pre>
+<p>Much like <code>Number.prototype.toFixed</code>, <code>moment.tz.packBase60</code> accepts a second argument
+for the number of digits of precision.</p>
+<pre><code class="language-js">moment.tz.packBase60(<span class="number">1.1667</span>,   <span class="number">1</span>); <span class="comment">// 1.a</span>
+moment.tz.packBase60(<span class="number">20.12345</span>, <span class="number">3</span>); <span class="comment">// k.7op</span>
+moment.tz.packBase60(<span class="number">59</span>,       <span class="number">1</span>); <span class="comment">// X</span></code></pre>
+<p>A solitary <code>0</code> before the decimal point is dropped.</p>
+<pre><code class="language-js">moment.tz.packBase60(<span class="number">1.1667</span>, <span class="number">1</span>); <span class="comment">// 1.a</span>
+moment.tz.packBase60(<span class="number">0.1667</span>, <span class="number">1</span>); <span class="comment">// .a</span></code></pre>
+<p>Trailing zeroes after the decimal point are dropped.</p>
+<pre><code class="language-js">moment.tz.packBase60(<span class="number">1</span>/<span class="number">6</span>, <span class="number">1</span>); <span class="comment">// .a</span>
+moment.tz.packBase60(<span class="number">1</span>/<span class="number">6</span>, <span class="number">5</span>); <span class="comment">// .a</span>
+moment.tz.packBase60(<span class="number">59</span>, <span class="number">5</span>);  <span class="comment">// X</span></code></pre>
+
+					</div>
+				</article>
+			
+				<article class="docs-method">
+					<a class="docs-method-target" id="/data-utilities/unpack-base-60/"  name="/data-utilities/unpack-base-60/"></a>
+					
+						<h3 class="docs-method-title">
+							<a href='#/data-utilities/unpack-base-60/'>Unpack Base 60</a>
+							
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment-timezone/05-data-utilities/04-unpack-base-60.md" target="_blank">edit</a>
+					
+					<div class="docs-method-prose">
+						
+							<div class="docs-method-signature">
+								<pre><code class="language-js">moment.tz.unpackBase60(Base60String); <span class="comment">// Number</span></code></pre>
+
+							</div>
+						
+						<p>Convert a base 60 string to a base 10 number.</p>
+<pre><code class="language-js">moment.tz.unpackBase60(<span class="string">'9'</span>);     <span class="comment">// 9</span>
+moment.tz.unpackBase60(<span class="string">'a'</span>);     <span class="comment">// 10</span>
+moment.tz.unpackBase60(<span class="string">'X'</span>);     <span class="comment">// 59</span>
+moment.tz.unpackBase60(<span class="string">'mh'</span>);    <span class="comment">// 1337</span>
+moment.tz.unpackBase60(<span class="string">'1.9'</span>);   <span class="comment">// 1.15</span>
+moment.tz.unpackBase60(<span class="string">'k.7op'</span>); <span class="comment">// 20.123449074074074</span></code></pre>
+
+					</div>
+				</article>
+			
+				<article class="docs-method">
+					<a class="docs-method-target" id="/data-utilities/create-links/"  name="/data-utilities/create-links/"></a>
+					
+						<h3 class="docs-method-title">
+							<a href='#/data-utilities/create-links/'>Create Links</a>
+							
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment-timezone/05-data-utilities/05-create-links.md" target="_blank">edit</a>
+					
+					<div class="docs-method-prose">
+						
+							<div class="docs-method-signature">
+								<pre><code class="language-js">moment.tz.createLinks(UnpackedBundle); <span class="comment">// UnpackedBundle</span></code></pre>
+
+							</div>
+						
+						<p>In order to reduce duplication, we can create links out of two zones that share data.</p>
+<pre><code class="language-js"><span class="keyword">var</span> unlinked = {
+    zones : [
+        {name:<span class="string">"Zone/One"</span>,abbrs:[<span class="string">"OST"</span>,<span class="string">"ODT"</span>],offsets:[<span class="number">60</span>,<span class="number">120</span>],untils:[<span class="number">403041600000</span>,<span class="number">417034800000</span>]},
+        {name:<span class="string">"Zone/Two"</span>,abbrs:[<span class="string">"OST"</span>,<span class="string">"ODT"</span>],offsets:[<span class="number">60</span>,<span class="number">120</span>],untils:[<span class="number">403041600000</span>,<span class="number">417034800000</span>]}
+    ],
+    links : [],
+    version : <span class="string">"2014x-doc-example"</span>
+};
+
+moment.tz.createLinks(unlinked);
+
+{
+    zones : [
+        {name:<span class="string">"Zone/One"</span>,abbrs:[<span class="string">"OST"</span>,<span class="string">"ODT"</span>],offsets:[<span class="number">60</span>,<span class="number">120</span>],untils:[<span class="number">403041600000</span>,<span class="number">417034800000</span>]}
+    ],
+    links : [<span class="string">"Zone/One|Zone/Two"</span>],
+    version : <span class="string">"2014x-doc-example"</span>
+}</code></pre>
+<p>This is especially useful when combined with <code>moment.tz.filterYears</code>, as older rules
+that would have differentiated two Zones may not be in the filtered year range,
+allowing them to be linked to save space.</p>
+
+					</div>
+				</article>
+			
+				<article class="docs-method">
+					<a class="docs-method-target" id="/data-utilities/filter-years/"  name="/data-utilities/filter-years/"></a>
+					
+						<h3 class="docs-method-title">
+							<a href='#/data-utilities/filter-years/'>Filter Years</a>
+							
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment-timezone/05-data-utilities/06-filter-years.md" target="_blank">edit</a>
+					
+					<div class="docs-method-prose">
+						
+							<div class="docs-method-signature">
+								<pre><code class="language-js">moment.tz.filterYears(UnpackedZone, Number, Number); <span class="comment">// UnpackedZone</span></code></pre>
+
+							</div>
+						
+						<p>By default, Moment Timezone includes all the data from
+<a href="http://www.iana.org/time-zones">the IANA Time Zone Database</a>. This includes data
+from 1900 to 2038. The data for all these years may not be necessary for your use case.</p>
+<p><code>moment.tz.filterYears</code> can be used to filter out data for years outside a certain range.</p>
+<pre><code class="language-js"><span class="keyword">var</span> all    = { name : <span class="string">"America/Los_Angeles"</span>, abbrs : [...], offsets : [...] untils : [...]};
+<span class="keyword">var</span> subset = moment.tz.filterYears(all, <span class="number">2012</span>, <span class="number">2016</span>);
+all.untils.length;    <span class="comment">// 186</span>
+subset.untils.length; <span class="comment">// 11</span></code></pre>
+<p>If only one year is passed, it will be used for the start and end year.</p>
+<pre><code class="language-js"><span class="keyword">var</span> all    = { name : <span class="string">"America/Los_Angeles"</span>, abbrs : [...], offsets : [...] untils : [...]};
+<span class="keyword">var</span> subset = moment.tz.filterYears(all, <span class="number">2012</span>);
+all.untils.length;    <span class="comment">// 186</span>
+subset.untils.length; <span class="comment">// 3</span></code></pre>
+
+					</div>
+				</article>
+			
+				<article class="docs-method">
+					<a class="docs-method-target" id="/data-utilities/filter-link-pack/"  name="/data-utilities/filter-link-pack/"></a>
+					
+						<h3 class="docs-method-title">
+							<a href='#/data-utilities/filter-link-pack/'>Filter Years, Create Links, and Pack</a>
+							
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment-timezone/05-data-utilities/07-filter-link-pack.md" target="_blank">edit</a>
+					
+					<div class="docs-method-prose">
+						
+							<div class="docs-method-signature">
+								<pre><code class="language-js">moment.tz.filterLinkPack(UnpackedBundle, Number, Number); <span class="comment">// PackedBundle</span></code></pre>
+
+							</div>
+						
+						<p>The packing, link creation, and subsetting of years are all tools for compressing data
+to be transported to the client.</p>
+<p>The <code>moment.tz.filterLinkPack</code> method combines all these into one simple interface.
+Pass in an unpacked bundle, start year, and end year and get a filtered, linked, packed bundle back.</p>
+<p>This is what is being used to compress the output for the <a href="/timezone/">bundled data + library files on the
+homepage</a> and on <a href="/timezone/data/">the data builder</a>.</p>
 
 					</div>
 				</article>
