@@ -344,7 +344,7 @@ There are upper and lower case variations on the same formats. The lowercase ver
 To escape characters in format strings, you can wrap the characters in square brackets.
 
 ```javascript
-moment().format('[today] DDDD'); // 'today Sunday'
+moment().format('[today] dddd'); // 'today Sunday'
 ```
 
 #### Similarities and differences with LDML
