@@ -755,7 +755,7 @@ to your r.js config.</p>
 					<div class="docs-method-prose">
 						
 						<p><a href="http://spmjs.io/">Static Package Manager</a></p>
-<pre><code>spm install moment</code></pre>
+<pre><code>spm install moment --save</code></pre>
 
 					</div>
 				</article>
@@ -2425,10 +2425,11 @@ moment().minutes(<span class="number">0</span>).seconds(<span class="number">0</
 
 							</div>
 						
-						<p><strong>NOTE</strong>: This function has been <strong>deprecated</strong> in <strong>2.7.0</strong>. Consider <a href="/docs/#/get-set/max/"><code>moment.max</code></a> instead.</p>
+						<p><strong>NOTE</strong>: This function has been <strong>deprecated</strong> in <strong>2.7.0</strong>. Consider <a href="/docs/#/get-set/min/"><code>moment.min</code></a> instead.</p>
 <hr>
-<p>Limits the moment to a maximum of another moment value.</p>
+<p>Limits the moment to a maximum of another moment value. So <code>a.max(b)</code> is the same as <code>a = moment.min(a, b)</code> (note that <code>max</code> is converted to <code>min</code>).</p>
 <p>Sometimes, server clocks are not quite in sync with client clocks. This ends up displaying humanized strings such as &quot;in a few seconds&quot; rather than &quot;a few seconds ago&quot;. You can prevent that with <code>moment#max()</code>:</p>
+<p>This is the counterpart for <code>moment#min</code>.</p>
 <pre><code class="language-javascript"><span class="keyword">var</span> momentFromServer = moment(input);
 <span class="keyword">var</span> clampedMoment = momentFromServer.max();</code></pre>
 <p>You can pass anything to <code>moment#max</code> that you would pass to <code>moment()</code>.</p>
@@ -2436,7 +2437,6 @@ moment().minutes(<span class="number">0</span>).seconds(<span class="number">0</
 moment().max(<span class="string">"2013-04-20T20:00:00+0800"</span>);
 moment().max(<span class="string">"Jan 1 2001"</span>, <span class="string">"MMM D YYYY"</span>);
 moment().max(<span class="keyword">new</span> Date(<span class="number">2012</span>, <span class="number">1</span>, <span class="number">8</span>));</code></pre>
-<p><strong>Note:</strong> <code>moment#max</code> doesn&#39;t actually mutate the moment; it simly returns the input moment if the input moment is later, and <code>this</code> otherwise.</p>
 
 					</div>
 				</article>
@@ -2459,16 +2459,15 @@ moment().max(<span class="keyword">new</span> Date(<span class="number">2012</sp
 
 							</div>
 						
-						<p><strong>NOTE</strong>: This function has been <strong>deprecated</strong> in <strong>2.7.0</strong>. Consider <a href="/docs/#/get-set/min/"><code>moment.min</code></a> instead.</p>
+						<p><strong>NOTE</strong>: This function has been <strong>deprecated</strong> in <strong>2.7.0</strong>. Consider <a href="/docs/#/get-set/max/"><code>moment.max</code></a> instead.</p>
 <hr>
-<p>Limits the moment to a minimum of another moment value.</p>
+<p>Limits the moment to a minimum of another moment value. So <code>a.min(b)</code> is the same as <code>a = moment.max(a, b)</code> (note that <code>min</code> is converted to <code>max</code>).</p>
 <p>This is the counterpart for <code>moment#max</code>.</p>
 <pre><code class="language-javascript">moment().min(<span class="string">"2013-04-20T20:00:00+0800"</span>);</code></pre>
 <p>This can be used in conjunction with <code>moment#max</code> to clamp a moment to a range.</p>
 <pre><code class="language-javascript"><span class="keyword">var</span> start  = moment().startOf(<span class="string">'week'</span>);
 <span class="keyword">var</span> end    = moment().endOf(<span class="string">'week'</span>);
 <span class="keyword">var</span> actual = moment().min(start).max(end);</code></pre>
-<p><strong>Note:</strong> <code>moment#min</code> doesn&#39;t actually mutate the moment; it simly returns the input moment if the input moment is earlier, and <code>this</code> otherwise.</p>
 
 					</div>
 				</article>
@@ -2920,7 +2919,7 @@ moment(<span class="string">'gibberish'</span>).format(<span class="string">'YYY
 <p><code>L LL LLL LLLL LT</code> are available in version <strong>1.3.0</strong>. <code>l ll lll llll</code> are available in <strong>2.0.0</strong>.</p>
 <h4 id="escaping-characters">Escaping characters</h4>
 <p>To escape characters in format strings, you can wrap the characters in square brackets.</p>
-<pre><code class="language-javascript">moment().format(<span class="string">'[today] DDDD'</span>); <span class="comment">// 'today Sunday'</span></code></pre>
+<pre><code class="language-javascript">moment().format(<span class="string">'[today] dddd'</span>); <span class="comment">// 'today Sunday'</span></code></pre>
 <h4 id="similarities-and-differences-with-ldml">Similarities and differences with LDML</h4>
 <p><strong>Note:</strong> While these date formats are very similar to LDML date formats, there are a few minor differences regarding day of month, day of year, and day of week.</p>
 <p>For a breakdown of a few different date formatting tokens across different languages, see <a href="https://docs.google.com/spreadsheet/ccc?key=0AtgZluze7WMJdDBOLUZfSFIzenIwOHNjaWZoeGFqbWc&amp;hl=en_US#gid=0">this chart of date formatting tokens.</a></p>
