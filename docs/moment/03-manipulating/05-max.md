@@ -5,7 +5,7 @@ signature: |
   moment().max(Moment|String|Number|Date|Array);
 ---
 
-**NOTE**: This function has been **deprecated** in **2.7.0**. Consider [`moment.min`](/docs/#/get-set/min/) instead.
+**NOTE**: This function has been **deprecated** in **2.7.0**. Consider [`moment.max`](/docs/#/get-set/max/) instead.
 
 ------
 
