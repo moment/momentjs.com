@@ -38,7 +38,7 @@ Similarly, `moment.monthsShort` returns abbreviated month names, and `moment.wee
 You can pass an integer into each of those functions to get a specific month or weekday.
 
 ```javascript
-moment.weekday(3); // 'Wednesday'
+moment.weekdays(3); // 'Wednesday'
 ```
 
 **Note:** Currently, weekdays always have Sunday as index 0, regardless of the local first day of the week.
