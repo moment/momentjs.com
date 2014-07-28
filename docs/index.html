@@ -1138,7 +1138,7 @@ moment(String, [..., moment.ISO_8601, ...], [String], [Boolean]);</code></pre>
 
 							</div>
 						
-						<p><a href="http://en.wikipedia.org/wiki/ISO_8601">ISO-8601</a> is a standart for time and duration display. Moment already supports parsing iso-8601 strings, but this can be specified explicitly in the format/list of formats when constructing a moment.</p>
+						<p><a href="http://en.wikipedia.org/wiki/ISO_8601">ISO-8601</a> is a standard for time and duration display. Moment already supports parsing iso-8601 strings, but this can be specified explicitly in the format/list of formats when constructing a moment.</p>
 <p>To specify iso-8601 parsing use <code>moment.ISO_8601</code> constant. More formats will be added in the future.</p>
 <p>Examples:</p>
 <pre><code class="language-javascript">moment(<span class="string">"2010-01-01T05:06:07"</span>, moment.ISO_8601);
@@ -3862,7 +3862,7 @@ moment.weekdaysMin()</code></pre>
   <span class="string">'December'</span> ]</code></pre>
 <p>Similarly, <code>moment.monthsShort</code> returns abbreviated month names, and <code>moment.weekdays</code>moment.weekdaysShort<code>,</code>moment.weekdaysMin` return lists of weekdays.</p>
 <p>You can pass an integer into each of those functions to get a specific month or weekday.</p>
-<pre><code class="language-javascript">moment.weekday(<span class="number">3</span>); <span class="comment">// 'Wednesday'</span></code></pre>
+<pre><code class="language-javascript">moment.weekdays(<span class="number">3</span>); <span class="comment">// 'Wednesday'</span></code></pre>
 <p><strong>Note:</strong> Currently, weekdays always have Sunday as index 0, regardless of the local first day of the week.</p>
 <p>Some languages make special considerations into account when formatting month names. For example, Dutch formats month abbreviations without a trailing period, but only if it&#39;s formatting the month between dashes. The <code>months</code> method supports passing a format in so that the months will be listed in the proper context.</p>
 <pre><code class="language-javascript">moment.lang(<span class="string">'nl'</span>);
