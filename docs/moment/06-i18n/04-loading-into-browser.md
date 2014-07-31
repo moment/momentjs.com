@@ -1,30 +1,40 @@
 ---
-title: Loading languages in the browser
+title: Loading locales in the browser
 version: 1.0.0
 signature: |
-  moment.lang(String, Object);
+  moment.defineLocale(String, Object);  // From 2.8.0 onward
+
+  moment.lang(String, Object);  // Deprecated in 2.8.0
 ---
 
 
-Loading languages in the browser just requires you to include the language files.
+Loading locales in the browser just requires you to include the locale files.
 
 ```html
-<script src="moment.min.js"></script>
-<script src="min/lang/fr.js"></script>
-<script src="min/lang/pt.js"></script>
+<script src="moment.js"></script>
+<script src="locale/fr.js"></script>
+<script src="locale/pt.js"></script>
+<script>
+  moment.locale('fr');  // Set the default/global locale
+  // ...
+</script>
 ```
 
-There are minified versions of each of these languages. There is also a minified version of all of the languages bundled together.
+There are minified versions of all locales together:
 
 ```html
-<script src="moment.min.js"></script>
-<script src="lang/all.min.js"></script>
+<script src="moment.js"></script>
+<script src="min/locales.js"></script>
 ```
 
 Ideally, you would bundle all the files you need into one file to minimize http requests.
 
-```html
-<script src="moment-fr-it.min.js"></script>
+```bash
+grunt embedLocales --embedLocales fr,it
 ```
 
-**Note:** the files in the `/lang/` folder are optimized for use in Node.js. If you want to use language files in the browser, use the minified version that are included in `/min/lang/`.
+```html
+<script src="min/moment-with-customlocales.js"></script>
+```
+
+**Note:** Locale files are defined in [UMD](https://github.com/umdjs/umd) style, so they should work seamlessly in all environments.

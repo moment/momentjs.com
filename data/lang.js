@@ -1,4 +1,4 @@
-var langs = {
+var locales = {
     'ar'     : 'Arabic',
     'ar-ma'  : 'Arabic (Morocco)',
     'ar-sa'  : 'Arabic (Saudi Arabia)',
@@ -73,10 +73,10 @@ var langs = {
     'zh-tw'  : 'Chinese (Traditional)'
 };
 
-module.exports = Object.keys(langs).map(function(key){
+module.exports = Object.keys(locales).map(function(key){
     return {
         abbr : key,
-        name : langs[key]
+        name : locales[key]
     };
 }).sort(function (a, b) {
     if (a.name < b.name) { return -1; }

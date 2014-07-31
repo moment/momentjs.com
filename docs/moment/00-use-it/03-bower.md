@@ -7,4 +7,4 @@ title: Bower
 bower install --save moment
 ```
 
-Notable files are `moment.js`, `lang/*.js` and `min/moment-with-langs.js`.
+Notable files are `moment.js`, `locale/*.js` and `min/moment-with-locales.js`.

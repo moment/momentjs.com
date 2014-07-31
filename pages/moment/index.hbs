@@ -38,12 +38,12 @@ scripts :
 			moment.min.js
 			<span class="filesize">{{toKb size.moment_min.gzip }}</span>
 		</a>
-		<a class="builds-button builds-button-source" href="/downloads/moment-with-langs.js">
-			moment+langs.js
+		<a class="builds-button builds-button-source" href="/downloads/moment-with-locales.js">
+			moment+locales.js
 		</a>
-		<a class="builds-button builds-button-gzipped" href="/downloads/moment-with-langs.min.js">
-			moment+langs.min.js
-			<span class="filesize">{{toKb size.moment_with_langs_min.gzip }}</span>
+		<a class="builds-button builds-button-gzipped" href="/downloads/moment-with-locales.min.js">
+			moment+locales.min.js
+			<span class="filesize">{{toKb size.moment_with_locales_min.gzip }}</span>
 		</a>
 	</div>
 	<div class="builds-packages">
@@ -90,7 +90,7 @@ moment().add('days', 3).calendar();
 moment().add('days', 10).calendar();
 ```
 
-### Multiple Language Support
+### Multiple Locale Support
 
 ```js
 moment().format('L');
@@ -105,9 +105,9 @@ moment().format('llll');
 
 {{/markdown}}
 
-<div class="langs">
-	{{#each lang }}
-		<div class="button {{#is abbr "en" }}active{{/is}}" data-lang="{{ abbr }}">
+<div class="locales">
+	{{#each locale }}
+		<div class="button {{#is abbr "en" }}active{{/is}}" data-locale="{{ abbr }}">
 			{{ name }}
 		</div>
 	{{/each}}

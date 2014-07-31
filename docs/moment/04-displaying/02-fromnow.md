@@ -20,7 +20,7 @@ moment([2007, 0, 29]).fromNow();     // 4 years ago
 moment([2007, 0, 29]).fromNow(true); // 4 years
 ```
 
-The base strings are [customized by the current language](#/customization/relative-time/).
+The base strings are [customized by the current locale](#/customization/relative-time/).
 
 The breakdown of which string is displayed for each length of time is outlined in the table below.
 

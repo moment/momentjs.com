@@ -283,7 +283,7 @@ There are a couple conventions used with the naming of the
 
 #### Localized formats
 
-Because preferred formatting differs based on locale, there are a few tokens that can be used to format a moment based on its language.
+Because preferred formatting differs based on locale, there are a few tokens that can be used to format a moment based on its locale.
 
 There are upper and lower case variations on the same formats. The lowercase version is intended to be the shortened version of its uppercase counterpart.
 
@@ -351,7 +351,7 @@ moment().format('[today] dddd'); // 'today Sunday'
 
 **Note:** While these date formats are very similar to LDML date formats, there are a few minor differences regarding day of month, day of year, and day of week.
 
-For a breakdown of a few different date formatting tokens across different languages, see [this chart of date formatting tokens.](https://docs.google.com/spreadsheet/ccc?key=0AtgZluze7WMJdDBOLUZfSFIzenIwOHNjaWZoeGFqbWc&amp;hl=en_US#gid=0)
+For a breakdown of a few different date formatting tokens across different locales, see [this chart of date formatting tokens.](https://docs.google.com/spreadsheet/ccc?key=0AtgZluze7WMJdDBOLUZfSFIzenIwOHNjaWZoeGFqbWc&amp;hl=en_US#gid=0)
 
 #### Formatting speed
 
