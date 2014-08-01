@@ -2,6 +2,15 @@
 title: Month Names
 version: 1.0.0
 signature: |
+  // From 2.8.1 onward
+  moment.locale('en', {
+      months : String[]
+  });
+  moment.locale('en', {
+      months : Function
+  });
+
+  // Deprecated in 2.8.1
   moment.lang('en', {
       months : String[]
   });
@@ -11,10 +20,10 @@ signature: |
 ---
 
 
-`Language#months` should be an array of the month names.
+`Locale#months` should be an array of the month names.
 
 ```javascript
-moment.lang('en', {
+moment.locale('en', {
     months : [
         "January", "February", "March", "April", "May", "June", "July",
         "August", "September", "October", "November", "December"
@@ -22,10 +31,10 @@ moment.lang('en', {
 });
 ```
 
-If you need more processing to calculate the name of the month, (for example, if there is different grammar for different formats), `Language#months` can be a function with the following signature. It should always return a month name.
+If you need more processing to calculate the name of the month, (for example, if there is different grammar for different formats), `Locale#months` can be a function with the following signature. It should always return a month name.
 
 ```javascript
-moment.lang('en', {
+moment.locale('en', {
     months : function (momentToFormat, format) {
         // momentToFormat is the moment currently being formatted
         // format is the formatting string

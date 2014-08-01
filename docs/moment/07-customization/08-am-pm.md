@@ -2,18 +2,24 @@
 title: AM/PM
 version: 1.6.0
 signature: |
+  // From 2.8.1 onward
+  moment.locale('en', {
+      meridiem : Function
+  });
+
+  // Deprecated in 2.8.1
   moment.lang('en', {
       meridiem : Function
   });
 ---
 
 
-If your language uses 'am/pm', `Language#meridiem` can be ommitted, as those values are the defaults.
+If your locale uses 'am/pm', `Locale#meridiem` can be ommitted, as those values are the defaults.
 
-If your language needs any different computation for am/pm, `Language#meridiem` should be a callback function that returns the correct string based on hour, minute, and upper/lowercase.
+If your locale needs any different computation for am/pm, `Locale#meridiem` should be a callback function that returns the correct string based on hour, minute, and upper/lowercase.
 
 ```javascript
-moment.lang('zh-cn', {
+moment.locale('zh-cn', {
     meridiem : function (hour, minute, isLowercase) {
         if (hour < 9) {
             return "早上";
@@ -30,10 +36,10 @@ moment.lang('zh-cn', {
 });
 ```
 
-Before version **1.6.0**, `Language#meridiem` was a map of upper and lowercase versions of am/pm.
+Before version **1.6.0**, `Locale#meridiem` was a map of upper and lowercase versions of am/pm.
 
 ```javascript
-moment.lang('en', {
+moment.locale('en', {
     meridiem : {
         am : 'am',
         AM : 'AM',

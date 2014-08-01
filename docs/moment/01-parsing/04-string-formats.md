@@ -25,6 +25,12 @@ moment("29-06-1995", ["MM-DD-YYYY", "DD-MM", "DD-MM-YYYY"]); //uses the last for
 moment("05-06-1995", ["MM-DD-YYYY", "DD-MM-YYYY"]); // uses the first format
 ```
 
-You may also specify a language and strictness argument; they work the same was as they do in the single format case.
+You may also specify a locale and strictness argument; they work the same was as they do in the single format case.
+
+```javascript
+moment("29-06-1995", ["MM-DD-YYYY", "DD-MM", "DD-MM-YYYY"], 'fr'); // uses 'fr' locale
+moment("29-06-1995", ["MM-DD-YYYY", "DD-MM", "DD-MM-YYYY"], true); // uses strict parsing
+moment("05-06-1995", ["MM-DD-YYYY", "DD-MM-YYYY"], 'fr', true); // uses 'fr' locale and strict parsing
+```
 
 **Note:** Parsing multiple formats is considerably slower than parsing a single format. If you can avoid it, it is much faster to parse a single format.

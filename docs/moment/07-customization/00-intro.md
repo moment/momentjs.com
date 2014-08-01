@@ -3,18 +3,18 @@ title: Customize
 ---
 
 
-Moment.js is very easy to customize. In general, you should create a language setting with your customizations.
+Moment.js is very easy to customize. In general, you should create a locale setting with your customizations.
 
 ```javascript
-moment.lang('en-my-settings', {
+moment.locale('en-my-settings', {
     // customizations.
 });
 ```
 
-However, you can also overwrite an existing language that has been loaded as well.
+However, you can also overwrite an existing locale that has been loaded as well.
 
 ```javascript
-moment.lang('en', {
+moment.locale('en', {
     // customizations
 });
 ```

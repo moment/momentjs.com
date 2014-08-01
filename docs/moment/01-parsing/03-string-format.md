@@ -36,7 +36,7 @@ The parsing tokens are similar to the formatting tokens used in `moment#format`.
     </tr>
     <tr>
       <td>MMM, MMMM</td>
-      <td>Month Name (In language currently set by `moment.lang()`)</td>
+      <td>Month Name (In locale currently set by `moment.locale()`)</td>
     </tr>
     <tr>
       <td>Q</td>
@@ -169,7 +169,7 @@ moment("2010 2 29", "YYYY MM DD").isValid(); // false (not a leap year)
 moment("2010 notamonth 29", "YYYY MMM DD").isValid(); // false (not a real month name)
 ```
 
-As of version **2.0.0**, a language key can be passed as the third parameter to `moment()` and `moment.utc()`.
+As of version **2.0.0**, a locale key can be passed as the third parameter to `moment()` and `moment.utc()`.
 
 ```javascript
 moment('2012 juillet', 'YYYY MMM', 'fr');
@@ -184,7 +184,7 @@ moment('It is 2012-05-25', 'YYYY-MM-DD', true).isValid();  // false
 moment('2012-05-25', 'YYYY-MM-DD', true).isValid();        // true
 ```
 
-You can use both language and strictness.
+You can use both locale and strictness.
 
 ```javascript
 moment('2012-10-14', 'YYYY-MM-DD', 'fr', true);
