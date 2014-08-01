@@ -2,9 +2,11 @@
 title: Loading locales in the browser
 version: 1.0.0
 signature: |
-  moment.defineLocale(String, Object);  // From 2.8.0 onward
+  // From 2.8.1 onward
+  moment.locale(String, Object);
 
-  moment.lang(String, Object);  // Deprecated in 2.8.0
+  // Deprecated in 2.8.1
+  moment.lang(String, Object);
 ---
 
 
