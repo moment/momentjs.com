@@ -3,14 +3,14 @@ module.exports = function(grunt) {
 		files : {
 			'build/static/js/global.js' : [
 				'libs/moment/moment.js',
-				'libs/moment/min/langs.js',
+				'libs/moment/min/locales.js',
 				'libs/moment-timezone/builds/moment-timezone-with-data.js'
 			],
 			'build/static/js/core-test.js' : [
 				'assets/js/test-start.js',
 				'libs/nodeunit/nodeunit.js',
 				'libs/moment/test/moment/*.js',
-				'libs/moment/test/lang/*.js',
+				'libs/moment/test/locale/*.js',
 				'assets/js/test.js',
 				'assets/js/test-end.js'
 			],

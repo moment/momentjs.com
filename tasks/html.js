@@ -17,7 +17,7 @@ module.exports = function(grunt) {
 			layoutdir  : 'pages/layout',
 			helpers    : 'pages/helpers/**/*.js',
 			marked     : { sanitize: false },
-			lang       : require('../data/lang.js'),
+			locale     : require('../data/locale.js'),
 			size       : require('../data/size.js')
 		},
 		'moment' : {

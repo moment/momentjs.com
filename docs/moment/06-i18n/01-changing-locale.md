@@ -1,16 +1,20 @@
 ---
-title: Changing language globally
+title: Changing locale globally
 version: 1.0.0
 signature: |
+  // From 2.8.0 onward
+  moment.locale(String);
+  moment.locale(String[]);
+
+  // Deprecated in 2.8.0
   moment.lang(String);
   moment.lang(String[]);
-  moment.lang(String, Object);
 ---
 
 
-By default, Moment.js comes with English language strings. If you need other languages, you can load them into Moment.js for later use.
+By default, Moment.js comes with English locale strings. If you need other locales, you can load them into Moment.js for later use.
 
-To load a language, pass the key and the string values to `moment.lang`.
+To load a locale, pass the key and the string values to `moment.lang`.
 
 More details on each of the parts of the language bundle can be found in the [customization](#/customization/) section.
 
