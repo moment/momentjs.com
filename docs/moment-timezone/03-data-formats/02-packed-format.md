@@ -52,6 +52,6 @@ data compression, using `a-z` to represent `10-35` and `A-Z` to represent `36-61
 While it may have saved a few bytes to use base 62, much of the data
 in Moment Timezone maps nicely to multiples of 60.
 
-There are 60 minutes in a second and 60 seconds in a minute. 3 hours is `30`
+There are 60 minutes in an hour and 60 seconds in a minute. 3 hours is `30`
 minutes in base 60 and `300` seconds in base 60 instead of `180` and `10800` in
 base 10 or `2U` and `2Oc` in base 62.
