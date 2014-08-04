@@ -1,4 +1,5 @@
-var path = require('path');
+var path = require('path'),
+	docs = require('../data/docs');
 
 function rename (dest, src) {
 	var basename = path.basename(src, path.extname(src));
@@ -22,7 +23,7 @@ module.exports = function(grunt) {
 		},
 		'moment' : {
 			options : {
-				docs : require('../.temp/docs/moment.json')
+				docs : docs('moment')
 			},
 			files: [{
 				expand : true,
@@ -34,7 +35,7 @@ module.exports = function(grunt) {
 		},
 		'moment-timezone' : {
 			options : {
-				docs : require('../.temp/docs/moment-timezone.json')
+				docs : docs('moment-timezone')
 			},
 			files: [{
 				expand : true,
@@ -47,25 +48,17 @@ module.exports = function(grunt) {
 	});
 
 	grunt.registerTask('html', [
-		'docs:moment',
-		'docs:moment-timezone',
 		'assemble:moment',
 		'assemble:moment-timezone'
 	]);
 
 	grunt.config('watch.html-moment', {
-		files: [
-			'.temp/docs/moment.json',
-			'pages/**/*.{hbs,json,md,js}'
-		],
+		files: ['{pages,docs/moment}/**/*.{hbs,json,md,js}'],
 		tasks: ['assemble:moment']
 	});
 
 	grunt.config('watch.html-moment-timezone', {
-		files: [
-			'.temp/docs/moment-timezone.json',
-			'pages/**/*.{hbs,json,md,js}'
-		],
+		files: ['{pages,docs/moment-timezone}/**/*.{hbs,json,md,js}'],
 		tasks: ['assemble:moment-timezone']
 	});
 };
