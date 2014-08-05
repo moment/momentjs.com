@@ -6,7 +6,7 @@
     function updateSnippets () {
         var i;
 
-        moment.lang(currentLang);
+        moment.locale(currentLang);
 
         for (i = 0; i < snippets.length; i++) {
             snippets[i].render();
@@ -78,10 +78,10 @@
 
     timedUpdate();
 
-    $(document).on('click', '[data-lang]', function(){
+    $(document).on('click', '[data-locale]', function(){
         var dom = $(this);
-        currentLang = dom.data('lang');
-        $('[data-lang]').removeClass('active');
+        currentLang = dom.data('locale');
+        $('[data-locale]').removeClass('active');
         dom.addClass('active');
         updateSnippets();
     });

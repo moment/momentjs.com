@@ -399,35 +399,35 @@
 					
 				
 					
-						<a class="docs-nav-item" href="#/i18n/changing-language/">Changing language globally</a>
+						<a class="docs-nav-item" href="#/i18n/changing-locale/">Changing locale globally</a>
 					
 				
 					
-						<a class="docs-nav-item" href="#/i18n/instance-language/">Changing language locally</a>
+						<a class="docs-nav-item" href="#/i18n/instance-locale/">Changing locales locally</a>
 					
 				
 					
-						<a class="docs-nav-item" href="#/i18n/loading-into-nodejs/">Loading languages in NodeJS</a>
+						<a class="docs-nav-item" href="#/i18n/loading-into-nodejs/">Loading locales in NodeJS</a>
 					
 				
 					
-						<a class="docs-nav-item" href="#/i18n/loading-into-browser/">Loading languages in the browser</a>
+						<a class="docs-nav-item" href="#/i18n/loading-into-browser/">Loading locales in the browser</a>
 					
 				
 					
-						<a class="docs-nav-item" href="#/i18n/adding-language/">Adding your language to Moment.js</a>
+						<a class="docs-nav-item" href="#/i18n/adding-locale/">Adding your locale to Moment.js</a>
 					
 				
 					
-						<a class="docs-nav-item" href="#/i18n/getting-language/">Checking the current Moment.js language</a>
+						<a class="docs-nav-item" href="#/i18n/getting-locale/">Checking the current Moment.js locale</a>
 					
 				
 					
-						<a class="docs-nav-item" href="#/i18n/listing-months-weekdays/">Listing the months and weekdays of the current Moment.js language</a>
+						<a class="docs-nav-item" href="#/i18n/listing-months-weekdays/">Listing the months and weekdays of the current Moment.js locale</a>
 					
 				
 					
-						<a class="docs-nav-item" href="#/i18n/lang-data/">Accessing language specific functionality</a>
+						<a class="docs-nav-item" href="#/i18n/locale-data/">Accessing locale specific functionality</a>
 					
 				
 			</div>
@@ -479,6 +479,10 @@
 				
 					
 						<a class="docs-nav-item" href="#/customization/ordinal/">Ordinal</a>
+					
+				
+					
+						<a class="docs-nav-item" href="#/customization/relative-time-threshold/">Relative Time Thresholds</a>
 					
 				
 			</div>
@@ -687,7 +691,7 @@ removed in next major release.</p>
 					<div class="docs-method-prose">
 						
 						<pre><code>bower install --save moment</code></pre>
-<p>Notable files are <code>moment.js</code>, <code>lang/*.js</code> and <code>min/moment-with-langs.js</code>.</p>
+<p>Notable files are <code>moment.js</code>, <code>locale/*.js</code> and <code>min/moment-with-locales.js</code>.</p>
 
 					</div>
 				</article>
@@ -755,7 +759,7 @@ to your r.js config.</p>
 					<div class="docs-method-prose">
 						
 						<p><a href="http://spmjs.io/">Static Package Manager</a></p>
-<pre><code>spm install moment</code></pre>
+<pre><code>spm install moment --save</code></pre>
 
 					</div>
 				</article>
@@ -944,7 +948,7 @@ moment(<span class="string">"12\25\1995"</span>, <span class="string">"MM-DD-YYY
     </tr>
     <tr>
       <td>MMM, MMMM</td>
-      <td>Month Name (In language currently set by <code>moment.lang()</code>)</td>
+      <td>Month Name (In locale currently set by <code>moment.locale()</code>)</td>
     </tr>
     <tr>
       <td>Q</td>
@@ -1068,14 +1072,14 @@ moment(<span class="string">"2010-10-20 4:30 +0000"</span>, <span class="string"
 moment(<span class="string">"2010 11 31"</span>, <span class="string">"YYYY MM DD"</span>).isValid(); <span class="comment">// false (not a real day)</span>
 moment(<span class="string">"2010 2 29"</span>, <span class="string">"YYYY MM DD"</span>).isValid(); <span class="comment">// false (not a leap year)</span>
 moment(<span class="string">"2010 notamonth 29"</span>, <span class="string">"YYYY MMM DD"</span>).isValid(); <span class="comment">// false (not a real month name)</span></code></pre>
-<p>As of version <strong>2.0.0</strong>, a language key can be passed as the third parameter to <code>moment()</code> and <code>moment.utc()</code>.</p>
+<p>As of version <strong>2.0.0</strong>, a locale key can be passed as the third parameter to <code>moment()</code> and <code>moment.utc()</code>.</p>
 <pre><code class="language-javascript">moment(<span class="string">'2012 juillet'</span>, <span class="string">'YYYY MMM'</span>, <span class="string">'fr'</span>);
 moment(<span class="string">'2012 July'</span>, <span class="string">'YYYY MMM'</span>, <span class="string">'en'</span>);</code></pre>
 <p>Moment&#39;s parser is very forgiving, and this can lead to undesired behavior. As of version <strong>2.3.0</strong>, you may specify a boolean for the last argument to make Moment use strict parsing. Strict parsing requires that the format and input match exactly.</p>
 <pre><code class="language-javascript">moment(<span class="string">'It is 2012-05-25'</span>, <span class="string">'YYYY-MM-DD'</span>).isValid();        <span class="comment">// true</span>
 moment(<span class="string">'It is 2012-05-25'</span>, <span class="string">'YYYY-MM-DD'</span>, <span class="literal">true</span>).isValid();  <span class="comment">// false</span>
 moment(<span class="string">'2012-05-25'</span>, <span class="string">'YYYY-MM-DD'</span>, <span class="literal">true</span>).isValid();        <span class="comment">// true</span></code></pre>
-<p>You can use both language and strictness.</p>
+<p>You can use both locale and strictness.</p>
 <pre><code class="language-javascript">moment(<span class="string">'2012-10-14'</span>, <span class="string">'YYYY-MM-DD'</span>, <span class="string">'fr'</span>, <span class="literal">true</span>);</code></pre>
 <p>Two digit year parser by default assumes years above 68 to be in the 1900&#39;s and
 below in the 2000&#39;s. This can be changed by replacing the
@@ -1113,7 +1117,10 @@ below in the 2000&#39;s. This can be changed by replacing the
 </ul>
 <pre><code class="language-javascript">moment(<span class="string">"29-06-1995"</span>, [<span class="string">"MM-DD-YYYY"</span>, <span class="string">"DD-MM"</span>, <span class="string">"DD-MM-YYYY"</span>]); <span class="comment">//uses the last format</span>
 moment(<span class="string">"05-06-1995"</span>, [<span class="string">"MM-DD-YYYY"</span>, <span class="string">"DD-MM-YYYY"</span>]); <span class="comment">// uses the first format</span></code></pre>
-<p>You may also specify a language and strictness argument; they work the same was as they do in the single format case.</p>
+<p>You may also specify a locale and strictness argument; they work the same was as they do in the single format case.</p>
+<pre><code class="language-javascript">moment(<span class="string">"29-06-1995"</span>, [<span class="string">"MM-DD-YYYY"</span>, <span class="string">"DD-MM"</span>, <span class="string">"DD-MM-YYYY"</span>], <span class="string">'fr'</span>); <span class="comment">// uses 'fr' locale</span>
+moment(<span class="string">"29-06-1995"</span>, [<span class="string">"MM-DD-YYYY"</span>, <span class="string">"DD-MM"</span>, <span class="string">"DD-MM-YYYY"</span>], <span class="literal">true</span>); <span class="comment">// uses strict parsing</span>
+moment(<span class="string">"05-06-1995"</span>, [<span class="string">"MM-DD-YYYY"</span>, <span class="string">"DD-MM-YYYY"</span>], <span class="string">'fr'</span>, <span class="literal">true</span>); <span class="comment">// uses 'fr' locale and strict parsing</span></code></pre>
 <p><strong>Note:</strong> Parsing multiple formats is considerably slower than parsing a single format. If you can avoid it, it is much faster to parse a single format.</p>
 
 					</div>
@@ -1138,7 +1145,7 @@ moment(String, [..., moment.ISO_8601, ...], [String], [Boolean]);</code></pre>
 
 							</div>
 						
-						<p><a href="http://en.wikipedia.org/wiki/ISO_8601">ISO-8601</a> is a standart for time and duration display. Moment already supports parsing iso-8601 strings, but this can be specified explicitly in the format/list of formats when constructing a moment.</p>
+						<p><a href="http://en.wikipedia.org/wiki/ISO_8601">ISO-8601</a> is a standard for time and duration display. Moment already supports parsing iso-8601 strings, but this can be specified explicitly in the format/list of formats when constructing a moment.</p>
 <p>To specify iso-8601 parsing use <code>moment.ISO_8601</code> constant. More formats will be added in the future.</p>
 <p>Examples:</p>
 <pre><code class="language-javascript">moment(<span class="string">"2010-01-01T05:06:07"</span>, moment.ISO_8601);
@@ -1831,7 +1838,7 @@ moment().weeks(); <span class="comment">// Number</span></code></pre>
 <p>The week of the year varies depending on which day is the first day of the week (Sunday, Monday, etc), and which week is the first week of the year.</p>
 <p>For example, in the United States, Sunday is the first day of the week. The week with January 1st in it is the first week of the year.</p>
 <p>In France, Monday is the first day of the week, and the week with January 4th is the first week of the year.</p>
-<p>The output of <code>moment#week</code> will depend on the <a href="#/i18n">locale/language</a> for that moment.</p>
+<p>The output of <code>moment#week</code> will depend on the <a href="#/i18n">locale</a> for that moment.</p>
 <p>When setting the week of the year, the day of the week is retained.</p>
 
 					</div>
@@ -2864,7 +2871,7 @@ moment(<span class="string">'gibberish'</span>).format(<span class="string">'YYY
 <p><code>X</code> was added in <strong>2.0.0</strong>.</p>
 <p><code>e E gg gggg GG GGGG</code> were added in <strong>2.1.0</strong>.</p>
 <h4 id="localized-formats">Localized formats</h4>
-<p>Because preferred formatting differs based on locale, there are a few tokens that can be used to format a moment based on its language.</p>
+<p>Because preferred formatting differs based on locale, there are a few tokens that can be used to format a moment based on its locale.</p>
 <p>There are upper and lower case variations on the same formats. The lowercase version is intended to be the shortened version of its uppercase counterpart.</p>
 <table class="table table-striped table-bordered">
   <tbody>
@@ -2919,10 +2926,10 @@ moment(<span class="string">'gibberish'</span>).format(<span class="string">'YYY
 <p><code>L LL LLL LLLL LT</code> are available in version <strong>1.3.0</strong>. <code>l ll lll llll</code> are available in <strong>2.0.0</strong>.</p>
 <h4 id="escaping-characters">Escaping characters</h4>
 <p>To escape characters in format strings, you can wrap the characters in square brackets.</p>
-<pre><code class="language-javascript">moment().format(<span class="string">'[today] DDDD'</span>); <span class="comment">// 'today Sunday'</span></code></pre>
+<pre><code class="language-javascript">moment().format(<span class="string">'[today] dddd'</span>); <span class="comment">// 'today Sunday'</span></code></pre>
 <h4 id="similarities-and-differences-with-ldml">Similarities and differences with LDML</h4>
 <p><strong>Note:</strong> While these date formats are very similar to LDML date formats, there are a few minor differences regarding day of month, day of year, and day of week.</p>
-<p>For a breakdown of a few different date formatting tokens across different languages, see <a href="https://docs.google.com/spreadsheet/ccc?key=0AtgZluze7WMJdDBOLUZfSFIzenIwOHNjaWZoeGFqbWc&amp;hl=en_US#gid=0">this chart of date formatting tokens.</a></p>
+<p>For a breakdown of a few different date formatting tokens across different locales, see <a href="https://docs.google.com/spreadsheet/ccc?key=0AtgZluze7WMJdDBOLUZfSFIzenIwOHNjaWZoeGFqbWc&amp;hl=en_US#gid=0">this chart of date formatting tokens.</a></p>
 <h4 id="formatting-speed">Formatting speed</h4>
 <p>To compare Moment.js formatting speed against other libraries, check out <a href="http://jsperf.com/date-formatting/8">this comparison against other libraries</a>.</p>
 <h4 id="other-tokens">Other tokens</h4>
@@ -2957,7 +2964,7 @@ moment().fromNow(Boolean);</code></pre>
 <p>If you pass <code>true</code>, you can get the value without the suffix.</p>
 <pre><code class="language-javascript">moment([<span class="number">2007</span>, <span class="number">0</span>, <span class="number">29</span>]).fromNow();     <span class="comment">// 4 years ago</span>
 moment([<span class="number">2007</span>, <span class="number">0</span>, <span class="number">29</span>]).fromNow(<span class="literal">true</span>); <span class="comment">// 4 years</span></code></pre>
-<p>The base strings are <a href="#/customization/relative-time/">customized by the current language</a>.</p>
+<p>The base strings are <a href="#/customization/relative-time/">customized by the current locale</a>.</p>
 <p>The breakdown of which string is displayed for each length of time is outlined in the table below.</p>
 <table class="table table-striped table-bordered">
   <thead>
@@ -3582,36 +3589,43 @@ moment.isMoment(moment()) <span class="comment">// true</span></code></pre>
 					<div class="docs-method-prose">
 						
 						<p>Moment.js has robust support for internationalization.</p>
-<p>You can load multiple languages and easily switch between them.</p>
-<p>In addition to assigning a global language, you can assign a language to a specific moment.</p>
+<p>You can load multiple locales and easily switch between them.</p>
+<p>In addition to assigning a global locale, you can assign a locale to a specific
+moment.</p>
 
 					</div>
 				</article>
 			
 				<article class="docs-method">
-					<a class="docs-method-target" id="/i18n/changing-language/"  name="/i18n/changing-language/"></a>
+					<a class="docs-method-target" id="/i18n/changing-locale/"  name="/i18n/changing-locale/"></a>
 					
 						<h3 class="docs-method-title">
-							<a href='#/i18n/changing-language/'>Changing language globally</a>
+							<a href='#/i18n/changing-locale/'>Changing locale globally</a>
 							
 								<span>1.0.0+</span>
 							
 						</h3>
-						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/06-i18n/01-changing-language.md" target="_blank">edit</a>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/06-i18n/01-changing-locale.md" target="_blank">edit</a>
 					
 					<div class="docs-method-prose">
 						
 							<div class="docs-method-signature">
-								<pre><code class="language-js">moment.lang(String);
+								<pre><code class="language-js"><span class="comment">// From 2.8.1 onward</span>
+moment.locale(String);
+moment.locale(String[]);
+moment.locale(String, Object);
+
+<span class="comment">// Deprecated in 2.8.1</span>
+moment.lang(String);
 moment.lang(String[]);
 moment.lang(String, Object);</code></pre>
 
 							</div>
 						
-						<p>By default, Moment.js comes with English language strings. If you need other languages, you can load them into Moment.js for later use.</p>
-<p>To load a language, pass the key and the string values to <code>moment.lang</code>.</p>
-<p>More details on each of the parts of the language bundle can be found in the <a href="#/customization/">customization</a> section.</p>
-<pre><code class="language-javascript">moment.lang(<span class="string">'fr'</span>, {
+						<p>By default, Moment.js comes with English locale strings. If you need other locales, you can load them into Moment.js for later use.</p>
+<p>To load a locale, pass the key and the string values to <code>moment.locale</code>.</p>
+<p>More details on each of the parts of the locale bundle can be found in the <a href="#/customization/">customization</a> section.</p>
+<pre><code class="language-javascript">moment.locale(<span class="string">'fr'</span>, {
     months : <span class="string">"janvier_février_mars_avril_mai_juin_juillet_août_septembre_octobre_novembre_décembre"</span>.split(<span class="string">"_"</span>),
     monthsShort : <span class="string">"janv._févr._mars_avr._mai_juin_juil._août_sept._oct._nov._déc."</span>.split(<span class="string">"_"</span>),
     weekdays : <span class="string">"dimanche_lundi_mardi_mercredi_jeudi_vendredi_samedi"</span>.split(<span class="string">"_"</span>),
@@ -3655,66 +3669,70 @@ moment.lang(String, Object);</code></pre>
         doy : <span class="number">4</span>  <span class="comment">// The week that contains Jan 4th is the first week of the year.</span>
     }
 });</code></pre>
-<p>Once you load a language, it becomes the active language. To change active languages, simply call <code>moment.lang</code> with the key of a loaded language.</p>
-<pre><code class="language-javascript">moment.lang(<span class="string">'fr'</span>);
+<p>Once you load a locale, it becomes the active locale. To change active locales, simply call <code>moment.locale</code> with the key of a loaded locale.</p>
+<pre><code class="language-javascript">moment.locale(<span class="string">'fr'</span>);
 moment(<span class="number">1316116057189</span>).fromNow() <span class="comment">// il y a une heure</span>
-moment.lang(<span class="string">'en'</span>);
+moment.locale(<span class="string">'en'</span>);
 moment(<span class="number">1316116057189</span>).fromNow() <span class="comment">// an hour ago</span></code></pre>
-<p>As of <strong>2.3.0</strong>, <code>moment.lang</code> returns the language used. This is useful because Moment won&#39;t change languages if it doesn&#39;t know the one you specify.</p>
-<pre><code class="language-javascript">moment.lang(<span class="string">'fr'</span>); <span class="comment">// 'fr'</span>
-moment.lang(<span class="string">'tq'</span>); <span class="comment">// 'fr'</span></code></pre>
-<p>Starting in <strong>2.3.0</strong>, you may also specify a list of languages, and Moment will use the first one it has localizations for.</p>
-<pre><code class="language-javascript">moment.lang([<span class="string">'tq'</span>, <span class="string">'fr'</span>]); <span class="comment">// 'fr'</span></code></pre>
-<p>Moment will also try language specifier substrings from most-specific to least-specific until it finds a language it knows. This is useful when supplying Moment with a language string pulled from the user&#39;s environment, such as <code>window.navigator.language</code>.</p>
-<pre><code class="language-javascript">moment.lang(<span class="string">'en-NZ'</span>); <span class="comment">// 'en'</span></code></pre>
-<p>Finally, Moment will search intelligently through an array of languages and their substrings.</p>
-<pre><code class="language-javascript">moment.lang(<span class="string">'en-NZ'</span>, <span class="string">'en-AU'</span>); <span class="comment">// 'en-au', not 'en'</span></code></pre>
+<p><code>moment.locale</code> returns the locale used. This is useful because Moment won&#39;t change locales if it doesn&#39;t know the one you specify.</p>
+<pre><code class="language-javascript">moment.locale(<span class="string">'fr'</span>); <span class="comment">// 'fr'</span>
+moment.locale(<span class="string">'tq'</span>); <span class="comment">// 'fr'</span></code></pre>
+<p>You may also specify a list of locales, and Moment will use the first one it has localizations for.</p>
+<pre><code class="language-javascript">moment.locale([<span class="string">'tq'</span>, <span class="string">'fr'</span>]); <span class="comment">// 'fr'</span></code></pre>
+<p>Moment will also try locale specifier substrings from most-specific to least-specific until it finds a locale it knows. This is useful when supplying Moment with a locale string pulled from the user&#39;s environment, such as <code>window.navigator.language</code>.</p>
+<pre><code class="language-javascript">moment.locale(<span class="string">'en-NZ'</span>); <span class="comment">// 'en'</span></code></pre>
+<p>Finally, Moment will search intelligently through an array of locales and their substrings.</p>
+<pre><code class="language-javascript">moment.locale(<span class="string">'en-NZ'</span>, <span class="string">'en-AU'</span>); <span class="comment">// 'en-au', not 'en'</span></code></pre>
 
 					</div>
 				</article>
 			
 				<article class="docs-method">
-					<a class="docs-method-target" id="/i18n/instance-language/"  name="/i18n/instance-language/"></a>
+					<a class="docs-method-target" id="/i18n/instance-locale/"  name="/i18n/instance-locale/"></a>
 					
 						<h3 class="docs-method-title">
-							<a href='#/i18n/instance-language/'>Changing language locally</a>
+							<a href='#/i18n/instance-locale/'>Changing locales locally</a>
 							
 								<span>1.7.0+</span>
 							
 						</h3>
-						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/06-i18n/02-instance-language.md" target="_blank">edit</a>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/06-i18n/02-instance-locale.md" target="_blank">edit</a>
 					
 					<div class="docs-method-prose">
 						
 							<div class="docs-method-signature">
-								<pre><code class="language-js">moment().lang(String);</code></pre>
+								<pre><code class="language-js"><span class="comment">// From version 2.8.1 onward</span>
+moment().locale(String);
+
+<span class="comment">// Deprecated version 2.8.1</span>
+moment().lang(String);</code></pre>
 
 							</div>
 						
-						<p>A global language configuration can be problematic when passing around moments that may need to be formatted into different languages.</p>
-<p>In <strong>1.7.0</strong> we added instance specific language configurations.</p>
-<pre><code class="language-javascript">moment.lang(<span class="string">'en'</span>); <span class="comment">// default the language to English</span>
-<span class="keyword">var</span> globalLang = moment();
-<span class="keyword">var</span> localLang = moment();
+						<p>A global locale configuration can be problematic when passing around moments that may need to be formatted into different locale.</p>
+<p>In <strong>1.7.0</strong> we added instance specific locale configurations.</p>
+<pre><code class="language-javascript">moment.locale(<span class="string">'en'</span>); <span class="comment">// default the locale to English</span>
+<span class="keyword">var</span> globalLocale = moment();
+<span class="keyword">var</span> localLocale = moment();
 
-localLang.lang(<span class="string">'fr'</span>); <span class="comment">// set this instance to use French</span>
-localLang.format(<span class="string">'LLLL'</span>); <span class="comment">// dimanche 15 juillet 2012 11:01</span>
-globalLang.format(<span class="string">'LLLL'</span>); <span class="comment">// Sunday, July 15 2012 11:01 AM</span>
+localLocale.locale(<span class="string">'fr'</span>); <span class="comment">// set this instance to use French</span>
+localLocale.format(<span class="string">'LLLL'</span>); <span class="comment">// dimanche 15 juillet 2012 11:01</span>
+globalLocale.format(<span class="string">'LLLL'</span>); <span class="comment">// Sunday, July 15 2012 11:01 AM</span>
 
-moment.lang(<span class="string">'es'</span>); <span class="comment">// change the global language to Spanish</span>
-localLang.format(<span class="string">'LLLL'</span>); <span class="comment">// dimanche 15 juillet 2012 11:01</span>
-globalLang.format(<span class="string">'LLLL'</span>); <span class="comment">// Domingo 15 Julio 2012 11:03</span>
+moment.locale(<span class="string">'es'</span>); <span class="comment">// change the global locale to Spanish</span>
+localLocale.format(<span class="string">'LLLL'</span>); <span class="comment">// dimanche 15 juillet 2012 11:01</span>
+globalLocale.format(<span class="string">'LLLL'</span>); <span class="comment">// Domingo 15 Julio 2012 11:03</span>
 
-localLang.lang(<span class="literal">false</span>); <span class="comment">// reset the instance language</span>
-localLang.format(<span class="string">'LLLL'</span>); <span class="comment">// Domingo 15 Julio 2012 11:03</span>
-globalLang.format(<span class="string">'LLLL'</span>); <span class="comment">// Domingo 15 Julio 2012 11:03</span></code></pre>
-<p>If you call <code>moment#lang</code> with no parameters, you get back the language configuration that would be used for that moment.</p>
-<pre><code class="language-javascript"><span class="keyword">var</span> fr = moment().lang(<span class="string">'fr'</span>);
-fr.lang().months(moment([<span class="number">2012</span>, <span class="number">0</span>])) <span class="comment">// "janvier"</span>
-fr.lang(<span class="string">'en'</span>);
-fr.lang().months(moment([<span class="number">2012</span>, <span class="number">0</span>])) <span class="comment">// "January"</span></code></pre>
-<p>If you need to access the language data for a moment, this is the preferred way to do so.</p>
-<p>As of <strong>2.3.0</strong>, you can also specify an array of language identifiers. It works the same was it does in the <a href="http://localhost:8000/docs/#/i18n/changing-language/">global language configuration</a>.</p>
+localLocale.locale(<span class="literal">false</span>); <span class="comment">// reset the instance locale</span>
+localLocale.format(<span class="string">'LLLL'</span>); <span class="comment">// Domingo 15 Julio 2012 11:03</span>
+globalLocale.format(<span class="string">'LLLL'</span>); <span class="comment">// Domingo 15 Julio 2012 11:03</span></code></pre>
+<p>If you call <code>moment#locale</code> with no parameters, you get back the locale configuration that would be used for that moment.</p>
+<pre><code class="language-javascript"><span class="keyword">var</span> fr = moment().locale(<span class="string">'fr'</span>);
+fr.locale().months(moment([<span class="number">2012</span>, <span class="number">0</span>])) <span class="comment">// "janvier"</span>
+fr.locale(<span class="string">'en'</span>);
+fr.locale().months(moment([<span class="number">2012</span>, <span class="number">0</span>])) <span class="comment">// "January"</span></code></pre>
+<p>If you need to access the locale data for a moment, this is the preferred way to do so.</p>
+<p>As of <strong>2.3.0</strong>, you can also specify an array of locale identifiers. It works the same was it does in the <a href="http://localhost:8000/docs/#/i18n/changing-locale/">global locale configuration</a>.</p>
 
 					</div>
 				</article>
@@ -3723,7 +3741,7 @@ fr.lang().months(moment([<span class="number">2012</span>, <span class="number">
 					<a class="docs-method-target" id="/i18n/loading-into-nodejs/"  name="/i18n/loading-into-nodejs/"></a>
 					
 						<h3 class="docs-method-title">
-							<a href='#/i18n/loading-into-nodejs/'>Loading languages in NodeJS</a>
+							<a href='#/i18n/loading-into-nodejs/'>Loading locales in NodeJS</a>
 							
 								<span>1.0.0+</span>
 							
@@ -3733,15 +3751,15 @@ fr.lang().months(moment([<span class="number">2012</span>, <span class="number">
 					<div class="docs-method-prose">
 						
 							<div class="docs-method-signature">
-								<pre><code class="language-js">moment.lang(String);</code></pre>
+								<pre><code class="language-js">moment.locale(String);</code></pre>
 
 							</div>
 						
-						<p>Loading languages in NodeJS is super easy. If there is a language file in <code>moment/lang/</code> named after that key, the first call to <code>moment.lang</code> will load it.</p>
+						<p>Loading locales in NodeJS is super easy. If there is a locale file in <code>moment-root/locale/</code> named after that key, the first call to <code>moment.locale</code> will load it.</p>
 <pre><code class="language-javascript"><span class="keyword">var</span> moment = require(<span class="string">'moment'</span>);
-moment.lang(<span class="string">'fr'</span>);
+moment.locale(<span class="string">'fr'</span>);
 moment(<span class="number">1316116057189</span>).fromNow(); <span class="comment">// il y a une heure</span></code></pre>
-<p>If you want your language supported, create a pull request to the <code>develop</code> branch with the <a href="#/i18n/adding-language/">required language and unit test files</a>.</p>
+<p>If you want your locale supported, create a pull request to the <code>develop</code> branch with the <a href="#/i18n/adding-locale/">required locale and unit test files</a>.</p>
 
 					</div>
 				</article>
@@ -3750,7 +3768,7 @@ moment(<span class="number">1316116057189</span>).fromNow(); <span class="commen
 					<a class="docs-method-target" id="/i18n/loading-into-browser/"  name="/i18n/loading-into-browser/"></a>
 					
 						<h3 class="docs-method-title">
-							<a href='#/i18n/loading-into-browser/'>Loading languages in the browser</a>
+							<a href='#/i18n/loading-into-browser/'>Loading locales in the browser</a>
 							
 								<span>1.0.0+</span>
 							
@@ -3760,36 +3778,45 @@ moment(<span class="number">1316116057189</span>).fromNow(); <span class="commen
 					<div class="docs-method-prose">
 						
 							<div class="docs-method-signature">
-								<pre><code class="language-js">moment.lang(String, Object);</code></pre>
+								<pre><code class="language-js"><span class="comment">// From 2.8.1 onward</span>
+moment.locale(String, Object);
+
+<span class="comment">// Deprecated in 2.8.1</span>
+moment.lang(String, Object);</code></pre>
 
 							</div>
 						
-						<p>Loading languages in the browser just requires you to include the language files.</p>
-<pre><code class="language-html">&lt;script src=&quot;moment.min.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;min/lang/fr.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;min/lang/pt.js&quot;&gt;&lt;/script&gt;</code></pre>
-<p>There are minified versions of each of these languages. There is also a minified version of all of the languages bundled together.</p>
-<pre><code class="language-html">&lt;script src=&quot;moment.min.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;lang/all.min.js&quot;&gt;&lt;/script&gt;</code></pre>
+						<p>Loading locales in the browser just requires you to include the locale files.</p>
+<pre><code class="language-html">&lt;script src=&quot;moment.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;locale/fr.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;locale/pt.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  moment.locale(&#39;fr&#39;);  // Set the default/global locale
+  // ...
+&lt;/script&gt;</code></pre>
+<p>There are minified versions of all locales together:</p>
+<pre><code class="language-html">&lt;script src=&quot;moment.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;min/locales.js&quot;&gt;&lt;/script&gt;</code></pre>
 <p>Ideally, you would bundle all the files you need into one file to minimize http requests.</p>
-<pre><code class="language-html">&lt;script src=&quot;moment-fr-it.min.js&quot;&gt;&lt;/script&gt;</code></pre>
-<p><strong>Note:</strong> the files in the <code>/lang/</code> folder are optimized for use in Node.js. If you want to use language files in the browser, use the minified version that are included in <code>/min/lang/</code>.</p>
+<pre><code class="language-bash">grunt embedLocales --embedLocales fr,it</code></pre>
+<pre><code class="language-html">&lt;script src=&quot;min/moment-with-customlocales.js&quot;&gt;&lt;/script&gt;</code></pre>
+<p><strong>Note:</strong> Locale files are defined in <a href="https://github.com/umdjs/umd">UMD</a> style, so they should work seamlessly in all environments.</p>
 
 					</div>
 				</article>
 			
 				<article class="docs-method">
-					<a class="docs-method-target" id="/i18n/adding-language/"  name="/i18n/adding-language/"></a>
+					<a class="docs-method-target" id="/i18n/adding-locale/"  name="/i18n/adding-locale/"></a>
 					
 						<h3 class="docs-method-title">
-							<a href='#/i18n/adding-language/'>Adding your language to Moment.js</a>
+							<a href='#/i18n/adding-locale/'>Adding your locale to Moment.js</a>
 							
 						</h3>
-						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/06-i18n/05-adding-language.md" target="_blank">edit</a>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/06-i18n/05-adding-locale.md" target="_blank">edit</a>
 					
 					<div class="docs-method-prose">
 						
-						<p>To add your language to Moment.js, submit a pull request with both a language file and a test file. You can find examples in <code>moment/lang/fr.js</code> and <code>moment/test/lang/fr.js</code>.</p>
+						<p>To add your locale to Moment.js, submit a pull request with both a locale file and a test file. You can find examples in <code>moment/locale/fr.js</code> and <code>moment/test/locale/fr.js</code>.</p>
 <p>To run the tests in Node.js, do <code>npm install</code>, then <code>grunt</code>.</p>
 <p>If all the tests pass, submit a pull request, and thank you for contributing!</p>
 
@@ -3797,28 +3824,32 @@ moment(<span class="number">1316116057189</span>).fromNow(); <span class="commen
 				</article>
 			
 				<article class="docs-method">
-					<a class="docs-method-target" id="/i18n/getting-language/"  name="/i18n/getting-language/"></a>
+					<a class="docs-method-target" id="/i18n/getting-locale/"  name="/i18n/getting-locale/"></a>
 					
 						<h3 class="docs-method-title">
-							<a href='#/i18n/getting-language/'>Checking the current Moment.js language</a>
+							<a href='#/i18n/getting-locale/'>Checking the current Moment.js locale</a>
 							
 								<span>1.6.0+</span>
 							
 						</h3>
-						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/06-i18n/06-getting-language.md" target="_blank">edit</a>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/06-i18n/06-getting-locale.md" target="_blank">edit</a>
 					
 					<div class="docs-method-prose">
 						
 							<div class="docs-method-signature">
-								<pre><code class="language-js">moment.lang();</code></pre>
+								<pre><code class="language-js"><span class="comment">// From version 2.8.1 onward</span>
+moment.locale();
+
+<span class="comment">// Deprecated in version 2.8.1</span>
+moment.lang();</code></pre>
 
 							</div>
 						
-						<p>If you are changing languages frequently, you may want to know what language is currently being used. This is as simple as calling <code>moment.lang</code> without any parameters.</p>
-<pre><code class="language-javascript">moment.lang(<span class="string">'en'</span>); <span class="comment">// set to english</span>
-moment.lang(); <span class="comment">// returns 'en'</span>
-moment.lang(<span class="string">'fr'</span>); <span class="comment">// set to french</span>
-moment.lang(); <span class="comment">// returns 'fr'</span></code></pre>
+						<p>If you are changing locales frequently, you may want to know what locale is currently being used. This is as simple as calling <code>moment.locale</code> without any parameters.</p>
+<pre><code class="language-javascript">moment.locale(<span class="string">'en'</span>); <span class="comment">// set to english</span>
+moment.locale(); <span class="comment">// returns 'en'</span>
+moment.locale(<span class="string">'fr'</span>); <span class="comment">// set to french</span>
+moment.locale(); <span class="comment">// returns 'fr'</span></code></pre>
 
 					</div>
 				</article>
@@ -3827,7 +3858,7 @@ moment.lang(); <span class="comment">// returns 'fr'</span></code></pre>
 					<a class="docs-method-target" id="/i18n/listing-months-weekdays/"  name="/i18n/listing-months-weekdays/"></a>
 					
 						<h3 class="docs-method-title">
-							<a href='#/i18n/listing-months-weekdays/'>Listing the months and weekdays of the current Moment.js language</a>
+							<a href='#/i18n/listing-months-weekdays/'>Listing the months and weekdays of the current Moment.js locale</a>
 							
 								<span>2.3.0+</span>
 							
@@ -3845,9 +3876,9 @@ moment.weekdaysMin()</code></pre>
 
 							</div>
 						
-						<p>It is sometimes useful to get the list of months or weekdays in a language, for example when populating a dropdown menu.</p>
+						<p>It is sometimes useful to get the list of months or weekdays in a locale, for example when populating a dropdown menu.</p>
 <pre><code class="language-javascript">moment.months();</code></pre>
-<p>Returns the list of months in the current language.</p>
+<p>Returns the list of months in the current locale.</p>
 <pre><code class="language-javascript">[ <span class="string">'January'</span>,
   <span class="string">'February'</span>,
   <span class="string">'March'</span>,
@@ -3862,10 +3893,10 @@ moment.weekdaysMin()</code></pre>
   <span class="string">'December'</span> ]</code></pre>
 <p>Similarly, <code>moment.monthsShort</code> returns abbreviated month names, and <code>moment.weekdays</code>moment.weekdaysShort<code>,</code>moment.weekdaysMin` return lists of weekdays.</p>
 <p>You can pass an integer into each of those functions to get a specific month or weekday.</p>
-<pre><code class="language-javascript">moment.weekday(<span class="number">3</span>); <span class="comment">// 'Wednesday'</span></code></pre>
+<pre><code class="language-javascript">moment.weekdays(<span class="number">3</span>); <span class="comment">// 'Wednesday'</span></code></pre>
 <p><strong>Note:</strong> Currently, weekdays always have Sunday as index 0, regardless of the local first day of the week.</p>
-<p>Some languages make special considerations into account when formatting month names. For example, Dutch formats month abbreviations without a trailing period, but only if it&#39;s formatting the month between dashes. The <code>months</code> method supports passing a format in so that the months will be listed in the proper context.</p>
-<pre><code class="language-javascript">moment.lang(<span class="string">'nl'</span>);
+<p>Some locales make special considerations into account when formatting month names. For example, Dutch formats month abbreviations without a trailing period, but only if it&#39;s formatting the month between dashes. The <code>months</code> method supports passing a format in so that the months will be listed in the proper context.</p>
+<pre><code class="language-javascript">moment.locale(<span class="string">'nl'</span>);
 moment.monthsShort(); <span class="comment">// ['jan.', 'feb.', 'mrt.', ...]</span>
 moment.monthsShort(<span class="string">'-MMM-'</span>); <span class="comment">// [ 'jan', 'feb', 'mrt', ...]</span></code></pre>
 <p>And finally, you can combine both the format option and the integer option.</p>
@@ -3875,66 +3906,66 @@ moment.monthsShort(<span class="string">'-MMM-'</span>); <span class="comment">/
 				</article>
 			
 				<article class="docs-method">
-					<a class="docs-method-target" id="/i18n/lang-data/"  name="/i18n/lang-data/"></a>
+					<a class="docs-method-target" id="/i18n/locale-data/"  name="/i18n/locale-data/"></a>
 					
 						<h3 class="docs-method-title">
-							<a href='#/i18n/lang-data/'>Accessing language specific functionality</a>
+							<a href='#/i18n/locale-data/'>Accessing locale specific functionality</a>
 							
 								<span>2.2.0+</span>
 							
 						</h3>
-						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/06-i18n/08-lang-data.md" target="_blank">edit</a>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/06-i18n/08-locale-data.md" target="_blank">edit</a>
 					
 					<div class="docs-method-prose">
 						
 							<div class="docs-method-signature">
-								<pre><code class="language-js">moment.langData()
-langData.months()
-langData.monthsShort()
-langData.monthsParse()
-langData.weekdays()
-langData.weekdaysShort()
-langData.weekdaysMin()
-langData.weekdaysParse()
-langData.longDateFormat()
-langData.isPM()
-langData.meridiem()
-langData.calendar()
-langData.relativeTime()
-langData.pastFuture()
-langData.ordinal()
-langData.preparse()
-langData.postformat()
-langData.weeks()
-langData.invalidDate()</code></pre>
+								<pre><code class="language-js">localeData = moment.localeData()
+localeData.months()
+localeData.monthsShort()
+localeData.monthsParse()
+localeData.weekdays()
+localeData.weekdaysShort()
+localeData.weekdaysMin()
+localeData.weekdaysParse()
+localeData.longDateFormat()
+localeData.isPM()
+localeData.meridiem()
+localeData.calendar()
+localeData.relativeTime()
+localeData.pastFuture()
+localeData.ordinal()
+localeData.preparse()
+localeData.postformat()
+localeData.weeks()
+localeData.invalidDate()</code></pre>
 
 							</div>
 						
-						<p>You can access the properties of the currently loaded language through the
-<code>moment.langData(key)</code> function. It returns the current language or a language
+						<p>You can access the properties of the currently loaded locale through the
+<code>moment.localeData(key)</code> function. It returns the current locale or a locale
 with the given key:</p>
-<pre><code class="language-javascript"><span class="comment">// get current Language</span>
-<span class="keyword">var</span> currentLangData = moment.langData();
-<span class="keyword">var</span> frLangData = moment.langData(<span class="string">'fr'</span>);</code></pre>
+<pre><code class="language-javascript"><span class="comment">// get current locale</span>
+<span class="keyword">var</span> currentLocaleData = moment.localeData();
+<span class="keyword">var</span> frLocaleData = moment.localeData(<span class="string">'fr'</span>);</code></pre>
 <p>The returned object has the following methods:</p>
-<pre><code class="language-javascript">langData.months(aMoment);  <span class="comment">// full month name of aMoment</span>
-langData.monthsShort(aMoment);  <span class="comment">// short month name of aMoment</span>
-langData.monthsParse(longOrShortMonthString);  <span class="comment">// returns month id (0 to 11) of input</span>
-langData.weekdays(aMoment);  <span class="comment">// full weekday name of aMoment</span>
-langData.weekdaysShort(aMoment);  <span class="comment">// short weekday name of aMoment</span>
-langData.weekdaysMin(aMoment);  <span class="comment">// min weekday name of aMoment</span>
-langData.weekdaysParse(minShortOrLongWeekdayString);  <span class="comment">// returns weekday id (0 to 6) of input</span>
-langData.longDateFormat(dateFormat);  <span class="comment">// returns the full format of abbreviated date-time formats LT, L, LL and so on</span>
-langData.isPM(amPmString);  <span class="comment">// returns true iff amPmString represents PM</span>
-langData.meridiem(hours, minutes, isLower);  <span class="comment">// returns am/pm string for particular time-of-day in upper/lower case</span>
-langData.calendar(key, aMoment);  <span class="comment">// returns a format that would be used for calendar representation. Key is one of 'sameDay', 'nextDay', 'lastDay', 'nextWeek', 'prevWeek', 'sameElse'</span>
-langData.relativeTime(number, withoutSuffix, key, isFuture);  <span class="comment">// returns relative time string, key is on of 's', 'm', 'mm', 'h', 'hh', 'd', 'dd', 'M', 'MM', 'y', 'yy'. Single letter when number is 1.</span>
-langData.pastFuture(diff, relTime);  <span class="comment">// convert relTime string to past or future string depending on diff</span>
-langData.ordinal(number);  <span class="comment">// convert number to ordinal string 1 -&gt; 1st</span>
-langData.preparse(str);  <span class="comment">// called before parsing on every input string</span>
-langData.postformat(str);  <span class="comment">// called after formatting on every string</span>
-langData.week(aMoment);  <span class="comment">// returns week-of-year of aMoment</span>
-langData.invalidDate();  <span class="comment">// returns a translation of 'Invalid date'</span></code></pre>
+<pre><code class="language-javascript">localeData.months(aMoment);  <span class="comment">// full month name of aMoment</span>
+localeData.monthsShort(aMoment);  <span class="comment">// short month name of aMoment</span>
+localeData.monthsParse(longOrShortMonthString);  <span class="comment">// returns month id (0 to 11) of input</span>
+localeData.weekdays(aMoment);  <span class="comment">// full weekday name of aMoment</span>
+localeData.weekdaysShort(aMoment);  <span class="comment">// short weekday name of aMoment</span>
+localeData.weekdaysMin(aMoment);  <span class="comment">// min weekday name of aMoment</span>
+localeData.weekdaysParse(minShortOrLongWeekdayString);  <span class="comment">// returns weekday id (0 to 6) of input</span>
+localeData.longDateFormat(dateFormat);  <span class="comment">// returns the full format of abbreviated date-time formats LT, L, LL and so on</span>
+localeData.isPM(amPmString);  <span class="comment">// returns true iff amPmString represents PM</span>
+localeData.meridiem(hours, minutes, isLower);  <span class="comment">// returns am/pm string for particular time-of-day in upper/lower case</span>
+localeData.calendar(key, aMoment);  <span class="comment">// returns a format that would be used for calendar representation. Key is one of 'sameDay', 'nextDay', 'lastDay', 'nextWeek', 'prevWeek', 'sameElse'</span>
+localeData.relativeTime(number, withoutSuffix, key, isFuture);  <span class="comment">// returns relative time string, key is on of 's', 'm', 'mm', 'h', 'hh', 'd', 'dd', 'M', 'MM', 'y', 'yy'. Single letter when number is 1.</span>
+localeData.pastFuture(diff, relTime);  <span class="comment">// convert relTime string to past or future string depending on diff</span>
+localeData.ordinal(number);  <span class="comment">// convert number to ordinal string 1 -&gt; 1st</span>
+localeData.preparse(str);  <span class="comment">// called before parsing on every input string</span>
+localeData.postformat(str);  <span class="comment">// called after formatting on every string</span>
+localeData.week(aMoment);  <span class="comment">// returns week-of-year of aMoment</span>
+localeData.invalidDate();  <span class="comment">// returns a translation of 'Invalid date'</span></code></pre>
 
 					</div>
 				</article>
@@ -3950,12 +3981,12 @@ langData.invalidDate();  <span class="comment">// returns a translation of 'Inva
 					
 					<div class="docs-method-prose">
 						
-						<p>Moment.js is very easy to customize. In general, you should create a language setting with your customizations.</p>
-<pre><code class="language-javascript">moment.lang(<span class="string">'en-my-settings'</span>, {
+						<p>Moment.js is very easy to customize. In general, you should create a locale setting with your customizations.</p>
+<pre><code class="language-javascript">moment.locale(<span class="string">'en-my-settings'</span>, {
     <span class="comment">// customizations.</span>
 });</code></pre>
-<p>However, you can also overwrite an existing language that has been loaded as well.</p>
-<pre><code class="language-javascript">moment.lang(<span class="string">'en'</span>, {
+<p>However, you can also overwrite an existing locale that has been loaded as well.</p>
+<pre><code class="language-javascript">moment.locale(<span class="string">'en'</span>, {
     <span class="comment">// customizations</span>
 });</code></pre>
 <p>Any settings that are not defined are inherited from the default english settings.</p>
@@ -3977,7 +4008,16 @@ langData.invalidDate();  <span class="comment">// returns a translation of 'Inva
 					<div class="docs-method-prose">
 						
 							<div class="docs-method-signature">
-								<pre><code class="language-js">moment.lang(<span class="string">'en'</span>, {
+								<pre><code class="language-js"><span class="comment">// From 2.8.1 onward</span>
+moment.locale(<span class="string">'en'</span>, {
+    months : String[]
+});
+moment.locale(<span class="string">'en'</span>, {
+    months : Function
+});
+
+<span class="comment">// Deprecated in 2.8.1</span>
+moment.lang(<span class="string">'en'</span>, {
     months : String[]
 });
 moment.lang(<span class="string">'en'</span>, {
@@ -3986,15 +4026,15 @@ moment.lang(<span class="string">'en'</span>, {
 
 							</div>
 						
-						<p><code>Language#months</code> should be an array of the month names.</p>
-<pre><code class="language-javascript">moment.lang(<span class="string">'en'</span>, {
+						<p><code>Locale#months</code> should be an array of the month names.</p>
+<pre><code class="language-javascript">moment.locale(<span class="string">'en'</span>, {
     months : [
         <span class="string">"January"</span>, <span class="string">"February"</span>, <span class="string">"March"</span>, <span class="string">"April"</span>, <span class="string">"May"</span>, <span class="string">"June"</span>, <span class="string">"July"</span>,
         <span class="string">"August"</span>, <span class="string">"September"</span>, <span class="string">"October"</span>, <span class="string">"November"</span>, <span class="string">"December"</span>
     ]
 });</code></pre>
-<p>If you need more processing to calculate the name of the month, (for example, if there is different grammar for different formats), <code>Language#months</code> can be a function with the following signature. It should always return a month name.</p>
-<pre><code class="language-javascript">moment.lang(<span class="string">'en'</span>, {
+<p>If you need more processing to calculate the name of the month, (for example, if there is different grammar for different formats), <code>Locale#months</code> can be a function with the following signature. It should always return a month name.</p>
+<pre><code class="language-javascript">moment.locale(<span class="string">'en'</span>, {
     months : <span class="function"><span class="keyword">function</span> <span class="params">(momentToFormat, format)</span> {</span>
         <span class="comment">// momentToFormat is the moment currently being formatted</span>
         <span class="comment">// format is the formatting string</span>
@@ -4023,7 +4063,16 @@ moment.lang(<span class="string">'en'</span>, {
 					<div class="docs-method-prose">
 						
 							<div class="docs-method-signature">
-								<pre><code class="language-js">moment.lang(<span class="string">'en'</span>, {
+								<pre><code class="language-js"><span class="comment">// From 2.8.1 onward</span>
+moment.locale(<span class="string">'en'</span>, {
+    monthsShort : String[]
+});
+moment.locale(<span class="string">'en'</span>, {
+    monthsShort : Function
+});
+
+<span class="comment">// Deprecated in 2.8.1</span>
+moment.lang(<span class="string">'en'</span>, {
     monthsShort : String[]
 });
 moment.lang(<span class="string">'en'</span>, {
@@ -4032,15 +4081,15 @@ moment.lang(<span class="string">'en'</span>, {
 
 							</div>
 						
-						<p><code>Language#monthsShort</code> should be an array of the month abbreviations.</p>
-<pre><code class="language-javascript">moment.lang(<span class="string">'en'</span>, {
+						<p><code>Locale#monthsShort</code> should be an array of the month abbreviations.</p>
+<pre><code class="language-javascript">moment.locale(<span class="string">'en'</span>, {
     monthsShort : [
         <span class="string">"Jan"</span>, <span class="string">"Feb"</span>, <span class="string">"Mar"</span>, <span class="string">"Apr"</span>, <span class="string">"May"</span>, <span class="string">"Jun"</span>,
         <span class="string">"Jul"</span>, <span class="string">"Aug"</span>, <span class="string">"Sep"</span>, <span class="string">"Oct"</span>, <span class="string">"Nov"</span>, <span class="string">"Dec"</span>
     ]
 });</code></pre>
-<p>Like <code>Language#months</code>, <code>Language#monthsShort</code> can be a callback function as well.</p>
-<pre><code class="language-javascript">moment.lang(<span class="string">'en'</span>, {
+<p>Like <code>Locale#months</code>, <code>Locale#monthsShort</code> can be a callback function as well.</p>
+<pre><code class="language-javascript">moment.locale(<span class="string">'en'</span>, {
     monthsShort : <span class="function"><span class="keyword">function</span> <span class="params">(momentToFormat, format)</span> {</span>
         <span class="keyword">if</span> (<span class="regexp">/^MMMM/</span>.test(format)) {
             <span class="keyword">return</span> nominative[momentToFormat.month()];
@@ -4067,7 +4116,16 @@ moment.lang(<span class="string">'en'</span>, {
 					<div class="docs-method-prose">
 						
 							<div class="docs-method-signature">
-								<pre><code class="language-js">moment.lang(<span class="string">'en'</span>, {
+								<pre><code class="language-js"><span class="comment">// From version 2.8.1 onward</span>
+moment.locale(<span class="string">'en'</span>, {
+    weekdays : String[]
+});
+moment.locale(<span class="string">'en'</span>, {
+    weekdays : Function
+});
+
+<span class="comment">// Deprecated version 2.8.1</span>
+moment.lang(<span class="string">'en'</span>, {
     weekdays : String[]
 });
 moment.lang(<span class="string">'en'</span>, {
@@ -4076,14 +4134,14 @@ moment.lang(<span class="string">'en'</span>, {
 
 							</div>
 						
-						<p><code>Language#weekdays</code> should be an array of the weekdays names.</p>
-<pre><code class="language-javascript">moment.lang(<span class="string">'en'</span>, {
+						<p><code>Locale#weekdays</code> should be an array of the weekdays names.</p>
+<pre><code class="language-javascript">moment.locale(<span class="string">'en'</span>, {
     weekdays : [
         <span class="string">"Sunday"</span>, <span class="string">"Monday"</span>, <span class="string">"Tuesday"</span>, <span class="string">"Wednesday"</span>, <span class="string">"Thursday"</span>, <span class="string">"Friday"</span>, <span class="string">"Saturday"</span>
     ]
 });</code></pre>
-<p><code>Language#weekdays</code> can be a callback function as well.</p>
-<pre><code class="language-javascript">moment.lang(<span class="string">'en'</span>, {
+<p><code>Locale#weekdays</code> can be a callback function as well.</p>
+<pre><code class="language-javascript">moment.locale(<span class="string">'en'</span>, {
     weekdays : <span class="function"><span class="keyword">function</span> <span class="params">(momentToFormat, format)</span> {</span>
         <span class="keyword">return</span> weekdays[momentToFormat.day()];
     }
@@ -4106,7 +4164,16 @@ moment.lang(<span class="string">'en'</span>, {
 					<div class="docs-method-prose">
 						
 							<div class="docs-method-signature">
-								<pre><code class="language-js">moment.lang(<span class="string">'en'</span>, {
+								<pre><code class="language-js"><span class="comment">// From 2.8.1 onward</span>
+moment.locale(<span class="string">'en'</span>, {
+    weekdaysShort : String[]
+});
+moment.locale(<span class="string">'en'</span>, {
+    weekdaysShort : Function
+});
+
+<span class="comment">// Deprecated in 2.8.1</span>
+moment.lang(<span class="string">'en'</span>, {
     weekdaysShort : String[]
 });
 moment.lang(<span class="string">'en'</span>, {
@@ -4115,12 +4182,12 @@ moment.lang(<span class="string">'en'</span>, {
 
 							</div>
 						
-						<p><code>Language#weekdaysShort</code> should be an array of the weekdays abbreviations.</p>
-<pre><code class="language-javascript">moment.lang(<span class="string">'en'</span>, {
+						<p><code>Locale#weekdaysShort</code> should be an array of the weekdays abbreviations.</p>
+<pre><code class="language-javascript">moment.locale(<span class="string">'en'</span>, {
     weekdaysShort : [<span class="string">"Sun"</span>, <span class="string">"Mon"</span>, <span class="string">"Tue"</span>, <span class="string">"Wed"</span>, <span class="string">"Thu"</span>, <span class="string">"Fri"</span>, <span class="string">"Sat"</span>]
 });</code></pre>
-<p><code>Language#weekdaysShort</code> can be a callback function as well.</p>
-<pre><code class="language-javascript">moment.lang(<span class="string">'en'</span>, {
+<p><code>Locale#weekdaysShort</code> can be a callback function as well.</p>
+<pre><code class="language-javascript">moment.locale(<span class="string">'en'</span>, {
     weekdaysShort : <span class="function"><span class="keyword">function</span> <span class="params">(momentToFormat, format)</span> {</span>
         <span class="keyword">return</span> weekdaysShort[momentToFormat.day()];
     }
@@ -4143,7 +4210,16 @@ moment.lang(<span class="string">'en'</span>, {
 					<div class="docs-method-prose">
 						
 							<div class="docs-method-signature">
-								<pre><code class="language-js">moment.lang(<span class="string">'en'</span>, {
+								<pre><code class="language-js"><span class="comment">// From 2.8.1 onward</span>
+moment.locale(<span class="string">'en'</span>, {
+    weekdaysMin : String[]
+});
+moment.locale(<span class="string">'en'</span>, {
+    weekdaysMin : Function
+});
+
+<span class="comment">// Deprecated in 2.8.1</span>
+moment.lang(<span class="string">'en'</span>, {
     weekdaysMin : String[]
 });
 moment.lang(<span class="string">'en'</span>, {
@@ -4152,12 +4228,12 @@ moment.lang(<span class="string">'en'</span>, {
 
 							</div>
 						
-						<p><code>Language#weekdaysMin</code> should be an array of two letter weekday abbreviations. The purpose of these is for things like calendar pickers, thus they should be as small as possible.</p>
-<pre><code class="language-javascript">moment.lang(<span class="string">'en'</span>, {
+						<p><code>Locale#weekdaysMin</code> should be an array of two letter weekday abbreviations. The purpose of these is for things like calendar pickers, thus they should be as small as possible.</p>
+<pre><code class="language-javascript">moment.locale(<span class="string">'en'</span>, {
     weekdaysMin : [<span class="string">"Su"</span>, <span class="string">"Mo"</span>, <span class="string">"Tu"</span>, <span class="string">"We"</span>, <span class="string">"Th"</span>, <span class="string">"Fr"</span>, <span class="string">"Sa"</span>]
 });</code></pre>
-<p><code>Language#weekdaysMin</code> can be a callback function as well.</p>
-<pre><code class="language-javascript">moment.lang(<span class="string">'en'</span>, {
+<p><code>Locale#weekdaysMin</code> can be a callback function as well.</p>
+<pre><code class="language-javascript">moment.locale(<span class="string">'en'</span>, {
     weekdaysMin : <span class="function"><span class="keyword">function</span> <span class="params">(momentToFormat, format)</span> {</span>
         <span class="keyword">return</span> weekdaysMin[momentToFormat.day()];
     }
@@ -4180,14 +4256,20 @@ moment.lang(<span class="string">'en'</span>, {
 					<div class="docs-method-prose">
 						
 							<div class="docs-method-signature">
-								<pre><code class="language-js">moment.lang(<span class="string">'en'</span>, {
+								<pre><code class="language-js"><span class="comment">// From 2.8.1 onward</span>
+moment.locale(<span class="string">'en'</span>, {
+    longDateFormat : Object
+});
+
+<span class="comment">// Deprecated in 2.8.1</span>
+moment.lang(<span class="string">'en'</span>, {
     longDateFormat : Object
 });</code></pre>
 
 							</div>
 						
-						<p><code>Language#longDateFormat</code> should be an object containing a key/value pair for each long date format <code>L LL LLL LLLL LT</code>. <code>LT</code> should be the time format, and is also used for <code>moment#calendar</code>.</p>
-<pre><code class="language-javascript">moment.lang(<span class="string">'en'</span>, {
+						<p><code>Locale#longDateFormat</code> should be an object containing a key/value pair for each long date format <code>L LL LLL LLLL LT</code>. <code>LT</code> should be the time format, and is also used for <code>moment#calendar</code>.</p>
+<pre><code class="language-javascript">moment.locale(<span class="string">'en'</span>, {
     longDateFormat : {
         LT: <span class="string">"h:mm A"</span>,
         L: <span class="string">"MM/DD/YYYY"</span>,
@@ -4201,7 +4283,7 @@ moment.lang(<span class="string">'en'</span>, {
     }
 });</code></pre>
 <p>You can eliminate the lowercase <code>l</code> tokens and they will be created automatically by replacing long tokens with the short token variants.</p>
-<pre><code class="language-javascript">moment.lang(<span class="string">'en'</span>, {
+<pre><code class="language-javascript">moment.locale(<span class="string">'en'</span>, {
     longDateFormat : {
         LT: <span class="string">"h:mm A"</span>,
         L: <span class="string">"MM/DD/YYYY"</span>,
@@ -4228,14 +4310,20 @@ moment.lang(<span class="string">'en'</span>, {
 					<div class="docs-method-prose">
 						
 							<div class="docs-method-signature">
-								<pre><code class="language-js">moment.lang(<span class="string">'en'</span>, {
+								<pre><code class="language-js"><span class="comment">// From 2.8.1 onward</span>
+moment.locale(<span class="string">'en'</span>, {
+    relativeTime : Object
+});
+
+<span class="comment">// Deprecated in 2.8.1</span>
+moment.lang(<span class="string">'en'</span>, {
     relativeTime : Object
 });</code></pre>
 
 							</div>
 						
-						<p><code>Language#relativeTime</code> should be an object of the replacement strings for <code>moment#from</code>.</p>
-<pre><code class="language-javascript">moment.lang(<span class="string">'en'</span>, {
+						<p><code>Locale#relativeTime</code> should be an object of the replacement strings for <code>moment#from</code>.</p>
+<pre><code class="language-javascript">moment.locale(<span class="string">'en'</span>, {
     relativeTime : {
         future: <span class="string">"in %s"</span>,
         past:   <span class="string">"%s ago"</span>,
@@ -4252,13 +4340,13 @@ moment.lang(<span class="string">'en'</span>, {
         yy: <span class="string">"%d years"</span>
     }
 });</code></pre>
-<p><code>Language#relativeTime.future</code> refers to the prefix/suffix for future dates, and <code>Language#relativeTime.past</code> refers to the prefix/suffix for past dates. For all others, a single character refers to the singular, and an double character refers to the plural.</p>
-<p>If a language requires additional processing for a token, It can set the token as a function with the following signature.
+<p><code>Locale#relativeTime.future</code> refers to the prefix/suffix for future dates, and <code>Locale#relativeTime.past</code> refers to the prefix/suffix for past dates. For all others, a single character refers to the singular, and an double character refers to the plural.</p>
+<p>If a locale requires additional processing for a token, It can set the token as a function with the following signature.
 The function should return a string.</p>
 <pre><code class="language-javascript"><span class="function"><span class="keyword">function</span> <span class="params">(number, withoutSuffix, key, isFuture)</span> {</span>
     <span class="keyword">return</span> string;
 }</code></pre>
-<p>The <code>key</code> argument refers to the replacement key in the <code>Language#relativeTime</code> object. (eg. <code>s m mm h</code>, etc.)</p>
+<p>The <code>key</code> argument refers to the replacement key in the <code>Locale#relativeTime</code> object. (eg. <code>s m mm h</code>, etc.)</p>
 <p>The <code>number</code> argument refers to the number of units for that key. For <code>m</code>, the number is the number of minutes, etc.</p>
 <p>The <code>withoutSuffix</code> argument will be true if the token will be displayed without a suffix, and false if it will be displayed with a suffix. (The reason for the inverted logic is because the default behavior is to display with the suffix.)</p>
 <p>The <code>isFuture</code> argument will be true if it is going to use the future suffix/prefix and false if it is going to use the past prefix/suffix. The <code>isFuture</code> argument was added in version <strong>1.6.0</strong>.</p>
@@ -4280,15 +4368,21 @@ The function should return a string.</p>
 					<div class="docs-method-prose">
 						
 							<div class="docs-method-signature">
-								<pre><code class="language-js">moment.lang(<span class="string">'en'</span>, {
+								<pre><code class="language-js"><span class="comment">// From 2.8.1 onward</span>
+moment.locale(<span class="string">'en'</span>, {
+    meridiem : Function
+});
+
+<span class="comment">// Deprecated in 2.8.1</span>
+moment.lang(<span class="string">'en'</span>, {
     meridiem : Function
 });</code></pre>
 
 							</div>
 						
-						<p>If your language uses &#39;am/pm&#39;, <code>Language#meridiem</code> can be ommitted, as those values are the defaults.</p>
-<p>If your language needs any different computation for am/pm, <code>Language#meridiem</code> should be a callback function that returns the correct string based on hour, minute, and upper/lowercase.</p>
-<pre><code class="language-javascript">moment.lang(<span class="string">'zh-cn'</span>, {
+						<p>If your locale uses &#39;am/pm&#39;, <code>Locale#meridiem</code> can be ommitted, as those values are the defaults.</p>
+<p>If your locale needs any different computation for am/pm, <code>Locale#meridiem</code> should be a callback function that returns the correct string based on hour, minute, and upper/lowercase.</p>
+<pre><code class="language-javascript">moment.locale(<span class="string">'zh-cn'</span>, {
     meridiem : <span class="function"><span class="keyword">function</span> <span class="params">(hour, minute, isLowercase)</span> {</span>
         <span class="keyword">if</span> (hour &lt; <span class="number">9</span>) {
             <span class="keyword">return</span> <span class="string">"早上"</span>;
@@ -4303,8 +4397,8 @@ The function should return a string.</p>
         }
     }
 });</code></pre>
-<p>Before version <strong>1.6.0</strong>, <code>Language#meridiem</code> was a map of upper and lowercase versions of am/pm.</p>
-<pre><code class="language-javascript">moment.lang(<span class="string">'en'</span>, {
+<p>Before version <strong>1.6.0</strong>, <code>Locale#meridiem</code> was a map of upper and lowercase versions of am/pm.</p>
+<pre><code class="language-javascript">moment.locale(<span class="string">'en'</span>, {
     meridiem : {
         am : <span class="string">'am'</span>,
         AM : <span class="string">'AM'</span>,
@@ -4331,21 +4425,28 @@ The function should return a string.</p>
 					<div class="docs-method-prose">
 						
 							<div class="docs-method-signature">
-								<pre><code class="language-js">moment.lang(<span class="string">'en'</span>, {
+								<pre><code class="language-js"><span class="comment">// From 2.8.1 onward</span>
+moment.locale(<span class="string">'en'</span>, {
+    meridiemParse : RegExp
+    isPM : Function
+});
+
+<span class="comment">// Deprecated in 2.8.1</span>
+moment.lang(<span class="string">'en'</span>, {
     meridiemParse : RegExp
     isPM : Function
 });</code></pre>
 
 							</div>
 						
-						<p><code>Language#isPM</code> should return true if the input string is past 12 noon. This is used in parsing the <code>a A</code> tokens.</p>
-<pre><code class="language-javascript">moment.lang(<span class="string">'en'</span>, {
+						<p><code>Locale#isPM</code> should return true if the input string is past 12 noon. This is used in parsing the <code>a A</code> tokens.</p>
+<pre><code class="language-javascript">moment.locale(<span class="string">'en'</span>, {
     isPM : <span class="function"><span class="keyword">function</span> <span class="params">(input)</span> {</span>
         <span class="keyword">return</span> ((input + <span class="string">''</span>).toLowerCase()[<span class="number">0</span>] === <span class="string">'p'</span>);
     }
 });</code></pre>
 <p>To configure what strings should be parsed as input, set the <code>meridiemParse</code> property.</p>
-<pre><code class="language-javascript">moment.lang(<span class="string">'en'</span>, {
+<pre><code class="language-javascript">moment.locale(<span class="string">'en'</span>, {
     meridiemParse : <span class="regexp">/[ap]\.?m?\.?/i</span>
 });</code></pre>
 
@@ -4366,14 +4467,20 @@ The function should return a string.</p>
 					<div class="docs-method-prose">
 						
 							<div class="docs-method-signature">
-								<pre><code class="language-js">moment.lang(<span class="string">'en'</span>, {
+								<pre><code class="language-js"><span class="comment">// From 2.8.1 onward</span>
+moment.locale(<span class="string">'en'</span>, {
+    calendar : Object
+});
+
+<span class="comment">// Deprecated in 2.8.1</span>
+moment.lang(<span class="string">'en'</span>, {
     calendar : Object
 });</code></pre>
 
 							</div>
 						
-						<p><code>Language#calendar</code> should have the following formatting strings.</p>
-<pre><code class="language-javascript">moment.lang(<span class="string">'en'</span>, {
+						<p><code>Locale#calendar</code> should have the following formatting strings.</p>
+<pre><code class="language-javascript">moment.locale(<span class="string">'en'</span>, {
     calendar : {
         lastDay : <span class="string">'[Yesterday at] LT'</span>,
         sameDay : <span class="string">'[Today at] LT'</span>,
@@ -4383,7 +4490,7 @@ The function should return a string.</p>
         sameElse : <span class="string">'L'</span>
     }
 });</code></pre>
-<p>Each of the <code>Language#calendar</code> keys can also be a callback function with the scope of the current moment. It should return a formatting string.</p>
+<p>Each of the <code>Locale#calendar</code> keys can also be a callback function with the scope of the current moment. It should return a formatting string.</p>
 <pre><code class="language-javascript"><span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
     <span class="keyword">return</span> <span class="string">'[hoy a la'</span> + ((<span class="keyword">this</span>.hours() !== <span class="number">1</span>) ? <span class="string">'s'</span> : <span class="string">''</span>) + <span class="string">'] LT'</span>;
 },</code></pre>
@@ -4405,14 +4512,20 @@ The function should return a string.</p>
 					<div class="docs-method-prose">
 						
 							<div class="docs-method-signature">
-								<pre><code class="language-js">moment.lang(<span class="string">'en'</span>, {
+								<pre><code class="language-js"><span class="comment">// From 2.8.1 onward</span>
+moment.locale(<span class="string">'en'</span>, {
+    ordinal : Function
+});
+
+<span class="comment">// Deprecated in 2.8.1</span>
+moment.lang(<span class="string">'en'</span>, {
     ordinal : Function
 });</code></pre>
 
 							</div>
 						
-						<p><code>Language#ordinal</code> should be a function that returns the ordinal for a given number.</p>
-<pre><code class="language-javascript">moment.lang(<span class="string">'en'</span>, {
+						<p><code>Locale#ordinal</code> should be a function that returns the ordinal for a given number.</p>
+<pre><code class="language-javascript">moment.locale(<span class="string">'en'</span>, {
     ordinal : <span class="function"><span class="keyword">function</span> <span class="params">(number, token)</span> {</span>
         <span class="keyword">var</span> b = number % <span class="number">10</span>;
         <span class="keyword">var</span> output = (~~ (number % <span class="number">100</span> / <span class="number">10</span>) === <span class="number">1</span>) ? <span class="string">'th'</span> :
@@ -4425,6 +4538,74 @@ The function should return a string.</p>
 <p>As of <strong>2.0.0</strong>, the ordinal function should return both the number and the ordinal. Previously, only the ordinal was returned.</p>
 <p>As of <strong>2.1.0</strong>, the token parameter was added. It is a string of the token that is being ordinalized, for example: <code>M</code> or <code>d</code>.</p>
 <p>For more information on ordinal numbers, see <a href="http://en.wikipedia.org/wiki/Ordinal_number_%28linguistics%29">wikipedia</a></p>
+
+					</div>
+				</article>
+			
+				<article class="docs-method">
+					<a class="docs-method-target" id="/customization/relative-time-threshold/"  name="/customization/relative-time-threshold/"></a>
+					
+						<h3 class="docs-method-title">
+							<a href='#/customization/relative-time-threshold/'>Relative Time Thresholds</a>
+							
+								<span>2.7.0+</span>
+							
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/07-customization/12-relative-time-threshold.md" target="_blank">edit</a>
+					
+					<div class="docs-method-prose">
+						
+							<div class="docs-method-signature">
+								<pre><code class="language-js">moment.relativeTimeThreshold(unit);  <span class="comment">// getter</span>
+moment.relativeTimeThreshold(unit, limit);  <span class="comment">// setter</span></code></pre>
+
+							</div>
+						
+						<p><code>duration.humanize</code> has thresholds which define when a unit is considered a minute, an hour and so on. For example, by default more than 45 seconds is considered a minute, more than 22 hours is considered a day and so on. To change those cutoffs use <code>moment.relativeTimeThreshold(unit, limit)</code> where limit is one of <code>s</code>, <code>m</code>, <code>h</code>, <code>d</code>, <code>M</code>.</p>
+<table>
+  <tbody>
+    <tr>
+      <th>unit</th>
+      <th>meaning</th>
+      <th>usage</th>
+    </tr>
+    <tr>
+      <td>s</td>
+      <td>seconds</td>
+      <td>least number of seconds to be considered a minute</td>
+    </tr>
+    <tr>
+      <td>m</td>
+      <td>minutes</td>
+      <td>least number of minutes to be considered an hour</td>
+    </tr>
+    <tr>
+      <td>d</td>
+      <td>days</td>
+      <td>least number of days to be considered a month</td>
+    </tr>
+    <tr>
+      <td>M</td>
+      <td>months</td>
+      <td>least number of months to be considered a year</td>
+    </tr>
+  </tbody>
+</table>
+
+<pre><code class="language-javascript">  <span class="comment">// Retrieve existing thresholds</span>
+  moment.relativeTimeThreshold(<span class="string">'s'</span>);  <span class="comment">// 45</span>
+  moment.relativeTimeThreshold(<span class="string">'m'</span>);  <span class="comment">// 45</span>
+  moment.relativeTimeThreshold(<span class="string">'h'</span>);  <span class="comment">// 22</span>
+  moment.relativeTimeThreshold(<span class="string">'d'</span>);  <span class="comment">// 26</span>
+  moment.relativeTimeThreshold(<span class="string">'M'</span>);  <span class="comment">// 11</span>
+
+  <span class="comment">// Set new thresholds</span>
+  moment.relativeTimeThreshold(<span class="string">'s'</span>, <span class="number">40</span>);
+  moment.relativeTimeThreshold(<span class="string">'m'</span>, <span class="number">40</span>);
+  moment.relativeTimeThreshold(<span class="string">'h'</span>, <span class="number">20</span>);
+  moment.relativeTimeThreshold(<span class="string">'d'</span>, <span class="number">25</span>);
+  moment.relativeTimeThreshold(<span class="string">'M'</span>, <span class="number">10</span>);</code></pre>
+<p><strong>NOTE</strong>: Retrieving thresholds was added in <strong>2.8.1</strong>.</p>
 
 					</div>
 				</article>

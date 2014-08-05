@@ -1,5 +1,5 @@
 //! moment-timezone.js
-//! version : 0.1.0
+//! version : 0.2.1
 //! author : Tim Wood
 //! license : MIT
 //! github.com/moment/moment-timezone
@@ -21,7 +21,7 @@
 	// Do not load moment-timezone a second time.
 	if (moment.tz !== undefined) { return moment; }
 
-	var VERSION = "0.1.0",
+	var VERSION = "0.2.1",
 		zones = {},
 		links = {};
 
@@ -119,14 +119,19 @@
 	************************************/
 
 	function Zone (packedString) {
-		var unpacked = unpack(packedString);
-		this.name    = unpacked.name;
-		this.abbrs   = unpacked.abbrs;
-		this.untils  = unpacked.untils;
-		this.offsets = unpacked.offsets;
+		if (packedString) {
+			this._set(unpack(packedString));
+		}
 	}
 
 	Zone.prototype = {
+		_set : function (unpacked) {
+			this.name    = unpacked.name;
+			this.abbrs   = unpacked.abbrs;
+			this.untils  = unpacked.untils;
+			this.offsets = unpacked.offsets;
+		},
+
 		_index : function (timestamp) {
 			var target = +timestamp,
 				untils = this.untils,
@@ -143,13 +148,26 @@
 			var target  = +timestamp,
 				offsets = this.offsets,
 				untils  = this.untils,
-				i;
+				max     = untils.length - 1,
+				offset, offsetNext, offsetPrev, i;
 
-			for (i = 0; i < untils.length; i++) {
-				if (target < untils[i] - (offsets[i] * 60000)) {
+			for (i = 0; i < max; i++) {
+				offset     = offsets[i];
+				offsetNext = offsets[i + 1];
+				offsetPrev = offsets[i ? i - 1 : i];
+
+				if (offset < offsetNext && tz.moveAmbiguousForward) {
+					offset = offsetNext;
+				} else if (offset > offsetPrev && tz.moveInvalidForward) {
+					offset = offsetPrev;
+				}
+
+				if (target < untils[i] - (offset * 60000)) {
 					return offsets[i];
 				}
 			}
+
+			return offsets[max];
 		},
 
 		abbr : function (mom) {
@@ -170,7 +188,7 @@
 	}
 
 	function addZone (packed) {
-		var i, zone;
+		var i, zone, zoneName;
 
 		if (typeof packed === "string") {
 			packed = [packed];
@@ -178,19 +196,14 @@
 
 		for (i = 0; i < packed.length; i++) {
 			zone = new Zone(packed[i]);
-			zones[normalizeName(zone.name)] = zone;
+			zoneName = normalizeName(zone.name);
+			zones[zoneName] = zone;
+			upgradeLinksToZones(zoneName);
 		}
 	}
 
 	function getZone (name) {
-		name = normalizeName(name);
-		var linkName = links[name];
-
-		if (linkName && zones[linkName]) {
-			name = linkName;
-		}
-
-		return zones[name] || null;
+		return zones[normalizeName(name)] || null;
 	}
 
 	function getNames () {
@@ -213,9 +226,42 @@
 		}
 
 		for (i = 0; i < aliases.length; i++) {
-			alias = normalizeName(aliases[i]).split('|');
-			links[alias[0]] = alias[1];
-			links[alias[1]] = alias[0];
+			alias = aliases[i].split('|');
+			pushLink(alias[0], alias[1]);
+			pushLink(alias[1], alias[0]);
+		}
+	}
+
+	function upgradeLinksToZones (zoneName) {
+		if (!links[zoneName]) {
+			return;
+		}
+
+		var i,
+			zone = zones[zoneName],
+			linkNames = links[zoneName];
+
+		for (i = 0; i < linkNames.length; i++) {
+			copyZoneWithName(zone, linkNames[i]);
+		}
+
+		links[zoneName] = null;
+	}
+
+	function copyZoneWithName (zone, name) {
+		var linkZone = zones[normalizeName(name)] = new Zone();
+		linkZone._set(zone);
+		linkZone.name = name;
+	}
+
+	function pushLink (zoneName, linkName) {
+		zoneName = normalizeName(zoneName);
+
+		if (zones[zoneName]) {
+			copyZoneWithName(zones[zoneName], linkName);
+		} else {
+			links[zoneName] = links[zoneName] || [];
+			links[zoneName].push(linkName);
 		}
 	}
 
@@ -239,6 +285,12 @@
 		return !!(m._a && (m._tzm === undefined));
 	}
 
+	function logError (message) {
+		if (typeof console !== 'undefined' && typeof console.error === 'function') {
+			console.error(message);
+		}
+	}
+
 	/************************************
 		moment.tz namespace
 	************************************/
@@ -250,7 +302,7 @@
 			out  = moment.utc.apply(null, args);
 
 		if (zone && needsOffset(out)) {
-			out.add('minutes', zone.parse(out));
+			out.add(zone.parse(out), 'minutes');
 		}
 
 		out.tz(name);
@@ -272,6 +324,8 @@
 	tz.unpack       = unpack;
 	tz.unpackBase60 = unpackBase60;
 	tz.needsOffset  = needsOffset;
+	tz.moveInvalidForward   = true;
+	tz.moveAmbiguousForward = false;
 
 	/************************************
 		Interface with Moment.js
@@ -297,6 +351,8 @@
 			this._z = getZone(name);
 			if (this._z) {
 				moment.updateOffset(this);
+			} else {
+				logError("Moment Timezone has no data for " + name + ". See http://momentjs.com/timezone/docs/#/data-loading/.");
 			}
 			return this;
 		}
@@ -313,7 +369,7 @@
 	function resetZoneWrap (old) {
 		return function () {
 			this._z = null;
-			return old.call(this);
+			return old.apply(this, arguments);
 		};
 	}
 
@@ -322,7 +378,15 @@
 	fn.utc      = resetZoneWrap(fn.utc);
 
 	// Cloning a moment should include the _z property.
-	moment.momentProperties._z = null;
+	var momentProperties = moment.momentProperties;
+	if (Object.prototype.toString.call(momentProperties) === '[object Array]') {
+		// moment 2.8.1+
+		momentProperties.push('_z');
+		momentProperties.push('_a');
+	} else {
+		// moment 2.7.0
+		momentProperties._z = null;
+	}
 
 	loadData({
 		"version": "2014e",
