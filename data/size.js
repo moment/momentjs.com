@@ -16,7 +16,7 @@ module.exports = {
 	moment                                  : size('moment/moment'),
 	moment_min                              : size('moment/min/moment.min'),
 	moment_with_locales                     : size('moment/min/moment-with-locales'),
-	moment_with_localess_min                : size('moment/min/moment-with-locales.min'),
+	moment_with_locales_min                 : size('moment/min/moment-with-locales.min'),
 	moment_timezone                         : size('moment-timezone/moment-timezone'),
 	moment_timezone_min                     : size('moment-timezone/builds/moment-timezone.min'),
 	moment_timezone_with_data               : size('moment-timezone/builds/moment-timezone-with-data'),
