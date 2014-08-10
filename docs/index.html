@@ -717,7 +717,11 @@ define([<span class="string">"moment"</span>], <span class="function"><span clas
 });</code></pre>
 <p>Moment will still create a <code>moment</code> global, which is useful to plugins and other third-party code. If you wish to squash that global, use the <code>noGlobal</code> option on the module config.</p>
 <pre><code class="language-javascript">require.config({
-  noGlobal: <span class="literal">true</span>
+    config: {
+        moment: {
+            noGlobal: <span class="literal">true</span>
+        }
+    }
 });</code></pre>
 <p>If you don&#39;t specify <code>noGlobal</code> then the globally exported moment will print
 a deprecation warning. From next major release you&#39;ll have to export it
