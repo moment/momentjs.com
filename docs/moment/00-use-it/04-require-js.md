@@ -18,7 +18,11 @@ Moment will still create a `moment` global, which is useful to plugins and other
 
 ```javascript
 require.config({
-  noGlobal: true
+    config: {
+        moment: {
+            noGlobal: true
+        }
+    }
 });
 ```
 
