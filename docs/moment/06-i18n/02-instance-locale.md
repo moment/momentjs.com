@@ -43,4 +43,4 @@ fr.locale().months(moment([2012, 0])) // "January"
 
 If you need to access the locale data for a moment, this is the preferred way to do so.
 
-As of **2.3.0**, you can also specify an array of locale identifiers. It works the same was it does in the [global locale configuration](http://localhost:8000/docs/#/i18n/changing-locale/).
+As of **2.3.0**, you can also specify an array of locale identifiers. It works the same was it does in the [global locale configuration](#/i18n/changing-locale/).
