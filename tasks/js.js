@@ -4,7 +4,8 @@ module.exports = function(grunt) {
 			'build/static/js/global.js' : [
 				'libs/moment/moment.js',
 				'libs/moment/min/locales.js',
-				'libs/moment-timezone/builds/moment-timezone-with-data.js'
+				'libs/moment-timezone/builds/moment-timezone-with-data.js',
+				'assets/js/global.js'
 			],
 			'build/static/js/core-test.js' : [
 				'assets/js/test-start.js',

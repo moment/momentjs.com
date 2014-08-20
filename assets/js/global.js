@@ -1,0 +1,1 @@
+moment.locale('en');
