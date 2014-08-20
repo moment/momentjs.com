@@ -31,6 +31,6 @@ Like `moment#fromNow`, passing `true` as the second parameter returns value with
 ```javascript
 var start = moment([2007, 0, 5]);
 var end = moment([2007, 0, 10]);
-start.from(end);       // "in 5 days"
-start.from(end, true); // "5 days"
+end.from(start);       // "in 5 days"
+end.from(start, true); // "5 days"
 ```
