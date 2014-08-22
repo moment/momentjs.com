@@ -10606,3 +10606,5 @@
 
 	return moment;
 }));
+
+moment.locale('en');
