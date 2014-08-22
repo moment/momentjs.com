@@ -3061,21 +3061,21 @@ moment().from(Moment|String|Number|Date|Array, Boolean);</code></pre>
 							</div>
 						
 						<p>You may want to display a moment in relation to a time other than now. In that case, you can use <code>moment#from</code>.</p>
-<pre><code class="language-javascript"><span class="keyword">var</span> a = moment([<span class="number">2007</span>, <span class="number">0</span>, <span class="number">28</span>]);
-<span class="keyword">var</span> b = moment([<span class="number">2007</span>, <span class="number">0</span>, <span class="number">29</span>]);
+<pre><code class="language-javascript"><span class="keyword">var</span> a = moment([<span class="number">2007</span>, <span class="number">0</span>, <span class="number">29</span>]);
+<span class="keyword">var</span> b = moment([<span class="number">2007</span>, <span class="number">0</span>, <span class="number">28</span>]);
 a.from(b) <span class="comment">// "a day ago"</span></code></pre>
 <p>The first parameter is anything you can pass to <code>moment()</code> or an actual <code>Moment</code>.</p>
-<pre><code class="language-javascript"><span class="keyword">var</span> a = moment([<span class="number">2007</span>, <span class="number">0</span>, <span class="number">28</span>]);
-<span class="keyword">var</span> b = moment([<span class="number">2007</span>, <span class="number">0</span>, <span class="number">29</span>]);
+<pre><code class="language-javascript"><span class="keyword">var</span> a = moment([<span class="number">2007</span>, <span class="number">0</span>, <span class="number">29</span>]);
+<span class="keyword">var</span> b = moment([<span class="number">2007</span>, <span class="number">0</span>, <span class="number">28</span>]);
 a.from(b);                     <span class="comment">// "a day ago"</span>
-a.from([<span class="number">2007</span>, <span class="number">0</span>, <span class="number">29</span>]);         <span class="comment">// "a day ago"</span>
-a.from(<span class="keyword">new</span> Date(<span class="number">2007</span>, <span class="number">0</span>, <span class="number">29</span>)); <span class="comment">// "a day ago"</span>
-a.from(<span class="string">"2007-01-29"</span>);          <span class="comment">// "a day ago"</span></code></pre>
+a.from([<span class="number">2007</span>, <span class="number">0</span>, <span class="number">28</span>]);         <span class="comment">// "a day ago"</span>
+a.from(<span class="keyword">new</span> Date(<span class="number">2007</span>, <span class="number">0</span>, <span class="number">28</span>)); <span class="comment">// "a day ago"</span>
+a.from(<span class="string">"1-28-2007"</span>);           <span class="comment">// "a day ago"</span></code></pre>
 <p>Like <code>moment#fromNow</code>, passing <code>true</code> as the second parameter returns value without the suffix. This is useful wherever you need to have a human readable length of time.</p>
 <pre><code class="language-javascript"><span class="keyword">var</span> start = moment([<span class="number">2007</span>, <span class="number">0</span>, <span class="number">5</span>]);
-<span class="keyword">var</span> end   = moment([<span class="number">2007</span>, <span class="number">0</span>, <span class="number">10</span>]);
-end.from(start);       <span class="comment">// "in 5 days"</span>
-end.from(start, <span class="literal">true</span>); <span class="comment">// "5 days"</span></code></pre>
+<span class="keyword">var</span> end = moment([<span class="number">2007</span>, <span class="number">0</span>, <span class="number">10</span>]);
+start.from(end);       <span class="comment">// "in 5 days"</span>
+start.from(end, <span class="literal">true</span>); <span class="comment">// "5 days"</span></code></pre>
 
 					</div>
 				</article>
@@ -3736,7 +3736,7 @@ fr.locale().months(moment([<span class="number">2012</span>, <span class="number
 fr.locale(<span class="string">'en'</span>);
 fr.locale().months(moment([<span class="number">2012</span>, <span class="number">0</span>])) <span class="comment">// "January"</span></code></pre>
 <p>If you need to access the locale data for a moment, this is the preferred way to do so.</p>
-<p>As of <strong>2.3.0</strong>, you can also specify an array of locale identifiers. It works the same was it does in the <a href="#/i18n/changing-locale/">global locale configuration</a>.</p>
+<p>As of <strong>2.3.0</strong>, you can also specify an array of locale identifiers. It works the same was it does in the <a href="http://localhost:8000/docs/#/i18n/changing-locale/">global locale configuration</a>.</p>
 
 					</div>
 				</article>
@@ -5459,6 +5459,8 @@ Links: <a href="http://gr2m.github.io/moment.parseFormat/">Demo</a> |
 <p>For example,</p>
 <pre><code class="language-javascript">moment(<span class="string">"2013-12-24 14:30"</span>).formatWithJavaDateFormat(<span class="string">"dd.MM.yyyy"</span>);  <span class="comment">// returns the formatted date "24.12.2013"</span>
 moment().toJavaDateFormatString(<span class="string">"DD.MM.YYYY"</span>);  <span class="comment">// returns the Java format pattern "dd.MM.yyyy"</span></code></pre>
+<p>It&#39;s available on npm like so:</p>
+<pre><code>npm install moment-jdateformatparser</code></pre>
 <p>The repository is located at <a href="https://github.com/MadMG/moment-jdateformatparser">github.com/MadMG/moment-jdateformatparser</a></p>
 
 					</div>

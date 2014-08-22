@@ -56,7 +56,7 @@
 			</div>
 		</div>
 		<div class="hero-title">
-			<h1>Moment.js <span>2.8.1</span></h1>
+			<h1>Moment.js <span>2.8.2</span></h1>
 			<h2>Parse, validate, manipulate, and display dates in javascript.</h2>
 		</div>
 	</div>
@@ -78,7 +78,7 @@
 		</a>
 		<a class="builds-button builds-button-gzipped" href="/downloads/moment-with-locales.min.js">
 			moment+locales.min.js
-			<span class="filesize">39.2k</span>
+			<span class="filesize">39.3k</span>
 		</a>
 	</div>
 	<div class="builds-packages">
@@ -104,14 +104,14 @@ moment().startOf(<span class="string">'day'</span>).fromNow();
 moment().endOf(<span class="string">'day'</span>).fromNow();
 moment().startOf(<span class="string">'hour'</span>).fromNow();</code></pre>
 <h3 id="calendar-time">Calendar Time</h3>
-<pre><code class="language-js">moment().subtract(<span class="number">10</span>, <span class="string">'days'</span>).calendar();
-moment().subtract(<span class="number">6</span>, <span class="string">'days'</span>).calendar();
-moment().subtract(<span class="number">3</span>, <span class="string">'days'</span>).calendar();
-moment().subtract(<span class="number">1</span>, <span class="string">'days'</span>).calendar();
+<pre><code class="language-js">moment().subtract(<span class="string">'days'</span>, <span class="number">10</span>).calendar();
+moment().subtract(<span class="string">'days'</span>, <span class="number">6</span>).calendar();
+moment().subtract(<span class="string">'days'</span>, <span class="number">3</span>).calendar();
+moment().subtract(<span class="string">'days'</span>, <span class="number">1</span>).calendar();
 moment().calendar();
-moment().add(<span class="number">1</span>, <span class="string">'days'</span>).calendar();
-moment().add(<span class="number">3</span>, <span class="string">'days'</span>).calendar();
-moment().add(<span class="number">10</span>, <span class="string">'days'</span>).calendar();</code></pre>
+moment().add(<span class="string">'days'</span>, <span class="number">1</span>).calendar();
+moment().add(<span class="string">'days'</span>, <span class="number">3</span>).calendar();
+moment().add(<span class="string">'days'</span>, <span class="number">10</span>).calendar();</code></pre>
 <h3 id="multiple-locale-support">Multiple Locale Support</h3>
 <pre><code class="language-js">moment().format(<span class="string">'L'</span>);
 moment().format(<span class="string">'l'</span>);
