@@ -35,4 +35,4 @@ not AMD-compatible you may need to add [`wrapShim:
 true`](https://github.com/jrburke/r.js/blob/b8a6982d2923ae8389355edaa50d2b7f8065a01a/build/example.build.js#L68-L78)
 to your r.js config.
 
-__Note:__ Because of plugins, moment __must__ be loaded exactly as as `"moment"`, using `paths` to determine the directory. Requiring moment as eg, `"vendor\moment"` will return `undefined`.
+__Note:__ To allow moment.js plugins to be loaded in requirejs environments, moment is created as a named module. Because of this, moment __must__ be loaded exactly as as `"moment"`, using `paths` to determine the directory. Requiring moment with a path like `"vendor\moment"` will return `undefined`.
