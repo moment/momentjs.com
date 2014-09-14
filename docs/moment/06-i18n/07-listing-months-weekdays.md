@@ -33,7 +33,7 @@ Returns the list of months in the current locale.
   'December' ]
 ```
 
-Similarly, `moment.monthsShort` returns abbreviated month names, and `moment.weekdays `moment.weekdaysShort`, `moment.weekdaysMin` return lists of weekdays.
+Similarly, `moment.monthsShort` returns abbreviated month names, and `moment.weekdays`, `moment.weekdaysShort`, `moment.weekdaysMin` return lists of weekdays.
 
 You can pass an integer into each of those functions to get a specific month or weekday.
 
