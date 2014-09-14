@@ -10,26 +10,26 @@ If you don't know the exact format of an input string, but know it could be one 
 
 This is the same as [String + Format](#/parsing/string-format/), only it will try to match the input to multiple formats.
 
-```javascript
+```js
 moment("12-25-1995", ["MM-DD-YYYY", "YYYY-MM-DD"]);
 ```
 
-Starting in **2.3.0**, Moment uses some simple heuristics to determine which format to use. In order:
+Starting in version `2.3.0`, Moment uses some simple heuristics to determine which format to use. In order:
 
  * Prefer formats resulting in [valid](#/parsing/is-valid/) dates over invalid ones.
  * Prefer formats that parse more of the string than less and use more of the format than less, i.e. prefer stricter parsing.
  * Prefer formats earlier in the array than later.
 
-```javascript
-moment("29-06-1995", ["MM-DD-YYYY", "DD-MM", "DD-MM-YYYY"]); //uses the last format
-moment("05-06-1995", ["MM-DD-YYYY", "DD-MM-YYYY"]); // uses the first format
+```js
+moment("29-06-1995", ["MM-DD-YYYY", "DD-MM", "DD-MM-YYYY"]); // uses the last format
+moment("05-06-1995", ["MM-DD-YYYY", "DD-MM-YYYY"]);          // uses the first format
 ```
 
-You may also specify a locale and strictness argument; they work the same was as they do in the single format case.
+You may also specify a locale and strictness argument. They work the same was as they do in the single format case.
 
-```javascript
-moment("29-06-1995", ["MM-DD-YYYY", "DD-MM", "DD-MM-YYYY"], 'fr'); // uses 'fr' locale
-moment("29-06-1995", ["MM-DD-YYYY", "DD-MM", "DD-MM-YYYY"], true); // uses strict parsing
+```js
+moment("29-06-1995", ["MM-DD-YYYY", "DD-MM-YYYY"], 'fr');       // uses 'fr' locale
+moment("29-06-1995", ["MM-DD-YYYY", "DD-MM-YYYY"], true);       // uses strict parsing
 moment("05-06-1995", ["MM-DD-YYYY", "DD-MM-YYYY"], 'fr', true); // uses 'fr' locale and strict parsing
 ```
 
