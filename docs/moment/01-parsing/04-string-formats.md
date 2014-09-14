@@ -17,7 +17,7 @@ moment("12-25-1995", ["MM-DD-YYYY", "YYYY-MM-DD"]);
 Starting in **2.3.0**, Moment uses some simple heuristics to determine which format to use. In order:
 
  * Prefer formats resulting in [valid](#/parsing/is-valid/) dates over invalid ones.
- * Prefer formats that parse more of the string than less and use more of the format more of the format than less, i.e. prefer stricter parsing.
+ * Prefer formats that parse more of the string than less and use more of the format than less, i.e. prefer stricter parsing.
  * Prefer formats earlier in the array than later.
 
 ```javascript
