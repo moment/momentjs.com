@@ -14,5 +14,3 @@ var dayWrapper = moment(day);
 ```
 
 This clones `Date` object; further changes to the `Date` won't affect the `Moment`, and vice-versa.
-
-This is the fastest way to get a Moment.js wrapper.
