@@ -631,7 +631,7 @@
 					<div class="docs-method-prose">
 						
 						<p>Moment was designed to work both in the browser and in Node.JS.</p>
-<p>Currently the following browsers are used for the ci system: ie8, ie9 on
+<p>Currently the following browsers are used for the ci system: IE8, IE9 on
 Windows 7, stable Chrome on Windows XP, Safari 10.8 on Mac and stable
 Firefox on Linux.</p>
 <p>All code will work in both environments. All unit tests are run in both environments.</p>
@@ -653,8 +653,8 @@ Firefox on Linux.</p>
 						<pre><code>npm install moment</code></pre>
 <pre><code class="language-javascript"><span class="keyword">var</span> moment = require(<span class="string">'moment'</span>);
 moment().format();</code></pre>
-<p>Since <code>2.4.0</code> the globally exported moment object is <strong>deprecated</strong>. Will be
-removed in next major release.</p>
+<p><strong>Note:</strong> In <code>2.4.0</code>, the globally exported moment object was <strong>deprecated</strong>.
+It will be removed in next major release.</p>
 
 					</div>
 				</article>
@@ -730,6 +730,7 @@ yourself if you want that behavior.</p>
 not AMD-compatible you may need to add <a href="https://github.com/jrburke/r.js/blob/b8a6982d2923ae8389355edaa50d2b7f8065a01a/build/example.build.js#L68-L78"><code>wrapShim:
 true</code></a>
 to your r.js config.</p>
+<p><strong>Note:</strong> To allow moment.js plugins to be loaded in requirejs environments, moment is created as a named module. Because of this, moment <strong>must</strong> be loaded exactly as as <code>&quot;moment&quot;</code>, using <code>paths</code> to determine the directory. Requiring moment with a path like <code>&quot;vendor\moment&quot;</code> will return <code>undefined</code>.</p>
 
 					</div>
 				</article>
@@ -779,7 +780,7 @@ to your r.js config.</p>
 					
 					<div class="docs-method-prose">
 						
-						<p>To use under <strong>Java/Rhino</strong>, follow check out <a href="https://gist.github.com/UnquietCode/5614860">these instructions</a>.</p>
+						<p>To use under <strong>Java/Rhino</strong>, see <a href="https://gist.github.com/UnquietCode/5614860">these instructions</a>.</p>
 <p>To use in <strong>Demandware</strong>, see <a href="https://github.com/moment/moment/issues/1034">these instructions</a>.</p>
 
 					</div>
@@ -863,49 +864,34 @@ to your r.js config.</p>
 
 							</div>
 						
-						<p>You can create a moment from a string. Moment would try a few ISO patterns and then try the native js Date.</p>
-<pre><code class="language-javascript"><span class="keyword">var</span> day = moment(<span class="string">"Dec 25, 1995"</span>);</code></pre>
-<p><strong>Warning</strong> Browser support for this is inconsistent. Because there is no specification on which formats should be supported, what works in some browsers will not work in other browsers.</p>
+						<p>When creating a moment from a string, we first check if the string matches known <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> formats, then fall back to <code>new Date(string)</code> if a known format is not found.</p>
+<pre><code class="language-javascript"><span class="keyword">var</span> day = moment(<span class="string">"1995-12-25"</span>);</code></pre>
+<p><strong>Warning:</strong> Browser support for parsing strings <a href="http://dygraphs.com/date-formats.html">is inconsistent</a>. Because there is no specification on which formats should be supported, what works in some browsers will not work in other browsers.</p>
 <!--
-**Note**: This has been the source of a lot of confustion, because moments created via `Date` constructor don't support `isValid` and also work unreliably. So it would be soon deprecated. From version 2.6.0 there is a way to prevent Date constructor usage -- just set `moment.createFromInputFallback` to an empty function.
+**Note**: This has been the source of a lot of confusion, because moments created via `Date` constructor don't support `isValid` and also work unreliably. So it would be soon deprecated. From version 2.6.0 there is a way to prevent Date constructor usage -- just set `moment.createFromInputFallback` to an empty function.
 -->
 
-<p>For more consistent results, you should use <a href="#/parsing/string-format/">String + Format</a>.</p>
-<p>There is one exception: Moment.js does detect if you are using an ISO-8601 string and will parse that correctly without a format string.</p>
-<p>The following ISO-8601 formats are supported across all browsers.</p>
-<pre><code class="language-javascript"><span class="string">"2013-02-08"</span>
-<span class="string">"2013-02-08T09"</span>
-<span class="string">"2013-02-08 09"</span>
-<span class="string">"2013-02-08T09:30"</span>
-<span class="string">"2013-02-08 09:30"</span>
-<span class="string">"2013-02-08T09:30:26"</span>
-<span class="string">"2013-02-08 09:30:26"</span>
-<span class="string">"2013-02-08T09:30:26.123"</span>
-<span class="string">"2013-02-08 09:30:26.123"</span>
-<span class="string">"2013-02-08T09:30:26 Z"</span>
-<span class="string">"2013-02-08 09:30:26 Z"</span>
-<span class="string">"2013-W06-5"</span>
-<span class="string">"2013-W06-5T09"</span>
-<span class="string">"2013-W06-5 09"</span>
-<span class="string">"2013-W06-5T09:30"</span>
-<span class="string">"2013-W06-5 09:30"</span>
-<span class="string">"2013-W06-5T09:30:26"</span>
-<span class="string">"2013-W06-5 09:30:26"</span>
-<span class="string">"2013-W06-5T09:30:26.123"</span>
-<span class="string">"2013-W06-5 09:30:26.123"</span>
-<span class="string">"2013-W06-5T09:30:26 Z"</span>
-<span class="string">"2013-W06-5 09:30:26 Z"</span>
-<span class="string">"2013-039"</span>
-<span class="string">"2013-039T09"</span>
-<span class="string">"2013-039 09"</span>
-<span class="string">"2013-039T09:30"</span>
-<span class="string">"2013-039 09:30"</span>
-<span class="string">"2013-039T09:30:26"</span>
-<span class="string">"2013-039 09:30:26"</span>
-<span class="string">"2013-039T09:30:26.123"</span>
-<span class="string">"2013-039 09:30:26.123"</span>
-<span class="string">"2013-039T09:30:26 Z"</span>
-<span class="string">"2013-039 09:30:26 Z"</span></code></pre>
+<p>For consistent results parsing anything other than ISO 8601 strings, you should use <a href="#/parsing/string-format/">String + Format</a>.</p>
+<h4 id="supported-iso-8601-strings">Supported ISO 8601 strings</h4>
+<p>An ISO 8601 string requires a date part.</p>
+<pre><code>2013-02-08  # A calendar date part
+2013-W06-5  # A week date part
+2013-039    # An ordinal date part</code></pre>
+<p>A time part can also be included, separated from the date part by a space or a uppercase T.</p>
+<pre><code>2013-02-08T09            # An hour time part separated by a T
+2013-02-08 09            # An hour time part separated by a space
+2013-02-08 09:30         # An hour and minute time part
+2013-02-08 09:30:26      # An hour, minute, and second time part
+2013-02-08 09:30:26.123  # An hour, minute, second, and millisecond time part</code></pre>
+<p>Any of the date parts can have a time part.</p>
+<pre><code>2013-02-08 09  # A calendar date part and hour time part
+2013-W06-5 09  # A week date part and hour time part
+2013-039 09    # An ordinal date part and hour time part</code></pre>
+<p>If a time part is included, an offset from UTC can also be included as <code>+-HH:mm</code>, <code>+-HHmm</code>, or <code>Z</code>.</p>
+<pre><code>2013-02-08 09+07:00            # +-HH:mm
+2013-02-08 09-0100             # +-HHmm
+2013-02-08 09Z                 # Z
+2013-02-08 09:30:26.123+07:00  # +-HH:mm</code></pre>
 <p><strong>Note:</strong> Automatic cross browser ISO-8601 support was added in version <strong>1.5.0</strong>. Support for the week and ordinal formats was added in version <strong>2.3.0</strong>.</p>
 <p>If a string does not match any of the above formats and is not able to be parsed with <code>Date.parse</code>, <code>moment#isValid</code> will return false.</p>
 <pre><code class="language-javascript">moment(<span class="string">"not a real date"</span>).isValid(); <span class="comment">// false</span></code></pre>
@@ -940,154 +926,196 @@ moment(String, String, String, Boolean);</code></pre>
 <pre><code class="language-javascript">moment(<span class="string">"12-25-1995"</span>, <span class="string">"MM-DD-YYYY"</span>);
 moment(<span class="string">"12\25\1995"</span>, <span class="string">"MM-DD-YYYY"</span>);</code></pre>
 <p>The parsing tokens are similar to the formatting tokens used in <code>moment#format</code>.</p>
-<table class="table table-striped table-bordered">
-  <tbody>
-    <tr>
-      <th>Input</th>
-      <th>Output</th>
-    </tr>
-    <tr>
-      <td>M, MM</td>
-      <td>Month Number (1 - 12)</td>
-    </tr>
-    <tr>
-      <td>MMM, MMMM</td>
-      <td>Month Name (In locale currently set by <code>moment.locale()</code>)</td>
-    </tr>
-    <tr>
-      <td>Q</td>
-      <td>Quarter (1 - 4) -- sets the month to the first month in that quarter</td>
-    <tr>
-      <td>D, DD</td>
-      <td>Day of month</td>
-    </tr>
-    <tr>
-      <td>Do</td>
-      <td>Ordinal day of month (from <code>2.6.0</code>)</td>
-    </tr>
-    <tr>
-      <td>DDD, DDDD</td>
-      <td>Day of year</td>
-    </tr>
-    <tr>
-      <td>d, dd, ddd, dddd</td>
-      <td>Day of week (NOTE: these formats only make sense when combined with &quot;ww&quot;)
-    </tr>
-    <tr>
-      <td>e</td>
-      <td>Day of week (locale) (NOTE: this formats only makes sense when combined with &quot;ww&quot;)
-    </tr>
-    <tr>
-      <td>E</td>
-      <td>Day of week (ISO) (NOTE: this format only makes sense when combined with &quot;WW&quot;)
-    </tr>
-    <tr>
-      <td>w, ww</td>
-      <td>Week of the year (NOTE: combine this format with &quot;gg&quot; or &quot;gggg&quot; instead of &quot;YY&quot; or &quot;YYYY&quot;)
-    </tr>
-    <tr>
-    <tr>
-      <td>W, WW</td>
-      <td>Week of the year (ISO) (NOTE: combine this format with &quot;GG&quot; or &quot;GGGG&quot; instead of &quot;YY&quot; or &quot;YYYY&quot;)
-    </tr>
-    <tr>
-    <tr>
-      <td>YY</td>
-      <td>2 digit year (see below)</td>
-    </tr>
-    <tr>
-      <td>YYYY</td>
-      <td>4 digit year</td>
-    </tr>
-    <tr>
-      <td>gg</td>
-      <td>2 digit week year (if greater than 68 will return 1900&#39;s, otherwise 2000&#39;s)</td>
-    </tr>
-    <tr>
-      <td>gggg</td>
-      <td>4 digit week year</td>
-    </tr>
-    <tr>
-      <td>GG</td>
-      <td>2 digit week year (ISO) (if greater than 68 will return 1900&#39;s, otherwise 2000&#39;s)</td>
-    </tr>
-    <tr>
-      <td>GGGG</td>
-      <td>4 digit week year (ISO)</td>
-    </tr>
-    <tr>
-      <td>a, A</td>
-      <td>AM/PM</td>
-    </tr>
-    <tr>
-      <td>H, HH</td>
-      <td>24 hour time</td>
-    </tr>
-    <tr>
-      <td>h, hh</td>
-      <td>12 hour time (use in conjunction with a or A)</td>
-    </tr>
-    <tr>
-      <td>m, mm</td>
-      <td>Minutes</td>
-    </tr>
-    <tr>
-      <td>s, ss</td>
-      <td>Seconds</td>
-    </tr>
-    <tr>
-      <td>S</td>
-      <td>Deciseconds (1/10th of a second)</td>
-    </tr>
-    <tr>
-      <td>SS</td>
-      <td>Centiseconds (1/100th of a second)</td>
-    </tr>
-    <tr>
-      <td>SSS</td>
-      <td>Milliseconds (1/1000th of a second)</td>
-    </tr>
-    <tr>
-      <td>Z, ZZ</td>
-      <td>
-        Timezone offset as <code>+07:00</code> or <code>+0700</code>
-      </td>
-    </tr>
-    <tr>
-      <td>X</td>
-      <td>
-        Unix timestamp
-      </td>
-    </tr>
-    <tr>
-      <td>LT, L, LL, LLL, LLLL</td>
-      <td>Locale dependent date and time representation</td>
-    </tr>
-  </tbody>
+<h4 id="year-month-and-day-tokens">Year, month, and day tokens</h4>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>YYYY</code></td>
+<td><code>2014</code></td>
+<td>4 digit year</td>
+</tr>
+<tr>
+<td><code>YY</code></td>
+<td><code>14</code></td>
+<td>2 digit year</td>
+</tr>
+<tr>
+<td><code>Q</code></td>
+<td><code>1..4</code></td>
+<td>Quarter of year. Sets month to first month in quarter.</td>
+</tr>
+<tr>
+<td><code>M MM</code></td>
+<td><code>1..12</code></td>
+<td>Month number</td>
+</tr>
+<tr>
+<td><code>MMM MMMM</code></td>
+<td><code>January..Dec</code></td>
+<td>Month name in locale set by <code>moment.locale()</code></td>
+</tr>
+<tr>
+<td><code>D DD</code></td>
+<td><code>1..31</code></td>
+<td>Day of month</td>
+</tr>
+<tr>
+<td><code>Do</code></td>
+<td><code>1st..31st</code></td>
+<td>Day of month with ordinal</td>
+</tr>
+<tr>
+<td><code>DDD DDDD</code></td>
+<td><code>1..365</code></td>
+<td>Day of year</td>
+</tr>
+<tr>
+<td><code>X</code></td>
+<td><code>1410715640.579</code></td>
+<td>Unix timestamp</td>
+</tr>
+</tbody>
 </table>
-
-<p><code>Z ZZ</code> were added in <strong>1.2.0</strong>. <code>S SS SSS</code> were added in <strong>1.6.0</strong>. <code>X</code> was
-added in <code>2.0.0</code>, <code>LT</code>, <code>L</code>, <code>LL</code>, <code>LLL</code>, <code>LLLL</code> were added in <code>2.2.1</code>.</p>
+<h4 id="week-year-week-and-weekday-tokens">Week year, week, and weekday tokens</h4>
+<p>For these, the lowercase tokens use the locale aware week start days, and the uppercase tokens use the <a href="http://en.wikipedia.org/wiki/ISO_week_date">ISO week date</a> start days.</p>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>gggg</code></td>
+<td><code>2014</code></td>
+<td>Locale 4 digit week year</td>
+</tr>
+<tr>
+<td><code>gg</code></td>
+<td><code>14</code></td>
+<td>Locale 2 digit week year</td>
+</tr>
+<tr>
+<td><code>w ww</code></td>
+<td><code>1..53</code></td>
+<td>Locale week of year</td>
+</tr>
+<tr>
+<td><code>e</code></td>
+<td><code>1..7</code></td>
+<td>Locale day of week</td>
+</tr>
+<tr>
+<td><code>GGGG</code></td>
+<td><code>2014</code></td>
+<td>ISO 4 digit week year</td>
+</tr>
+<tr>
+<td><code>GG</code></td>
+<td><code>14</code></td>
+<td>ISO 2 digit week year</td>
+</tr>
+<tr>
+<td><code>W WW</code></td>
+<td><code>1..53</code></td>
+<td>ISO week of year</td>
+</tr>
+<tr>
+<td><code>E</code></td>
+<td><code>1..7</code></td>
+<td>ISO day of week</td>
+</tr>
+</tbody>
+</table>
+<h4 id="hour-minute-second-millisecond-and-offset-tokens">Hour, minute, second, millisecond, and offset tokens</h4>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>H HH</code></td>
+<td><code>0..23</code></td>
+<td>24 hour time</td>
+</tr>
+<tr>
+<td><code>h hh</code></td>
+<td><code>1..12</code></td>
+<td>12 hour time used with <code>a A</code>.</td>
+</tr>
+<tr>
+<td><code>a A</code></td>
+<td><code>am pm</code></td>
+<td>Post or ante meridiem</td>
+</tr>
+<tr>
+<td><code>m mm</code></td>
+<td><code>0..59</code></td>
+<td>Minutes</td>
+</tr>
+<tr>
+<td><code>s ss</code></td>
+<td><code>0..59</code></td>
+<td>Seconds</td>
+</tr>
+<tr>
+<td><code>S</code></td>
+<td><code>0..9</code></td>
+<td>Tenths of a second</td>
+</tr>
+<tr>
+<td><code>SS</code></td>
+<td><code>0..99</code></td>
+<td>Hundreds of a second</td>
+</tr>
+<tr>
+<td><code>SSS</code></td>
+<td><code>0..999</code></td>
+<td>Thousandths of a second</td>
+</tr>
+<tr>
+<td><code>Z ZZ</code></td>
+<td><code>+12:00</code></td>
+<td>Offset from UTC as <code>+-HH:mm</code>, <code>+-HHmm</code>, or <code>Z</code></td>
+</tr>
+</tbody>
+</table>
+<p>Locale aware date and time formats are also available using <code>LT L LL LLL LLLL</code>. They were added in version <code>2.2.1</code>.</p>
+<p><code>Z ZZ</code> were added in version <code>1.2.0</code>.</p>
+<p><code>S SS SSS</code> were added in version <code>1.6.0</code>.</p>
+<p><code>X</code> was added in version <code>2.0.0</code>.</p>
 <p>Unless you specify a timezone offset, parsing a string will create a date in the current timezone.</p>
-<pre><code class="language-javascript">moment(<span class="string">"2010-10-20 4:30"</span>, <span class="string">"YYYY-MM-DD HH:mm"</span>); <span class="comment">// parsed as 4:30 local time</span>
-moment(<span class="string">"2010-10-20 4:30 +0000"</span>, <span class="string">"YYYY-MM-DD HH:mm Z"</span>); <span class="comment">// parsed as 4:30 GMT</span></code></pre>
+<pre><code class="language-js">moment(<span class="string">"2010-10-20 4:30"</span>,       <span class="string">"YYYY-MM-DD HH:mm"</span>);   <span class="comment">// parsed as 4:30 local time</span>
+moment(<span class="string">"2010-10-20 4:30 +0000"</span>, <span class="string">"YYYY-MM-DD HH:mm Z"</span>); <span class="comment">// parsed as 4:30 UTC</span></code></pre>
 <p>If the moment that results from the parsed input does not exist, <code>moment#isValid</code> will return false.</p>
-<pre><code class="language-javascript">moment(<span class="string">"2010 13"</span>, <span class="string">"YYYY MM"</span>).isValid(); <span class="comment">// false (not a real month)</span>
-moment(<span class="string">"2010 11 31"</span>, <span class="string">"YYYY MM DD"</span>).isValid(); <span class="comment">// false (not a real day)</span>
-moment(<span class="string">"2010 2 29"</span>, <span class="string">"YYYY MM DD"</span>).isValid(); <span class="comment">// false (not a leap year)</span>
+<pre><code class="language-js">moment(<span class="string">"2010 13"</span>,           <span class="string">"YYYY MM"</span>).isValid();     <span class="comment">// false (not a real month)</span>
+moment(<span class="string">"2010 11 31"</span>,        <span class="string">"YYYY MM DD"</span>).isValid();  <span class="comment">// false (not a real day)</span>
+moment(<span class="string">"2010 2 29"</span>,         <span class="string">"YYYY MM DD"</span>).isValid();  <span class="comment">// false (not a leap year)</span>
 moment(<span class="string">"2010 notamonth 29"</span>, <span class="string">"YYYY MMM DD"</span>).isValid(); <span class="comment">// false (not a real month name)</span></code></pre>
-<p>As of version <strong>2.0.0</strong>, a locale key can be passed as the third parameter to <code>moment()</code> and <code>moment.utc()</code>.</p>
-<pre><code class="language-javascript">moment(<span class="string">'2012 juillet'</span>, <span class="string">'YYYY MMM'</span>, <span class="string">'fr'</span>);
-moment(<span class="string">'2012 July'</span>, <span class="string">'YYYY MMM'</span>, <span class="string">'en'</span>);</code></pre>
-<p>Moment&#39;s parser is very forgiving, and this can lead to undesired behavior. As of version <strong>2.3.0</strong>, you may specify a boolean for the last argument to make Moment use strict parsing. Strict parsing requires that the format and input match exactly.</p>
-<pre><code class="language-javascript">moment(<span class="string">'It is 2012-05-25'</span>, <span class="string">'YYYY-MM-DD'</span>).isValid();        <span class="comment">// true</span>
-moment(<span class="string">'It is 2012-05-25'</span>, <span class="string">'YYYY-MM-DD'</span>, <span class="literal">true</span>).isValid();  <span class="comment">// false</span>
-moment(<span class="string">'2012-05-25'</span>, <span class="string">'YYYY-MM-DD'</span>, <span class="literal">true</span>).isValid();        <span class="comment">// true</span></code></pre>
+<p>As of version <code>2.0.0</code>, a locale key can be passed as the third parameter to <code>moment()</code> and <code>moment.utc()</code>.</p>
+<pre><code class="language-js">moment(<span class="string">'2012 juillet'</span>, <span class="string">'YYYY MMM'</span>, <span class="string">'fr'</span>);
+moment(<span class="string">'2012 July'</span>,    <span class="string">'YYYY MMM'</span>, <span class="string">'en'</span>);</code></pre>
+<p>Moment&#39;s parser is very forgiving, and this can lead to undesired behavior. As of version <code>2.3.0</code>, you may specify a boolean for the last argument to make Moment use strict parsing. Strict parsing requires that the format and input match exactly.</p>
+<pre><code class="language-javascript">moment(<span class="string">'It is 2012-05-25'</span>, <span class="string">'YYYY-MM-DD'</span>).isValid();       <span class="comment">// true</span>
+moment(<span class="string">'It is 2012-05-25'</span>, <span class="string">'YYYY-MM-DD'</span>, <span class="literal">true</span>).isValid(); <span class="comment">// false</span>
+moment(<span class="string">'2012-05-25'</span>,       <span class="string">'YYYY-MM-DD'</span>, <span class="literal">true</span>).isValid(); <span class="comment">// true</span></code></pre>
 <p>You can use both locale and strictness.</p>
 <pre><code class="language-javascript">moment(<span class="string">'2012-10-14'</span>, <span class="string">'YYYY-MM-DD'</span>, <span class="string">'fr'</span>, <span class="literal">true</span>);</code></pre>
-<p>Two digit year parser by default assumes years above 68 to be in the 1900&#39;s and
-below in the 2000&#39;s. This can be changed by replacing the
-<code>moment.parseTwoDigitYear</code>.</p>
+<h4 id="parsing-two-digit-years">Parsing two digit years</h4>
+<p>By default, two digit years above 68 are assumed to be in the 1900&#39;s and years below 68 are assumed to be in the 2000&#39;s. This can be changed by replacing the <code>moment.parseTwoDigitYear</code> method.</p>
 
 					</div>
 				</article>
@@ -1112,18 +1140,18 @@ below in the 2000&#39;s. This can be changed by replacing the
 						
 						<p>If you don&#39;t know the exact format of an input string, but know it could be one of many, you can use an array of formats.</p>
 <p>This is the same as <a href="#/parsing/string-format/">String + Format</a>, only it will try to match the input to multiple formats.</p>
-<pre><code class="language-javascript">moment(<span class="string">"12-25-1995"</span>, [<span class="string">"MM-DD-YYYY"</span>, <span class="string">"YYYY-MM-DD"</span>]);</code></pre>
-<p>Starting in <strong>2.3.0</strong>, Moment uses some simple heuristics to determine which format to use. In order:</p>
+<pre><code class="language-js">moment(<span class="string">"12-25-1995"</span>, [<span class="string">"MM-DD-YYYY"</span>, <span class="string">"YYYY-MM-DD"</span>]);</code></pre>
+<p>Starting in version <code>2.3.0</code>, Moment uses some simple heuristics to determine which format to use. In order:</p>
 <ul>
 <li>Prefer formats resulting in <a href="#/parsing/is-valid/">valid</a> dates over invalid ones.</li>
-<li>Prefer formats that parse more of the string than less and use more of the format more of the format than less, i.e. prefer stricter parsing.</li>
+<li>Prefer formats that parse more of the string than less and use more of the format than less, i.e. prefer stricter parsing.</li>
 <li>Prefer formats earlier in the array than later.</li>
 </ul>
-<pre><code class="language-javascript">moment(<span class="string">"29-06-1995"</span>, [<span class="string">"MM-DD-YYYY"</span>, <span class="string">"DD-MM"</span>, <span class="string">"DD-MM-YYYY"</span>]); <span class="comment">//uses the last format</span>
-moment(<span class="string">"05-06-1995"</span>, [<span class="string">"MM-DD-YYYY"</span>, <span class="string">"DD-MM-YYYY"</span>]); <span class="comment">// uses the first format</span></code></pre>
-<p>You may also specify a locale and strictness argument; they work the same was as they do in the single format case.</p>
-<pre><code class="language-javascript">moment(<span class="string">"29-06-1995"</span>, [<span class="string">"MM-DD-YYYY"</span>, <span class="string">"DD-MM"</span>, <span class="string">"DD-MM-YYYY"</span>], <span class="string">'fr'</span>); <span class="comment">// uses 'fr' locale</span>
-moment(<span class="string">"29-06-1995"</span>, [<span class="string">"MM-DD-YYYY"</span>, <span class="string">"DD-MM"</span>, <span class="string">"DD-MM-YYYY"</span>], <span class="literal">true</span>); <span class="comment">// uses strict parsing</span>
+<pre><code class="language-js">moment(<span class="string">"29-06-1995"</span>, [<span class="string">"MM-DD-YYYY"</span>, <span class="string">"DD-MM"</span>, <span class="string">"DD-MM-YYYY"</span>]); <span class="comment">// uses the last format</span>
+moment(<span class="string">"05-06-1995"</span>, [<span class="string">"MM-DD-YYYY"</span>, <span class="string">"DD-MM-YYYY"</span>]);          <span class="comment">// uses the first format</span></code></pre>
+<p>You may also specify a locale and strictness argument. They work the same was as they do in the single format case.</p>
+<pre><code class="language-js">moment(<span class="string">"29-06-1995"</span>, [<span class="string">"MM-DD-YYYY"</span>, <span class="string">"DD-MM-YYYY"</span>], <span class="string">'fr'</span>);       <span class="comment">// uses 'fr' locale</span>
+moment(<span class="string">"29-06-1995"</span>, [<span class="string">"MM-DD-YYYY"</span>, <span class="string">"DD-MM-YYYY"</span>], <span class="literal">true</span>);       <span class="comment">// uses strict parsing</span>
 moment(<span class="string">"05-06-1995"</span>, [<span class="string">"MM-DD-YYYY"</span>, <span class="string">"DD-MM-YYYY"</span>], <span class="string">'fr'</span>, <span class="literal">true</span>); <span class="comment">// uses 'fr' locale and strict parsing</span></code></pre>
 <p><strong>Note:</strong> Parsing multiple formats is considerably slower than parsing a single format. If you can avoid it, it is much faster to parse a single format.</p>
 
@@ -1176,12 +1204,12 @@ moment(<span class="string">"2010-01-01T05:06:07"</span>, [<span class="string">
 
 							</div>
 						
-						<pre><code class="language-javascript">moment({hour: <span class="number">15</span>, minute: <span class="number">10</span>});
-moment({y: <span class="number">2010</span>, M: <span class="number">3</span>, d: <span class="number">5</span>, h: <span class="number">15</span>, m: <span class="number">10</span>, s: <span class="number">3</span>, ms: <span class="number">123</span>});
-moment({year: <span class="number">2010</span>, month: <span class="number">3</span>, day: <span class="number">5</span>, hour: <span class="number">15</span>, minute: <span class="number">10</span>, second: <span class="number">3</span>, millisecond: <span class="number">123</span>});
-moment({years: <span class="number">2010</span>, months: <span class="number">3</span>, days: <span class="number">5</span>, hours: <span class="number">15</span>, minutes: <span class="number">10</span>, seconds: <span class="number">3</span>, milliseconds: <span class="number">123</span>});</code></pre>
-<p>You can create a moment object specifying some of the units in an object.
-Omitted units are defaulted to 0 or current date/month/year.</p>
+						<pre><code class="language-javascript">moment({ hour:<span class="number">15</span>, minute:<span class="number">10</span> });
+moment({ y    :<span class="number">2010</span>, M     :<span class="number">3</span>, d   :<span class="number">5</span>, h    :<span class="number">15</span>, m      :<span class="number">10</span>, s      :<span class="number">3</span>, ms          :<span class="number">123</span>});
+moment({ year :<span class="number">2010</span>, month :<span class="number">3</span>, day :<span class="number">5</span>, hour :<span class="number">15</span>, minute :<span class="number">10</span>, second :<span class="number">3</span>, millisecond :<span class="number">123</span>});
+moment({ years:<span class="number">2010</span>, months:<span class="number">3</span>, days:<span class="number">5</span>, hours:<span class="number">15</span>, minutes:<span class="number">10</span>, seconds:<span class="number">3</span>, milliseconds:<span class="number">123</span>});</code></pre>
+<p>You can create a moment by specifying some of the units in an object.</p>
+<p>Omitted units default to 0 or the current date, month, and year.</p>
 
 					</div>
 				</article>
@@ -1258,7 +1286,6 @@ Omitted units are defaulted to 0 or current date/month/year.</p>
 <pre><code class="language-javascript"><span class="keyword">var</span> day = <span class="keyword">new</span> Date(<span class="number">2011</span>, <span class="number">9</span>, <span class="number">16</span>);
 <span class="keyword">var</span> dayWrapper = moment(day);</code></pre>
 <p>This clones <code>Date</code> object; further changes to the <code>Date</code> won&#39;t affect the <code>Moment</code>, and vice-versa.</p>
-<p>This is the fastest way to get a Moment.js wrapper.</p>
 
 					</div>
 				</article>
@@ -1285,17 +1312,17 @@ Omitted units are defaulted to 0 or current date/month/year.</p>
 <pre><code class="language-javascript">[year, month, day, hour, minute, second, millisecond]
 moment([<span class="number">2010</span>, <span class="number">1</span>, <span class="number">14</span>, <span class="number">15</span>, <span class="number">25</span>, <span class="number">50</span>, <span class="number">125</span>]); <span class="comment">// February 14th, 3:25:50.125 PM</span></code></pre>
 <p>Any value past the year is optional, and will default to the lowest possible number.</p>
-<pre><code class="language-javascript">moment([<span class="number">2010</span>]); <span class="comment">// January 1st</span>
-moment([<span class="number">2010</span>, <span class="number">6</span>]); <span class="comment">// July 1st</span>
+<pre><code class="language-javascript">moment([<span class="number">2010</span>]);        <span class="comment">// January 1st</span>
+moment([<span class="number">2010</span>, <span class="number">6</span>]);     <span class="comment">// July 1st</span>
 moment([<span class="number">2010</span>, <span class="number">6</span>, <span class="number">10</span>]); <span class="comment">// July 10th</span></code></pre>
 <p>Construction with an array will create a date in the current timezone. To create a date from an array at UTC, use <code>moment.utc(Number[])</code>.</p>
 <pre><code class="language-javascript">moment.utc([<span class="number">2010</span>, <span class="number">1</span>, <span class="number">14</span>, <span class="number">15</span>, <span class="number">25</span>, <span class="number">50</span>, <span class="number">125</span>]);</code></pre>
-<p><strong>Note:</strong> Because this mirrors the native Date parameters, the following parameters are all zero indexed: months, hours, minutes, seconds, and milliseconds. Years and days of the month are 1 indexed.</p>
+<p><strong>Note:</strong> Because this mirrors the native <code>Date</code> parameters, months, hours, minutes, seconds, and milliseconds are all zero indexed. Years and days of the month are 1 indexed.</p>
 <p>This is often the cause of frustration, especially with months, so take note!</p>
 <p>If the date represented by the array does not exist, <code>moment#isValid</code> will return false.</p>
-<pre><code class="language-javascript">moment([<span class="number">2010</span>, <span class="number">13</span>]).isValid(); <span class="comment">// false (not a real month)</span>
+<pre><code class="language-javascript">moment([<span class="number">2010</span>, <span class="number">13</span>]).isValid();     <span class="comment">// false (not a real month)</span>
 moment([<span class="number">2010</span>, <span class="number">10</span>, <span class="number">31</span>]).isValid(); <span class="comment">// false (not a real day)</span>
-moment([<span class="number">2010</span>, <span class="number">1</span>, <span class="number">29</span>]).isValid(); <span class="comment">// false (not a leap year)</span></code></pre>
+moment([<span class="number">2010</span>, <span class="number">1</span>, <span class="number">29</span>]).isValid();  <span class="comment">// false (not a leap year)</span></code></pre>
 
 					</div>
 				</article>
@@ -2610,7 +2637,8 @@ moment().format(String);</code></pre>
 							</div>
 						
 						<p>This is the most robust display option. It takes a string of tokens and replaces them with their corresponding values.</p>
-<pre><code class="language-javascript">moment().format(<span class="string">"dddd, MMMM Do YYYY, h:mm:ss a"</span>); <span class="comment">// "Sunday, February 14th 2010, 3:25:50 pm"</span>
+<pre><code class="language-javascript">moment().format();                                <span class="comment">// "2014-09-08T08:02:17-05:00" (ISO 8601)</span>
+moment().format(<span class="string">"dddd, MMMM Do YYYY, h:mm:ss a"</span>); <span class="comment">// "Sunday, February 14th 2010, 3:25:50 pm"</span>
 moment().format(<span class="string">"ddd, hA"</span>);                       <span class="comment">// "Sun, 3PM"</span>
 moment(<span class="string">'gibberish'</span>).format(<span class="string">'YYYY MM DD'</span>);         <span class="comment">// "Invalid date"</span></code></pre>
 <p>There are a couple conventions used with the naming of the</p>
@@ -3441,8 +3469,6 @@ moment(<span class="string">'2010-10-20'</span>).isSame(<span class="string">'20
 moment(<span class="string">'2010-10-20'</span>).isSame(<span class="string">'2010-12-31'</span>, <span class="string">'year'</span>); <span class="comment">// true</span>
 moment(<span class="string">'2010-10-20'</span>).isSame(<span class="string">'2011-01-01'</span>, <span class="string">'year'</span>); <span class="comment">// false</span></code></pre>
 <p>Like <code>moment#isAfter</code> and <code>moment#isBefore</code>, any of the units of time that are supported for <code>moment#startOf</code> are supported for <code>moment#isSame</code>. Year, month, week, day, hour, minute, and second.</p>
-<p>If nothing is passed to <code>moment#isSame</code>, it will default to the current time.</p>
-<pre><code class="language-javascript">moment().isSame(); <span class="comment">// true</span></code></pre>
 
 					</div>
 				</article>
@@ -3895,7 +3921,7 @@ moment.weekdaysMin()</code></pre>
   <span class="string">'October'</span>,
   <span class="string">'November'</span>,
   <span class="string">'December'</span> ]</code></pre>
-<p>Similarly, <code>moment.monthsShort</code> returns abbreviated month names, and <code>moment.weekdays</code>moment.weekdaysShort<code>,</code>moment.weekdaysMin` return lists of weekdays.</p>
+<p>Similarly, <code>moment.monthsShort</code> returns abbreviated month names, and <code>moment.weekdays</code>, <code>moment.weekdaysShort</code>, <code>moment.weekdaysMin</code> return lists of weekdays.</p>
 <p>You can pass an integer into each of those functions to get a specific month or weekday.</p>
 <pre><code class="language-javascript">moment.weekdays(<span class="number">3</span>); <span class="comment">// 'Wednesday'</span></code></pre>
 <p><strong>Note:</strong> Currently, weekdays always have Sunday as index 0, regardless of the local first day of the week.</p>
