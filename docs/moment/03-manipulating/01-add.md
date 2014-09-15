@@ -15,13 +15,13 @@ Mutates the original moment by adding time.
 This is a pretty robust function for adding time to an existing moment. To add time, pass the key of what time you want to add, and the amount you want to add.
 
 ```javascript
-moment().add('days', 7);
+moment().add(7, 'days');
 ```
 
 There are some shorthand keys as well if you're into that whole brevity thing.
 
 ```javascript
-moment().add('d', 7);
+moment().add(7, 'd');
 ```
 
 <table class="table table-striped table-bordered">
@@ -68,15 +68,15 @@ moment().add('d', 7);
 If you want to add multiple different keys at the same time, you can pass them in as an object literal.
 
 ```javascript
-moment().add('days', 7).add('months', 1); // with chaining
+moment().add(7, 'days').add(1, 'months'); // with chaining
 moment().add({days:7,months:1}); // with object literal
 ```
 
 There are no upper limits for the amounts, so you can overload any of the parameters.
 
 ```javascript
-moment().add('milliseconds', 1000000); // a million milliseconds
-moment().add('days', 360); // 360 days
+moment().add(1000000, 'milliseconds'); // a million milliseconds
+moment().add(360, 'days'); // 360 days
 ```
 
 #### Special considerations for months and years
@@ -86,7 +86,7 @@ the day of the month will change to the last day in the final month.
 
 ```javascript
 moment([2010, 0, 31]);                  // January 31
-moment([2010, 0, 31]).add('months', 1); // February 28
+moment([2010, 0, 31]).add(1, 'months'); // February 28
 ```
 
 There are also special considerations to keep in mind when adding time that crosses over Daylight Savings Time.
@@ -95,7 +95,7 @@ If you are adding years, months, weeks, or days, the original hour will always m
 ```javascript
 var m = moment(new Date(2011, 2, 12, 5, 0, 0)); // the day before DST in the US
 m.hours(); // 5
-m.add('days', 1).hours(); // 5
+m.add(1, 'days').hours(); // 5
 ```
 
 If you are adding hours, minutes, seconds, or milliseconds, the assumption is that you want precision to the hour, and will result in a different hour.
@@ -103,7 +103,7 @@ If you are adding hours, minutes, seconds, or milliseconds, the assumption is th
 ```javascript
 var m = moment(new Date(2011, 2, 12, 5, 0, 0)); // the day before DST in the US
 m.hours(); // 5
-m.add('hours', 24).hours(); // 6
+m.add(24, 'hours').hours(); // 6
 ```
 
 Alternatively, you can use [durations](#/durations/) to add to moments.
