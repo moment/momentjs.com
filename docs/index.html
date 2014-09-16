@@ -2328,7 +2328,7 @@ m.add(<span class="number">24</span>, <span class="string">'hours'</span>).hours
 <p>Alternatively, you can use <a href="#/durations/">durations</a> to add to moments.</p>
 <pre><code class="language-javascript"><span class="keyword">var</span> duration = moment.duration({<span class="string">'days'</span> : <span class="number">1</span>});
 moment([<span class="number">2012</span>, <span class="number">0</span>, <span class="number">31</span>]).add(duration); <span class="comment">// February 1</span></code></pre>
-<p>Before version <code>2.8.0</code>, the <code>add(String, Number)</code> syntax was also supported. It has been deprecated in favor of <code>add(Number, String)</code>.</p>
+<p>Before version <code>2.8.0</code>, the <code>moment#add(String, Number)</code> syntax was also supported. It has been deprecated in favor of <code>moment#add(Number, String)</code>.</p>
 <pre><code class="language-javascript">moment().add(<span class="string">'seconds'</span>, <span class="number">1</span>); <span class="comment">// Deprecated in 2.8.0</span>
 moment().add(<span class="number">1</span>, <span class="string">'seconds'</span>);</code></pre>
 
@@ -2358,7 +2358,7 @@ moment().subtract(Object);</code></pre>
 						<p>Mutates the original moment by subtracting time.</p>
 <p>This is exactly the same as <code>moment#add</code>, only instead of adding time, it subtracts time.</p>
 <pre><code class="language-javascript">moment().subtract(<span class="number">7</span>, <span class="string">'days'</span>);</code></pre>
-<p>Before version <code>2.8.0</code>, the <code>subtract(String, Number)</code> syntax was also supported. It has been deprecated in favor of <code>subtract(Number, String)</code>.</p>
+<p>Before version <code>2.8.0</code>, the <code>moment#subtract(String, Number)</code> syntax was also supported. It has been deprecated in favor of <code>moment#subtract(Number, String)</code>.</p>
 <pre><code class="language-javascript">moment().subtract(<span class="string">'seconds'</span>, <span class="number">1</span>); <span class="comment">// Deprecated in 2.8.0</span>
 moment().subtract(<span class="number">1</span>, <span class="string">'seconds'</span>);</code></pre>
 
