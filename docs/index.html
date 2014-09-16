@@ -2232,7 +2232,7 @@ moment.min(a, b);  <span class="comment">// a</span></code></pre>
 						
 						<p>Once you have a <code>Moment</code>, you may want to manipulate it in some way. There are a number of methods to help with this.</p>
 <p>Moment.js uses the <a href="http://en.wikipedia.org/wiki/Fluent_interface">fluent interface pattern</a>, also known as <a href="http://en.wikipedia.org/wiki/Method_chaining">method chaining</a>. This allows you to do crazy things like the following.</p>
-<pre><code class="language-javascript">moment().add(<span class="string">'days'</span>, <span class="number">7</span>).subtract(<span class="string">'months'</span>, <span class="number">1</span>).year(<span class="number">2009</span>).hours(<span class="number">0</span>).minutes(<span class="number">0</span>).seconds(<span class="number">0</span>);</code></pre>
+<pre><code class="language-javascript">moment().add(<span class="number">7</span>, <span class="string">'days'</span>).subtract(<span class="number">1</span>, <span class="string">'months'</span>).year(<span class="number">2009</span>).hours(<span class="number">0</span>).minutes(<span class="number">0</span>).seconds(<span class="number">0</span>);</code></pre>
 <p><strong>Note:</strong> It should be noted that moments are mutable. Calling any of the manipulation methods will change the original moment.</p>
 <p>If you want to create a copy and manipulate it, you should use <code>moment#clone</code> before manipulating the moment. <a href="#/parsing/moment-clone/">More info on cloning.</a></p>
 
@@ -2253,19 +2253,17 @@ moment.min(a, b);  <span class="comment">// a</span></code></pre>
 					<div class="docs-method-prose">
 						
 							<div class="docs-method-signature">
-								<pre><code class="language-js">moment().add(String, Number);
-moment().add(Number, String); <span class="comment">// 2.0.0</span>
-moment().add(String, String); <span class="comment">// 2.7.0</span>
-moment().add(Duration); <span class="comment">// 1.6.0</span>
+								<pre><code class="language-js">moment().add(Number, String);
+moment().add(Duration);
 moment().add(Object);</code></pre>
 
 							</div>
 						
 						<p>Mutates the original moment by adding time.</p>
 <p>This is a pretty robust function for adding time to an existing moment. To add time, pass the key of what time you want to add, and the amount you want to add.</p>
-<pre><code class="language-javascript">moment().add(<span class="string">'days'</span>, <span class="number">7</span>);</code></pre>
+<pre><code class="language-javascript">moment().add(<span class="number">7</span>, <span class="string">'days'</span>);</code></pre>
 <p>There are some shorthand keys as well if you&#39;re into that whole brevity thing.</p>
-<pre><code class="language-javascript">moment().add(<span class="string">'d'</span>, <span class="number">7</span>);</code></pre>
+<pre><code class="language-javascript">moment().add(<span class="number">7</span>, <span class="string">'d'</span>);</code></pre>
 <table class="table table-striped table-bordered">
   <tbody>
     <tr>
@@ -2308,37 +2306,31 @@ moment().add(Object);</code></pre>
 </table>
 
 <p>If you want to add multiple different keys at the same time, you can pass them in as an object literal.</p>
-<pre><code class="language-javascript">moment().add(<span class="string">'days'</span>, <span class="number">7</span>).add(<span class="string">'months'</span>, <span class="number">1</span>); <span class="comment">// with chaining</span>
+<pre><code class="language-javascript">moment().add(<span class="number">7</span>, <span class="string">'days'</span>).add(<span class="number">1</span>, <span class="string">'months'</span>); <span class="comment">// with chaining</span>
 moment().add({days:<span class="number">7</span>,months:<span class="number">1</span>}); <span class="comment">// with object literal</span></code></pre>
 <p>There are no upper limits for the amounts, so you can overload any of the parameters.</p>
-<pre><code class="language-javascript">moment().add(<span class="string">'milliseconds'</span>, <span class="number">1000000</span>); <span class="comment">// a million milliseconds</span>
-moment().add(<span class="string">'days'</span>, <span class="number">360</span>); <span class="comment">// 360 days</span></code></pre>
+<pre><code class="language-javascript">moment().add(<span class="number">1000000</span>, <span class="string">'milliseconds'</span>); <span class="comment">// a million milliseconds</span>
+moment().add(<span class="number">360</span>, <span class="string">'days'</span>); <span class="comment">// 360 days</span></code></pre>
 <h4 id="special-considerations-for-months-and-years">Special considerations for months and years</h4>
 <p>If the day of the month on the original date is greater than the number of days in the final month,
 the day of the month will change to the last day in the final month.</p>
 <pre><code class="language-javascript">moment([<span class="number">2010</span>, <span class="number">0</span>, <span class="number">31</span>]);                  <span class="comment">// January 31</span>
-moment([<span class="number">2010</span>, <span class="number">0</span>, <span class="number">31</span>]).add(<span class="string">'months'</span>, <span class="number">1</span>); <span class="comment">// February 28</span></code></pre>
+moment([<span class="number">2010</span>, <span class="number">0</span>, <span class="number">31</span>]).add(<span class="number">1</span>, <span class="string">'months'</span>); <span class="comment">// February 28</span></code></pre>
 <p>There are also special considerations to keep in mind when adding time that crosses over Daylight Savings Time.
 If you are adding years, months, weeks, or days, the original hour will always match the added hour.</p>
 <pre><code class="language-javascript"><span class="keyword">var</span> m = moment(<span class="keyword">new</span> Date(<span class="number">2011</span>, <span class="number">2</span>, <span class="number">12</span>, <span class="number">5</span>, <span class="number">0</span>, <span class="number">0</span>)); <span class="comment">// the day before DST in the US</span>
 m.hours(); <span class="comment">// 5</span>
-m.add(<span class="string">'days'</span>, <span class="number">1</span>).hours(); <span class="comment">// 5</span></code></pre>
+m.add(<span class="number">1</span>, <span class="string">'days'</span>).hours(); <span class="comment">// 5</span></code></pre>
 <p>If you are adding hours, minutes, seconds, or milliseconds, the assumption is that you want precision to the hour, and will result in a different hour.</p>
 <pre><code class="language-javascript"><span class="keyword">var</span> m = moment(<span class="keyword">new</span> Date(<span class="number">2011</span>, <span class="number">2</span>, <span class="number">12</span>, <span class="number">5</span>, <span class="number">0</span>, <span class="number">0</span>)); <span class="comment">// the day before DST in the US</span>
 m.hours(); <span class="comment">// 5</span>
-m.add(<span class="string">'hours'</span>, <span class="number">24</span>).hours(); <span class="comment">// 6</span></code></pre>
+m.add(<span class="number">24</span>, <span class="string">'hours'</span>).hours(); <span class="comment">// 6</span></code></pre>
 <p>Alternatively, you can use <a href="#/durations/">durations</a> to add to moments.</p>
 <pre><code class="language-javascript"><span class="keyword">var</span> duration = moment.duration({<span class="string">'days'</span> : <span class="number">1</span>});
 moment([<span class="number">2012</span>, <span class="number">0</span>, <span class="number">31</span>]).add(duration); <span class="comment">// February 1</span></code></pre>
-<p>As of version <strong>2.0.0</strong>, a reversed syntax is also supported to ease development. The syntaxes below will all work.</p>
-<pre><code class="language-javascript">moment().add(<span class="string">'seconds'</span>, <span class="number">1</span>);
-moment().add(<span class="string">'seconds'</span>, <span class="string">'1'</span>);
+<p>Before version <code>2.8.0</code>, the <code>add(String, Number)</code> syntax was also supported. It has been deprecated in favor of <code>add(Number, String)</code>.</p>
+<pre><code class="language-javascript">moment().add(<span class="string">'seconds'</span>, <span class="number">1</span>); <span class="comment">// Deprecated in 2.8.0</span>
 moment().add(<span class="number">1</span>, <span class="string">'seconds'</span>);</code></pre>
-<p><del>This syntax will not work. The first parameter would need to be a number, not a string.</del></p>
-<p>As of version <strong>2.7.0</strong>, <code>add</code> supports numeric values (number of seconds, hours, days etc) to be specified in <code>String</code> form, for example:</p>
-<pre><code class="language-javascript">moment().add(<span class="string">'1'</span>, <span class="string">'seconds'</span>);
-moment().add(<span class="string">'seconds'</span>, <span class="string">'1'</span>);</code></pre>
-<p><strong>NOTE</strong>: Using <code>add(unit, value)</code> is discouraged. Prefer <code>add(value, unit)</code>, as it is easier to read and more consistent with the duration interface.</p>
 
 					</div>
 				</article>
@@ -2357,21 +2349,18 @@ moment().add(<span class="string">'seconds'</span>, <span class="string">'1'</sp
 					<div class="docs-method-prose">
 						
 							<div class="docs-method-signature">
-								<pre><code class="language-js">moment().subtract(String, Number);
-moment().subtract(Number, String); <span class="comment">// 2.0.0</span>
-moment().subtract(String, String); <span class="comment">// 2.7.0</span>
-moment().subtract(Duration); <span class="comment">// 1.6.0</span>
+								<pre><code class="language-js">moment().subtract(Number, String);
+moment().subtract(Duration);
 moment().subtract(Object);</code></pre>
 
 							</div>
 						
 						<p>Mutates the original moment by subtracting time.</p>
 <p>This is exactly the same as <code>moment#add</code>, only instead of adding time, it subtracts time.</p>
-<pre><code class="language-javascript">moment().subtract(<span class="string">'days'</span>, <span class="number">7</span>);</code></pre>
-<p>As of version <strong>2.7.0</strong>, <code>subtract</code> supports numeric values (number of seconds, hours, days etc) to be specified in <code>String</code> form, for example:</p>
-<pre><code class="language-javascript">moment().subtract(<span class="string">'1'</span>, <span class="string">'seconds'</span>);
-moment().subtract(<span class="string">'seconds'</span>, <span class="string">'1'</span>);</code></pre>
-<p><strong>NOTE</strong>: Using <code>subtract(unit, value)</code> is discouraged. Prefer <code>subtract(value, unit)</code>, as it is easier to read and more consistent with the duration interface.</p>
+<pre><code class="language-javascript">moment().subtract(<span class="number">7</span>, <span class="string">'days'</span>);</code></pre>
+<p>Before version <code>2.8.0</code>, the <code>subtract(String, Number)</code> syntax was also supported. It has been deprecated in favor of <code>subtract(Number, String)</code>.</p>
+<pre><code class="language-javascript">moment().subtract(<span class="string">'seconds'</span>, <span class="number">1</span>); <span class="comment">// Deprecated in 2.8.0</span>
+moment().subtract(<span class="number">1</span>, <span class="string">'seconds'</span>);</code></pre>
 
 					</div>
 				</article>
@@ -3197,7 +3186,7 @@ a.diff(b, <span class="string">'years'</span>);       <span class="comment">// 1
 a.diff(b, <span class="string">'years'</span>, <span class="literal">true</span>); <span class="comment">// 1.5</span></code></pre>
 <p>If the moment is later than the moment you are passing to <code>moment.fn.diff</code>, the return value will be negative.</p>
 <pre><code class="language-javascript"><span class="keyword">var</span> a = moment();
-<span class="keyword">var</span> b = moment().add(<span class="string">'seconds'</span>, <span class="number">1</span>);
+<span class="keyword">var</span> b = moment().add(<span class="number">1</span>, <span class="string">'seconds'</span>);
 a.diff(b) <span class="comment">// -1000</span>
 b.diff(a) <span class="comment">// 1000</span></code></pre>
 <p>A easy way to think of this is by replacing <code>.diff(</code> with a minus operator.</p>
@@ -5301,13 +5290,13 @@ t.simpleFormat(<span class="string">"h:m"</span>); <span class="comment">// '9:3
 						
 						<p>If you&#39;re trying to format times for tweets like the way Twitter does, you can use the <a href="https://github.com/hijonathan/moment.twitter">moment.twitter</a> plugin by <a href="https://github.com/hijonathan">@hijonathan</a>.</p>
 <p>It&#39;s a simple way to display both short and long versions of human-readable timestamps.</p>
-<pre><code class="language-javascript">moment().subtract(<span class="string">'hours'</span>, <span class="number">5</span>).twitter();
+<pre><code class="language-javascript">moment().subtract(<span class="number">5</span>, <span class="string">'hours'</span>).twitter();
 <span class="comment">// 5 hours</span></code></pre>
 <p>Yes, it does smart pluralization.</p>
-<pre><code class="language-javascript">moment().subtract(<span class="string">'hour'</span>, <span class="number">1</span>).twitter();
+<pre><code class="language-javascript">moment().subtract(<span class="number">1</span>, <span class="string">'hour'</span>).twitter();
 <span class="comment">// 1 hour</span></code></pre>
 <p>Not short enough for you?</p>
-<pre><code class="language-javascript">moment().subtract(<span class="string">'days'</span>, <span class="number">6</span>).twitterShort();
+<pre><code class="language-javascript">moment().subtract(<span class="number">6</span>, <span class="string">'days'</span>).twitterShort();
 <span class="comment">// 6d</span></code></pre>
 
 					</div>
