@@ -8,7 +8,7 @@ Once you have a `Moment`, you may want to manipulate it in some way. There are a
 Moment.js uses the [fluent interface pattern](http://en.wikipedia.org/wiki/Fluent_interface), also known as [method chaining](http://en.wikipedia.org/wiki/Method_chaining). This allows you to do crazy things like the following.
 
 ```javascript
-moment().add('days', 7).subtract('months', 1).year(2009).hours(0).minutes(0).seconds(0);
+moment().add(7, 'days').subtract(1, 'months').year(2009).hours(0).minutes(0).seconds(0);
 ```
 
 **Note:** It should be noted that moments are mutable. Calling any of the manipulation methods will change the original moment.
