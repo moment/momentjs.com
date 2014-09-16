@@ -2,10 +2,8 @@
 title: Subtract
 version: 1.0.0
 signature: |
-  moment().subtract(String, Number);
-  moment().subtract(Number, String); // 2.0.0
-  moment().subtract(String, String); // 2.7.0
-  moment().subtract(Duration); // 1.6.0
+  moment().subtract(Number, String);
+  moment().subtract(Duration);
   moment().subtract(Object);
 ---
 
@@ -15,14 +13,12 @@ Mutates the original moment by subtracting time.
 This is exactly the same as `moment#add`, only instead of adding time, it subtracts time.
 
 ```javascript
-moment().subtract('days', 7);
+moment().subtract(7, 'days');
 ```
 
-As of version **2.7.0**, `subtract` supports numeric values (number of seconds, hours, days etc) to be specified in `String` form, for example:
+Before version `2.8.0`, the `subtract(String, Number)` syntax was also supported. It has been deprecated in favor of `subtract(Number, String)`.
 
 ```javascript
-moment().subtract('1', 'seconds');
-moment().subtract('seconds', '1');
+moment().subtract('seconds', 1); // Deprecated in 2.8.0
+moment().subtract(1, 'seconds');
 ```
-
-**NOTE**: Using `subtract(unit, value)` is discouraged. Prefer `subtract(value, unit)`, as it is easier to read and more consistent with the duration interface.

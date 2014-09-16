@@ -2,10 +2,8 @@
 title: Add
 version: 1.0.0
 signature: |
-  moment().add(String, Number);
-  moment().add(Number, String); // 2.0.0
-  moment().add(String, String); // 2.7.0
-  moment().add(Duration); // 1.6.0
+  moment().add(Number, String);
+  moment().add(Duration);
   moment().add(Object);
 ---
 
@@ -113,21 +111,9 @@ var duration = moment.duration({'days' : 1});
 moment([2012, 0, 31]).add(duration); // February 1
 ```
 
-As of version **2.0.0**, a reversed syntax is also supported to ease development. The syntaxes below will all work.
+Before version `2.8.0`, the `add(String, Number)` syntax was also supported. It has been deprecated in favor of `add(Number, String)`.
 
 ```javascript
-moment().add('seconds', 1);
-moment().add('seconds', '1');
+moment().add('seconds', 1); // Deprecated in 2.8.0
 moment().add(1, 'seconds');
 ```
-
-~~This syntax will not work. The first parameter would need to be a number, not a string.~~
-
-As of version **2.7.0**, `add` supports numeric values (number of seconds, hours, days etc) to be specified in `String` form, for example:
-
-```javascript
-moment().add('1', 'seconds');
-moment().add('seconds', '1');
-```
-
-**NOTE**: Using `add(unit, value)` is discouraged. Prefer `add(value, unit)`, as it is easier to read and more consistent with the duration interface.
