@@ -39,7 +39,7 @@ If the moment is later than the moment you are passing to `moment.fn.diff`, the 
 
 ```javascript
 var a = moment();
-var b = moment().add('seconds', 1);
+var b = moment().add(1, 'seconds');
 a.diff(b) // -1000
 b.diff(a) // 1000
 ```
