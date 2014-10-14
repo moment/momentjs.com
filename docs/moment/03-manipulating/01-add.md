@@ -33,6 +33,10 @@ moment().add(7, 'd');
       <td>y</td>
     </tr>
     <tr>
+      <td>quarter</td>
+      <td>Q</td>
+    </tr>
+    <tr>
       <td>months</td>
       <td>M</td>
     </tr>
