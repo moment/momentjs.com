@@ -33,7 +33,7 @@ moment().add(7, 'd');
       <td>y</td>
     </tr>
     <tr>
-      <td>quarter</td>
+      <td>quarters</td>
       <td>Q</td>
     </tr>
     <tr>
