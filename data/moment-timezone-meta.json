@@ -1999,7 +1999,14 @@
 		"lat": -8.5,
 		"long": 147.1667,
 		"country": "PG",
-		"comments": ""
+		"comments": "most locations"
+	},
+	{
+		"name": "Pacific/Bougainville",
+		"lat": -5.7833,
+		"long": 155.5667,
+		"country": "PG",
+		"comments": "Bougainville"
 	},
 	{
 		"name": "Asia/Manila",
