@@ -26,6 +26,11 @@ signature: |
       <td>least number of minutes to be considered an hour</td>
     </tr>
     <tr>
+      <td>h</td>
+      <td>hours</td>
+      <td>least number of hours to be considered a day</td>
+    </tr>
+    <tr>
       <td>d</td>
       <td>days</td>
       <td>least number of days to be considered a month</td>
