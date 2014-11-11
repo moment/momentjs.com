@@ -35,7 +35,7 @@ a.diff(b, 'years');       // 1
 a.diff(b, 'years', true); // 1.5
 ```
 
-If the moment is later than the moment you are passing to `moment.fn.diff`, the return value will be negative.
+If the moment is earlier than the moment you are passing to `moment.fn.diff`, the return value will be negative.
 
 ```javascript
 var a = moment();
