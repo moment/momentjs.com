@@ -3188,7 +3188,7 @@ a.diff(b, <span class="string">'days'</span>) <span class="comment">// 1</span><
 <span class="keyword">var</span> b = moment([<span class="number">2007</span>, <span class="number">0</span>]);
 a.diff(b, <span class="string">'years'</span>);       <span class="comment">// 1</span>
 a.diff(b, <span class="string">'years'</span>, <span class="literal">true</span>); <span class="comment">// 1.5</span></code></pre>
-<p>If the moment is later than the moment you are passing to <code>moment.fn.diff</code>, the return value will be negative.</p>
+<p>If the moment is earlier than the moment you are passing to <code>moment.fn.diff</code>, the return value will be negative.</p>
 <pre><code class="language-javascript"><span class="keyword">var</span> a = moment();
 <span class="keyword">var</span> b = moment().add(<span class="number">1</span>, <span class="string">'seconds'</span>);
 a.diff(b) <span class="comment">// -1000</span>
