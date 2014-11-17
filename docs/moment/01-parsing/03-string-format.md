@@ -68,7 +68,9 @@ For these, the lowercase tokens use the locale aware week start days, and the up
 | `SSS`          | `0..999` | Thousandths of a second |
 | `Z ZZ`         | `+12:00` | Offset from UTC as `+-HH:mm`, `+-HHmm`, or `Z` |
 
-Locale aware date and time formats are also available using `LT L LL LLL LLLL`. They were added in version `2.2.1`.
+Locale aware date and time formats are also available using `LT LTS L LL LLL
+LLLL`. They were added in version **2.2.1**, except `LTS` which was added
+**2.8.4**.
 
 `Z ZZ` were added in version `1.2.0`.
 

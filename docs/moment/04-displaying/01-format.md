@@ -304,6 +304,11 @@ There are upper and lower case variations on the same formats. The lowercase ver
       <td>8:30 PM</td>
     </tr>
     <tr>
+      <td><b>Time with seconds</b></td>
+      <td>LTS</td>
+      <td>8:30:25 PM</td>
+    </tr>
+    <tr>
       <td><b>Month numeral, day of month, year</b></td>
       <td>L</td>
       <td>09/04/1986</td>
@@ -347,6 +352,7 @@ There are upper and lower case variations on the same formats. The lowercase ver
 </table>
 
 `L LL LLL LLLL LT` are available in version **1.3.0**. `l ll lll llll` are available in **2.0.0**.
+`LTS` was added in **2.8.4**.
 
 #### Escaping characters
 

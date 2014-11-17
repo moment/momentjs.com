@@ -14,12 +14,13 @@ signature: |
 ---
 
 
-`Locale#longDateFormat` should be an object containing a key/value pair for each long date format `L LL LLL LLLL LT`. `LT` should be the time format, and is also used for `moment#calendar`.
+`Locale#longDateFormat` should be an object containing a key/value pair for each long date format `L LL LLL LLLL LT LTS`. `LT` should be the time format, and is also used for `moment#calendar`.
 
 ```javascript
 moment.locale('en', {
     longDateFormat : {
         LT: "h:mm A",
+        LTS: "h:mm:ss A",
         L: "MM/DD/YYYY",
         l: "M/D/YYYY",
         LL: "MMMM Do YYYY",
@@ -38,6 +39,7 @@ You can eliminate the lowercase `l` tokens and they will be created automaticall
 moment.locale('en', {
     longDateFormat : {
         LT: "h:mm A",
+        LTS: "h:mm:ss A",
         L: "MM/DD/YYYY",
         LL: "MMMM Do YYYY",
         LLL: "MMMM Do YYYY LT",
