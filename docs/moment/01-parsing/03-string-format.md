@@ -37,6 +37,7 @@ The parsing tokens are similar to the formatting tokens used in `moment#format`.
 | `Do`        | `1st..31st`      | Day of month with ordinal |
 | `DDD DDDD`  | `1..365`         | Day of year |
 | `X`         | `1410715640.579` | Unix timestamp |
+| `x`         | `1410715640579`  | Unix ms timestamp |
 
 #### Week year, week, and weekday tokens
 

@@ -271,6 +271,11 @@ There are a couple conventions used with the naming of the
       <td>X</td>
       <td>1360013296</td>
     </tr>
+    <tr>
+      <td><b>Unix Millisecond Timestamp</b></td>
+      <td>x</td>
+      <td>1360013296123</td>
+    </tr>
   </tbody>
 </table>
 
@@ -281,6 +286,9 @@ There are a couple conventions used with the naming of the
 `X` was added in **2.0.0**.
 
 `e E gg gggg GG GGGG` were added in **2.1.0**.
+
+`x` was added in **2.8.4**.
+
 
 #### Localized formats
 
