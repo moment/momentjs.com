@@ -37,6 +37,7 @@ A time part can also be included, separated from the date part by a space or a u
 2013-02-08 09:30         # An hour and minute time part
 2013-02-08 09:30:26      # An hour, minute, and second time part
 2013-02-08 09:30:26.123  # An hour, minute, second, and millisecond time part
+2013-02-08 24:00:00.000  # hour 24, minute, second, millisecond equal 0 means next day at midnight
 ```
 
 Any of the date parts can have a time part.
