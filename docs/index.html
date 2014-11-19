@@ -882,7 +882,8 @@ to your r.js config.</p>
 2013-02-08 09            # An hour time part separated by a space
 2013-02-08 09:30         # An hour and minute time part
 2013-02-08 09:30:26      # An hour, minute, and second time part
-2013-02-08 09:30:26.123  # An hour, minute, second, and millisecond time part</code></pre>
+2013-02-08 09:30:26.123  # An hour, minute, second, and millisecond time part
+2013-02-08 24:00:00.000  # hour 24, minute, second, millisecond equal 0 means next day at midnight</code></pre>
 <p>Any of the date parts can have a time part.</p>
 <pre><code>2013-02-08 09  # A calendar date part and hour time part
 2013-W06-5 09  # A week date part and hour time part
@@ -980,6 +981,11 @@ moment(<span class="string">"12\25\1995"</span>, <span class="string">"MM-DD-YYY
 <td><code>X</code></td>
 <td><code>1410715640.579</code></td>
 <td>Unix timestamp</td>
+</tr>
+<tr>
+<td><code>x</code></td>
+<td><code>1410715640579</code></td>
+<td>Unix ms timestamp</td>
 </tr>
 </tbody>
 </table>
@@ -1093,7 +1099,9 @@ moment(<span class="string">"12\25\1995"</span>, <span class="string">"MM-DD-YYY
 </tr>
 </tbody>
 </table>
-<p>Locale aware date and time formats are also available using <code>LT L LL LLL LLLL</code>. They were added in version <code>2.2.1</code>.</p>
+<p>Locale aware date and time formats are also available using <code>LT LTS L LL LLL
+LLLL</code>. They were added in version <strong>2.2.1</strong>, except <code>LTS</code> which was added
+<strong>2.8.4</strong>.</p>
 <p><code>Z ZZ</code> were added in version <code>1.2.0</code>.</p>
 <p><code>S SS SSS</code> were added in version <code>1.6.0</code>.</p>
 <p><code>X</code> was added in version <code>2.0.0</code>.</p>
@@ -1207,9 +1215,12 @@ moment(<span class="string">"2010-01-01T05:06:07"</span>, [<span class="string">
 						<pre><code class="language-javascript">moment({ hour:<span class="number">15</span>, minute:<span class="number">10</span> });
 moment({ y    :<span class="number">2010</span>, M     :<span class="number">3</span>, d   :<span class="number">5</span>, h    :<span class="number">15</span>, m      :<span class="number">10</span>, s      :<span class="number">3</span>, ms          :<span class="number">123</span>});
 moment({ year :<span class="number">2010</span>, month :<span class="number">3</span>, day :<span class="number">5</span>, hour :<span class="number">15</span>, minute :<span class="number">10</span>, second :<span class="number">3</span>, millisecond :<span class="number">123</span>});
-moment({ years:<span class="number">2010</span>, months:<span class="number">3</span>, days:<span class="number">5</span>, hours:<span class="number">15</span>, minutes:<span class="number">10</span>, seconds:<span class="number">3</span>, milliseconds:<span class="number">123</span>});</code></pre>
+moment({ years:<span class="number">2010</span>, months:<span class="number">3</span>, days:<span class="number">5</span>, hours:<span class="number">15</span>, minutes:<span class="number">10</span>, seconds:<span class="number">3</span>, milliseconds:<span class="number">123</span>});
+moment({ years:<span class="number">2010</span>, months:<span class="number">3</span>, date:<span class="number">5</span>, hours:<span class="number">15</span>, minutes:<span class="number">10</span>, seconds:<span class="number">3</span>, milliseconds:<span class="number">123</span>});</code></pre>
 <p>You can create a moment by specifying some of the units in an object.</p>
 <p>Omitted units default to 0 or the current date, month, and year.</p>
+<p><code>day</code> and <code>date</code> key both mean day-of-the-month.</p>
+<p><code>date</code> was added in <strong>2.8.4</strong>.</p>
 
 					</div>
 				</article>
@@ -2888,6 +2899,11 @@ moment(<span class="string">'gibberish'</span>).format(<span class="string">'YYY
       <td>X</td>
       <td>1360013296</td>
     </tr>
+    <tr>
+      <td><b>Unix Millisecond Timestamp</b></td>
+      <td>x</td>
+      <td>1360013296123</td>
+    </tr>
   </tbody>
 </table>
 
@@ -2895,6 +2911,7 @@ moment(<span class="string">'gibberish'</span>).format(<span class="string">'YYY
 <p><code>S SS SSS</code> were added in <strong>1.6.0</strong>.</p>
 <p><code>X</code> was added in <strong>2.0.0</strong>.</p>
 <p><code>e E gg gggg GG GGGG</code> were added in <strong>2.1.0</strong>.</p>
+<p><code>x</code> was added in <strong>2.8.4</strong>.</p>
 <h4 id="localized-formats">Localized formats</h4>
 <p>Because preferred formatting differs based on locale, there are a few tokens that can be used to format a moment based on its locale.</p>
 <p>There are upper and lower case variations on the same formats. The lowercase version is intended to be the shortened version of its uppercase counterpart.</p>
@@ -2904,6 +2921,11 @@ moment(<span class="string">'gibberish'</span>).format(<span class="string">'YYY
       <td><b>Time</b></td>
       <td>LT</td>
       <td>8:30 PM</td>
+    </tr>
+    <tr>
+      <td><b>Time with seconds</b></td>
+      <td>LTS</td>
+      <td>8:30:25 PM</td>
     </tr>
     <tr>
       <td><b>Month numeral, day of month, year</b></td>
@@ -2948,7 +2970,8 @@ moment(<span class="string">'gibberish'</span>).format(<span class="string">'YYY
   </tbody>
 </table>
 
-<p><code>L LL LLL LLLL LT</code> are available in version <strong>1.3.0</strong>. <code>l ll lll llll</code> are available in <strong>2.0.0</strong>.</p>
+<p><code>L LL LLL LLLL LT</code> are available in version <strong>1.3.0</strong>. <code>l ll lll llll</code> are available in <strong>2.0.0</strong>.
+<code>LTS</code> was added in <strong>2.8.4</strong>.</p>
 <h4 id="escaping-characters">Escaping characters</h4>
 <p>To escape characters in format strings, you can wrap the characters in square brackets.</p>
 <pre><code class="language-javascript">moment().format(<span class="string">'[today] dddd'</span>); <span class="comment">// 'today Sunday'</span></code></pre>
@@ -3380,6 +3403,8 @@ moment(<span class="string">"2012-01"</span>, <span class="string">"YYYY-MM"</sp
 						
 						<p>Formats a string to the ISO8601 standard.</p>
 <pre><code class="language-javascript">moment().toISOString() <span class="comment">// 2013-02-04T22:44:30.652Z</span></code></pre>
+<p>From version <strong>2.8.4</strong> the native <code>Date.prototype.toISOString</code> is used if
+available, for performance reasons.</p>
 
 					</div>
 				</article>
@@ -3656,6 +3681,7 @@ moment.lang(String, Object);</code></pre>
     weekdaysMin : <span class="string">"Di_Lu_Ma_Me_Je_Ve_Sa"</span>.split(<span class="string">"_"</span>),
     longDateFormat : {
         LT : <span class="string">"HH:mm"</span>,
+        LTS : <span class="string">"HH:mm:ss"</span>,
         L : <span class="string">"DD/MM/YYYY"</span>,
         LL : <span class="string">"D MMMM YYYY"</span>,
         LLL : <span class="string">"D MMMM YYYY LT"</span>,
@@ -4291,10 +4317,11 @@ moment.lang(<span class="string">'en'</span>, {
 
 							</div>
 						
-						<p><code>Locale#longDateFormat</code> should be an object containing a key/value pair for each long date format <code>L LL LLL LLLL LT</code>. <code>LT</code> should be the time format, and is also used for <code>moment#calendar</code>.</p>
+						<p><code>Locale#longDateFormat</code> should be an object containing a key/value pair for each long date format <code>L LL LLL LLLL LT LTS</code>. <code>LT</code> should be the time format, and is also used for <code>moment#calendar</code>.</p>
 <pre><code class="language-javascript">moment.locale(<span class="string">'en'</span>, {
     longDateFormat : {
         LT: <span class="string">"h:mm A"</span>,
+        LTS: <span class="string">"h:mm:ss A"</span>,
         L: <span class="string">"MM/DD/YYYY"</span>,
         l: <span class="string">"M/D/YYYY"</span>,
         LL: <span class="string">"MMMM Do YYYY"</span>,
@@ -4309,6 +4336,7 @@ moment.lang(<span class="string">'en'</span>, {
 <pre><code class="language-javascript">moment.locale(<span class="string">'en'</span>, {
     longDateFormat : {
         LT: <span class="string">"h:mm A"</span>,
+        LTS: <span class="string">"h:mm:ss A"</span>,
         L: <span class="string">"MM/DD/YYYY"</span>,
         LL: <span class="string">"MMMM Do YYYY"</span>,
         LLL: <span class="string">"MMMM Do YYYY LT"</span>,
