@@ -99,10 +99,14 @@ $red : #d33;
 		display: block;
 	}
 
-	&.has-failed span {
+	&.has-failed .fail-label {
 		color: $red;
 		text-shadow: none;
 	}
+
+        .test-num {
+                font-family: monospace;
+        }
 }
 
 .tests-reporting {

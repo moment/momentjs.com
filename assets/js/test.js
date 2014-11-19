@@ -22,7 +22,8 @@
 		if (_failed) {
 			banner.addClass('has-failed');
 		}
-		banner.html(_passed + ' tests passed<br/><span>' + _failed + ' failed</span>');
+		banner.html('<span class="test-num">' + _passed + '</span> tests passed<br/>' +
+                        '<span class="fail-label"><span class="test-num">' + _failed + '</span> failed</span>');
 	}
 
 	(function() {
