@@ -6,7 +6,7 @@ signature: |
 ---
 
 
-ASP.NET returns dates in JSON as `/Date(1198908717056)/` or `/Date(1198908717056-0700)/`
+Microsoft Web API returns JSON dates in proper ISO-8601 format by default, but older ASP.NET technologies may return dates in JSON as `/Date(1198908717056)/` or `/Date(1198908717056-0700)/`
 
 If a string that matches this format is passed in, it will be parsed correctly.
 
