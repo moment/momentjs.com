@@ -49,7 +49,7 @@ A easy way to think of this is by replacing `.diff(` with a minus operator.
 ```javascript
           // a < b
 a.diff(b) // a - b < 0
-b.diff(a) // b - a < 0
+b.diff(a) // b - a > 0
 ```
 
 #### Month and year diffs
