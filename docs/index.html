@@ -3219,7 +3219,7 @@ b.diff(a) <span class="comment">// 1000</span></code></pre>
 <p>A easy way to think of this is by replacing <code>.diff(</code> with a minus operator.</p>
 <pre><code class="language-javascript">          <span class="comment">// a &lt; b</span>
 a.diff(b) <span class="comment">// a - b &lt; 0</span>
-b.diff(a) <span class="comment">// b - a &lt; 0</span></code></pre>
+b.diff(a) <span class="comment">// b - a &gt; 0</span></code></pre>
 <h4 id="month-and-year-diffs">Month and year diffs</h4>
 <p><code>moment#diff</code> has some special handling for month and year diffs. It is optimized to ensure that two months with the same date are always a whole number apart.</p>
 <p>So Jan 15 to Feb 15 should be exactly 1 month.</p>
