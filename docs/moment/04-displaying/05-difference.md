@@ -65,3 +65,4 @@ Feb 28 2011 to Feb 28 2012 should be exactly 1 year.
 [See more discussion on the month and year diffs here](https://github.com/moment/moment/pull/571)
 
 This change to month and year diffs was made in **2.0.0**.
+As of version **2.9.0** diff also support quarter unit.
