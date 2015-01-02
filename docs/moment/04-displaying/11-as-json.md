@@ -11,5 +11,5 @@ When serializing an object to JSON, if there is a `Moment` object, it will be re
 ```javascript
 JSON.stringify({
     postDate : moment()
-}); // {"postDate":"2013-02-04T22:44:30.652Z"}
+}); // '{"postDate":"2013-02-04T22:44:30.652Z"}'
 ```
