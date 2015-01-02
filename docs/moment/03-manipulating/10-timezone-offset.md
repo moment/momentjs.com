@@ -1,11 +1,12 @@
 ---
 title: Timezone Offset
-version: 1.2.0
+version: From 1.2.0, deprecated 2.9.0
 signature: |
   moment().zone();
   moment().zone(Number|String);
 ---
 
+**NOTE**: This function has been **deprecated** in **2.9.0**. Consider [`moment.fn.utcOffset`](/docs/#/manipulating/utc-offset/) instead.
 
 Get the timezone offset in minutes.
 
