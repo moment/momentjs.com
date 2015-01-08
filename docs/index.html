@@ -85,6 +85,10 @@
 					
 				
 					
+						<a class="docs-nav-item" href="#/use-it/meteor/">meteor</a>
+					
+				
+					
 						<a class="docs-nav-item" href="#/use-it/other/">Other</a>
 					
 				
@@ -298,6 +302,10 @@
 					
 				
 					
+						<a class="docs-nav-item" href="#/manipulating/utc-offset/">UTC Offset</a>
+					
+				
+					
 						<a class="docs-nav-item" href="#/manipulating/timezone-offset/">Timezone Offset</a>
 					
 				
@@ -376,6 +384,10 @@
 					
 				
 					
+						<a class="docs-nav-item" href="#/query/is-between/">Is Between</a>
+					
+				
+					
 						<a class="docs-nav-item" href="#/query/is-leap-year/">Is Leap Year</a>
 					
 				
@@ -389,6 +401,10 @@
 				
 					
 						<a class="docs-nav-item" href="#/query/is-a-moment/">Is a Moment</a>
+					
+				
+					
+						<a class="docs-nav-item" href="#/query/is-a-date/">Is a Date</a>
 					
 				
 			</div>
@@ -544,6 +560,10 @@
 						<a class="docs-nav-item" href="#/durations/get/">Get Unit of Time</a>
 					
 				
+					
+						<a class="docs-nav-item" href="#/durations/as-json/">As JSON</a>
+					
+				
 			</div>
 		
 			<div class="docs-nav-section">
@@ -690,7 +710,8 @@ It will be removed in next major release.</p>
 					
 					<div class="docs-method-prose">
 						
-						<pre><code>bower install --save moment</code></pre>
+						<p><a href="http://bower.io/">bower</a></p>
+<pre><code>bower install --save moment</code></pre>
 <p>Notable files are <code>moment.js</code>, <code>locale/*.js</code> and <code>min/moment-with-locales.js</code>.</p>
 
 					</div>
@@ -731,6 +752,9 @@ not AMD-compatible you may need to add <a href="https://github.com/jrburke/r.js/
 true</code></a>
 to your r.js config.</p>
 <p><strong>Note:</strong> To allow moment.js plugins to be loaded in requirejs environments, moment is created as a named module. Because of this, moment <strong>must</strong> be loaded exactly as as <code>&quot;moment&quot;</code>, using <code>paths</code> to determine the directory. Requiring moment with a path like <code>&quot;vendor\moment&quot;</code> will return <code>undefined</code>.</p>
+<p><strong>Note:</strong> From version <strong>2.9.0</strong> moment exports itself as an anonymous module,
+so if you&#39;re using only the core (no locales / plugins), then you don&#39;t need
+config if you put it on a non-standard location.</p>
 
 					</div>
 				</article>
@@ -746,7 +770,7 @@ to your r.js config.</p>
 					
 					<div class="docs-method-prose">
 						
-						<p><a href="http://www.nuget.org/">NuGet</a></p>
+						<p><a href="http://www.nuget.org/">NuGet</a> / <a href="http://www.nuget.org/packages/Moment.js/">Moment.js</a></p>
 <pre><code>Install-Package Moment.js</code></pre>
 
 					</div>
@@ -763,8 +787,27 @@ to your r.js config.</p>
 					
 					<div class="docs-method-prose">
 						
-						<p><a href="http://spmjs.io/">Static Package Manager</a></p>
+						<p><a href="http://spmjs.io/">Static Package Manager</a>
+/ <a href="http://spmjs.io/package/moment">moment</a></p>
 <pre><code>spm install moment --save</code></pre>
+
+					</div>
+				</article>
+			
+				<article class="docs-method">
+					<a class="docs-method-target" id="/use-it/meteor/"  name="/use-it/meteor/"></a>
+					
+						<h3 class="docs-method-title">
+							<a href='#/use-it/meteor/'>meteor</a>
+							
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/00-use-it/07-meteor.md" target="_blank">edit</a>
+					
+					<div class="docs-method-prose">
+						
+						<p><a href="https://www.meteor.com/">meteor</a> / <a href="https://atmospherejs.com/">atmosphere</a>
+/ <a href="https://atmospherejs.com/momentjs/moment">momentjs:moment</a></p>
+<pre><code>meteor add momentjs:moment</code></pre>
 
 					</div>
 				</article>
@@ -776,7 +819,7 @@ to your r.js config.</p>
 							<a href='#/use-it/other/'>Other</a>
 							
 						</h3>
-						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/00-use-it/07-other.md" target="_blank">edit</a>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/00-use-it/08-other.md" target="_blank">edit</a>
 					
 					<div class="docs-method-prose">
 						
@@ -793,7 +836,7 @@ to your r.js config.</p>
 							<a href='#/use-it/troubleshooting/'>Troubleshooting</a>
 							
 						</h3>
-						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/00-use-it/08-troubleshooting.md" target="_blank">edit</a>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/00-use-it/09-troubleshooting.md" target="_blank">edit</a>
 					
 					<div class="docs-method-prose">
 						
@@ -2155,18 +2198,21 @@ second (seconds, s), millisecond (milliseconds, ms).</p>
 					<div class="docs-method-prose">
 						
 							<div class="docs-method-signature">
-								<pre><code class="language-js">moment().set(<span class="string">'year'</span>, <span class="number">2013</span>);
+								<pre><code class="language-js">moment().set(String, Int);
+moment().set(Object(String, Int));</code></pre>
+
+							</div>
+						
+						<p>Generic setter, accepting unit as first argument, and value as second:</p>
+<pre><code class="language-javascript">moment().set(<span class="string">'year'</span>, <span class="number">2013</span>);
 moment().set(<span class="string">'month'</span>, <span class="number">3</span>);  <span class="comment">// April</span>
 moment().set(<span class="string">'date'</span>, <span class="number">1</span>);
 moment().set(<span class="string">'hour'</span>, <span class="number">13</span>);
 moment().set(<span class="string">'minute'</span>, <span class="number">20</span>);
 moment().set(<span class="string">'second'</span>, <span class="number">30</span>);
-moment().set(<span class="string">'millisecond'</span>, <span class="number">123</span>);</code></pre>
+moment().set(<span class="string">'millisecond'</span>, <span class="number">123</span>);
 
-							</div>
-						
-						<p>String setter. In general</p>
-<pre><code class="language-javascript">moment().set(unit, value) <span class="comment">// same as moment()[unit](value)</span></code></pre>
+moment().set({<span class="string">'year'</span>: <span class="number">2013</span>, <span class="string">'month'</span>: <span class="number">3</span>});</code></pre>
 <p>Units are case insensitive, and support plural and short forms: year (years,
 y), month (months, M), date (dates, D), hour (hours, h), minute (minutes, m),
 second (seconds, s), millisecond (milliseconds, ms).</p>
@@ -2571,15 +2617,62 @@ a.hours(); <span class="comment">// 16 UTC</span></code></pre>
 				</article>
 			
 				<article class="docs-method">
+					<a class="docs-method-target" id="/manipulating/utc-offset/"  name="/manipulating/utc-offset/"></a>
+					
+						<h3 class="docs-method-title">
+							<a href='#/manipulating/utc-offset/'>UTC Offset</a>
+							
+								<span>2.9.0++</span>
+							
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/03-manipulating/09-utc-offset.md" target="_blank">edit</a>
+					
+					<div class="docs-method-prose">
+						
+							<div class="docs-method-signature">
+								<pre><code class="language-js">moment().utcOffset();
+moment().utcOffset(Number|String);</code></pre>
+
+							</div>
+						
+						<p>Get the utc offset in minutes.</p>
+<p><strong>NOTE</strong>: Unlike <a href="/docs/#/manipulating/timezone-offset/"><code>moment.fn.zone</code></a> this
+function returns the real offset from UTC, not the reverse offset (as returned
+by <code>Date.prototype.getTimezoneOffset</code>).</p>
+<p>Getting the utcOffset of the current object:</p>
+<pre><code class="language-javascript">moment().utcOffset(); <span class="comment">// (-240, -120, -60, 0, 60, 120, 240, etc.)</span></code></pre>
+<p>Setting the utc offset by supplying minutes. Note that once you set an offset,
+its fixed and won&#39;t change on its own (i.e there are no DST rules). If you want
+an actual timezone -- time in a particular location, like
+<code>America/Los_Angeles</code>, consider <a href="/timezone/">moment-timezone</a>.</p>
+<pre><code class="language-javascript">moment().utcOffset(<span class="number">120</span>);</code></pre>
+<p>If the input is less than <code>16</code> and greater than <code>-16</code>, it will interpret your input as hours instead.</p>
+<pre><code class="language-javascript"><span class="comment">// these are equivalent</span>
+moment().utcOffset(<span class="number">8</span>);  <span class="comment">// set hours offset</span>
+moment().utcOffset(<span class="number">480</span>);  <span class="comment">// set minutes offset (8 * 60)</span></code></pre>
+<p>It is also possible to set the utc offset from a string.</p>
+<pre><code class="language-javascript"><span class="comment">// these are equivalent</span>
+moment().utcOffset(<span class="string">"08:00"</span>);
+moment().utcOffset(<span class="number">8</span>);
+moment().utcOffset(<span class="number">480</span>);</code></pre>
+<p><code>moment#utcOffset</code> will search the string for the first match of <code>+00:00 +0000
+-00:00 -0000</code>, so you can even pass an ISO8601 formatted string and the moment
+will be changed to that utc offset.</p>
+<pre><code class="language-javascript">moment().utcOffset(<span class="string">"2013-03-07T07:00:00+08:00"</span>);</code></pre>
+
+					</div>
+				</article>
+			
+				<article class="docs-method">
 					<a class="docs-method-target" id="/manipulating/timezone-offset/"  name="/manipulating/timezone-offset/"></a>
 					
 						<h3 class="docs-method-title">
 							<a href='#/manipulating/timezone-offset/'>Timezone Offset</a>
 							
-								<span>1.2.0+</span>
+								<span>From 1.2.0, deprecated 2.9.0+</span>
 							
 						</h3>
-						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/03-manipulating/09-timezone-offset.md" target="_blank">edit</a>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/03-manipulating/10-timezone-offset.md" target="_blank">edit</a>
 					
 					<div class="docs-method-prose">
 						
@@ -2589,7 +2682,8 @@ moment().zone(Number|String);</code></pre>
 
 							</div>
 						
-						<p>Get the timezone offset in minutes.</p>
+						<p><strong>NOTE</strong>: This function has been <strong>deprecated</strong> in <strong>2.9.0</strong>. Consider <a href="/docs/#/manipulating/utc-offset/"><code>moment.fn.utcOffset</code></a> instead.</p>
+<p>Get the timezone offset in minutes.</p>
 <pre><code class="language-javascript">moment().zone(); <span class="comment">// (60, 120, 240, etc.)</span></code></pre>
 <p>As of version <strong>2.1.0</strong>, it is possible to set the offset by passing in the number of minutes offset from GMT.</p>
 <pre><code class="language-javascript">moment().zone(<span class="number">120</span>);</code></pre>
@@ -3226,7 +3320,8 @@ b.diff(a) <span class="comment">// b - a &gt; 0</span></code></pre>
 <p>Feb 28 to Mar 28 should be exactly 1 month.</p>
 <p>Feb 28 2011 to Feb 28 2012 should be exactly 1 year.</p>
 <p><a href="https://github.com/moment/moment/pull/571">See more discussion on the month and year diffs here</a></p>
-<p>This change to month and year diffs was made in <strong>2.0.0</strong>.</p>
+<p>This change to month and year diffs was made in <strong>2.0.0</strong>.
+As of version <strong>2.9.0</strong> diff also support quarter unit.</p>
 
 					</div>
 				</article>
@@ -3378,7 +3473,7 @@ moment(<span class="string">"2012-01"</span>, <span class="string">"YYYY-MM"</sp
 						<p>When serializing an object to JSON, if there is a <code>Moment</code> object, it will be represented as an ISO8601 string.</p>
 <pre><code class="language-javascript">JSON.stringify({
     postDate : moment()
-}); <span class="comment">// {"postDate":"2013-02-04T22:44:30.652Z"}</span></code></pre>
+}); <span class="comment">// '{"postDate":"2013-02-04T22:44:30.652Z"}'</span></code></pre>
 
 					</div>
 				</article>
@@ -3523,6 +3618,39 @@ moment(<span class="string">'2010-10-20'</span>).isAfter(<span class="string">'2
 				</article>
 			
 				<article class="docs-method">
+					<a class="docs-method-target" id="/query/is-between/"  name="/query/is-between/"></a>
+					
+						<h3 class="docs-method-title">
+							<a href='#/query/is-between/'>Is Between</a>
+							
+								<span>2.9.0+</span>
+							
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/05-query/04-is-between.md" target="_blank">edit</a>
+					
+					<div class="docs-method-prose">
+						
+							<div class="docs-method-signature">
+								<pre><code class="language-js">moment().isBetween(moment-like, moment-like);
+moment().isBetween(moment-like, moment-like, String);
+<span class="comment">// where moment-like is Moment|String|Number|Date|Array</span></code></pre>
+
+							</div>
+						
+						<p>Check if a moment is between two other moments, optionally looking at unit
+scale (minutes, hours, days, etc).</p>
+<pre><code class="language-javascript">moment(<span class="string">'2010-10-20'</span>).isBetween(<span class="string">'2010-10-19'</span>, <span class="string">'2010-10-25'</span>); <span class="comment">// true</span></code></pre>
+<p>If you want to limit the granularity to a unit other than milliseconds, pass the units as the second parameter.</p>
+<pre><code class="language-javascript">moment(<span class="string">'2010-10-20'</span>).isBetween(<span class="string">'2010-01-01'</span>, <span class="string">'2012-01-01'</span>, <span class="string">'year'</span>); <span class="comment">// false</span>
+moment(<span class="string">'2010-10-20'</span>).isBetween(<span class="string">'2009-12-31'</span>, <span class="string">'2012-01-01'</span>, <span class="string">'year'</span>); <span class="comment">// true</span></code></pre>
+<p>Like <code>moment#isSame</code>, <code>moment#isBefore</code>, <code>moment#isAfter</code> any of the units of
+time that are supported for <code>moment#startOf</code> are supported for
+<code>moment#isAfter</code>. Year, month, week, day, hour, minute, and second.</p>
+
+					</div>
+				</article>
+			
+				<article class="docs-method">
 					<a class="docs-method-target" id="/query/is-leap-year/"  name="/query/is-leap-year/"></a>
 					
 						<h3 class="docs-method-title">
@@ -3531,7 +3659,7 @@ moment(<span class="string">'2010-10-20'</span>).isAfter(<span class="string">'2
 								<span>1.0.0+</span>
 							
 						</h3>
-						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/05-query/04-is-leap-year.md" target="_blank">edit</a>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/05-query/05-is-leap-year.md" target="_blank">edit</a>
 					
 					<div class="docs-method-prose">
 						
@@ -3557,7 +3685,7 @@ moment([<span class="number">2100</span>]).isLeapYear() <span class="comment">//
 								<span>1.2.0+</span>
 							
 						</h3>
-						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/05-query/05-is-daylight-saving-time.md" target="_blank">edit</a>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/05-query/06-is-daylight-saving-time.md" target="_blank">edit</a>
 					
 					<div class="docs-method-prose">
 						
@@ -3582,7 +3710,7 @@ moment([<span class="number">2011</span>, <span class="number">2</span>, <span c
 								<span>2.3.0+</span>
 							
 						</h3>
-						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/05-query/06-is-dst-shifted.md" target="_blank">edit</a>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/05-query/07-is-dst-shifted.md" target="_blank">edit</a>
 					
 					<div class="docs-method-prose">
 						
@@ -3608,7 +3736,7 @@ moment([<span class="number">2011</span>, <span class="number">2</span>, <span c
 								<span>1.5.0+</span>
 							
 						</h3>
-						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/05-query/07-is-a-moment.md" target="_blank">edit</a>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/05-query/08-is-a-moment.md" target="_blank">edit</a>
 					
 					<div class="docs-method-prose">
 						
@@ -3621,6 +3749,32 @@ moment([<span class="number">2011</span>, <span class="number">2</span>, <span c
 <pre><code class="language-javascript">moment.isMoment() <span class="comment">// false</span>
 moment.isMoment(<span class="keyword">new</span> Date()) <span class="comment">// false</span>
 moment.isMoment(moment()) <span class="comment">// true</span></code></pre>
+
+					</div>
+				</article>
+			
+				<article class="docs-method">
+					<a class="docs-method-target" id="/query/is-a-date/"  name="/query/is-a-date/"></a>
+					
+						<h3 class="docs-method-title">
+							<a href='#/query/is-a-date/'>Is a Date</a>
+							
+								<span>2.9.0+</span>
+							
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/05-query/09-is-a-date.md" target="_blank">edit</a>
+					
+					<div class="docs-method-prose">
+						
+							<div class="docs-method-signature">
+								<pre><code class="language-js">moment.isDate(obj);</code></pre>
+
+							</div>
+						
+						<p>To check if a variable is a native js Date object, use <code>moment.isDate()</code>.</p>
+<pre><code class="language-javascript">moment.isDate(); <span class="comment">// false</span>
+moment.isDate(<span class="keyword">new</span> Date()); <span class="comment">// true</span>
+moment.isDate(moment()); <span class="comment">// false</span></code></pre>
 
 					</div>
 				</article>
@@ -3710,8 +3864,21 @@ moment.lang(String, Object);</code></pre>
         y : <span class="string">"une année"</span>,
         yy : <span class="string">"%d années"</span>
     },
+    ordinalParse : <span class="regexp">/\d{1,2}(er|ème)/</span>,
     ordinal : <span class="function"><span class="keyword">function</span> <span class="params">(number)</span> {</span>
         <span class="keyword">return</span> number + (number === <span class="number">1</span> ? <span class="string">'er'</span> : <span class="string">'ème'</span>);
+    },
+    meridiemParse: <span class="regexp">/PD|MD/</span>,
+    isPM: <span class="function"><span class="keyword">function</span> <span class="params">(input)</span> {</span>
+        <span class="keyword">return</span> input.charAt(<span class="number">0</span>) === <span class="string">'M'</span>;
+    },
+    <span class="comment">// in case the meridiem units are not separated around 12, then implement</span>
+    <span class="comment">// this function (look at locale/id.js for an example)</span>
+    <span class="comment">// meridiemHour : function (hour, meridiem) {</span>
+    <span class="comment">//     return /* 0-23 hour, given meridiem token and hour 1-12 */</span>
+    <span class="comment">// },</span>
+    meridiem : <span class="function"><span class="keyword">function</span> <span class="params">(hours, minutes, isLower)</span> {</span>
+        <span class="keyword">return</span> hours &lt; <span class="number">12</span> ? <span class="string">'PD'</span> : <span class="string">'MD'</span>;
     },
     week : {
         dow : <span class="number">1</span>, <span class="comment">// Monday is the first day of the week.</span>
@@ -3986,7 +4153,9 @@ localeData.ordinal()
 localeData.preparse()
 localeData.postformat()
 localeData.weeks()
-localeData.invalidDate()</code></pre>
+localeData.invalidDate()
+localeData.firstDayOfWeek()
+localeData.firstDayOfYear()</code></pre>
 
 							</div>
 						
@@ -4014,7 +4183,14 @@ localeData.ordinal(number);  <span class="comment">// convert number to ordinal 
 localeData.preparse(str);  <span class="comment">// called before parsing on every input string</span>
 localeData.postformat(str);  <span class="comment">// called after formatting on every string</span>
 localeData.week(aMoment);  <span class="comment">// returns week-of-year of aMoment</span>
-localeData.invalidDate();  <span class="comment">// returns a translation of 'Invalid date'</span></code></pre>
+localeData.invalidDate();  <span class="comment">// returns a translation of 'Invalid date'</span>
+localeData.firstDayOfWeek();  <span class="comment">// 0-6 (Sunday to Saturday)</span>
+localeData.firstDayOfYear();  <span class="comment">// 0-15 this and the first day of week are used</span>
+                              <span class="comment">// to determine which is the first week of the</span>
+                              <span class="comment">// year. dow == 1 and doy == 4 means week starts</span>
+                              <span class="comment">// Monday and first week that has Thursday is the</span>
+                              <span class="comment">// first week of the year (but doy is NOT simply</span>
+                              <span class="comment">// Thursday).</span></code></pre>
 
 					</div>
 				</article>
@@ -5108,6 +5284,33 @@ duration.as(<span class="string">'milliseconds'</span>);</code></pre>
 duration.get(<span class="string">'minutes'</span>);
 duration.get(<span class="string">'seconds'</span>);
 duration.get(<span class="string">'milliseconds'</span>);</code></pre>
+
+					</div>
+				</article>
+			
+				<article class="docs-method">
+					<a class="docs-method-target" id="/durations/as-json/"  name="/durations/as-json/"></a>
+					
+						<h3 class="docs-method-title">
+							<a href='#/durations/as-json/'>As JSON</a>
+							
+								<span>2.9.0+</span>
+							
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/08-durations/14-as-json.md" target="_blank">edit</a>
+					
+					<div class="docs-method-prose">
+						
+							<div class="docs-method-signature">
+								<pre><code class="language-js">moment.duration().toJSON();</code></pre>
+
+							</div>
+						
+						<p>When serializing a duration object to JSON, it will be be represented as an
+ISO8601 string.</p>
+<pre><code class="language-javascript">JSON.stringify({
+    postDuration : moment.duration(<span class="number">5</span>, <span class="string">'m'</span>)
+}); <span class="comment">// '{"postDuration":"PT5M"}'</span></code></pre>
 
 					</div>
 				</article>
