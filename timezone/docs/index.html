@@ -98,6 +98,10 @@
 						<a class="docs-nav-item" href="#/using-timezones/formatting/">Formatting Additions</a>
 					
 				
+					
+						<a class="docs-nav-item" href="#/using-timezones/default-timezone/">Default time zone</a>
+					
+				
 			</div>
 		
 			<div class="docs-nav-section">
@@ -527,6 +531,32 @@ moment.tz([<span class="number">2012</span>, <span class="number">0</span>], <sp
 moment.tz([<span class="number">2012</span>, <span class="number">5</span>], <span class="string">'America/New_York'</span>).format(<span class="string">'zz'</span>);    <span class="comment">// Eastern Daylight Time</span>
 moment.tz([<span class="number">2012</span>, <span class="number">0</span>], <span class="string">'America/Los_Angeles'</span>).format(<span class="string">'zz'</span>); <span class="comment">// Pacific Standard Time</span>
 moment.tz([<span class="number">2012</span>, <span class="number">5</span>], <span class="string">'America/Los_Angeles'</span>).format(<span class="string">'zz'</span>); <span class="comment">// Pacific Daylight Time</span></code></pre>
+
+					</div>
+				</article>
+			
+				<article class="docs-method">
+					<a class="docs-method-target" id="/using-timezones/default-timezone/"  name="/using-timezones/default-timezone/"></a>
+					
+						<h3 class="docs-method-title">
+							<a href='#/using-timezones/default-timezone/'>Default time zone</a>
+							
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment-timezone/01-using-timezones/05-default-timezone.md" target="_blank">edit</a>
+					
+					<div class="docs-method-prose">
+						
+							<div class="docs-method-signature">
+								<pre><code class="language-js">moment.tz.setDefault(String);</code></pre>
+
+							</div>
+						
+						<p>By default, <code>moment</code> objects are created in the local time zone.
+To change the default time zone, use <code>moment.tz.setDefault</code> with a valid
+time zone.</p>
+<pre><code class="language-js">moment.tz.setDefault(<span class="string">"America/New_York"</span>);</code></pre>
+<p>Subsequent calls to <code>moment.tz.setDefault</code> will not affect existing <code>moment</code>
+objects or their clones.</p>
 
 					</div>
 				</article>
