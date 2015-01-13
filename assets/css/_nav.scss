@@ -42,7 +42,7 @@
 		color: $white;
 
 		ellipse { stroke : $white; }
-		path    { fill   : rgba($white, 0.6); }
+		path    { fill   : mix($color, $white, 50%); }
 	}
 }
 
