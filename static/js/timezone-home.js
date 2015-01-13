@@ -59,8 +59,8 @@
 	};
 
 	$.getJSON('/data/moment-timezone-meta.json').then(function (data) {
-		for (var i = 0; i < data.length; i++) {
-			centers.push(new Center(data[i]));
+		for (var name in data.zones) {
+			centers.push(new Center(data.zones[name]));
 		}
 	});
 
