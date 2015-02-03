@@ -24,3 +24,5 @@ moment().set({'year': 2013, 'month': 3});
 Units are case insensitive, and support plural and short forms: year (years,
 y), month (months, M), date (dates, D), hour (hours, h), minute (minutes, m),
 second (seconds, s), millisecond (milliseconds, ms).
+
+Object parsing was added in **2.9.0**
