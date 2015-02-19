@@ -1,6 +1,6 @@
 ---
 title: Accessing locale specific functionality
-version: 2.2.0
+version: 2.8.0
 signature: |
   localeData = moment.localeData()
   localeData.months()
