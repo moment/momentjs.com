@@ -6,7 +6,7 @@ signature: |
 ---
 
 
-`moment#isDST` checks if the current moment is in daylight savings time.
+`moment#isDST` checks if the current moment is in daylight saving time.
 
 ```javascript
 moment([2011, 2, 12]).isDST(); // false, March 12 2011 is not DST

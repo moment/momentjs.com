@@ -4,7 +4,7 @@ title: Parsing Ambiguities
 
 
 
-Due to Daylight Saving Time, there is a possibility that a time either does
+Due to daylight saving time, there is a possibility that a time either does
 not exist, or has existed twice.
 
 In the spring, at the start of DST, clocks move forward an hour. In reality though, it
