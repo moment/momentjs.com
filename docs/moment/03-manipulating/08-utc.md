@@ -14,5 +14,3 @@ a.hours(); // 8 PST
 a.utc();
 a.hours(); // 16 UTC
 ```
-
-See [moment.utc()](#/parsing/utc/) for more information on UTC mode.
