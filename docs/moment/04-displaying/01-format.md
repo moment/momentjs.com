@@ -238,12 +238,12 @@ There are a couple conventions used with the naming of the
     <tr>
       <td></td>
       <td>SS</td>
-      <td>0 1 ... 98 99</td>
+      <td>00 01 ... 98 99</td>
     </tr>
     <tr>
       <td></td>
       <td>SSS</td>
-      <td>0 1 ... 998 999</td>
+      <td>000 001 ... 998 999</td>
     </tr>
     <tr>
       <td><b>Timezone</b></td>
