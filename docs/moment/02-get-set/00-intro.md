@@ -3,7 +3,7 @@ title: Get + Set
 ---
 
 
-Moment.js uses overloaded getters and setters. You may be familiar with this pattern from it's use in jQuery.
+Moment.js uses overloaded getters and setters. You may be familiar with this pattern from its use in jQuery.
 
 Calling these methods without parameters acts as a getter, and calling them with a parameter acts as a setter.
 

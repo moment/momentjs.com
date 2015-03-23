@@ -36,9 +36,9 @@ moment.locale('en', {
 });
 ```
 
-`Locale#relativeTime.future` refers to the prefix/suffix for future dates, and `Locale#relativeTime.past` refers to the prefix/suffix for past dates. For all others, a single character refers to the singular, and an double character refers to the plural.
+`Locale#relativeTime.future` refers to the prefix/suffix for future dates, and `Locale#relativeTime.past` refers to the prefix/suffix for past dates. For all others, a single character refers to the singular, and a double character refers to the plural.
 
-If a locale requires additional processing for a token, It can set the token as a function with the following signature.
+If a locale requires additional processing for a token, it can set the token as a function with the following signature.
 The function should return a string.
 
 ```javascript
