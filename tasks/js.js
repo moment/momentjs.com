@@ -8,11 +8,10 @@ module.exports = function(grunt) {
 				'assets/js/global.js'
 			],
 			'build/static/js/core-test.js' : [
-				'assets/js/test-start.js',
-				'libs/nodeunit/nodeunit.js',
-				'libs/moment/test/moment/*.js',
-				'libs/moment/test/locale/*.js',
-				'assets/js/test.js',
+                                'bower_components/qunit/qunit/qunit.js',
+				'assets/js/test-begin.js',
+                                'libs/moment/min/moment-with-locales.js',
+                                'libs/moment/min/tests.js',
 				'assets/js/test-end.js'
 			],
 			'build/static/js/timezone-data.js' : [
@@ -47,7 +46,7 @@ module.exports = function(grunt) {
 				'libs/moment-timezone/tests/helpers/*.js',
 				'libs/moment-timezone/tests/zones/**/*.js',
 				'libs/moment-timezone/tests/moment-timezone/**/*.js',
-				'assets/js/test.js',
+				'assets/js/test-nodeunit.js',
 				'assets/js/timezone-test-end.js'
 			]
 		}
