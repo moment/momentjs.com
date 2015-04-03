@@ -9,7 +9,7 @@ signature: |
 
 
 Check if a moment is between two other moments, optionally looking at unit
-scale (minutes, hours, days, etc).
+scale (minutes, hours, days, etc). The check is non-inclusive.
 
 ```javascript
 moment('2010-10-20').isBetween('2010-10-19', '2010-10-25'); // true
