@@ -2377,7 +2377,7 @@ moment().add(<span class="number">360</span>, <span class="string">'days'</span>
 the day of the month will change to the last day in the final month.</p>
 <pre><code class="language-javascript">moment([<span class="number">2010</span>, <span class="number">0</span>, <span class="number">31</span>]);                  <span class="comment">// January 31</span>
 moment([<span class="number">2010</span>, <span class="number">0</span>, <span class="number">31</span>]).add(<span class="number">1</span>, <span class="string">'months'</span>); <span class="comment">// February 28</span></code></pre>
-<p>There are also special considerations to keep in mind when adding time that crosses over daylight saving time.
+<p>There are also special considerations to keep in mind when adding time that crosses over Daylight Savings Time.
 If you are adding years, months, weeks, or days, the original hour will always match the added hour.</p>
 <pre><code class="language-javascript"><span class="keyword">var</span> m = moment(<span class="keyword">new</span> Date(<span class="number">2011</span>, <span class="number">2</span>, <span class="number">12</span>, <span class="number">5</span>, <span class="number">0</span>, <span class="number">0</span>)); <span class="comment">// the day before DST in the US</span>
 m.hours(); <span class="comment">// 5</span>
@@ -3694,7 +3694,7 @@ moment([<span class="number">2100</span>]).isLeapYear() <span class="comment">//
 
 							</div>
 						
-						<p><code>moment#isDST</code> checks if the current moment is in daylight saving time.</p>
+						<p><code>moment#isDST</code> checks if the current moment is in daylight savings time.</p>
 <pre><code class="language-javascript">moment([<span class="number">2011</span>, <span class="number">2</span>, <span class="number">12</span>]).isDST(); <span class="comment">// false, March 12 2011 is not DST</span>
 moment([<span class="number">2011</span>, <span class="number">2</span>, <span class="number">14</span>]).isDST(); <span class="comment">// true, March 14 2011 is DST</span></code></pre>
 
@@ -3721,7 +3721,7 @@ moment([<span class="number">2011</span>, <span class="number">2</span>, <span c
 						
 						<p>Another important piece of validation is to know if the date has been moved by a DST. For example, in most of the United States:</p>
 <pre><code class="language-javascript">moment(<span class="string">'2013-03-10 2:30'</span>, <span class="string">'YYYY-MM-DD HH:mm'</span>).format(); <span class="comment">//=&gt; '2013-03-10T01:30:00-05:00'</span></code></pre>
-<p>This is because daylight saving time shifts the time from 2:00 to 3:00, so 2:30 isn&#39;t a real time. The resulting time is browser-dependent, either adjusting the time forward or backwards. Use <code>moment#isDSTShifted</code> to test for this condition.</p>
+<p>This is because daylight savings time shifts the time from 2:00 to 3:00, so 2:30 isn&#39;t a real time. The resulting time is browser-dependent, either adjusting the time forward or backwards. Use <code>moment#isDSTShifted</code> to test for this condition.</p>
 <p><strong>Note:</strong> before 2.3.0, Moment objects in this condition always returned <code>false</code> for <code>moment#isValid</code>; they now return <code>true</code>.</p>
 
 					</div>
