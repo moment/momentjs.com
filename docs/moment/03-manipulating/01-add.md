@@ -91,7 +91,7 @@ moment([2010, 0, 31]);                  // January 31
 moment([2010, 0, 31]).add(1, 'months'); // February 28
 ```
 
-There are also special considerations to keep in mind when adding time that crosses over Daylight Savings Time.
+There are also special considerations to keep in mind when adding time that crosses over daylight saving time.
 If you are adding years, months, weeks, or days, the original hour will always match the added hour.
 
 ```javascript
