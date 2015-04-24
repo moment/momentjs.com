@@ -32,7 +32,7 @@ The parsing tokens are similar to the formatting tokens used in `moment#format`.
 | `YY`        | `14`             | 2 digit year |
 | `Q`         | `1..4`           | Quarter of year. Sets month to first month in quarter. |
 | `M MM`      | `1..12`          | Month number |
-| `MMM MMMM`  | `January..Dec`   | Month name in locale set by `moment.locale()` |
+| `MMM MMMM`  | `Jan..December`  | Month name in locale set by `moment.locale()` |
 | `D DD`      | `1..31`          | Day of month |
 | `Do`        | `1st..31st`      | Day of month with ordinal |
 | `DDD DDDD`  | `1..365`         | Day of year |
