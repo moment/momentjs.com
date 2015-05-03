@@ -7,7 +7,7 @@ signature: |
 ---
 
 
-Calendar time is displays time relative to given `referenceTime` (defaults to now), but slightly differently than `moment#fromNow`.
+Calendar time displays time relative to given `referenceTime` (defaults to now), but slightly differently than `moment#fromNow`.
 
 `moment#calendar` will format a date with different strings depending on how close to `referenceTime`'s date (today by default) the date is.
 
