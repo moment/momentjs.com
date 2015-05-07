@@ -7,30 +7,30 @@ signature: |
 ---
 
 
-Calendar time is displays time relative to given `referenceTime` (defaults to now), but slightly differently than `moment#fromNow`.
+Calendar time displays time relative to a given `referenceTime` (defaults to now), but does so slightly differently than `moment#fromNow`.
 
 `moment#calendar` will format a date with different strings depending on how close to `referenceTime`'s date (today by default) the date is.
 
 <table class="table table-striped table-bordered">
   <tr>
     <td>Last week</td>
-    <td>Last Monday 2:30 AM</td>
+    <td>Last Monday at 2:30 AM</td>
   </tr>
   <tr>
     <td>The day before</td>
-    <td>Yesterday 2:30 AM</td>
+    <td>Yesterday at 2:30 AM</td>
   </tr>
   <tr>
     <td>The same day</td>
-    <td>Today 2:30 AM</td>
+    <td>Today at 2:30 AM</td>
   </tr>
   <tr>
     <td>The next day</td>
-    <td>Tomorrow 2:30 AM</td>
+    <td>Tomorrow at 2:30 AM</td>
   </tr>
   <tr>
     <td>The next week</td>
-    <td>Sunday 2:30 AM</td>
+    <td>Sunday at 2:30 AM</td>
   </tr>
   <tr>
     <td>Everything else</td>
