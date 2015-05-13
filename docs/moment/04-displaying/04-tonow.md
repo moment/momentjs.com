@@ -1,23 +1,30 @@
 ---
-title: Time from now
-version: 1.0.0
+title: Time to now
+version: 2.10.3
 signature: |
-  moment().fromNow();
-  moment().fromNow(Boolean);
+  moment().toNow();
+  moment().toNow(Boolean);
 ---
 
 
-A common way of displaying time is handled by `moment#fromNow`. This is sometimes called timeago or relative time.
+A common way of displaying time is handled by `moment#toNow`. This is sometimes called timeago or relative time.
+
+This is similar to [`moment.fromNow`](/docs/#/displaying/fromnow/), but gives
+the opposite interval: `a.fromNow() = - a.toNow()`.
+
+This is similar to [`moment.to`](/docs/#/displaying/to/), but is special-cased
+for the current time. Use `moment.to`, if you want to control the two end
+points of the interval.
 
 ```javascript
-moment([2007, 0, 29]).fromNow(); // 4 years ago
+moment([2007, 0, 29]).toNow(); // in 4 years
 ```
 
 If you pass `true`, you can get the value without the suffix.
 
 ```javascript
-moment([2007, 0, 29]).fromNow();     // 4 years ago
-moment([2007, 0, 29]).fromNow(true); // 4 years
+moment([2007, 0, 29]).toNow();     // in 4 years
+moment([2007, 0, 29]).toNow(true); // 4 years
 ```
 
 The base strings are [customized by the current locale](#/customization/relative-time/).

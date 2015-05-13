@@ -34,3 +34,6 @@ var end   = moment([2007, 0, 10]);
 end.from(start);       // "in 5 days"
 end.from(start, true); // "5 days"
 ```
+
+From version **2.10.3**, if any of the endpoints are invalid the result is the
+localized Invalid date string.
