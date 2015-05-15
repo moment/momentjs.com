@@ -29,14 +29,14 @@ There are minified versions of all locales together:
 <script src="min/locales.js"></script>
 ```
 
-Ideally, you would bundle all the files you need into one file to minimize http requests.
+To minimize http requests, use our Grunt task to compile [Moment](https://github.com/moment/moment/) with a custom list of locales:
 
 ```bash
-grunt embedLocales --embedLocales fr,it
+grunt transpile:fr,it
 ```
 
 ```html
-<script src="min/moment-with-customlocales.js"></script>
+<script src="min/moment-with-locales.custom.js"></script>
 ```
 
 **Note:** Locale files are defined in [UMD](https://github.com/umdjs/umd) style, so they should work seamlessly in all environments.
