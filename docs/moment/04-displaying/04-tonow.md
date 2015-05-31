@@ -20,7 +20,7 @@ points of the interval.
 moment([2007, 0, 29]).toNow(); // in 4 years
 ```
 
-If you pass `true`, you can get the value without the suffix.
+If you pass `true`, you can get the value without the prefix.
 
 ```javascript
 moment([2007, 0, 29]).toNow();     // in 4 years
