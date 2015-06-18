@@ -15,6 +15,8 @@ moment('2010-10-20').isSame('2010-10-20'); // true
 
 If you want to limit the granularity to a unit other than milliseconds, pass the units as the second parameter.
 
+As the second parameter determines the precision, and not just a single value to check, using day will check for year, month and day.
+
 ```javascript
 moment('2010-10-20').isSame('2009-12-31', 'year'); // false
 moment('2010-10-20').isSame('2010-01-01', 'year'); // true
