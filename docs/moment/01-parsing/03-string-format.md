@@ -43,16 +43,17 @@ The parsing tokens are similar to the formatting tokens used in `moment#format`.
 
 For these, the lowercase tokens use the locale aware week start days, and the uppercase tokens use the [ISO week date](http://en.wikipedia.org/wiki/ISO_week_date) start days.
 
-| Input    | Example | Description |
-| -------- | ------- | ----------- |
-| `gggg`   | `2014`  | Locale 4 digit week year |
-| `gg`     | `14`    | Locale 2 digit week year |
-| `w ww`   | `1..53` | Locale week of year |
-| `e`      | `1..7`  | Locale day of week |
-| `GGGG`   | `2014`  | ISO 4 digit week year |
-| `GG`     | `14`    | ISO 2 digit week year |
-| `W WW`   | `1..53` | ISO week of year |
-| `E`      | `1..7`  | ISO day of week |
+| Input       | Example          | Description |
+| ----------- | ---------------- | ----------- |
+| `gggg`      | `2014`           | Locale 4 digit week year |
+| `gg`        | `14`             | Locale 2 digit week year |
+| `w ww`      | `1..53`          | Locale week of year |
+| `e`         | `1..7`           | Locale day of week |
+| `ddd dddd`  | `Monday...Sun`   | Day name in locale set by `moment.locale()` |
+| `GGGG`      | `2014`           | ISO 4 digit week year |
+| `GG`        | `14`             | ISO 2 digit week year |
+| `W WW`      | `1..53`          | ISO week of year |
+| `E`         | `1..7`           | ISO day of week |
 
 #### Hour, minute, second, millisecond, and offset tokens
 
