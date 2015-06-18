@@ -36,9 +36,9 @@ If you call `moment#locale` with no parameters, you get back the locale configur
 
 ```javascript
 var fr = moment().locale('fr');
-fr.locale().months(moment([2012, 0])) // "janvier"
+fr.localeData().months(moment([2012, 0])) // "janvier"
 fr.locale('en');
-fr.locale().months(moment([2012, 0])) // "January"
+fr.localeData().months(moment([2012, 0])) // "January"
 ```
 
 If you need to access the locale data for a moment, this is the preferred way to do so.
