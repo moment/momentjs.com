@@ -5,7 +5,7 @@ title: Fiscal Quarters
 
 If you ever have need for [Fiscal](http://en.wikipedia.org/wiki/Fiscal_year), Calendar or Academic quarters, you can use the [moment-fquarter](https://github.com/robgallen/moment-fquarter) plugin by [@robgallen](https://github.com/robgallen).
 
-At it's simplest, just call the fquarter method on any moment object. It returns a formatted string with April being the first quarter.
+At its simplest, just call the fquarter method on any moment object. It returns a formatted string with April being the first quarter.
 
 ```javascript
 moment("2013-01-01").fquarter();

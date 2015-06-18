@@ -27,6 +27,6 @@ If nothing is passed to `moment#isBefore`, it will default to the current time.
 *NOTE*: `moment().isBefore()` has undefined behavior and should not be used! If
 the code runs fast the initial created moment would be the same as the one
 created in isBefore to perform the check, so the result would be `false`. But
-if the code runs slower its possible that the moment created in isBefore is
+if the code runs slower it's possible that the moment created in isBefore is
 measurably after the one created in `moment()`, so the call would return
 `true`.

@@ -13,7 +13,7 @@ new Date(2013, 25, 14).toString(); // "Sat Feb 14 2015 00:00:00 GMT-0500 (EST)"
 moment([2015, 25, 35]).format();   // 'Invalid date'
 ```
 
-You can check whether the Moment considers the date invalid using `moment#isValid`. You can check the metrics used by `#isValid` using `moment#parsingFlags` which returns an object
+You can check whether the Moment considers the date invalid using `moment#isValid`. You can check the metrics used by `#isValid` using `moment#parsingFlags`, which returns an object.
 
 The following parsing flags result in an invalid date:
 

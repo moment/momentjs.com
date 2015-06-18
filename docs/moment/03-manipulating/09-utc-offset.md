@@ -19,7 +19,7 @@ moment().utcOffset(); // (-240, -120, -60, 0, 60, 120, 240, etc.)
 ```
 
 Setting the utc offset by supplying minutes. Note that once you set an offset,
-its fixed and won't change on its own (i.e there are no DST rules). If you want
+it's fixed and won't change on its own (i.e there are no DST rules). If you want
 an actual timezone -- time in a particular location, like
 `America/Los_Angeles`, consider [moment-timezone](/timezone/).
 
