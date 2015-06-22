@@ -39,7 +39,7 @@ It is also possible to set the utc offset from a string.
 
 ```javascript
 // these are equivalent
-moment().utcOffset("08:00");
+moment().utcOffset("+08:00");
 moment().utcOffset(8);
 moment().utcOffset(480);
 ```
@@ -47,6 +47,9 @@ moment().utcOffset(480);
 `moment#utcOffset` will search the string for the first match of `+00:00 +0000
 -00:00 -0000`, so you can even pass an ISO8601 formatted string and the moment
 will be changed to that utc offset.
+
+Note that the string is required to start with the `+` or `-` character.  Passing a string that
+does not start with `+` or `-` will be interpreted as if it were `"+00:00"`.
 
 ```javascript
 moment().utcOffset("2013-03-07T07:00:00+08:00");
