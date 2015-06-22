@@ -49,6 +49,7 @@ var locales = {
     'lb'     : 'Luxembourgish',
     'lt'     : 'Lithuanian',
     'lv'     : 'Latvian',
+    'me'     : 'Montenegrin',
     'mk'     : 'Macedonian',
     'ml'     : 'Malayalam',
     'mr'     : 'Marathi',
