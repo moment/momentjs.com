@@ -4,6 +4,7 @@ version: 1.3.0
 signature: |
   moment().calendar();
   moment().calendar(referenceTime);
+  moment().calendar(referenceTime, formats);
 ---
 
 
@@ -38,4 +39,15 @@ Calendar time displays time relative to a given `referenceTime` (defaults to now
   </tr>
 </table>
 
-These strings are localized, and [can be customized](#/customization/calendar/).
+These strings are localized, and [can be customized](#/customization/calendar/), or they can be overridden by specifying the `formats` parameter - for example, to display the date without the time:
+
+```javascript
+moment().calendar(null, {
+  sameDay: '[Today]',
+  nextDay: '[Tomorrow]',
+  nextWeek: 'dddd',
+  lastDay: '[Yesterday]',
+  lastWeek: '[Last] dddd'
+  // sameElse: 'L'
+})
+```
