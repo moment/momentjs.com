@@ -45,7 +45,7 @@ var locales = {
     'ja'     : 'Japanese',
     'ka'     : 'Georgian',
     'km'     : 'Khmer (Cambodia)',
-    'ko'     : 'Korean',
+    'ko'     : 'Korean (한국어)',
     'lb'     : 'Luxembourgish',
     'lt'     : 'Lithuanian',
     'lv'     : 'Latvian',
