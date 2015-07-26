@@ -4,6 +4,7 @@ version: 1.3.0
 signature: |
   moment().calendar();
   moment().calendar(referenceTime);
+  moment().calendar(referenceTime, formats);  // from 2.10.5
 ---
 
 
@@ -39,3 +40,16 @@ Calendar time displays time relative to a given `referenceTime` (defaults to now
 </table>
 
 These strings are localized, and [can be customized](#/customization/calendar/).
+
+From **2.10.5** moment supports specifying calendar output formats per
+invocation:
+
+```javascript
+moment().calendar(null, {
+    sameDay: '[Today]',
+    nextDay: '[Tomorrow]',
+    nextWeek: 'dddd',
+    lastDay: '[Yesterday]',
+    lastWeek: '[Last] dddd'
+});
+```
