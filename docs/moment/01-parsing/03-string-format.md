@@ -28,7 +28,7 @@ The parsing tokens are similar to the formatting tokens used in `moment#format`.
 
 | Input       | Example          | Description |
 | ----------- | ---------------- | ----------- |
-| `YYYY`      | `2014`           | 4 digit year |
+| `YYYY`      | `2014`           | 4 or 2 digit year |
 | `YY`        | `14`             | 2 digit year |
 | `Q`         | `1..4`           | Quarter of year. Sets month to first month in quarter. |
 | `M MM`      | `1..12`          | Month number |
@@ -38,6 +38,9 @@ The parsing tokens are similar to the formatting tokens used in `moment#format`.
 | `DDD DDDD`  | `1..365`         | Day of year |
 | `X`         | `1410715640.579` | Unix timestamp |
 | `x`         | `1410715640579`  | Unix ms timestamp |
+
+`YYYY` from version `2.10.5` supports 2 digit years, and converts them to a year
+near 2000 (same as `YY`).
 
 #### Week year, week, and weekday tokens
 
