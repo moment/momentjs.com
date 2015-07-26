@@ -246,6 +246,11 @@ There are a couple conventions used with the naming of the
       <td>000 001 ... 998 999</td>
     </tr>
     <tr>
+      <td></td>
+      <td>SSSS ... SSSSSSSSS</td>
+      <td>000[0..] 001[0..] ... 998[0..] 999[0..]</td>
+    </tr>
+    <tr>
       <td><b>Timezone</b></td>
       <td>z or zz</td>
       <td>
@@ -289,6 +294,8 @@ There are a couple conventions used with the naming of the
 
 `x` was added in **2.8.4**.
 
+`SSSS` to `SSSSSSSSS` were added in **2.10.5**. They display 3 significant
+digits and the rest is filled with zeros.
 
 #### Localized formats
 

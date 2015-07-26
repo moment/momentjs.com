@@ -70,7 +70,13 @@ For these, the lowercase tokens use the locale aware week start days, and the up
 | `S`            | `0..9`   | Tenths of a second |
 | `SS`           | `0..99`  | Hundreds of a second |
 | `SSS`          | `0..999` | Thousandths of a second |
+| `SSSS`         | `0000..9999` | fractional seconds |
 | `Z ZZ`         | `+12:00` | Offset from UTC as `+-HH:mm`, `+-HHmm`, or `Z` |
+
+From version **2.10.5**: fractional second tokens length 4 up to 9 can parse
+any number of digits, but will only consider the top 3 (milliseconds). Use if
+you have the time printed with many fractional digits and want to consume the
+input.
 
 Locale aware date and time formats are also available using `LT LTS L LL LLL
 LLLL`. They were added in version **2.2.1**, except `LTS` which was added
