@@ -15,3 +15,11 @@ moment.max(a, b);  // b
 ```
 
 With no arguments the function returns a moment instance with the current time.
+
+From version `2.10.5`, if an invalid moment is one of the arguments, the result
+is an invalid moment.
+
+```javascript
+moment.max(moment(), moment.invalid()).isValid() === false
+moment.max(moment.invalid(), moment()).isValid() === false
+```

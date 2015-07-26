@@ -15,3 +15,11 @@ moment.min(a, b);  // a
 ```
 
 With no arguments the function returns a moment instance with the current time.
+
+From version `2.10.5`, if an invalid moment is one of the arguments, the result
+is an invalid moment.
+
+```javascript
+moment.min(moment(), moment.invalid()).isValid() === false
+moment.min(moment.invalid(), moment()).isValid() === false
+```
