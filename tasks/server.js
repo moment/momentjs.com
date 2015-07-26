@@ -1,10 +1,20 @@
 module.exports = function(grunt) {
-	grunt.config('connect.server', {
+	grunt.config('connect.dev-server', {
 		options: {
 			port: 6060,
 			hostname: '*',
 			base: 'build',
 			livereload: 36060,
+			open: true
+		}
+	});
+
+	grunt.config('connect.server', {
+		options: {
+			port: 6060,
+			hostname: '*',
+			base: 'build',
+                        keepalive: true,
 			open: true
 		}
 	});
@@ -17,5 +27,7 @@ module.exports = function(grunt) {
 		files: 'build/**/*'
 	});
 
-	grunt.registerTask('server', ['default', 'connect:server', 'watch']);
+	// This fails with stack exceeded for me...
+	grunt.registerTask('dev-server', ['default', 'connect:dev-server', 'watch']);
+	grunt.registerTask('server', ['default', 'connect:server']);
 };
