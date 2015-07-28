@@ -3047,7 +3047,7 @@ QUnit.config.autostart = false;
     // Moment prototype object
     function Moment(config) {
         copyConfig(this, config);
-        this._d = new Date(config._d.getTime());
+        this._d = new Date(config._d != null ? config._d.getTime() : NaN);
         // Prevent infinite loop in case updateOffset creates new moment
         // objects.
         if (updateInProgress === false) {
@@ -6036,12 +6036,12 @@ QUnit.config.autostart = false;
     ;
 
     //! moment.js
-    //! version : 2.10.5
+    //! version : 2.10.6
     //! authors : Tim Wood, Iskren Chernev, Moment.js contributors
     //! license : MIT
     //! momentjs.com
 
-    utils_hooks__hooks.version = '2.10.5';
+    utils_hooks__hooks.version = '2.10.6';
 
     setHookCallback(local__createLocal);
 
@@ -44930,6 +44930,11 @@ QUnit.config.autostart = false;
 
     test('undefined', function (assert) {
         assert.ok(moment().toDate() instanceof Date, 'undefined');
+    });
+
+    test('iso with bad input', function (assert) {
+        assert.ok(!moment('a', moment.ISO_8601).isValid(), 'iso parsing with invalid string');
+        assert.ok(!moment('a', moment.ISO_8601, true).isValid(), 'iso parsing with invalid string, strict');
     });
 
     test('iso format 24hrs', function (assert) {
