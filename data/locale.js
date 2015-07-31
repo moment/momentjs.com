@@ -19,10 +19,10 @@ var locales = {
     'de'     : 'German',
     'de-at'  : 'German (Austria)',
     'el'     : 'Greek',
-    'en'     : 'English',
+    'en'     : 'English (United States)',
     'en-au'  : 'English (Australia)',
     'en-ca'  : 'English (Canada)',
-    'en-gb'  : 'English (England)',
+    'en-gb'  : 'English (United Kingdom)',
     'eo'     : 'Esperanto',
     'es'     : 'Spanish',
     'et'     : 'Estonian',
@@ -79,7 +79,7 @@ var locales = {
     'uk'     : 'Ukrainian',
     'uz'     : 'Uzbek',
     'vi'     : 'Vietnamese',
-    'zh-cn'  : 'Chinese',
+    'zh-cn'  : 'Chinese (Simplified)',
     'zh-tw'  : 'Chinese (Traditional)'
 };
 
