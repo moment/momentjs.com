@@ -36,7 +36,7 @@ The breakdown of which string is displayed for each length of time is outlined i
     <tr>
       <td>0 to 45 seconds</td>
       <td>s</td>
-      <td>seconds ago</td>
+      <td>a few seconds ago</td>
     </tr>
     <tr>
       <td>45 to 90 seconds</td>
