@@ -22,6 +22,7 @@ moment('2010-10-20').isSame('2009-12-31', 'year'); // false
 moment('2010-10-20').isSame('2010-01-01', 'year'); // true
 moment('2010-10-20').isSame('2010-12-31', 'year'); // true
 moment('2010-10-20').isSame('2011-01-01', 'year'); // false
+moment('2010-10-20').isSame('2010-08-20', 'day'); // false
 ```
 
 Like `moment#isAfter` and `moment#isBefore`, any of the units of time that are supported for `moment#startOf` are supported for `moment#isSame`. Year, month, week, day, hour, minute, and second.
