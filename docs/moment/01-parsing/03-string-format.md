@@ -127,4 +127,4 @@ moment('2012-10-14', 'YYYY-MM-DD', 'fr', true);
 
 #### Parsing two digit years
 
-By default, two digit years above 68 are assumed to be in the 1900's and years below 68 are assumed to be in the 2000's. This can be changed by replacing the `moment.parseTwoDigitYear` method.
+By default, two digit years above 68 are assumed to be in the 1900's and years below and including 68 are assumed to be in the 2000's. This can be changed by replacing the `moment.parseTwoDigitYear` method.
