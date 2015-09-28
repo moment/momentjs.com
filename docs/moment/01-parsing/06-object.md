@@ -16,6 +16,8 @@ moment({ years:2010, months:3, date:5, hours:15, minutes:10, seconds:3, millisec
 
 You can create a moment by specifying some of the units in an object.
 
+Months are 0-based, e.g. April is represented as 3. All other values are used as they are. The date used in the examples is 2015-04-05.
+
 Omitted units default to 0 or the current date, month, and year.
 
 `day` and `date` key both mean day-of-the-month.
