@@ -576,6 +576,10 @@
 						<a class="docs-nav-item" href="#/durations/as-json/">As JSON</a>
 					
 				
+					
+						<a class="docs-nav-item" href="#/durations/is-a-duration/">Is a Duration</a>
+					
+				
 			</div>
 		
 			<div class="docs-nav-section">
@@ -644,6 +648,14 @@
 				
 					
 						<a class="docs-nav-item" href="#/plugins/jdateformatparser/">Java DateFormat Parser</a>
+					
+				
+					
+						<a class="docs-nav-item" href="#/plugins/hijri/">Hijri Calendar</a>
+					
+				
+					
+						<a class="docs-nav-item" href="#/plugins/transform/">Transform</a>
 					
 				
 			</div>
@@ -3675,10 +3687,16 @@ moment(<span class="string">"2012-01"</span>, <span class="string">"YYYY-MM"</sp
 
 							</div>
 						
-						<p>When serializing an object to JSON, if there is a <code>Moment</code> object, it will be represented as an ISO8601 string.</p>
+						<p>When serializing an object to JSON, if there is a <code>Moment</code> object, it will be represented as an ISO8601 string, adjusted to UTC.</p>
 <pre><code class="language-javascript">JSON.stringify({
     postDate : moment()
 }); <span class="comment">// '{"postDate":"2013-02-04T22:44:30.652Z"}'</span></code></pre>
+<p>If instead you would like an ISO8601 string that reflects the moment&#39;s <code>utcOffset()</code>, then you can modify the <code>toJSON</code> function like this:</p>
+<pre><code class="language-javascript">moment.fn.toJSON = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span> <span class="keyword">return</span> <span class="keyword">this</span>.format(); }</code></pre>
+<p>This changes the behavior as follows:</p>
+<pre><code class="language-javascript">JSON.stringify({
+    postDate : moment()
+}); <span class="comment">// '{"postDate":"2013-02-04T14:44:30-08:00"}'</span></code></pre>
 
 					</div>
 				</article>
@@ -5559,6 +5577,34 @@ ISO8601 string.</p>
 					</div>
 				</article>
 			
+				<article class="docs-method">
+					<a class="docs-method-target" id="/durations/is-a-duration/"  name="/durations/is-a-duration/"></a>
+					
+						<h3 class="docs-method-title">
+							<a href='#/durations/is-a-duration/'>Is a Duration</a>
+							
+								<span>1.6.0+</span>
+							
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/08-durations/15-is-a-duration.md" target="_blank">edit</a>
+					
+					<div class="docs-method-prose">
+						
+							<div class="docs-method-signature">
+								<pre><code class="language-js">moment.isDuration(obj);</code></pre>
+
+							</div>
+						
+						<p>To check if a variable is a moment duration object, use <code>moment.isDuration()</code>.</p>
+<pre><code class="language-javascript">moment.isDuration() <span class="comment">// false</span>
+moment.isDuration(<span class="keyword">new</span> Date()) <span class="comment">// false</span>
+moment.isDuration(moment()) <span class="comment">// false</span>
+moment.isDuration(moment.duration()) <span class="comment">// true</span>
+moment.isDuration(moment.duration(<span class="number">2</span>, <span class="string">'minutes'</span>)) <span class="comment">// true</span></code></pre>
+
+					</div>
+				</article>
+			
 		
 			<article class="docs-section">
 				<a class="docs-section-target" id="/utilities/" name="/utilities/"></a>
@@ -5959,6 +6005,59 @@ Links: <a href="http://gr2m.github.io/moment.parseFormat/">Demo</a> |
 <pre><code class="language-javascript">moment(<span class="string">"2013-12-24 14:30"</span>).formatWithJavaDateFormat(<span class="string">"dd.MM.yyyy"</span>);  <span class="comment">// returns the formatted date "24.12.2013"</span>
 moment().toJavaDateFormatString(<span class="string">"DD.MM.YYYY"</span>);  <span class="comment">// returns the Java format pattern "dd.MM.yyyy"</span></code></pre>
 <p>The repository is located at <a href="https://github.com/MadMG/moment-jdateformatparser">github.com/MadMG/moment-jdateformatparser</a></p>
+
+					</div>
+				</article>
+			
+				<article class="docs-method">
+					<a class="docs-method-target" id="/plugins/hijri/"  name="/plugins/hijri/"></a>
+					
+						<h3 class="docs-method-title">
+							<a href='#/plugins/hijri/'>Hijri Calendar</a>
+							
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/10-plugins/13-hijri.md" target="_blank">edit</a>
+					
+					<div class="docs-method-prose">
+						
+							<div class="docs-method-signature">
+								<pre><code class="language-js">npm install moment-hijri</code></pre>
+
+							</div>
+						
+						<p>If you want to work with Hijri calendar then you can use <code>moment-hijri</code> plugin. <code>moment-hijri</code> is a moment plugin for the Hijri lunar calendar based on <a href="http://www.ummulqura.org.sa/">Umm al-Qura</a> calculations. This plugin is developed by <a href="https://github.com/xsoh">Suhail Alkowaileet</a>.</p>
+<p>When you install it, it will wrap <code>moment</code> and you will be able to parse Hijri dates. Here is a short example:</p>
+<pre><code class="language-js">m = moment(<span class="string">'1410/8/28'</span>, <span class="string">'iYYYY/iM/iD'</span>); <span class="comment">// Parse a Hijri date.</span>
+m.format(<span class="string">'iYYYY/iM/iD [is] YYYY/M/D'</span>); <span class="comment">// 1410/8/28 is 1990/3/25</span></code></pre>
+<p>The repository is located at <a href="https://github.com/xsoh/moment-hijri">github.com/xsoh/moment-hijri</a>.</p>
+
+					</div>
+				</article>
+			
+				<article class="docs-method">
+					<a class="docs-method-target" id="/plugins/transform/"  name="/plugins/transform/"></a>
+					
+						<h3 class="docs-method-title">
+							<a href='#/plugins/transform/'>Transform</a>
+							
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/10-plugins/14-transform.md" target="_blank">edit</a>
+					
+					<div class="docs-method-prose">
+						
+							<div class="docs-method-signature">
+								<pre><code class="language-js">bower install moment-transform</code></pre>
+
+							</div>
+						
+						<p><a href="http://a----.github.io/moment-transform/"><code>moment-transform</code></a>  is a plugin that manipulated dates through patterns. You can use basic operations &ndash;set/add/substract&ndash; on individual parts (hours, month, &hellip;) of a Moment instance.</p>
+<pre><code class="language-js">moment().transform(<span class="string">'YYYY-MM-+01 00:00:00.000'</span>); <span class="comment">// Tonight at midnight</span>
+moment().transform(<span class="string">'14:30:00.000'</span>); <span class="comment">// Today, 2:30 pm</span>
+moment().transform(<span class="string">'YYYY-MM--30 00:00:00.000'</span>); <span class="comment">// 30 days ago</span></code></pre>
+<p>Optional parameters lets you specify custom patterns and force strict pattern usage (non-alphabetic characters are not mandatory in passed string by default).</p>
+<pre><code class="language-js">moment().transform(<span class="string">'+01MMYYYY'</span>, <span class="string">'DD/MM/YYYY'</span>, <span class="literal">false</span>); <span class="comment">// Tomorrow, same time</span>
+moment().transform(<span class="string">'+01MMYYYY'</span>, <span class="string">'DD/MM/YYYY'</span>, <span class="literal">true</span>); <span class="comment">// Invalid date</span></code></pre>
+<p>You can see it live <a href="http://a----.github.io/moment-transform/">there</a>  while the repository is <a href="https://github.com/A----/moment-transform">here</a>.</p>
 
 					</div>
 				</article>

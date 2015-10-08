@@ -131,7 +131,7 @@
 			]
 		},
 		"AX": {
-			"name": "Aaland Islands",
+			"name": "Åland Islands",
 			"abbr": "AX",
 			"zones": [
 				"Europe/Helsinki"
@@ -327,6 +327,7 @@
 				"America/Inuvik",
 				"America/Creston",
 				"America/Dawson_Creek",
+				"America/Fort_Nelson",
 				"America/Vancouver",
 				"America/Whitehorse",
 				"America/Dawson"
@@ -369,7 +370,7 @@
 			]
 		},
 		"CI": {
-			"name": "Cote d'Ivoire",
+			"name": "Côte d'Ivoire",
 			"abbr": "CI",
 			"zones": [
 				"Africa/Abidjan"
@@ -941,7 +942,7 @@
 			"name": "Cayman Islands",
 			"abbr": "KY",
 			"zones": [
-				"America/Panama"
+				"America/Cayman"
 			]
 		},
 		"KZ": {
@@ -1412,7 +1413,7 @@
 			]
 		},
 		"RE": {
-			"name": "Reunion",
+			"name": "Réunion",
 			"abbr": "RE",
 			"zones": [
 				"Indian/Reunion"
@@ -2541,7 +2542,7 @@
 			"countries": [
 				"CA"
 			],
-			"comments": "Atlantic Time - Nova Scotia (most places), PEI"
+			"comments": "Atlantic Time - Nova Scotia (peninsula), PEI"
 		},
 		"America/Glace_Bay": {
 			"name": "America/Glace_Bay",
@@ -2550,7 +2551,7 @@
 			"countries": [
 				"CA"
 			],
-			"comments": "Atlantic Time - Nova Scotia - places that did not observe DST 1966-1971"
+			"comments": "Atlantic Time - Nova Scotia (Cape Breton)"
 		},
 		"America/Moncton": {
 			"name": "America/Moncton",
@@ -2740,6 +2741,15 @@
 				"CA"
 			],
 			"comments": "Mountain Standard Time - Dawson Creek & Fort Saint John, British Columbia"
+		},
+		"America/Fort_Nelson": {
+			"name": "America/Fort_Nelson",
+			"lat": 58.8,
+			"long": -121.3,
+			"countries": [
+				"CA"
+			],
+			"comments": "Mountain Standard Time - Fort Nelson, British Columbia"
 		},
 		"America/Vancouver": {
 			"name": "America/Vancouver",
@@ -3493,6 +3503,15 @@
 			],
 			"comments": ""
 		},
+		"America/Cayman": {
+			"name": "America/Cayman",
+			"lat": 19.3,
+			"long": -80.6167,
+			"countries": [
+				"KY"
+			],
+			"comments": ""
+		},
 		"Asia/Almaty": {
 			"name": "Asia/Almaty",
 			"lat": 43.25,
@@ -3993,8 +4012,7 @@
 			"lat": 8.9667,
 			"long": -78.4667,
 			"countries": [
-				"PA",
-				"KY"
+				"PA"
 			],
 			"comments": ""
 		},
