@@ -16,20 +16,19 @@ In **1.7.0** we added instance specific locale configurations.
 
 ```javascript
 moment.locale('en'); // default the locale to English
-var globalLocale = moment();
 var localLocale = moment();
 
 localLocale.locale('fr'); // set this instance to use French
 localLocale.format('LLLL'); // dimanche 15 juillet 2012 11:01
-globalLocale.format('LLLL'); // Sunday, July 15 2012 11:01 AM
+moment().format('LLLL'); // Sunday, July 15 2012 11:01 AM
 
 moment.locale('es'); // change the global locale to Spanish
 localLocale.format('LLLL'); // dimanche 15 juillet 2012 11:01
-globalLocale.format('LLLL'); // Domingo 15 Julio 2012 11:03
+moment().format('LLLL'); // Domingo 15 Julio 2012 11:01
 
 localLocale.locale(false); // reset the instance locale
-localLocale.format('LLLL'); // Domingo 15 Julio 2012 11:03
-globalLocale.format('LLLL'); // Domingo 15 Julio 2012 11:03
+localLocale.format('LLLL'); // Domingo 15 Julio 2012 11:01
+moment().format('LLLL'); // Domingo 15 Julio 2012 11:01
 ```
 
 If you call `moment#locale` with no parameters, you get back the locale configuration that would be used for that moment.
