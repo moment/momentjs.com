@@ -90,6 +90,18 @@ moment.locale('en');
 moment(1316116057189).fromNow() // an hour ago
 ```
 
+As of **2.8.0**, changing the global locale doesn't affect existing instances.
+
+```javascript
+moment.locale('fr');
+var m = moment(1316116057189);
+m.fromNow(); // il y a une heure
+
+moment.locale('en');
+m.fromNow(); // il y a une heure
+moment(1316116057189).fromNow(); // an hour ago
+```
+
 `moment.locale` returns the locale used. This is useful because Moment won't change locales if it doesn't know the one you specify.
 
 ```javascript
