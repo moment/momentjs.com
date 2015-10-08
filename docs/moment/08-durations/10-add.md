@@ -11,6 +11,9 @@ signature: |
 
 Mutates the original duration by adding time.
 
+The same keys and shorthands used in creating durations can be used as the second String argument here also.
+
+
 ```javascript
 var a = moment.duration(1, 'd');
 var b = moment.duration(2, 'd');
