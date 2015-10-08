@@ -53,7 +53,7 @@ var locales = {
     'mk'     : 'Macedonian',
     'ml'     : 'Malayalam',
     'mr'     : 'Marathi',
-    'ms-my'  : 'Bahasa Malayu',
+    'ms-my'  : 'Bahasa Melayu (Malaysia)',
     'my'     : 'Burmese',
     'nb'     : 'Norwegian',
     'ne'     : 'Nepalese',
