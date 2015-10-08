@@ -28,7 +28,7 @@ As of version **2.1.0**, this was changed to be clamped to the end of the target
 
 ```javascript
 // before 2.1.0
-moment([2012, 0, 31]).month(1).format("YYYY-MM-DD"); // 2012-03-02
+moment([2012, 1, 31]).month(1).format("YYYY-MM-DD"); // 2012-03-02
 // after 2.1.0
-moment([2012, 0, 31]).month(1).format("YYYY-MM-DD"); // 2012-02-29
+moment([2012, 1, 31]).month(1).format("YYYY-MM-DD"); // 2012-02-29
 ```
