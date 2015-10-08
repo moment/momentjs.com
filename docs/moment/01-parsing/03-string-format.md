@@ -52,7 +52,7 @@ For these, the lowercase tokens use the locale aware week start days, and the up
 | `gg`        | `14`             | Locale 2 digit week year |
 | `w ww`      | `1..53`          | Locale week of year |
 | `e`         | `1..7`           | Locale day of week |
-| `ddd dddd`  | `Monday...Sun`   | Day name in locale set by `moment.locale()` |
+| `ddd dddd`  | `Mon...Sunday`   | Day name in locale set by `moment.locale()` |
 | `GGGG`      | `2014`           | ISO 4 digit week year |
 | `GG`        | `14`             | ISO 2 digit week year |
 | `W WW`      | `1..53`          | ISO week of year |
