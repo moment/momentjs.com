@@ -21,8 +21,8 @@ moment.locale('en', {
 
 Any settings that are not defined are inherited from the default english settings.
 
-You can also delete (unregister) a previously defined locale by passing `null` instead of customization object.
-Deleted locale obviously won't be available to use after that operation:
+You can remove a previously defined locale by passing `null` as the second argument.
+The deleted locale will no longer be available for use.
 
 ```javascript
 moment.locale('fr'); // 'fr'
