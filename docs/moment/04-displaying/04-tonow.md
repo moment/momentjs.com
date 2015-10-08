@@ -43,57 +43,57 @@ The breakdown of which string is displayed for each length of time is outlined i
     <tr>
       <td>0 to 45 seconds</td>
       <td>s</td>
-      <td>seconds ago</td>
+      <td>in seconds</td>
     </tr>
     <tr>
       <td>45 to 90 seconds</td>
       <td>m</td>
-      <td>a minute ago</td>
+      <td>in a minute</td>
     </tr>
     <tr>
       <td>90 seconds to 45 minutes</td>
       <td>mm</td>
-      <td>2 minutes ago ... 45 minutes ago</td>
+      <td>in 2 minutes ... in 45 minutes</td>
     </tr>
     <tr>
       <td>45 to 90 minutes</td>
       <td>h</td>
-      <td>an hour ago</td>
+      <td>in an hour</td>
     </tr>
     <tr>
       <td>90 minutes to 22 hours </td>
       <td>hh</td>
-      <td>2 hours ago ... 22 hours ago</td>
+      <td>in 2 hours ... in 22 hours</td>
     </tr>
     <tr>
       <td>22 to 36 hours</td>
       <td>d</td>
-      <td>a day ago</td>
+      <td>in a day</td>
     </tr>
     <tr>
       <td>36 hours to 25 days</td>
       <td>dd</td>
-      <td>2 days ago ... 25 days ago</td>
+      <td>in 2 days ... in 25 days</td>
     </tr>
     <tr>
       <td>25 to 45 days</td>
       <td>M</td>
-      <td>a month ago</td>
+      <td>in a month</td>
     </tr>
     <tr>
       <td>45 to 345 days</td>
       <td>MM</td>
-      <td>2 months ago ... 11 months ago</td>
+      <td>in 2 months ... in 11 months</td>
     </tr>
     <tr>
       <td>345 to 547 days (1.5 years)</td>
       <td>y</td>
-      <td>a year ago</td>
+      <td>in a year</td>
     </tr>
     <tr>
       <td>548 days+</td>
       <td>yy</td>
-      <td>2 years ago ... 20 years ago</td>
+      <td>in 2 years ... in 20 years</td>
     </tr>
   </tbody>
 </table>
