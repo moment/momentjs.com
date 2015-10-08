@@ -16,8 +16,6 @@ moment().format("ddd, hA");                       // "Sun, 3PM"
 moment('gibberish').format('YYYY MM DD');         // "Invalid date"
 ```
 
-There are a couple conventions used with the naming of the
-
 <table class="table table-striped table-bordered">
   <tbody>
     <tr>
