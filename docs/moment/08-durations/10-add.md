@@ -11,7 +11,7 @@ signature: |
 
 Mutates the original duration by adding time.
 
-The same keys and shorthands used in creating durations can be used as the second String argument here also.
+The same keys and shorthands used to create durations can be used here as the second argument.
 
 
 ```javascript
