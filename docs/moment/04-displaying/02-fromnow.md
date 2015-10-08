@@ -79,12 +79,12 @@ The breakdown of which string is displayed for each length of time is outlined i
       <td>2 months ago ... 11 months ago</td>
     </tr>
     <tr>
-      <td>345 to 547 days (1.5 years)</td>
+      <td>345 to 545 days (1.5 years)</td>
       <td>y</td>
       <td>a year ago</td>
     </tr>
     <tr>
-      <td>548 days+</td>
+      <td>546 days+</td>
       <td>yy</td>
       <td>2 years ago ... 20 years ago</td>
     </tr>
