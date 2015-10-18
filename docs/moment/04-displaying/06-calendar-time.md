@@ -50,6 +50,8 @@ moment().calendar(null, {
     nextDay: '[Tomorrow]',
     nextWeek: 'dddd',
     lastDay: '[Yesterday]',
-    lastWeek: '[Last] dddd'
+    lastWeek: '[Last] dddd',
+    sameElse: 'DD/MM/YYYY'
 });
 ```
+`sameElse` is used as the format when the moment is more than a week away from the `referenceTime`
