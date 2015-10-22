@@ -25,12 +25,12 @@ moment.tz("2013-06-01", "America/Los_Angeles").format(); // 2013-06-01T00:00:00-
 ```
 
 The offset is only taken into consideration when constructing with an array,
-string without offset, or object.
+string without offset, or object (see moment.js).
 
 ```js
 var arr = [2013, 5, 1],
     str = "2013-12-01"
-    obj = { year : 2013, month : 5, day : 1 };
+    obj = { year : 2013, month : 5, date : 1 };
 
 moment.tz(arr, "America/Los_Angeles").format(); // 2013-06-01T00:00:00-07:00
 moment.tz(str, "America/Los_Angeles").format(); // 2013-06-01T00:00:00-07:00
