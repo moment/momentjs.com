@@ -4,7 +4,7 @@ title: Packed Format
 
 The packed format represents an unpacked zone in a single string.
 
-The data below is for Los Angeles between 2014 and 2018.
+The data below is for Los Angeles between 2014 and 2018. More timezones can be seen [here](https://github.com/moment/moment-timezone/blob/develop/data/packed/latest.json)
 
 ```js
 'America/Los_Angeles|PST PDT|80 70|01010101010|1Lzm0 1zb0 Op0 1zb0 Rd0 1zb0 Op0 1zb0 Op0 1zb0'
