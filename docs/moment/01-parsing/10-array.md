@@ -17,8 +17,8 @@ Any value past the year is optional, and will default to the lowest possible num
 
 ```javascript
 moment([2010]);        // January 1st
-moment([2010, 6]);     // July 1st
-moment([2010, 6, 10]); // July 10th
+moment([2010, 6]);     // June 1st
+moment([2010, 6, 10]); // June 10th
 ```
 
 Construction with an array will create a date in the current timezone. To create a date from an array at UTC, use `moment.utc(Number[])`.
