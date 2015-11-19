@@ -111,12 +111,15 @@ moment('2012 juillet', 'YYYY MMM', 'fr');
 moment('2012 July',    'YYYY MMM', 'en');
 ```
 
-Moment's parser is very forgiving, and this can lead to undesired behavior. As of version `2.3.0`, you may specify a boolean for the last argument to make Moment use strict parsing. Strict parsing requires that the format and input match exactly.
+#### Strict parsing
+
+Moment's parser is very forgiving, and this can lead to undesired behavior. As of version `2.3.0`, you may specify a boolean for the last argument to make Moment use strict parsing. Strict parsing requires that the format and input match exactly including delimiters.
 
 ```javascript
 moment('It is 2012-05-25', 'YYYY-MM-DD').isValid();       // true
 moment('It is 2012-05-25', 'YYYY-MM-DD', true).isValid(); // false
 moment('2012-05-25',       'YYYY-MM-DD', true).isValid(); // true
+moment('2012.05.25',       'YYYY-MM-DD', true).isValid(); // false
 ```
 
 You can use both locale and strictness.
