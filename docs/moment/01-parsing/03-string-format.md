@@ -68,7 +68,7 @@ For these, the lowercase tokens use the locale aware week start days, and the up
 | `m mm`         | `0..59`  | Minutes |
 | `s ss`         | `0..59`  | Seconds |
 | `S`            | `0..9`   | Tenths of a second |
-| `SS`           | `0..99`  | Hundreds of a second |
+| `SS`           | `0..99`  | Hundredths of a second |
 | `SSS`          | `0..999` | Thousandths of a second |
 | `SSSS`         | `0000..9999` | fractional seconds |
 | `Z ZZ`         | `+12:00` | Offset from UTC as `+-HH:mm`, `+-HHmm`, or `Z` |
