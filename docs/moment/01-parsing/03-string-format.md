@@ -75,9 +75,9 @@ any number of digits, but will only consider the top 3 (milliseconds). Use if
 you have the time printed with many fractional digits and want to consume the
 input.
 
-Note that the number of `S` characters provided is only relavent when parsing in strict mode.
+Note that the number of `S` characters provided is only relevant when parsing in strict mode.
 In standard mode, `S`, `SS`, `SSS`, `SSSS` are all equivalent, and interpreted as fractions of a second.
-For example, `.12` is always 120 millisconds, passing `SS` will not cause it to be interpreted as 12 milliseconds.
+For example, `.12` is always 120 milliseconds, passing `SS` will not cause it to be interpreted as 12 milliseconds.
 
 Locale aware date and time formats are also available using `LT LTS L LL LLL
 LLLL`. They were added in version **2.2.1**, except `LTS` which was added
