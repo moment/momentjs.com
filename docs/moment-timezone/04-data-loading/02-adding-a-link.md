@@ -7,7 +7,7 @@ signature: |
 
 To link two zone names to the same data, use `moment.tz.link`.
 
-The strings passed in should be in the [link format](#/data-formats/link-format):
+The strings passed in should be in the [link format](#/data-formats/link-format/):
 the two zone names separated by a pipe.
 
 ```js
