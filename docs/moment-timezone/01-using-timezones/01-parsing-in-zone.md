@@ -33,11 +33,11 @@ var arr = [2013, 5, 1],
     obj = { year : 2013, month : 5, day : 1 };
 
 moment.tz(arr, "America/Los_Angeles").format(); // 2013-06-01T00:00:00-07:00
-moment.tz(str, "America/Los_Angeles").format(); // 2013-06-01T00:00:00-07:00
+moment.tz(str, "America/Los_Angeles").format(); // 2013-12-01T00:00:00-08:00
 moment.tz(obj, "America/Los_Angeles").format(); // 2013-06-01T00:00:00-07:00
 
 moment.tz(arr, "America/New_York").format();    // 2013-06-01T00:00:00-04:00
-moment.tz(str, "America/New_York").format();    // 2013-06-01T00:00:00-04:00
+moment.tz(str, "America/New_York").format();    // 2013-12-01T00:00:00-05:00
 moment.tz(obj, "America/New_York").format();    // 2013-06-01T00:00:00-04:00
 ```
 
