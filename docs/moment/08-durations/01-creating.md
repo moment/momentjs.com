@@ -101,3 +101,10 @@ As of **2.3.0**, moment also supports parsing [ISO 8601](http://en.wikipedia.org
 moment.duration('P1Y2M3DT4H5M6S');
 moment.duration('P1M');
 ```
+
+As of **2.10.7**, duration format strings with a space between days and rest
+is supported.
+
+```javascript
+moment.duration('7 23:59:59.999');
+```
