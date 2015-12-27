@@ -129,3 +129,12 @@ moment('2012-10-14', 'YYYY-MM-DD', 'fr', true);
 #### Parsing two digit years
 
 By default, two digit years above 68 are assumed to be in the 1900's and years 68 or below are assumed to be in the 2000's. This can be changed by replacing the `moment.parseTwoDigitYear` method.
+
+#### Parsing glued hour and minues
+
+From version `2.10.7` parsing `hmm`, `Hmm`, `hmmss` and `Hmmss` is supported:
+
+```javascript
+moment("123", "hmm").format("HH:mm") === "01:23"
+moment("1234", "hmm").format("HH:mm") === "12:23"
+```
