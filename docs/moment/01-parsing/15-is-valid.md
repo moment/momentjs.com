@@ -53,3 +53,55 @@ The return value has the following meaning:
 
 **Note:** In case of multiple wrong units the first one is returned (because
 days validity may depend on month, for example).
+
+Invalid Moments
+===============
+
+If a moment is invalid, it behaves like a NaN in floating point operations.
+
+All of the following produce invaid moments:
+* `invalid.add(unit, value)`
+* `another.add(invalid)`
+* `invalid.clone()`
+* `invalid.diff(another)`
+* `invalid.endOf(unit)`
+* `invalid.max(another)`
+* `another.max(invalid)`
+* `invalid.min(another)`
+* `another.min(invalid)`
+* `invalid.set(unit, value)`
+* `invalid.startOf(unit)`
+* `invalid.subtract(unit, value)`
+
+The following produce a localized version of `'InvalidDate'`:
+* `invalid.format(anyFmt)` results in `'Invalid Date'` in the current locale
+* `invalid.from(another)`
+* `another.from(invalid)`
+* `invalid.fromNow(suffix)`
+* `invalid.to(another)`
+* `another.to(invalid)`
+* `invalid.toNow(suffix)`
+* `invalid.toISOString()`
+* `invalid.toString()`
+
+The following return `false`:
+* `invalid.isAfter(another)`
+* `another.isAfter(invalid)`
+* `invalid.isBefore(another)`
+* `another.isBefore(invalid)`
+* `invalid.isBetween(another, another)`
+* `invalid.isSame(another)`
+* `another.isSame(invalid)`
+* `invalid.isSameOrAfter(another)`
+* `another.isSameOrAfter(invalid)`
+* `invalid.isSameOrBefore(another)`
+* `another.isSameOrBefore(invalid)`
+
+And these return `null` or `NaN` with some structure:
+* `invalid.get(unit)` returns null, as all other named getters
+* `invalid.toArray() === [NaN, NaN, NaN, NaN, NaN, NaN]`
+* `invalid.toObject()` has all values set to `NaN`
+* `invalid.toDate()` returns an invalid Date object
+* `invalid.toJSON()` returns null
+* `invalid.unix()` returns null
+* `invalid.valueOf()` returns null
