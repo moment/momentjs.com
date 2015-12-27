@@ -13,3 +13,10 @@ moment.isMoment() // false
 moment.isMoment(new Date()) // false
 moment.isMoment(moment()) // true
 ```
+
+From version **2.10.7**, you can also test for a moment object by `instanceof`
+operator:
+
+```javascript
+moment() instanceof moment // true
+```
