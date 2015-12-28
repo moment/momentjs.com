@@ -102,6 +102,10 @@
 						<a class="docs-nav-item" href="#/using-timezones/default-timezone/">Default time zone</a>
 					
 				
+					
+						<a class="docs-nav-item" href="#/using-timezones/guessing-user-timezone/">Guessing user zone</a>
+					
+				
 			</div>
 		
 			<div class="docs-nav-section">
@@ -354,11 +358,11 @@ string without offset, or object.</p>
     obj = { year : <span class="number">2013</span>, month : <span class="number">5</span>, day : <span class="number">1</span> };
 
 moment.tz(arr, <span class="string">"America/Los_Angeles"</span>).format(); <span class="comment">// 2013-06-01T00:00:00-07:00</span>
-moment.tz(str, <span class="string">"America/Los_Angeles"</span>).format(); <span class="comment">// 2013-06-01T00:00:00-07:00</span>
+moment.tz(str, <span class="string">"America/Los_Angeles"</span>).format(); <span class="comment">// 2013-12-01T00:00:00-08:00</span>
 moment.tz(obj, <span class="string">"America/Los_Angeles"</span>).format(); <span class="comment">// 2013-06-01T00:00:00-07:00</span>
 
 moment.tz(arr, <span class="string">"America/New_York"</span>).format();    <span class="comment">// 2013-06-01T00:00:00-04:00</span>
-moment.tz(str, <span class="string">"America/New_York"</span>).format();    <span class="comment">// 2013-06-01T00:00:00-04:00</span>
+moment.tz(str, <span class="string">"America/New_York"</span>).format();    <span class="comment">// 2013-12-01T00:00:00-05:00</span>
 moment.tz(obj, <span class="string">"America/New_York"</span>).format();    <span class="comment">// 2013-06-01T00:00:00-04:00</span></code></pre>
 <p>If the input string contains an offset, it is used instead for parsing. The parsed moment
 is then converted to the target zone.</p>
@@ -561,6 +565,29 @@ objects or their clones.</p>
 					</div>
 				</article>
 			
+				<article class="docs-method">
+					<a class="docs-method-target" id="/using-timezones/guessing-user-timezone/"  name="/using-timezones/guessing-user-timezone/"></a>
+					
+						<h3 class="docs-method-title">
+							<a href='#/using-timezones/guessing-user-timezone/'>Guessing user zone</a>
+							
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment-timezone/01-using-timezones/06-guessing-user-timezone.md" target="_blank">edit</a>
+					
+					<div class="docs-method-prose">
+						
+							<div class="docs-method-signature">
+								<pre><code class="language-js">moment.tz.guess();</code></pre>
+
+							</div>
+						
+						<p>Browser timezone detection is rather tricky to get right, as there is little information provided by the browser.</p>
+<p>Moment Timezone uses <code>Date#getTimezoneOffset</code> and <code>Date#toString</code> on a handful of moments around the current year to gather as much information about the browser environment as possible. It then compares that information with all the timezone data loaded and returns the closest match. In case of ties, the timezone with the city with largest population is returned.</p>
+<pre><code class="language-js">moment.tz.guess(); <span class="comment">// America/Chicago</span></code></pre>
+
+					</div>
+				</article>
+			
 		
 			<article class="docs-section">
 				<a class="docs-section-target" id="/zone-object/" name="/zone-object/"></a>
@@ -745,7 +772,7 @@ the offset should be <code>offsets[n]</code>&quot;</em>.</p>
 					<div class="docs-method-prose">
 						
 						<p>The packed format represents an unpacked zone in a single string.</p>
-<p>The data below is for Los Angeles between 2014 and 2018.</p>
+<p>The data below is for Los Angeles between 2014 and 2018. More timezones can be seen <a href="https://github.com/moment/moment-timezone/blob/develop/data/packed/latest.json">here</a></p>
 <pre><code class="language-js"><span class="string">'America/Los_Angeles|PST PDT|80 70|01010101010|1Lzm0 1zb0 Op0 1zb0 Rd0 1zb0 Op0 1zb0 Op0 1zb0'</span></code></pre>
 <p>In order to save as many bytes as possible, we used a very compact format to store the data.</p>
 <p>The data is split into 5 sections separated by pipes.</p>

@@ -1152,24 +1152,9 @@ near 2000 (same as <code>YY</code>).</p>
 <td>Seconds</td>
 </tr>
 <tr>
-<td><code>S</code></td>
-<td><code>0..9</code></td>
-<td>Tenths of a second</td>
-</tr>
-<tr>
-<td><code>SS</code></td>
-<td><code>0..99</code></td>
-<td>Hundreds of a second</td>
-</tr>
-<tr>
-<td><code>SSS</code></td>
+<td><code>S SS SSS</code></td>
 <td><code>0..999</code></td>
-<td>Thousandths of a second</td>
-</tr>
-<tr>
-<td><code>SSSS</code></td>
-<td><code>0000..9999</code></td>
-<td>fractional seconds</td>
+<td>Fractional seconds</td>
 </tr>
 <tr>
 <td><code>Z ZZ</code></td>
@@ -1182,6 +1167,9 @@ near 2000 (same as <code>YY</code>).</p>
 any number of digits, but will only consider the top 3 (milliseconds). Use if
 you have the time printed with many fractional digits and want to consume the
 input.</p>
+<p>Note that the number of <code>S</code> characters provided is only relevant when parsing in strict mode.
+In standard mode, <code>S</code>, <code>SS</code>, <code>SSS</code>, <code>SSSS</code> are all equivalent, and interpreted as fractions of a second.
+For example, <code>.12</code> is always 120 milliseconds, passing <code>SS</code> will not cause it to be interpreted as 12 milliseconds.</p>
 <p>Locale aware date and time formats are also available using <code>LT LTS L LL LLL
 LLLL</code>. They were added in version <strong>2.2.1</strong>, except <code>LTS</code> which was added
 <strong>2.8.4</strong>.</p>
@@ -3482,8 +3470,10 @@ invocation:</p>
     nextDay: <span class="string">'[Tomorrow]'</span>,
     nextWeek: <span class="string">'dddd'</span>,
     lastDay: <span class="string">'[Yesterday]'</span>,
-    lastWeek: <span class="string">'[Last] dddd'</span>
+    lastWeek: <span class="string">'[Last] dddd'</span>,
+    sameElse: <span class="string">'DD/MM/YYYY'</span>
 });</code></pre>
+<p><code>sameElse</code> is used as the format when the moment is more than a week away from the <code>referenceTime</code></p>
 
 					</div>
 				</article>

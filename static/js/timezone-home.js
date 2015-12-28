@@ -9,7 +9,8 @@
 		width = $map.outerWidth(),
 		height = $map.outerHeight(),
 		lastCenter,
-		centers = [];
+		centers = [],
+		guess = moment.tz.guess();
 
 	$(window).resize(function () {
 		width = $map.outerWidth();
@@ -35,7 +36,7 @@
 			left: this.x * 100 + '%',
 			top: this.y * 100 + '%'
 		});
-		if (this.name === 'America/Los_Angeles') {
+		if (this.name === guess) {
 			changeCenter(this);
 		}
 	}
