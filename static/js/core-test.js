@@ -3142,7 +3142,7 @@ QUnit.config.autostart = false;
     function loadLocale(name) {
         var oldLocale = null;
         // TODO: Find a better way to register and load all the locales in Node
-        if (!locales[name] && !isUndefined(module) &&
+        if (!locales[name] && (typeof module !== 'undefined') &&
                 module && module.exports) {
             try {
                 oldLocale = globalLocale._abbr;
@@ -3410,13 +3410,13 @@ QUnit.config.autostart = false;
 
     // any word (or two) characters or numbers including two/three word month in arabic.
     // includes scottish gaelic two word and hyphenated months
-    var matchWord = /[0-9]*(a[mn]\s?)?['a-z\u00A0-\u05FF\u0700-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF\-]+|[\u0600-\u06FF\/]+(\s*?[\u0600-\u06FF]+){1,2}/i;
+    var matchWord = /[0-9]*['a-z\u00A0-\u05FF\u0700-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+|[\u0600-\u06FF\/]+(\s*?[\u0600-\u06FF]+){1,2}/i;
 
 
     var regexes = {};
 
     function addRegexToken (token, regex, strictRegex) {
-        regexes[token] = isFunction(regex) ? regex : function (isStrict) {
+        regexes[token] = isFunction(regex) ? regex : function (isStrict, localeData) {
             return (isStrict && strictRegex) ? strictRegex : regex;
         };
     }
@@ -3431,9 +3431,13 @@ QUnit.config.autostart = false;
 
     // Code from http://stackoverflow.com/questions/3561493/is-there-a-regexp-escape-function-in-javascript
     function unescapeFormat(s) {
-        return s.replace('\\', '').replace(/\\(\[)|\\(\])|\[([^\]\[]*)\]|\\(.)/g, function (matched, p1, p2, p3, p4) {
+        return regexEscape(s.replace('\\', '').replace(/\\(\[)|\\(\])|\[([^\]\[]*)\]|\\(.)/g, function (matched, p1, p2, p3, p4) {
             return p1 || p2 || p3 || p4;
-        }).replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+        }));
+    }
+
+    function regexEscape(s) {
+        return s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
     }
 
     var tokens = {};
@@ -3502,8 +3506,12 @@ QUnit.config.autostart = false;
 
     addRegexToken('M',    match1to2);
     addRegexToken('MM',   match1to2, match2);
-    addRegexToken('MMM',  matchWord);
-    addRegexToken('MMMM', matchWord);
+    addRegexToken('MMM',  function (isStrict, locale) {
+        return locale.monthsShortRegex(isStrict);
+    });
+    addRegexToken('MMMM', function (isStrict, locale) {
+        return locale.monthsRegex(isStrict);
+    });
 
     addParseToken(['M', 'MM'], function (input, array) {
         array[MONTH] = toInt(input) - 1;
@@ -3528,7 +3536,7 @@ QUnit.config.autostart = false;
             this._months[MONTHS_IN_FORMAT.test(format) ? 'format' : 'standalone'][m.month()];
     }
 
-    var defaultLocaleMonthsShort = 'Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sept_Oct_Nov_Dec'.split('_');
+    var defaultLocaleMonthsShort = 'Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sep_Oct_Nov_Dec'.split('_');
     function localeMonthsShort (m, format) {
         return isArray(this._monthsShort) ? this._monthsShort[m.month()] :
             this._monthsShort[MONTHS_IN_FORMAT.test(format) ? 'format' : 'standalone'][m.month()];
@@ -3603,6 +3611,72 @@ QUnit.config.autostart = false;
         return daysInMonth(this.year(), this.month());
     }
 
+    var defaultMonthsShortRegex = matchWord;
+    function monthsShortRegex (isStrict) {
+        if (this._monthsParseExact) {
+            if (!hasOwnProp(this, '_monthsRegex')) {
+                computeMonthsParse.call(this);
+            }
+            if (isStrict) {
+                return this._monthsShortStrictRegex;
+            } else {
+                return this._monthsShortRegex;
+            }
+        } else {
+            return this._monthsShortStrictRegex && isStrict ?
+                this._monthsShortStrictRegex : this._monthsShortRegex;
+        }
+    }
+
+    var defaultMonthsRegex = matchWord;
+    function monthsRegex (isStrict) {
+        if (this._monthsParseExact) {
+            if (!hasOwnProp(this, '_monthsRegex')) {
+                computeMonthsParse.call(this);
+            }
+            if (isStrict) {
+                return this._monthsStrictRegex;
+            } else {
+                return this._monthsRegex;
+            }
+        } else {
+            return this._monthsStrictRegex && isStrict ?
+                this._monthsStrictRegex : this._monthsRegex;
+        }
+    }
+
+    function computeMonthsParse () {
+        function cmpLenRev(a, b) {
+            return b.length - a.length;
+        }
+
+        var shortPieces = [], longPieces = [], mixedPieces = [],
+            i, mom;
+        for (i = 0; i < 12; i++) {
+            // make the regex if we don't have it already
+            mom = create_utc__createUTC([2000, i]);
+            shortPieces.push(this.monthsShort(mom, ''));
+            longPieces.push(this.months(mom, ''));
+            mixedPieces.push(this.months(mom, ''));
+            mixedPieces.push(this.monthsShort(mom, ''));
+        }
+        // Sorting makes sure if one month (or abbr) is a prefix of another it
+        // will match the longer piece.
+        shortPieces.sort(cmpLenRev);
+        longPieces.sort(cmpLenRev);
+        mixedPieces.sort(cmpLenRev);
+        for (i = 0; i < 12; i++) {
+            shortPieces[i] = regexEscape(shortPieces[i]);
+            longPieces[i] = regexEscape(longPieces[i]);
+            mixedPieces[i] = regexEscape(mixedPieces[i]);
+        }
+
+        this._monthsRegex = new RegExp('^(' + mixedPieces.join('|') + ')', 'i');
+        this._monthsShortRegex = this._monthsRegex;
+        this._monthsStrictRegex = new RegExp('^(' + longPieces.join('|') + ')$', 'i');
+        this._monthsShortStrictRegex = new RegExp('^(' + shortPieces.join('|') + ')$', 'i');
+    }
+
     function checkOverflow (m) {
         var overflow;
         var a = m._a;
@@ -3634,7 +3708,8 @@ QUnit.config.autostart = false;
     }
 
     function warn(msg) {
-        if (utils_hooks__hooks.suppressDeprecationWarnings === false && !isUndefined(console) && console.warn) {
+        if (utils_hooks__hooks.suppressDeprecationWarnings === false &&
+                (typeof console !==  'undefined') && console.warn) {
             console.warn('Deprecation warning: ' + msg);
         }
     }
@@ -3802,6 +3877,11 @@ QUnit.config.autostart = false;
 
     // FORMATTING
 
+    addFormatToken('Y', 0, 0, function () {
+        var y = this.year();
+        return y <= 9999 ? '' + y : '+' + y;
+    });
+
     addFormatToken(0, ['YY', 2], 0, function () {
         return this.year() % 100;
     });
@@ -3828,6 +3908,9 @@ QUnit.config.autostart = false;
     });
     addParseToken('YY', function (input, array) {
         array[YEAR] = utils_hooks__hooks.parseTwoDigitYear(input);
+    });
+    addParseToken('Y', function (input, array) {
+        array[YEAR] = parseInt(input, 10);
     });
 
     // HELPERS
@@ -4080,6 +4163,8 @@ QUnit.config.autostart = false;
         for (i = 0; i < tokens.length; i++) {
             token = tokens[i];
             parsedInput = (string.match(getParseRegexForToken(token, config)) || [])[0];
+            // console.log('token', token, 'parsedInput', parsedInput,
+            //         'regex', getParseRegexForToken(token, config));
             if (parsedInput) {
                 skipped = string.substr(0, string.indexOf(parsedInput));
                 if (skipped.length > 0) {
@@ -4355,8 +4440,8 @@ QUnit.config.autostart = false;
         return pickBy('isAfter', args);
     }
 
-    var now = Date.now || function () {
-        return +(new Date());
+    var now = function () {
+        return Date.now ? Date.now() : +(new Date());
     };
 
     function Duration (duration) {
@@ -5914,11 +5999,15 @@ QUnit.config.autostart = false;
     prototype__proto.set             = locale_set__set;
 
     // Month
-    prototype__proto.months       =        localeMonths;
-    prototype__proto._months      = defaultLocaleMonths;
-    prototype__proto.monthsShort  =        localeMonthsShort;
-    prototype__proto._monthsShort = defaultLocaleMonthsShort;
-    prototype__proto.monthsParse  =        localeMonthsParse;
+    prototype__proto.months            =        localeMonths;
+    prototype__proto._months           = defaultLocaleMonths;
+    prototype__proto.monthsShort       =        localeMonthsShort;
+    prototype__proto._monthsShort      = defaultLocaleMonthsShort;
+    prototype__proto.monthsParse       =        localeMonthsParse;
+    prototype__proto._monthsRegex      = defaultMonthsRegex;
+    prototype__proto.monthsRegex       = monthsRegex;
+    prototype__proto._monthsShortRegex = defaultMonthsShortRegex;
+    prototype__proto.monthsShortRegex  = monthsShortRegex;
 
     // Week
     prototype__proto.week = localeWeek;
@@ -5987,9 +6076,6 @@ QUnit.config.autostart = false;
     }
 
     locale_locales__getSetGlobalLocale('en', {
-        monthsParse : [/^jan/i, /^feb/i, /^mar/i, /^apr/i, /^may/i, /^jun/i, /^jul/i, /^aug/i, /^sep/i, /^oct/i, /^nov/i, /^dec/i],
-        longMonthsParse : [/^january$/i, /^february$/i, /^march$/i, /^april$/i, /^may$/i, /^june$/i, /^july$/i, /^august$/i, /^september$/i, /^october$/i, /^november$/i, /^december$/i],
-        shortMonthsParse : [/^jan$/i, /^feb$/i, /^mar$/i, /^apr$/i, /^may$/i, /^jun$/i, /^jul$/i, /^aug/i, /^sept?$/i, /^oct$/i, /^nov$/i, /^dec$/i],
         ordinalParse: /\d{1,2}(th|st|nd|rd)/,
         ordinal : function (number) {
             var b = number % 10,
@@ -6359,12 +6445,12 @@ QUnit.config.autostart = false;
     ;
 
     //! moment.js
-    //! version : 2.11.0
+    //! version : 2.11.1
     //! authors : Tim Wood, Iskren Chernev, Moment.js contributors
     //! license : MIT
     //! momentjs.com
 
-    utils_hooks__hooks.version = '2.11.0';
+    utils_hooks__hooks.version = '2.11.1';
 
     setHookCallback(local__createLocal);
 
@@ -8193,10 +8279,7 @@ QUnit.config.autostart = false;
 
     var en_au = moment__default.defineLocale('en-au', {
         months : 'January_February_March_April_May_June_July_August_September_October_November_December'.split('_'),
-        monthsShort : 'Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sept_Oct_Nov_Dec'.split('_'),
-        monthsParse : [/^jan/i, /^feb/i, /^mar/i, /^apr/i, /^may/i, /^jun/i, /^jul/i, /^aug/i, /^sep/i, /^oct/i, /^nov/i, /^dec/i],
-        longMonthsParse : [/^january$/i, /^february$/i, /^march$/i, /^april$/i, /^may$/i, /^june$/i, /^july$/i, /^august$/i, /^september$/i, /^october$/i, /^november$/i, /^december$/i],
-        shortMonthsParse : [/^jan$/i, /^feb$/i, /^mar$/i, /^apr$/i, /^may$/i, /^jun$/i, /^jul$/i, /^aug/i, /^sept?$/i, /^oct$/i, /^nov$/i, /^dec$/i],
+        monthsShort : 'Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sep_Oct_Nov_Dec'.split('_'),
         weekdays : 'Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday'.split('_'),
         weekdaysShort : 'Sun_Mon_Tue_Wed_Thu_Fri_Sat'.split('_'),
         weekdaysMin : 'Su_Mo_Tu_We_Th_Fr_Sa'.split('_'),
@@ -8252,10 +8335,7 @@ QUnit.config.autostart = false;
 
     var en_ca = moment__default.defineLocale('en-ca', {
         months : 'January_February_March_April_May_June_July_August_September_October_November_December'.split('_'),
-        monthsShort : 'Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sept_Oct_Nov_Dec'.split('_'),
-        monthsParse : [/^jan/i, /^feb/i, /^mar/i, /^apr/i, /^may/i, /^jun/i, /^jul/i, /^aug/i, /^sep/i, /^oct/i, /^nov/i, /^dec/i],
-        longMonthsParse : [/^january$/i, /^february$/i, /^march$/i, /^april$/i, /^may$/i, /^june$/i, /^july$/i, /^august$/i, /^september$/i, /^october$/i, /^november$/i, /^december$/i],
-        shortMonthsParse : [/^jan$/i, /^feb$/i, /^mar$/i, /^apr$/i, /^may$/i, /^jun$/i, /^jul$/i, /^aug/i, /^sept?$/i, /^oct$/i, /^nov$/i, /^dec$/i],
+        monthsShort : 'Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sep_Oct_Nov_Dec'.split('_'),
         weekdays : 'Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday'.split('_'),
         weekdaysShort : 'Sun_Mon_Tue_Wed_Thu_Fri_Sat'.split('_'),
         weekdaysMin : 'Su_Mo_Tu_We_Th_Fr_Sa'.split('_'),
@@ -8307,10 +8387,7 @@ QUnit.config.autostart = false;
 
     var en_gb = moment__default.defineLocale('en-gb', {
         months : 'January_February_March_April_May_June_July_August_September_October_November_December'.split('_'),
-        monthsShort : 'Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sept_Oct_Nov_Dec'.split('_'),
-        monthsParse : [/^jan/i, /^feb/i, /^mar/i, /^apr/i, /^may/i, /^jun/i, /^jul/i, /^aug/i, /^sep/i, /^oct/i, /^nov/i, /^dec/i],
-        longMonthsParse : [/^january$/i, /^february$/i, /^march$/i, /^april$/i, /^may$/i, /^june$/i, /^july$/i, /^august$/i, /^september$/i, /^october$/i, /^november$/i, /^december$/i],
-        shortMonthsParse : [/^jan$/i, /^feb$/i, /^mar$/i, /^apr$/i, /^may$/i, /^jun$/i, /^jul$/i, /^aug/i, /^sept?$/i, /^oct$/i, /^nov$/i, /^dec$/i],
+        monthsShort : 'Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sep_Oct_Nov_Dec'.split('_'),
         weekdays : 'Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday'.split('_'),
         weekdaysShort : 'Sun_Mon_Tue_Wed_Thu_Fri_Sat'.split('_'),
         weekdaysMin : 'Su_Mo_Tu_We_Th_Fr_Sa'.split('_'),
@@ -8367,9 +8444,6 @@ QUnit.config.autostart = false;
     var en_ie = moment__default.defineLocale('en-ie', {
         months : 'January_February_March_April_May_June_July_August_September_October_November_December'.split('_'),
         monthsShort : 'Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sep_Oct_Nov_Dec'.split('_'),
-        monthsParse : [/^jan/i, /^feb/i, /^mar/i, /^apr/i, /^may/i, /^jun/i, /^jul/i, /^aug/i, /^sep/i, /^oct/i, /^nov/i, /^dec/i],
-        longMonthsParse : [/^january$/i, /^february$/i, /^march$/i, /^april$/i, /^may$/i, /^june$/i, /^july$/i, /^august$/i, /^september$/i, /^october$/i, /^november$/i, /^december$/i],
-        shortMonthsParse : [/^jan$/i, /^feb$/i, /^mar$/i, /^apr$/i, /^may$/i, /^jun$/i, /^jul$/i, /^aug/i, /^sept?$/i, /^oct$/i, /^nov$/i, /^dec$/i],
         weekdays : 'Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday'.split('_'),
         weekdaysShort : 'Sun_Mon_Tue_Wed_Thu_Fri_Sat'.split('_'),
         weekdaysMin : 'Su_Mo_Tu_We_Th_Fr_Sa'.split('_'),
@@ -8424,10 +8498,7 @@ QUnit.config.autostart = false;
 
     var en_nz = moment__default.defineLocale('en-nz', {
         months : 'January_February_March_April_May_June_July_August_September_October_November_December'.split('_'),
-        monthsShort : 'Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sept_Oct_Nov_Dec'.split('_'),
-        monthsParse : [/^jan/i, /^feb/i, /^mar/i, /^apr/i, /^may/i, /^jun/i, /^jul/i, /^aug/i, /^sep/i, /^oct/i, /^nov/i, /^dec/i],
-        longMonthsParse : [/^january$/i, /^february$/i, /^march$/i, /^april$/i, /^may$/i, /^june$/i, /^july$/i, /^august$/i, /^september$/i, /^october$/i, /^november$/i, /^december$/i],
-        shortMonthsParse : [/^jan$/i, /^feb$/i, /^mar$/i, /^apr$/i, /^may$/i, /^jun$/i, /^jul$/i, /^aug/i, /^sept?$/i, /^oct$/i, /^nov$/i, /^dec$/i],
+        monthsShort : 'Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sep_Oct_Nov_Dec'.split('_'),
         weekdays : 'Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday'.split('_'),
         weekdaysShort : 'Sun_Mon_Tue_Wed_Thu_Fri_Sat'.split('_'),
         weekdaysMin : 'Su_Mo_Tu_We_Th_Fr_Sa'.split('_'),
@@ -9182,18 +9253,7 @@ QUnit.config.autostart = false;
     //! author : Jon Ashdown : https://github.com/jonashdown
 
     var gd__months = [
-        'Am Faoilleach',
-        'An Gearran',
-        'Am Màrt',
-        'An Giblean',
-        'An Cèitean',
-        'An t-Ògmhios',
-        'An t-Iuchar',
-        'An Lùnastal',
-        'An t-Sultain',
-        'An Dàmhair',
-        'An t-Samhain',
-        'An Dùbhlachd'
+        'Am Faoilleach', 'An Gearran', 'Am Màrt', 'An Giblean', 'An Cèitean', 'An t-Ògmhios', 'An t-Iuchar', 'An Lùnastal', 'An t-Sultain', 'An Dàmhair', 'An t-Samhain', 'An Dùbhlachd'
     ];
 
     var gd__monthsShort = ['Faoi', 'Gear', 'Màrt', 'Gibl', 'Cèit', 'Ògmh', 'Iuch', 'Lùn', 'Sult', 'Dàmh', 'Samh', 'Dùbh'];
@@ -9207,6 +9267,7 @@ QUnit.config.autostart = false;
     var gd = moment__default.defineLocale('gd', {
         months : gd__months,
         monthsShort : gd__monthsShort,
+        monthsParseExact : true,
         weekdays : gd__weekdays,
         weekdaysShort : weekdaysShort,
         weekdaysMin : weekdaysMin,
@@ -21660,7 +21721,7 @@ QUnit.config.autostart = false;
     localeModule('en-au');
 
     test('parse', function (assert) {
-        var tests = 'January Jan_February Feb_March Mar_April Apr_May May_June Jun_July Jul_August Aug_September Sept_October Oct_November Nov_December Dec'.split('_'), i;
+        var tests = 'January Jan_February Feb_March Mar_April Apr_May May_June Jun_July Jul_August Aug_September Sep_October Oct_November Nov_December Dec'.split('_'), i;
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
@@ -21748,7 +21809,7 @@ QUnit.config.autostart = false;
     });
 
     test('format month', function (assert) {
-        var expected = 'January Jan_February Feb_March Mar_April Apr_May May_June Jun_July Jul_August Aug_September Sept_October Oct_November Nov_December Dec'.split('_'), i;
+        var expected = 'January Jan_February Feb_March Mar_April Apr_May May_June Jun_July Jul_August Aug_September Sep_October Oct_November Nov_December Dec'.split('_'), i;
         for (i = 0; i < expected.length; i++) {
             assert.equal(moment([2011, i, 1]).format('MMMM MMM'), expected[i], expected[i]);
         }
@@ -22011,7 +22072,7 @@ QUnit.config.autostart = false;
 
     test('parse', function (assert) {
         var i,
-            tests = 'January Jan_February Feb_March Mar_April Apr_May May_June Jun_July Jul_August Aug_September Sept_October Oct_November Nov_December Dec'.split('_');
+            tests = 'January Jan_February Feb_March Mar_April Apr_May May_June Jun_July Jul_August Aug_September Sep_October Oct_November Nov_December Dec'.split('_');
 
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
@@ -22103,7 +22164,7 @@ QUnit.config.autostart = false;
 
     test('format month', function (assert) {
         var i,
-            expected = 'January Jan_February Feb_March Mar_April Apr_May May_June Jun_July Jul_August Aug_September Sept_October Oct_November Nov_December Dec'.split('_');
+            expected = 'January Jan_February Feb_March Mar_April Apr_May May_June Jun_July Jul_August Aug_September Sep_October Oct_November Nov_December Dec'.split('_');
 
         for (i = 0; i < expected.length; i++) {
             assert.equal(moment([2011, i, 1]).format('MMMM MMM'), expected[i], expected[i]);
@@ -22378,7 +22439,7 @@ QUnit.config.autostart = false;
     localeModule('en-gb');
 
     test('parse', function (assert) {
-        var tests = 'January Jan_February Feb_March Mar_April Apr_May May_June Jun_July Jul_August Aug_September Sept_October Oct_November Nov_December Dec'.split('_'), i;
+        var tests = 'January Jan_February Feb_March Mar_April Apr_May May_June Jun_July Jul_August Aug_September Sep_October Oct_November Nov_December Dec'.split('_'), i;
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
@@ -22466,7 +22527,7 @@ QUnit.config.autostart = false;
     });
 
     test('format month', function (assert) {
-        var expected = 'January Jan_February Feb_March Mar_April Apr_May May_June Jun_July Jul_August Aug_September Sept_October Oct_November Nov_December Dec'.split('_'), i;
+        var expected = 'January Jan_February Feb_March Mar_April Apr_May May_June Jun_July Jul_August Aug_September Sep_October Oct_November Nov_December Dec'.split('_'), i;
         for (i = 0; i < expected.length; i++) {
             assert.equal(moment([2011, i, 1]).format('MMMM MMM'), expected[i], expected[i]);
         }
@@ -23096,7 +23157,7 @@ QUnit.config.autostart = false;
     localeModule('en-nz');
 
     test('parse', function (assert) {
-        var tests = 'January Jan_February Feb_March Mar_April Apr_May May_June Jun_July Jul_August Aug_September Sept_October Oct_November Nov_December Dec'.split('_'), i;
+        var tests = 'January Jan_February Feb_March Mar_April Apr_May May_June Jun_July Jul_August Aug_September Sep_October Oct_November Nov_December Dec'.split('_'), i;
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
         }
@@ -23184,7 +23245,7 @@ QUnit.config.autostart = false;
     });
 
     test('format month', function (assert) {
-        var expected = 'January Jan_February Feb_March Mar_April Apr_May May_June Jun_July Jul_August Aug_September Sept_October Oct_November Nov_December Dec'.split('_'), i;
+        var expected = 'January Jan_February Feb_March Mar_April Apr_May May_June Jun_July Jul_August Aug_September Sep_October Oct_November Nov_December Dec'.split('_'), i;
         for (i = 0; i < expected.length; i++) {
             assert.equal(moment([2011, i, 1]).format('MMMM MMM'), expected[i], expected[i]);
         }
@@ -23447,7 +23508,7 @@ QUnit.config.autostart = false;
 
     test('parse', function (assert) {
         var i,
-            tests = 'January Jan_February Feb_March Mar_April Apr_May May_June Jun_July Jul_August Aug_September Sept_October Oct_November Nov_December Dec'.split('_');
+            tests = 'January Jan_February Feb_March Mar_April Apr_May May_June Jun_July Jul_August Aug_September Sep_October Oct_November Nov_December Dec'.split('_');
 
         function equalTest(input, mmm, i) {
             assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
@@ -23539,7 +23600,7 @@ QUnit.config.autostart = false;
 
     test('format month', function (assert) {
         var i,
-            expected = 'January Jan_February Feb_March Mar_April Apr_May May_June Jun_July Jul_August Aug_September Sept_October Oct_November Nov_December Dec'.split('_');
+            expected = 'January Jan_February Feb_March Mar_April Apr_May May_June Jun_July Jul_August Aug_September Sep_October Oct_November Nov_December Dec'.split('_');
 
         for (i = 0; i < expected.length; i++) {
             assert.equal(moment([2011, i, 1]).format('MMMM MMM'), expected[i], expected[i]);
@@ -27775,7 +27836,7 @@ QUnit.config.autostart = false;
 
     test('parse', function (assert) {
         function equalTest(monthName, monthFormat, monthNum) {
-            assert.equal(moment(monthName, monthFormat).month(), monthNum, monthName + ' should be month ' + monthNum + 1);
+            assert.equal(moment(monthName, monthFormat).month(), monthNum, monthName + ' should be month ' + (monthNum + 1));
         }
 
         for (var i = 0; i < 12; i++) {
@@ -50365,11 +50426,11 @@ QUnit.config.autostart = false;
             ['L',                   '09/02/1999'],
             ['l',                   '9/2/1999'],
             ['LL',                  'September 2, 1999'],
-            ['ll',                  'Sept 2, 1999'],
+            ['ll',                  'Sep 2, 1999'],
             ['LLL',                 'September 2, 1999 12:30 AM'],
-            ['lll',                 'Sept 2, 1999 12:30 AM'],
+            ['lll',                 'Sep 2, 1999 12:30 AM'],
             ['LLLL',                'Thursday, September 2, 1999 12:30 AM'],
-            ['llll',                'Thu, Sept 2, 1999 12:30 AM']
+            ['llll',                'Thu, Sep 2, 1999 12:30 AM']
         ],
         m,
         i;
@@ -50421,7 +50482,7 @@ QUnit.config.autostart = false;
             ['MMDDYYYY',          '12021999'],
             ['DDMMYYYY',          '12021999'],
             ['YYYYMMDD',          '19991202'],
-            ['DDMMMYYYY',         '10Sept2001']
+            ['DDMMMYYYY',         '10Sep2001']
         ], i;
 
         for (i = 0; i < a.length; i++) {
@@ -51169,6 +51230,10 @@ QUnit.config.autostart = false;
         assert.equal(moment('172345', 'Hmmss', true).format('HH:mm:ss'), '17:23:45', '112345 with Hmmss');
     });
 
+    test('Y token', function (assert) {
+        assert.equal(moment('1-1-2010', 'M-D-Y', true).year(), 2010, 'parsing Y');
+    });
+
 }));
 
 ;(function (global, factory) {
@@ -51427,7 +51492,8 @@ QUnit.config.autostart = false;
     }
 
     function warn(msg) {
-        if (hooks.suppressDeprecationWarnings === false && !isUndefined(console) && console.warn) {
+        if (hooks.suppressDeprecationWarnings === false &&
+                (typeof console !==  'undefined') && console.warn) {
             console.warn('Deprecation warning: ' + msg);
         }
     }
@@ -53006,6 +53072,16 @@ QUnit.config.autostart = false;
         assert.equal(moment('01:34:56', 'HH:mm:ss').format('Hmmss'), '13456');
         assert.equal(moment('08:34:56', 'HH:mm:ss').format('Hmmss'), '83456');
         assert.equal(moment('18:34:56', 'HH:mm:ss').format('Hmmss'), '183456');
+    });
+
+    test('Y token', function (assert) {
+        assert.equal(moment('2010-01-01', 'YYYY-MM-DD', true).format('Y'), '2010', 'format 2010 with Y');
+        assert.equal(moment('-123-01-01', 'Y-MM-DD', true).format('Y'), '-123', 'format -123 with Y');
+        assert.equal(moment('12345-01-01', 'Y-MM-DD', true).format('Y'), '+12345', 'format 12345 with Y');
+        assert.equal(moment('0-01-01', 'Y-MM-DD', true).format('Y'), '0', 'format 0 with Y');
+        assert.equal(moment('1-01-01', 'Y-MM-DD', true).format('Y'), '1', 'format 1 with Y');
+        assert.equal(moment('9999-01-01', 'Y-MM-DD', true).format('Y'), '9999', 'format 9999 with Y');
+        assert.equal(moment('10000-01-01', 'Y-MM-DD', true).format('Y'), '+10000', 'format 10000 with Y');
     });
 
 }));
@@ -55415,7 +55491,6 @@ QUnit.config.autostart = false;
 
     test('string with spaceless format', function (assert) {
         assert.equal(moment('10Sep2001', 'DDMMMYYYY').isValid(), true, 'Parsing 10Sep2001 should result in a valid date');
-        assert.equal(moment('10Sept2001', 'DDMMMYYYY').isValid(), true, 'Parsing 10Sept2001 should result in a valid date');
     });
 
     test('invalid string iso 8601', function (assert) {
@@ -55736,7 +55811,7 @@ QUnit.config.autostart = false;
 
     test('default', function (assert) {
         assert.deepEqual(moment.months(), ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']);
-        assert.deepEqual(moment.monthsShort(), ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec']);
+        assert.deepEqual(moment.monthsShort(), ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']);
         assert.deepEqual(moment.weekdays(), ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']);
         assert.deepEqual(moment.weekdaysShort(), ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']);
         assert.deepEqual(moment.weekdaysMin(), ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']);
@@ -56314,6 +56389,39 @@ QUnit.config.autostart = false;
                 'preserve global locale in case of bad locale id');
     });
 
+
+    // TODO: Enable this after fixing pl months parse hack hack
+    // test('monthsParseExact', function (assert) {
+    //     var locale = 'test-months-parse-exact';
+
+    //     moment.defineLocale(locale, {
+    //         monthsParseExact: true,
+    //         months: 'A_AA_AAA_B_B B_BB  B_C_C-C_C,C2C_D_D+D_D`D*D'.split('_'),
+    //         monthsShort: 'E_EE_EEE_F_FF_FFF_G_GG_GGG_H_HH_HHH'.split('_')
+    //     });
+
+    //     assert.equal(moment('A', 'MMMM', true).month(), 0, 'parse long month 0 with MMMM');
+    //     assert.equal(moment('AA', 'MMMM', true).month(), 1, 'parse long month 1 with MMMM');
+    //     assert.equal(moment('AAA', 'MMMM', true).month(), 2, 'parse long month 2 with MMMM');
+    //     assert.equal(moment('B B', 'MMMM', true).month(), 4, 'parse long month 4 with MMMM');
+    //     assert.equal(moment('BB  B', 'MMMM', true).month(), 5, 'parse long month 5 with MMMM');
+    //     assert.equal(moment('C-C', 'MMMM', true).month(), 7, 'parse long month 7 with MMMM');
+    //     assert.equal(moment('C,C2C', 'MMMM', true).month(), 8, 'parse long month 8 with MMMM');
+    //     assert.equal(moment('D+D', 'MMMM', true).month(), 10, 'parse long month 10 with MMMM');
+    //     assert.equal(moment('D`D*D', 'MMMM', true).month(), 11, 'parse long month 11 with MMMM');
+
+    //     assert.equal(moment('E', 'MMM', true).month(), 0, 'parse long month 0 with MMM');
+    //     assert.equal(moment('EE', 'MMM', true).month(), 1, 'parse long month 1 with MMM');
+    //     assert.equal(moment('EEE', 'MMM', true).month(), 2, 'parse long month 2 with MMM');
+
+    //     assert.equal(moment('A', 'MMM').month(), 0, 'non-strict parse long month 0 with MMM');
+    //     assert.equal(moment('AA', 'MMM').month(), 1, 'non-strict parse long month 1 with MMM');
+    //     assert.equal(moment('AAA', 'MMM').month(), 2, 'non-strict parse long month 2 with MMM');
+    //     assert.equal(moment('E', 'MMMM').month(), 0, 'non-strict parse short month 0 with MMMM');
+    //     assert.equal(moment('EE', 'MMMM').month(), 1, 'non-strict parse short month 1 with MMMM');
+    //     assert.equal(moment('EEE', 'MMMM').month(), 2, 'non-strict parse short month 2 with MMMM');
+    // });
+
 }));
 
 ;(function (global, factory) {
@@ -56638,6 +56746,31 @@ QUnit.config.autostart = false;
 
         assert.ok(startOfTest <= momentNowTime, 'moment now() time should be now, not in the past');
         assert.ok(momentNowTime <= afterMomentCreationTime, 'moment now() time should be now, not in the future');
+    });
+
+    test('now - Date mocked', function (assert) {
+        // We need to test mocking the global Date object, so disable 'Read Only' jshint check
+        /* jshint -W020 */
+        var RealDate = Date,
+            customTimeMs = moment('2015-01-01T01:30:00.000Z').valueOf();
+
+        function MockDate() {
+            return new RealDate(customTimeMs);
+        }
+
+        MockDate.now = function () {
+            return new MockDate().valueOf();
+        };
+
+        MockDate.prototype = RealDate.prototype;
+
+        Date = MockDate;
+
+        try {
+            assert.equal(moment().valueOf(), customTimeMs, 'moment now() time should use the global Date object');
+        } finally {
+            Date = RealDate;
+        }
     });
 
     test('now - custom value', function (assert) {
