@@ -12,11 +12,11 @@ Moment normally interprets input times as local times (or UTC times if `moment.u
 moment.parseZone("2013-01-01T00:00:00-13:00").zone(); // 780
 ```
 
-`moment.parseZone` is equivalent to parsing the string and using `moment#zone` to parse the zone.
+`moment.parseZone` is equivalent to parsing the string and using `moment#utcOffset` to parse the zone.
 
 ```javascript
 var s = "2013-01-01T00:00:00-13:00";
-moment(s).zone(s);
+moment(s).utcOffset(s);
 ```
 
 **Note**: this method only works for a single string argument, not a string and format.
