@@ -259,7 +259,8 @@ moment('gibberish').format('YYYY MM DD');         // "Invalid date"
       <td>
         EST CST ... MST PST
         <br/>
-        <b>Note:</b> as of <b>1.6.0</b>, the z/zz format tokens have been deprecated. <a href="https://github.com/moment/moment/issues/162">Read more about it here.</a>
+        <b>Note:</b> as of <b>1.6.0</b>, the z/zz format tokens have been deprecated from plain moment objects. <a href="https://github.com/moment/moment/issues/162">Read more about it here.</a>
+        However, they *do* work if you are using a specific time zone with the moment-timezone addon.
       </td>
     </tr>
     <tr>
