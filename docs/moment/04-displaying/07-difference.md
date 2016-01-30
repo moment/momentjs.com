@@ -26,7 +26,7 @@ a.diff(b, 'days') // 1
 
 The supported measurements are years, months, weeks, days, hours, minutes, and seconds. For ease of development, the singular forms are supported as of **2.0.0**. Units of measurement other than milliseconds are available in version **1.1.1**.
 
-By default, `moment#diff` will return number rounded down. If you want the floating point number, pass `true` as the third argument. Before **2.0.0**, `moment#diff` returned rounded number, not a rounded *down* number.
+By default, `moment#diff` will return a number rounded towards zero (down for positive, up for negative). If you want a floating point number, pass `true` as the third argument. Before **2.0.0**, `moment#diff` returned a number rounded to nearest, not a rounded number rounded towards zero.
 
 ```javascript
 var a = moment([2008, 6]);
