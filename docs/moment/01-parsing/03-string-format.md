@@ -64,7 +64,7 @@ For these, the lowercase tokens use the locale aware week start days, and the up
 | -------------- | -------- | ----------- |
 | `H HH`         | `0..23`  | 24 hour time |
 | `h hh`         | `1..12`  | 12 hour time used with `a A`. |
-| `a A`          | `am pm`  | Post or ante meridiem |
+| `a A`          | `am pm`  | Post or ante meridiem (Note the one character `a p` are also considered valid) |
 | `m mm`         | `0..59`  | Minutes |
 | `s ss`         | `0..59`  | Seconds |
 | `S SS SSS`     | `0..999` | Fractional seconds |
@@ -112,7 +112,13 @@ moment('2012 juillet', 'YYYY MMM', 'fr');
 moment('2012 July',    'YYYY MMM', 'en');
 ```
 
-Moment's parser is very forgiving, and this can lead to undesired behavior. As of version `2.3.0`, you may specify a boolean for the last argument to make Moment use strict parsing. Strict parsing requires that the format and input match exactly.
+Moment's parser is very forgiving, and this can lead to undesired behavior. 
+
+```javascript
+moment('I am spartacus', 'h:hh A').isValid();     //true - the 'am' matches the 'A' flag.
+```
+
+As of version `2.3.0`, you may specify a boolean for the last argument to make Moment use strict parsing. Strict parsing requires that the format and input match exactly.
 
 ```javascript
 moment('It is 2012-05-25', 'YYYY-MM-DD').isValid();       // true
