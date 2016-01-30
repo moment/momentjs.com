@@ -11,4 +11,6 @@ As with the other getters for durations, `moment.duration().weeks()` gets the we
 
 `moment.duration().asWeeks()` gets the length of the duration in weeks.
 
+Pay attention that unlike the other getters for duration, weeks are counted as a subset of the days, and are not taken off the days count.
+
 **Note:** The length of a duration in weeks is defined as 7 days.
