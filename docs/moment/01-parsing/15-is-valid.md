@@ -59,7 +59,7 @@ Invalid Moments
 
 If a moment is invalid, it behaves like a NaN in floating point operations.
 
-All of the following produce invaid moments:
+All of the following produce invalid moments:
 * `invalid.add(unit, value)`
 * `another.add(invalid)`
 * `invalid.clone()`
