@@ -118,12 +118,13 @@ Moment's parser is very forgiving, and this can lead to undesired behavior.
 moment('I am spartacus', 'h:hh A').isValid();     //true - the 'am' matches the 'A' flag.
 ```
 
-As of version `2.3.0`, you may specify a boolean for the last argument to make Moment use strict parsing. Strict parsing requires that the format and input match exactly.
+As of version `2.3.0`, you may specify a boolean for the last argument to make Moment use strict parsing. Strict parsing requires that the format and input match exactly, *including delimeters*.
 
 ```javascript
 moment('It is 2012-05-25', 'YYYY-MM-DD').isValid();       // true
 moment('It is 2012-05-25', 'YYYY-MM-DD', true).isValid(); // false
 moment('2012-05-25',       'YYYY-MM-DD', true).isValid(); // true
+moment('2012.05.25',       'YYYY-MM-DD', true).isValid(); // false
 ```
 
 You can use both locale and strictness.
