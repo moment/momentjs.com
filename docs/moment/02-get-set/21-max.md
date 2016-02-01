@@ -13,7 +13,12 @@ For example:
 var a = moment().subtract(1, 'day');
 var b = moment().add(1, 'day');
 moment.max(a, b);  // b
-moment.max([a, b]);  // b
+
+var friends = fetchFriends(); /* [{name: 'Dan', birthday: '11.12.1977'}, {name: 'Mary', birthday: '11.12.1986'}, {name: 'Stephan', birthday: '11.01.1993'}]*/
+var friendsBirthDays = friends.map(function(friend){
+    return moment(friend.birthday, 'DD.MM.YYYY');
+});
+moment.max(friendsBirthDays);  // '11.01.1993'
 ```
 
 With no arguments the function returns a moment instance with the current time.
