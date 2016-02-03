@@ -82,7 +82,7 @@ var locales = {
     'sv'     : 'Swedish',
     'sw'     : 'Swahili',
     'ta'     : 'Tamil',
-    'te'     : 'Tegulu',
+    'te'     : 'Telugu',
     'th'     : 'Thai',
     'tl-ph'  : 'Tagalog (Filipino)',
     'tlh'    : 'Klingon',
