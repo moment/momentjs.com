@@ -89,6 +89,10 @@
 					
 				
 					
+						<a class="docs-nav-item" href="#/use-it/browserify/">Browserify</a>
+					
+				
+					
 						<a class="docs-nav-item" href="#/use-it/other/">Other</a>
 					
 				
@@ -565,6 +569,10 @@
 					
 				
 					
+						<a class="docs-nav-item" href="#/durations/weeks/">Weeks</a>
+					
+				
+					
 						<a class="docs-nav-item" href="#/durations/months/">Months</a>
 					
 				
@@ -853,13 +861,39 @@ config if you put it on a non-standard location.</p>
 				</article>
 			
 				<article class="docs-method">
+					<a class="docs-method-target" id="/use-it/browserify/"  name="/use-it/browserify/"></a>
+					
+						<h3 class="docs-method-title">
+							<a href='#/use-it/browserify/'>Browserify</a>
+							
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/00-use-it/08-browserify.md" target="_blank">edit</a>
+					
+					<div class="docs-method-prose">
+						
+						<pre><code>npm install moment</code></pre>
+<pre><code class="language-javascript"><span class="keyword">var</span> moment = require(<span class="string">'moment'</span>);
+moment().format();</code></pre>
+<p><strong>Note:</strong> There is a bug that prevents <code>moment.locale</code> from being loaded. </p>
+<pre><code class="language-javascript"><span class="keyword">var</span> moment = require(<span class="string">'moment'</span>);
+moment.locale(<span class="string">'cs'</span>);
+console.log(moment.locale()); <span class="comment">// en</span></code></pre>
+<p>Use the workaround below</p>
+<pre><code class="language-javascript"><span class="keyword">var</span> moment = require(<span class="string">'moment'</span>);
+require(<span class="string">'moment/locale/cs'</span>);
+console.log(moment.locale()); <span class="comment">// cs</span></code></pre>
+
+					</div>
+				</article>
+			
+				<article class="docs-method">
 					<a class="docs-method-target" id="/use-it/other/"  name="/use-it/other/"></a>
 					
 						<h3 class="docs-method-title">
 							<a href='#/use-it/other/'>Other</a>
 							
 						</h3>
-						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/00-use-it/08-other.md" target="_blank">edit</a>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/00-use-it/09-other.md" target="_blank">edit</a>
 					
 					<div class="docs-method-prose">
 						
@@ -876,7 +910,7 @@ config if you put it on a non-standard location.</p>
 							<a href='#/use-it/troubleshooting/'>Troubleshooting</a>
 							
 						</h3>
-						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/00-use-it/09-troubleshooting.md" target="_blank">edit</a>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/00-use-it/10-troubleshooting.md" target="_blank">edit</a>
 					
 					<div class="docs-method-prose">
 						
@@ -1167,7 +1201,7 @@ near 2000 (same as <code>YY</code>).</p>
 <tr>
 <td><code>a A</code></td>
 <td><code>am pm</code></td>
-<td>Post or ante meridiem</td>
+<td>Post or ante meridiem (Note the one character <code>a p</code> are also considered valid)</td>
 </tr>
 <tr>
 <td><code>m mm</code></td>
@@ -1215,18 +1249,21 @@ moment(<span class="string">"2010 notamonth 29"</span>, <span class="string">"YY
 <p>As of version <code>2.0.0</code>, a locale key can be passed as the third parameter to <code>moment()</code> and <code>moment.utc()</code>.</p>
 <pre><code class="language-js">moment(<span class="string">'2012 juillet'</span>, <span class="string">'YYYY MMM'</span>, <span class="string">'fr'</span>);
 moment(<span class="string">'2012 July'</span>,    <span class="string">'YYYY MMM'</span>, <span class="string">'en'</span>);</code></pre>
-<p>Moment&#39;s parser is very forgiving, and this can lead to undesired behavior. As of version <code>2.3.0</code>, you may specify a boolean for the last argument to make Moment use strict parsing. Strict parsing requires that the format and input match exactly.</p>
+<p>Moment&#39;s parser is very forgiving, and this can lead to undesired behavior. </p>
+<pre><code class="language-javascript">moment(<span class="string">'I am spartacus'</span>, <span class="string">'h:hh A'</span>).isValid();     <span class="comment">//true - the 'am' matches the 'A' flag.</span></code></pre>
+<p>As of version <code>2.3.0</code>, you may specify a boolean for the last argument to make Moment use strict parsing. Strict parsing requires that the format and input match exactly, <em>including delimeters</em>.</p>
 <pre><code class="language-javascript">moment(<span class="string">'It is 2012-05-25'</span>, <span class="string">'YYYY-MM-DD'</span>).isValid();       <span class="comment">// true</span>
 moment(<span class="string">'It is 2012-05-25'</span>, <span class="string">'YYYY-MM-DD'</span>, <span class="literal">true</span>).isValid(); <span class="comment">// false</span>
-moment(<span class="string">'2012-05-25'</span>,       <span class="string">'YYYY-MM-DD'</span>, <span class="literal">true</span>).isValid(); <span class="comment">// true</span></code></pre>
+moment(<span class="string">'2012-05-25'</span>,       <span class="string">'YYYY-MM-DD'</span>, <span class="literal">true</span>).isValid(); <span class="comment">// true</span>
+moment(<span class="string">'2012.05.25'</span>,       <span class="string">'YYYY-MM-DD'</span>, <span class="literal">true</span>).isValid(); <span class="comment">// false</span></code></pre>
 <p>You can use both locale and strictness.</p>
 <pre><code class="language-javascript">moment(<span class="string">'2012-10-14'</span>, <span class="string">'YYYY-MM-DD'</span>, <span class="string">'fr'</span>, <span class="literal">true</span>);</code></pre>
 <h4 id="parsing-two-digit-years">Parsing two digit years</h4>
 <p>By default, two digit years above 68 are assumed to be in the 1900&#39;s and years 68 or below are assumed to be in the 2000&#39;s. This can be changed by replacing the <code>moment.parseTwoDigitYear</code> method.</p>
-<h4 id="parsing-glued-hour-and-minues">Parsing glued hour and minues</h4>
+<h4 id="parsing-glued-hour-and-minutes">Parsing glued hour and minutes</h4>
 <p>From version <code>2.10.7</code> parsing <code>hmm</code>, <code>Hmm</code>, <code>hmmss</code> and <code>Hmmss</code> is supported:</p>
 <pre><code class="language-javascript">moment(<span class="string">"123"</span>, <span class="string">"hmm"</span>).format(<span class="string">"HH:mm"</span>) === <span class="string">"01:23"</span>
-moment(<span class="string">"1234"</span>, <span class="string">"hmm"</span>).format(<span class="string">"HH:mm"</span>) === <span class="string">"12:23"</span></code></pre>
+moment(<span class="string">"1234"</span>, <span class="string">"hmm"</span>).format(<span class="string">"HH:mm"</span>) === <span class="string">"12:34"</span></code></pre>
 
 					</div>
 				</article>
@@ -1574,10 +1611,10 @@ a.hours(); <span class="comment">// 0 PST</span></code></pre>
 							</div>
 						
 						<p>Moment normally interprets input times as local times (or UTC times if <code>moment.utc()</code> is used). However, often the input string itself contains time zone information. <code>#parseZone</code> parses the time and then sets the zone according to the input string.</p>
-<pre><code class="language-javascript">moment.parseZone(<span class="string">"2013-01-01T00:00:00-13:00"</span>).zone(); <span class="comment">// 780</span></code></pre>
-<p><code>moment.parseZone</code> is equivalent to parsing the string and using <code>moment#zone</code> to parse the zone.</p>
+<pre><code class="language-javascript">moment.parseZone(<span class="string">"2013-01-01T00:00:00-13:00"</span>).utcOffset(); <span class="comment">// -780  ("-13:00" in total minutes)</span></code></pre>
+<p><code>moment.parseZone</code> is equivalent to parsing the string and using <code>moment#utcOffset</code> to parse the zone.</p>
 <pre><code class="language-javascript"><span class="keyword">var</span> s = <span class="string">"2013-01-01T00:00:00-13:00"</span>;
-moment(s).zone(s);</code></pre>
+moment(s).utcOffset(s);</code></pre>
 <p><strong>Note</strong>: this method only works for a single string argument, not a string and format.</p>
 
 					</div>
@@ -1639,7 +1676,7 @@ m.invalidAt(); <span class="comment">// 5 for seconds</span></code></pre>
 days validity may depend on month, for example).</p>
 <h1 id="invalid-moments">Invalid Moments</h1>
 <p>If a moment is invalid, it behaves like a NaN in floating point operations.</p>
-<p>All of the following produce invaid moments:</p>
+<p>All of the following produce invalid moments:</p>
 <ul>
 <li><code>invalid.add(unit, value)</code></li>
 <li><code>another.add(invalid)</code></li>
@@ -1921,6 +1958,9 @@ moment().dates(); <span class="comment">// Number</span></code></pre>
 						<p>Gets or sets the day of the month.</p>
 <p>Accepts numbers from 1 to 31. If the range is exceeded, it will bubble up to the months.</p>
 <p><strong>Note:</strong> <code>Moment#date</code> is for the date of the month, and <code>Moment#day</code> is for the day of the week.</p>
+<p><strong>Note:</strong> if you chain multiple actions to construct a date, you should start from a year, then a month, then a day etc. Otherwise you may get unexpected results, like when <code>day=31</code> and current month has only 30 days (the same applies to native JavaScript <code>Date</code> manipulation), the returned date will be 1st of the following month.</p>
+<p>Bad: <code>moment().date(day).month(month).year(year)</code></p>
+<p>Good: <code>moment().year(year).month(month).date(day)</code></p>
 
 					</div>
 				</article>
@@ -2644,7 +2684,7 @@ moment().minutes(<span class="number">0</span>).seconds(<span class="number">0</
 						
 						<p>Mutates the original moment by setting it to the end of a unit of time.</p>
 <p>This is the same as <code>moment#startOf</code>, only instead of setting to the start of a unit of time, it sets to the end of a unit of time.</p>
-<pre><code class="language-javascript">moment().endOf(<span class="string">"year"</span>); <span class="comment">// set the moment to 12-31 11:59:59.999 pm this year</span></code></pre>
+<pre><code class="language-javascript">moment().endOf(<span class="string">"year"</span>); <span class="comment">// set the moment to 12-31 23:59:59.999 this year</span></code></pre>
 <p>As of version <strong>2.0.0</strong>, <code>moment#endOf(&#39;day&#39;)</code> replaced <code>moment#eod</code>.</p>
 <p><strong>Note:</strong> <code>moment#endOf(&#39;week&#39;)</code> was added in version <strong>2.0.0</strong>.</p>
 <p>As of version <strong>2.1.0</strong>, <code>moment#endOf(&#39;week&#39;)</code> uses the locale aware week start day.</p>
@@ -3141,7 +3181,8 @@ moment(<span class="string">'gibberish'</span>).format(<span class="string">'YYY
       <td>
         EST CST ... MST PST
         <br/>
-        <b>Note:</b> as of <b>1.6.0</b>, the z/zz format tokens have been deprecated. <a href="https://github.com/moment/moment/issues/162">Read more about it here.</a>
+        <b>Note:</b> as of <b>1.6.0</b>, the z/zz format tokens have been deprecated from plain moment objects. <a href="https://github.com/moment/moment/issues/162">Read more about it here.</a>
+        However, they <em>do</em> work if you are using a specific time zone with the moment-timezone addon.
       </td>
     </tr>
     <tr>
@@ -3631,7 +3672,7 @@ a.diff(b) <span class="comment">// 86400000</span></code></pre>
 <span class="keyword">var</span> b = moment([<span class="number">2007</span>, <span class="number">0</span>, <span class="number">28</span>]);
 a.diff(b, <span class="string">'days'</span>) <span class="comment">// 1</span></code></pre>
 <p>The supported measurements are years, months, weeks, days, hours, minutes, and seconds. For ease of development, the singular forms are supported as of <strong>2.0.0</strong>. Units of measurement other than milliseconds are available in version <strong>1.1.1</strong>.</p>
-<p>By default, <code>moment#diff</code> will return number rounded down. If you want the floating point number, pass <code>true</code> as the third argument. Before <strong>2.0.0</strong>, <code>moment#diff</code> returned rounded number, not a rounded <em>down</em> number.</p>
+<p>By default, <code>moment#diff</code> will return a number rounded towards zero (down for positive, up for negative). If you want a floating point number, pass <code>true</code> as the third argument. Before <strong>2.0.0</strong>, <code>moment#diff</code> returned a number rounded to nearest, not a rounded number rounded towards zero.</p>
 <pre><code class="language-javascript"><span class="keyword">var</span> a = moment([<span class="number">2008</span>, <span class="number">6</span>]);
 <span class="keyword">var</span> b = moment([<span class="number">2007</span>, <span class="number">0</span>]);
 a.diff(b, <span class="string">'years'</span>);       <span class="comment">// 1</span>
@@ -5624,6 +5665,33 @@ moment.duration().asDays();</code></pre>
 				</article>
 			
 				<article class="docs-method">
+					<a class="docs-method-target" id="/durations/weeks/"  name="/durations/weeks/"></a>
+					
+						<h3 class="docs-method-title">
+							<a href='#/durations/weeks/'>Weeks</a>
+							
+								<span>1.6.0+</span>
+							
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/08-durations/08-weeks.md" target="_blank">edit</a>
+					
+					<div class="docs-method-prose">
+						
+							<div class="docs-method-signature">
+								<pre><code class="language-js">moment.duration().weeks();
+moment.duration().asWeeks();</code></pre>
+
+							</div>
+						
+						<p>As with the other getters for durations, <code>moment.duration().weeks()</code> gets the weeks (0 - 4).</p>
+<p><code>moment.duration().asWeeks()</code> gets the length of the duration in weeks.</p>
+<p>Pay attention that unlike the other getters for duration, weeks are counted as a subset of the days, and are not taken off the days count.</p>
+<p><strong>Note:</strong> The length of a duration in weeks is defined as 7 days.</p>
+
+					</div>
+				</article>
+			
+				<article class="docs-method">
 					<a class="docs-method-target" id="/durations/months/"  name="/durations/months/"></a>
 					
 						<h3 class="docs-method-title">
@@ -5632,7 +5700,7 @@ moment.duration().asDays();</code></pre>
 								<span>1.6.0+</span>
 							
 						</h3>
-						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/08-durations/08-months.md" target="_blank">edit</a>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/08-durations/09-months.md" target="_blank">edit</a>
 					
 					<div class="docs-method-prose">
 						
@@ -5658,7 +5726,7 @@ moment.duration().asMonths();</code></pre>
 								<span>1.6.0+</span>
 							
 						</h3>
-						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/08-durations/09-years.md" target="_blank">edit</a>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/08-durations/10-years.md" target="_blank">edit</a>
 					
 					<div class="docs-method-prose">
 						
@@ -5684,7 +5752,7 @@ moment.duration().asYears();</code></pre>
 								<span>2.1.0+</span>
 							
 						</h3>
-						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/08-durations/10-add.md" target="_blank">edit</a>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/08-durations/11-add.md" target="_blank">edit</a>
 					
 					<div class="docs-method-prose">
 						
@@ -5714,7 +5782,7 @@ a.add(b).days(); <span class="comment">// 3</span></code></pre>
 								<span>2.1.0+</span>
 							
 						</h3>
-						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/08-durations/11-subtract.md" target="_blank">edit</a>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/08-durations/12-subtract.md" target="_blank">edit</a>
 					
 					<div class="docs-method-prose">
 						
@@ -5744,7 +5812,7 @@ a.subtract(b).days(); <span class="comment">// 1</span></code></pre>
 								<span>2.1.0+</span>
 							
 						</h3>
-						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/08-durations/12-as.md" target="_blank">edit</a>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/08-durations/13-as.md" target="_blank">edit</a>
 					
 					<div class="docs-method-prose">
 						
@@ -5771,7 +5839,7 @@ duration.as(<span class="string">'milliseconds'</span>);</code></pre>
 								<span>2.1.0+</span>
 							
 						</h3>
-						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/08-durations/13-get.md" target="_blank">edit</a>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/08-durations/14-get.md" target="_blank">edit</a>
 					
 					<div class="docs-method-prose">
 						
@@ -5798,7 +5866,7 @@ duration.get(<span class="string">'milliseconds'</span>);</code></pre>
 								<span>2.9.0+</span>
 							
 						</h3>
-						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/08-durations/14-as-json.md" target="_blank">edit</a>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/08-durations/15-as-json.md" target="_blank">edit</a>
 					
 					<div class="docs-method-prose">
 						
@@ -5825,7 +5893,7 @@ ISO8601 string.</p>
 								<span>1.6.0+</span>
 							
 						</h3>
-						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/08-durations/15-is-a-duration.md" target="_blank">edit</a>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/docs/moment/08-durations/16-is-a-duration.md" target="_blank">edit</a>
 					
 					<div class="docs-method-prose">
 						
