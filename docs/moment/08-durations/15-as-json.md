@@ -5,7 +5,7 @@ signature: |
   moment.duration().toJSON();
 ---
 
-When serializing a duration object to JSON, it will be be represented as an
+When serializing a duration object to JSON, it will be represented as an
 ISO8601 string.
 
 ```javascript
