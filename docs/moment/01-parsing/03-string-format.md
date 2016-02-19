@@ -89,7 +89,7 @@ LLLL`. They were added in version **2.2.1**, except `LTS` which was added
 
 `X` was added in version `2.0.0`.
 
-Unless you specify a timezone offset, parsing a string will create a date in the current timezone.
+Unless you specify a time zone offset, parsing a string will create a date in the current time zone.
 
 ```js
 moment("2010-10-20 4:30",       "YYYY-MM-DD HH:mm");   // parsed as 4:30 local time
@@ -112,7 +112,7 @@ moment('2012 juillet', 'YYYY MMM', 'fr');
 moment('2012 July',    'YYYY MMM', 'en');
 ```
 
-Moment's parser is very forgiving, and this can lead to undesired behavior. 
+Moment's parser is very forgiving, and this can lead to undesired behavior.
 
 ```javascript
 moment('I am spartacus', 'h:hh A').isValid();     //true - the 'am' matches the 'A' flag.

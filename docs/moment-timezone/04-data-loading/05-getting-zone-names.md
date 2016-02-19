@@ -4,7 +4,7 @@ signature: |
   moment.tz.names(); // String[]
 ---
 
-To get a list of all the loaded timezone names, use `moment.tz.names`.
+To get a list of all the loaded time zone names, use `moment.tz.names`.
 
 ```js
 moment.tz.names(); // ["Africa/Abidjan", "Africa/Accra", "Africa/Addis_Ababa", ...]

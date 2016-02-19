@@ -60,8 +60,3 @@ include the offset when parsing.
 moment.tz("2012-11-04 01:00:00-04:00", "America/New_York"); // 2012-11-04T01:00:00-04:00
 moment.tz("2012-11-04 01:00:00-05:00", "America/New_York"); // 2012-11-04T01:00:00-05:00
 ```
-
-
-
-
-
