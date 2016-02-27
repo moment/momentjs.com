@@ -13,4 +13,4 @@ var day = new Date(2011, 9, 16);
 var dayWrapper = moment(day);
 ```
 
-This clones `Date` object; further changes to the `Date` won't affect the `Moment`, and vice-versa.
+This clones the `Date` object; further changes to the `Date` won't affect the `Moment`, and vice-versa.
