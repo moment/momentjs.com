@@ -121,3 +121,11 @@ Before version `2.8.0`, the `moment#add(String, Number)` syntax was also support
 moment().add('seconds', 1); // Deprecated in 2.8.0
 moment().add(1, 'seconds');
 ```
+
+As of **2.12.0** when decimal values are passed for days and months, they are rounded to the nearest integer. 
+Weeks, quarters, and years are converted to days or months, and then rounded to the nearest integer.
+
+```javascript
+moment().add(1.5, 'months') == moment().add(2, 'months')
+moment().add(.7, 'years') == moment().add(8, 'months') //.7*12 = 8.4, rounded to 8
+```

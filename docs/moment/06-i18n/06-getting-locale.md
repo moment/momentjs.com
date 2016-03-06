@@ -18,3 +18,9 @@ moment.locale(); // returns 'en'
 moment.locale('fr'); // set to french
 moment.locale(); // returns 'fr'
 ```
+
+As of verstion **2.12.0** it is possible to list all locales that have been loaded and are available to use:
+
+```javascript
+moment.locales()
+```
