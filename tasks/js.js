@@ -25,7 +25,10 @@ module.exports = function(grunt) {
 			],
 			'build/static/js/docs.js' : [
 				'assets/js/docs.js'
-			]
+			],
+            'build/static/js/guides.js' : [
+                'assets/js/guides.js'
+            ]
 		}
 	});
 

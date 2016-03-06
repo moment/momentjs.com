@@ -2,8 +2,8 @@ var path = require('path'),
 	yfm  = require('assemble-yaml'),
 	grunt = require('grunt');
 
-module.exports = function (root) {
-	var files = grunt.file.expand(path.join('docs', root, '**/*.md')),
+module.exports = function (type, root) {
+	var files = grunt.file.expand(path.join(type, root, '**/*.md')),
 		groups = [],
 		cache = {};
 

@@ -1,0 +1,48 @@
+<div class="docs">
+	<div class="docs-nav">
+		{{#each guides}}
+			<div class="docs-nav-section">
+				<a class="docs-nav-section-title" href='#/{{ slug }}/'>{{ title }}</a>
+				{{#each items }}
+					{{#isnt @index 0}}
+						<a class="docs-nav-item" href="#/{{ slug }}/">{{ title }}</a>
+					{{/isnt}}
+				{{/each}}
+			</div>
+		{{/each}}
+	</div>
+
+	<div class="docs-content">
+		{{#each guides}}
+			<article class="docs-section">
+				<a class="docs-section-target" id="/{{ slug }}/" name="/{{ slug }}/"></a>
+				<h2 class="docs-section-title"><a href='#/{{ slug }}/'>{{ title }}</a></h2>
+			</article>
+			{{#each items }}
+				<article class="docs-method">
+					<a class="docs-method-target" id="/{{ slug }}/"  name="/{{ slug }}/"></a>
+					{{#isnt @index 0}}
+						<h3 class="docs-method-title">
+							<a href='#/{{ slug }}/'>{{ title }}</a>
+							{{#if version}}
+								<span>{{ versionDescription version }}</span>
+							{{/if}}
+						</h3>
+						<a class="docs-method-edit" href="{{ edit }}" target="_blank">edit</a>
+					{{/isnt}}
+					<div class="docs-method-prose">
+						{{#if signature}}
+							<div class="docs-method-signature">
+								{{#markdown}}```js{{{ signature }}}```{{/markdown}}
+							</div>
+						{{/if}}
+						{{#markdown}}
+							{{{body}}}
+						{{/markdown}}
+					</div>
+				</article>
+			{{/each}}
+		{{/each}}
+	</div>
+
+</div>
