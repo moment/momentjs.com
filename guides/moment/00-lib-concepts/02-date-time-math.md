@@ -36,7 +36,7 @@ As of **2.12.0** decimal day and month values use absolute value/round to conver
 
 ```js
 moment().add(1.5, 'days') == moment().add(2, 'days')
-moment().add(-1.5, 'days') == moment().add(-2, 'days') == moment().subtract(1.5, 'days') == moment().subract(2, 'days')
+moment().add(-1.5, 'days') == moment().add(-2, 'days') == moment().subtract(1.5, 'days') == moment().subtract(2, 'days')
 moment().add(2.3, 'months') == moment().add(2, 'months')
 moment().add(-2.3, 'months') == moment().add(-2, 'months') == moment().subtract(2.3, 'months') == moment().subtract(2, 'months')
 ```

@@ -1,8 +1,8 @@
 ---
-title: Introductary Concepts
+title: Introductory Concepts
 ---
 
-The guides area is designed to help developers learn to better interact with the date and time problem domain, and the Moment.js libaray.
+The guides area is designed to help developers learn to better interact with the date and time problem domain, and the Moment.js library.
 We address our most frequently seen support requests here, so it is a great place to check for solutions to any issues you may have.
 
 The guides section is new and still under construction. If you have a request for a guide that you would like to see here, or would like to add a guide

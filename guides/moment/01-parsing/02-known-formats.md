@@ -1,7 +1,7 @@
 ---
 title: Known Date Formats
 ---
-If you know the format of the date string that you will be parsing, it is always the best choice to explicity specify that format.
+If you know the format of the date string that you will be parsing, it is always the best choice to explicitly specify that format.
 
 Examples:
 

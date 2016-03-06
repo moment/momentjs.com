@@ -30,7 +30,7 @@ Scenarios fixed by strict mode:
 //UUID matches YYYYDDD because it starts with 7 digits
 moment('5917238b-33ff-f849-cd63-80f4c9b37d0c', moment.ISO_8601).format()
 "5917-08-26T00:00:00-05:00"
-//strict mode fails becuase trailing data exists
+//strict mode fails because trailing data exists
 moment('5917238b-33ff-f849-cd63-80f4c9b37d0c', moment.ISO_8601, true).format()
 "Invalid date"
 ```
