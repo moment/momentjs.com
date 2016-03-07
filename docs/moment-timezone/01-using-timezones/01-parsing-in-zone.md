@@ -52,7 +52,7 @@ moment.tz('2013-06-01T00:00:00+00:00', zone).format(); // 2013-05-31T17:00:00-07
 ```
 
 Unix timestamps and `Date` objects refer to specific points in time, thus it doesn't
-make sense to use the timezone offset when constructing. Using `moment.tz(Number|Date, zone)`
+make sense to use the time zone offset when constructing. Using `moment.tz(Number|Date, zone)`
 is functionally equivalent to `moment(Number|Date).tz(zone)`.
 
 ```js

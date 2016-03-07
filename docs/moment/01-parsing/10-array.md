@@ -21,7 +21,7 @@ moment([2010, 6]);     // July 1st
 moment([2010, 6, 10]); // July 10th
 ```
 
-Construction with an array will create a date in the current timezone. To create a date from an array at UTC, use `moment.utc(Number[])`.
+Construction with an array will create a date in the current time zone. To create a date from an array at UTC, use `moment.utc(Number[])`.
 
 ```javascript
 moment.utc([2010, 1, 14, 15, 25, 50, 125]);

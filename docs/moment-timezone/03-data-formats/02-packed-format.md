@@ -4,7 +4,7 @@ title: Packed Format
 
 The packed format represents an unpacked zone in a single string.
 
-The data below is for Los Angeles between 2014 and 2018. More timezones can be seen [here](https://github.com/moment/moment-timezone/blob/develop/data/packed/latest.json)
+The data below is for Los Angeles between 2014 and 2018. More time zones can be seen [here](https://github.com/moment/moment-timezone/blob/develop/data/packed/latest.json)
 
 ```js
 'America/Los_Angeles|PST PDT|80 70|01010101010|1Lzm0 1zb0 Op0 1zb0 Rd0 1zb0 Op0 1zb0 Op0 1zb0'
@@ -23,11 +23,11 @@ The data is split into 5 sections separated by pipes.
 | 3 | Abbr/Offset&nbsp;Index | `01010101010`
 | 4 | Timestamp Diff         | `1Lzm0 1zb0 Op0 1zb0 Rd0 1zb0 Op0 1zb0 Op0 1zb0`
 
-**Name:** The canonical name of the timezone.
+**Name:** The canonical name of the time zone.
 
-**Abbr Map:** A space separated list of all the abbreviations ever used in this timezone.
+**Abbr Map:** A space separated list of all the abbreviations ever used in this time zone.
 
-**Offset Map:** A space separated list of all the offsets ever used in this timezone in minutes in base 60.
+**Offset Map:** A space separated list of all the offsets ever used in this time zone in minutes in base 60.
 
 **Abbr/Offset Index:** A tightly packed array of indices into the offset and abbr maps. These are also in base 60.
 

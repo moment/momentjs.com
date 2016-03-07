@@ -6,7 +6,7 @@ signature: |
 
 Parse an offset for a timestamp constructed from `Date.UTC` in that zone.
 
-This is what Moment Timezone uses to parse input into a timezone. The process is
+This is what Moment Timezone uses to parse input into a time zone. The process is
 conceptually similar to the following.
 
 Assume we want to find the exact moment of `March 19 2014 8:30 am` in New York.

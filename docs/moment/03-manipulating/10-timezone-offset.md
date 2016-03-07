@@ -1,5 +1,5 @@
 ---
-title: Timezone Offset
+title: Time zone Offset
 version: From 1.2.0, deprecated 2.9.0
 signature: |
   moment().zone();
@@ -8,7 +8,7 @@ signature: |
 
 **NOTE**: This function has been **deprecated** in **2.9.0**. Consider [`moment.fn.utcOffset`](/docs/#/manipulating/utc-offset/) instead.
 
-Get the timezone offset in minutes.
+Get the time zone offset in minutes.
 
 ```javascript
 moment().zone(); // (60, 120, 240, etc.)
