@@ -23,7 +23,8 @@ module.exports = function(grunt) {
 		},
 		'moment' : {
 			options : {
-				docs : docs('moment')
+				docs : docs('docs', 'moment'),
+                guides: docs('guides', 'moment')
 			},
 			files: [{
 				expand : true,
@@ -35,7 +36,7 @@ module.exports = function(grunt) {
 		},
 		'moment-timezone' : {
 			options : {
-				docs : docs('moment-timezone')
+				docs : docs('docs', 'moment-timezone')
 			},
 			files: [{
 				expand : true,
