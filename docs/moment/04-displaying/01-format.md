@@ -163,6 +163,14 @@ moment('gibberish').format('YYYY MM DD');         // "Invalid date"
       <td>YYYY</td>
       <td>1970 1971 ... 2029 2030</td>
     </tr>
+      <tr>
+      <td></td>
+      <td>Y</td>
+      <td>1970 1971 ... 9999 +10000 +10001
+        <br />
+        <b>Note:</b> This complies with the ISO 8601 standard for dates past the year 9999
+      </td>
+    </tr>
     <tr>
       <td><b>Week Year</b></td>
       <td>gg</td>
