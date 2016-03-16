@@ -32,7 +32,7 @@ var locales = {
     'eu'     : 'Basque',
     'fa'     : 'Persian',
     'fi'     : 'Finnish',
-    'fo'     : 'Farose',
+    'fo'     : 'Faroese',
     'fr'     : 'French',
     'fr-ca'  : 'French (Canada)',
     'fr-ch'  : 'French (Switzerland)',
