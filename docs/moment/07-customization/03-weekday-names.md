@@ -2,7 +2,14 @@
 title: Weekday Names
 version: 1.0.0
 signature: |
-  // From version 2.8.1 onward
+  // From version 2.12.0 onward
+  moment.updateLocale('en', {
+      weekdays : String[]
+  });
+  moment.updateLocale('en', {
+      weekdays : Function
+  });
+  // From version 2.8.1 to 2.11.2
   moment.locale('en', {
       weekdays : String[]
   });
@@ -24,7 +31,7 @@ signature: |
 `Locale#weekdays` should be an array of the weekdays names.
 
 ```javascript
-moment.locale('en', {
+moment.updateLocale('en', {
     weekdays : [
         "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
     ]

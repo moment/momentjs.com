@@ -2,7 +2,11 @@
 title: Calendar
 version: 1.3.0
 signature: |
-  // From 2.8.1 onward
+  // From 2.12.0 onward
+  moment.updateLocale('en', {
+      calendar : Object
+  });
+  // From 2.8.1 to 2.11.2
   moment.locale('en', {
       calendar : Object
   });

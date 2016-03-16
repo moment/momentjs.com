@@ -2,7 +2,11 @@
 title: Ordinal
 version: 1.0.0
 signature: |
-  // From 2.8.1 onward
+  // From 2.12.0 onward
+  moment.updateLocale('en', {
+      ordinal : Function
+  });
+  // From 2.8.1 to 2.11.2
   moment.locale('en', {
       ordinal : Function
   });
@@ -17,7 +21,7 @@ signature: |
 `Locale#ordinal` should be a function that returns the ordinal for a given number.
 
 ```javascript
-moment.locale('en', {
+moment.updateLocale('en', {
     ordinal : function (number, token) {
         var b = number % 10;
         var output = (~~ (number % 100 / 10) === 1) ? 'th' :

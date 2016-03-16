@@ -9,3 +9,5 @@ This deprecation warning is thrown when no known format is found for a date pass
 To work around this issue, specify a format for the string being passed to ``moment()``.
 
 <a href="~/docs/#/parsing">See the parsing docs for more information.</a>
+
+<a href="https://github.com/moment/moment/issues/1407" target="_blank">View original GitHub issue</a>

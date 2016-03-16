@@ -2,7 +2,15 @@
 title: Long Date Formats
 version: 1.1.0
 signature: |
-  // From 2.8.1 onward
+  // From 2.12.0 onward
+  moment.updateLocale('en', {
+      weekdaysMin : String[]
+  });
+  moment.updateLocale('en', {
+      weekdaysMin : Function
+  });
+
+  // From 2.8.1 to 2.11.2
   moment.locale('en', {
       longDateFormat : Object
   });
@@ -17,7 +25,7 @@ signature: |
 `Locale#longDateFormat` should be an object containing a key/value pair for each long date format `L LL LLL LLLL LT LTS`. `LT` should be the time format, and is also used for `moment#calendar`.
 
 ```javascript
-moment.locale('en', {
+moment.updateLocale('en', {
     longDateFormat : {
         LT: "h:mm A",
         LTS: "h:mm:ss A",
@@ -36,7 +44,7 @@ moment.locale('en', {
 You can eliminate the lowercase `l` tokens and they will be created automatically by replacing long tokens with the short token variants.
 
 ```javascript
-moment.locale('en', {
+moment.updateLocale('en', {
     longDateFormat : {
         LT: "h:mm A",
         LTS: "h:mm:ss A",

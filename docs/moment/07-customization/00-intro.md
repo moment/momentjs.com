@@ -11,16 +11,6 @@ moment.locale('en-my-settings', {
 });
 ```
 
-However, you can also overwrite an existing locale that has been loaded as well.
-
-```javascript
-moment.locale('en', {
-    // customizations
-});
-```
-
-Any settings that are not defined are inherited from the default english settings.
-
 You can remove a previously defined locale by passing `null` as the second argument.
 The deleted locale will no longer be available for use.
 
@@ -55,3 +45,5 @@ To revert an update use:
 ```javascript
 moment.updateLocale('en', null);
 ```
+
+**2.12.0** deprecated using ``moment.locale()`` to change an existing locale. Use ``moment.updateLocale()`` instead.

@@ -2,7 +2,14 @@
 title: Month Abbreviations
 version: 1.0.0
 signature: |
-  // From 2.8.1 onward
+  // From 2.12.0 onward
+  moment.updateLocale('en', {
+      monthsShort : String[]
+  });
+  moment.updateLocale('en', {
+      monthsShort : Function
+  });
+  // From 2.8.1 to 2.11.2
   moment.locale('en', {
       monthsShort : String[]
   });
@@ -23,7 +30,7 @@ signature: |
 `Locale#monthsShort` should be an array of the month abbreviations.
 
 ```javascript
-moment.locale('en', {
+moment.updateLocale('en', {
     monthsShort : [
         "Jan", "Feb", "Mar", "Apr", "May", "Jun",
         "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
@@ -34,7 +41,7 @@ moment.locale('en', {
 Like `Locale#months`, `Locale#monthsShort` can be a callback function as well.
 
 ```javascript
-moment.locale('en', {
+moment.updateLocale('en', {
     monthsShort : function (momentToFormat, format) {
         if (/^MMMM/.test(format)) {
             return nominative[momentToFormat.month()];

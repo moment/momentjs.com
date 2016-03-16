@@ -19,5 +19,5 @@ As you can see, adding one week mutated ``a``. To avoid situations like that, cl
 var a = moment('2016-01-01'); 
 var b = a.clone().add(1, 'week'); 
 a.format();
-"2016-01-08T00:00:00-06:00"
+"2016-01-01T00:00:00-06:00"
 ```
