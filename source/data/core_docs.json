@@ -889,7 +889,10 @@
             },
             {
                 "key": "preciserange",
-                "title": "Precise Range"
+                "title": "Precise Range",
+                "signature": [
+                    "npm install moment-precise-range-plugin"
+                ]
             }
         ]
     }
