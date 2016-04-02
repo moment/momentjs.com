@@ -7,7 +7,7 @@ signature: |
 
 When using Moment Timezone in the browser, you will need to load the data as well as the library.
 
-You can either use the prebuilt library and data files linked on [the homepage](/timezone/) or build a subset of the data yourself using the [data builder](/timezone/data/).
+You can either use the prebuilt library and data files linked on [the homepage](/timezone/) or build a subset of the data yourself.
 
 ```js
 moment().tz("America/Los_Angeles").format();
