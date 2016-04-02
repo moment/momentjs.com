@@ -11,4 +11,4 @@ The `moment.tz.filterLinkPack` method combines all these into one simple interfa
 Pass in an unpacked bundle, start year, and end year and get a filtered, linked, packed bundle back.
 
 This is what is being used to compress the output for the [bundled data + library files on the
-homepage](/timezone/) and on [the data builder](/timezone/data/).
+homepage](/timezone/).
