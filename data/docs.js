@@ -32,7 +32,7 @@ module.exports = function (type, root) {
 
 		item.body = data.content;
 		item.slug = groupSlug + '/' + itemSlug;
-		item.edit = 'https://github.com/moment/momentjs.com/blob/master/docs/' + root + '/' + groupPath + '/' + itemPath + '.md';
+		item.edit = 'https://github.com/moment/momentjs.com/blob/master/' + type + '/' + root + '/' + groupPath + '/' + itemPath + '.md';
 	});
 
 	return groups;

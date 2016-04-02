@@ -36,10 +36,10 @@ moment('5917238b-33ff-f849-cd63-80f4c9b37d0c', moment.ISO_8601, true).format()
 ```
 ```js
 //date has out of range value but is parsed anyways
-moment('100110/09/2015', 'L').format()
+moment('100110/09/2015', 'MM/DD/YYYY').format()
 "2015-10-09T00:00:00-05:00"
 //strict mode catches out of range issue
-moment('100110/09/2015', 'L', true).format()
+moment('100110/09/2015', 'MM/DD/YYYY', true).format()
 "Invalid date"
 ```
 ```js
