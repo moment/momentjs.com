@@ -6,7 +6,7 @@ signature: |
   moment.relativeTimeThreshold(unit, limit);  // setter
 ---
 
-`duration.humanize` has thresholds which define when a unit is considered a minute, an hour and so on. For example, by default more than 45 seconds is considered a minute, more than 22 hours is considered a day and so on. To change those cutoffs use `moment.relativeTimeThreshold(unit, limit)` where limit is one of `s`, `m`, `h`, `d`, `M`.
+`duration.humanize` has thresholds which define when a unit is considered a minute, an hour and so on. For example, by default more than 45 seconds is considered a minute, more than 22 hours is considered a day and so on. To change those cutoffs use `moment.relativeTimeThreshold(unit, limit)` where unit is one of `s`, `m`, `h`, `d`, `M`.
 
 <table>
   <tbody>
