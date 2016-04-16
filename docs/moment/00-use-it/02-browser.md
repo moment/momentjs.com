@@ -10,4 +10,4 @@ title: Browser
 </script>
 ```
 
-Moment.js is available on [cdnjs.com](http://cdnjs.com). Remember though, cool kids concatenate their scripts to minimize http requests.
+Moment.js is available on [cdnjs.com](http://cdnjs.com). Remember though, cool kids concatenate their scripts to minimize http requests. ( Even cooler kids use http2 ;) )
