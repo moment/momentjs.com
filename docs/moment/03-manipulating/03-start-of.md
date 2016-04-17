@@ -15,6 +15,7 @@ moment().startOf('quarter');  // set to the beginning of the current quarter, 1s
 moment().startOf('week');    // set to the first day of this week, 12:00 am
 moment().startOf('isoWeek'); // set to the first day of this week according to ISO 8601, 12:00 am
 moment().startOf('day');     // set to 12:00 am today
+moment().startOf('date');     // set to 12:00 am today
 moment().startOf('hour');    // set to now, but with 0 mins, 0 secs, and 0 ms
 moment().startOf('minute');  // set to now, but with 0 seconds and 0 milliseconds
 moment().startOf('second');  // same as moment().milliseconds(0);
@@ -39,3 +40,5 @@ As of version **2.0.0**, `moment#startOf('day')` replaced `moment#sod`.
 As of version **2.1.0**, `moment#startOf('week')` uses the locale aware week start day.
 
 **Note:** `moment#startOf('isoWeek')` was added in version **2.2.0**.
+
+**Note:** `moment#startOf('date')` was added as an alias for day in **2.13.0**

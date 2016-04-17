@@ -222,6 +222,16 @@ moment('gibberish').format('YYYY MM DD');         // "Invalid date"
       <td>01 02 ... 11 12</td>
     </tr>
     <tr>
+      <td></td>
+      <td>k</td>
+      <td>1 2 ... 23 24</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>kk</td>
+      <td>01 02 ... 23 24</td>
+    </tr>
+    <tr>
       <td><b>Minute</b></td>
       <td>m</td>
       <td>0 1 ... 58 59</td>
@@ -308,6 +318,8 @@ moment('gibberish').format('YYYY MM DD');         // "Invalid date"
 
 `SSSS` to `SSSSSSSSS` were added in **2.10.5**. They display 3 significant
 digits and the rest is filled with zeros.
+
+`k` and `kk` were added in **2.13.0**.
 
 #### Localized formats
 
@@ -398,3 +410,5 @@ If you are more comfortable working with strftime instead of LDML-like parsing t
 #### Default format
 
 As of version **1.5.0**, calling `moment#format` without a format will default to `moment.defaultFormat`. Out of the box, `moment.defaultFormat` is the ISO8601 format `YYYY-MM-DDTHH:mm:ssZ`.
+
+As of version **2.13.0**, when in UTC mode, the default format will return ``Z`` as the offset, instead of ``+00:00``.
