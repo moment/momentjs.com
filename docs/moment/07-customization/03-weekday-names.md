@@ -41,7 +41,7 @@ moment.updateLocale('en', {
 `Locale#weekdays` can be a callback function as well.
 
 ```javascript
-moment.locale('en', {
+moment.updateLocale('en', {
     weekdays : function (momentToFormat, format) {
         return weekdays[momentToFormat.day()];
     }

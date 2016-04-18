@@ -23,6 +23,10 @@ The following parsing flags result in an invalid date:
  * `nullInput`: A `null` input, like `moment(null);`. Boolean.
  * `invalidFormat`: An empty list of formats, such as `moment('2013-05-25', [])`. Boolean.
  * `userInvalidated`: A date created explicitly as invalid, such as `moment.invalid()`. Boolean.
+ 
+ In addition to the above, As of **2.13.0** the meridiem and parsedDateParts flags work together to determine date validity.
+ * `meridiem`: Indicates what meridiem (AM/PM) was parsed, if any. String. 
+ * `parsedDateParts`: Returns an array of date parts parsed in descending order - i.e. parsedDateParts[0] === year. If no parts are present, but meridiem has value, date is invalid. Array.
 
 Additionally, if the Moment is parsed in strict mode, these flags must be empty for the Moment to be valid:
 

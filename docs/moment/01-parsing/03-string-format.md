@@ -115,7 +115,15 @@ moment('2012 juillet', 'YYYY MMM', 'fr');
 moment('2012 July',    'YYYY MMM', 'en');
 ```
 
-Moment's parser is very forgiving, and this can lead to undesired behavior.
+Moment's parser is very forgiving, and this can lead to undesired/unexpected behavior.
+
+For example, the following behavior can be observed:
+
+```javascript
+moment('2016 is a date', 'YYYY-MM-DD').isValid() //true, 2016 was matched
+```
+
+Previous to **2.13.0** the parser exhibited the following behavior. This has been corrected.
 
 ```javascript
 moment('I am spartacus', 'h:hh A').isValid();     //true - the 'am' matches the 'A' flag.
@@ -135,6 +143,8 @@ You can use both locale and strictness.
 ```javascript
 moment('2012-10-14', 'YYYY-MM-DD', 'fr', true);
 ```
+
+Strict parsing is frequently the best parsing option. For more information about choosing strict vs forgiving parsing, see the <a href="~/guides/#/parsing">parsing guide.</a>
 
 #### Parsing two digit years
 
