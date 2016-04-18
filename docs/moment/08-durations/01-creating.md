@@ -109,7 +109,7 @@ is supported.
 moment.duration('7 23:59:59.999');
 ```
 
-As of **2.13.0**, negative duration parsing is supported.
+As of **2.13.0**, mixed negative and positive signs are supported when parsing durations.
 
 ```javascript
 moment.duration('PT-6H3M')
