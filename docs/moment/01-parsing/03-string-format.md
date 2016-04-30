@@ -144,7 +144,7 @@ You can use both locale and strictness.
 moment('2012-10-14', 'YYYY-MM-DD', 'fr', true);
 ```
 
-Strict parsing is frequently the best parsing option. For more information about choosing strict vs forgiving parsing, see the <a href="~/guides/#/parsing">parsing guide.</a>
+Strict parsing is frequently the best parsing option. For more information about choosing strict vs forgiving parsing, see the <a href="/guides/#/parsing/">parsing guide.</a>
 
 #### Parsing two digit years
 

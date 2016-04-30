@@ -24,4 +24,4 @@ ISO 8601 formats include, but are not limited to:
 2013-02-08 09:30:26      # An hour, minute, and second time part
 2013-02-08 09+07:00      # +-HH:mm
 ```
-<a href="~/docs/#/parsing/string/"> See the API documentation on parsing strings for a full listing.</a>
+<a href="/docs/#/parsing/string/"> See the API documentation on parsing strings for a full listing.</a>
