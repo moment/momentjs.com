@@ -5,8 +5,8 @@ title: Where to use it
 
 Moment was designed to work both in the browser and in Node.js.
 
-Currently the following browsers are used for the ci system: IE8, IE9 on
-Windows 7, stable Chrome on Windows XP, Safari 10.8 on Mac and stable
-Firefox on Linux.
+All code should work in both of these environments, and all unit tests are run in both of these environments.
 
-All code will work in both environments. All unit tests are run in both environments.
+Currently the following browsers are used for the ci system: Chrome on Windows XP, IE 8, 9, and 10 on Windows 7,
+IE 11 on Windows 10, latest Firefox on Linux, and latest Safari on OSX 10.8 and 10.11.
+
