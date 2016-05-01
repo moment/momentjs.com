@@ -3,6 +3,7 @@ title: Require.js
 ---
 
 
+<!-- skip-example -->
 ```javascript
 require.config({
     paths: {
@@ -16,6 +17,7 @@ define(["moment"], function (moment) {
 
 Moment will still create a `moment` global, which is useful to plugins and other third-party code. If you wish to squash that global, use the `noGlobal` option on the module config.
 
+<!-- skip-example -->
 ```javascript
 require.config({
     config: {

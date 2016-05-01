@@ -45,6 +45,7 @@ moment.updateLocale('en', {
 If a locale requires additional processing for a token, it can set the token as a function with the following signature.
 The function should return a string.
 
+<!-- skip-example -->
 ```javascript
 function (number, withoutSuffix, key, isFuture) {
     return string;

@@ -8,6 +8,9 @@ mkdir build;
 # run our compile script, discussed above
 ./compile.sh
 
+# test that all of the documentation is runnable
+npm run doctest
+
 # go to the out directory and create a *new* Git repo
 cd build
 git init

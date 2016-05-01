@@ -29,7 +29,7 @@ string without offset, or object.
 
 ```js
 var arr = [2013, 5, 1],
-    str = "2013-12-01"
+    str = "2013-12-01",
     obj = { year : 2013, month : 5, day : 1 };
 
 moment.tz(arr, "America/Los_Angeles").format(); // 2013-06-01T00:00:00-07:00
