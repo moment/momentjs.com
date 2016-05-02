@@ -6,7 +6,7 @@ signature: |
 ---
 
 
-Sets a flag on the original moment to internally use `Date#get*` and `Date#set*` instead of `Date#getUTC*` and `Date#setUTC*`.
+Sets a flag on the original moment to use local time to  parse or display a moment instead of UTC.
 
 ```javascript
 var a = moment.utc([2011, 0, 1, 8]);
