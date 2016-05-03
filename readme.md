@@ -1,21 +1,11 @@
 ## Installing
 
 ```
-npm install
-git submodule init
-git submodule update --recursive
-git submodule foreach npm install
-npm install -g grunt-cli
+./compile.sh
 ```
 
 ## Running locally
 
 ```
 grunt server
-```
-
-## Deploying
-
-```
-grunt deploy
 ```
