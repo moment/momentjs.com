@@ -29,24 +29,12 @@ moment.tz([2012, 0], 'America/Phoenix').format('Z z'); // -07:00 MST
 moment.tz([2012, 5], 'America/Phoenix').format('Z z'); // -07:00 MST
 ```
 
-However, these abbreviations might not change depending on the time zone offset.
-Australia uses `Eastern Standard Time` for non DST and `Eastern Saving Time` for DST.
-Because `Standard` and `Saving` both start with `S`, the abbreviations are the same.
+Note also that these abbreviations are not globally unique. Below, you can see that
+both United States Central Standard Time and China Standard Time have the same abbreviation.
 
 ```js
-moment.tz([2012, 0], 'Australia/Melbourne').format('Z z');  // +11:00 EST
-moment.tz([2012, 5], 'Australia/Melbourne').format('Z z');  // +10:00 EST
-```
-
-Note also that these abbreviations are not globally unique. The case below is an
-example of two locations using `Eastern` and `Central`, as both North America and
-Australia have their own east and west coasts.
-
-```js
-moment.tz([2012, 0], 'America/New_York').format('z');      // EST
-moment.tz([2012, 0], 'Australia/Melbourne').format('z');   // EST
-moment.tz([2012, 0], 'America/Chicago').format('z');       // CST
-moment.tz([2012, 0], 'Australia/Broken_Hill').format('z'); // CST
+moment.tz('2016-01-01', 'America/Chicago').format('z');    // CST
+moment.tz('2016-01-01', 'Asia/Shanghai').format('z');      // CST
 ```
 
 You can also use `moment#zoneAbbr` to get the zone abbreviation. This is what

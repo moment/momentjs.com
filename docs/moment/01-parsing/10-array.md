@@ -34,7 +34,7 @@ This is often the cause of frustration, especially with months, so take note!
 If the date represented by the array does not exist, `moment#isValid` will return false.
 
 ```javascript
-moment([2010, 13]).isValid();     // false (not a real month)
+moment([2010, 12]).isValid();     // false (not a real month)
 moment([2010, 10, 31]).isValid(); // false (not a real day)
 moment([2010, 1, 29]).isValid();  // false (not a leap year)
 ```
