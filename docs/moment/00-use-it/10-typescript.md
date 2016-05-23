@@ -5,4 +5,33 @@ version: 2.13.0
 
 As of version **2.13.0**, Moment includes a typescript definition file.
 
-Examples of usages with typescript coming in the future.
+Install via NPM
+```
+npm install moment
+```
+
+Import and use in your Typescript file
+```javascript
+import * as moment from 'moment';
+
+
+let now = moment().format('LLLL');
+```
+
+**Note:** If you have trouble importing moment, try add ```"allowSyntheticDefaultImports": true``` in ```compilerOptions``` in your ```tsconfig.json``` file.
+
+**Locale Import**
+
+To use `moment.locale` you need first to import the language you are aiming for otherwise it'll keep in the current language.
+
+```javascript
+import * as moment from 'moment';
+import 'moment/locale/pt-br';
+
+
+console.log(moment.locale()); // en
+moment.locale('fr');
+console.log(moment.locale()); // en
+moment.locale('pt-BR');
+console.log(moment.locale()); // pt-BR
+```
