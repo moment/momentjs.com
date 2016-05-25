@@ -6,7 +6,7 @@ signature: |
 
 
 The `moment.tz` constructor takes all the same arguments as the `moment`
-constructor, but uses the last argument as a [time zone identifier] (https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+constructor, but uses the last argument as a [time zone identifier](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
 
 ```js
 var a = moment.tz("2013-11-18 11:55", "America/Toronto");
