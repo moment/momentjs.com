@@ -10,6 +10,7 @@ from 1900 to 2038. The data for all these years may not be necessary for your us
 
 `moment.tz.filterYears` can be used to filter out data for years outside a certain range.
 
+<!-- skip-example -->
 ```js
 var all    = { name : "America/Los_Angeles", abbrs : [...], offsets : [...] untils : [...]};
 var subset = moment.tz.filterYears(all, 2012, 2016);
@@ -19,6 +20,7 @@ subset.untils.length; // 11
 
 If only one year is passed, it will be used for the start and end year.
 
+<!-- skip-example -->
 ```js
 var all    = { name : "America/Los_Angeles", abbrs : [...], offsets : [...] untils : [...]};
 var subset = moment.tz.filterYears(all, 2012);

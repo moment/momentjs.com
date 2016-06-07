@@ -9,6 +9,7 @@ on the `moment.tz.Zone` namespace.
 
 This object has 4 properties.
 
+<!-- skip-example -->
 ```js
 {
 	name    : 'America/Los_Angeles',          // the unique identifier

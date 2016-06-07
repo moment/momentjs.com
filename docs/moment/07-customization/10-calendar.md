@@ -36,7 +36,7 @@ moment.locale('en', {
 Each of the `Locale#calendar` keys can also be a callback function with the scope of the current moment. It should return a formatting string.
 
 ```javascript
-function () {
+function callback () {
     return '[hoy a la' + ((this.hours() !== 1) ? 's' : '') + '] LT';
-},
+}
 ```

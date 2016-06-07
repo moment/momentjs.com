@@ -6,6 +6,7 @@ signature: |
 
 In order to reduce duplication, we can create links out of two zones that share data.
 
+<!-- skip-example -->
 ```js
 var unlinked = {
     zones : [

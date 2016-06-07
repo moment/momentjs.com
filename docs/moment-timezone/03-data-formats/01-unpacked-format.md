@@ -6,6 +6,7 @@ The unpacked format looks exactly like the [zone object](#/zone-object/).
 
 The data below is for Los Angeles between 2014 and 2018.
 
+<!-- skip-example -->
 ```js
 {
 	name    : 'America/Los_Angeles',

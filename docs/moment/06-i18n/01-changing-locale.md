@@ -124,5 +124,5 @@ moment.locale('en-NZ'); // 'en'
 Finally, Moment will search intelligently through an array of locales and their substrings.
 
 ```javascript
-moment.locale('en-NZ', 'en-AU'); // 'en-au', not 'en'
+moment.locale(['en-NZ', 'en-AU']); // 'en-au', not 'en'
 ```

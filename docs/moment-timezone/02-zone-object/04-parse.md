@@ -27,5 +27,5 @@ This is the code that handles the cases referenced in the
 ```js
 var zone = moment.tz.zone('America/New_York');
 zone.parse(Date.UTC(2012, 2, 11, 1, 59)); // 300
-zone.parse(Date.UTC(2012, 2, 11, 2, 00)); // 240
+zone.parse(Date.UTC(2012, 2, 11, 2, 0)); // 240
 ```

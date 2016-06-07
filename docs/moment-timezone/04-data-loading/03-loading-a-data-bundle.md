@@ -15,6 +15,7 @@ The versions are named after the year and an incrementing letter. `2014a 2014b 2
 
 In order to keep versions together, Moment Timezone has a bundled object format as well.
 
+<!-- skip-example -->
 ```js
 {
 	version : '2014e',
@@ -31,6 +32,7 @@ In order to keep versions together, Moment Timezone has a bundled object format 
 
 To load a bundle into Moment Timezone, use `moment.tz.load`.
 
+<!-- skip-example -->
 ```js
 moment.tz.load({
 	version : '2014e',

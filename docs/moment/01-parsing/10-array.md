@@ -8,8 +8,9 @@ signature: |
 
 You can create a moment with an array of numbers that mirror the parameters passed to [new Date()](https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date)
 
+`[year, month, day, hour, minute, second, millisecond]`
+
 ```javascript
-[year, month, day, hour, minute, second, millisecond]
 moment([2010, 1, 14, 15, 25, 50, 125]); // February 14th, 3:25:50.125 PM
 ```
 
