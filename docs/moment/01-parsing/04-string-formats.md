@@ -14,7 +14,7 @@ This is the same as [String + Format](#/parsing/string-format/), only it will tr
 moment("12-25-1995", ["MM-DD-YYYY", "YYYY-MM-DD"]);
 ```
 
-Starting in version `2.3.0`, Moment uses some simple heuristics to determine which format to use. In order:
+Starting in version **2.3.0**, Moment uses some simple heuristics to determine which format to use. In order:
 
  * Prefer formats resulting in [valid](#/parsing/is-valid/) dates over invalid ones.
  * Prefer formats that parse more of the string than less and use more of the format than less, i.e. prefer stricter parsing.
