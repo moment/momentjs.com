@@ -115,14 +115,14 @@ var duration = moment.duration({'days' : 1});
 moment([2012, 0, 31]).add(duration); // February 1
 ```
 
-Before version `2.8.0`, the `moment#add(String, Number)` syntax was also supported. It has been deprecated in favor of `moment#add(Number, String)`.
+Before version **2.8.0**, the `moment#add(String, Number)` syntax was also supported. It has been deprecated in favor of `moment#add(Number, String)`.
 
 ```javascript
 moment().add('seconds', 1); // Deprecated in 2.8.0
 moment().add(1, 'seconds');
 ```
 
-As of **2.12.0** when decimal values are passed for days and months, they are rounded to the nearest integer. 
+As of **2.12.0** when decimal values are passed for days and months, they are rounded to the nearest integer.
 Weeks, quarters, and years are converted to days or months, and then rounded to the nearest integer.
 
 ```javascript
