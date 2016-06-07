@@ -44,7 +44,7 @@ a.diff(b) // -1000
 b.diff(a) // 1000
 ```
 
-A easy way to think of this is by replacing `.diff(` with a minus operator.
+An easy way to think of this is by replacing `.diff(` with a minus operator.
 
 ```javascript
           // a < b
