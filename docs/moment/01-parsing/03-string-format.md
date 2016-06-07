@@ -40,10 +40,10 @@ The parsing tokens are similar to the formatting tokens used in `moment#format`.
 | `X`         | `1410715640.579` | Unix timestamp |
 | `x`         | `1410715640579`  | Unix ms timestamp |
 
-`YYYY` from version `2.10.5` supports 2 digit years, and converts them to a year
+`YYYY` from version **2.10.5** supports 2 digit years, and converts them to a year
 near 2000 (same as `YY`).
 
-`Y` was added in `2.11.1`. It will match any number, signed or unsigned. It is useful for years that are not 4 digits or are before the common era. It can be used for any year.
+`Y` was added in **2.11.1**. It will match any number, signed or unsigned. It is useful for years that are not 4 digits or are before the common era. It can be used for any year.
 
 #### Week year, week, and weekday tokens
 
@@ -86,11 +86,11 @@ Locale aware date and time formats are also available using `LT LTS L LL LLL
 LLLL`. They were added in version **2.2.1**, except `LTS` which was added
 **2.8.4**.
 
-`Z ZZ` were added in version `1.2.0`.
+`Z ZZ` were added in version **1.2.0**.
 
-`S SS SSS` were added in version `1.6.0`.
+`S SS SSS` were added in version **1.6.0**.
 
-`X` was added in version `2.0.0`.
+`X` was added in version **2.0.0**.
 
 Unless you specify a time zone offset, parsing a string will create a date in the current time zone.
 
@@ -108,7 +108,7 @@ moment("2010 2 29",         "YYYY MM DD").isValid();  // false (not a leap year)
 moment("2010 notamonth 29", "YYYY MMM DD").isValid(); // false (not a real month name)
 ```
 
-As of version `2.0.0`, a locale key can be passed as the third parameter to `moment()` and `moment.utc()`.
+As of version **2.0.0**, a locale key can be passed as the third parameter to `moment()` and `moment.utc()`.
 
 ```js
 moment('2012 juillet', 'YYYY MMM', 'fr');
@@ -129,7 +129,7 @@ Previous to **2.13.0** the parser exhibited the following behavior. This has bee
 moment('I am spartacus', 'h:hh A').isValid();     //true - the 'am' matches the 'A' flag.
 ```
 
-As of version `2.3.0`, you may specify a boolean for the last argument to make Moment use strict parsing. Strict parsing requires that the format and input match exactly, *including delimeters*.
+As of version **2.3.0**, you may specify a boolean for the last argument to make Moment use strict parsing. Strict parsing requires that the format and input match exactly, *including delimeters*.
 
 ```javascript
 moment('It is 2012-05-25', 'YYYY-MM-DD').isValid();       // true
@@ -152,7 +152,7 @@ By default, two digit years above 68 are assumed to be in the 1900's and years 6
 
 #### Parsing glued hour and minutes
 
-From version `2.10.7` parsing `hmm`, `Hmm`, `hmmss` and `Hmmss` is supported:
+From version **2.10.7** parsing `hmm`, `Hmm`, `hmmss` and `Hmmss` is supported:
 
 ```javascript
 moment("123", "hmm").format("HH:mm") === "01:23"
