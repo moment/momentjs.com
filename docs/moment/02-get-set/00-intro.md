@@ -21,6 +21,6 @@ moment.utc().seconds(30) === new Date().setUTCSeconds(30);
 moment.utc().seconds()   === new Date().getUTCSeconds();
 ```
 
-For convenience, both singular and plural method names exist as of version `2.0.0`.
+For convenience, both singular and plural method names exist as of version **2.0.0**.
 
 **Note**: All of these methods mutate the original moment when used as setters.
