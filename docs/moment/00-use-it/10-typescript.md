@@ -22,7 +22,7 @@ let now = moment().format('LLLL');
 
 **Locale Import**
 
-To use `moment.locale` you need first to import the language you are aiming for otherwise it'll keep in the current language.
+To use `moment.locale` you first need to import the language you are targeting.
 
 ```javascript
 import * as moment from 'moment';
