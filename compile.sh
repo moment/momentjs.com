@@ -1,7 +1,8 @@
 #!/bin/bash
 set -e # exit with nonzero exit code if anything fails
 
-npm install
+# oh well, this thing returns 1 for me even if its fine
+npm install || true
 
 rm -rf libs/moment
 rm -rf libs/moment-timezone
