@@ -2,7 +2,7 @@
 title: System.js
 ---
 
-To load moment, place it in the path specified by your System.config in the baseURL configuration. 
+To load moment, place it in the path specified by your System.config in the baseURL configuration.
 Then import it into your page.
 
 ```js
@@ -11,10 +11,10 @@ Then import it into your page.
   System.config({
     baseURL: '/app'
   });
-  
+
   System.import('moment.js');
  </script>
- ```
+```
 
 
 If you need moment to be loaded as global, you can do this with the meta configuration:
