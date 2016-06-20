@@ -11,6 +11,7 @@ npm install moment
 ```
 
 Import and use in your Typescript file
+<!-- skip-example -->
 ```javascript
 import * as moment from 'moment';
 
@@ -24,6 +25,7 @@ let now = moment().format('LLLL');
 
 To use `moment.locale` you first need to import the language you are targeting.
 
+<!-- skip-example -->
 ```javascript
 import * as moment from 'moment';
 import 'moment/locale/pt-br';
