@@ -133,13 +133,14 @@
                     searchUrl = "https://github.com/moment/moment/search",
                     titleText = "" + failures + " test" + (failures !== 1 ? "s" : "") + " failed. ",
                     bodyText = [
-                            "### Client info",
-                            '```',
-                            "Date String   : " + (new Date()).toString(),
-                            "Locale String : " + (new Date()).toLocaleString(),
-                            "Offset        : " + (new Date(1000)).getTimezoneOffset(),
-                            "User Agent    : " + navigator.userAgent,
-                            '```'
+                        "### Client info",
+                        '```',
+                        "Date String   : " + (new Date()).toString(),
+                        "Locale String : " + (new Date()).toLocaleString(),
+                        "Offset        : " + (new Date()).getTimezoneOffset(),
+                        "User Agent    : " + navigator.userAgent,
+                        "Moment Version: " + moment.version,
+                        '```'
                     ];
 
             for (i = 0; i < failedAssertions.length; ++i) {
