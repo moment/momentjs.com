@@ -69,5 +69,6 @@ moment().calendar(null, {
       return '[Happened Today]';
     }
     /* ... */
+  }
 });
 ```
