@@ -63,11 +63,12 @@ now:
 ```javascript
 moment().calendar(null, {
   sameDay: function (now) {
-    if (this.before(now)) {
+    if (this.isBefore(now)) {
       return '[Will Happen Today]';
     } else {
       return '[Happened Today]';
     }
     /* ... */
+  }
 });
 ```
