@@ -22,7 +22,7 @@ moment.relativeTimeThreshold('M', 12);
 
 var a = moment();
 a.subtract({hours: 23, minutes: 59, seconds: 59});
-assert.equal(a.toNow(), 'in 23 hours', 'Round down towards the nearest hour');
+a.toNow()  // == 'in 23 hours'  'Round down towards the nearest hour'
 
 // back to default
 moment.relativeTimeRounding(roundingDefault);
@@ -38,5 +38,5 @@ moment.relativeTimeRounding(retainValue);
 
 var a = moment();
 a.subtract({hours: 39});
-assert.equal(a.toNow(), 'in 1.625 days', 'Round down towards the nearest year');
+a.toNow() // == 'in 1.625 days', 'Round down towards the nearest year'
 ```
