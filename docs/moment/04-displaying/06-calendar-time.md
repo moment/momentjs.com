@@ -55,3 +55,20 @@ moment().calendar(null, {
 });
 ```
 `sameElse` is used as the format when the moment is more than a week away from the `referenceTime`
+
+**Note**: From version **2.14.0** the formats argument to calendar can be
+a callback that is executed within the moment context with a single argument
+now:
+
+```javascript
+moment().calendar(null, {
+  sameDay: function (now) {
+    if (this.isBefore(now)) {
+      return '[Will Happen Today]';
+    } else {
+      return '[Happened Today]';
+    }
+    /* ... */
+  }
+});
+```

@@ -9,6 +9,19 @@ signature: |
   moment.updateLocale('en', {
       monthsShort : Function
   });
+  moment.updateLocale('en', {
+      monthsShort : {
+          format: String[],
+          standalone : String[]
+      }
+  });
+  // From 2.11.0
+  moment.locale('en', {
+      monthsShort : {
+          format: String[],
+          standalone : String[]
+      }
+  });
   // From 2.8.1 to 2.11.2
   moment.locale('en', {
       monthsShort : String[]
@@ -48,6 +61,17 @@ moment.updateLocale('en', {
         } else {
             return subjective[momentToFormat.month()];
         }
+    }
+});
+```
+
+**Note**: From version **2.11.0**, like `Locale#months`, `Locale#monthsShort` can be an object with `standalone` and `format` cases.
+
+```javascript
+moment.updateLocale('en', {
+    monthsShort : {
+        format: 'янв_фев_мар_апр_мая_июня_июля_авг_сен_окт_ноя_дек'.split('_'),
+        standalone: 'янв_фев_март_апр_май_июнь_июль_авг_сен_окт_ноя_дек'.split('_')
     }
 });
 ```

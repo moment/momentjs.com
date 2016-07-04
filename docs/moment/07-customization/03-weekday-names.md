@@ -9,6 +9,21 @@ signature: |
   moment.updateLocale('en', {
       weekdays : Function
   });
+  moment.updateLocale('en', {
+      weekdays : {
+          standalone : String[],
+          format : String[],
+          isFormat : RegExp
+      }
+  });
+  // From version 2.11.0
+  moment.locale('en', {
+      weekdays : {
+          standalone : String[],
+          format : String[],
+          isFormat : Boolean
+      }
+  });
   // From version 2.8.1 to 2.11.2
   moment.locale('en', {
       weekdays : String[]
@@ -44,6 +59,18 @@ moment.updateLocale('en', {
 moment.updateLocale('en', {
     weekdays : function (momentToFormat, format) {
         return weekdays[momentToFormat.day()];
+    }
+});
+```
+
+**Note**: From version **2.11.0** format/standalone cases can be passed as well. `isFormat` will be used against the full format string to determine which form to use.
+
+```javascript
+moment.updateLocale('en', {
+    weekdays : {
+        standalone: 'Воскресенье_Понедельник_Вторник_Среда_Четверг_Пятница_Суббота'.split('_'),
+        format: 'Воскресенье_Понедельник_Вторник_Среду_Четверг_Пятницу_Субботу'.split('_'),
+        isFormat: /\[ ?[Вв] ?(?:прошлую|следующую|эту)? ?\] ?dddd/
     }
 });
 ```
