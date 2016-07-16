@@ -1,4 +1,5 @@
-script: bash ./deploy.sh
+script: ./compile.sh && npm run doctest
+after_success: "[[ $TRAVIS_BRANCH == 'master' && $TRAVIS_PULL_REQUEST == 'false' ]] && bash ./deploy.sh"
 env:
   global:
   - GH_REF: github.com/moment/momentjs.com.git
