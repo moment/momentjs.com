@@ -16,7 +16,7 @@ moment();  // current date and time
 ```
 
 Defaulting to today, when only hours, minutes, seconds and milliseconds are passed:
-```javasript
+```javascript
 moment(5, "HH");  // today, 5:00:00.000
 moment({hour: 5});  // today, 5:00:00.000
 moment({hour: 5, minute: 10});  // today, 5:10.00.000
