@@ -68,7 +68,6 @@
 
     function timedUpdate () {
         updateClock();
-        updateSnippets();
         setTimeout(timedUpdate, 1000);
     }
 
@@ -77,6 +76,7 @@
     });
 
     timedUpdate();
+    updateSnippets();
 
     $(document).on('click', '[data-locale]', function(){
         var dom = $(this);
