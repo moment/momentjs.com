@@ -15,7 +15,7 @@ a.utc();
 a.hours(); // 16 UTC
 ```
 
-Utc can also be used to convert out of a fixed offset mode:
+UTC can also be used to convert out of a fixed offset mode:
 
 ```javascript
 moment.parseZone('2016-05-03T22:15:01+02:00').utc().format(); //"2016-05-03T20:15:01Z"
