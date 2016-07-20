@@ -9,6 +9,7 @@ signature: |
   moment.utc(String, String);
   moment.utc(String, String[]);
   moment.utc(String, String, String);
+  moment.utc(String, String, String[]);
   moment.utc(Moment);
   moment.utc(Date);
 ---

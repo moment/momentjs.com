@@ -4,6 +4,7 @@ version: 1.7.0
 signature: |
   // From version 2.8.1 onward
   moment().locale(String);
+  moment().locale(String[]);
 
   // Deprecated version 2.8.1
   moment().lang(String);
