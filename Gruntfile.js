@@ -7,5 +7,5 @@ module.exports = function(grunt) {
 
 	grunt.config('clean.default', 'build/*');
 
-	grunt.registerTask('default', ['clean', 'img', 'html', 'js', 'css']);
+	grunt.registerTask('default', ['clean', 'update-locales', 'img', 'html', 'js', 'css']);
 };
