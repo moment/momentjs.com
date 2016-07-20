@@ -33,7 +33,7 @@ module.exports = function (grunt) {
 				}
 				grunt.file.write('data/locale.js',
 						'// this file is auto generated from tasks/update-locales.js every release\n' +
-						'module.export =' + JSON.stringify(Object.keys(locales).map(function (key) {
+						'module.exports =' + JSON.stringify(Object.keys(locales).map(function (key) {
 					return {
 						abbr: key,
 						name: locales[key]

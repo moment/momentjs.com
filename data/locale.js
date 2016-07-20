@@ -1,5 +1,5 @@
 // this file is auto generated from tasks/update-locales.js every release
-module.export =[
+module.exports =[
     {
         "abbr": "af",
         "name": "Afrikaans"
@@ -105,10 +105,6 @@ module.export =[
         "name": "Dutch"
     },
     {
-        "abbr": "en",
-        "name": "English"
-    },
-    {
         "abbr": "en-au",
         "name": "English (Australia)"
     },
@@ -127,6 +123,10 @@ module.export =[
     {
         "abbr": "en-gb",
         "name": "English (United Kingdom)"
+    },
+    {
+        "abbr": "en",
+        "name": "English (United States)"
     },
     {
         "abbr": "eo",
@@ -205,11 +205,11 @@ module.export =[
         "name": "Italian"
     },
     {
-        "abbr": "jv",
+        "abbr": "ja",
         "name": "Japanese"
     },
     {
-        "abbr": "ja",
+        "abbr": "jv",
         "name": "Japanese"
     },
     {
