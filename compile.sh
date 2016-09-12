@@ -10,5 +10,11 @@ rm -rf libs/moment-timezone
 git clone https://github.com/moment/moment.git libs/moment
 git clone https://github.com/moment/moment-timezone.git libs/moment-timezone
 
+moment_version=$(gawk ' /"moment": "/ { print substr($2, 2, length($2) - 3) } ' package.json)
+moment_timezone_version=$(gawk ' /"moment-timezone": "/ { print substr($2, 2, length($2) - 3) } ' package.json)
+
+pushd libs/moment ; git checkout $moment_version ; popd
+pushd libs/moment-timezone ; git checkout $moment_timezone_version ; popd
+
 ./node_modules/.bin/grunt
 cp CNAME build/CNAME

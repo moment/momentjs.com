@@ -13,6 +13,10 @@ module.exports =[
         "name": "Arabic"
     },
     {
+        "abbr": "ar-ly",
+        "name": "Arabic (Lybia)"
+    },
+    {
         "abbr": "ar-ma",
         "name": "Arabic (Morocco)"
     },
@@ -79,6 +83,10 @@ module.exports =[
     {
         "abbr": "zh-cn",
         "name": "Chinese (China)"
+    },
+    {
+        "abbr": "zh-hk",
+        "name": "Chinese (Hong Kong)"
     },
     {
         "abbr": "zh-tw",
@@ -265,6 +273,10 @@ module.exports =[
         "name": "Maldivian"
     },
     {
+        "abbr": "mi",
+        "name": "Maori"
+    },
+    {
         "abbr": "mr",
         "name": "Marathi"
     },
@@ -357,10 +369,6 @@ module.exports =[
         "name": "Swahili"
     },
     {
-        "abbr": "ss",
-        "name": "Swazi"
-    },
-    {
         "abbr": "sv",
         "name": "Swedish"
     },
@@ -407,5 +415,9 @@ module.exports =[
     {
         "abbr": "cy",
         "name": "Welsh"
+    },
+    {
+        "abbr": "ss",
+        "name": "siSwati"
     }
 ];

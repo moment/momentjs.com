@@ -14,7 +14,7 @@ require(path.join(__dirname, 'node_modules', 'moment-timezone', 'moment-timezone
 moment.suppressDeprecationWarnings = true;
 
 module.exports = {
-  ignore: ['docs/moment/10-plugins/**/*'],
+  ignore: ['docs/moment/10-plugins/**/*', 'libs/**/*'],
 
   require: {
     moment: moment,

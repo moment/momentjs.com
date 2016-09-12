@@ -24,8 +24,8 @@
     "gzip-size": "^0.2.0",
     "load-grunt-tasks": "^0.4.0",
     "markdown-doctest": "^0.7.0",
-    "moment": "^2.6.0",
-    "moment-timezone": "^0.5.3",
+    "moment": "2.14.1",
+    "moment-timezone": "0.5.5",
     "time-grunt": "^0.3.1"
   }
 }
