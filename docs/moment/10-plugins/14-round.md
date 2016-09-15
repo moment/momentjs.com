@@ -5,7 +5,7 @@ signature: |
 ---
 
 
-This is a plugin will round date/time to a given interval.
+This plugin will round date/time to a given interval.
 
 For example,
 
