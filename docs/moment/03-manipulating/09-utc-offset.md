@@ -4,6 +4,7 @@ version: 2.9.0+
 signature: |
   moment().utcOffset();
   moment().utcOffset(Number|String);
+  moment().utcOffset(Number|String, Boolean);
 ---
 
 Get the utc offset in minutes.
@@ -53,4 +54,20 @@ does not start with `+` or `-` will be interpreted as if it were `"+00:00"`.
 
 ```javascript
 moment().utcOffset("2013-03-07T07:00:00+08:00");
+```
+
+The `utcOffset` function has an optional second parameter which accepts a boolean value
+indicating whether to keep the existing time of day.
+
+- Passing `false` (the default) will keep the same instant in Universal Time, but the
+  local time will change.
+
+- Passing `true` will keep the same local time, but at the expense of choosing a different
+  point in Universal Time.
+
+One use of this feature is if you want to construct a moment with a specific time zone
+offset using only numeric input values:
+
+```javascript
+moment([2016, 0, 1, 0, 0, 0]).utcOffset(-5, true) // Equivalent to "2016-01-01T00:00:00-05:00" 
 ```
