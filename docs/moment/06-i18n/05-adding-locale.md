@@ -3,7 +3,7 @@ title: Adding your locale to Moment.js
 ---
 
 
-To add your locale to Moment.js, submit a pull request with both a locale file and a test file. You can find examples in `moment/locale/fr.js` and `moment/test/locale/fr.js`.
+To add your locale to Moment.js, submit a pull request with both a locale file and a test file. You can find examples in `moment/locale/fr.js` and `moment/src/test/locale/fr.js`.
 
 To run the tests in Node.js, do `npm install`, then `grunt`.
 
