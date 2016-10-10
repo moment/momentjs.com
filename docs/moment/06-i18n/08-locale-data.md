@@ -19,7 +19,7 @@ signature: |
   localeData.ordinal()
   localeData.preparse()
   localeData.postformat()
-  localeData.weeks()
+  localeData.week()
   localeData.invalidDate()
   localeData.firstDayOfWeek()
   localeData.firstDayOfYear()
