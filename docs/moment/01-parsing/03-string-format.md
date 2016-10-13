@@ -152,7 +152,7 @@ By default, two digit years above 68 are assumed to be in the 1900's and years 6
 
 #### Parsing glued hour and minutes
 
-From version **2.10.7** parsing `hmm`, `Hmm`, `hmmss` and `Hmmss` is supported:
+From version **2.11.0** parsing `hmm`, `Hmm`, `hmmss` and `Hmmss` is supported:
 
 ```javascript
 moment("123", "hmm").format("HH:mm") === "01:23"

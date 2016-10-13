@@ -102,7 +102,7 @@ moment.duration('P1Y2M3DT4H5M6S');
 moment.duration('P1M');
 ```
 
-As of **2.10.7**, duration format strings with a space between days and rest
+As of **2.11.0**, duration format strings with a space between days and rest
 is supported.
 
 ```javascript

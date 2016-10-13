@@ -14,7 +14,7 @@ moment.isMoment(new Date()) // false
 moment.isMoment(moment()) // true
 ```
 
-From version **2.10.7**, you can also test for a moment object by `instanceof`
+From version **2.11.0**, you can also test for a moment object by `instanceof`
 operator:
 
 ```javascript
