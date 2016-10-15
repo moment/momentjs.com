@@ -39,4 +39,11 @@ grunt transpile:fr,it
 <script src="min/moment-with-locales.custom.js"></script>
 ```
 
+If you are using JSPM as plugin manager, you should add the locale in your lib.
+
+```
+import * as moment from 'moment';
+import 'moment/locale/fr';
+```
+
 **Note:** Locale files are defined in [UMD](https://github.com/umdjs/umd) style, so they should work seamlessly in all environments.
