@@ -218,7 +218,7 @@ module.exports =[
     },
     {
         "abbr": "jv",
-        "name": "Japanese"
+        "name": "Javanese"
     },
     {
         "abbr": "kk",
