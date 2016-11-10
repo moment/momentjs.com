@@ -14,7 +14,7 @@ signature: |
 ---
 
 
-By default, Moment.js comes with English locale strings. If you need other locales, you can load them into Moment.js for later use.
+By default, Moment.js comes with English (United States) locale strings. If you need other locales, you can load them into Moment.js for later use.
 
 To load a locale, pass the key and the string values to `moment.locale`.
 
