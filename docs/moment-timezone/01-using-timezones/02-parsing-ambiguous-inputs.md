@@ -23,13 +23,13 @@ see what is actually happening when you include the offset.
 
 The result is that any time between `1:59:59` and `3:00:00` never actually happened.
 Moment Timezone accounts for this. If you try to parse a time that never existed,
-it will round down an hour.
+it will round up an hour.
 
 ```js
 moment.tz("2012-03-11 01:59:59", "America/New_York"); // 2012-03-11T01:59:59-05:00
-moment.tz("2012-03-11 02:00:00", "America/New_York"); // 2012-03-11T01:00:00-05:00
+moment.tz("2012-03-11 02:00:00", "America/New_York"); // 2012-03-11T03:00:00-05:00
 moment.tz("2012-03-11 02:59:59", "America/New_York"); // 2012-03-11T01:59:59-05:00
-moment.tz("2012-03-11 03:00:00", "America/New_York"); // 2012-03-11T03:00:00-04:00
+moment.tz("2012-03-11 03:00:00", "America/New_York"); // 2012-03-11T04:00:00-04:00
 ```
 
 In the fall, at the end of DST, clocks move backward an hour. Again, time is not
