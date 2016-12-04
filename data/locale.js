@@ -13,6 +13,10 @@ module.exports =[
         "name": "Arabic"
     },
     {
+        "abbr": "ar-dz",
+        "name": "Arabic (Algeria)"
+    },
+    {
         "abbr": "ar-ly",
         "name": "Arabic (Lybia)"
     },
@@ -111,6 +115,10 @@ module.exports =[
     {
         "abbr": "nl",
         "name": "Dutch"
+    },
+    {
+        "abbr": "nl-be",
+        "name": "Dutch (Belgium)"
     },
     {
         "abbr": "en-au",
@@ -389,6 +397,10 @@ module.exports =[
         "name": "Telugu"
     },
     {
+        "abbr": "tet",
+        "name": "Tetun Dili (East Timor)"
+    },
+    {
         "abbr": "th",
         "name": "Thai"
     },
@@ -415,6 +427,10 @@ module.exports =[
     {
         "abbr": "cy",
         "name": "Welsh"
+    },
+    {
+        "abbr": "yo",
+        "name": "Yoruba Nigeria"
     },
     {
         "abbr": "ss",
