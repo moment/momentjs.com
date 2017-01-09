@@ -3,11 +3,17 @@
 	<head>
 		<meta charset="utf-8" />
 
-		<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="/static/css/style.css" />
 		<link rel="shortcut icon" href="/static/img/{{repo}}-favicon.png" />
 
 		<title>{{#if isMoment}}Moment.js{{else}}Moment Timezone{{/if}} | {{title}}</title>
+		<script>
+			window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+			ga('create', 'UA-10641787-5', 'auto');
+			ga('send', 'pageview');
+		</script>
+		<script async src='https://www.google-analytics.com/analytics.js'></script>
 	</head>
 
 	<body class="is-{{repo}}">
@@ -49,15 +55,5 @@
 		{{#each scripts}}
 			<script src="/static/js/{{this}}.js"></script>
 		{{/each}}
-
-		<script>
-			window._gaq = [['_setAccount','UA-10641787-5'],['_trackPageview'],['_trackPageLoadTime']];
-			(function(d, c) {
-				var ga = d.createElement(c); ga.async = true;
-				ga.src = "http://www.google-analytics.com/ga.js";
-				var s = d.getElementsByTagName(c)[0];
-				s.parentNode.insertBefore(ga, s);
-			})(document, 'script');
-		</script>
 	</body>
 </html>
