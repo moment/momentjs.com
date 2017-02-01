@@ -65,8 +65,8 @@ For these, the lowercase tokens use the locale aware week start days, and the up
 
 | Input          | Example  | Description |
 | -------------- | -------- | ----------- |
-| `H HH`         | `0..23`  | 24 hour time |
-| `h hh`         | `1..12`  | 12 hour time used with `a A`. |
+| `H HH`         | `0..23`  | Hours (24 hour time) |
+| `h hh`         | `1..12`  | Hours (12 hour time used with `a A`.) |
 | `a A`          | `am pm`  | Post or ante meridiem (Note the one character `a p` are also considered valid) |
 | `m mm`         | `0..59`  | Minutes |
 | `s ss`         | `0..59`  | Seconds |
