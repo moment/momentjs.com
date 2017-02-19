@@ -23,4 +23,4 @@ moment.utc().seconds()   === new Date().getUTCSeconds();
 
 For convenience, both singular and plural method names exist as of version **2.0.0**.
 
-**Note**: All of these methods mutate the original moment when used as setters.
+**Note:** All of these methods mutate the original moment when used as setters.
