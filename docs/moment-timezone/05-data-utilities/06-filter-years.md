@@ -5,7 +5,7 @@ signature: |
 ---
 
 By default, Moment Timezone includes all the data from
-[the IANA Time Zone Database](http://www.iana.org/time-zones). This includes data
+[the IANA Time Zone Database](https://www.iana.org/time-zones). This includes data
 from 1900 to 2038. The data for all these years may not be necessary for your use case.
 
 `moment.tz.filterYears` can be used to filter out data for years outside a certain range.

@@ -29,7 +29,7 @@ There are minified versions of all locales together:
 <script src="min/locales.js"></script>
 ```
 
-To minimize http requests, use our Grunt task to compile [Moment](https://github.com/moment/moment/) with a custom list of locales:
+To minimize HTTP requests, use our Grunt task to compile [Moment](https://github.com/moment/moment) with a custom list of locales:
 
 ```bash
 grunt transpile:fr,it

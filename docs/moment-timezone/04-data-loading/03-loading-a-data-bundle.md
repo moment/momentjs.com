@@ -8,7 +8,7 @@ signature: |
   });
 ---
 
-The data for Moment Timezone comes from [the IANA Time Zone Database](http://www.iana.org/time-zones).
+The data for Moment Timezone comes from [the IANA Time Zone Database](https://www.iana.org/time-zones).
 New versions are released periodically as time zone laws change in various countries.
 
 The versions are named after the year and an incrementing letter. `2014a 2014b 2014c...`

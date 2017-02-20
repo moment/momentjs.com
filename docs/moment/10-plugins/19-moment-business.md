@@ -19,4 +19,4 @@ business.isWeekDay(someMoment);
 business.addWeekDays(someMoment, 5);
 ```
 
-The repository is located at [github.com/jmeas/moment-business](https://github.com/jmeas/moment-business)
+The repository is located at [github.com/jmeas/moment-business](https://github.com/jmeas/moment-business).

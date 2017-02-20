@@ -25,4 +25,4 @@ moment.fromIsocalendar([2011, 51, 5, 870]).format('LLLL');
 // "Friday, December 23 2011 2:30 PM"
 ```
 
-The repository is located at [github.com/fusionbox/moment-isocalendar](https://github.com/fusionbox/moment-isocalendar)
+The repository is located at [github.com/fusionbox/moment-isocalendar](https://github.com/fusionbox/moment-isocalendar).

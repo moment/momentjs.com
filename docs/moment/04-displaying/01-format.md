@@ -401,7 +401,7 @@ For a breakdown of a few different date formatting tokens across different local
 
 #### Formatting speed
 
-To compare Moment.js formatting speed against other libraries, check out [this comparison against other libraries](http://jsperf.com/date-formatting/49).
+To compare Moment.js formatting speed against other libraries, check out [this comparison against other libraries](https://jsperf.com/date-formatting/49).
 
 #### Other tokens
 

@@ -37,4 +37,4 @@ As of **2.0.0**, the ordinal function should return both the number and the ordi
 
 As of **2.1.0**, the token parameter was added. It is a string of the token that is being ordinalized, for example: `M` or `d`.
 
-For more information on ordinal numbers, see [wikipedia](http://en.wikipedia.org/wiki/Ordinal_number_%28linguistics%29)
+For more information on ordinal numbers, see [Wikipedia](https://en.wikipedia.org/wiki/Ordinal_number_%28linguistics%29).

@@ -47,7 +47,7 @@ near 2000 (same as `YY`).
 
 #### Week year, week, and weekday tokens
 
-For these, the lowercase tokens use the locale aware week start days, and the uppercase tokens use the [ISO week date](http://en.wikipedia.org/wiki/ISO_week_date) start days.
+For these, the lowercase tokens use the locale aware week start days, and the uppercase tokens use the [ISO week date](https://en.wikipedia.org/wiki/ISO_week_date) start days.
 
 | Input       | Example          | Description |
 | ----------- | ---------------- | ----------- |

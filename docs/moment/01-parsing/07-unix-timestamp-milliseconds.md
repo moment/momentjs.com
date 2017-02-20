@@ -12,4 +12,4 @@ Similar to `new Date(Number)`, you can create a moment by passing an integer val
 var day = moment(1318781876406);
 ```
 
-<a href="http://www.ecma-international.org/ecma-262/6.0/#sec-time-values-and-time-range" target="_blank" > Note: ECMAScript calls this a "Time Value" </a>
+<a href="https://www.ecma-international.org/ecma-262/6.0/#sec-time-values-and-time-range" target="_blank" > Note: ECMAScript calls this a "Time Value" </a>

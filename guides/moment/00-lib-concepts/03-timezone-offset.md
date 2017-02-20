@@ -15,4 +15,4 @@ For this reason, it is impossible to infer a time zone from just an offset value
 The Moment.js core library provides functionality related to adjusting times based on an offset value. 
 It does not provide support for adjusting dates based on time zone data - this is provided by the Moment TimeZone library.
 
-<a href="http://stackoverflow.com/tags/timezone/info" target="_blank" >For an in depth description of this issue, see the Stack Overflow tag.</a>
+<a href="https://stackoverflow.com/tags/timezone/info" target="_blank" >For an in depth description of this issue, see the Stack Overflow tag.</a>
