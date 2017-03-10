@@ -6,7 +6,7 @@ signature: |
   moment().zone(Number|String);
 ---
 
-**NOTE**: This function has been **deprecated** in **2.9.0**. Consider [`moment.fn.utcOffset`](/docs/#/manipulating/utc-offset/) instead.
+**Note:** This function has been **deprecated** in **2.9.0**. Consider [`moment.fn.utcOffset`](/docs/#/manipulating/utc-offset/) instead.
 
 Get the time zone offset in minutes.
 
