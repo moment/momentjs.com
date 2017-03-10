@@ -67,6 +67,7 @@ For these, the lowercase tokens use the locale aware week start days, and the up
 | -------------- | -------- | ----------- |
 | `H HH`         | `0..23`  | 24 hour time |
 | `h hh`         | `1..12`  | 12 hour time used with `a A`. |
+| `k kk`         | `1..24`  | 24 hour time from 1 to 24 |
 | `a A`          | `am pm`  | Post or ante meridiem (Note the one character `a p` are also considered valid) |
 | `m mm`         | `0..59`  | Minutes |
 | `s ss`         | `0..59`  | Seconds |
@@ -91,6 +92,8 @@ LLLL`. They were added in version **2.2.1**, except `LTS` which was added
 `S SS SSS` were added in version **1.6.0**.
 
 `X` was added in version **2.0.0**.
+
+`k kk` was added in version **2.18.0**
 
 Unless you specify a time zone offset, parsing a string will create a date in the current time zone.
 
