@@ -10,4 +10,4 @@ title: Browser
 </script>
 ```
 
-Moment.js is available on [cdnjs.com](https://cdnjs.com/libraries/moment.js). Remember though, cool kids concatenate their scripts to minimize HTTP requests.
+Moment.js is available on [cdnjs.com](https://cdnjs.com/libraries/moment.js).
