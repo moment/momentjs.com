@@ -65,3 +65,12 @@ moment(timestamp).tz("America/Los_Angeles").format(); // 2014-06-22T09:21:08-07:
 moment.tz(date, "America/Los_Angeles").format();      // 2014-06-22T09:21:08-07:00
 moment(date).tz("America/Los_Angeles").format();      // 2014-06-22T09:21:08-07:00
 ```
+
+Уou may specify a boolean right after format argument to use strict parsing. Strict parsing requires that the format and input match exactly, *including delimeters*.
+
+```javascript
+moment.tz('It is 2012-05-25', 'YYYY-MM-DD', "America/Toronto").isValid();       // true 
+moment.tz('It is 2012-05-25', 'YYYY-MM-DD', true, "America/Toronto").isValid(); // false
+moment.tz('2012-05-25', 'YYYY-MM-DD', true, "America/Toronto").isValid();       // true
+moment.tz('2012-05.25', 'YYYY-MM-DD', true, "America/Toronto").isValid();       // false
+```
