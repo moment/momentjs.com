@@ -5,7 +5,7 @@ signature: |
   moment(String);
 ---
 
-When creating a moment from a string, we first check if the string matches known [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) formats, then fall back to `new Date(string)` if a known format is not found.
+When creating a moment from a string, we first check if the string matches known [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) formats, then fall back to `new Date(string)` if a known format is not found.
 
 ```javascript
 var day = moment("1995-12-25");

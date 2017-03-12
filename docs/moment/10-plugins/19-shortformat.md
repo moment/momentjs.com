@@ -1,5 +1,5 @@
 ---
-title: Short Date Formatter 
+title: Short Date Formatter
 ---
 
 If you want to format times in a short way, you can use the [moment-shortformat](https://github.com/researchgate/moment-shortformat) plugin by [@researchgate](https://github.com/researchgate).
@@ -12,7 +12,7 @@ moment().subtract(5, 'hours').short();
 moment().add(5, 'hours').short();
 // in 5h
 ```
-You can also disable the use of the [relative time templates](http://momentjs.com/docs/#/customization/relative-time/)
+You can also disable the use of the [relative time templates](#/customization/relative-time/)
 
 ```javascript
 moment().subtract(1, 'hour').short(false);
