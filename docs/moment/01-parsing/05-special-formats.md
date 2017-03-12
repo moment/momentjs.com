@@ -6,7 +6,7 @@ signature: |
   moment(String, [..., moment.ISO_8601, ...], [String], [Boolean]);
 ---
 
-[ISO-8601](http://en.wikipedia.org/wiki/ISO_8601) is a standard for time and duration display. Moment already supports parsing iso-8601 strings, but this can be specified explicitly in the format/list of formats when constructing a moment.
+[ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) is a standard for time and duration display. Moment already supports parsing iso-8601 strings, but this can be specified explicitly in the format/list of formats when constructing a moment.
 
 To specify iso-8601 parsing use `moment.ISO_8601` constant. More formats will be added in the future.
 

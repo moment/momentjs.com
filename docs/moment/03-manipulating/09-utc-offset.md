@@ -9,7 +9,7 @@ signature: |
 
 Get the UTC offset in minutes.
 
-**NOTE**: Unlike [`moment.fn.zone`](/docs/#/manipulating/timezone-offset/) this
+**Note:** Unlike [`moment.fn.zone`](/docs/#/manipulating/timezone-offset/) this
 function returns the real offset from UTC, not the reverse offset (as returned
 by `Date.prototype.getTimezoneOffset`).
 
