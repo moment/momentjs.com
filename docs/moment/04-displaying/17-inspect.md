@@ -17,5 +17,5 @@ moment(new Date('nope')).inspect() // 'moment.invalid(/* Invalid Date */)'
 moment('blah', 'YYYY').inspect() // 'moment.invalid(/* blah */)'
 ```
 
-**NOTE:** This function is mostly intended for debugging, not all cases are
+**Note:** This function is mostly intended for debugging, not all cases are
 handled precisely.

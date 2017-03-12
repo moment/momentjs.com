@@ -59,4 +59,4 @@ signature: |
   moment.relativeTimeThreshold('M', 10);
 ```
 
-**NOTE**: Retrieving thresholds was added in **2.8.1**.
+**Note:** Retrieving thresholds was added in **2.8.1**.

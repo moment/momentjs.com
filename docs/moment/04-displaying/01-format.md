@@ -272,7 +272,7 @@ moment('gibberish').format('YYYY MM DD');         // "Invalid date"
       <td>000[0..] 001[0..] ... 998[0..] 999[0..]</td>
     </tr>
     <tr>
-      <td><b>Time zone</b></td>
+      <td><b>Time Zone</b></td>
       <td>z or zz</td>
       <td>
         EST CST ... MST PST
@@ -401,7 +401,7 @@ For a breakdown of a few different date formatting tokens across different local
 
 #### Formatting speed
 
-To compare Moment.js formatting speed against other libraries, check out [this comparison against other libraries](http://jsperf.com/date-formatting/49).
+To compare Moment.js formatting speed against other libraries, check out [this comparison against other libraries](https://jsperf.com/date-formatting/49).
 
 #### Other tokens
 

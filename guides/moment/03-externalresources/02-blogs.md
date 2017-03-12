@@ -11,5 +11,5 @@ title: Blogs
 <b><a href="http://www.creativedeletion.com/" target="_blank">Lau Taarnskov's blog</a></b>
 - Author - Elixir Calendar. Date and time programming concepts. Elixir date and time.
 
-<b><a href="https://codeblog.jonskeet.uk" target="_blank">Jon Skeet's blog</a></b>
+<b><a href="https://codeblog.jonskeet.uk/" target="_blank">Jon Skeet's blog</a></b>
 - Author - NodaTime. Stack Overflow #1 user. Date and time programming concepts.

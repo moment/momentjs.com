@@ -18,4 +18,4 @@ moment.ceil(21, 'hours'); // 2015-06-18 21:00:00
 moment.ceil(20, 'hours'); // 2015-06-19 00:00:00
 ```
 
-The repository is located at [github.com/WebDevTmas/moment-round](https://github.com/WebDevTmas/moment-round)
+The repository is located at [github.com/WebDevTmas/moment-round](https://github.com/WebDevTmas/moment-round).

@@ -19,4 +19,4 @@ var s = "2013-01-01T00:00:00-13:00";
 moment(s).utcOffset(s);
 ```
 
-**Note**: this method only works for a single string argument, not a string and format.
+**Note:** this method only works for a single string argument, not a string and format.

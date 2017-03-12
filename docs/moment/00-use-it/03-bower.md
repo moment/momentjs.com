@@ -2,7 +2,7 @@
 title: Bower
 ---
 
-[bower](http://bower.io/)
+[bower](https://bower.io/)
 
 ```
 bower install --save moment
