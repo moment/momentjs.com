@@ -39,6 +39,11 @@ The breakdown of which string is displayed for each length of time is outlined i
       <td>a few seconds ago</td>
     </tr>
     <tr>
+      <td>44 to 44 seconds</td>
+      <td>ss</td>
+      <td>44 seconds ago</td>
+    </tr>
+    <tr>
       <td>45 to 89 seconds</td>
       <td>m</td>
       <td>a minute ago</td>
@@ -91,5 +96,6 @@ The breakdown of which string is displayed for each length of time is outlined i
   </tbody>
 </table>
 
-From version **2.10.3**, if the target moment object is invalid the result is
-the localized Invalid date string.
+**Note:** From version **2.10.3**, if the target moment object is invalid the result is the localized Invalid date string.
+
+**Note:** The `ss` key was added in **2.18.0**.
