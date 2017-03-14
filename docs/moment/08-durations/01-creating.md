@@ -114,3 +114,16 @@ As of **2.13.0**, mixed negative and positive signs are supported when parsing d
 ```javascript
 moment.duration('PT-6H3M')
 ```
+
+As of **2.18.0**, invalid durations are supported, similarly to invalid
+moments. To create an invalid duration you can pass `NaN` for a value of
+a unit.
+
+In upcoming releases expect invalid durations to cover more cases (like
+null values for units).
+
+```javascript
+moment.duration(NaN);
+moment.duration(NaN, 'days');
+moment.duration.invalid();
+```

@@ -13,3 +13,5 @@ JSON.stringify({
     postDuration : moment.duration(5, 'm')
 }); // '{"postDuration":"PT5M"}'
 ```
+
+Invalid durations return `Invalid Date` as json representation.
