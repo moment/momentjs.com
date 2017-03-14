@@ -43,3 +43,12 @@ fr.localeData().months(moment([2012, 0])) // "January"
 If you need to access the locale data for a moment, this is the preferred way to do so.
 
 As of **2.3.0**, you can also specify an array of locale identifiers. It works the same was it does in the [global locale configuration](#/i18n/changing-locale/).
+
+As of **2.18.0** you can try to detect the browser locale with passing the
+locale string `default`.
+
+```javascript
+moment().locale('default');
+```
+
+If the browser locale can not be found the locale is unchanged.

@@ -128,3 +128,13 @@ Finally, Moment will search intelligently through an array of locales and their 
 ```javascript
 moment.locale(['en-NZ', 'en-AU']); // 'en-au', not 'en'
 ```
+
+From version **2.18.0** you can let moment auto-detect the browser locale for
+you.
+
+```javascript
+moment.locale('default');
+```
+
+It's not very smart, something simiar to `window.navigator.userLanguage ||
+window.navigator.language`. If both of these fail the locale is unchanged.
