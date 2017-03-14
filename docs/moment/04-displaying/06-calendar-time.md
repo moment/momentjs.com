@@ -5,6 +5,7 @@ signature: |
   moment().calendar();
   moment().calendar(referenceTime);
   moment().calendar(referenceTime, formats);  // from 2.10.5
+  moment().calendar(formats);  // from 2.25.0
 ---
 
 
@@ -62,6 +63,31 @@ now:
 
 ```javascript
 moment().calendar(null, {
+  sameDay: function (now) {
+    if (this.isBefore(now)) {
+      return '[Will Happen Today]';
+    } else {
+      return '[Happened Today]';
+    }
+    /* ... */
+  }
+});
+```
+
+**Note:** From version **2.25.0** you can only pass a formats argument, it
+could be an object of strings and functions:
+
+```javascript
+moment().calendar({
+    sameDay: '[Today]',
+    nextDay: '[Tomorrow]',
+    nextWeek: 'dddd',
+    lastDay: '[Yesterday]',
+    lastWeek: '[Last] dddd',
+    sameElse: 'DD/MM/YYYY'
+});
+
+moment().calendar({
   sameDay: function (now) {
     if (this.isBefore(now)) {
       return '[Will Happen Today]';
