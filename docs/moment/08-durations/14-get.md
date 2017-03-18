@@ -14,3 +14,5 @@ duration.get('minutes');
 duration.get('seconds');
 duration.get('milliseconds');
 ```
+
+Invalid durations return `NaN` for all units.
