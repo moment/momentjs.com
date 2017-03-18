@@ -17,6 +17,10 @@ module.exports =[
         "name": "Arabic (Algeria)"
     },
     {
+        "abbr": "ar-kw",
+        "name": "Arabic (Kuwait)"
+    },
+    {
         "abbr": "ar-ly",
         "name": "Arabic (Lybia)"
     },
@@ -193,6 +197,10 @@ module.exports =[
         "name": "German (Austria)"
     },
     {
+        "abbr": "de-ch",
+        "name": "German (Switzerland)"
+    },
+    {
         "abbr": "el",
         "name": "Greek"
     },
@@ -229,12 +237,20 @@ module.exports =[
         "name": "Javanese"
     },
     {
+        "abbr": "kn",
+        "name": "Kannada"
+    },
+    {
         "abbr": "kk",
         "name": "Kazakh"
     },
     {
         "abbr": "tlh",
         "name": "Klingon"
+    },
+    {
+        "abbr": "gom-latn",
+        "name": "Konkani Latin script"
     },
     {
         "abbr": "ko",
@@ -353,6 +369,10 @@ module.exports =[
         "name": "Serbian Cyrillic"
     },
     {
+        "abbr": "sd",
+        "name": "Sindhi"
+    },
+    {
         "abbr": "si",
         "name": "Sinhalese"
     },
@@ -417,8 +437,16 @@ module.exports =[
         "name": "Ukrainian"
     },
     {
+        "abbr": "ur",
+        "name": "Urdu"
+    },
+    {
         "abbr": "uz",
         "name": "Uzbek"
+    },
+    {
+        "abbr": "uz-latn",
+        "name": "Uzbek Latin"
     },
     {
         "abbr": "vi",
