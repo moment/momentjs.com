@@ -19,7 +19,8 @@ module.exports = {
   require: {
     moment: moment,
     'moment-timezone': momentTimezone,
-    'moment/locale/cs': require('moment/locale/cs')
+    'moment/locale/cs': require('moment/locale/cs'),
+    'moment/min/locales.min': require('moment/min/locales.min')
   },
 
   beforeEach: function () {
