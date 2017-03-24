@@ -19,5 +19,5 @@ var b = moment.duration(2, 'd');
 a.subtract(b).days(); // 1
 ```
 
-Note that adding an ivalid duration to any other duration results in an invalid
+Note that adding an invalid duration to any other duration results in an invalid
 duration.
