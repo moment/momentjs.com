@@ -10,8 +10,7 @@ signature: |
   moment.parseZone(String, String, String, Boolean)
 ---
 
-
-Moment normally interprets input times as local times (or UTC times if `moment.utc()` is used). However, often the input string itself contains time zone information. `#parseZone` parses the time and then sets the zone according to the input string.
+Moment's string parsing functions like `moment(string)` and `moment.utc(string)` accept offset information if provided, but convert the resulting Moment object to local or UTC time. In contrast, `moment.parseZone()` parses the string but keeps the resulting Moment object in a fixed-offset timezone with the provided offset in the string.
 
 ```javascript
 moment.parseZone("2013-01-01T00:00:00-13:00").utcOffset(); // -780 ("-13:00" in total minutes)
