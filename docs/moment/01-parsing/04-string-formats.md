@@ -2,7 +2,8 @@
 title: String + Formats
 version: 1.0.0
 signature: |
-  moment(String, String[], String, Boolean);
+  moment(String, String[], [String], [Boolean]);
+  moment(String, String[], [String[]], [Boolean]);
 ---
 
 

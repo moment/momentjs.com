@@ -4,8 +4,10 @@ version: 1.0.0
 signature: |
   moment(String, String);
   moment(String, String, String);
+  moment(String, String, String[]);
   moment(String, String, Boolean);
   moment(String, String, String, Boolean);
+  moment(String, String, String[], Boolean);
 ---
 
 
