@@ -14,7 +14,7 @@ moment().isoWeekday(1); // Monday
 moment().isoWeekday(7); // Sunday
 ```
 
-A day name is also supported. This is parsed in the moment's current locale.
+As of 2.14.0, a day name is also supported. This is parsed in the moment's current locale.
 
 ```javascript
 moment().isoWeekday("Sunday");
