@@ -15,7 +15,7 @@
 
     function updateClock(){
         var now = moment(),
-            second = now.seconds() * 6,
+            second = (now.second() + now.millisecond()/1000) * 6,
             minute = now.minutes() * 6 + second / 60,
             hour = ((now.hours() % 12) / 12) * 360 + 90 + minute / 12;
 
@@ -65,9 +65,14 @@
         this.el.html(output.join('\n'));
     };
 
+    function animateClock() {
+        window.requestAnimationFrame(function() {
+            updateClock();
+            setTimeout(animateClock, 100);
+        });
+    }
 
     function timedUpdate () {
-        updateClock();
         updateSnippets();
         setTimeout(timedUpdate, 1000);
     }
@@ -76,6 +81,7 @@
         snippets.push(new Snippet($(this)));
     });
 
+    animateClock();
     timedUpdate();
 
     $(document).on('click', '[data-locale]', function(){
