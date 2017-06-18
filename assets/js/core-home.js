@@ -3,13 +3,23 @@
     var currentLang = 'en',
         snippets = [];
 
-    function updateSnippets () {
+    function createSnippets () {
         var i;
 
         moment.locale(currentLang);
 
         for (i = 0; i < snippets.length; i++) {
             snippets[i].render();
+        }
+    }
+
+    function updateSnippets () {
+        var i;
+
+        moment.locale(currentLang);
+
+        for (i = 0; i < snippets.length; i++) {
+            snippets[i].update();
         }
     }
 
@@ -65,6 +75,23 @@
         this.el.html(output.join('\n'));
     };
 
+    Snippet.prototype.update = function () {
+        var i,
+            comments = [];
+
+        if (!this.comments) {
+            for (i = 0; i < this.el[0].childNodes.length; i++) {
+                if ('comment' === this.el[0].childNodes[i].className) {
+                    comments.push($(this.el[0].childNodes[i]));
+                }
+            }
+            this.comments = comments;
+        }
+
+        for (i = 0; i < this.comments.length; i++) {
+            this.comments[i].text(' // ' + this.evals[i]());
+        }
+    }
 
     function timedUpdate () {
         updateClock();
@@ -76,6 +103,7 @@
         snippets.push(new Snippet($(this)));
     });
 
+    createSnippets();
     timedUpdate();
 
     $(document).on('click', '[data-locale]', function(){
