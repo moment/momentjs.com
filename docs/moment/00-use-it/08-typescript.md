@@ -19,7 +19,7 @@ import * as moment from 'moment';
 let now = moment().format('LLLL');
 ```
 
-**Note:** If you have trouble importing moment, try add ```"allowSyntheticDefaultImports": true``` in ```compilerOptions``` in your ```tsconfig.json``` file and then using the syntax
+**Note:** If you have trouble importing moment, try adding ```"allowSyntheticDefaultImports": true``` in ```compilerOptions``` in your ```tsconfig.json``` file and then using the syntax
 <!-- skip-example -->
 ```javascript
 import moment from 'moment';
