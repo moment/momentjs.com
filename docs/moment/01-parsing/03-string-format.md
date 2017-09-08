@@ -151,7 +151,13 @@ Strict parsing is frequently the best parsing option. For more information about
 
 #### Parsing two digit years
 
-By default, two digit years above 68 are assumed to be in the 1900's and years 68 or below are assumed to be in the 2000's. This can be changed by replacing the `moment.parseTwoDigitYear` method.
+By default, two digit years above 68 are assumed to be in the 1900's and years 68 or below are assumed to be in the 2000's. This can be changed by replacing the `moment.parseTwoDigitYear` method. The only argument of this method is a string containing the two years input by the user, and should return the year as an integer.
+
+```javascript
+moment.parseTwoDigitYear = function(yearString) {
+    return parseInt(yearString) + 2000;
+}
+```
 
 #### Parsing glued hour and minutes
 
