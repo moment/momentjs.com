@@ -1,4 +1,4 @@
-## Installing - UNIX/Linux
+## Installing - Linux/UNIX
 
 ```
 ./compile.sh
