@@ -158,7 +158,7 @@
 
 				bodyText.push(expression);
 				bodyText.push('```');
-				console.log(assert, error);
+				console && console.log && console.log(assert, error);
 			}
 
 			bodyText = bodyText.join('\n');
