@@ -10,12 +10,12 @@ signature: |
 ---
 
 
-Loading locales in the browser just requires you to include the locale files.
+Loading locales in the browser just requires you to include the locale files. Be sure to specify the charset to prevent encoding issues.
 
 ```html
 <script src="moment.js"></script>
-<script src="locale/fr.js"></script>
-<script src="locale/pt.js"></script>
+<script src="locale/fr.js" charset="UTF-8"></script>
+<script src="locale/pt.js" charset="UTF-8"></script>
 <script>
   moment.locale('fr');  // Set the default/global locale
   // ...
@@ -26,7 +26,7 @@ There are minified versions of all locales together:
 
 ```html
 <script src="moment.js"></script>
-<script src="min/locales.js"></script>
+<script src="min/locales.js" charset="UTF-8"></script>
 ```
 
 To minimize HTTP requests, use our Grunt task to compile [Moment](https://github.com/moment/moment) with a custom list of locales:
@@ -36,7 +36,7 @@ grunt transpile:fr,it
 ```
 
 ```html
-<script src="min/moment-with-locales.custom.js"></script>
+<script src="min/moment-with-locales.custom.js" charset="UTF-8"></script>
 ```
 
 If you are using JSPM as plugin manager, you should add the locale in your lib.
