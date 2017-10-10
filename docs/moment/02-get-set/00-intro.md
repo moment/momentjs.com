@@ -24,3 +24,5 @@ moment.utc().seconds()   === new Date().getUTCSeconds();
 For convenience, both singular and plural method names exist as of version **2.0.0**.
 
 **Note:** All of these methods mutate the original moment when used as setters.
+**Note:** From **2.19.0** passing `NaN` to any setter is a no-op. Before
+**2.19.0** it was invalidating the moment in a wrong way.
