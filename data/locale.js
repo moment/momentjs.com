@@ -45,6 +45,10 @@ module.exports =[
         "name": "Azerbaijani"
     },
     {
+        "abbr": "bm",
+        "name": "Bambara"
+    },
+    {
         "abbr": "eu",
         "name": "Basque"
     },
@@ -203,6 +207,10 @@ module.exports =[
     {
         "abbr": "el",
         "name": "Greek"
+    },
+    {
+        "abbr": "gu",
+        "name": "Gujarati"
     },
     {
         "abbr": "he",
@@ -391,6 +399,10 @@ module.exports =[
     {
         "abbr": "es-do",
         "name": "Spanish (Dominican Republic)"
+    },
+    {
+        "abbr": "es-us",
+        "name": "Spanish(United State)"
     },
     {
         "abbr": "sw",
