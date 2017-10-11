@@ -10,14 +10,14 @@ Calling these methods without parameters acts as a getter, and calling them with
 These map to the corresponding function on the native `Date` object.
 
 ```javascript
-moment().seconds(30) === new Date().setSeconds(30);
+moment().seconds(30).valueOf() === new Date().setSeconds(30);
 moment().seconds()   === new Date().getSeconds();
 ```
 
 If you are in [UTC mode](#/manipulating/utc/), they will map to the UTC equivalent.
 
 ```javascript
-moment.utc().seconds(30) === new Date().setUTCSeconds(30);
+moment.utc().seconds(30).valueOf() === new Date().setUTCSeconds(30);
 moment.utc().seconds()   === new Date().getUTCSeconds();
 ```
 
