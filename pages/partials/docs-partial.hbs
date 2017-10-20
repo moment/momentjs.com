@@ -1,15 +1,31 @@
 <div class="docs">
 	<div class="docs-nav">
-		{{#each docs}}
-			<div class="docs-nav-section">
-				<a class="docs-nav-section-title" href='#/{{ slug }}/'>{{ title }}</a>
-				{{#each items }}
-					{{#isnt @index 0}}
-						<a class="docs-nav-item" href="#/{{ slug }}/">{{ title }}</a>
-					{{/isnt}}
-				{{/each}}
-			</div>
-		{{/each}}
+		<div class="docs-nav-search">
+			<label for="search" class="docs-nav-search-label">Search the docs</label>
+			<input type="text" class="docs-nav-search-input" id="search" placeholder="Search…">
+			<link rel="stylesheet" href="//cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+			<script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+			<script>
+			  var search = docsearch({
+			    apiKey: '{{ algoliaApiKey }}',
+			    indexName: '{{ algoliaIndexName }}',
+					inputSelector: '.docs-nav-search-input',
+	    		debug: false // set to `true` if you want to inspect the dropdown menu's CSS
+			  });
+			</script>
+		</div>
+		<div class="docs-nav-links">
+			{{#each docs}}
+				<div class="docs-nav-section">
+					<a class="docs-nav-section-title" href='#/{{ slug }}/'>{{ title }}</a>
+					{{#each items }}
+						{{#isnt @index 0}}
+							<a class="docs-nav-item" href="#/{{ slug }}/">{{ title }}</a>
+						{{/isnt}}
+					{{/each}}
+				</div>
+			{{/each}}
+		</div>
 	</div>
 
 	<div class="docs-content">
