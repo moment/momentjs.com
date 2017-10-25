@@ -22,7 +22,7 @@ scale (minutes, hours, days, etc).  The match is exclusive.
 moment('2010-10-20').isBetween('2010-10-19', '2010-10-25'); // true
 ```
 
-If you want to limit the granularity to a unit other than milliseconds, pass the units as the second parameter.
+If you want to limit the granularity to a unit other than milliseconds, pass the units as the third parameter.
 
 ```javascript
 moment('2010-10-20').isBetween('2010-01-01', '2012-01-01', 'year'); // false
