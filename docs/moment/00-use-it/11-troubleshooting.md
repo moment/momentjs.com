@@ -3,7 +3,7 @@ title: Troubleshooting
 ---
 
 
-If you are having any troubles, the first place to check is the [guides](guides).
+If you are having any troubles, the first place to check is the [guides](/guides).
 
 If you don't find what you are looking for there, try asking a question on [Stack Overflow](https://stackoverflow.com/questions/tagged/momentjs) with the `momentjs` tag.
 
