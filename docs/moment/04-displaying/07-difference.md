@@ -24,15 +24,15 @@ var b = moment([2007, 0, 28]);
 a.diff(b, 'days') // 1
 ```
 
-The supported measurements are years, months, weeks, days, hours, minutes, and seconds. For ease of development, the singular forms are supported as of **2.0.0**. Units of measurement other than milliseconds are available in version **1.1.1**.
+The supported measurements are `years`, `months`, `weeks`, `days`, `hours`, `minutes`, and `seconds`. For ease of development, the singular forms are supported as of **2.0.0**. Units of measurement other than milliseconds are available in version **1.1.1**.
 
-By default, `moment#diff` will return a number rounded towards zero (down for positive, up for negative). If you want a floating point number, pass `true` as the third argument. Before **2.0.0**, `moment#diff` returned a number rounded to nearest, not a rounded number rounded towards zero.
+By default, `moment#diff` will truncate the result to zero decimal places, returning an integer. If you want a floating point number, pass `true` as the third argument. Before **2.0.0**, `moment#diff` returned a number rounded to the nearest integer, not a truncated number.
 
 ```javascript
-var a = moment([2008, 6]);
+var a = moment([2008, 9]);
 var b = moment([2007, 0]);
 a.diff(b, 'years');       // 1
-a.diff(b, 'years', true); // 1.5
+a.diff(b, 'years', true); // 1.75
 ```
 
 If the moment is earlier than the moment you are passing to `moment.fn.diff`, the return value will be negative.
