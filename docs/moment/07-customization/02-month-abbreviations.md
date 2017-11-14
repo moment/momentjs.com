@@ -65,7 +65,7 @@ moment.updateLocale('en', {
 });
 ```
 
-**Note**: From version **2.11.0**, like `Locale#months`, `Locale#monthsShort` can be an object with `standalone` and `format` cases.
+**Note:** From version **2.11.0**, like `Locale#months`, `Locale#monthsShort` can be an object with `standalone` and `format` cases.
 
 ```javascript
 moment.updateLocale('en', {

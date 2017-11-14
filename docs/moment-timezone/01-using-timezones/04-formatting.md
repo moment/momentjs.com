@@ -72,3 +72,11 @@ moment.tz([2012, 5], 'America/New_York').format('zz');    // Eastern Daylight Ti
 moment.tz([2012, 0], 'America/Los_Angeles').format('zz'); // Pacific Standard Time
 moment.tz([2012, 5], 'America/Los_Angeles').format('zz'); // Pacific Daylight Time
 ```
+
+Please note that the `z` formatting token will not always show the abbreviated time zone name, instead, will show the time offsets for each region.
+
+```js
+moment.tz('America/Los_Angeles').format('z')  // "PDT"     (abbreviation)
+moment.tz('Asia/Magadan').format('z')         // "+11"     (3-char offset)
+moment.tz('Asia/Colombo').format('z')         // "+0530"   (5-char offset)
+```

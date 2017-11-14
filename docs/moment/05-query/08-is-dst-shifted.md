@@ -5,8 +5,8 @@ signature: |
   moment('2013-03-10 2:30', 'YYYY-MM-DD HH:mm').isDSTShifted()
 ---
 
-**Note**: As of version **2.14.0** this function is **deprecated**. It doesn't give
-the right answer after modifying the moment object. For more information refert
+**Note:** As of version **2.14.0** this function is **deprecated**. It doesn't give
+the right answer after modifying the moment object. For more information refer
 to [moment/3160](https://github.com/moment/moment/pull/3160)
 
 Another important piece of validation is to know if the date has been moved by a DST. For example, in most of the United States:

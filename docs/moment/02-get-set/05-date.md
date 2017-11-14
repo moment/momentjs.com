@@ -20,3 +20,5 @@ Accepts numbers from 1 to 31. If the range is exceeded, it will bubble up to the
 Bad: `moment().date(day).month(month).year(year)`
 
 Good: `moment().year(year).month(month).date(day)`
+
+**2.16.0** deprecated using ``moment().dates()``. Use ``moment().date()`` instead.

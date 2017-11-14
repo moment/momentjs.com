@@ -3,10 +3,10 @@ title: Changing locales locally
 version: 1.7.0
 signature: |
   // From version 2.8.1 onward
-  moment().locale(String);
+  moment().locale(String|Boolean);
 
   // Deprecated version 2.8.1
-  moment().lang(String);
+  moment().lang(String|Boolean);
 ---
 
 

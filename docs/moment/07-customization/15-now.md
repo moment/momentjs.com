@@ -5,8 +5,8 @@ signature: |
   moment.now = function () { return +new Date(); }
 ---
 
-If you want to change the time that moment sees, you can specify a method that
-returns number of milliseconds after unix epoc (1st Jan 1970).
+If you want to change the time that Moment sees, you can specify a method that
+returns the number of milliseconds since the Unix epoch (January 1, 1970).
 
 The default is:
 
@@ -16,6 +16,5 @@ moment.now = function () {
 }
 ```
 
-Its used for `moment()`, and current date used when tokens are omitted from
-format. In general any method that needs the current time uses that at the
-lowest level.
+This will be used when calling `moment()`, and the current date used when tokens are omitted from
+`format()`. In general, any method that needs the current time uses this under the hood.

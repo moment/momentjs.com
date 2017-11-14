@@ -8,6 +8,10 @@
 		margin: 0 0 10px;
 		text-align: center;
 	}
+
+	.is-moment-timezone & {
+		max-width: 1024px;
+	}
 }
 
 .builds-download {

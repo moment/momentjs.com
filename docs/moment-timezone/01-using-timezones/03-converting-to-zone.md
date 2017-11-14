@@ -22,3 +22,15 @@ m.startOf("day").format();      // 2013-11-18T00:00:00-05:00
 m.tz("Europe/Berlin").format(); // 2013-11-18T06:00:00+01:00
 m.startOf("day").format();      // 2013-11-18T00:00:00+01:00
 ```
+
+Without an argument, `moment#tz` returns:
+
+* the time zone name assigned to the moment instance or
+* `undefined` if a time zone has not been set.
+
+```javascript
+var m = moment.tz("2013-11-18 11:55", "America/Toronto");
+m.tz();  // America/Toronto
+var m = moment.tz("2013-11-18 11:55");
+m.tz() === undefined;  // true
+```

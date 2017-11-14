@@ -7,7 +7,9 @@ signature: |
 ---
 
 
-Gets or sets the [ISO day of the week](http://en.wikipedia.org/wiki/ISO_week_date) with `1` being Monday and `7` being Sunday.
+Gets or sets the [ISO day of the week](https://en.wikipedia.org/wiki/ISO_week_date) with `1` being Monday and `7` being Sunday.
+
+As with `moment#day`, if the range is exceeded, it will bubble up to other weeks.
 
 ```javascript
 moment().isoWeekday(1); // Monday

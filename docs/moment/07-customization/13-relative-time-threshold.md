@@ -6,7 +6,7 @@ signature: |
   moment.relativeTimeThreshold(unit, limit);  // setter
 ---
 
-`duration.humanize` has thresholds which define when a unit is considered a minute, an hour and so on. For example, by default more than 45 seconds is considered a minute, more than 22 hours is considered a day and so on. To change those cutoffs use `moment.relativeTimeThreshold(unit, limit)` where unit is one of `s`, `m`, `h`, `d`, `M`.
+`duration.humanize` has thresholds which define when a unit is considered a minute, an hour and so on. For example, by default more than 45 seconds is considered a minute, more than 22 hours is considered a day and so on. To change those cutoffs use `moment.relativeTimeThreshold(unit, limit)` where unit is one of `ss`, `s`, `m`, `h`, `d`, `M`.
 
 <table>
   <tbody>
@@ -16,35 +16,41 @@ signature: |
       <th>usage</th>
     </tr>
     <tr>
+      <td>ss</td>
+      <td>a few seconds</td>
+      <td>least number of seconds to be considered seconds. Must be set after setting the `s` unit or without setting the `s` unit.</td>
+    </tr>
+    <tr>
       <td>s</td>
       <td>seconds</td>
-      <td>least number of seconds to be considered a minute</td>
+      <td>least number of seconds to be considered a minute.</td>
     </tr>
     <tr>
       <td>m</td>
       <td>minutes</td>
-      <td>least number of minutes to be considered an hour</td>
+      <td>least number of minutes to be considered an hour.</td>
     </tr>
     <tr>
       <td>h</td>
       <td>hours</td>
-      <td>least number of hours to be considered a day</td>
+      <td>least number of hours to be considered a day.</td>
     </tr>
     <tr>
       <td>d</td>
       <td>days</td>
-      <td>least number of days to be considered a month</td>
+      <td>least number of days to be considered a month.</td>
     </tr>
     <tr>
       <td>M</td>
       <td>months</td>
-      <td>least number of months to be considered a year</td>
+      <td>least number of months to be considered a year.</td>
     </tr>
   </tbody>
 </table>
 
 ```javascript
   // Retrieve existing thresholds
+  moment.relativeTimeThreshold('ss'); // 44
   moment.relativeTimeThreshold('s');  // 45
   moment.relativeTimeThreshold('m');  // 45
   moment.relativeTimeThreshold('h');  // 22
@@ -52,6 +58,7 @@ signature: |
   moment.relativeTimeThreshold('M');  // 11
 
   // Set new thresholds
+  moment.relativeTimeThreshold('ss', 3);
   moment.relativeTimeThreshold('s', 40);
   moment.relativeTimeThreshold('m', 40);
   moment.relativeTimeThreshold('h', 20);
@@ -59,4 +66,6 @@ signature: |
   moment.relativeTimeThreshold('M', 10);
 ```
 
-**NOTE**: Retrieving thresholds was added in **2.8.1**.
+**Note:** Retrieving thresholds was added in **2.8.1**.
+
+**Note:** Retrieving and setting `ss` threshold was added in **2.18.0**.

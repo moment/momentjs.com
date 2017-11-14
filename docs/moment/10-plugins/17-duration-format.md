@@ -14,5 +14,4 @@ moment.duration(123, "minutes").format("h:mm");
 // "2:03"
 ```
 
-The repository is located at [github.com/jsmreese/moment-duration-format](https://github.com/jsmreese/moment-duration-format)
-
+The repository is located at [github.com/jsmreese/moment-duration-format](https://github.com/jsmreese/moment-duration-format).

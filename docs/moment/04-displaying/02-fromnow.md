@@ -34,32 +34,37 @@ The breakdown of which string is displayed for each length of time is outlined i
   </thead>
   <tbody>
     <tr>
-      <td>0 to 45 seconds</td>
+      <td>0 to 44 seconds</td>
       <td>s</td>
       <td>a few seconds ago</td>
     </tr>
     <tr>
-      <td>45 to 90 seconds</td>
+      <td>44 to 44 seconds</td>
+      <td>ss</td>
+      <td>44 seconds ago</td>
+    </tr>
+    <tr>
+      <td>45 to 89 seconds</td>
       <td>m</td>
       <td>a minute ago</td>
     </tr>
     <tr>
-      <td>90 seconds to 45 minutes</td>
+      <td>90 seconds to 44 minutes</td>
       <td>mm</td>
-      <td>2 minutes ago ... 45 minutes ago</td>
+      <td>2 minutes ago ... 44 minutes ago</td>
     </tr>
     <tr>
-      <td>45 to 90 minutes</td>
+      <td>45 to 89 minutes</td>
       <td>h</td>
       <td>an hour ago</td>
     </tr>
     <tr>
-      <td>90 minutes to 22 hours </td>
+      <td>90 minutes to 21 hours </td>
       <td>hh</td>
-      <td>2 hours ago ... 22 hours ago</td>
+      <td>2 hours ago ... 21 hours ago</td>
     </tr>
     <tr>
-      <td>22 to 36 hours</td>
+      <td>22 to 35 hours</td>
       <td>d</td>
       <td>a day ago</td>
     </tr>
@@ -69,27 +74,28 @@ The breakdown of which string is displayed for each length of time is outlined i
       <td>2 days ago ... 25 days ago</td>
     </tr>
     <tr>
-      <td>25 to 45 days</td>
+      <td>26 to 45 days</td>
       <td>M</td>
       <td>a month ago</td>
     </tr>
     <tr>
-      <td>45 to 345 days</td>
+      <td>45 to 319 days</td>
       <td>MM</td>
-      <td>2 months ago ... 11 months ago</td>
+      <td>2 months ago ... 10 months ago</td>
     </tr>
     <tr>
-      <td>345 to 545 days (1.5 years)</td>
+      <td>320 to 547 days (1.5 years)</td>
       <td>y</td>
       <td>a year ago</td>
     </tr>
     <tr>
-      <td>546 days+</td>
+      <td>548 days+</td>
       <td>yy</td>
       <td>2 years ago ... 20 years ago</td>
     </tr>
   </tbody>
 </table>
 
-From version **2.10.3**, if the target moment object is invalid the result is
-the localized Invalid date string.
+**Note:** From version **2.10.3**, if the target moment object is invalid the result is the localized Invalid date string.
+
+**Note:** The `ss` key was added in **2.18.0**.

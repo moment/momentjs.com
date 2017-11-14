@@ -2,7 +2,7 @@
 title: Require.js
 ---
 
-We strongly recomend reading
+We strongly recommend reading
 [this](https://github.com/requirejs/requirejs/issues/1554#issuecomment-226269905)
 if you plan to use moment with Require.js. Also upgrade to **2.14.0** or above
 for best experience.

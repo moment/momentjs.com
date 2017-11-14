@@ -9,6 +9,8 @@ signature: |
   moment.utc(String, String);
   moment.utc(String, String[]);
   moment.utc(String, String, String);
+  moment.utc(String, String, Boolean);
+  moment.utc(String, String, String, Boolean);
   moment.utc(Moment);
   moment.utc(Date);
 ---
@@ -30,7 +32,7 @@ moment.utc().format(); // 2013-02-04T18:35:24+00:00
 Additionally, while in UTC mode, all getters and setters will internally use the `Date#getUTC*` and `Date#setUTC*` methods instead of the `Date#get*` and `Date#set*` methods.
 
 ```javascript
-moment.utc().seconds(30) === new Date().setUTCSeconds(30);
+moment.utc().seconds(30).valueOf() === new Date().setUTCSeconds(30);
 moment.utc().seconds()   === new Date().getUTCSeconds();
 ```
 

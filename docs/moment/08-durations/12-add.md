@@ -19,3 +19,6 @@ var a = moment.duration(1, 'd');
 var b = moment.duration(2, 'd');
 a.add(b).days(); // 3
 ```
+
+Note that adding an invalid duration to any other duration results in an invalid
+duration.

@@ -13,7 +13,7 @@ Gets or sets the month.
 
 Accepts numbers from 0 to 11. If the range is exceeded, it will bubble up to the year.
 
-**Note**: Months are zero indexed, so January is month 0.
+**Note:** Months are zero indexed, so January is month 0.
 
 As of **2.1.0**, a month name is also supported. This is parsed in the moment's current locale.
 
@@ -32,3 +32,5 @@ moment([2012, 0, 31]).month(1).format("YYYY-MM-DD"); // 2012-03-02
 // after 2.1.0
 moment([2012, 0, 31]).month(1).format("YYYY-MM-DD"); // 2012-02-29
 ```
+
+**2.16.0** deprecated using ``moment().months()``. Use ``moment().month()`` instead.

@@ -13,5 +13,11 @@ time zone.
 moment.tz.setDefault("America/New_York");
 ```
 
+To reset the default time zone to local, use `moment.tz.setDefault` with no arguments.
+
+```js
+moment.tz.setDefault();
+```
+
 Subsequent calls to `moment.tz.setDefault` will not affect existing `moment`
 objects or their clones.

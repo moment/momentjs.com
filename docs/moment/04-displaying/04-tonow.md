@@ -41,32 +41,32 @@ The breakdown of which string is displayed for each length of time is outlined i
   </thead>
   <tbody>
     <tr>
-      <td>0 to 45 seconds</td>
+      <td>0 to 44 seconds</td>
       <td>s</td>
       <td>in seconds</td>
     </tr>
     <tr>
-      <td>45 to 90 seconds</td>
+      <td>45 to 89 seconds</td>
       <td>m</td>
       <td>in a minute</td>
     </tr>
     <tr>
-      <td>90 seconds to 45 minutes</td>
+      <td>90 seconds to 44 minutes</td>
       <td>mm</td>
-      <td>in 2 minutes ... in 45 minutes</td>
+      <td>in 2 minutes ... in 44 minutes</td>
     </tr>
     <tr>
-      <td>45 to 90 minutes</td>
+      <td>45 to 89 minutes</td>
       <td>h</td>
       <td>in an hour</td>
     </tr>
     <tr>
-      <td>90 minutes to 22 hours </td>
+      <td>90 minutes to 21 hours </td>
       <td>hh</td>
-      <td>in 2 hours ... in 22 hours</td>
+      <td>in 2 hours ... in 21 hours</td>
     </tr>
     <tr>
-      <td>22 to 36 hours</td>
+      <td>22 to 35 hours</td>
       <td>d</td>
       <td>in a day</td>
     </tr>
@@ -76,17 +76,17 @@ The breakdown of which string is displayed for each length of time is outlined i
       <td>in 2 days ... in 25 days</td>
     </tr>
     <tr>
-      <td>25 to 45 days</td>
+      <td>26 to 45 days</td>
       <td>M</td>
       <td>in a month</td>
     </tr>
     <tr>
-      <td>45 to 345 days</td>
+      <td>45 to 319 days</td>
       <td>MM</td>
-      <td>in 2 months ... in 11 months</td>
+      <td>in 2 months ... in 10 months</td>
     </tr>
     <tr>
-      <td>345 to 547 days (1.5 years)</td>
+      <td>320 to 547 days (1.5 years)</td>
       <td>y</td>
       <td>in a year</td>
     </tr>

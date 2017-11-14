@@ -63,7 +63,7 @@ moment.updateLocale('en', {
 });
 ```
 
-**Note**: From version **2.11.0** format/standalone cases can be passed as well. `isFormat` will be used against the full format string to determine which form to use.
+**Note:** From version **2.11.0** format/standalone cases can be passed as well. `isFormat` will be used against the full format string to determine which form to use.
 
 ```javascript
 moment.updateLocale('en', {

@@ -272,7 +272,7 @@ moment('gibberish').format('YYYY MM DD');         // "Invalid date"
       <td>000[0..] 001[0..] ... 998[0..] 999[0..]</td>
     </tr>
     <tr>
-      <td><b>Time zone</b></td>
+      <td><b>Time Zone</b></td>
       <td>z or zz</td>
       <td>
         EST CST ... MST PST
@@ -352,32 +352,32 @@ There are upper and lower case variations on the same formats. The lowercase ver
     <tr>
       <td><b>Month name, day of month, year</b></td>
       <td>LL</td>
-      <td>September 4 1986</td>
+      <td>September 4, 1986</td>
     </tr>
     <tr>
       <td></td>
       <td>ll</td>
-      <td>Sep 4 1986</td>
+      <td>Sep 4, 1986</td>
     </tr>
     <tr>
       <td><b>Month name, day of month, year, time</b></td>
       <td>LLL</td>
-      <td>September 4 1986 8:30 PM</td>
+      <td>September 4, 1986 8:30 PM</td>
     </tr>
     <tr>
       <td></td>
       <td>lll</td>
-      <td>Sep 4 1986 8:30 PM</td>
+      <td>Sep 4, 1986 8:30 PM</td>
     </tr>
     <tr>
       <td><b>Month name, day of month, day of week, year, time</b></td>
       <td>LLLL</td>
-      <td>Thursday, September 4 1986 8:30 PM</td>
+      <td>Thursday, September 4, 1986 8:30 PM</td>
     </tr>
     <tr>
       <td></td>
       <td>llll</td>
-      <td>Thu, Sep 4 1986 8:30 PM</td>
+      <td>Thu, Sep 4, 1986 8:30 PM</td>
     </tr>
   </tbody>
 </table>
@@ -401,7 +401,7 @@ For a breakdown of a few different date formatting tokens across different local
 
 #### Formatting speed
 
-To compare Moment.js formatting speed against other libraries, check out [this comparison against other libraries](http://jsperf.com/date-formatting/8).
+To compare Moment.js formatting speed against other libraries, check out [this comparison against other libraries](https://jsperf.com/date-formatting/49).
 
 #### Other tokens
 
@@ -411,4 +411,6 @@ If you are more comfortable working with strftime instead of LDML-like parsing t
 
 As of version **1.5.0**, calling `moment#format` without a format will default to `moment.defaultFormat`. Out of the box, `moment.defaultFormat` is the ISO8601 format `YYYY-MM-DDTHH:mm:ssZ`.
 
-As of version **2.13.0**, when in UTC mode, the default format will return ``Z`` as the offset, instead of ``+00:00``.
+As of version **2.13.0**, when in UTC mode, the default format is governed by `moment.defaultFormatUtc` which is in the format `YYYY-MM-DDTHH:mm:ss[Z]`. This returns ``Z`` as the offset, instead of ``+00:00``. 
+
+In certain instances, a local timezone (such as `Atlantic/Reykjavik`) may have a zero offset, and will be considered to be UTC. In such cases, it may be useful to set `moment.defaultFormat` and `moment.defaultFormatUtc` to use the same formatting.

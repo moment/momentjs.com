@@ -92,10 +92,10 @@ The format is an hour, minute, second string separated by colons like `23:59:59`
 moment.duration('23:59:59');
 moment.duration('23:59:59.999');
 moment.duration('7.23:59:59.999');
-moment.duration('23:59');          //added in 2.3.0
+moment.duration('23:59'); // added in 2.3.0
 ```
 
-As of **2.3.0**, moment also supports parsing [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601#Time_intervals) durations.
+As of **2.3.0**, moment also supports parsing [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Time_intervals) durations.
 
 ```javascript
 moment.duration('P1Y2M3DT4H5M6S');
@@ -113,4 +113,17 @@ As of **2.13.0**, mixed negative and positive signs are supported when parsing d
 
 ```javascript
 moment.duration('PT-6H3M')
+```
+
+As of **2.18.0**, invalid durations are supported, similarly to invalid
+moments. To create an invalid duration you can pass `NaN` for a value of
+a unit.
+
+In upcoming releases expect invalid durations to cover more cases (like
+null values for units).
+
+```javascript
+moment.duration(NaN);
+moment.duration(NaN, 'days');
+moment.duration.invalid();
 ```

@@ -71,8 +71,8 @@ module.exports = function(grunt) {
 			'build/downloads/moment-timezone.min.js'                     : 'libs/moment-timezone/builds/moment-timezone.min.js',
 			'build/downloads/moment-timezone-with-data.js'               : 'libs/moment-timezone/builds/moment-timezone-with-data.js',
 			'build/downloads/moment-timezone-with-data.min.js'           : 'libs/moment-timezone/builds/moment-timezone-with-data.min.js',
-			'build/downloads/moment-timezone-with-data-2010-2020.js'     : 'libs/moment-timezone/builds/moment-timezone-with-data-2010-2020.js',
-			'build/downloads/moment-timezone-with-data-2010-2020.min.js' : 'libs/moment-timezone/builds/moment-timezone-with-data-2010-2020.min.js',
+			'build/downloads/moment-timezone-with-data-2012-2022.js'     : 'libs/moment-timezone/builds/moment-timezone-with-data-2012-2022.js',
+			'build/downloads/moment-timezone-with-data-2012-2022.min.js' : 'libs/moment-timezone/builds/moment-timezone-with-data-2012-2022.min.js',
 
 			'build/data/moment-timezone-unpacked.json' : 'libs/moment-timezone/data/unpacked/latest.json',
 			'build/data/moment-timezone-meta.json'     : 'libs/moment-timezone/data/meta/latest.json'

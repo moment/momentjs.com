@@ -27,3 +27,9 @@ For suffixes before now, pass in a negative number.
 ```javascript
 moment.duration(-1, "minutes").humanize(true); // a minute ago
 ```
+
+Invalid durations are humanized to the localized version of `Invalid Date`.
+
+```javascript
+moment.duration.invalid().humanize(); // Invalid Date
+```

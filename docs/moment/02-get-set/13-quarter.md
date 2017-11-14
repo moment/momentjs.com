@@ -4,6 +4,8 @@ version: 2.6.0
 signature: |
   moment().quarter(); // Number
   moment().quarter(Number);
+  moment().quarters(); // Number
+  moment().quarters(Number);
 ---
 
 

@@ -13,6 +13,14 @@ module.exports =[
         "name": "Arabic"
     },
     {
+        "abbr": "ar-dz",
+        "name": "Arabic (Algeria)"
+    },
+    {
+        "abbr": "ar-kw",
+        "name": "Arabic (Kuwait)"
+    },
+    {
         "abbr": "ar-ly",
         "name": "Arabic (Lybia)"
     },
@@ -35,6 +43,10 @@ module.exports =[
     {
         "abbr": "az",
         "name": "Azerbaijani"
+    },
+    {
+        "abbr": "bm",
+        "name": "Bambara"
     },
     {
         "abbr": "eu",
@@ -113,6 +125,10 @@ module.exports =[
         "name": "Dutch"
     },
     {
+        "abbr": "nl-be",
+        "name": "Dutch (Belgium)"
+    },
+    {
         "abbr": "en-au",
         "name": "English (Australia)"
     },
@@ -185,8 +201,16 @@ module.exports =[
         "name": "German (Austria)"
     },
     {
+        "abbr": "de-ch",
+        "name": "German (Switzerland)"
+    },
+    {
         "abbr": "el",
         "name": "Greek"
+    },
+    {
+        "abbr": "gu",
+        "name": "Gujarati"
     },
     {
         "abbr": "he",
@@ -218,7 +242,11 @@ module.exports =[
     },
     {
         "abbr": "jv",
-        "name": "Japanese"
+        "name": "Javanese"
+    },
+    {
+        "abbr": "kn",
+        "name": "Kannada"
     },
     {
         "abbr": "kk",
@@ -227,6 +255,10 @@ module.exports =[
     {
         "abbr": "tlh",
         "name": "Klingon"
+    },
+    {
+        "abbr": "gom-latn",
+        "name": "Konkani Latin script"
     },
     {
         "abbr": "ko",
@@ -345,6 +377,10 @@ module.exports =[
         "name": "Serbian Cyrillic"
     },
     {
+        "abbr": "sd",
+        "name": "Sindhi"
+    },
+    {
         "abbr": "si",
         "name": "Sinhalese"
     },
@@ -363,6 +399,10 @@ module.exports =[
     {
         "abbr": "es-do",
         "name": "Spanish (Dominican Republic)"
+    },
+    {
+        "abbr": "es-us",
+        "name": "Spanish(United State)"
     },
     {
         "abbr": "sw",
@@ -389,6 +429,10 @@ module.exports =[
         "name": "Telugu"
     },
     {
+        "abbr": "tet",
+        "name": "Tetun Dili (East Timor)"
+    },
+    {
         "abbr": "th",
         "name": "Thai"
     },
@@ -405,8 +449,16 @@ module.exports =[
         "name": "Ukrainian"
     },
     {
+        "abbr": "ur",
+        "name": "Urdu"
+    },
+    {
         "abbr": "uz",
         "name": "Uzbek"
+    },
+    {
+        "abbr": "uz-latn",
+        "name": "Uzbek Latin"
     },
     {
         "abbr": "vi",
@@ -415,6 +467,10 @@ module.exports =[
     {
         "abbr": "cy",
         "name": "Welsh"
+    },
+    {
+        "abbr": "yo",
+        "name": "Yoruba Nigeria"
     },
     {
         "abbr": "ss",

@@ -19,3 +19,5 @@ moment.tz.add([
 	'America/New_York|EST EDT|50 40|0101|1Lz50 1zb0 Op0'
 ]);
 ```
+** Note: The above zone data is sample data and is not up to date.
+Reference the [moment-timezone source](https://github.com/moment/moment-timezone/blob/develop/data/packed/latest.json) for up to date data. **

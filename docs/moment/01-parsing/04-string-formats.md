@@ -25,7 +25,7 @@ moment("29-06-1995", ["MM-DD-YYYY", "DD-MM", "DD-MM-YYYY"]); // uses the last fo
 moment("05-06-1995", ["MM-DD-YYYY", "DD-MM-YYYY"]);          // uses the first format
 ```
 
-You may also specify a locale and strictness argument. They work the same was as they do in the single format case.
+You may also specify a locale and strictness argument. They work the same as the single format case.
 
 ```js
 moment("29-06-1995", ["MM-DD-YYYY", "DD-MM-YYYY"], 'fr');       // uses 'fr' locale

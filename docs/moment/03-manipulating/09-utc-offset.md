@@ -9,7 +9,7 @@ signature: |
 
 Get the UTC offset in minutes.
 
-**NOTE**: Unlike [`moment.fn.zone`](/docs/#/manipulating/timezone-offset/) this
+**Note:** Unlike [`moment.fn.zone`](/docs/#/manipulating/timezone-offset/) this
 function returns the real offset from UTC, not the reverse offset (as returned
 by `Date.prototype.getTimezoneOffset`).
 
@@ -46,11 +46,10 @@ moment().utcOffset(480);
 ```
 
 `moment#utcOffset` will search the string for the first match of `+00:00 +0000
--00:00 -0000`, so you can even pass an ISO8601 formatted string and the moment
+-00:00 -0000 Z`, so you can even pass an ISO8601 formatted string and the moment
 will be changed to that UTC offset.
 
-Note that the string is required to start with the `+` or `-` character.  Passing a string that
-does not start with `+` or `-` will be interpreted as if it were `"+00:00"`.
+Note that the string, if not 'Z', is required to start with the `+` or `-` character.
 
 ```javascript
 moment().utcOffset("2013-03-07T07:00:00+08:00");
@@ -69,5 +68,5 @@ One use of this feature is if you want to construct a moment with a specific tim
 offset using only numeric input values:
 
 ```javascript
-moment([2016, 0, 1, 0, 0, 0]).utcOffset(-5, true) // Equivalent to "2016-01-01T00:00:00-05:00" 
+moment([2016, 0, 1, 0, 0, 0]).utcOffset(-5, true) // Equivalent to "2016-01-01T00:00:00-05:00"
 ```
