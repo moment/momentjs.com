@@ -1,6 +1,6 @@
 ---
 title: Changing Time Source
-version: 2.10.7
+version: 2.11.0
 signature: |
   moment.now = function () { return +new Date(); }
 ---

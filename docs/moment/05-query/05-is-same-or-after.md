@@ -1,6 +1,6 @@
 ---
 title: Is Same or After
-version: 2.10.7
+version: 2.11.0
 signature: |
   moment().isSameOrAfter(Moment|String|Number|Date|Array);
   moment().isSameOrAfter(Moment|String|Number|Date|Array, String);
