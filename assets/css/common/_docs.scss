@@ -4,11 +4,11 @@
 	top: 150px;
 	bottom: 0;
 	left: 50%;
+	z-index: 10;
 	margin-left: 256px;
 	max-width: 256px;
 	width: 25%;
 	padding: 20px;
-	overflow-y: auto;
 	font-size: 14px;
 	line-height: 18px;
 
@@ -40,6 +40,29 @@
 			}
 		}
 	}
+}
+
+.docs-nav-search {
+	margin-bottom: 10px;
+
+	&-label { display: none; }
+	&-input {
+		@include font-body;
+		display: block;
+		width: 100%;
+		margin: 0;
+		padding: 0 .25em;
+		border: 1px solid #999;
+		border-radius: 3px;
+		font-size: 16px;
+		line-height: 1.6;
+		background: $white;
+		color: $black;
+	}
+}
+
+.docs-nav-links {
+	overflow-y: auto;
 }
 
 .docs-nav-item {
