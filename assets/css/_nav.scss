@@ -57,6 +57,10 @@
 	@include nav-project-color($color-moment-timezone);
 }
 
+.nav-project-luxon {
+	@include nav-project-color($color-luxon);
+}
+
 .nav-pages {
 	float: right;
 	padding: 15px 0;
