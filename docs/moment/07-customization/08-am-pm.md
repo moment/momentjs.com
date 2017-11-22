@@ -40,8 +40,6 @@ moment.updateLocale('zh-cn', {
 });
 ```
 
-Before version **1.6.0**, `Locale#meridiem` was a map of upper and lowercase versions of am/pm.
-
 ```javascript
 moment.updateLocale('en', {
     meridiem : {
@@ -52,5 +50,3 @@ moment.updateLocale('en', {
     }
 });
 ```
-
-This has been deprecated. The **1.6.0** callback function syntax is now used instead.

@@ -277,8 +277,6 @@ moment('gibberish').format('YYYY MM DD');         // "Invalid date"
       <td>
         EST CST ... MST PST
         <br/>
-        <b>Note:</b> as of <b>1.6.0</b>, the z/zz format tokens have been deprecated from plain moment objects. <a href="https://github.com/moment/moment/issues/162">Read more about it here.</a>
-        However, they *do* work if you are using a specific time zone with the moment-timezone addon.
       </td>
     </tr>
     <tr>
@@ -306,9 +304,6 @@ moment('gibberish').format('YYYY MM DD');         // "Invalid date"
   </tbody>
 </table>
 
-`Z ZZ` were added in **1.2.0**.
-
-`S SS SSS` were added in **1.6.0**.
 
 `X` was added in **2.0.0**.
 
@@ -382,7 +377,7 @@ There are upper and lower case variations on the same formats. The lowercase ver
   </tbody>
 </table>
 
-`L LL LLL LLLL LT` are available in version **1.3.0**. `l ll lll llll` are available in **2.0.0**.
+`l ll lll llll` are available in **2.0.0**.
 `LTS` was added in **2.8.4**.
 
 #### Escaping characters
@@ -408,8 +403,6 @@ To compare Moment.js formatting speed against other libraries, check out [this c
 If you are more comfortable working with strftime instead of LDML-like parsing tokens, you can use Ben Oakes' plugin. [benjaminoakes/moment-strftime](https://github.com/benjaminoakes/moment-strftime).
 
 #### Default format
-
-As of version **1.5.0**, calling `moment#format` without a format will default to `moment.defaultFormat`. Out of the box, `moment.defaultFormat` is the ISO8601 format `YYYY-MM-DDTHH:mm:ssZ`.
 
 As of version **2.13.0**, when in UTC mode, the default format is governed by `moment.defaultFormatUtc` which is in the format `YYYY-MM-DDTHH:mm:ss[Z]`. This returns ``Z`` as the offset, instead of ``+00:00``. 
 
