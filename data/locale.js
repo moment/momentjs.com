@@ -402,7 +402,7 @@ module.exports =[
     },
     {
         "abbr": "es-us",
-        "name": "Spanish(United State)"
+        "name": "Spanish (United States)"
     },
     {
         "abbr": "sw",
