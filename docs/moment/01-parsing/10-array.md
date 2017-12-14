@@ -11,7 +11,7 @@ You can create a moment with an array of numbers that mirror the parameters pass
 `[year, month, day, hour, minute, second, millisecond]`
 
 ```javascript
-moment([2010, 1, 14, 15, 25, 50, 125]); // February 14th, 3:25:50.125 PM
+moment([2010, 2, 14, 15, 25, 50, 125]); // February 14th, 3:25:50.125 PM
 ```
 
 Any value past the year is optional, and will default to the lowest possible number.
