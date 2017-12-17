@@ -305,6 +305,10 @@ module.exports =[
         "name": "Maldivian"
     },
     {
+        "abbr": "mt",
+        "name": "Maltese (Malta)"
+    },
+    {
         "abbr": "mi",
         "name": "Maori"
     },
