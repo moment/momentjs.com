@@ -95,6 +95,7 @@ The following return `false`:
 * `another.isBefore(invalid)`
 * `invalid.isBetween(another, another)`
 * `invalid.isSame(another)`
+* `invalid.isSame(invalid)`
 * `another.isSame(invalid)`
 * `invalid.isSameOrAfter(another)`
 * `another.isSameOrAfter(invalid)`
