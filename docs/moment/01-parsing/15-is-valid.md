@@ -90,10 +90,13 @@ The following produce a localized version of `'InvalidDate'`:
 
 The following return `false`:
 * `invalid.isAfter(another)`
+* `invalid.isAfter(invalid)`
 * `another.isAfter(invalid)`
 * `invalid.isBefore(another)`
+* `invalid.isBefore(invalid)`
 * `another.isBefore(invalid)`
 * `invalid.isBetween(another, another)`
+* `invalid.isBetween(invalid, invalid)`
 * `invalid.isSame(another)`
 * `invalid.isSame(invalid)`
 * `another.isSame(invalid)`
