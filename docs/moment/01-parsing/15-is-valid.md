@@ -98,8 +98,10 @@ The following return `false`:
 * `invalid.isSame(invalid)`
 * `another.isSame(invalid)`
 * `invalid.isSameOrAfter(another)`
+* `invalid.isSameOrAfter(invalid)`
 * `another.isSameOrAfter(invalid)`
 * `invalid.isSameOrBefore(another)`
+* `invalid.isSameOrBefore(invalid)`
 * `another.isSameOrBefore(invalid)`
 
 And these return `null` or `NaN` with some structure:
