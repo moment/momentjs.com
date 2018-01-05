@@ -17,3 +17,9 @@ This is implemented as `moment(timestamp * 1000)`, so partial seconds in the inp
 ```javascript
 var day = moment.unix(1318781876.721);
 ```
+
+**Note:** Despite Unix timestamps being UTC-based, this function creates a moment object in *local* mode.  If you need UTC, then subsequently call `.utc()`, as in:
+
+```javascript
+var day = moment.unix(1318781876).utc();
+```
