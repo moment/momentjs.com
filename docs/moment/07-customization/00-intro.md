@@ -37,7 +37,7 @@ As of **2.16.0** it is possible to define a locale with a parent that hasn't its
 moment.defineLocale('fakeLocale', {parentLocale:'xyz'})
 ```
 
-As of **next moment version** when attempting to create a moment with the newly defined locale, moment will attempt to lazy load the parent if it exists. Failing that it will default the parent to the global locale.
+As of **2.21.0** when attempting to create a moment with the newly defined locale, moment will attempt to lazy load the parent if it exists. Failing that it will default the parent to the global locale.
 
 As of **2.12.0** it is also possible to update a locale's properties.
 
