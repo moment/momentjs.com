@@ -1,16 +1,7 @@
 ---
 title: Parent Locale Undefined
 ---
-```
-specified parentLocale is not defined yet
-```
 
-This warning is displayed when a locale is defined with a specified parent locale that does not exist.
+Warning removed since **2.16.0**.
 
-Because 'xyz' is not a locale, the following code will result in this warning:
-
-```javascript
-moment.defineLocale('fakeLocale', {parentLocale:'xyz'})
-```
-
-To fix this, choose a parent locale that is already defined. If you are defining a locale that will be the parent of another locale, make sure that your locales are defined in order.
+A locale can be defined with a parent before the parent itself is defined or loaded. If the parent doesn't exist or can't be lazy loaded when the moment is created, the parent will default to the global locale.
