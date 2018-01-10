@@ -32,6 +32,6 @@ moment("4 05:06:07", "DD hh:mm:ss");  // this month, 4th day-of-month, 05:06:07.
 
 Defaulting to this year, if year is not specified:
 ```javascript
-moment(3, "MM");  // this year, 3rd month (April)
+moment(3, "MM");  // this year, 3rd month (March)
 moment("Apr 4 05:06:07", "MMM DD hh:mm:ss");  // this year, 4th April, 05:06:07.000
 ```
