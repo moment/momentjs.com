@@ -92,6 +92,8 @@ moment.locale('en');
 moment(1316116057189).fromNow(); // an hour ago
 ```
 
+As of **2.21.0**, Moment will `console.warn` if the locale is unavailable.
+
 As of **2.8.0**, changing the global locale doesn't affect existing instances.
 
 ```javascript
