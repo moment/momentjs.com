@@ -105,7 +105,7 @@ If you are adding hours, minutes, seconds, or milliseconds, the assumption is th
 ```javascript
 var m = moment(new Date(2011, 2, 12, 5, 0, 0)); // the day before DST in the US
 m.hours(); // 5
-m.add(24, 'hours').hours(); // 6
+m.add(24, 'hours').hours(); // 6 (but you may have to set the timezone first)
 ```
 
 Alternatively, you can use [durations](#/durations/) to add to moments.
