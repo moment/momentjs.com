@@ -25,6 +25,7 @@ An ISO 8601 string requires a date part.
 
 ```
 2013-02-08  # A calendar date part
+2013-02     # A month date part
 2013-W06-5  # A week date part
 2013-039    # An ordinal date part
 
@@ -32,6 +33,7 @@ An ISO 8601 string requires a date part.
 2013W065    # Basic (short) week, weekday
 2013W06     # Basic (short) week only
 2013050     # Basic (short) ordinal date
+2013        # Basic (short) year only
 ```
 
 A time part can also be included, separated from the date part by a space or an uppercase T.
