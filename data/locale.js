@@ -141,6 +141,10 @@ module.exports =[
         "name": "English (Ireland)"
     },
     {
+        "abbr": "en-il",
+        "name": "English (Israel)"
+    },
+    {
         "abbr": "en-nz",
         "name": "English (New Zealand)"
     },
@@ -289,11 +293,11 @@ module.exports =[
         "name": "Macedonian"
     },
     {
-        "abbr": "ms-my",
+        "abbr": "ms",
         "name": "Malay"
     },
     {
-        "abbr": "ms",
+        "abbr": "ms-my",
         "name": "Malay"
     },
     {
@@ -421,6 +425,10 @@ module.exports =[
         "name": "Tagalog (Philippines)"
     },
     {
+        "abbr": "tg",
+        "name": "Tajik"
+    },
+    {
         "abbr": "tzl",
         "name": "Talossan"
     },
@@ -455,6 +463,10 @@ module.exports =[
     {
         "abbr": "ur",
         "name": "Urdu"
+    },
+    {
+        "abbr": "ug-cn",
+        "name": "Uyghur (China)"
     },
     {
         "abbr": "uz",
