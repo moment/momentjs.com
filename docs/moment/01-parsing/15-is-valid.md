@@ -90,15 +90,21 @@ The following produce a localized version of `'InvalidDate'`:
 
 The following return `false`:
 * `invalid.isAfter(another)`
+* `invalid.isAfter(invalid)`
 * `another.isAfter(invalid)`
 * `invalid.isBefore(another)`
+* `invalid.isBefore(invalid)`
 * `another.isBefore(invalid)`
 * `invalid.isBetween(another, another)`
+* `invalid.isBetween(invalid, invalid)`
 * `invalid.isSame(another)`
+* `invalid.isSame(invalid)`
 * `another.isSame(invalid)`
 * `invalid.isSameOrAfter(another)`
+* `invalid.isSameOrAfter(invalid)`
 * `another.isSameOrAfter(invalid)`
 * `invalid.isSameOrBefore(another)`
+* `invalid.isSameOrBefore(invalid)`
 * `another.isSameOrBefore(invalid)`
 
 And these return `null` or `NaN` with some structure:
