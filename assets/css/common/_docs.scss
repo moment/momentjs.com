@@ -11,7 +11,6 @@
 	padding: 20px;
 	font-size: 14px;
 	line-height: 18px;
-	overflow: auto;
 
 	.active a {
 		.is-moment & {
@@ -64,6 +63,7 @@
 
 .docs-nav-links {
 	overflow-y: auto;
+	height: 95%;
 }
 
 .docs-nav-item {
