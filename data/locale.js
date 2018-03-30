@@ -321,6 +321,10 @@ module.exports =[
         "name": "Marathi"
     },
     {
+        "abbr": "mn",
+        "name": "Mongolian"
+    },
+    {
         "abbr": "me",
         "name": "Montenegrin"
     },
