@@ -15,7 +15,7 @@ Accepts numbers from 1 to 31. If the range is exceeded, it will bubble up to the
 
 **Note:** `Moment#date` is for the date of the month, and `Moment#day` is for the day of the week.
 
-**Note:** if you chain multiple actions to construct a date, you should start from a year, then a month, then a day etc. Otherwise you may get unexpected results, like when `day=31` and current month has only 30 days (the same applies to native JavaScript `Date` manipulation), the returned date will be 1st of the following month.
+**Note:** if you chain multiple actions to construct a date, you should start from a year, then a month, then a day etc. Otherwise you may get unexpected results, like when `day=31` and current month has only 30 days (the same applies to native JavaScript `Date` manipulation), the returned date will be the 30th of the current month (see [month](http://momentjs.com/docs/#/get-set/month/) for more details).
 
 Bad: `moment().date(day).month(month).year(year)`
 
