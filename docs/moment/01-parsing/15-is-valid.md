@@ -34,6 +34,7 @@ Additionally, if the Moment is parsed in strict mode, these flags must be empty 
  * `unusedInput`: array of input substrings not matched to the format string
 
 **Note:** Moment's concept of validity became more strict and consistent between **2.2** and **2.3**.
+**Note:** Validity is determined on moment creation. A modified moment (i.e. `moment().hour(NaN)`) will remain valid.
 
 Additionally, you can use `moment#invalidAt` to determine which date unit overflowed.
 
