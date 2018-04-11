@@ -6,7 +6,7 @@ signature: |
   moment().isSameOrBefore(Moment|String|Number|Date|Array, String);
 ---
 
-Check if a moment is before or the same as another moment.
+Check if a moment is before or the same as another moment. The first argument will be parsed as a moment, if not already so.
 
 ```javascript
 moment('2010-10-20').isSameOrBefore('2010-10-21');  // true

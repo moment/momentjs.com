@@ -16,7 +16,7 @@ signature: |
 
 
 Check if a moment is between two other moments, optionally looking at unit
-scale (minutes, hours, days, etc).  The match is exclusive.
+scale (minutes, hours, days, etc).  The match is exclusive. The first two arguments will be parsed as moments, if not already so.
 
 ```javascript
 moment('2010-10-20').isBetween('2010-10-19', '2010-10-25'); // true
