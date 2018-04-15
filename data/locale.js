@@ -293,11 +293,11 @@ module.exports =[
         "name": "Macedonian"
     },
     {
-        "abbr": "ms",
+        "abbr": "ms-my",
         "name": "Malay"
     },
     {
-        "abbr": "ms-my",
+        "abbr": "ms",
         "name": "Malay"
     },
     {
