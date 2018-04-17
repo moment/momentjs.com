@@ -6,7 +6,7 @@ signature: |
   moment.relativeTimeThreshold(unit, limit);  // setter
 ---
 
-`duration.humanize` has thresholds which define when a unit is considered a minute, an hour and so on. For example, by default more than 45 seconds is considered a minute, more than 22 hours is considered a day and so on. To change those cutoffs use `moment.relativeTimeThreshold(unit, limit)` where unit is one of `ss`, `s`, `m`, `h`, `d`, `M`.
+`duration.humanize` has thresholds which define when a unit is considered a minute, an hour and so on. For example, by default more than 45 seconds is considered a minute, more than 22 hours is considered a day and so on. To change those cutoffs use `moment.relativeTimeThreshold(unit, limit)` where unit is one of `ss`, `s`, `m`, `h`, `d`, `w`, `M`.
 
 <table>
   <tbody>
@@ -38,8 +38,13 @@ signature: |
     <tr>
       <td>d</td>
       <td>days</td>
-      <td>least number of days to be considered a month.</td>
+      <td>least number of days to be considered a week.</td>
     </tr>
+    <tr>
+          <td>w</td>
+          <td>weeks</td>
+          <td>least number of weeks to be considered a month.</td>
+        </tr>
     <tr>
       <td>M</td>
       <td>months</td>
@@ -54,7 +59,8 @@ signature: |
   moment.relativeTimeThreshold('s');  // 45
   moment.relativeTimeThreshold('m');  // 45
   moment.relativeTimeThreshold('h');  // 22
-  moment.relativeTimeThreshold('d');  // 26
+  moment.relativeTimeThreshold('d');  // 6
+  moment.relativeTimeThreshold('w');  // 4
   moment.relativeTimeThreshold('M');  // 11
 
   // Set new thresholds
@@ -62,7 +68,8 @@ signature: |
   moment.relativeTimeThreshold('s', 40);
   moment.relativeTimeThreshold('m', 40);
   moment.relativeTimeThreshold('h', 20);
-  moment.relativeTimeThreshold('d', 25);
+  moment.relativeTimeThreshold('d', 6);
+  moment.relativeTimeThreshold('w', 3);
   moment.relativeTimeThreshold('M', 10);
 ```
 

@@ -17,12 +17,13 @@ moment.relativeTimeRounding(Math.floor);
 moment.relativeTimeThreshold('s', 60);
 moment.relativeTimeThreshold('m', 60);
 moment.relativeTimeThreshold('h', 24);
-moment.relativeTimeThreshold('d', 31);
+moment.relativeTimeThreshold('d', 7);
+moment.relativeTimeThreshold('w', 4);
 moment.relativeTimeThreshold('M', 12);
 
 var a = moment();
 a.subtract({hours: 23, minutes: 59, seconds: 59});
-a.toNow()  // == 'in 23 hours'  'Round down towards the nearest hour'
+a.toNow();  // == 'in 23 hours'  'Round down towards the nearest hour'
 
 // back to default
 moment.relativeTimeRounding(roundingDefault);
@@ -38,5 +39,5 @@ moment.relativeTimeRounding(retainValue);
 
 var a = moment();
 a.subtract({hours: 39});
-a.toNow() // == 'in 1.625 days', 'Round down towards the nearest year'
+a.toNow(); // == 'in 1.625 days', 'Round down towards the nearest year'
 ```
