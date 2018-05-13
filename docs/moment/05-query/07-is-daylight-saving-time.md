@@ -9,6 +9,6 @@ signature: |
 `moment#isDST` checks if the current moment is in daylight saving time.
 
 ```javascript
-moment([2011, 2, 12]).isDST(); // false, March 12 2011 is not DST
-moment([2011, 2, 14]).isDST(); // true, March 14 2011 is DST
+moment([2011, 3, 26]).isDST(); // false, March 26 2011 is not DST
+moment([2011, 3, 28]).isDST(); // true, March 28 2011 is DST
 ```
