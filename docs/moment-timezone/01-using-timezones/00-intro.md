@@ -37,4 +37,4 @@ b.utc().format(); // 2013-11-18T11:55Z
 
 In this example, you first create `moment("2013-11-18 11:55")` object in your default timezone, and then change its timezone to specified. 
   
-Note that created moments have equal UTC time because these moments were created in the same time zone (default timezone which is set in your browser or on the server).
+Note that created moments have equal UTC time because these moments were created in a [default timezone](#/using-timezones/default-timezone/).

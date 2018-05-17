@@ -5,7 +5,9 @@ signature: |
 ---
 
 
-By default, `moment` objects are created in the local time zone.
+By default, `moment` objects are created in the local time zone.  
+Local time zone - it's a time zone which is set in a browser or on your `node.js` server.
+
 To change the default time zone, use `moment.tz.setDefault` with a valid
 time zone.
 
