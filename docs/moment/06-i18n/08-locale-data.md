@@ -63,10 +63,7 @@ localeData.postformat(str);  // called after formatting on every string
 localeData.week(aMoment);  // returns week-of-year of aMoment
 localeData.invalidDate();  // returns a translation of 'Invalid date'
 localeData.firstDayOfWeek();  // 0-6 (Sunday to Saturday)
-localeData.firstDayOfYear();  // 0-15 this and the first day of week are used
-                              // to determine which is the first week of the
-                              // year. dow == 1 and doy == 4 means week starts
-                              // Monday and first week that has Thursday is the
-                              // first week of the year (but doy is NOT simply
-                              // Thursday).
+localeData.firstDayOfYear();  // 0-15 Used to determine first week of the year.
 ```
+
+Details about `firstDayOfYear` can be found in the [customization](#/customization/dow-doy/) section.
