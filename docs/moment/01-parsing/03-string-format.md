@@ -19,7 +19,7 @@ The parser ignores non-alphanumeric characters, so both of the following will re
 
 ```javascript
 moment("12-25-1995", "MM-DD-YYYY");
-moment("12/25/1995", "MM-DD-YYYY");
+moment("12/25/1995", "MM/DD/YYYY");
 ```
 
 The parsing tokens are similar to the formatting tokens used in `moment#format`.
