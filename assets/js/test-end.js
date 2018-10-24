@@ -128,10 +128,13 @@
                     assert, i,
                     reportHTML = '',
                     header,
+                    failingModules = '',
                     expression,
                     submitUrl = "https://github.com/moment/moment/issues/new",
                     searchUrl = "https://github.com/moment/moment/search",
                     titleText = "" + failures + " test" + (failures !== 1 ? "s" : "") + " failed. ",
+                    shortenedTitle = "" + failures + " test" + (failures !== 1 ? "s" : "") + " failed in modules: ",
+                    shortenedBody = [],
                     bodyText = [
                         "### Client info",
                         '```',
@@ -142,13 +145,22 @@
                         "Moment Version: " + moment.version,
                         '```'
                     ];
+            shortenedBody.concat(bodyText)
+            shortenedBody.push('Failing tests: ')
 
             for (i = 0; i < failedAssertions.length; ++i) {
                     assert = failedAssertions[i];
 
                     header = assert.module + ':' + assert.name + ' (' + assert.uid + ') ';
+                    let failingModule = assert.module + ':' + assert.name
                     titleText += header;
+                    shortenedBody.push('### ' + assert.uid );
 
+                    if(failingModules.indexOf(failingModule) < 0) {
+                        failingModules += failingModules.length > 0 ? ' || ' : ''
+                        failingModules += failingModule
+                        shortenedTitle += failingModule + ', '
+                    }
                     bodyText.push('');
                     bodyText.push('====');
                     bodyText.push('');
@@ -170,6 +182,11 @@
                     bodyText.push('```');
             }
 
+            shortenedTitle = shortenedTitle.substr(0, titleText.length -2)
+            if(titleText.length > 256 ){
+                titleText = shortenedTitle
+                bodyText = shortenedBody
+            }
             bodyText = bodyText.join('\n');
 
             submitUrl += '?title=' + encodeURIComponent(titleText);
