@@ -29,3 +29,10 @@ Like `moment#isAfter` and `moment#isSame`, any of the units of time that are sup
 ```
 year month week day hour minute second
 ```
+
+*NOTE*: `moment().isSameOrBefore()` has undefined behavior and should not be used! If
+the code runs fast the initial created moment would be the same as the one
+created in isSameOrBefore to perform the check, so the result would be `true`. But
+if the code runs slower it's possible that the moment created in isSameOrBefore is
+measurably after the one created in `moment()`, so the call would return
+`false`.
