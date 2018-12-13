@@ -269,6 +269,10 @@ module.exports =[
         "name": "Korean"
     },
     {
+        "abbr": "ku",
+        "name": "Kurdish"
+    },
+    {
         "abbr": "ky",
         "name": "Kyrgyz"
     },
