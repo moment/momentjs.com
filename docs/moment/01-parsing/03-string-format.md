@@ -61,6 +61,22 @@ For these, the lowercase tokens use the locale aware week start days, and the up
 | `W WW`      | `1..53`          | ISO week of year |
 | `E`         | `1..7`           | ISO day of week |
 
+
+#### Locale aware formats
+
+Locale aware date and time formats are also available using `LT LTS L LL LLL
+LLLL`. They were added in version **2.2.1**, except `LTS` which was added
+**2.8.4**.
+
+| Input          | Example                               | Description |
+| -------------- | ------------------------------------- | ----------- |
+| `L`            | `04/09/1986`                          | Date (in local format) |
+| `LL`           | `September 4 1986`                    | Month name, day of month, year
+| `LLL`          | `September 4 1986 8:30 PM`            | Month name, day of month, year, time|
+| `LLLL`         | `Thursday, September 4 1986 8:30 PM`  | Day of week, month name, day of month, year, time	 |
+| `LT`           | `08:30 PM`                            | Time (without seconds) |
+| `LTS`          | `08:30:00 PM`                         | Time (with seconds) |
+
 #### Hour, minute, second, millisecond, and offset tokens
 
 | Input          | Example  | Description |
@@ -83,9 +99,6 @@ Note that the number of `S` characters provided is only relevant when parsing in
 In standard mode, `S`, `SS`, `SSS`, `SSSS` are all equivalent, and interpreted as fractions of a second.
 For example, `.12` is always 120 milliseconds, passing `SS` will not cause it to be interpreted as 12 milliseconds.
 
-Locale aware date and time formats are also available using `LT LTS L LL LLL
-LLLL`. They were added in version **2.2.1**, except `LTS` which was added
-**2.8.4**.
 
 `Z ZZ` were added in version **1.2.0**.
 
