@@ -86,7 +86,7 @@ The following produce a localized version of `'InvalidDate'`:
 * `invalid.to(another)`
 * `another.to(invalid)`
 * `invalid.toNow(suffix)`
-* `invalid.toISOString()`
+* `invalid.toISOString()` (Before **2.18.0**)
 * `invalid.toString()`
 
 The following return `false`:
@@ -116,3 +116,4 @@ And these return `null` or `NaN` with some structure:
 * `invalid.toJSON()` returns null
 * `invalid.unix()` returns null
 * `invalid.valueOf()` returns null
+* `invalid.toISOString()` returns null (As of **2.18.0**)
