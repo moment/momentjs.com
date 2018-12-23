@@ -34,3 +34,11 @@ Like `moment#isAfter` and `moment#isBefore`, any of the units of time that are s
 ```
 year month week isoWeek day hour minute second
 ```
+
+If the two moments have different timezones, the timezone of the first moment will be used for the comparison.
+
+```javascript
+// Note: Australia/Sydney is UTC+11:00 on these dates
+moment.tz("2018-11-09T10:00:00", "Australia/Sydney").isSame(moment.tz("2018-11-08T12:00:00", "UTC"), "day"); // false
+moment.tz("2018-11-08T12:00:00", "UTC").isSame(moment.tz("2018-11-09T10:00:00", "Australia/Sydney"), "day"); // true
+```
