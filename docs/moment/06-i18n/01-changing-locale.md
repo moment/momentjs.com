@@ -78,10 +78,12 @@ moment.locale('fr', {
     },
     week : {
         dow : 1, // Monday is the first day of the week.
-        doy : 4  // The week that contains Jan 4th is the first week of the year.
+        doy : 4  // Used to determine first week of the year.
     }
 });
 ```
+
+Details about `week.dow` and `week.doy` can be found in the [customization](#/customization/dow-doy/) section.
 
 Once you load a locale, it becomes the active locale. To change active locales, simply call `moment.locale` with the key of a loaded locale.
 
