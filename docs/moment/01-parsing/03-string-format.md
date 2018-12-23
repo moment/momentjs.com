@@ -62,7 +62,7 @@ For these, the lowercase tokens use the locale aware week start days, and the up
 | `E`         | `1..7`           | ISO day of week |
 
 
-#### Local aware formats
+#### Locale aware formats
 
 Locale aware date and time formats are also available using `LT LTS L LL LLL
 LLLL`. They were added in version **2.2.1**, except `LTS` which was added
