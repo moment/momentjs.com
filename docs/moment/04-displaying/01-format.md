@@ -414,3 +414,13 @@ As of version **1.5.0**, calling `moment#format` without a format will default t
 As of version **2.13.0**, when in UTC mode, the default format is governed by `moment.defaultFormatUtc` which is in the format `YYYY-MM-DDTHH:mm:ss[Z]`. This returns ``Z`` as the offset, instead of ``+00:00``. 
 
 In certain instances, a local timezone (such as `Atlantic/Reykjavik`) may have a zero offset, and will be considered to be UTC. In such cases, it may be useful to set `moment.defaultFormat` and `moment.defaultFormatUtc` to use the same formatting.
+
+Changing the value of `moment.defaultFormat` will only affect formatting, and will not affect parsing. for example:
+
+```javascript
+moment.defaultFormat = "DD.MM.YYYY HH:mm";
+// parse with .toDate()
+moment('20.07.2018 09:19').toDate() // Invalid date
+// format the date string with the new defaultFormat then parse
+moment('20.07.2018 09:19', moment.defaultFormat).toDate() // Fri Jul 20 2018 09:19:00 GMT+0300
+```
