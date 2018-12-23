@@ -12,8 +12,6 @@ signature: |
 
 A global locale configuration can be problematic when passing around moments that may need to be formatted into different locale.
 
-In **1.7.0** we added instance specific locale configurations.
-
 ```javascript
 moment.locale('en'); // default the locale to English
 var localLocale = moment();

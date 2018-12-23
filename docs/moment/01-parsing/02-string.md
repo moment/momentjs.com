@@ -69,7 +69,7 @@ If a time part is included, an offset from UTC can also be included as `+-HH:mm`
 2013-02-08 09:30:26.123+07     # +-HH
 ```
 
-**Note:** Automatic cross browser ISO-8601 support was added in version **1.5.0**. Support for the week and ordinal formats was added in version **2.3.0**.
+**Note:** Support for the week and ordinal formats was added in version **2.3.0**.
 
 If a string does not match any of the above formats and is not able to be parsed with `Date.parse`, `moment#isValid` will return false.
 

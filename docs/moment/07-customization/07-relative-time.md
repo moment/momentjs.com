@@ -59,4 +59,4 @@ The `number` argument refers to the number of units for that key. For `m`, the n
 
 The `withoutSuffix` argument will be true if the token will be displayed without a suffix, and false if it will be displayed with a suffix. (The reason for the inverted logic is because the default behavior is to display with the suffix.)
 
-The `isFuture` argument will be true if it is going to use the future suffix/prefix and false if it is going to use the past prefix/suffix. The `isFuture` argument was added in version **1.6.0**.
+The `isFuture` argument will be true if it is going to use the future suffix/prefix and false if it is going to use the past prefix/suffix.
