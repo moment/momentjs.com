@@ -94,7 +94,7 @@ module.exports =[
     },
     {
         "abbr": "zh-cn",
-        "name": "Chinese (China)"
+        "name": "Chinese (Mainland)"
     },
     {
         "abbr": "zh-hk",
