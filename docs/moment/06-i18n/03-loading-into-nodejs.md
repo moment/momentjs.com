@@ -23,9 +23,9 @@ moment(1316116057189).fromNow(); // il y a 6 ans
 To save the step of loading individual locales (i.e. just load them all), import the `moment/min/moment-with-locales` module instead.
 
 ```javascript
-import Moment from 'moment/min/moment-with-locales';
+import moment from 'moment/min/moment-with-locales';
 
-Moment.local('de');
+moment.locale('de');
 moment(1316116057189).fromNow(); // vor 6 Jahren
 ```
 
