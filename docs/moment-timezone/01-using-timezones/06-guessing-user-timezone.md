@@ -1,6 +1,7 @@
 ---
 title: Guessing user zone
 signature: |
+  moment.tz.guess();
   moment.tz.guess(Boolean);
 ---
 
@@ -15,7 +16,7 @@ You can call `moment.tz.guess()` with an optional boolean argument "ignoreCache"
 
 ```js
 moment.tz.guess(); // America/Chicago
-// the client's timezone changes to Europe/Berlin
+// suppose the client's timezone changes to Europe/Berlin
 moment.tz.guess(); // America/Chicago
 moment.tz.guess(true); // Europe/Berlin
 moment.tz.guess(); // Europe/Berlin
