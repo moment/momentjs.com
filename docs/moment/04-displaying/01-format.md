@@ -10,7 +10,7 @@ signature: |
 This is the most robust display option. It takes a string of tokens and replaces them with their corresponding values.
 
 ```javascript
-moment().format();                                // "2014-09-08T08:02:17-05:00" (ISO 8601)
+moment().format();                                // "2014-09-08T08:02:17-05:00" (ISO 8601, no fractional seconds)
 moment().format("dddd, MMMM Do YYYY, h:mm:ss a"); // "Sunday, February 14th 2010, 3:25:50 pm"
 moment().format("ddd, hA");                       // "Sun, 3PM"
 moment('gibberish').format('YYYY MM DD');         // "Invalid date"
@@ -306,10 +306,6 @@ moment('gibberish').format('YYYY MM DD');         // "Invalid date"
   </tbody>
 </table>
 
-`Z ZZ` were added in **1.2.0**.
-
-`S SS SSS` were added in **1.6.0**.
-
 `X` was added in **2.0.0**.
 
 `e E gg gggg GG GGGG` were added in **2.1.0**.
@@ -382,7 +378,7 @@ There are upper and lower case variations on the same formats. The lowercase ver
   </tbody>
 </table>
 
-`L LL LLL LLLL LT` are available in version **1.3.0**. `l ll lll llll` are available in **2.0.0**.
+`l ll lll llll` are available in **2.0.0**.
 `LTS` was added in **2.8.4**.
 
 #### Escaping characters
@@ -409,8 +405,18 @@ If you are more comfortable working with strftime instead of LDML-like parsing t
 
 #### Default format
 
-As of version **1.5.0**, calling `moment#format` without a format will default to `moment.defaultFormat`. Out of the box, `moment.defaultFormat` is the ISO8601 format `YYYY-MM-DDTHH:mm:ssZ`.
+Calling `moment#format` without a format will default to `moment.defaultFormat`. Out of the box, `moment.defaultFormat` is the ISO8601 format `YYYY-MM-DDTHH:mm:ssZ`.
 
 As of version **2.13.0**, when in UTC mode, the default format is governed by `moment.defaultFormatUtc` which is in the format `YYYY-MM-DDTHH:mm:ss[Z]`. This returns ``Z`` as the offset, instead of ``+00:00``. 
 
 In certain instances, a local timezone (such as `Atlantic/Reykjavik`) may have a zero offset, and will be considered to be UTC. In such cases, it may be useful to set `moment.defaultFormat` and `moment.defaultFormatUtc` to use the same formatting.
+
+Changing the value of `moment.defaultFormat` will only affect formatting, and will not affect parsing. for example:
+
+```javascript
+moment.defaultFormat = "DD.MM.YYYY HH:mm";
+// parse with .toDate()
+moment('20.07.2018 09:19').toDate() // Invalid date
+// format the date string with the new defaultFormat then parse
+moment('20.07.2018 09:19', moment.defaultFormat).toDate() // Fri Jul 20 2018 09:19:00 GMT+0300
+```

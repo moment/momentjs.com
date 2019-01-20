@@ -78,10 +78,12 @@ moment.locale('fr', {
     },
     week : {
         dow : 1, // Monday is the first day of the week.
-        doy : 4  // The week that contains Jan 4th is the first week of the year.
+        doy : 4  // Used to determine first week of the year.
     }
 });
 ```
+
+Details about `week.dow` and `week.doy` can be found in the [customization](#/customization/dow-doy/) section.
 
 Once you load a locale, it becomes the active locale. To change active locales, simply call `moment.locale` with the key of a loaded locale.
 
@@ -91,6 +93,8 @@ moment(1316116057189).fromNow(); // il y a une heure
 moment.locale('en');
 moment(1316116057189).fromNow(); // an hour ago
 ```
+
+As of **2.21.0**, Moment will `console.warn` if the locale is unavailable.
 
 As of **2.8.0**, changing the global locale doesn't affect existing instances.
 

@@ -9,3 +9,4 @@ The `Moment` prototype is exposed through `moment.fn`. If you want to add your o
 
 For ease of reference, any method on the `Moment.prototype` will be referenced in the docs as `moment#method`. So `Moment.prototype.format` == `moment.fn.format` == `moment#format`.
 
+[See the Parsing Guide for additional information](https://momentjs.com/guides/#/parsing/).

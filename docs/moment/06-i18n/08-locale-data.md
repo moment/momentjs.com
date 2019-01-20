@@ -3,23 +3,28 @@ title: Accessing locale specific functionality
 version: 2.8.0
 signature: |
   localeData = moment.localeData()
+  localeData.months(Moment)
   localeData.months()
+  localeData.monthsShort(Moment)
   localeData.monthsShort()
-  localeData.monthsParse()
+  localeData.monthsParse(String)
+  localeData.weekdays(Moment)
   localeData.weekdays()
+  localeData.weekdaysShort(Moment)
   localeData.weekdaysShort()
+  localeData.weekdaysMin(Moment)
   localeData.weekdaysMin()
-  localeData.weekdaysParse()
-  localeData.longDateFormat()
-  localeData.isPM()
-  localeData.meridiem()
-  localeData.calendar()
-  localeData.relativeTime()
-  localeData.pastFuture()
-  localeData.ordinal()
-  localeData.preparse()
-  localeData.postformat()
-  localeData.week()
+  localeData.weekdaysParse(String)
+  localeData.longDateFormat(String)
+  localeData.isPM(String)
+  localeData.meridiem(Number, Number, Boolean)
+  localeData.calendar(String, Moment)
+  localeData.relativeTime(Number, Boolean, String, Boolean)
+  localeData.pastFuture(Number, String)
+  localeData.ordinal(Number)
+  localeData.preparse(String)
+  localeData.postformat(String)
+  localeData.week(Moment)
   localeData.invalidDate()
   localeData.firstDayOfWeek()
   localeData.firstDayOfYear()
@@ -58,10 +63,7 @@ localeData.postformat(str);  // called after formatting on every string
 localeData.week(aMoment);  // returns week-of-year of aMoment
 localeData.invalidDate();  // returns a translation of 'Invalid date'
 localeData.firstDayOfWeek();  // 0-6 (Sunday to Saturday)
-localeData.firstDayOfYear();  // 0-15 this and the first day of week are used
-                              // to determine which is the first week of the
-                              // year. dow == 1 and doy == 4 means week starts
-                              // Monday and first week that has Thursday is the
-                              // first week of the year (but doy is NOT simply
-                              // Thursday).
+localeData.firstDayOfYear();  // 0-15 Used to determine first week of the year.
 ```
+
+Details about `firstDayOfYear` can be found in the [customization](#/customization/dow-doy/) section.

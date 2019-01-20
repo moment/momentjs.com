@@ -24,6 +24,8 @@ var b = moment([2007, 0, 28]);
 a.diff(b, 'days') // 1
 ```
 
+To get the duration of a difference between two moments, you can pass `diff` as an argument into `moment#duration`. See the docs on [moment#duration](#/durations/diffing/) for more info.
+
 The supported measurements are `years`, `months`, `weeks`, `days`, `hours`, `minutes`, and `seconds`. For ease of development, the singular forms are supported as of **2.0.0**. Units of measurement other than milliseconds are available in version **1.1.1**.
 
 By default, `moment#diff` will truncate the result to zero decimal places, returning an integer. If you want a floating point number, pass `true` as the third argument. Before **2.0.0**, `moment#diff` returned a number rounded to the nearest integer, not a truncated number.

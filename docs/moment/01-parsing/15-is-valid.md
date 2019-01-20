@@ -34,6 +34,7 @@ Additionally, if the Moment is parsed in strict mode, these flags must be empty 
  * `unusedInput`: array of input substrings not matched to the format string
 
 **Note:** Moment's concept of validity became more strict and consistent between **2.2** and **2.3**.
+**Note:** Validity is determined on moment creation. A modified moment (i.e. `moment().hour(NaN)`) will remain valid.
 
 Additionally, you can use `moment#invalidAt` to determine which date unit overflowed.
 
@@ -85,20 +86,26 @@ The following produce a localized version of `'InvalidDate'`:
 * `invalid.to(another)`
 * `another.to(invalid)`
 * `invalid.toNow(suffix)`
-* `invalid.toISOString()`
+* `invalid.toISOString()` (Before **2.18.0**)
 * `invalid.toString()`
 
 The following return `false`:
 * `invalid.isAfter(another)`
+* `invalid.isAfter(invalid)`
 * `another.isAfter(invalid)`
 * `invalid.isBefore(another)`
+* `invalid.isBefore(invalid)`
 * `another.isBefore(invalid)`
 * `invalid.isBetween(another, another)`
+* `invalid.isBetween(invalid, invalid)`
 * `invalid.isSame(another)`
+* `invalid.isSame(invalid)`
 * `another.isSame(invalid)`
 * `invalid.isSameOrAfter(another)`
+* `invalid.isSameOrAfter(invalid)`
 * `another.isSameOrAfter(invalid)`
 * `invalid.isSameOrBefore(another)`
+* `invalid.isSameOrBefore(invalid)`
 * `another.isSameOrBefore(invalid)`
 
 And these return `null` or `NaN` with some structure:
@@ -109,3 +116,4 @@ And these return `null` or `NaN` with some structure:
 * `invalid.toJSON()` returns null
 * `invalid.unix()` returns null
 * `invalid.valueOf()` returns null
+* `invalid.toISOString()` returns null (As of **2.18.0**)
