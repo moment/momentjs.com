@@ -10,10 +10,13 @@ signature: |
   localeData.monthsParse(String)
   localeData.weekdays(Moment)
   localeData.weekdays()
+  localeData.weekdays(Boolean)      ## Added 2.24.0, sorts weekdays by locale
   localeData.weekdaysShort(Moment)
   localeData.weekdaysShort()
+  localeData.weekdaysShort(Boolean) ## Added 2.24.0, sorts weekdays by locale
   localeData.weekdaysMin(Moment)
   localeData.weekdaysMin()
+  localeData.weekdaysMin(Boolean)   ## Added 2.24.0, sorts weekdays by locale
   localeData.weekdaysParse(String)
   localeData.longDateFormat(String)
   localeData.isPM(String)
