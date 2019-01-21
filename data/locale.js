@@ -149,6 +149,10 @@ module.exports =[
         "name": "English (New Zealand)"
     },
     {
+        "abbr": "en-SG",
+        "name": "English (Singapore)"
+    },
+    {
         "abbr": "en-gb",
         "name": "English (United Kingdom)"
     },
@@ -237,8 +241,16 @@ module.exports =[
         "name": "Indonesian"
     },
     {
+        "abbr": "ga",
+        "name": "Irish or Irish Gaelic"
+    },
+    {
         "abbr": "it",
         "name": "Italian"
+    },
+    {
+        "abbr": "it-ch",
+        "name": "Italian (Switzerland)"
     },
     {
         "abbr": "ja",
