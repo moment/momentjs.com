@@ -31,3 +31,5 @@ module.exports = {
     ],
 };
 ```
+
+There are other resources to optimize Moment.js with webpack, [for example this one](https://github.com/jmblog/how-to-optimize-momentjs-with-webpack).
