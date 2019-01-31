@@ -50,7 +50,7 @@
 		activate : function () {
 			var m = moment().tz(this.name);
 			$labelName.text(this.name);
-			$labelTime.text(m.format("hh:mm a ") + m.zoneAbbr());
+			$labelTime.text(m.format("h:mm a ") + m.zoneAbbr());
 			$axisX.css('left', this.x * 100 + '%');
 			$axisY.css('top', this.y * 100 + '%');
 		},
