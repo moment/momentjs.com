@@ -47,6 +47,7 @@ If a locale requires additional processing for a token, it can set the token as 
 The function should return a string.
 
 <!-- skip-example -->
+
 ```javascript
 function (number, withoutSuffix, key, isFuture) {
     return string;

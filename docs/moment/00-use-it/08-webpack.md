@@ -14,6 +14,7 @@ moment().format();
 **Note:** By default, webpack bundles _all_ Moment.js locales (in Moment.js 2.18.1, that’s 160 minified KBs). To strip unnecessary locales and bundle only the used ones, add [`moment-locales-webpack-plugin`](https://www.npmjs.com/package/moment-locales-webpack-plugin):
 
 <!-- skip-example -->
+
 ```javascript
 // webpack.config.js
 const MomentLocalesPlugin = require('moment-locales-webpack-plugin');

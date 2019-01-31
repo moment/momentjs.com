@@ -14,6 +14,7 @@ folder. Then you should use a tool like
 using [packages config](http://requirejs.org/docs/api.html#packages).
 
 <!-- skip-example -->
+
 ```javascript
 requirejs.config({
   packages: [{
@@ -30,6 +31,7 @@ With the above setup, you can require the core with `moment` and `de` locale
 with `moment/locale/de`.
 
 <!-- skip-example -->
+
 ```javascript
 // only needing core
 define(['moment'], function (moment) {
@@ -68,6 +70,7 @@ For more complicated use cases please read [excellent explanation by @jrburke](h
 Moment will still create a `moment` global, which is useful to plugins and other third-party code. If you wish to squash that global, use the `noGlobal` option on the module config.
 
 <!-- skip-example -->
+
 ```javascript
 require.config({
     config: {
