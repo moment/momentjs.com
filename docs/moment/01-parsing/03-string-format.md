@@ -26,7 +26,7 @@ The parsing tokens are similar to the formatting tokens used in `moment#format`.
 
 #### Year, month, and day tokens
 
-##### *Please pay attention to capitalization*
+*Tokens are case-sensitive.*
 
 | Input       | Example          | Description |
 | ----------- | ---------------- | ----------- |
@@ -51,7 +51,7 @@ near 2000 (same as `YY`).
 
 For these, the lowercase tokens use the locale aware week start days, and the uppercase tokens use the [ISO week date](https://en.wikipedia.org/wiki/ISO_week_date) start days.
 
-##### *Please pay attention to capitalization*
+*Tokens are case-sensitive.*
 
 | Input       | Example          | Description |
 | ----------- | ---------------- | ----------- |
@@ -72,7 +72,7 @@ Locale aware date and time formats are also available using `LT LTS L LL LLL
 LLLL`. They were added in version **2.2.1**, except `LTS` which was added
 **2.8.4**.
 
-##### *Please pay attention to capitalization*
+*Tokens are case-sensitive.*
 
 | Input          | Example                               | Description |
 | -------------- | ------------------------------------- | ----------- |
@@ -85,7 +85,7 @@ LLLL`. They were added in version **2.2.1**, except `LTS` which was added
 
 #### Hour, minute, second, millisecond, and offset tokens
 
-##### *Please pay attention to capitalization*
+*Tokens are case-sensitive.*
 
 | Input          | Example  | Description |
 | -------------- | -------- | ----------- |
