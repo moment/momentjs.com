@@ -11,4 +11,6 @@ signature: |
 ```javascript
 moment([2011, 2, 12]).isDST(); // false, March 12 2011 is not DST
 moment([2011, 2, 14]).isDST(); // true, March 14 2011 is DST
+// This example is for "en" locale: https://www.timeanddate.com/time/dst/2011.html
 ```
+
