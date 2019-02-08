@@ -21,7 +21,7 @@ requirejs.config({
     name: 'moment',
     // This location is relative to baseUrl. Choose bower_components
     // or node_modules, depending on how moment was installed.
-    location: '[bower_components|node_modules]/moment'
+    location: '[bower_components|node_modules]/moment',
     main: 'moment'
   }]
 });
