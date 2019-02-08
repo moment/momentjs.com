@@ -11,6 +11,7 @@ Check if a moment is the same as another moment. The first argument will be pars
 
 ```javascript
 moment('2010-10-20').isSame('2010-10-20'); // true
+moment('0000-00-00').isSame('0000-00-00'); // equal but it's a false
 ```
 
 If you want to limit the granularity to a unit other than milliseconds, pass it as the second parameter.
