@@ -24,3 +24,5 @@ moment.duration(500).asMilliseconds(); // 500
 moment.duration(1500).asMilliseconds(); // 1500
 moment.duration(15000).asMilliseconds(); // 15000
 ```
+
+Note that both `moment.duration().milliseconds()` and `moment.duration().asMilliseconds()` return output that does not meet the ISO 8601 *nominal duration* or the RFC 5545 *duration* standards.
