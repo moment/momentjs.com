@@ -48,7 +48,7 @@ import 'moment/locale/pt-br';
 
 console.log(moment.locale()); // en
 moment.locale('fr');
-console.log(moment.locale()); // en
+console.log(moment.locale()); // fr
 moment.locale('pt-BR');
 console.log(moment.locale()); // pt-BR
 ```
