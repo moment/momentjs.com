@@ -195,17 +195,17 @@
             searchUrl += '?type=Issues&q=' + encodeURIComponent(titleText);
 
             if (failures) {
-                    reportHTML += "<h2>Uh oh, looks like some tests failed.</h2>";
-                    reportHTML += "<p>It's hard to catch bugs across all browsers and timezones. If you have a minute, please report the failing test.</p>";
-                    reportHTML += "<a class='button' href='" + searchUrl + "' target='_blank'><b>STEP 1:</b> Search for an existing failure report</a>";
-                    reportHTML += "<p>If it doesn't look like this failure has already been reported, proceed to step 2.</p>";
-                    reportHTML += "<a class='button' href='" + submitUrl + "' target='_blank'><b>STEP 2:</b> Submit a failure report</a>";
-                    reportHTML += "<h3>Issue title</h3>";
-                    reportHTML += "<pre>" + titleText + "</pre>";
-                    reportHTML += "<h3>Issue description</h3>";
-                    reportHTML += "<pre>" + bodyText.replace(/\n/g,"<br/>") + "</pre>";
+                    reportHTML += '<h2>Uh oh, looks like some tests failed.</h2>';
+                    reportHTML += '<p>It\'s hard to catch bugs across all browsers and timezones. If you have a minute, please report the failing test.</p>';
+                    reportHTML += '<a class="button" href="' + searchUrl + '" target="_blank"><b>STEP 1:</b> Search for an existing failure report</a>';
+                    reportHTML += '<p>If it doesn\'t look like this failure has already been reported, proceed to step 2.</p>';
+                    reportHTML += '<a class="button" href="' + submitUrl + '" target="_blank"><b>STEP 2:</b> Submit a failure report</a>';
+                    reportHTML += '<h3>Issue title</h3>';
+                    reportHTML += '<pre>' + titleText + '</pre>';
+                    reportHTML += '<h3>Issue description</h3>';
+                    reportHTML += '<pre>' + bodyText.replace(/\n/g,"<br/>") + '</pre>';
             } else {
-                    reportHTML += "<p class='success'>Awesome, all the unit tests passed!</p>";
+                    reportHTML += '<p class="success">Awesome, all the unit tests passed!</p>';
             }
 
             $('#report-wrapper').html('<div class="tests-reporting">' + reportHTML + '<div>');
