@@ -3,7 +3,7 @@ title: Special Formats
 version: 2.7.0
 signature: |
   moment(String, moment.CUSTOM_FORMAT, [String], [Boolean]);
-  moment(String, moment.HTML_FMT.DATETIME_LOCAL, [String], [Boolean]); // from 2.20.0
+  moment(String, moment.HTML5_FMT.DATETIME_LOCAL, [String], [Boolean]); // from 2.20.0
   moment(String, [..., moment.ISO_8601, ...], [String], [Boolean]);
 ---
 
