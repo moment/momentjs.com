@@ -1,5 +1,5 @@
 ---
-title: Default time zone
+title: Default time zonedsvc
 signature: |
   moment.tz.setDefault(String);
 ---
