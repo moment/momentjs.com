@@ -19,7 +19,8 @@ You can create a moment by specifying some of the units in an object.
 
 Omitted units default to 0 or the current date, month, and year.
 
-`day` and `date` key both mean day-of-the-month.
+`day` key mean day-of-the-week.
+`date` key mean day-of-the-month.
 
 `date` was added in **2.8.4**.
 
