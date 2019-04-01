@@ -3,7 +3,7 @@ title: Durations
 ---
 
 
-Moment.js also has duration objects. Where a moment is defined as single points in time, durations are defined as a length of time.
+Moment.js also has duration objects. Where a moment is defined as single point in time, durations are defined as a length of time.
 
 Durations do not have a defined beginning and end date. They are contextless.
 
