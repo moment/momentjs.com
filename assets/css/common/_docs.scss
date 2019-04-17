@@ -161,6 +161,7 @@
 	tr:nth-child(odd) td,
 	tr:nth-child(odd) th {
 		background: 0;
+		word-break: break-word;
 	}
 
 	ol {
