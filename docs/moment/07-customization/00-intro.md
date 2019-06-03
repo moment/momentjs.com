@@ -47,7 +47,7 @@ moment.updateLocale('en', {
 });
 ```
 
-Any properties specified will be updated, while others will remain the same. This function does not affect moments that already exist.
+Any properties specified will be updated, while others will remain the same. This function does not affect moments that already exist. Not that calling `updateLocale` also sets the current global locale to that locale.
 
 To revert an update use:
 ```javascript
