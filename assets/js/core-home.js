@@ -45,8 +45,8 @@
     function Snippet (el) {
         var longest = 0,
             i,
-            text  = this.text  = el.text().split('\n'),
-            html  = this.html  = el.html().split('\n'),
+            text  = this.text  = el.text().trim().split('\n'),
+            html  = this.html  = el.html().trim().split('\n'),
             evals = this.evals = [];
 
         this.el = el;
