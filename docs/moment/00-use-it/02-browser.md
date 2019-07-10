@@ -10,4 +10,4 @@ title: Browser
 </script>
 ```
 
-Moment.js is available on [cdnjs.com](https://cdnjs.com/libraries/moment.js) and on [jsDelivr](https://www.jsdelivr.com/package/npm/moment).
+Moment.js is available on [PageCDN](https://pagecdn.com/lib/moment.js), [cdnjs.com](https://cdnjs.com/libraries/moment.js) and on [jsDelivr](https://www.jsdelivr.com/package/npm/moment).
