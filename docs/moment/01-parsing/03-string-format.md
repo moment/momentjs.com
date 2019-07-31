@@ -87,16 +87,16 @@ LLLL`. They were added in version **2.2.1**, except `LTS` which was added
 
 *Tokens are case-sensitive.*
 
-| Input          | Example  | Description |
-| -------------- | -------- | ----------- |
-| `H HH`         | `0..23`  | Hours (24 hour time) |
-| `h hh`         | `1..12`  | Hours (12 hour time used with `a A`.) |
-| `k kk`         | `1..24`  | Hours (24 hour time from 1 to 24) |
-| `a A`          | `am pm`  | Post or ante meridiem (Note the one character `a p` are also considered valid) |
-| `m mm`         | `0..59`  | Minutes |
-| `s ss`         | `0..59`  | Seconds |
-| `S SS SSS`     | `0..999` | Fractional seconds |
-| `Z ZZ`         | `+12:00` | Offset from UTC as `+-HH:mm`, `+-HHmm`, or `Z` |
+| Input                    | Example        | Description |
+| ------------------------ | -------------- | ----------- |
+| `H HH`                   | `0..23`        | Hours (24 hour time) |
+| `h hh`                   | `1..12`        | Hours (12 hour time used with `a A`.) |
+| `k kk`                   | `1..24`        | Hours (24 hour time from 1 to 24) |
+| `a A`                    | `am pm`        | Post or ante meridiem (Note the one character `a p` are also considered valid) |
+| `m mm`                   | `0..59`        | Minutes |
+| `s ss`                   | `0..59`        | Seconds |
+| `S SS SSS ... SSSSSSSSS` | `0..999999999` | Fractional seconds |
+| `Z ZZ`                   | `+12:00`       | Offset from UTC as `+-HH:mm`, `+-HHmm`, or `Z` |
 
 From version **2.10.5**: fractional second tokens length 4 up to 9 can parse
 any number of digits, but will only consider the top 3 (milliseconds). Use if
@@ -113,6 +113,8 @@ For example, `.12` is always 120 milliseconds, passing `SS` will not cause it to
 `S SS SSS` were added in version **1.6.0**.
 
 `X` was added in version **2.0.0**.
+
+`SSSSS ... SSSSSSSSS` were added in version **2.10.5**.
 
 `k kk` was added in version **2.18.0**
 
