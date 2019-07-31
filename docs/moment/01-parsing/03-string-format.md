@@ -114,7 +114,7 @@ For example, `.12` is always 120 milliseconds, passing `SS` will not cause it to
 
 `X` was added in version **2.0.0**.
 
-`k kk` was added in version **2.18.0**
+`k kk` were added in version **2.13.0**.
 
 Unless you specify a time zone offset, parsing a string will create a date in the current time zone.
 
