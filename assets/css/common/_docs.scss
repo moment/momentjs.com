@@ -12,6 +12,10 @@
 	font-size: 14px;
 	line-height: 18px;
 
+	@media screen and (max-width: 900px) {
+		display: none;
+	}
+
 	.active a {
 		.is-moment & {
 			border-left-color: rgba($color-moment, 0.3);
@@ -116,6 +120,11 @@
 	padding-right: 20px;
 	padding-left: 30px;
 	color: $black;
+
+	@media screen and (max-width: 900px) {
+		margin-right: 0
+	}
+	
 }
 
 .docs-method-prose {

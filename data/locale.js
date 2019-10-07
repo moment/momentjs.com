@@ -149,7 +149,7 @@ module.exports =[
         "name": "English (New Zealand)"
     },
     {
-        "abbr": "en-SG",
+        "abbr": "en-sg",
         "name": "English (Singapore)"
     },
     {
@@ -359,6 +359,10 @@ module.exports =[
     {
         "abbr": "nn",
         "name": "Nynorsk"
+    },
+    {
+        "abbr": "oc-lnc",
+        "name": "Occitan, lengadocian dialecte"
     },
     {
         "abbr": "fa",
