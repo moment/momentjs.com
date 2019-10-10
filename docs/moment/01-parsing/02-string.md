@@ -34,7 +34,7 @@ An ISO 8601 string requires a date part.
 2013050     # Basic (short) ordinal date
 ```
 
-A time part can also be included, separated from the date part by a space or a uppercase T.
+A time part can also be included, separated from the date part by a space or an uppercase T.
 
 ```
 2013-02-08T09            # An hour time part separated by a T
