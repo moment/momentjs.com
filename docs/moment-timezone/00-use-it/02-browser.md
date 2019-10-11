@@ -1,8 +1,8 @@
 ---
 title: Browser
 signature: |
-  <script src="moment.js"></script>
-  <script src="moment-timezone-with-data.js"></script>
+  <script src="https://momentjs.com/downloads/moment.js"></script>
+  <script src="https://momentjs.com/downloads/moment-timezone-with-data.js"></script>
 ---
 
 When using Moment Timezone in the browser, you will need to load the data as well as the library.
