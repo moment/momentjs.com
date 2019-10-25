@@ -15,7 +15,7 @@ If you know the format of an input string, you can use that to parse a moment.
 moment("12-25-1995", "MM-DD-YYYY");
 ```
 
-The parser ignores non-alphanumeric characters, so both of the following will return the same thing.
+The parser ignores non-alphanumeric characters by default, so both of the following will return the same thing.
 
 ```javascript
 moment("12-25-1995", "MM-DD-YYYY");
