@@ -9,7 +9,7 @@ When first using Moment.js many developers are confused by scenarios like this:
 ```js
 var a = moment('2016-01-01'); 
 var b = a.add(1, 'week'); 
-a.format();
+b.format();
 "2016-01-08T00:00:00-06:00"
 ```
 
@@ -18,6 +18,6 @@ As you can see, adding one week mutated ``a``. To avoid situations like that, cl
 ```js
 var a = moment('2016-01-01'); 
 var b = a.clone().add(1, 'week'); 
-a.format();
+b.format();
 "2016-01-01T00:00:00-06:00"
 ```
