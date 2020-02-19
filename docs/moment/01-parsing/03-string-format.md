@@ -30,7 +30,7 @@ The parsing tokens are similar to the formatting tokens used in `moment#format`.
 
 | Input       | Example          | Description |
 | ----------- | ---------------- | ----------- |
-| `YYYY`      | `2014`           | 4 or 2 digit year |
+| `YYYY`      | `2014`           | 4 digit year |
 | `YY`        | `14`             | 2 digit year |
 | `Y`         | `-25`            | Year with any number of digits and sign |
 | `Q`         | `1..4`           | Quarter of year. Sets month to first month in quarter. |
