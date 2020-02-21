@@ -29,10 +29,8 @@ it returns array of objects with name and offset:
 [
   { name: "America/Adak", offset: 600 },
   { name: 'America/Anchorage', offset: 540 },
-  ...,
   { name: "America/New_York", offset: 300 },
-  ...,
-  { name: 'Pacific/Honolulu', offset: 600 }
+  ...
 ]
 ```
 
