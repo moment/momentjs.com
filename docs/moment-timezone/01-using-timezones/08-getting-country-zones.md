@@ -20,17 +20,15 @@ By default this method returns zone names sorted alphabetically:
 To get also offsets, pass `{ offset: true }` as 2nd parameter:
 
 ```js
-moment.tz.zonesForCountry('US', { offset: true });
+moment.tz.zonesForCountry('CN', { offset: true });
 ```
 
 it returns array of objects with name and offset:
 
 ```js
 [
-  { name: "America/Adak", offset: 600 },
-  { name: "America/Anchorage", offset: 540 },
-  { name: "America/New_York", offset: 300 },
-  ...
+   { name: "Asia/Shanghai", offset: -480 },
+   { name: "Asia/Urumqi", offset: -360 }
 ]
 ```
 
