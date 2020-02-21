@@ -28,7 +28,7 @@ it returns array of objects with name and offset:
 ```js
 [
   { name: "America/Adak", offset: 600 },
-  { name: 'America/Anchorage', offset: 540 },
+  { name: "America/Anchorage", offset: 540 },
   { name: "America/New_York", offset: 300 },
   ...
 ]
