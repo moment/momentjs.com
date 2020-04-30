@@ -3,6 +3,7 @@ title: String
 version: 1.0.0
 signature: |
   moment(String);
+  moment(String, Boolean); // from 2.25.0
 ---
 
 When creating a moment from a string, we first check if the string matches known [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) formats, we then check if the string matches the [RFC 2822 Date time](https://tools.ietf.org/html/rfc2822#section-3.3) format before dropping to the fall back of `new Date(string)` if a known format is not found.
@@ -17,7 +18,18 @@ var day = moment("1995-12-25");
 **Note:** This has been the source of a lot of confusion, because moments created via `Date` constructor don't support `isValid` and also work unreliably. So it would be soon deprecated. From version 2.6.0 there is a way to prevent Date constructor usage - just set `moment.createFromInputFallback` to an empty function.
 -->
 
-For consistent results parsing anything other than ISO 8601 strings, you should use [String + Format](#/parsing/string-format/).
+If you want to parse a string in one of the supported formats (ISO 8601, RFC
+2822, ASP.NET JSON), but don't want to fall back to the dangerous js Date
+parsing, you can pass `true` as a second argument to force strict parsing and
+drop the js Date fallback. **Note** from **2.25.0**:
+
+```javascript
+var isoDay = moment("1995-12-25", true);                    // ISO 8601
+var rfcDay = moment("Fri 1 May 2020 01:06:46 +0300", true); // RFC 2822
+var aspDay = moment("Date(1588284730420)", true)            // ASP NET JSON
+```
+
+For consistent results parsing anything other than the supported formats, you should use [String + Format](#/parsing/string-format/).
 
 #### Supported ISO 8601 strings
 
