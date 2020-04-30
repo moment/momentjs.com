@@ -172,6 +172,32 @@ moment('gibberish').format('YYYY MM DD');         // "Invalid date"
       </td>
     </tr>
     <tr>
+      <td><b>Era Year</b></td>
+      <td>y</td>
+      <td>1 2 ... 2020 ... </td>
+    </tr>
+    <tr>
+      <td><b>Era</b></td>
+      <td>N</td>
+      <td> BC AD<br />
+        <b>Note:</b> Abbr era name
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>NN</td>
+      <td> BC AD<br />
+        <b>Note:</b> Narrow era name
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>NNN</td>
+      <td> Before Christ, Anno Domini <br />
+        <b>Note:</b> Full era name
+      </td>
+    </tr>
+    <tr>
       <td><b>Week Year</b></td>
       <td>gg</td>
       <td>70 71 ... 29 30</td>
@@ -407,7 +433,7 @@ If you are more comfortable working with strftime instead of LDML-like parsing t
 
 Calling `moment#format` without a format will default to `moment.defaultFormat`. Out of the box, `moment.defaultFormat` is the ISO8601 format `YYYY-MM-DDTHH:mm:ssZ`.
 
-As of version **2.13.0**, when in UTC mode, the default format is governed by `moment.defaultFormatUtc` which is in the format `YYYY-MM-DDTHH:mm:ss[Z]`. This returns ``Z`` as the offset, instead of ``+00:00``. 
+As of version **2.13.0**, when in UTC mode, the default format is governed by `moment.defaultFormatUtc` which is in the format `YYYY-MM-DDTHH:mm:ss[Z]`. This returns ``Z`` as the offset, instead of ``+00:00``.
 
 In certain instances, a local timezone (such as `Atlantic/Reykjavik`) may have a zero offset, and will be considered to be UTC. In such cases, it may be useful to set `moment.defaultFormat` and `moment.defaultFormatUtc` to use the same formatting.
 
