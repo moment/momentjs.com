@@ -43,7 +43,7 @@ moment('100110/09/2015', 'MM/DD/YYYY', true).format()
 "Invalid date"
 ```
 ```js
-//wrong date is parsed because without strict mode, parsing ignores trailing data
+//wrong date is parsed because non-strict mode ignores data after format
 moment('2016-12-31 11:32 PM').format('LT')
 "11:32 AM"
 //trailing data is noticed
