@@ -124,11 +124,11 @@ moment.locale(['tq', 'fr']); // 'fr'
 Moment will also try locale specifier substrings from most-specific to least-specific until it finds a locale it knows. This is useful when supplying Moment with a locale string pulled from the user's environment, such as `window.navigator.language`.
 
 ```javascript
-moment.locale('en-NZ'); // 'en'
+moment.locale('en-nz'); // 'en'
 ```
 
 Finally, Moment will search intelligently through an array of locales and their substrings.
 
 ```javascript
-moment.locale(['en-NZ', 'en-AU']); // 'en-au', not 'en'
+moment.locale(['en-nz', 'en-au']); // 'en-au', not 'en'
 ```
