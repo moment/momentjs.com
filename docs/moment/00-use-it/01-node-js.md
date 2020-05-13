@@ -12,6 +12,7 @@ var moment = require('moment'); // require
 moment().format(); 
 ```
 Or in ES6 syntax:
+ <!-- skip-example --> 
 ```javascript
 import moment from 'moment';
 moment().tz("America/Los_Angeles").format();
