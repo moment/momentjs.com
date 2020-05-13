@@ -101,6 +101,10 @@ module.exports =[
         "name": "Chinese (Hong Kong)"
     },
     {
+        "abbr": "zh-mo",
+        "name": "Chinese (Macau)"
+    },
+    {
         "abbr": "zh-tw",
         "name": "Chinese (Taiwan)"
     },
@@ -137,6 +141,10 @@ module.exports =[
         "name": "English (Canada)"
     },
     {
+        "abbr": "en-in",
+        "name": "English (India)"
+    },
+    {
         "abbr": "en-ie",
         "name": "English (Ireland)"
     },
@@ -149,7 +157,7 @@ module.exports =[
         "name": "English (New Zealand)"
     },
     {
-        "abbr": "en-SG",
+        "abbr": "en-sg",
         "name": "English (Singapore)"
     },
     {
@@ -171,6 +179,10 @@ module.exports =[
     {
         "abbr": "fo",
         "name": "Faroese"
+    },
+    {
+        "abbr": "fil",
+        "name": "Filipino"
     },
     {
         "abbr": "fi",
@@ -273,6 +285,10 @@ module.exports =[
         "name": "Klingon"
     },
     {
+        "abbr": "gom-deva",
+        "name": "Konkani Devanagari script"
+    },
+    {
         "abbr": "gom-latn",
         "name": "Konkani Latin script"
     },
@@ -359,6 +375,10 @@ module.exports =[
     {
         "abbr": "nn",
         "name": "Nynorsk"
+    },
+    {
+        "abbr": "oc-lnc",
+        "name": "Occitan, lengadocian dialecte"
     },
     {
         "abbr": "fa",
