@@ -6,6 +6,7 @@ signature: |
   moment.duration(Number);
   moment.duration(Object);
   moment.duration(String);
+  moment.duration(String, String); // 2.25.0
 ---
 
 
@@ -25,6 +26,7 @@ moment.duration(2, 'days');
 moment.duration(2, 'weeks');
 moment.duration(2, 'months');
 moment.duration(2, 'years');
+moment.duration('2', 'years'); // from 2.25.0
 ```
 
 The same shorthand for `moment#add` and `moment#subtract` works here as well.
@@ -79,8 +81,8 @@ moment.duration({
     hours: 2,
     days: 2,
     weeks: 2,
-    months: 2,
-    years: 2
+    months: '2',
+    years: '2'
 });
 ```
 

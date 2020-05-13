@@ -21,20 +21,21 @@ scripts :
 <div class="builds">
 	<div class="builds-download">
 		<h3>Download</h3>
-		<a class="builds-button builds-button-source" href="/downloads/moment-timezone.js">
-			moment-timezone.js
+		
+		<a class="builds-button builds-button-source" href="/downloads/moment-timezone-with-data-10-year-range.js">
+			moment-timezone-with-data-10-year-range.js
 		</a>
-		<a class="builds-button builds-button-gzipped" href="/downloads/moment-timezone.min.js">
-			moment-timezone.min.js
-			<span class="filesize">{{toKb size.moment_timezone_min.gzip }}</span>
+		<a class="builds-button builds-button-gzipped" href="/downloads/moment-timezone-with-data-10-year-range.min.js">
+			moment-timezone-with-data-10-year-range.min.js
+			<span class="filesize">{{toKb size.moment_timezone_with_data_10_year_range_min.gzip }}</span>
 		</a>
 
-		<a class="builds-button builds-button-source" href="/downloads/moment-timezone-with-data-2012-2022.js">
-			moment-timezone-with-data-2012-2022.js
+		<a class="builds-button builds-button-source" href="/downloads/moment-timezone-with-data-1970-2030.js">
+			moment-timezone-with-data-1970-2030.js
 		</a>
-		<a class="builds-button builds-button-gzipped" href="/downloads/moment-timezone-with-data-2012-2022.min.js">
-			moment-timezone-with-data-2012-2022.min.js
-			<span class="filesize">{{toKb size.moment_timezone_with_data_2012_2022_min.gzip }}</span>
+		<a class="builds-button builds-button-gzipped" href="/downloads/moment-timezone-with-data-1970-2030.min.js">
+			moment-timezone-with-data-1970-2030.min.js
+			<span class="filesize">{{toKb size.moment_timezone_with_data_1970_2030_min.gzip }}</span>
 		</a>
 
 		<a class="builds-button builds-button-source" href="/downloads/moment-timezone-with-data.js">
@@ -44,13 +45,20 @@ scripts :
 			moment-timezone-with-data.min.js
 			<span class="filesize">{{toKb size.moment_timezone_with_data_min.gzip }}</span>
 		</a>
+
+		<a class="builds-button builds-button-source" href="/downloads/moment-timezone.js">
+			moment-timezone.js (no data)
+		</a>
+		<a class="builds-button builds-button-gzipped" href="/downloads/moment-timezone.min.js">
+			moment-timezone.min.js
+			<span class="filesize">{{toKb size.moment_timezone_min.gzip }}</span>
+		</a>
 	</div>
 	<div class="builds-packages">
 		<h3>Install</h3>
 		<pre><code>bower install moment-timezone --save <span class="comment"># bower</span>
 npm install moment-timezone --save   <span class="comment"># npm</span>
 yarn add moment-timezone             <span class="comment"># Yarn</span>
-Install-Package Moment.Timezone.js   <span class="comment"># NuGet</span></code></pre>
 	</div>
 </div>
 

@@ -4,6 +4,7 @@ version: 1.0.0
 signature: |
   moment(String, String);
   moment(String, String, String);
+  moment(String, String, String[]);
   moment(String, String, Boolean);
   moment(String, String, String, Boolean);
 ---
@@ -15,7 +16,7 @@ If you know the format of an input string, you can use that to parse a moment.
 moment("12-25-1995", "MM-DD-YYYY");
 ```
 
-The parser ignores non-alphanumeric characters, so both of the following will return the same thing.
+The parser ignores non-alphanumeric characters by default, so both of the following will return the same thing.
 
 ```javascript
 moment("12-25-1995", "MM-DD-YYYY");
@@ -30,7 +31,7 @@ The parsing tokens are similar to the formatting tokens used in `moment#format`.
 
 | Input       | Example          | Description |
 | ----------- | ---------------- | ----------- |
-| `YYYY`      | `2014`           | 4 or 2 digit year |
+| `YYYY`      | `2014`           | 4 or 2 digit year. Note: Only 4 digit can be parsed on `strict` mode |
 | `YY`        | `14`             | 2 digit year |
 | `Y`         | `-25`            | Year with any number of digits and sign |
 | `Q`         | `1..4`           | Quarter of year. Sets month to first month in quarter. |
@@ -87,16 +88,16 @@ LLLL`. They were added in version **2.2.1**, except `LTS` which was added
 
 *Tokens are case-sensitive.*
 
-| Input          | Example  | Description |
-| -------------- | -------- | ----------- |
-| `H HH`         | `0..23`  | Hours (24 hour time) |
-| `h hh`         | `1..12`  | Hours (12 hour time used with `a A`.) |
-| `k kk`         | `1..24`  | Hours (24 hour time from 1 to 24) |
-| `a A`          | `am pm`  | Post or ante meridiem (Note the one character `a p` are also considered valid) |
-| `m mm`         | `0..59`  | Minutes |
-| `s ss`         | `0..59`  | Seconds |
-| `S SS SSS`     | `0..999` | Fractional seconds |
-| `Z ZZ`         | `+12:00` | Offset from UTC as `+-HH:mm`, `+-HHmm`, or `Z` |
+| Input                    | Example        | Description |
+| ------------------------ | -------------- | ----------- |
+| `H HH`                   | `0..23`        | Hours (24 hour time) |
+| `h hh`                   | `1..12`        | Hours (12 hour time used with `a A`.) |
+| `k kk`                   | `1..24`        | Hours (24 hour time from 1 to 24) |
+| `a A`                    | `am pm`        | Post or ante meridiem (Note the one character `a p` are also considered valid) |
+| `m mm`                   | `0..59`        | Minutes |
+| `s ss`                   | `0..59`        | Seconds |
+| `S SS SSS ... SSSSSSSSS` | `0..999999999` | Fractional seconds |
+| `Z ZZ`                   | `+12:00`       | Offset from UTC as `+-HH:mm`, `+-HHmm`, or `Z` |
 
 From version **2.10.5**: fractional second tokens length 4 up to 9 can parse
 any number of digits, but will only consider the top 3 (milliseconds). Use if
@@ -107,14 +108,15 @@ Note that the number of `S` characters provided is only relevant when parsing in
 In standard mode, `S`, `SS`, `SSS`, `SSSS` are all equivalent, and interpreted as fractions of a second.
 For example, `.12` is always 120 milliseconds, passing `SS` will not cause it to be interpreted as 12 milliseconds.
 
-
 `Z ZZ` were added in version **1.2.0**.
 
 `S SS SSS` were added in version **1.6.0**.
 
 `X` was added in version **2.0.0**.
 
-`k kk` was added in version **2.18.0**
+`SSSSS ... SSSSSSSSS` were added in version **2.10.5**.
+
+`k kk` were added in version **2.13.0**.
 
 Unless you specify a time zone offset, parsing a string will create a date in the current time zone.
 
@@ -122,6 +124,23 @@ Unless you specify a time zone offset, parsing a string will create a date in th
 moment("2010-10-20 4:30",       "YYYY-MM-DD HH:mm");   // parsed as 4:30 local time
 moment("2010-10-20 4:30 +0000", "YYYY-MM-DD HH:mm Z"); // parsed as 4:30 UTC
 ```
+
+#### Era Year related tokens
+
+*Tokens are case-sensitive.*
+
+| Input     | Examples      | Description    |
+|-----------|---------------|----------------|
+| y .. yyyy | `5 +5 -500`   | Years          |
+| yo        | `5th 1st`     | Ordinal Years  |
+| N         | `AD`          | Abbr Era name  |
+| NN        | `AD`          | Short Era name |
+| NNN       | `Anno Domini` | Full Era name  |
+
+
+Era support was added in **2.25.0**. The tokens/API are still in flux.
+
+#### Notes and gotchas
 
 If the moment that results from the parsed input does not exist, `moment#isValid` will return false.
 
@@ -137,6 +156,7 @@ As of version **2.0.0**, a locale key can be passed as the third parameter to `m
 ```js
 moment('2012 juillet', 'YYYY MMM', 'fr');
 moment('2012 July',    'YYYY MMM', 'en');
+moment('2012 July',    'YYYY MMM', ['qj', 'en']);
 ```
 
 Moment's parser is very forgiving, and this can lead to undesired/unexpected behavior.
