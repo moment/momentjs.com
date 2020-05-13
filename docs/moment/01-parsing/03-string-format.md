@@ -4,6 +4,7 @@ version: 1.0.0
 signature: |
   moment(String, String);
   moment(String, String, String);
+  moment(String, String, String[]);
   moment(String, String, Boolean);
   moment(String, String, String, Boolean);
 ---
@@ -155,6 +156,7 @@ As of version **2.0.0**, a locale key can be passed as the third parameter to `m
 ```js
 moment('2012 juillet', 'YYYY MMM', 'fr');
 moment('2012 July',    'YYYY MMM', 'en');
+moment('2012 July',    'YYYY MMM', ['qj', 'en']);
 ```
 
 Moment's parser is very forgiving, and this can lead to undesired/unexpected behavior.
