@@ -10,6 +10,7 @@ npm install moment
 ```javascript
 var moment = require('moment-timezone'); // require
 import moment from 'moment-timezone'; // ES6
+moment().format(); 
 moment().tz("America/Los_Angeles").format();
 ```
 
