@@ -22,6 +22,12 @@ scale (minutes, hours, days, etc).  The match is exclusive. The first two argume
 moment('2010-10-20').isBetween('2010-10-19', '2010-10-25'); // true
 moment('2010-10-20').isBetween('2010-10-19', undefined); // true, since moment(undefined) evaluates as moment()
 ```
+Note that the order of the two arguments matter: the "smaller" date should be in the first argument.
+
+```javascript
+moment('2010-10-20').isBetween('2010-10-19', '2010-10-25'); // true
+moment('2010-10-20').isBetween('2010-10-25', '2010-10-19'); // false
+```
 
 If you want to limit the granularity to a unit other than milliseconds, pass the units as the third parameter.
 

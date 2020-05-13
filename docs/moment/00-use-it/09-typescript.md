@@ -14,20 +14,14 @@ Import and use in your Typescript file
 <!-- skip-example -->
 
 ```javascript
-import * as moment from 'moment';
+import moment = require('moment');
 
 let now = moment().format('LLLL');
 ```
 
 **Note:** If you have trouble importing moment
 
-For _Typescript 2.x_ try adding ```"moduleResolution": "node"``` in ```compilerOptions``` in your ```tsconfig.json``` file and then use any of the below syntax
-<!-- skip-example -->
-
-```javascript
-import * as moment from 'moment';
-import moment = require('moment');
-```
+For _Typescript 2.x_ try adding ```"moduleResolution": "node"``` in ```compilerOptions``` in your ```tsconfig.json``` file
 
 For _Typescript 1.x_ try adding ```"allowSyntheticDefaultImports": true``` in ```compilerOptions``` in your ```tsconfig.json``` file and then use the syntax
 <!-- skip-example -->
@@ -48,7 +42,7 @@ import 'moment/locale/pt-br';
 
 console.log(moment.locale()); // en
 moment.locale('fr');
-console.log(moment.locale()); // en
+console.log(moment.locale()); // fr
 moment.locale('pt-BR');
 console.log(moment.locale()); // pt-BR
 ```

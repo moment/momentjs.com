@@ -3,10 +3,10 @@ title: Changing locales locally
 version: 1.7.0
 signature: |
   // From version 2.8.1 onward
-  moment().locale(String|Boolean);
+  moment().locale(String|String[]|Boolean);
 
   // Deprecated version 2.8.1
-  moment().lang(String|Boolean);
+  moment().lang(String|String[]|Boolean);
 ---
 
 
@@ -23,6 +23,10 @@ moment().format('LLLL'); // Sunday, July 15 2012 11:01 AM
 moment.locale('es'); // change the global locale to Spanish
 localLocale.format('LLLL'); // dimanche 15 juillet 2012 11:01
 moment().format('LLLL'); // Domingo 15 Julio 2012 11:01
+
+localLocale.locale(['tq', 'fr']); // set this instance to the first localization found
+localLocale.format('LLLL'); // dimanche 15 juillet 2012 11:01
+moment().format('LLLL'); // Sunday, July 15 2012 11:01 AM
 
 localLocale.locale(false); // reset the instance locale
 localLocale.format('LLLL'); // Domingo 15 Julio 2012 11:01
