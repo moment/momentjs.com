@@ -9,8 +9,11 @@ npm install moment
 
 ```javascript
 var moment = require('moment'); // require
-import moment from 'moment'; // ES6
 moment().format(); 
+```
+Or in ES6 syntax:
+```javascript
+import moment from 'moment';
 moment().tz("America/Los_Angeles").format();
 ```
 
