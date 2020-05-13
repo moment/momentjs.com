@@ -7,7 +7,7 @@ signature: |
   moment().utcOffset(Number|String, Boolean);
 ---
 
-Get the UTC offset in minutes.
+Get or set the UTC offset in minutes.
 
 **Note:** Unlike [`moment.fn.zone`](/docs/#/manipulating/timezone-offset/) this
 function returns the real offset from UTC, not the reverse offset (as returned

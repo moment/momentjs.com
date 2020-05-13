@@ -3,7 +3,7 @@ title: Special Formats
 version: 2.7.0
 signature: |
   moment(String, moment.CUSTOM_FORMAT, [String], [Boolean]);
-  moment(String, moment.HTML_FMT.DATETIME_LOCAL, [String], [Boolean]); // from 2.20.0
+  moment(String, moment.HTML5_FMT.DATETIME_LOCAL, [String], [Boolean]); // from 2.20.0
   moment(String, moment.CUSTOM_FORMAT, [String[]], [Boolean]);
   moment(String, [..., moment.ISO_8601, ...], [String], [Boolean]);
   moment(String, [..., moment.ISO_8601, ...], [String[]], [Boolean]);
@@ -29,5 +29,5 @@ As of version **2.20.0**, the following HTML5 formats are available:
 | `moment.HTML5_FMT.TIME`                     | `HH:mm`                   | 16:34                   |`<input type="time" />` |
 | `moment.HTML5_FMT.TIME_SECONDS`             | `HH:mm:ss`                | 16:34:10                |`<input type="time" step="1" />` |
 | `moment.HTML5_FMT.TIME_MS`                  | `HH:mm:ss.SSS`            | 16:34:10.234            |`<input type="time" step="0.001" />` |
-| `moment.HTML5_FMT.WEEK`                     | `YYYY-[W]WW`              | 2017-W50                |`<input type="week" />` |
+| `moment.HTML5_FMT.WEEK`                     | `GGGG-[W]WW`              | 2017-W50                |`<input type="week" />` |
 | `moment.HTML5_FMT.MONTH`                    | `YYYY-MM`                 | 2017-12                 |`<input type="month" />` |

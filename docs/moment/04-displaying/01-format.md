@@ -13,6 +13,7 @@ This is the most robust display option. It takes a string of tokens and replaces
 moment().format();                                // "2014-09-08T08:02:17-05:00" (ISO 8601, no fractional seconds)
 moment().format("dddd, MMMM Do YYYY, h:mm:ss a"); // "Sunday, February 14th 2010, 3:25:50 pm"
 moment().format("ddd, hA");                       // "Sun, 3PM"
+moment().format("[Today is] dddd");               // "Today is Sunday"
 moment('gibberish').format('YYYY MM DD');         // "Invalid date"
 ```
 
@@ -163,12 +164,46 @@ moment('gibberish').format('YYYY MM DD');         // "Invalid date"
       <td>YYYY</td>
       <td>1970 1971 ... 2029 2030</td>
     </tr>
+    <tr>
+      <td></td>
+      <td>YYYYYY</td>
+      <td>-001970 -001971 ... +001907 +001971
+        <br />
+        <b>Note:</b> [Expanded Years](https://tc39.es/ecma262/#sec-expanded-years) (Covering the full time value range of approximately 273,790 years forward or backward from 01 January, 1970)
+      </td>
+    </tr>
       <tr>
       <td></td>
       <td>Y</td>
       <td>1970 1971 ... 9999 +10000 +10001
         <br />
         <b>Note:</b> This complies with the ISO 8601 standard for dates past the year 9999
+      </td>
+    </tr>
+    <tr>
+      <td><b>Era Year</b></td>
+      <td>y</td>
+      <td>1 2 ... 2020 ... </td>
+    </tr>
+    <tr>
+      <td><b>Era</b></td>
+      <td>N</td>
+      <td> BC AD<br />
+        <b>Note:</b> Abbr era name
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>NN</td>
+      <td> BC AD<br />
+        <b>Note:</b> Narrow era name
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>NNN</td>
+      <td> Before Christ, Anno Domini <br />
+        <b>Note:</b> Full era name
       </td>
     </tr>
     <tr>
@@ -407,7 +442,7 @@ If you are more comfortable working with strftime instead of LDML-like parsing t
 
 Calling `moment#format` without a format will default to `moment.defaultFormat`. Out of the box, `moment.defaultFormat` is the ISO8601 format `YYYY-MM-DDTHH:mm:ssZ`.
 
-As of version **2.13.0**, when in UTC mode, the default format is governed by `moment.defaultFormatUtc` which is in the format `YYYY-MM-DDTHH:mm:ss[Z]`. This returns ``Z`` as the offset, instead of ``+00:00``. 
+As of version **2.13.0**, when in UTC mode, the default format is governed by `moment.defaultFormatUtc` which is in the format `YYYY-MM-DDTHH:mm:ss[Z]`. This returns ``Z`` as the offset, instead of ``+00:00``.
 
 In certain instances, a local timezone (such as `Atlantic/Reykjavik`) may have a zero offset, and will be considered to be UTC. In such cases, it may be useful to set `moment.defaultFormat` and `moment.defaultFormatUtc` to use the same formatting.
 
