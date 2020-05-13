@@ -27,7 +27,7 @@ Note that created moments have different UTC time because these moments were cre
 ```js
 var a = moment.utc("2013-11-18 11:55").tz("Asia/Taipei");
 var b = moment.utc("2013-11-18 11:55").tz("America/Toronto");
- 
+
 a.format(); // 2013-11-18T19:55:00+08:00
 b.format(); // 2013-11-18T06:55:00-05:00
 
