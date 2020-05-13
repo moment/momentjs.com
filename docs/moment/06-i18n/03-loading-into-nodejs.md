@@ -8,6 +8,8 @@ signature: |
 
 Loading locales in NodeJS is super easy. If there is a locale file in `moment/locale/` named after that key, import it first, then call `moment.locale` to load it.
 
+<!-- skip-example -->
+
 ```javascript
 var moment = require('moment');
 //or
@@ -21,6 +23,8 @@ moment(1316116057189).fromNow(); // il y a 6 ans
 ```
 
 To save the step of loading individual locales (i.e. just load them all), import the `moment/min/moment-with-locales` module instead.
+
+<!-- skip-example -->
 
 ```javascript
 import moment from 'moment/min/moment-with-locales';
