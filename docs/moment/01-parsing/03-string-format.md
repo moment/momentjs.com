@@ -23,6 +23,13 @@ moment("12-25-1995", "MM-DD-YYYY");
 moment("12/25/1995", "MM-DD-YYYY");
 ```
 
+The parser considers spaces to not be non-alphanumeric, so neither of the following will parse as expected:
+
+```javascript
+moment("12 25 1995", "MM-DD-YYYY");
+moment("12 25 1995", "MM/DD/YYYY");
+```
+
 The parsing tokens are similar to the formatting tokens used in `moment#format`.
 
 #### Year, month, and day tokens
