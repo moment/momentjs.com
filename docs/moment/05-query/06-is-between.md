@@ -44,17 +44,17 @@ Version **2.13.0** introduces inclusivity. A ``[`` indicates inclusion of a valu
 If the inclusivity parameter is used, both indicators must be passed.
 
 ```javascript
-moment('2016-10-30').isBetween('2016-10-30', '2016-12-30', null, '()'); //false
-moment('2016-10-30').isBetween('2016-10-30', '2016-12-30', null, '[)'); //true
-moment('2016-10-30').isBetween('2016-01-01', '2016-10-30', null, '()'); //false
-moment('2016-10-30').isBetween('2016-01-01', '2016-10-30', null, '(]'); //true
-moment('2016-10-30').isBetween('2016-10-30', '2016-10-30', null, '[]'); //true
+moment('2016-10-30').isBetween('2016-10-30', '2016-12-30', undefined, '()'); //false
+moment('2016-10-30').isBetween('2016-10-30', '2016-12-30', undefined, '[)'); //true
+moment('2016-10-30').isBetween('2016-01-01', '2016-10-30', undefined, '()'); //false
+moment('2016-10-30').isBetween('2016-01-01', '2016-10-30', undefined, '(]'); //true
+moment('2016-10-30').isBetween('2016-10-30', '2016-10-30', undefined, '[]'); //true
 ```
 
 Note that in the event that the ``from`` and ``to`` parameters are the same,
 but the inclusivity parameters are different, false will preside.
 ```javascript
-moment('2016-10-30').isBetween('2016-10-30', '2016-10-30', null, '(]'); //false
+moment('2016-10-30').isBetween('2016-10-30', '2016-10-30', undefined, '(]'); //false
 ```
 
 If the inclusivity parameter is not specified, Moment will default to ``()``.
