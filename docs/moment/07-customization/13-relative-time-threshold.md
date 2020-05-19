@@ -41,10 +41,10 @@ signature: |
       <td>least number of days to be considered a week.</td>
     </tr>
     <tr>
-          <td>w</td>
-          <td>weeks</td>
-          <td>least number of weeks to be considered a month.</td>
-        </tr>
+      <td>w</td>
+      <td>weeks</td>
+      <td>least number of weeks to be considered a month. Not used by default.</td>
+    </tr>
     <tr>
       <td>M</td>
       <td>months</td>
@@ -59,8 +59,8 @@ signature: |
   moment.relativeTimeThreshold('s');  // 45
   moment.relativeTimeThreshold('m');  // 45
   moment.relativeTimeThreshold('h');  // 22
-  moment.relativeTimeThreshold('d');  // 6
-  moment.relativeTimeThreshold('w');  // 4
+  moment.relativeTimeThreshold('d');  // 26
+  moment.relativeTimeThreshold('w');  // null
   moment.relativeTimeThreshold('M');  // 11
 
   // Set new thresholds
@@ -76,3 +76,5 @@ signature: |
 **Note:** Retrieving thresholds was added in **2.8.1**.
 
 **Note:** Retrieving and setting `ss` threshold was added in **2.18.0**.
+
+**Note:** Retrieving and setting `w` threshold was added in **2.25.3**.
