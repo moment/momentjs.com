@@ -84,5 +84,3 @@ lower, so it transitions from days to weeks earlier.
 **Note:** Retrieving thresholds was added in **2.8.1**.
 
 **Note:** Retrieving and setting `ss` threshold was added in **2.18.0**.
-
-**Note:** Retrieving and setting `w` threshold was added in **2.25.3**.
