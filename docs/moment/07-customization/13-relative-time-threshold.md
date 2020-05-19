@@ -38,7 +38,12 @@ signature: |
     <tr>
       <td>d</td>
       <td>days</td>
-      <td>least number of days to be considered a month.</td>
+      <td>least number of days to be considered a week.</td>
+    </tr>
+    <tr>
+      <td>w</td>
+      <td>weeks</td>
+      <td>least number of weeks to be considered a month. Not used by default.</td>
     </tr>
     <tr>
       <td>w</td>
