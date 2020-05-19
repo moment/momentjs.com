@@ -94,6 +94,13 @@ moment([2010, 0, 31]).add(1, 'months'); // February 28
 There are also special considerations to keep in mind when adding time that crosses over daylight saving time.
 If you are adding years, months, weeks, or days, the original hour will always match the added hour.
 
+Adding a month will add the specified number of months to the date.
+
+```javascript
+moment([2010, 1, 28]);                 // February 28
+moment([2010, 1, 28]).add(1, 'month'); // March 28
+```
+
 ```javascript
 var m = moment(new Date(2011, 2, 12, 5, 0, 0)); // the day before DST in the US
 m.hours(); // 5

@@ -10,10 +10,13 @@ signature: |
   localeData.monthsParse(String)
   localeData.weekdays(Moment)
   localeData.weekdays()
+  localeData.weekdays(Boolean)      ## Added 2.24.0, sorts weekdays by locale
   localeData.weekdaysShort(Moment)
   localeData.weekdaysShort()
+  localeData.weekdaysShort(Boolean) ## Added 2.24.0, sorts weekdays by locale
   localeData.weekdaysMin(Moment)
   localeData.weekdaysMin()
+  localeData.weekdaysMin(Boolean)   ## Added 2.24.0, sorts weekdays by locale
   localeData.weekdaysParse(String)
   localeData.longDateFormat(String)
   localeData.isPM(String)
@@ -63,10 +66,7 @@ localeData.postformat(str);  // called after formatting on every string
 localeData.week(aMoment);  // returns week-of-year of aMoment
 localeData.invalidDate();  // returns a translation of 'Invalid date'
 localeData.firstDayOfWeek();  // 0-6 (Sunday to Saturday)
-localeData.firstDayOfYear();  // 0-15 this and the first day of week are used
-                              // to determine which is the first week of the
-                              // year. dow == 1 and doy == 4 means week starts
-                              // Monday and first week that has Thursday is the
-                              // first week of the year (but doy is NOT simply
-                              // Thursday).
+localeData.firstDayOfYear();  // 0-15 Used to determine first week of the year.
 ```
+
+Details about `firstDayOfYear` can be found in the [customization](#/customization/dow-doy/) section.

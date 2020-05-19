@@ -25,7 +25,7 @@ moment('2010-10-20').isBefore('2011-01-01', 'year'); // true
 Like `moment#isAfter` and `moment#isSame`, any of the units of time that are supported for `moment#startOf` are supported for `moment#isBefore`.
 
 ```
-year month week day hour minute second
+year month week isoWeek day hour minute second
 ```
 
 If nothing is passed to `moment#isBefore`, it will default to the current time.

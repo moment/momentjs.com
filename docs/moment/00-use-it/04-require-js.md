@@ -7,20 +7,21 @@ We strongly recommend reading
 if you plan to use moment with Require.js. Also upgrade to **2.14.0** or above
 for best experience.
 
-As a start, you might have aquired moment through bower or node_modules or
+As a start, you might have acquired moment through bower or node_modules or
 anything else that places moment.js together with a locales directory in a base
 folder. Then you should use a tool like
 [adapt-pkg-main](https://github.com/jrburke/adapt-pkg-main), or manually --
 using [packages config](http://requirejs.org/docs/api.html#packages).
 
 <!-- skip-example -->
+
 ```javascript
 requirejs.config({
   packages: [{
     name: 'moment',
     // This location is relative to baseUrl. Choose bower_components
     // or node_modules, depending on how moment was installed.
-    location: '[bower_components|node_modules]/moment'
+    location: '[bower_components|node_modules]/moment',
     main: 'moment'
   }]
 });
@@ -30,6 +31,7 @@ With the above setup, you can require the core with `moment` and `de` locale
 with `moment/locale/de`.
 
 <!-- skip-example -->
+
 ```javascript
 // only needing core
 define(['moment'], function (moment) {
@@ -68,6 +70,7 @@ For more complicated use cases please read [excellent explanation by @jrburke](h
 Moment will still create a `moment` global, which is useful to plugins and other third-party code. If you wish to squash that global, use the `noGlobal` option on the module config.
 
 <!-- skip-example -->
+
 ```javascript
 require.config({
     config: {

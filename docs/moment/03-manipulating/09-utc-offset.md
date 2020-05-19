@@ -7,7 +7,7 @@ signature: |
   moment().utcOffset(Number|String, Boolean);
 ---
 
-Get the UTC offset in minutes.
+Get or set the UTC offset in minutes.
 
 **Note:** Unlike [`moment.fn.zone`](/docs/#/manipulating/timezone-offset/) this
 function returns the real offset from UTC, not the reverse offset (as returned
@@ -19,7 +19,9 @@ Getting the `utcOffset` of the current object:
 moment().utcOffset(); // (-240, -120, -60, 0, 60, 120, 240, etc.)
 ```
 
-Setting the UTC offset by supplying minutes. Note that once you set an offset,
+Setting the UTC offset by supplying minutes. The offset is set on the moment object
+that `utcOffset()` is called on. If you are wanting to set the offset globally, 
+try using [moment-timezone](/timezone/). Note that once you set an offset,
 it's fixed and won't change on its own (i.e there are no DST rules). If you want
 an actual time zone -- time in a particular location, like
 `America/Los_Angeles`, consider [moment-timezone](/timezone/).

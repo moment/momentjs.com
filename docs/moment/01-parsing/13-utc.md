@@ -9,6 +9,7 @@ signature: |
   moment.utc(String, String);
   moment.utc(String, String[]);
   moment.utc(String, String, String);
+  moment.utc(String, String, String[]);
   moment.utc(String, String, Boolean);
   moment.utc(String, String, String, Boolean);
   moment.utc(Moment);

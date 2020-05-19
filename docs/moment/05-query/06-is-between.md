@@ -7,7 +7,7 @@ signature: |
   moment().isBetween(moment-like, moment-like, String);
   moment().isBetween(moment-like, moment-like, String, String);
   // where moment-like is Moment|String|Number|Date|Array
-  
+
   //2.9.0 to 2.12.0
   moment().isBetween(moment-like, moment-like);
   moment().isBetween(moment-like, moment-like, String);
@@ -20,6 +20,13 @@ scale (minutes, hours, days, etc).  The match is exclusive. The first two argume
 
 ```javascript
 moment('2010-10-20').isBetween('2010-10-19', '2010-10-25'); // true
+moment('2010-10-20').isBetween('2010-10-19', undefined); // true, since moment(undefined) evaluates as moment()
+```
+Note that the order of the two arguments matter: the "smaller" date should be in the first argument.
+
+```javascript
+moment('2010-10-20').isBetween('2010-10-19', '2010-10-25'); // true
+moment('2010-10-20').isBetween('2010-10-25', '2010-10-19'); // false
 ```
 
 If you want to limit the granularity to a unit other than milliseconds, pass the units as the third parameter.
@@ -31,23 +38,23 @@ moment('2010-10-20').isBetween('2009-12-31', '2012-01-01', 'year'); // true
 
 Like `moment#isSame`, `moment#isBefore`, `moment#isAfter` any of the units of
 time that are supported for `moment#startOf` are supported for
-`moment#isBetween`. Year, month, week, day, hour, minute, and second.
+`moment#isBetween`. Year, month, week, isoWeek, day, hour, minute, and second.
 
 Version **2.13.0** introduces inclusivity. A ``[`` indicates inclusion of a value. A ``(`` indicates exclusion.
 If the inclusivity parameter is used, both indicators must be passed.
 
 ```javascript
-moment('2016-10-30').isBetween('2016-10-30', '2016-12-30', null, '()'); //false
-moment('2016-10-30').isBetween('2016-10-30', '2016-12-30', null, '[)'); //true
-moment('2016-10-30').isBetween('2016-01-01', '2016-10-30', null, '()'); //false
-moment('2016-10-30').isBetween('2016-01-01', '2016-10-30', null, '(]'); //true
-moment('2016-10-30').isBetween('2016-10-30', '2016-10-30', null, '[]'); //true
+moment('2016-10-30').isBetween('2016-10-30', '2016-12-30', undefined, '()'); //false
+moment('2016-10-30').isBetween('2016-10-30', '2016-12-30', undefined, '[)'); //true
+moment('2016-10-30').isBetween('2016-01-01', '2016-10-30', undefined, '()'); //false
+moment('2016-10-30').isBetween('2016-01-01', '2016-10-30', undefined, '(]'); //true
+moment('2016-10-30').isBetween('2016-10-30', '2016-10-30', undefined, '[]'); //true
 ```
 
-Note that in the event that the ``from`` and ``to`` parameters are the same, 
+Note that in the event that the ``from`` and ``to`` parameters are the same,
 but the inclusivity parameters are different, false will preside.
 ```javascript
-moment('2016-10-30').isBetween('2016-10-30', '2016-10-30', null, '(]'); //false
+moment('2016-10-30').isBetween('2016-10-30', '2016-10-30', undefined, '(]'); //false
 ```
 
 If the inclusivity parameter is not specified, Moment will default to ``()``.

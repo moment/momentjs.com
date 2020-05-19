@@ -78,10 +78,12 @@ moment.locale('fr', {
     },
     week : {
         dow : 1, // Monday is the first day of the week.
-        doy : 4  // The week that contains Jan 4th is the first week of the year.
+        doy : 4  // Used to determine first week of the year.
     }
 });
 ```
+
+Details about `week.dow` and `week.doy` can be found in the [customization](#/customization/dow-doy/) section.
 
 Once you load a locale, it becomes the active locale. To change active locales, simply call `moment.locale` with the key of a loaded locale.
 
@@ -122,11 +124,11 @@ moment.locale(['tq', 'fr']); // 'fr'
 Moment will also try locale specifier substrings from most-specific to least-specific until it finds a locale it knows. This is useful when supplying Moment with a locale string pulled from the user's environment, such as `window.navigator.language`.
 
 ```javascript
-moment.locale('en-NZ'); // 'en'
+moment.locale('en-nz'); // 'en'
 ```
 
 Finally, Moment will search intelligently through an array of locales and their substrings.
 
 ```javascript
-moment.locale(['en-NZ', 'en-AU']); // 'en-au', not 'en'
+moment.locale(['en-nz', 'en-au']); // 'en-au', not 'en'
 ```
