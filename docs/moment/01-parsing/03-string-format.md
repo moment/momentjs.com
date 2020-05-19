@@ -23,6 +23,16 @@ moment("12-25-1995", "MM-DD-YYYY");
 moment("12/25/1995", "MM-DD-YYYY");
 ```
 
+You may get unexpected results when parsing both date and time. The below example may not parse as you expect:
+```javascript
+moment('24/12/2019 09:15:00', "DD MM YYYY hh:mm:ss");
+```
+
+You can use strict mode, which will identify the parsing error and set the Moment object as invalid:
+```javascript
+moment('24/12/2019 09:15:00', "DD MM YYYY hh:mm:ss", true);
+```
+
 The parsing tokens are similar to the formatting tokens used in `moment#format`.
 
 #### Year, month, and day tokens
