@@ -3,15 +3,15 @@ title: Calendar Time
 version: 1.3.0
 signature: |
   moment().calendar();
-  moment().calendar(referenceTime);
-  moment().calendar(referenceTime, formats);  // from 2.10.5
+  moment().calendar(referenceDay);
+  moment().calendar(referenceDay, formats);  // from 2.10.5
   moment().calendar(formats);  // from 2.25.0
 ---
 
 
-Calendar time displays time relative to a given `referenceTime` (defaults to now), but does so slightly differently than `moment#fromNow`.
+Calendar time displays time relative to a given `referenceDay` (defaults to the start of today), but does so slightly differently than `moment#fromNow`.
 
-`moment#calendar` will format a date with different strings depending on how close to `referenceTime`'s date (today by default) the date is.
+`moment#calendar` will format a date with different strings depending on how close to `referenceDay`'s date (today by default) the date is.
 
 <table class="table table-striped table-bordered">
   <tr>
@@ -55,7 +55,7 @@ moment().calendar(null, {
     sameElse: 'DD/MM/YYYY'
 });
 ```
-`sameElse` is used as the format when the moment is more than a week away from the `referenceTime`
+`sameElse` is used as the format when the moment is more than a week away from the `referenceDay`
 
 **Note:** From version **2.14.0** the formats argument to calendar can be
 a callback that is executed within the moment context with a single argument
