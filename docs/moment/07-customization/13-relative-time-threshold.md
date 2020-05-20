@@ -46,10 +46,6 @@ signature: |
       <td>least number of weeks to be considered a month. Not used by default.</td>
     </tr>
     <tr>
-      <td>w</td>
-      <td>weeks</td>
-      <td>least number of weeks to be considered a month.</td>
-    <tr>
       <td>M</td>
       <td>months</td>
       <td>least number of months to be considered a year.</td>
