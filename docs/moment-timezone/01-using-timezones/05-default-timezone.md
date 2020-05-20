@@ -21,5 +21,7 @@ To reset the default time zone to local, use `moment.tz.setDefault` with no argu
 moment.tz.setDefault();
 ```
 
+This is a global setting (shared by all modules).
+
 Subsequent calls to `moment.tz.setDefault` will not affect existing `moment`
 objects or their clones.
