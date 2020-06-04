@@ -169,7 +169,7 @@ moment('gibberish').format('YYYY MM DD');         // "Invalid date"
       <td>YYYYYY</td>
       <td>-001970 -001971 ... +001907 +001971
         <br />
-        <b>Note:</b> [Expanded Years](https://tc39.es/ecma262/#sec-expanded-years) (Covering the full time value range of approximately 273,790 years forward or backward from 01 January, 1970)
+        <b>Note:</b> <a href="https://tc39.es/ecma262/#sec-expanded-years">Expanded Years</a> (Covering the full time value range of approximately 273,790 years forward or backward from 01 January, 1970)
       </td>
     </tr>
       <tr>
