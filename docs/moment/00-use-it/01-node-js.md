@@ -2,7 +2,6 @@
 title: Node.js
 ---
 
-
 ```
 npm install moment
 ```
@@ -11,16 +10,20 @@ npm install moment
 var moment = require('moment'); // require
 moment().format(); 
 ```
+
 Or in ES6 syntax:
- <!-- skip-example --> 
+
+ <!-- skip-example -->
+
 ```javascript
 import moment from 'moment';
 moment().format();
 ```
 
-Note: if you want to work with a particular variation of moment timezone, for example using only data from 2012-2022, you will need to import it from the `builds` directory like so:
+**Note:** if you want to work with a particular variation of moment timezone, for example using only data from 2012-2022, you will need to import it from the `builds` directory like so:
 
-<!-- skip-example --> 
+<!-- skip-example -->
+
  ```javascript
 import moment from 'moment-timezone/builds/moment-timezone-with-data-2012-2022';
 ```
