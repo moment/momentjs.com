@@ -91,8 +91,8 @@ LLLL`. They were added in version **2.2.1**, except `LTS` which was added
 | `LL`           | `September 4 1986`                    | Month name, day of month, year
 | `LLL`          | `September 4 1986 8:30 PM`            | Month name, day of month, year, time|
 | `LLLL`         | `Thursday, September 4 1986 8:30 PM`  | Day of week, month name, day of month, year, time	 |
-| `LT`           | `08:30 PM`                            | Time (without seconds) |
-| `LTS`          | `08:30:00 PM`                         | Time (with seconds) |
+| `LT`           | `8:30 PM`                            | Time (without seconds) |
+| `LTS`          | `8:30:00 PM`                         | Time (with seconds) |
 
 #### Hour, minute, second, millisecond, and offset tokens
 
