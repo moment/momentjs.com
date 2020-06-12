@@ -77,7 +77,7 @@
 		margin: 0 2px;
 
 		.is-moment & {
-			color: $color-moment;
+			// color: $color-moment;
 
 			&:hover {
 				//color: $black;
@@ -87,13 +87,13 @@
 			&:active,
 			&:focus,
 			&.active {
-				color: $black;
+				// color: $black;
 				background: $color-moment;
 			}
 		}
 
 		.is-moment-timezone & {
-			color: $color-moment-timezone;
+			// color: $color-moment-timezone;
 
 			&:hover {
 				//color: $black;
@@ -103,7 +103,7 @@
 			&:active,
 			&:focus,
 			&.active {
-				color: $black;
+				// color: $black;
 				background: $color-moment-timezone;
 			}
 		}
