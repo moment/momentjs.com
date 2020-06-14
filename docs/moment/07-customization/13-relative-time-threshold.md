@@ -18,7 +18,7 @@ signature: |
     <tr>
       <td>ss</td>
       <td>a few seconds</td>
-      <td>least number of seconds to be considered seconds. Must be set after setting the `s` unit or without setting the `s` unit.</td>
+      <td>greatest number of seconds to be considered seconds. Must be set after setting the `s` unit or without setting the `s` unit.</td>
     </tr>
     <tr>
       <td>s</td>
