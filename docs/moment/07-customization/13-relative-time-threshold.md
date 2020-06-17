@@ -18,7 +18,7 @@ signature: |
     <tr>
       <td>ss</td>
       <td>a few seconds</td>
-      <td>least number of seconds to be considered seconds. Must be set after setting the `s` unit or without setting the `s` unit.</td>
+      <td>least number of seconds to be counted in seconds, minus 1. Must be set after setting the `s` unit or without setting the `s` unit.</td>
     </tr>
     <tr>
       <td>s</td>
@@ -64,8 +64,8 @@ signature: |
   moment.relativeTimeThreshold('M');  // 11
 
   // Set new thresholds
-  moment.relativeTimeThreshold('ss', 3);
   moment.relativeTimeThreshold('s', 40);
+  moment.relativeTimeThreshold('ss', 3);
   moment.relativeTimeThreshold('m', 40);
   moment.relativeTimeThreshold('h', 20);
   moment.relativeTimeThreshold('d', 25);
