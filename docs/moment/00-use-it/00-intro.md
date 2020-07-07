@@ -3,7 +3,7 @@ title: Where to use it
 ---
 
 
-Moment was designed to work both in the browser and Node.js.
+Moment was designed to work both in the browser and in Node.js.
 
 All code should work in both of these environments, and all unit tests are run in both of these environments.
 
