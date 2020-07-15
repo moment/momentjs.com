@@ -3,6 +3,7 @@ title: UTC
 version: 1.5.0
 signature: |
   moment().utc();
+  moment().utc(Boolean);
 ---
 
 
@@ -19,6 +20,12 @@ UTC can also be used to convert out of a fixed offset mode:
 
 ```javascript
 moment.parseZone('2016-05-03T22:15:01+02:00').utc().format(); //"2016-05-03T20:15:01Z"
+```
+
+Passing `true` will change the time zone without changing the current time.
+
+```javascript
+moment.parseZone('2016-05-03T22:15:01+02:00').utc(true).format(); //"2016-05-03T22:15:01Z"
 ```
 
 See [moment.utc()](#/parsing/utc/) for more information on UTC mode.

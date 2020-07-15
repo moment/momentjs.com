@@ -3,6 +3,7 @@ title: Local
 version: 1.5.0
 signature: |
   moment().local();
+  moment().local(Boolean);
 ---
 
 
@@ -19,6 +20,12 @@ Local can also be used to convert out of a fixed offset mode:
 
 ```javascript
 moment.parseZone('2016-05-03T22:15:01+02:00').local().format(); // "2016-05-03T15:15:01-05:00"
+```
+
+Passing `true` will change the time zone without changing the current time.
+
+```javascript
+moment.parseZone('2016-05-03T22:15:01+02:00').local(true).format(); //"2016-05-03T22:15:01-05:00"
 ```
 
 See [moment.utc()](#/parsing/utc/) for more information on UTC mode.
