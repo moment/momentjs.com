@@ -42,3 +42,11 @@ If you are familiar with [`java.time`](https://docs.oracle.com/javase/8/docs/api
 
 - Locales: Custom data files via add-on module
 - Time Zones: Custom data files via add-on module
+
+### No Library
+
+JavaScript has always had a `Date` object.  Its not perfect, but it has evolved somewhat over time.  Parsing strings is still problematic, so be careful there.
+
+Additionally, most modern browsers now support the [`Intl`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl) API, which works great for formatting strings in different locales and time zones.
+
+If the `Date` and `Intl` objects meet your needs, and you fully understand their limitations, then you should consider using them directly.
