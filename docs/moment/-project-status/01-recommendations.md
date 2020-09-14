@@ -66,6 +66,6 @@ When using the `Intl` object, be aware of the following:
 - Not every environment will implement the full specification.  In particular, Node.js environments require internationalization support provided by ICU.  See [the Node.js documentation](https://nodejs.org/docs/latest-v12.x/api/intl.html) for further details.
 - The [ECMAScript Intl compatibility table (by kangax)](http://kangax.github.io/compat-table/esintl/) can be useful in determining which features are supported and which are not.
 - Most newer environments provide IANA time zone support via the `timeZone` option in the `Intl.DateTimeFormat` constructor (and in `Date.toLocaleString`, `Date.toLocaleDateString`, and `Date.toLocaleTimeString`).
-  This option can be used to take the internal UTC-based timestamp of a `Date` object and get a *string* that has been converted to a named time zone.  However, it *can not* be used to convert a `Date` object do a different time zone.
+  This option can be used to take the internal UTC-based timestamp of a `Date` object and get a *string* that has been converted to a named time zone.  However, it *can not* be used to convert a `Date` object to a different time zone.
 
 If the `Date` and `Intl` objects meet your needs and you fully understand their limitations, then you might consider using them directly.
