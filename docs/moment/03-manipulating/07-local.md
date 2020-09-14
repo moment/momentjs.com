@@ -3,7 +3,7 @@ title: Local
 version: 1.5.0
 signature: |
   moment().local();
-  moment().local(Boolean);
+  moment().local(Boolean); // from 2.8.0
 ---
 
 

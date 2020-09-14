@@ -3,7 +3,7 @@ title: UTC
 version: 1.5.0
 signature: |
   moment().utc();
-  moment().utc(Boolean);
+  moment().utc(Boolean); // from 2.8.0
 ---
 
 
