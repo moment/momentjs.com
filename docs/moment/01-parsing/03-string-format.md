@@ -87,7 +87,7 @@ LLLL`. They were added in version **2.2.1**, except `LTS` which was added
 
 | Input          | Example                               | Description |
 | -------------- | ------------------------------------- | ----------- |
-| `L`            | `04/09/1986`                          | Date (in local format) |
+| `L`            | `09/04/1986`                          | Date (in local format) |
 | `LL`           | `September 4 1986`                    | Month name, day of month, year
 | `LLL`          | `September 4 1986 8:30 PM`            | Month name, day of month, year, time|
 | `LLLL`         | `Thursday, September 4 1986 8:30 PM`  | Day of week, month name, day of month, year, time	 |
