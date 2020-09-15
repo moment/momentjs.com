@@ -26,6 +26,8 @@ You may also want to read:
 - [*4 alternatives to moment.js for internationalizing dates*](https://blog.logrocket.com/4-alternatives-to-moment-js-for-internationalizing-dates/)
 
 The Moment team has discussed these issues at length.  We recognize that many existing projects may continue to use Moment, but we would like to discourage Moment from being used in new projects going forward.
+Instead, we would like to [recommend alternatives](#/-project-status/recommendations/) that are excellent choices for use in modern applications today.
+We would also like to promote the [`Temporal`](#/-project-status/future/) addition to the JavaScript language, which is looking for feedback and contributors.
 
 **We now generally consider Moment to be a legacy project in maintenance mode.  It is not *dead*, but it is indeed *done*.**
 
