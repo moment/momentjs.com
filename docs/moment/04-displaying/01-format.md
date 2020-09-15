@@ -187,23 +187,23 @@ moment('gibberish').format('YYYY MM DD');         // "Invalid date"
     </tr>
     <tr>
       <td><b>Era</b></td>
-      <td>N</td>
+      <td>N, NN, NNN</td>
       <td> BC AD<br />
         <b>Note:</b> Abbr era name
       </td>
     </tr>
     <tr>
       <td></td>
-      <td>NN</td>
-      <td> BC AD<br />
-        <b>Note:</b> Narrow era name
+      <td>NNNN</td>
+      <td> Before Christ, Anno Domini <br />
+        <b>Note:</b> Full era name
       </td>
     </tr>
     <tr>
       <td></td>
-      <td>NNN</td>
-      <td> Before Christ, Anno Domini <br />
-        <b>Note:</b> Full era name
+      <td>NNNNN</td>
+      <td> BC AD<br />
+        <b>Note:</b> Narrow era name
       </td>
     </tr>
     <tr>
