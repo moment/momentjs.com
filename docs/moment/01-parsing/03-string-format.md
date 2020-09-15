@@ -144,8 +144,10 @@ moment("2010-10-20 4:30 +0000", "YYYY-MM-DD HH:mm Z"); // parsed as 4:30 UTC
 | y .. yyyy | `5 +5 -500`   | Years          |
 | yo        | `5th 1st`     | Ordinal Years  |
 | N         | `AD`          | Abbr Era name  |
-| NN        | `AD`          | Short Era name |
-| NNN       | `Anno Domini` | Full Era name  |
+| NN        | `AD`          | Abbr Era name  |
+| NNN       | `AD`          | Abbr Era name  |
+| NNNN      | `Anno Domini` | Full Era name  |
+| NNNNN     | `AD`          | Narrow Era name |
 
 
 Era support was added in **2.25.0**. The tokens/API are still in flux.
