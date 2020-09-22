@@ -61,6 +61,10 @@ module.exports =[
         "name": "Bengali"
     },
     {
+        "abbr": "bn-bd",
+        "name": "Bengali (Bangladesh)"
+    },
+    {
         "abbr": "bs",
         "name": "Bosnian"
     },
@@ -447,6 +451,10 @@ module.exports =[
     {
         "abbr": "es-do",
         "name": "Spanish (Dominican Republic)"
+    },
+    {
+        "abbr": "es-mx",
+        "name": "Spanish (Mexico)"
     },
     {
         "abbr": "es-us",
