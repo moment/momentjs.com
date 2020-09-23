@@ -47,11 +47,11 @@ moment().utcOffset(8);
 moment().utcOffset(480);
 ```
 
-`moment#utcOffset` will search the string for the first match of `+00:00 +0000
--00:00 -0000 Z`, so you can even pass an ISO8601 formatted string and the moment
+`moment#utcOffset` will search the string for the last match of `+00 -00 +00:00 +0000
+-00:00 -0000 Z`, so you can even pass an ISO8601 formatted string with offset and the moment
 will be changed to that UTC offset.
 
-Note that the string, if not 'Z', is required to start with the `+` or `-` character.
+Note that if the string does not include 'Z', it must include the `+` or `-` character.
 
 ```javascript
 moment().utcOffset("2013-03-07T07:00:00+08:00");
