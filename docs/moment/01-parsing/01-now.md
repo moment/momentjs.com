@@ -24,7 +24,4 @@ arbitrary so it was changed.
 
 **Note:** Function parameters default to `undefined` when not passed in. Moment treats `moment(undefined)` as `moment()`.
 
-```javascript
-var x = undefined;
-moment(x).isSame(moment(), 'second'); // true
-```
+**Note:** Moments are created at evaluation time, so `moment().diff(moment())` may not always return 0. See [this GitHub issue](https://github.com/moment/moment/issues/5195) for more details.
