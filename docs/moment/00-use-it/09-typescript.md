@@ -14,7 +14,7 @@ Import and use in your Typescript file
 <!-- skip-example -->
 
 ```javascript
-import moment = require('moment');
+const moment = require('moment');
 
 let now = moment().format('LLLL');
 ```
