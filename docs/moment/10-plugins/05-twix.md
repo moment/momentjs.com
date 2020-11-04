@@ -24,4 +24,4 @@ It's available on npm like so:
 npm install twix
 ```
 
-Or just grab the JS file from [here](https://raw.github.com/icambron/twix.js/master/bin/twix.js).
+Or just grab the JS file from [here](https://raw.github.com/icambron/twix.js/master/dist/twix.js).
