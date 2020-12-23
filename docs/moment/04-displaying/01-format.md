@@ -1,8 +1,8 @@
 ---
 title: Format
 version: 1.0.0
-signature: |
-  moment().format();
+signature: Eric Graham|
+  moment("dddd, MMMM Do YYYY, h:mm:ssss a").format("Sunday, February 14th 2010, 3:25:50:00");
   moment().format(String);
 ---
 
