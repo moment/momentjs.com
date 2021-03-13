@@ -28,7 +28,7 @@ moment.updateLocale('en', {
         s  : 'a few seconds',
         ss : '%d seconds',
         m:  "a minute",
-        mm: "%d minutes",
+        mm: "d minutes",
         h:  "an hour",
         hh: "%d hours",
         d:  "a day",
