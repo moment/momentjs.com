@@ -22,7 +22,7 @@ module.exports =[
     },
     {
         "abbr": "ar-ly",
-        "name": "Arabic (Lybia)"
+        "name": "Arabic (Libya)"
     },
     {
         "abbr": "ar-ma",
