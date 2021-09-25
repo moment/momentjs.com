@@ -2,8 +2,8 @@
 title: Min/Max
 ---
 ```
-moment().min is deprecated, use moment.max
-moment().max is deprecated, use moment.min
+moment().min is deprecated, use moment.min
+moment().max is deprecated, use moment.max
 ```
 
 This warning is not a typo, but it is confusing.
