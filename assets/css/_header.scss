@@ -1,194 +1,201 @@
 .hero {
-	padding: 30px 0;
-	border-bottom: 1px solid rgba($black, 0.2);
-	background: url(../img/bg.png) 0 50%;
+  padding: 30px 0;
+  border-bottom: 1px solid rgba($black, 0.2);
+  background: url(../img/bg.png) 0 50%;
 
-	.is-moment &          {
-		background-color: $color-moment;
-		box-shadow: inset 0 10px 10px $color-moment;
-	}
-	.is-moment-timezone & {
-		background-color: $color-moment-timezone;
-		box-shadow: inset 0 10px 10px $color-moment-timezone;
-	}
+  .is-moment & {
+    background-color: $color-moment;
+    box-shadow: inset 0 10px 10px $color-moment;
+  }
+  .is-moment-timezone & {
+    background-color: $color-moment-timezone;
+    box-shadow: inset 0 10px 10px $color-moment-timezone;
+  }
 }
 
 .hero-circle {
-	width: 180px;
-	height: 180px;
-	margin: 0 auto;
-	position: relative;
-	border: 8px solid $white;
-	border-radius: 50%;
-	box-shadow: 0 1px 8px rgba($black, 0.3), inset 0 1px 8px rgba($black, 0.3);
-	background: url(../img/bg.png) 0 50%;
+  width: 180px;
+  height: 180px;
+  margin: 0 auto;
+  position: relative;
+  border: 8px solid $white;
+  border-radius: 50%;
+  box-shadow: 0 1px 8px rgba($black, 0.3), inset 0 1px 8px rgba($black, 0.3);
+  background: url(../img/bg.png) 0 50%;
 
-	.is-moment &          { background-color: $color-moment; }
-	.is-moment-timezone & { background-color: $color-moment-timezone; }
+  .is-moment & {
+    background-color: $color-moment;
+  }
+  .is-moment-timezone & {
+    background-color: $color-moment-timezone;
+  }
 }
 
 .hero-face {
-	width: 100%;
-	height: 100%;
+  width: 100%;
+  height: 100%;
 
-	&:after {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		width: 12px;
-		height: 12px;
-		margin: -6px 0 0 -6px;
-		background: $white;
-		border-radius: 6px;
-		content: "";
-		display: block;
-	}
+  &:after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    margin: -6px 0 0 -6px;
+    background: $white;
+    border-radius: 6px;
+    content: "";
+    display: block;
+  }
 }
 
 .hero-hour {
-	width: 0;
-	height: 0;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin: -4px 0 -4px -25%;
-	padding: 4px 0 4px 25%;
-	background: $white;
-	transform-origin: 100% 50%;
-	border-radius: 4px 0 0 4px;
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -4px 0 -4px -25%;
+  padding: 4px 0 4px 25%;
+  background: $white;
+  transform-origin: 100% 50%;
+  border-radius: 4px 0 0 4px;
 }
 
 .hero-minute {
-	width: 0;
-	height: 0;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin: -40% -3px 0;
-	padding: 40% 3px 0;
-	background: $white;
-	transform-origin: 50% 100%;
-	border-radius: 3px 3px 0 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -40% -3px 0;
+  padding: 40% 3px 0;
+  background: $white;
+  transform-origin: 50% 100%;
+  border-radius: 3px 3px 0 0;
 }
 
 .hero-second {
-	width: 0;
-	height: 0;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin: -40% -1px 0 0;
-	padding: 40% 1px 0;
-	background: $white;
-	transform-origin: 50% 100%;
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -40% -1px 0 0;
+  padding: 40% 1px 0;
+  background: $white;
+  transform-origin: 50% 100%;
 }
 
 .left-of-hero {
-	float: left;
-	color: $white;
-	padding: 20px;
-	font-family: "Montserrat", sans-serif;
+  float: left;
+  color: $white;
+  padding: 20px;
+  font-family: "Montserrat", sans-serif;
 }
 
 .right-of-hero {
-	float: right;
-	color: $white;
-	padding: 20px;
-	font-family: "Montserrat", sans-serif;
+  float: right;
+  color: $white;
+  padding: 20px;
+  font-family: "Montserrat", sans-serif;
 }
 
 .is-moment header a {
-	color: #6782DA;
+  color: #6782da;
 }
 
 .hero-oneline,
 .hero-title {
-	text-align: center;
-	color: $white;
-	text-shadow: 1px 1px 2px rgba($black, 0.5);
+  text-align: center;
+  color: $white;
+  text-shadow: 1px 1px 2px rgba($black, 0.5);
 
-	h1 {
-		font-size: 60px;
-		margin: 0;
+  h1 {
+    font-size: 60px;
+    margin: 0;
 
-		span {
-			font-size: 0.5em;
+    span {
+      font-size: 0.5em;
 
-			.is-moment & {
-				color: mix($white, $color-moment, 50%);
-			}
+      .is-moment & {
+        color: mix($white, $color-moment, 50%);
+      }
 
-			.is-moment-timezone & {
-				color: mix($white, $color-moment-timezone, 50%);
-			}
-		}
-	}
+      .is-moment-timezone & {
+        color: mix($white, $color-moment-timezone, 50%);
+      }
+    }
+  }
 
-	h2 {
-		font-size: 24px;
-		margin: 0;
-	}
+  h2 {
+    font-size: 24px;
+    margin: 0;
+  }
 }
 
 .hero-oneline {
-	position: relative;
-	padding: 10px 20px;
-	text-align: left;
+  position: relative;
+  padding: 10px 20px;
+  text-align: left;
 
-	h1 {
-		font-size: 32px;
-	}
+  h1 {
+    font-size: 32px;
+  }
 }
 
 .hero-centered {
-	max-width: 1024px;
-	margin: 0 auto;
+  max-width: 1024px;
+  margin: 0 auto;
 }
 
 .hero-world {
-	position: absolute;
-	top: 4px;
-	left: 4px;
-	right: 4px;
-	bottom: 4px;
-	border-radius: 50%;
-	background: url(../img/world.png);
-	background-size: cover;
-	background-position: 25% 0;
-	animation-iteration-count: 1;
-	animation-duration: 3s;
-	animation-delay: 1s;
-	animation-name: map;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  border-radius: 50%;
+  background: url(../img/world.png);
+  background-size: cover;
+  background-position: 25% 0;
+  animation-iteration-count: 1;
+  animation-duration: 3s;
+  animation-delay: 1s;
+  animation-name: map;
 }
 
 @keyframes map {
-	0% {
-		background-position: 625% 0;
-	}
-	100% {
-		background-position: 25% 0;
-	}
+  0% {
+    background-position: 625% 0;
+  }
+  100% {
+    background-position: 25% 0;
+  }
 }
 
 footer {
-	@include font-display;
-	background: url(../img/bg.png);
-	border-top: 1px solid rgba($black, 0.2);
-	padding: 20px;
-	color: #fff;
-	font-size: 16px;
+  @include font-display;
+  background: url(../img/bg.png);
+  border-top: 1px solid rgba($black, 0.2);
+  padding: 20px;
+  color: #fff;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-	p {
-		margin: 0 auto;
-		max-width: 1024px;
-		padding: 0 20px;
-	}
+  p {
+    margin: 0 auto;
+    max-width: 1024px;
+    padding: 0 20px;
+  }
 
-	.is-moment &          {
-		background-color: $color-moment;
-	}
+  .is-moment & {
+    background-color: $color-moment;
+  }
 
-	.is-moment-timezone & {
-		background-color: $color-moment-timezone;
-	}
+  .is-moment-timezone & {
+    background-color: $color-moment-timezone;
+  }
 }
