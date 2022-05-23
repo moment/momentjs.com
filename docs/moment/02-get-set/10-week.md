@@ -7,7 +7,7 @@ signature: |
   moment().weeks(Number);
   moment().weeks(); // Number
 ---
-
+How to Get dayOfWeek by date?
 
 Gets or sets the week of the year.
 
