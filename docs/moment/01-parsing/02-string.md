@@ -37,6 +37,15 @@ An ISO 8601 string requires a date part.
 2013050     # Basic (short) ordinal date (year + day-of-year)
 ```
 
+```
+20130208    # Basic (short) full date
+201303      # Basic (short) year+month
+2013        # Basic (short) year only
+2013W065    # Basic (short) week, weekday
+2013W06     # Basic (short) week only
+2013050     # Basic (short) ordinal date (year + day-of-year)
+```
+
 A time part can also be included, separated from the date part by a space or an uppercase T.
 
 ```
@@ -108,3 +117,4 @@ Mon, 06 Mar 2017 21:22:23 +0000
  [*] See [section 4.3](https://tools.ietf.org/html/rfc2822#section-4.3) of the specification for details.
 
 The parser also confirms that the day-of-week (when included) is consistent with the date.
+
