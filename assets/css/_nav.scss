@@ -48,6 +48,11 @@
 
 .nav-project-moment {
 	@include nav-project-color($color-moment);
+
+	// These are only needed while $color-moment is in BLM theme
+	color: $white;
+	ellipse { stroke : $white; }
+	path    { fill   : rgba($white, 0.6); }
 }
 
 .nav-project-moment-timezone {
