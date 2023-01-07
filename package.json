@@ -21,12 +21,13 @@
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-uglify": "^5.2.2",
     "grunt-contrib-watch": "^1.1.0",
-    "grunt-sass": "^2.1.0",
+    "grunt-sass": "^3.1.0",
     "gzip-size": "^0.2.0",
     "load-grunt-tasks": "^5.1.0",
     "markdown-doctest": "^0.7.0",
     "moment": "2.29.4",
     "moment-timezone": "0.5.40",
+    "sass": "^1.57.1",
     "time-grunt": "^1.4.0"
   }
 }

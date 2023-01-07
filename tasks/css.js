@@ -1,3 +1,5 @@
+const sass = require('sass');
+
 module.exports = function(grunt) {
 	grunt.config('sass.css', {
 		files : [{
@@ -8,6 +10,7 @@ module.exports = function(grunt) {
 			ext: '.css'
 		}],
 		options : {
+			implementation: sass,
 			outputStyle : 'compressed'
 		}
 	});
