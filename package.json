@@ -11,7 +11,7 @@
   "devDependencies": {
     "assemble": "^0.24.3",
     "assemble-yaml": "^0.2.1",
-    "grunt": "^0.4.5",
+    "grunt": "^1.5.3",
     "grunt-assemble": "^0.6.3",
     "grunt-autoprefixer": "^0.7.3",
     "grunt-cli": "^1.1.0",
