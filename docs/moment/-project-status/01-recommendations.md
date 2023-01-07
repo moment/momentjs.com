@@ -58,7 +58,7 @@ When using `Date` objects, be aware of the following:
   Other types of strings *may* work, but parsing them is *implementation specific* and can vary significantly - especially with older browsers.  Depending on the implementation, and the components provided in the string, you may be surprised with the result.
   For these reasons, we agree with [MDN's statement](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date/Date#Timestamp_string) that **parsing strings with the `Date` object is strongly discouraged**.
 
-Modern JavaScript environments will also implement the by [ECMA-402](https://www.ecma-international.org/ecma-402) specification, which provides the [`Intl`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl) object,
+Modern JavaScript environments will also implement the [ECMA-402](https://www.ecma-international.org/ecma-402) specification, which provides the [`Intl`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl) object,
 and defines behavioral options of the `Date` object's `toLocaleString`, `toLocaleDateString`, and `toLocaleTimeString` functions.
 
 When using the `Intl` object, be aware of the following:
