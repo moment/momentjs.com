@@ -53,7 +53,7 @@ The parsing tokens are similar to the formatting tokens used in `moment#format`.
 | `X`         | `1410715640.579` | Unix timestamp |
 | `x`         | `1410715640579`  | Unix ms timestamp |
 
-`YYYY` from version **2.10.5** supports 2 digit years, and converts them to a year
+`YYYY` from version **2.10.5** supports 2 digit years in non `strict` mode, and converts them to a year
 near 2000 (same as `YY`).
 
 `Y` was added in **2.11.1**. It will match any number, signed or unsigned. It is useful for years that are not 4 digits or are before the common era. It can be used for any year.
