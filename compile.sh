@@ -18,3 +18,5 @@ pushd libs/moment-timezone ; git checkout $moment_timezone_version ; popd
 
 ./node_modules/.bin/grunt
 cp CNAME build/CNAME
+# Make sure GitHub Pages builds bypass Jekyll when deploying
+touch build/.nojekyll

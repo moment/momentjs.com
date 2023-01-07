@@ -1,9 +1,0 @@
-script: ./compile.sh && npm run doctest
-after_success: "[[ $TRAVIS_BRANCH == 'master' && $TRAVIS_PULL_REQUEST == 'false' ]] && bash ./deploy.sh"
-env:
-  global:
-  - GH_REF: github.com/moment/momentjs.com.git
-  - secure: "hyvexB/Y5HUH5a3ODispznBYuSYtutdwOCyqiiiMJUoxSc/fAiRT35SfqES7CfOHlt+bHJ2ucVj/G5U/sX0rvdfHF0bIOOcTzCkiBsmct29xdhWyF99VEbcgbbKuTdBVl5VND4L+lC05o0x2q0iZaCSV+kYSOR4nS4rHwubWgqQ="
-language: node_js
-node_js:
-- 5
