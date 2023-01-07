@@ -15,7 +15,7 @@ When choosing, consider that:
 ### [Luxon](https://moment.github.io/luxon/)
 
 Luxon can be thought of as the evolution of Moment.  It is authored by [Isaac Cambron](https://github.com/icambron), a long-time contributor to Moment.
-Please read [*Why does Luxon exist?*](https://moment.github.io/luxon/docs/manual/why.html) and the [*For Moment users*](https://moment.github.io/luxon/docs/manual/moment.html) pages in the Luxon documentation.
+Please read [*Why does Luxon exist?*](https://moment.github.io/luxon/#/why) and the [*For Moment users*](https://moment.github.io/luxon/#/moment) pages in the Luxon documentation.
 
 - Locales: `Intl` provided
 - Time Zones: `Intl` provided

@@ -56,7 +56,7 @@ In most cases, you should not choose Moment for new projects.  However there are
 
 #### Browser support
 
-Moment works well on Internet Explorer 8 and higher.  By contrast, Luxon only works on IE 10 and higher and requires a polyfill to do so.  [You can read more in Luxon's documentation.](https://moment.github.io/luxon/docs/manual/matrix.html)
+Moment works well on Internet Explorer 8 and higher.  By contrast, Luxon only works on IE 10 and higher and requires a polyfill to do so.  [You can read more in Luxon's documentation.](https://moment.github.io/luxon/#/matrix)
 
 Other libraries have also had issues with Safari, especially on mobile devices.  If you have a strong requirement to support older browsers, then you might want to stick with Moment for a bit longer.
 
