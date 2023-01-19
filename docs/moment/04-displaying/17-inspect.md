@@ -6,7 +6,7 @@ signature: |
 ---
 
 Returns a machine readable string, that can be evaluated to produce the same
-moment. Because of the name its also used in node interactive shell to display
+moment. Because of the name it's also used in node interactive shell to display
 objects.
 
 ```javascript
