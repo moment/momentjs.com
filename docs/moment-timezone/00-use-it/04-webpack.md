@@ -9,7 +9,9 @@ var moment = require('moment-timezone');
 moment().tz("America/Los_Angeles").format();
 ```
 
-**Note:** By default, webpack bundles _all_ moment-timezone data (in moment-timezone 0.5.25, that’s over 900 KBs minified). To strip out unwanted data and bundle only the zone and date range data you need, add the [`moment-timezone-data-webpack-plugin`](https://www.npmjs.com/package/moment-timezone-data-webpack-plugin) package:
+**Note:** By default, webpack bundles _all_ moment-timezone data (in moment-timezone 0.5.25, that’s over 900 KBs minified).
+To strip out unwanted data and bundle only the zone and date range data you need,
+add the [`moment-timezone-data-webpack-plugin`](https://www.npmjs.com/package/moment-timezone-data-webpack-plugin) package:
 
 <!-- skip-example -->
 
@@ -34,5 +36,15 @@ module.exports = {
 };
 ```
 
-Also see the primary [Moment.js Webpack documentation](https://momentjs.com/docs/#/use-it/webpack/) for an example of how to reduce Moment’s bundled locale data.
-Together these techniques can significantly reduce the final bundle size (by over 1 MB minified, or 85 KB minified + gzipped).
+Alternatively, the [pre-built bundles](/timezone/) are also included in the `npm` package, and can
+be loaded directly.
+
+<!-- skip-example -->
+
+```js
+var moment = require('moment-timezone/builds/moment-timezone-with-data-10-year-range');
+```
+
+Also see the primary [Moment.js Webpack documentation](/docs/#/use-it/webpack/) for an example of
+how to reduce Moment’s bundled locale data. Together these techniques can significantly reduce the
+final bundle size (by over 1 MB minified, or 85 KB minified + gzipped).
