@@ -26,7 +26,7 @@
     "load-grunt-tasks": "^5.1.0",
     "markdown-doctest": "^1.1.0",
     "moment": "2.29.4",
-    "moment-timezone": "0.5.40",
+    "moment-timezone": "0.5.43",
     "sass": "^1.57.1",
     "time-grunt": "^1.4.0"
   }
