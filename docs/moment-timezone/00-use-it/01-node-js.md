@@ -40,11 +40,20 @@ import 'moment-timezone';
 import moment from 'moment-timezone';
 ```
 
+The [pre-built bundles](/timezone/) are also included in the `npm` package, and can be loaded directly.
+These allow you to import the library with a smaller subset of data.
+
+<!-- skip-example -->
+
+```js
+import moment from 'moment-timezone/builds/moment-timezone-with-data-10-year-range.js'; // or .min.js
+```
+
 You can also import just the library without any preloaded data.
 
 <!-- skip-example -->
 
 ```js
-import moment from 'moment-timezone/moment-timezone';
+import moment from 'moment-timezone/moment-timezone.js'; // or .min.js
 moment.tz.load(customData);
 ```

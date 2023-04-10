@@ -37,13 +37,7 @@ module.exports = {
 ```
 
 Alternatively, the [pre-built bundles](/timezone/) are also included in the `npm` package, and can
-be loaded directly.
-
-<!-- skip-example -->
-
-```js
-var moment = require('moment-timezone/builds/moment-timezone-with-data-10-year-range');
-```
+be loaded directly. See the [Node.js section](#/use-it/node-js) for more details.
 
 Also see the primary [Moment.js Webpack documentation](/docs/#/use-it/webpack/) for an example of
 how to reduce Moment’s bundled locale data. Together these techniques can significantly reduce the
