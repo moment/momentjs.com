@@ -11,7 +11,7 @@
   "devDependencies": {
     "assemble": "^0.24.3",
     "assemble-yaml": "^0.2.1",
-    "grunt": "^1.5.3",
+    "grunt": "^1.6.1",
     "grunt-assemble": "^0.6.3",
     "grunt-autoprefixer": "^3.0.4",
     "grunt-cli": "^1.4.3",
@@ -27,7 +27,7 @@
     "markdown-doctest": "^1.1.0",
     "moment": "2.29.4",
     "moment-timezone": "0.5.43",
-    "sass": "^1.57.1",
+    "sass": "^1.61.0",
     "time-grunt": "^1.4.0"
   }
 }
