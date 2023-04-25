@@ -176,6 +176,10 @@
 	}
 }
 
+.docs-content-guides ol {
+	counter-reset: li 0;
+}
+
 .docs-section {
 	padding-top: 40px;
 }
