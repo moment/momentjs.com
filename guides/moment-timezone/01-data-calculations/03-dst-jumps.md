@@ -8,8 +8,8 @@ You shouldn't assume that the rules you're familiar with from a local time zone 
 One difference that often catches out developers is that some zones change clocks at midnight.
 A good example comes from Jordan (`Asia/Amman`) in 2021:
 
-* One second after `2021-03-25 23:59:59` was `2022-03-26 01:00:00` (DST started).
-* One second after `2021-10-29 00:59:59` was `2022-10-29 00:00:00` (DST stopped).
+* One second after `2021-03-25 23:59:59` was `2021-03-26 01:00:00` (DST started).
+* One second after `2021-10-29 00:59:59` was `2021-10-29 00:00:00` (DST stopped).
 
 This creates the situation where midnight at the start of March 26 **didn't happen**, while midnight on October 29 happened twice.
 
