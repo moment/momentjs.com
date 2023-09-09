@@ -10,11 +10,16 @@ module.exports = function (grunt) {
 					locales = {en: 'English (United States)'},
 					numErrors = 0;
 				fs.readdirSync(localesDir).forEach(function (localeFile) {
-					var localeName = null, localeAbbr = null;
+					var localeName = null,
+						localeAbbr = null,
+						isDeprecated = false;
 					grunt.file.read(join(localesDir, localeFile)).split(/\n|\r|\r\n/).forEach(function (line) {
-						if (line.slice(0, 10) === '//! locale') {
+						if (line.startsWith('//! locale')) {
 							localeName = line.split(' : ')[1].split(' [')[0].trim();
 							localeAbbr = line.split(' : ')[1].split(/\[|\]/)[1];
+						}
+						if (line.startsWith('//! note : DEPRECATED')) {
+							isDeprecated = true;
 						}
 					});
 					if (localeName == null) {
@@ -23,7 +28,7 @@ module.exports = function (grunt) {
 					} else if (localeAbbr !== localeFile.split('.')[0]) {
 						grunt.log.error('wtf2', localeFile, localeAbbr, localeName);
 						numErrors += 1;
-					} else {
+					} else if (!isDeprecated) {
 						// grunt.log.writeln(localeAbbr, localeName);
 						locales[localeAbbr] = localeName;
 					}
