@@ -16,7 +16,7 @@ Since this has already been accomplished in other libraries, we feel that it is 
 Another common argument against using Moment in modern applications is its size.  Moment doesn't work well with modern "tree shaking" algorithms, so it tends to increase the size of web application bundles.
 If one needs internationalization or time zone support, Moment can get quite large.  Modern web browsers (and Node.js) expose internationalization and time zone support via the [`Intl`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl) object, codified as [ECMA-402](https://ecma-international.org/ecma-402/). Libraries like [Luxon](https://moment.github.io/luxon/) (and others) take advantage of this, reducing or removing the need to ship your own data files.
 
-Recently, Chrome Dev Tools [started showing recommendations for replacing Moment](https://twitter.com/addyosmani/status/1304676118822174721) for the size alone.  We generally support this move.
+Recently, Chrome Dev Tools [started showing recommendations for replacing Moment](https://web.archive.org/web/20210828024054/https://twitter.com/addyosmani/status/1304676118822174721) for the size alone.  We generally support this move.
 
 You may also want to read:
 
