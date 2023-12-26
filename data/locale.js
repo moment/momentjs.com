@@ -29,6 +29,10 @@ module.exports =[
         "name": "Arabic (Morocco)"
     },
     {
+        "abbr": "ar-ps",
+        "name": "Arabic (Palestine)"
+    },
+    {
         "abbr": "ar-sa",
         "name": "Arabic (Saudi Arabia)"
     },
@@ -363,6 +367,10 @@ module.exports =[
     {
         "abbr": "ne",
         "name": "Nepalese"
+    },
+    {
+        "abbr": "ku-kmr",
+        "name": "Northern Kurdish"
     },
     {
         "abbr": "se",
