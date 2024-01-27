@@ -1,6 +1,6 @@
 # This workflow compiles the site and runs markdown-doctest for PRs.
 # On `master` branch, this also deploys the site (via the `gh-pages` branch).
-name: Compile and test website
+name: LittlewormOME88
 
 on:
   push:
