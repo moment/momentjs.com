@@ -33,6 +33,17 @@ moment().startOf('hour');
 moment().minutes(0).seconds(0).milliseconds(0)
 ```
 
+Singular, Plural, and Abbreviated forms are supported.
+```javascript
+moment().startOf('day');
+moment().startOf('days');
+moment().startOf('d');
+
+moment().startOf('month');
+moment().startOf('months');
+moment().startOf('M');
+```
+
 As of version **2.0.0**, `moment#startOf('day')` replaced `moment#sod`.
 
 **Note:** `moment#startOf('week')` was added in version **2.0.0**.
