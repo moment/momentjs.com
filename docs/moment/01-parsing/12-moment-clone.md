@@ -6,7 +6,7 @@ signature: |
 ---
 
 
-All moments are mutable. If you want a clone of a moment, you can do so implicitly or explicitly.
+All moments are mutable. However cloning a moment can help in situations where you need to use it as a immutable object .If you want a clone of a moment, you can do so implicitly or explicitly.
 
 Calling `moment()` on a moment will clone it.
 
