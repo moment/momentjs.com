@@ -2,7 +2,7 @@
 title: Limited Data Ranges
 ---
 
-By default, Moment Timezone includes all the data from the [IANA Time Zone Database ("tzdb")](https://www.iana.org/time-zones).
+By default, Moment Timezone includes all the data from the IANA tzdb (see [Data Source](#/data-calculations/data-source/)).
 This covers past data as far back as the 1800s for some zones, and future data up to the year 2499.
 This is usually more data than required by most applications, so there are also some pre-built data bundles available with more limited year ranges.
 These are listed on the [project homepage](/timezone) and the ["Where to use it" documentation](/timezone/docs/#/use-it)

@@ -6,6 +6,7 @@ signature: |
 ---
 
 To get a list of time zones for some country, use `moment.tz.zonesForCountry()`.
+This takes an [ISO 3166-1](https://en.wikipedia.org/wiki/ISO_3166-1) two-letter country code.
 
 ```js
 moment.tz.zonesForCountry('US');
@@ -17,13 +18,13 @@ By default this method returns zone names sorted alphabetically:
 ["America/Adak", "America/Anchorage", ... "Pacific/Honolulu"]
 ```
 
-To get also offsets, pass `true` as 2nd parameter:
+To also get offsets, pass `true` as the 2nd parameter:
 
 ```js
 moment.tz.zonesForCountry('CN', true);
 ```
 
-it returns array of objects with name and offset:
+In this case, it returns an array of objects with the zone's name and its offset for the **current date and time**.
 
 ```js
 [
@@ -32,6 +33,9 @@ it returns array of objects with name and offset:
 ]
 ```
 
-It's useful if you need to sort time zones by offset.
+It's useful if you need to sort time zones by offset, but be aware that the offsets can change throughout the year.
 
-All country codes can be retrieved using method `moment.tz.countries()`
+All known country codes in the data can be retrieved using method `moment.tz.countries()`.
+
+**Note:** Sometimes these methods might return unexpected data.
+See the [Countries and Zones guide](/timezone/guides/#/data-calculations/country-zones/) for more details.
