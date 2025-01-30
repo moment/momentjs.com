@@ -1,0 +1,644 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+
+		<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="/static/css/style.css" />
+		<link rel="shortcut icon" href="/static/img/moment-favicon.png" />
+
+		<title>Moment.js | Guides</title>
+	</head>
+
+	<body class="is-moment">
+		<nav class="nav">
+			<div class="centered">
+				<div class="nav-projects">
+					<a class="nav-project nav-project-moment active" href="/">
+						<svg width="40px" height="40px" viewBox="0 0 40 40">
+							<ellipse stroke-width="3" cx="20" cy="20" rx="18.5" ry="18.5" fill="0" stroke="#000" />
+							<path fill-rule="evenodd" d="M20,36 C28.836556,36 36,28.836556 36,20 C36,11.163444 28.836556,4 20,4 C11.163444,4 4,11.163444 4,20 C4,28.836556 11.163444,36 20,36 Z M20,5 C19.4477153,5 19,5.44994876 19,6.00684547 L19,19 L11.9970301,19 C11.4463856,19 11,19.4438648 11,20 C11,20.5522847 11.4556644,21 11.9953976,21 L21,21 L21,6.00087166 C21,5.4481055 20.5561352,5 20,5 Z"></path>
+						</svg>
+						Moment
+					</a>
+					<a class="nav-project nav-project-moment-timezone " href="/timezone/">
+						<svg width="40px" height="40px" viewBox="0 0 40 40">
+							<ellipse stroke-width="3" cx="20" cy="20" rx="18.5" ry="18.5" fill="0" stroke="#000" />
+							<path fill-rule="evenodd" d="M4.98917024,14.4489557 C4.34944108,16.1782522 4,18.0483179 4,20 C4,28.836556 11.163444,36 20,36 C25.3372103,36 30.0640585,33.3867291 32.9708034,29.3699284 L32.9708034,29.3699284 C32.7542032,29.1158875 32.5851628,28.8136799 32.5213775,28.5419031 L31.2169086,22.9838131 C31.1059526,22.5110509 30.6116318,22.1192596 30.1152853,22.1192596 L28.4921437,22.1192596 C27.9858118,22.1192596 27.3609962,21.7891428 27.0742761,21.3819231 L26.5647528,20.6582629 C25.7154881,19.4520786 25.8505167,17.5995152 26.8651421,16.5187344 L26.9854581,16.3905737 C27.318883,16.0354089 27.9695174,15.6094255 28.4334461,15.4446996 L29.3188401,15.1303252 C29.7803195,14.966469 30.5349459,14.9655993 30.9988746,15.1303252 L31.8842686,15.4446996 C32.3457481,15.6085558 33.1107334,15.8458733 33.5874405,15.9728206 L35.6191135,16.513856 C35.4978108,15.9679684 35.3486212,15.4325805 35.1731165,14.9092644 C34.3263749,14.7238868 33.4055455,14.2746017 32.8663979,13.7497894 L32.3015162,13.1999272 L30.4205895,13.1999271 C29.9369463,13.1999271 29.3014167,13.5302589 29.0223398,13.9377438 L28.6896027,14.4235789 C28.1260613,15.2464153 27.4185905,15.1412987 27.0980851,14.2053481 L27.0412779,14.0394576 C26.882355,13.5753657 27.1532065,13.199927 27.6459111,13.199927 L27.7109116,13.199927 C28.2108557,13.199927 28.6030323,12.796967 28.6030323,12.2998905 C28.6030324,11.7993486 29.0024484,11.399854 29.4951531,11.399854 L30.4522743,11.399854 L30.7448301,11.1150769 C31.0843394,10.7845948 31.0209719,10.3265877 30.5819181,10.1128978 L30.3226304,9.98670097 C29.8842057,9.77331723 29.8835766,9.42655123 30.3226304,9.21286132 L30.5819181,9.08666449 C30.8796701,8.94174691 31.4270561,9.05187418 31.74767,9.13746427 L31.74767,9.13746427 C29.354055,6.5500601 26.1162974,4.75498325 22.4719557,4.1897922 L22.4719557,4.1897922 L23.5257222,5.21678951 C24.2305071,5.90367045 24.0320251,6.65048619 23.0799479,6.88245898 L21.4350099,7.28324666 L20.1865042,8.50003612 C19.4817194,9.18691704 18.4903848,9.06670377 17.9747489,8.2291421 L17.3154121,7.15816288 C16.7989905,6.31932509 17.052872,5.20558795 17.8807174,4.66771105 L17.4094436,4.97391227 C18.1837126,4.47084565 19.4969845,4.06343412 20.4690548,4.00674356 C20.3132511,4.0022581 20.1568893,4 20,4 C16.3409492,4 12.9687755,5.22826668 10.2732905,7.29498839 L9.34598541,8.7 C9.34598541,8.7 11.1732265,9.31523437 11.1732265,9.31523437 C11.6403222,9.47250609 12.1428675,9.22457657 12.3008953,8.74570313 L12.6280585,7.75429687 C12.7837571,7.28248174 13.2647344,7.07917156 13.7009406,7.29947834 L14.8796059,7.89476545 C15.7601466,8.33948421 16.7269068,9.46648951 17.0331889,10.3946197 L17.0830463,10.5457031 C17.2387449,11.0175183 16.9561285,11.4 16.4656183,11.4 L13.8009733,11.4 L12.0189781,13.2 L12.0189781,15.015919 C12.0189781,15.5041835 11.7405414,15.61875 11.3957227,15.2704473 L10.236983,14.1 L9.25216787,14.5973827 C8.8118975,14.8197421 8.45498784,15.3994783 8.45498784,15.9 C8.45498784,16.3970563 8.80456327,17.0118645 9.2107158,17.2580182 L12.9099757,19.5 L13.8947908,19.0026173 C14.3350612,18.7802579 15.0162561,18.8183745 15.4320035,19.0983398 L19.7477607,22.0045816 C21.3842844,23.1066207 21.4906005,25.0341584 19.9878775,26.3076091 L16.4715636,29.2874348 C16.0984226,29.6036452 15.5824366,30.1960211 15.3130082,30.6200946 L13.8009729,33 C13.3088887,33 12.995925,32.6093202 13.1006804,32.1331581 L14.3096882,26.6376532 C14.520817,25.6779738 13.9707442,24.5357431 13.0976108,24.0947654 L12.7223406,23.9052346 C11.8417999,23.4605158 11.4800454,22.3887558 11.9199672,21.5000227 L12.9099757,19.5 L8.41107755,17.9852154 C7.94324417,17.8276953 7.31902279,17.3906968 7.00711679,16.996875 L4.98917024,14.4489557 Z"></path>
+						</svg>
+						Moment<br/>Timezone
+					</a>
+                                        <a class="nav-project nav-project-luxon" href="https://moment.github.io/luxon/">
+                                          <svg width="40px" height="40px" viewBox="0 0 40 40">
+                                            <g transform="translate(1.000000, 1.000000)">
+                                              <ellipse stroke-width="3" fill-rule="nonzero" cx="19" cy="19" ry="18.5" rx="18.5"/>
+                                              <path fill-rule="evenodd" d="M19,35 C27.836556,35 35,27.836556 35,19 C35,10.163444 27.836556,3 19,3 C10.163444,3 3,10.163444 3,19 C3,27.836556 10.163444,35 19,35 Z M22.104874,17.183315 L22.104874,13.7025247 C23.2618233,13.6333699 24.1590492,12.6882547 24.1590492,11.5587267 L24.1590492,11.143798 C24.1590492,9.94511526 23.1673784,9 21.9632068,9 L16.0604044,9 C14.8326216,9 13.864562,9.96816685 13.864562,11.143798 L13.864562,11.5587267 C13.864562,12.6882547 14.7853991,13.6333699 15.9187372,13.7025247 L15.9187372,17.183315 L10.4645478,25.5510428 C9.87426762,26.4500549 9.85065641,27.5565313 10.370103,28.5016465 C10.8895496,29.4467618 11.8812204,30 12.967336,30 L25.032664,30 C26.1423908,30 27.1104504,29.4467618 27.629897,28.5016465 C28.1493436,27.5565313 28.1257324,26.4500549 27.5354522,25.5510428 L22.104874,17.183315 Z"/>
+                                            </g>
+                                          </svg>
+                                          Luxon</a>
+				</div>
+				<div class="nav-pages">
+						<a href="../" >Home</a>
+						<a href="../docs/" >Docs</a>
+						<a href="." class="active">Guides</a>
+						<a href="../tests/" >Tests</a>
+					<a href="https://github.com/moment/moment/">GitHub</a>
+				</div>
+			</div>
+		</nav>
+
+		
+
+
+
+<div class="hero hero-oneline">
+	<div class="hero-centered">
+		<h1>Moment.js Guides</h1>
+	</div>
+</div>
+
+<div class="docs">
+	<div class="docs-nav">
+			<div class="docs-nav-section">
+				<a class="docs-nav-section-title" href='#/lib-concepts/'>Introductory Concepts</a>
+						<a class="docs-nav-item" href="#/lib-concepts/mutability/">Mutability</a>
+						<a class="docs-nav-item" href="#/lib-concepts/date-time-math/">Date Math vs Time Math</a>
+						<a class="docs-nav-item" href="#/lib-concepts/timezone-offset/">Time Zone vs Offset</a>
+						<a class="docs-nav-item" href="#/lib-concepts/js-date/">JavaScript Date</a>
+						<a class="docs-nav-item" href="#/lib-concepts/internal-properties/">Internal Properties</a>
+			</div>
+			<div class="docs-nav-section">
+				<a class="docs-nav-section-title" href='#/parsing/'>Parsing Guide</a>
+						<a class="docs-nav-item" href="#/parsing/local-utc-zone/">Local vs UTC vs Offset</a>
+						<a class="docs-nav-item" href="#/parsing/known-formats/">Known Date Formats</a>
+						<a class="docs-nav-item" href="#/parsing/strict-mode/">Strict Mode</a>
+						<a class="docs-nav-item" href="#/parsing/forgiving-mode/">Forgiving Mode</a>
+						<a class="docs-nav-item" href="#/parsing/multiple-formats/">Multiple Formats</a>
+			</div>
+			<div class="docs-nav-section">
+				<a class="docs-nav-section-title" href='#/warnings/'>Warnings and Errors</a>
+						<a class="docs-nav-item" href="#/warnings/js-date/">JS Date Construction</a>
+						<a class="docs-nav-item" href="#/warnings/define-locale/">Define Locale Override</a>
+						<a class="docs-nav-item" href="#/warnings/parent-locale/">Parent Locale Undefined</a>
+						<a class="docs-nav-item" href="#/warnings/locale-not-found/">Locale Not Found</a>
+						<a class="docs-nav-item" href="#/warnings/add-inverted-param/">Add/Subtract</a>
+						<a class="docs-nav-item" href="#/warnings/min-max/">Min/Max</a>
+						<a class="docs-nav-item" href="#/warnings/zone/">Zone</a>
+			</div>
+			<div class="docs-nav-section">
+				<a class="docs-nav-section-title" href='#/externalresources/'>External Resources</a>
+						<a class="docs-nav-item" href="#/externalresources/videos/">Videos</a>
+						<a class="docs-nav-item" href="#/externalresources/blogs/">Blogs</a>
+						<a class="docs-nav-item" href="#/externalresources/miscellaneous/">Miscellaneous</a>
+			</div>
+	</div>
+
+	<div class="docs-content docs-content-guides">
+			<article class="docs-section">
+				<a class="docs-section-target" id="/lib-concepts/" name="/lib-concepts/"></a>
+				<h2 class="docs-section-title"><a href='#/lib-concepts/'>Introductory Concepts</a></h2>
+			</article>
+				<article class="docs-method">
+					<a class="docs-method-target" id="/lib-concepts/intro/"  name="/lib-concepts/intro/"></a>
+					<div class="docs-method-prose">
+<p>The guides area is designed to help developers learn to better interact with the date and time problem domain, and the Moment.js library.
+We address our most frequently seen support requests here, so it is a great place to check for solutions to any issues you may have.</p>
+<p>The guides section is new and still under construction. If you have a request for a guide that you would like to see here, or would like to add a guide
+please create an issue or make a pull request in the <a href="https://github.com/moment/momentjs.com" target="_blank">momentjs.com repository</a>.</p>
+<p>Check out this <a href="https://scrimba.com/casts/cwpDGhG">scrimba moment guide</a> if you're just starting.</p>
+					</div>
+				</article>
+				<article class="docs-method">
+					<a class="docs-method-target" id="/lib-concepts/mutability/"  name="/lib-concepts/mutability/"></a>
+						<h3 class="docs-method-title">
+							<a href='#/lib-concepts/mutability/'>Mutability</a>
+								<span>1.0.0+</span>
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/guides/moment/00-lib-concepts/01-mutability.md" target="_blank">edit</a>
+					<div class="docs-method-prose">
+<p>The moment object in Moment.js is mutable. This means that operations like add, subtract, or set change the original moment object.
+When first using Moment.js many developers are confused by scenarios like this:</p>
+<pre><code class="language-js">var a = moment('2016-01-01'); 
+var b = a.add(1, 'week'); 
+a.format();
+&quot;2016-01-08T00:00:00-06:00&quot;
+</code></pre>
+<p>As you can see, adding one week mutated <code>a</code>. To avoid situations like that, clone the moment before performing date math:</p>
+<pre><code class="language-js">var a = moment('2016-01-01'); 
+var b = a.clone().add(1, 'week'); 
+a.format();
+&quot;2016-01-01T00:00:00-06:00&quot;
+</code></pre>
+					</div>
+				</article>
+				<article class="docs-method">
+					<a class="docs-method-target" id="/lib-concepts/date-time-math/"  name="/lib-concepts/date-time-math/"></a>
+						<h3 class="docs-method-title">
+							<a href='#/lib-concepts/date-time-math/'>Date Math vs Time Math</a>
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/guides/moment/00-lib-concepts/02-date-time-math.md" target="_blank">edit</a>
+					<div class="docs-method-prose">
+<p>There is a logical difference between time math and date math.</p>
+<p>In Moment.js time math assumes a linear time scale, just incrementing or decrementing the UTC-based timestamp by the amount of the time units provided.</p>
+<p>Date math does not use a linear time scale, but rather increments or decrements the dates on the calendar. This is because the amount of time in a day, month, or year is variable.
+For example, due to daylight saving time transition, a day may be anywhere between 23 and 25 hours long.
+Months of course vary in number of days, and due to leap year, years vary in length as well. Date math can cause some interesting scenarios.</p>
+<p>Due to daylight saving time, one day may not equal 24 hours:</p>
+<pre><code class="language-js">//date math
+moment('2016-03-12 13:00:00').add(1, 'day').format('LLL')
+&quot;March 13, 2016 1:00 PM&quot;
+//time math
+moment('2016-03-12 13:00:00').add(24, 'hours').format('LLL')
+&quot;March 13, 2016 2:00 PM&quot;
+</code></pre>
+<p>Due to leap years, one year may not equal 365 days:</p>
+<pre><code class="language-js">moment('2016-01-01').add(1, 'year').format('LL')
+&quot;January 1, 2017&quot;
+moment('2016-01-01').add(365, 'day').format('LL')
+&quot;December 31, 2016&quot;
+</code></pre>
+<p>Because of the variability of duration in day math, Moment's API does not officially support adding or subtracting decimal values for days and larger.
+Moment.js will accept decimal values and do its best to handle them by rounding to the nearest whole number.</p>
+<p>As of <strong>2.12.0</strong> decimal day and month values use absolute value/round to convert to integers. This means that 1.5 rounds to 2, and -1.5 rounds to -2.</p>
+<pre><code class="language-js">moment().add(1.5, 'days') == moment().add(2, 'days')
+moment().add(-1.5, 'days') == moment().add(-2, 'days') == moment().subtract(1.5, 'days') == moment().subtract(2, 'days')
+moment().add(2.3, 'months') == moment().add(2, 'months')
+moment().add(-2.3, 'months') == moment().add(-2, 'months') == moment().subtract(2.3, 'months') == moment().subtract(2, 'months')
+</code></pre>
+<p>Quarters and years are converted to months, and then absolute value/rounded.</p>
+<pre><code class="language-js">moment().add(1.5, 'years') == moment().add(18, 'months')
+moment().add(.8, 'years') == moment().add(9.6, 'months') == moment().add(10, 'months')
+moment().add(1.5, 'quarters') == moment().add(4.5, 'months') == moment().add(5, 'months')
+</code></pre>
+					</div>
+				</article>
+				<article class="docs-method">
+					<a class="docs-method-target" id="/lib-concepts/timezone-offset/"  name="/lib-concepts/timezone-offset/"></a>
+						<h3 class="docs-method-title">
+							<a href='#/lib-concepts/timezone-offset/'>Time Zone vs Offset</a>
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/guides/moment/00-lib-concepts/03-timezone-offset.md" target="_blank">edit</a>
+					<div class="docs-method-prose">
+<p>Frequently, people are confused about the difference between time zones and UTC offsets.</p>
+<p>A UTC offset is a value that represents how far a particular date and time is from UTC. It is expressed in the format HH:mm most of the time.</p>
+<p>A time zone is a geographical region where all people observe a legally mandated standard time.</p>
+<p>A time zone usually has more than one offset from UTC due to daylight saving time. Several time zones may have the same offset at some point during the year.
+For example, the time zones America/Chicago, America/Denver, and America/Belize all have an offset of -06:00 at varying times.
+For this reason, it is impossible to infer a time zone from just an offset value.</p>
+<p>The Moment.js core library provides functionality related to adjusting times based on an offset value.
+It does not provide support for adjusting dates based on time zone data - this is provided by the Moment TimeZone library.</p>
+<p><a href="https://stackoverflow.com/tags/timezone/info" target="_blank" >For an in depth description of this issue, see the Stack Overflow tag.</a></p>
+					</div>
+				</article>
+				<article class="docs-method">
+					<a class="docs-method-target" id="/lib-concepts/js-date/"  name="/lib-concepts/js-date/"></a>
+						<h3 class="docs-method-title">
+							<a href='#/lib-concepts/js-date/'>JavaScript Date</a>
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/guides/moment/00-lib-concepts/04-js-date.md" target="_blank">edit</a>
+					<div class="docs-method-prose">
+<p>Moment.js provides a wrapper for the native JavaScript date object.
+In doing this, Moment.js extends the functionality and also accounts for several deficiencies in the object.</p>
+<p>Parsing is notably unpredictable with native date. For instance, suppose I am using a computer in the United States, but I have a date in DD/MM/YYYY format.</p>
+<pre><code class="language-js">var a = new Date('01/12/2016'); //December 1 2016 in DD/MM/YYYY format
+//&quot;Tue Jan 12 2016 00:00:00 GMT-0600 (Central Standard Time)&quot;
+</code></pre>
+<p>There is no good work-around for this behavior with the native Date object.
+Moment's parser handles it just fine though:</p>
+<pre><code class="language-js">moment('01/12/2016', 'DD/MM/YYYY', true).format()
+&quot;2016-12-01T00:00:00-06:00&quot;
+</code></pre>
+<p>In addition, the ECMA Script 5 Specification makes an unusual assertion about the offset of ISO 8601 dates:</p>
+<blockquote>
+<p>The value of an absent time zone offset is &quot;Z&quot;</p>
+</blockquote>
+<p>Effectively what this means is that ISO 8601 dates without an offset are to be treated as UTC values, creating the following oddity:</p>
+<pre><code class="language-js">//US local format
+var a = new Date('1/1/2016'); 
+//&quot;Fri Jan 01 2016 00:00:00 GMT-0600 (Central Standard Time)&quot;
+
+//ISO 8601
+var a = new Date('2016-01-01');
+//&quot;Thu Dec 31 2015 18:00:00 GMT-0600 (Central Standard Time)&quot;
+</code></pre>
+<p>The ES2015 spec fixes this mistake, bringing it in line with the ISO8601 specification, which specifies local time absent of offset.
+This is in it's own way bad as it has numerous negative back compatibility implications.</p>
+<p>With Moment, the date is always interpreted as local time, unless you specify otherwise. This is not something that will change with the adoption of ES2015.</p>
+<pre><code class="language-js">moment('2016-01-01')
+//&quot;2016-01-01T00:00:00-06:00&quot;
+</code></pre>
+<p>Arithmetic is another area where the native Date object is lacking. The Date object actually provides no API for this. Instead, it relies on overflowing date values.
+Suppose you wanted to add 1 day to April 30, 2016. With the date object you would do the following:</p>
+<pre><code class="language-js">var a = new Date('4/30/2016'); 
+a.setDate(a.getDate() + 1);
+</code></pre>
+<p>This does the trick, but is somewhat unintuitive.
+Moment provides an API to add/subtract:</p>
+<pre><code class="language-js">moment('4/30/2016', 'MM/DD/YYYY').add(1, 'day')
+//&quot;2016-05-01T00:00:00-05:00&quot;
+</code></pre>
+					</div>
+				</article>
+				<article class="docs-method">
+					<a class="docs-method-target" id="/lib-concepts/internal-properties/"  name="/lib-concepts/internal-properties/"></a>
+						<h3 class="docs-method-title">
+							<a href='#/lib-concepts/internal-properties/'>Internal Properties</a>
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/guides/moment/00-lib-concepts/05-internal-properties.md" target="_blank">edit</a>
+					<div class="docs-method-prose">
+<p>Moment objects have several internal properties that are prefixed with <code>_</code>.</p>
+<p>The most commonly viewed internal property is the <code>_d</code> property that holds the JavaScript Date that Moment wrappers.
+Frequently, developers are confused by console output of the value of <code>_d</code>.
+Moment uses a technique called epoch shifting that causes this property to sometimes differ from the actual date value that the Moment reflects.
+In particular if Moment TimeZone is in use, this property will almost never be the same as the actual value that Moment will output from its public <code>.format()</code> function.
+As such, the values of <code>_d</code> and any other properties prefixed with <code>_</code> should not be used for any purpose.</p>
+<p>To print out the value of a Moment, use <code>.format()</code>, <code>.toString()</code> or <code>.toISOString()</code>.</p>
+<p>To retrieve a native Date object from Moment, use <code>.toDate()</code>. This function returns a properly shifted date for interaction with third party APIs.</p>
+					</div>
+				</article>
+			<article class="docs-section">
+				<a class="docs-section-target" id="/parsing/" name="/parsing/"></a>
+				<h2 class="docs-section-title"><a href='#/parsing/'>Parsing Guide</a></h2>
+			</article>
+				<article class="docs-method">
+					<a class="docs-method-target" id="/parsing/intro/"  name="/parsing/intro/"></a>
+					<div class="docs-method-prose">
+<p>Moment.js has a very flexible and advanced parser that allows a huge range of functionality.<br>
+The flexibility of the parser also makes it one of the most frequently misused tools of Moment.js.</p>
+<p>This section lays out some guidelines about how to correctly use the parser in your situation.</p>
+					</div>
+				</article>
+				<article class="docs-method">
+					<a class="docs-method-target" id="/parsing/local-utc-zone/"  name="/parsing/local-utc-zone/"></a>
+						<h3 class="docs-method-title">
+							<a href='#/parsing/local-utc-zone/'>Local vs UTC vs Offset</a>
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/guides/moment/01-parsing/01-local-utc-zone.md" target="_blank">edit</a>
+					<div class="docs-method-prose">
+<p>Moment offers three functions for parsing dates, the basic moment function, moment.utc, and moment.parseZone.</p>
+<p>If you wish to interact with a date in the context of the user's local time, use the moment function.</p>
+<pre><code class="language-js">moment('2016-01-01T23:35:01');
+</code></pre>
+<p>This results in a date with a UTC offset that is the same as the local computer:</p>
+<p>&quot;2016-01-01T23:35:01-06:00&quot;</p>
+<p>If you wish to interact with the date as a UTC date, use moment.utc:</p>
+<pre><code class="language-js">moment.utc('2016-01-01T23:35:01');
+</code></pre>
+<p>This results in a date with a utc offset of +0:00:</p>
+<p>&quot;2016-01-01T23:35:01+00:00&quot;</p>
+<p>If your date format has a fixed timezone offset, use moment.parseZone:</p>
+<pre><code class="language-javascript">moment.parseZone(&quot;2013-01-01T00:00:00-13:00&quot;);
+</code></pre>
+<p>This results in a date with a fixed offset:</p>
+<p>&quot;2013-01-01T00:00:00-13:00&quot;</p>
+<p>Note that if you use moment() or moment.utc() to parse a date with a specified offset, the date will be converted from that offset to either local or UTC:</p>
+<p>This date is shifted by 8 hours, moving from +2 to -6 (the offset of the local machine)</p>
+<pre><code class="language-javascript">moment('2016-01-01T00:00:00+02:00').format()
+&quot;2015-12-31T16:00:00-06:00&quot;
+</code></pre>
+<p>This date is shifted by 2 hours, moving from +2 to UTC</p>
+<pre><code class="language-javascript">moment.utc('2016-01-01T00:00:00+02:00').format()
+&quot;2015-12-31T22:00:00+00:00&quot;
+</code></pre>
+					</div>
+				</article>
+				<article class="docs-method">
+					<a class="docs-method-target" id="/parsing/known-formats/"  name="/parsing/known-formats/"></a>
+						<h3 class="docs-method-title">
+							<a href='#/parsing/known-formats/'>Known Date Formats</a>
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/guides/moment/01-parsing/02-known-formats.md" target="_blank">edit</a>
+					<div class="docs-method-prose">
+<p>If you know the format of the date string that you will be parsing, it is always the best choice to explicitly specify that format.</p>
+<p>Examples:</p>
+<pre><code class="language-js">moment('01/01/2016', 'MM/DD/YYYY')
+moment('2016-01-01 11:31:23 PM', 'YYYY-MM-DD hh:mm:ss a')
+</code></pre>
+<p>If your dates are in an ISO 8601 format, you can use a constant built into moment to indicate that:</p>
+<pre><code class="language-js">moment('2016-01-01 12:25:32', moment.ISO_8601)
+</code></pre>
+<p>ISO 8601 formats include, but are not limited to:</p>
+<pre><code>2013-02-08               # A calendar date part
+2013-W06-5               # A week date part
+2013-02-08T09            # An hour time part separated by a T
+2013-02-08 09            # An hour time part separated by a space
+2013-02-08 09:30:26      # An hour, minute, and second time part
+2013-02-08 09+07:00      # +-HH:mm
+</code></pre>
+<p><a href="/docs/#/parsing/string/"> See the API documentation on parsing strings for a full listing.</a></p>
+					</div>
+				</article>
+				<article class="docs-method">
+					<a class="docs-method-target" id="/parsing/strict-mode/"  name="/parsing/strict-mode/"></a>
+						<h3 class="docs-method-title">
+							<a href='#/parsing/strict-mode/'>Strict Mode</a>
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/guides/moment/01-parsing/03-strict-mode.md" target="_blank">edit</a>
+					<div class="docs-method-prose">
+<p>Strict mode is the recommended mode for parsing dates. You should always use strict mode if your code base will allow it.
+More than half of the parser issues seen on GitHub and Stack Overflow can be fixed by strict mode.</p>
+<p>In a later release, the parser will default to using strict mode.</p>
+<p>Strict mode requires the input to the moment to exactly match the specified format, including separators. Strict mode is set by passing true as the third parameter to the moment function.</p>
+<pre><code class="language-js">moment('01/01/2016', 'MM/DD/YYYY', true).format()
+&quot;2016-01-01T00:00:00-06:00&quot;
+moment('01/01/2016 some text', 'MM/DD/YYYY', true).format()
+&quot;Invalid date&quot;
+</code></pre>
+<p>Separator matching:</p>
+<pre><code class="language-js">//forgiving mode
+moment('01-01-2016', 'MM/DD/YYYY', false).format()
+&quot;2016-01-01T00:00:00-06:00&quot;
+//strict mode
+moment('01-01-2016', 'MM/DD/YYYY', true).format()
+&quot;Invalid date&quot;
+</code></pre>
+<p>Scenarios fixed by strict mode:</p>
+<pre><code class="language-js">//UUID matches YYYYDDD because it starts with 7 digits
+moment('5917238b-33ff-f849-cd63-80f4c9b37d0c', moment.ISO_8601).format()
+&quot;5917-08-26T00:00:00-05:00&quot;
+//strict mode fails because trailing data exists
+moment('5917238b-33ff-f849-cd63-80f4c9b37d0c', moment.ISO_8601, true).format()
+&quot;Invalid date&quot;
+</code></pre>
+<pre><code class="language-js">//date has out of range value but is parsed anyways
+moment('100110/09/2015', 'MM/DD/YYYY').format()
+&quot;2015-10-09T00:00:00-05:00&quot;
+//strict mode catches out of range issue
+moment('100110/09/2015', 'MM/DD/YYYY', true).format()
+&quot;Invalid date&quot;
+</code></pre>
+<pre><code class="language-js">//wrong date is parsed because non-strict mode ignores data after format
+moment('2016-12-31 11:32 PM').format('LT')
+&quot;11:32 AM&quot;
+//trailing data is noticed
+moment('2016-12-31 11:32 PM', moment.ISO_8601, true).format('LT')
+&quot;Invalid date&quot;
+</code></pre>
+					</div>
+				</article>
+				<article class="docs-method">
+					<a class="docs-method-target" id="/parsing/forgiving-mode/"  name="/parsing/forgiving-mode/"></a>
+						<h3 class="docs-method-title">
+							<a href='#/parsing/forgiving-mode/'>Forgiving Mode</a>
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/guides/moment/01-parsing/04-forgiving-mode.md" target="_blank">edit</a>
+					<div class="docs-method-prose">
+<p>While strict mode works better in most situations, forgiving mode can be very useful when the format of the string being passed to moment may vary.</p>
+<p>A common scenario where forgiving mode is useful is in situations where a third party API is providing the date, and the date format for that API could change.
+Suppose that an API starts by sending dates in 'YYYY-MM-DD' format, and then later changes to 'MM/DD/YYYY' format.</p>
+<p>In strict mode, the following code results in 'Invalid Date' being displayed:</p>
+<pre><code class="language-js">moment('01/12/2016', 'YYYY-MM-DD', true).format()
+&quot;Invalid date&quot;
+</code></pre>
+<p>In forgiving mode using a format string, you get a wrong date:</p>
+<pre><code class="language-js">moment('01/12/2016', 'YYYY-MM-DD').format()
+&quot;2001-12-20T00:00:00-06:00&quot;
+</code></pre>
+<p>The wrong date scenario in forgiving mode is certainly less obvious to the user, but by that token could go unnoticed for a long time.</p>
+<p>When choosing between strict and forgiving mode, it is important to consider whether it is more important that dates be accurate, or that dates never display as &quot;Invalid Date&quot;.</p>
+					</div>
+				</article>
+				<article class="docs-method">
+					<a class="docs-method-target" id="/parsing/multiple-formats/"  name="/parsing/multiple-formats/"></a>
+						<h3 class="docs-method-title">
+							<a href='#/parsing/multiple-formats/'>Multiple Formats</a>
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/guides/moment/01-parsing/05-multiple-formats.md" target="_blank">edit</a>
+					<div class="docs-method-prose">
+<p>Moment's parser supports specifying multiple possible formats for a date string. This can be extremely useful for situations where a date may be coming from multiple data sources.
+Just pass the formats as an array:</p>
+<pre><code class="language-js">moment('12 March, 2016', ['DDMMMMY', 'MMMMDDY']).format()
+&quot;2016-03-12T00:00:00-06:00&quot;
+moment('March 12, 2016', ['DDMMMMY', 'MMMMDDY']).format()
+&quot;2016-03-12T00:00:00-06:00&quot;
+</code></pre>
+<p>In order for this functionality to work properly, moment must parse every format provided. Because of this, the more formats that are used, the longer that parsing takes.
+Moment's heuristic for determining which format to use is as follows:</p>
+<ul>
+<li>Prefer formats resulting in <a href="#/parsing/is-valid/">valid</a> dates over invalid ones.</li>
+<li>Prefer formats that parse more of the string than less and use more of the format than less, i.e. prefer stricter parsing.</li>
+<li>Prefer formats earlier in the array than later.</li>
+</ul>
+					</div>
+				</article>
+			<article class="docs-section">
+				<a class="docs-section-target" id="/warnings/" name="/warnings/"></a>
+				<h2 class="docs-section-title"><a href='#/warnings/'>Warnings and Errors</a></h2>
+			</article>
+				<article class="docs-method">
+					<a class="docs-method-target" id="/warnings/intro/"  name="/warnings/intro/"></a>
+					<div class="docs-method-prose">
+<p>There are several places where Moment.js displays deprecation warnings about functionality that will be removed in the future. Work-arounds are outlined here.</p>
+					</div>
+				</article>
+				<article class="docs-method">
+					<a class="docs-method-target" id="/warnings/js-date/"  name="/warnings/js-date/"></a>
+						<h3 class="docs-method-title">
+							<a href='#/warnings/js-date/'>JS Date Construction</a>
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/guides/moment/02-warnings/01-js-date.md" target="_blank">edit</a>
+					<div class="docs-method-prose">
+<pre><code>Moment construction falls back to js Date. 
+This is discouraged and will be removed in an upcoming major release.
+</code></pre>
+<p>This deprecation warning is thrown when no known format is found for a date passed into the string constructor.
+To work around this issue, specify a format for the string being passed to <code>moment()</code>.</p>
+<p><a href="/docs/#/parsing/">See the parsing docs for more information.</a></p>
+<p><a href="https://github.com/moment/moment/issues/1407" target="_blank">View original GitHub issue</a></p>
+					</div>
+				</article>
+				<article class="docs-method">
+					<a class="docs-method-target" id="/warnings/define-locale/"  name="/warnings/define-locale/"></a>
+						<h3 class="docs-method-title">
+							<a href='#/warnings/define-locale/'>Define Locale Override</a>
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/guides/moment/02-warnings/02-define-locale.md" target="_blank">edit</a>
+					<div class="docs-method-prose">
+<pre><code>Use moment.updateLocale(localeName, config) to change an existing locale. 
+moment.defineLocale(localeName, config) should only be used for creating a new locale
+</code></pre>
+<p>This deprecation warning is thrown when you attempt to change an existing locale using the defineLocale function.
+Doing this will result in unexpected behavior related to property inheritance. moment.updateLocale will properly replace properties on an existing locale.</p>
+<p><a href="https://github.com/moment/moment/pull/2774" target="_blank">View original pull request</a></p>
+					</div>
+				</article>
+				<article class="docs-method">
+					<a class="docs-method-target" id="/warnings/parent-locale/"  name="/warnings/parent-locale/"></a>
+						<h3 class="docs-method-title">
+							<a href='#/warnings/parent-locale/'>Parent Locale Undefined</a>
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/guides/moment/02-warnings/03-parent-locale.md" target="_blank">edit</a>
+					<div class="docs-method-prose">
+<p>Warning removed since <strong>2.16.0</strong>.</p>
+<p>A locale can be defined with a parent before the parent itself is defined or loaded. If the parent doesn't exist or can't be lazy loaded when the moment is created, the parent will default to the global locale.</p>
+					</div>
+				</article>
+				<article class="docs-method">
+					<a class="docs-method-target" id="/warnings/locale-not-found/"  name="/warnings/locale-not-found/"></a>
+						<h3 class="docs-method-title">
+							<a href='#/warnings/locale-not-found/'>Locale Not Found</a>
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/guides/moment/02-warnings/04-locale-not-found.md" target="_blank">edit</a>
+					<div class="docs-method-prose">
+<pre><code>Locale &lt;key&gt; not found. Did you forget to load it?
+</code></pre>
+<p>This warning is displayed when a global locale is set but Moment cannot find it. Perhaps this locale is not bundled in your copy.</p>
+					</div>
+				</article>
+				<article class="docs-method">
+					<a class="docs-method-target" id="/warnings/add-inverted-param/"  name="/warnings/add-inverted-param/"></a>
+						<h3 class="docs-method-title">
+							<a href='#/warnings/add-inverted-param/'>Add/Subtract</a>
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/guides/moment/02-warnings/05-add-inverted-param.md" target="_blank">edit</a>
+					<div class="docs-method-prose">
+<pre><code>moment().add(period, number) is deprecated. Please use moment().add(number, period)
+moment().subtract(period, number) is deprecated. Please use moment().subtract(number, period)
+</code></pre>
+<p>Moment deprecated ordering the parameters of add and subtract as (period, number). Invert your parameters.</p>
+<p>Bad:</p>
+<pre><code class="language-js">moment().add('hours', 3);
+</code></pre>
+<p>Good:</p>
+<pre><code class="language-js">moment().add(3, 'hours');
+</code></pre>
+					</div>
+				</article>
+				<article class="docs-method">
+					<a class="docs-method-target" id="/warnings/min-max/"  name="/warnings/min-max/"></a>
+						<h3 class="docs-method-title">
+							<a href='#/warnings/min-max/'>Min/Max</a>
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/guides/moment/02-warnings/06-min-max.md" target="_blank">edit</a>
+					<div class="docs-method-prose">
+<pre><code>moment().min is deprecated, use moment.max
+moment().max is deprecated, use moment.min
+</code></pre>
+<p>This warning is not a typo, but it is confusing.</p>
+<p>Previous to version 2.7.0, moment supported moment().min and moment().max functions. These functions were unintuitive.</p>
+<p>Min would return the greater of the two moments in question, and max would return the lesser.</p>
+<p>Due to this inverted behavior, the suggestion provided in the deprecation warning is correct.</p>
+<pre><code class="language-js">moment('2016-01-01').min('2016-02-01').format()
+&quot;2016-02-01T00:00:00-06:00&quot;
+//is equivalent to
+moment.max(moment('2016-01-01'), moment('2016-02-01')).format()
+&quot;2016-02-01T00:00:00-06:00&quot;
+</code></pre>
+<pre><code class="language-js">moment('2016-01-01').max('2016-02-01').format()
+&quot;2016-01-01T00:00:00-06:00&quot;
+//is equivalent to
+moment.min(moment('2016-01-01'), moment('2016-02-01')).format()
+&quot;2016-01-01T00:00:00-06:00&quot;
+</code></pre>
+<p><a href="https://github.com/moment/moment/issues/1548" target="_blank">See original GitHub issue.</a></p>
+					</div>
+				</article>
+				<article class="docs-method">
+					<a class="docs-method-target" id="/warnings/zone/"  name="/warnings/zone/"></a>
+						<h3 class="docs-method-title">
+							<a href='#/warnings/zone/'>Zone</a>
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/guides/moment/02-warnings/07-zone.md" target="_blank">edit</a>
+					<div class="docs-method-prose">
+<pre><code>moment().zone is deprecated, 
+use moment().utcOffset instead.
+</code></pre>
+<p>This deprecation was made for purposes of clarity.</p>
+<p>The result of <code>moment().zone()</code> is an integer that indicates the number of minutes that a given moment is offset from UTC, with the sign inverted (US moments result in a positive value).</p>
+<p>Using <code>moment().zone(number)</code> to set the offset will set the offset on the date, also using an inverted sign.</p>
+<p>Because a time zone is not the same thing as an offset, the name was changed to utcOffset. At that time the sign was corrected to reflect the actual direction of the UTC offset.</p>
+<pre><code class="language-js">moment().zone()
+360
+//is replaced by
+moment().utcOffset()
+-360
+
+moment().zone(420)
+//is replaced by 
+moment().utcOffset(-420)
+</code></pre>
+<p><a href="#/lib-concepts/timezone-offset/">For more information on time zone vs offset, see the Time Zone vs Offset guide.</a></p>
+<p><a href="https://github.com/moment/moment/issues/1779" target="_blank">View original GitHub issue.</a></p>
+					</div>
+				</article>
+			<article class="docs-section">
+				<a class="docs-section-target" id="/externalresources/" name="/externalresources/"></a>
+				<h2 class="docs-section-title"><a href='#/externalresources/'>External Resources</a></h2>
+			</article>
+				<article class="docs-method">
+					<a class="docs-method-target" id="/externalresources/intro/"  name="/externalresources/intro/"></a>
+					<div class="docs-method-prose">
+<p>These resources are made by members of the date/time/time zone community.</p>
+					</div>
+				</article>
+				<article class="docs-method">
+					<a class="docs-method-target" id="/externalresources/videos/"  name="/externalresources/videos/"></a>
+						<h3 class="docs-method-title">
+							<a href='#/externalresources/videos/'>Videos</a>
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/guides/moment/03-externalresources/01-videos.md" target="_blank">edit</a>
+					<div class="docs-method-prose">
+<p><b><a href="https://www.youtube.com/watch?v=ieIzNP6gKqU" target="_blank">Date and Time Odds, Ends and Oddities</a></b></p>
+<ul>
+<li>YouTube, Maggie Pint, Moment.js core contributor</li>
+</ul>
+<p><b><a href="https://www.pluralsight.com/courses/date-time-fundamentals" target="_blank">Date and Time Fundamentals</a></b></p>
+<ul>
+<li>Pluralsight, Matt Johnson, Moment.js core contributor</li>
+</ul>
+					</div>
+				</article>
+				<article class="docs-method">
+					<a class="docs-method-target" id="/externalresources/blogs/"  name="/externalresources/blogs/"></a>
+						<h3 class="docs-method-title">
+							<a href='#/externalresources/blogs/'>Blogs</a>
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/guides/moment/03-externalresources/02-blogs.md" target="_blank">edit</a>
+					<div class="docs-method-prose">
+<p><b><a href="http://codeofmatt.com/" target="_blank">Matt Johnson's Blog</a></b></p>
+<ul>
+<li>Moment.js core contributor. Date and time concepts in programming.</li>
+</ul>
+<p><b><a href="https://maggiepint.com/" target="_blank">Maggie Pint's Blog</a></b></p>
+<ul>
+<li>Moment.js core contributor. Moment.js development progress and roadmaps. Moment.js library help.</li>
+</ul>
+<p><b><a href="http://www.creativedeletion.com/" target="_blank">Lau Taarnskov's blog</a></b></p>
+<ul>
+<li>Author - Elixir Calendar. Date and time programming concepts. Elixir date and time.</li>
+</ul>
+<p><b><a href="https://codeblog.jonskeet.uk/" target="_blank">Jon Skeet's blog</a></b></p>
+<ul>
+<li>Author - NodaTime. Stack Overflow #1 user. Date and time programming concepts.</li>
+</ul>
+					</div>
+				</article>
+				<article class="docs-method">
+					<a class="docs-method-target" id="/externalresources/miscellaneous/"  name="/externalresources/miscellaneous/"></a>
+						<h3 class="docs-method-title">
+							<a href='#/externalresources/miscellaneous/'>Miscellaneous</a>
+						</h3>
+						<a class="docs-method-edit" href="https://github.com/moment/momentjs.com/blob/master/guides/moment/03-externalresources/03-miscellaneous.md" target="_blank">edit</a>
+					<div class="docs-method-prose">
+<p><b><a href="https://stackoverflow.com/tags/timezone/info" target="_blank">Stack Overflow TimeZone Tag Wiki</a></b></p>
+<p><b><a href="https://stackoverflow.com/q/4331189" target="_blank">Stack Overflow DateTime vs DateTimeOffset</a></b></p>
+<p><b><a href="https://www.iana.org/time-zones" target="_blank">IANA Time Zone Database</a></b></p>
+<ul>
+<li>Main time zone database. This is where Moment TimeZone sources its data from.</li>
+</ul>
+					</div>
+				</article>
+	</div>
+
+</div>
+
+
+		<footer>
+			<p>Moment.js is freely distributable under the terms of the MIT license.</p>
+		</footer>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script src="/static/js/global.js"></script>
+			<script src="/static/js/docs.js"></script>
+	</body>
+</html>
