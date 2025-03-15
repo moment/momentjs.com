@@ -2,9 +2,10 @@
 title: Get
 version: 2.2.1
 signature: |
+  moment().get('date');
   moment().get('year');
   moment().get('month');  // 0 to 11
-  moment().get('date');
+  moment().get('days');
   moment().get('hour');
   moment().get('minute');
   moment().get('second');
