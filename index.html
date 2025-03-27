@@ -1,0 +1,572 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+
+		<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="/static/css/style.css" />
+		<link rel="shortcut icon" href="/static/img/moment-favicon.png" />
+
+		<title>Moment.js | Home</title>
+	</head>
+
+	<body class="is-moment">
+		<nav class="nav">
+			<div class="centered">
+				<div class="nav-projects">
+					<a class="nav-project nav-project-moment active" href="/">
+						<svg width="40px" height="40px" viewBox="0 0 40 40">
+							<ellipse stroke-width="3" cx="20" cy="20" rx="18.5" ry="18.5" fill="0" stroke="#000" />
+							<path fill-rule="evenodd" d="M20,36 C28.836556,36 36,28.836556 36,20 C36,11.163444 28.836556,4 20,4 C11.163444,4 4,11.163444 4,20 C4,28.836556 11.163444,36 20,36 Z M20,5 C19.4477153,5 19,5.44994876 19,6.00684547 L19,19 L11.9970301,19 C11.4463856,19 11,19.4438648 11,20 C11,20.5522847 11.4556644,21 11.9953976,21 L21,21 L21,6.00087166 C21,5.4481055 20.5561352,5 20,5 Z"></path>
+						</svg>
+						Moment
+					</a>
+					<a class="nav-project nav-project-moment-timezone " href="/timezone/">
+						<svg width="40px" height="40px" viewBox="0 0 40 40">
+							<ellipse stroke-width="3" cx="20" cy="20" rx="18.5" ry="18.5" fill="0" stroke="#000" />
+							<path fill-rule="evenodd" d="M4.98917024,14.4489557 C4.34944108,16.1782522 4,18.0483179 4,20 C4,28.836556 11.163444,36 20,36 C25.3372103,36 30.0640585,33.3867291 32.9708034,29.3699284 L32.9708034,29.3699284 C32.7542032,29.1158875 32.5851628,28.8136799 32.5213775,28.5419031 L31.2169086,22.9838131 C31.1059526,22.5110509 30.6116318,22.1192596 30.1152853,22.1192596 L28.4921437,22.1192596 C27.9858118,22.1192596 27.3609962,21.7891428 27.0742761,21.3819231 L26.5647528,20.6582629 C25.7154881,19.4520786 25.8505167,17.5995152 26.8651421,16.5187344 L26.9854581,16.3905737 C27.318883,16.0354089 27.9695174,15.6094255 28.4334461,15.4446996 L29.3188401,15.1303252 C29.7803195,14.966469 30.5349459,14.9655993 30.9988746,15.1303252 L31.8842686,15.4446996 C32.3457481,15.6085558 33.1107334,15.8458733 33.5874405,15.9728206 L35.6191135,16.513856 C35.4978108,15.9679684 35.3486212,15.4325805 35.1731165,14.9092644 C34.3263749,14.7238868 33.4055455,14.2746017 32.8663979,13.7497894 L32.3015162,13.1999272 L30.4205895,13.1999271 C29.9369463,13.1999271 29.3014167,13.5302589 29.0223398,13.9377438 L28.6896027,14.4235789 C28.1260613,15.2464153 27.4185905,15.1412987 27.0980851,14.2053481 L27.0412779,14.0394576 C26.882355,13.5753657 27.1532065,13.199927 27.6459111,13.199927 L27.7109116,13.199927 C28.2108557,13.199927 28.6030323,12.796967 28.6030323,12.2998905 C28.6030324,11.7993486 29.0024484,11.399854 29.4951531,11.399854 L30.4522743,11.399854 L30.7448301,11.1150769 C31.0843394,10.7845948 31.0209719,10.3265877 30.5819181,10.1128978 L30.3226304,9.98670097 C29.8842057,9.77331723 29.8835766,9.42655123 30.3226304,9.21286132 L30.5819181,9.08666449 C30.8796701,8.94174691 31.4270561,9.05187418 31.74767,9.13746427 L31.74767,9.13746427 C29.354055,6.5500601 26.1162974,4.75498325 22.4719557,4.1897922 L22.4719557,4.1897922 L23.5257222,5.21678951 C24.2305071,5.90367045 24.0320251,6.65048619 23.0799479,6.88245898 L21.4350099,7.28324666 L20.1865042,8.50003612 C19.4817194,9.18691704 18.4903848,9.06670377 17.9747489,8.2291421 L17.3154121,7.15816288 C16.7989905,6.31932509 17.052872,5.20558795 17.8807174,4.66771105 L17.4094436,4.97391227 C18.1837126,4.47084565 19.4969845,4.06343412 20.4690548,4.00674356 C20.3132511,4.0022581 20.1568893,4 20,4 C16.3409492,4 12.9687755,5.22826668 10.2732905,7.29498839 L9.34598541,8.7 C9.34598541,8.7 11.1732265,9.31523437 11.1732265,9.31523437 C11.6403222,9.47250609 12.1428675,9.22457657 12.3008953,8.74570313 L12.6280585,7.75429687 C12.7837571,7.28248174 13.2647344,7.07917156 13.7009406,7.29947834 L14.8796059,7.89476545 C15.7601466,8.33948421 16.7269068,9.46648951 17.0331889,10.3946197 L17.0830463,10.5457031 C17.2387449,11.0175183 16.9561285,11.4 16.4656183,11.4 L13.8009733,11.4 L12.0189781,13.2 L12.0189781,15.015919 C12.0189781,15.5041835 11.7405414,15.61875 11.3957227,15.2704473 L10.236983,14.1 L9.25216787,14.5973827 C8.8118975,14.8197421 8.45498784,15.3994783 8.45498784,15.9 C8.45498784,16.3970563 8.80456327,17.0118645 9.2107158,17.2580182 L12.9099757,19.5 L13.8947908,19.0026173 C14.3350612,18.7802579 15.0162561,18.8183745 15.4320035,19.0983398 L19.7477607,22.0045816 C21.3842844,23.1066207 21.4906005,25.0341584 19.9878775,26.3076091 L16.4715636,29.2874348 C16.0984226,29.6036452 15.5824366,30.1960211 15.3130082,30.6200946 L13.8009729,33 C13.3088887,33 12.995925,32.6093202 13.1006804,32.1331581 L14.3096882,26.6376532 C14.520817,25.6779738 13.9707442,24.5357431 13.0976108,24.0947654 L12.7223406,23.9052346 C11.8417999,23.4605158 11.4800454,22.3887558 11.9199672,21.5000227 L12.9099757,19.5 L8.41107755,17.9852154 C7.94324417,17.8276953 7.31902279,17.3906968 7.00711679,16.996875 L4.98917024,14.4489557 Z"></path>
+						</svg>
+						Moment<br/>Timezone
+					</a>
+                                        <a class="nav-project nav-project-luxon" href="https://moment.github.io/luxon/">
+                                          <svg width="40px" height="40px" viewBox="0 0 40 40">
+                                            <g transform="translate(1.000000, 1.000000)">
+                                              <ellipse stroke-width="3" fill-rule="nonzero" cx="19" cy="19" ry="18.5" rx="18.5"/>
+                                              <path fill-rule="evenodd" d="M19,35 C27.836556,35 35,27.836556 35,19 C35,10.163444 27.836556,3 19,3 C10.163444,3 3,10.163444 3,19 C3,27.836556 10.163444,35 19,35 Z M22.104874,17.183315 L22.104874,13.7025247 C23.2618233,13.6333699 24.1590492,12.6882547 24.1590492,11.5587267 L24.1590492,11.143798 C24.1590492,9.94511526 23.1673784,9 21.9632068,9 L16.0604044,9 C14.8326216,9 13.864562,9.96816685 13.864562,11.143798 L13.864562,11.5587267 C13.864562,12.6882547 14.7853991,13.6333699 15.9187372,13.7025247 L15.9187372,17.183315 L10.4645478,25.5510428 C9.87426762,26.4500549 9.85065641,27.5565313 10.370103,28.5016465 C10.8895496,29.4467618 11.8812204,30 12.967336,30 L25.032664,30 C26.1423908,30 27.1104504,29.4467618 27.629897,28.5016465 C28.1493436,27.5565313 28.1257324,26.4500549 27.5354522,25.5510428 L22.104874,17.183315 Z"/>
+                                            </g>
+                                          </svg>
+                                          Luxon</a>
+				</div>
+				<div class="nav-pages">
+						<a href="." class="active">Home</a>
+						<a href="docs/" >Docs</a>
+						<a href="guides/" >Guides</a>
+						<a href="tests/" >Tests</a>
+					<a href="https://github.com/moment/moment/">GitHub</a>
+				</div>
+			</div>
+		</nav>
+
+		
+
+
+
+<header class="hero hero-moment">
+	<div class="right-of-hero">
+		<div>Considering using Moment in your project?</div>
+		<div><em>There may be better modern alternatives.</em></div>
+		<div>For more details and recommendations,</div>
+		<div>please see <a href="/docs/#/-project-status/">Project Status</a> in the docs.</div>
+	</div>
+	<div class="centered">
+		<div class="hero-circle">
+			<div class="hero-face">
+				<div id="hour" class="hero-hour"></div>
+				<div id="minute" class="hero-minute"></div>
+				<div id="second" class="hero-second"></div>
+			</div>
+		</div>
+		<div class="hero-title">
+			<h1>Moment.js <span>2.30.1</span></h1>
+			<h2>Parse, validate, manipulate, and display dates and times in JavaScript.</h2>
+		</div>
+	</div>
+</header>
+
+
+<div class="builds">
+	<div class="builds-download">
+		<h3>Download</h3>
+		<a class="builds-button builds-button-source" href="/downloads/moment.js">
+			moment.js
+		</a>
+		<a class="builds-button builds-button-gzipped" href="/downloads/moment.min.js">
+			moment.min.js
+			<span class="filesize">18.4k</span>
+		</a>
+		<a class="builds-button builds-button-source" href="/downloads/moment-with-locales.js">
+			moment-with-locales.js
+		</a>
+		<a class="builds-button builds-button-gzipped" href="/downloads/moment-with-locales.min.js">
+			moment-with-locales.min.js
+			<span class="filesize">74.6k</span>
+		</a>
+	</div>
+	<div class="builds-packages">
+		<h3>Install</h3>
+		<pre><code>npm install moment --save   <span class="comment"># npm</span>
+yarn add moment             <span class="comment"># Yarn</span>
+spm install moment --save   <span class="comment"># spm</span>
+meteor add momentjs:moment  <span class="comment"># meteor</span>
+bower install moment --save <span class="comment"># bower (deprecated)</span>
+</code></pre>
+	</div>
+</div>
+
+<div class="page-moment-index">
+
+<h3>Format Dates</h3>
+<pre><code class="language-js">moment().format('MMMM Do YYYY, h:mm:ss a');
+moment().format('dddd');
+moment().format(&quot;MMM Do YY&quot;);
+moment().format('YYYY [escaped] YYYY');
+moment().format();
+</code></pre>
+<h3>Relative Time</h3>
+<pre><code class="language-js">moment(&quot;20111031&quot;, &quot;YYYYMMDD&quot;).fromNow();
+moment(&quot;20120620&quot;, &quot;YYYYMMDD&quot;).fromNow();
+moment().startOf('day').fromNow();
+moment().endOf('day').fromNow();
+moment().startOf('hour').fromNow();
+</code></pre>
+<h3>Calendar Time</h3>
+<pre><code class="language-js">moment().subtract(10, 'days').calendar();
+moment().subtract(6, 'days').calendar();
+moment().subtract(3, 'days').calendar();
+moment().subtract(1, 'days').calendar();
+moment().calendar();
+moment().add(1, 'days').calendar();
+moment().add(3, 'days').calendar();
+moment().add(10, 'days').calendar();
+</code></pre>
+<h3>Multiple Locale Support</h3>
+<pre><code class="language-js">moment.locale();
+moment().format('LT');
+moment().format('LTS');
+moment().format('L');
+moment().format('l');
+moment().format('LL');
+moment().format('ll');
+moment().format('LLL');
+moment().format('lll');
+moment().format('LLLL');
+moment().format('llll');
+</code></pre>
+
+<div class="locales">
+		<div class="button " data-locale="af">
+			Afrikaans
+		</div>
+		<div class="button " data-locale="sq">
+			Albanian
+		</div>
+		<div class="button " data-locale="ar">
+			Arabic
+		</div>
+		<div class="button " data-locale="ar-dz">
+			Arabic (Algeria)
+		</div>
+		<div class="button " data-locale="ar-kw">
+			Arabic (Kuwait)
+		</div>
+		<div class="button " data-locale="ar-ly">
+			Arabic (Libya)
+		</div>
+		<div class="button " data-locale="ar-ma">
+			Arabic (Morocco)
+		</div>
+		<div class="button " data-locale="ar-ps">
+			Arabic (Palestine)
+		</div>
+		<div class="button " data-locale="ar-sa">
+			Arabic (Saudi Arabia)
+		</div>
+		<div class="button " data-locale="ar-tn">
+			Arabic (Tunisia)
+		</div>
+		<div class="button " data-locale="hy-am">
+			Armenian
+		</div>
+		<div class="button " data-locale="az">
+			Azerbaijani
+		</div>
+		<div class="button " data-locale="bm">
+			Bambara
+		</div>
+		<div class="button " data-locale="eu">
+			Basque
+		</div>
+		<div class="button " data-locale="be">
+			Belarusian
+		</div>
+		<div class="button " data-locale="bn">
+			Bengali
+		</div>
+		<div class="button " data-locale="bn-bd">
+			Bengali (Bangladesh)
+		</div>
+		<div class="button " data-locale="bs">
+			Bosnian
+		</div>
+		<div class="button " data-locale="br">
+			Breton
+		</div>
+		<div class="button " data-locale="bg">
+			Bulgarian
+		</div>
+		<div class="button " data-locale="my">
+			Burmese
+		</div>
+		<div class="button " data-locale="km">
+			Cambodian
+		</div>
+		<div class="button " data-locale="ca">
+			Catalan
+		</div>
+		<div class="button " data-locale="tzm">
+			Central Atlas Tamazight
+		</div>
+		<div class="button " data-locale="tzm-latn">
+			Central Atlas Tamazight Latin
+		</div>
+		<div class="button " data-locale="zh-cn">
+			Chinese (China)
+		</div>
+		<div class="button " data-locale="zh-hk">
+			Chinese (Hong Kong)
+		</div>
+		<div class="button " data-locale="zh-mo">
+			Chinese (Macau)
+		</div>
+		<div class="button " data-locale="zh-tw">
+			Chinese (Taiwan)
+		</div>
+		<div class="button " data-locale="cv">
+			Chuvash
+		</div>
+		<div class="button " data-locale="hr">
+			Croatian
+		</div>
+		<div class="button " data-locale="cs">
+			Czech
+		</div>
+		<div class="button " data-locale="da">
+			Danish
+		</div>
+		<div class="button " data-locale="nl">
+			Dutch
+		</div>
+		<div class="button " data-locale="nl-be">
+			Dutch (Belgium)
+		</div>
+		<div class="button " data-locale="en-au">
+			English (Australia)
+		</div>
+		<div class="button " data-locale="en-ca">
+			English (Canada)
+		</div>
+		<div class="button " data-locale="en-in">
+			English (India)
+		</div>
+		<div class="button " data-locale="en-ie">
+			English (Ireland)
+		</div>
+		<div class="button " data-locale="en-il">
+			English (Israel)
+		</div>
+		<div class="button " data-locale="en-nz">
+			English (New Zealand)
+		</div>
+		<div class="button " data-locale="en-sg">
+			English (Singapore)
+		</div>
+		<div class="button " data-locale="en-gb">
+			English (United Kingdom)
+		</div>
+		<div class="button active" data-locale="en">
+			English (United States)
+		</div>
+		<div class="button " data-locale="eo">
+			Esperanto
+		</div>
+		<div class="button " data-locale="et">
+			Estonian
+		</div>
+		<div class="button " data-locale="fo">
+			Faroese
+		</div>
+		<div class="button " data-locale="fil">
+			Filipino
+		</div>
+		<div class="button " data-locale="fi">
+			Finnish
+		</div>
+		<div class="button " data-locale="fr">
+			French
+		</div>
+		<div class="button " data-locale="fr-ca">
+			French (Canada)
+		</div>
+		<div class="button " data-locale="fr-ch">
+			French (Switzerland)
+		</div>
+		<div class="button " data-locale="fy">
+			Frisian
+		</div>
+		<div class="button " data-locale="gl">
+			Galician
+		</div>
+		<div class="button " data-locale="ka">
+			Georgian
+		</div>
+		<div class="button " data-locale="de">
+			German
+		</div>
+		<div class="button " data-locale="de-at">
+			German (Austria)
+		</div>
+		<div class="button " data-locale="de-ch">
+			German (Switzerland)
+		</div>
+		<div class="button " data-locale="el">
+			Greek
+		</div>
+		<div class="button " data-locale="gu">
+			Gujarati
+		</div>
+		<div class="button " data-locale="he">
+			Hebrew
+		</div>
+		<div class="button " data-locale="hi">
+			Hindi
+		</div>
+		<div class="button " data-locale="hu">
+			Hungarian
+		</div>
+		<div class="button " data-locale="is">
+			Icelandic
+		</div>
+		<div class="button " data-locale="id">
+			Indonesian
+		</div>
+		<div class="button " data-locale="ga">
+			Irish or Irish Gaelic
+		</div>
+		<div class="button " data-locale="it">
+			Italian
+		</div>
+		<div class="button " data-locale="it-ch">
+			Italian (Switzerland)
+		</div>
+		<div class="button " data-locale="ja">
+			Japanese
+		</div>
+		<div class="button " data-locale="jv">
+			Javanese
+		</div>
+		<div class="button " data-locale="kn">
+			Kannada
+		</div>
+		<div class="button " data-locale="kk">
+			Kazakh
+		</div>
+		<div class="button " data-locale="tlh">
+			Klingon
+		</div>
+		<div class="button " data-locale="gom-deva">
+			Konkani Devanagari script
+		</div>
+		<div class="button " data-locale="gom-latn">
+			Konkani Latin script
+		</div>
+		<div class="button " data-locale="ko">
+			Korean
+		</div>
+		<div class="button " data-locale="ku">
+			Kurdish
+		</div>
+		<div class="button " data-locale="ky">
+			Kyrgyz
+		</div>
+		<div class="button " data-locale="lo">
+			Lao
+		</div>
+		<div class="button " data-locale="lv">
+			Latvian
+		</div>
+		<div class="button " data-locale="lt">
+			Lithuanian
+		</div>
+		<div class="button " data-locale="lb">
+			Luxembourgish
+		</div>
+		<div class="button " data-locale="mk">
+			Macedonian
+		</div>
+		<div class="button " data-locale="ms">
+			Malay
+		</div>
+		<div class="button " data-locale="ml">
+			Malayalam
+		</div>
+		<div class="button " data-locale="dv">
+			Maldivian
+		</div>
+		<div class="button " data-locale="mt">
+			Maltese (Malta)
+		</div>
+		<div class="button " data-locale="mi">
+			Maori
+		</div>
+		<div class="button " data-locale="mr">
+			Marathi
+		</div>
+		<div class="button " data-locale="mn">
+			Mongolian
+		</div>
+		<div class="button " data-locale="me">
+			Montenegrin
+		</div>
+		<div class="button " data-locale="ne">
+			Nepalese
+		</div>
+		<div class="button " data-locale="ku-kmr">
+			Northern Kurdish
+		</div>
+		<div class="button " data-locale="se">
+			Northern Sami
+		</div>
+		<div class="button " data-locale="nb">
+			Norwegian Bokmål
+		</div>
+		<div class="button " data-locale="nn">
+			Nynorsk
+		</div>
+		<div class="button " data-locale="oc-lnc">
+			Occitan, lengadocian dialecte
+		</div>
+		<div class="button " data-locale="fa">
+			Persian
+		</div>
+		<div class="button " data-locale="pl">
+			Polish
+		</div>
+		<div class="button " data-locale="pt">
+			Portuguese
+		</div>
+		<div class="button " data-locale="pt-br">
+			Portuguese (Brazil)
+		</div>
+		<div class="button " data-locale="x-pseudo">
+			Pseudo
+		</div>
+		<div class="button " data-locale="pa-in">
+			Punjabi (India)
+		</div>
+		<div class="button " data-locale="ro">
+			Romanian
+		</div>
+		<div class="button " data-locale="ru">
+			Russian
+		</div>
+		<div class="button " data-locale="gd">
+			Scottish Gaelic
+		</div>
+		<div class="button " data-locale="sr">
+			Serbian
+		</div>
+		<div class="button " data-locale="sr-cyrl">
+			Serbian Cyrillic
+		</div>
+		<div class="button " data-locale="sd">
+			Sindhi
+		</div>
+		<div class="button " data-locale="si">
+			Sinhalese
+		</div>
+		<div class="button " data-locale="sk">
+			Slovak
+		</div>
+		<div class="button " data-locale="sl">
+			Slovenian
+		</div>
+		<div class="button " data-locale="es">
+			Spanish
+		</div>
+		<div class="button " data-locale="es-do">
+			Spanish (Dominican Republic)
+		</div>
+		<div class="button " data-locale="es-mx">
+			Spanish (Mexico)
+		</div>
+		<div class="button " data-locale="es-us">
+			Spanish (United States)
+		</div>
+		<div class="button " data-locale="sw">
+			Swahili
+		</div>
+		<div class="button " data-locale="sv">
+			Swedish
+		</div>
+		<div class="button " data-locale="tl-ph">
+			Tagalog (Philippines)
+		</div>
+		<div class="button " data-locale="tg">
+			Tajik
+		</div>
+		<div class="button " data-locale="tzl">
+			Talossan
+		</div>
+		<div class="button " data-locale="ta">
+			Tamil
+		</div>
+		<div class="button " data-locale="te">
+			Telugu
+		</div>
+		<div class="button " data-locale="tet">
+			Tetun Dili (East Timor)
+		</div>
+		<div class="button " data-locale="th">
+			Thai
+		</div>
+		<div class="button " data-locale="bo">
+			Tibetan
+		</div>
+		<div class="button " data-locale="tr">
+			Turkish
+		</div>
+		<div class="button " data-locale="tk">
+			Turkmen
+		</div>
+		<div class="button " data-locale="uk">
+			Ukrainian
+		</div>
+		<div class="button " data-locale="ur">
+			Urdu
+		</div>
+		<div class="button " data-locale="ug-cn">
+			Uyghur (China)
+		</div>
+		<div class="button " data-locale="uz">
+			Uzbek
+		</div>
+		<div class="button " data-locale="uz-latn">
+			Uzbek Latin
+		</div>
+		<div class="button " data-locale="vi">
+			Vietnamese
+		</div>
+		<div class="button " data-locale="cy">
+			Welsh
+		</div>
+		<div class="button " data-locale="yo">
+			Yoruba Nigeria
+		</div>
+		<div class="button " data-locale="ss">
+			siSwati
+		</div>
+</div>
+
+</div>
+
+
+
+		<footer>
+			<p>Moment.js is freely distributable under the terms of the MIT license.</p>
+		</footer>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script src="/static/js/global.js"></script>
+			<script src="/static/js/core-home.js"></script>
+	</body>
+</html>
