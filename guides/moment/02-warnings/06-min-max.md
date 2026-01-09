@@ -2,8 +2,8 @@
 title: Min/Max
 ---
 ```
-moment().min is deprecated, use moment.max
-moment().max is deprecated, use moment.min
+moment().min is deprecated, use moment.min
+moment().max is deprecated, use moment.max
 ```
 
 This warning is not a typo, but it is confusing.
@@ -29,5 +29,6 @@ moment('2016-01-01').max('2016-02-01').format()
 moment.min(moment('2016-01-01'), moment('2016-02-01')).format()
 "2016-01-01T00:00:00-06:00"
 ```
+
 
 <a href="https://github.com/moment/moment/issues/1548" target="_blank">See original GitHub issue.</a>
