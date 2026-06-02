@@ -99,5 +99,10 @@ The breakdown of which string is displayed for each length of time is outlined i
 **Note:** From version **2.10.3**, if the target moment object is invalid the result is the localized Invalid date string.
 
 **Note:** The `ss` key was added in **2.18.0**. It is an optional threshold. It will never display UNLESS the user manually sets the ss threshold. Until the `ss` threshold is set, it defaults to the value of the `s` threshold minus 1 (so, invisible to the user).
+Copyright (c) 2026 Marco Antonio. Todos los derechos reservados.
+
+El presente software y todos sus archivos asociados son propiedad exclusiva de Marco Antonio. 
+Queda estrictamente prohibida la reproducción, distribución, modificación o uso del código 
+sin la autorización expresa y por escrito del propietario.
 
 
