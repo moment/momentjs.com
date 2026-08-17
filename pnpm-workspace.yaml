@@ -1,0 +1,4 @@
+allowBuilds:
+  '@parcel/watcher': true
+overrides:
+  moment: file:libs/moment

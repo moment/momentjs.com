@@ -1,5 +1,5 @@
 var fs       = require('fs'),
-	gzipSize = require('gzip-size'),
+	zlib     = require('zlib'),
 	moment   = require('../libs/moment'),
 	timezone = require('../libs/moment-timezone').tz;
 
@@ -8,7 +8,7 @@ function size (file) {
 
 	return {
 		size : src.length,
-		gzip : gzipSize.sync(src)
+		gzip : zlib.gzipSync(src, { level: 9 }).length
 	};
 }
 

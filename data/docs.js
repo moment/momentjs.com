@@ -1,20 +1,32 @@
-var path = require('path'),
-	yfm  = require('assemble-yaml'),
-	grunt = require('grunt');
+var fs = require('fs'),
+	path = require('path'),
+	matter = require('gray-matter');
+
+function markdownFiles(directory) {
+	return fs.readdirSync(directory, { withFileTypes: true }).flatMap(function (entry) {
+		var file = path.join(directory, entry.name);
+
+		if (entry.isDirectory()) {
+			return markdownFiles(file);
+		}
+
+		return path.extname(entry.name) === '.md' ? [file] : [];
+	}).sort();
+}
 
 module.exports = function (type, root) {
-	var files = grunt.file.expand(path.join(type, root, '**/*.md')),
+	var files = markdownFiles(path.join(type, root)),
 		groups = [],
 		cache = {};
 
 	files.forEach(function (file) {
-		var data      = yfm.extract(file),
+		var parsed    = matter.read(file),
 			groupPath = path.basename(path.dirname(file)),
 			itemPath  = path.basename(file, '.md'),
 			groupSlug = groupPath.replace(/^\d\d-/, ''),
 			itemSlug  = itemPath.replace(/^\d\d-/, ''),
 			group     = cache[groupSlug],
-			item      = data.context;
+			item      = parsed.data;
 
 		if (!group) {
 			group = cache[groupSlug] = {
@@ -30,7 +42,7 @@ module.exports = function (type, root) {
 
 		group.items.push(item);
 
-		item.body = data.content;
+		item.body = parsed.content;
 		item.slug = groupSlug + '/' + itemSlug;
 		item.edit = 'https://github.com/moment/momentjs.com/blob/master/' + type + '/' + root + '/' + groupPath + '/' + itemPath + '.md';
 	});

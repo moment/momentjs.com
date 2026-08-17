@@ -1,6 +1,6 @@
-# This workflow compiles the site and runs markdown-doctest for PRs.
+# This workflow compiles the site and tests Markdown examples for PRs.
 # On `master` branch, this also deploys the site to GitHub Pages.
-name: CI/CD
+name: CI
 
 on:
   push:
@@ -22,18 +22,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+        with:
+          submodules: true
+
+      - name: Use pnpm
+        uses: pnpm/action-setup@v4
 
       - name: Use Node.js
         uses: actions/setup-node@v7
         with:
-          node-version: lts/*
-          cache: npm
+          node-version: 24
+          cache: pnpm
 
       - name: Compile
-        run: ./compile.sh
+        run: pnpm install --frozen-lockfile && pnpm build
 
       - name: Test docs examples
-        run: npm run doctest
+        run: pnpm doctest
 
       - name: Configure GitHub Pages
         if: github.event_name == 'push'

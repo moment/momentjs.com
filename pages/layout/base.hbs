@@ -38,15 +38,15 @@
                                           Luxon</a>
 				</div>
 				<div class="nav-pages">
-					{{#withSort pages 'data.order'}}
-						<a href="{{stripIndex relativeLink}}" {{#if isCurrentPage}}class="active"{{/if}}>{{data.title}}</a>
-					{{/withSort}}
+					{{#each navigation}}
+						<a href="{{href}}" {{#is href ../page.url}}class="active"{{/is}}>{{title}}</a>
+					{{/each}}
 					<a href="https://github.com/moment/{{repo}}/">GitHub</a>
 				</div>
 			</div>
 		</nav>
 
-		{{> body }}
+		{{{ content }}}
 
 		<footer>
 			<p>Moment.js is freely distributable under the terms of the MIT license.</p>
