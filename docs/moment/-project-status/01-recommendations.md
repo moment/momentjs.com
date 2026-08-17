@@ -45,7 +45,7 @@ If you are familiar with [`java.time`](https://docs.oracle.com/javase/8/docs/api
 
 ### No Library
 
-JavaScript has always had a [`Date`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date) object, defined ECMAScript (ECMA-262) specification [here](https://www.ecma-international.org/ecma-262/11.0/index.html#sec-date-objects).
+JavaScript has always had a [`Date`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date) object, defined in the [ECMAScript (ECMA-262) Date Objects specification](https://www.ecma-international.org/ecma-262/11.0/index.html#sec-date-objects).
 
 When using `Date` objects, be aware of the following:
 

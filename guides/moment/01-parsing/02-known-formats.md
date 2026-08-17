@@ -19,7 +19,7 @@ moment('2016-01-01 12:25:32', moment.ISO_8601)
 
 ISO 8601 formats include, but are not limited to:
 
-```
+```text
 2013-02-08               # A calendar date part
 2013-W06-5               # A week date part
 2013-02-08T09            # An hour time part separated by a T

@@ -35,19 +35,19 @@ with `moment/locale/de`.
 ```javascript
 // only needing core
 define(['moment'], function (moment) {
-	console.log(moment().format('LLLL'));  // 'Friday, June 24, 2016 1:42 AM'
+ console.log(moment().format('LLLL'));  // 'Friday, June 24, 2016 1:42 AM'
 });
 
 // core with single locale
 define(['moment', 'moment/locale/de'], function (moment) {
-	moment.locale('de');
-	console.log(moment().format('LLLL')); // 'Freitag, 24. Juni 2016 01:42'
+ moment.locale('de');
+ console.log(moment().format('LLLL')); // 'Freitag, 24. Juni 2016 01:42'
 });
 
 // core with all locales
 define(['moment/min/moment-with-locales'], function (moment) {
-	moment.locale('de');
-	console.log(moment().format('LLLL')); // 'Freitag, 24. Juni 2016 01:42'
+ moment.locale('de');
+ console.log(moment().format('LLLL')); // 'Freitag, 24. Juni 2016 01:42'
 });
 
 // async load locale

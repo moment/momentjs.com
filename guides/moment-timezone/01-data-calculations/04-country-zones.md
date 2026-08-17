@@ -17,7 +17,7 @@ But because the zones are named after cities, this can be easily misinterpreted 
 
 As an example, let's look at a line from the source [`zone1970.tab`](https://data.iana.org/time-zones/data/zone1970.tab):
 
-```
+```text
 CZ,SK	+5005+01426	Europe/Prague
 ```
 
@@ -27,7 +27,7 @@ It is saying that a time zone region—where clocks have agreed since 1970—can
 Moment Timezone also includes the backwards-compatibility data listed in the older (and deprecated) [`zone.tab`](https://data.iana.org/time-zones/data/zone.tab).
 This includes the line:
 
-```
+```text
 SK	+4809+01707	Europe/Bratislava
 ```
 

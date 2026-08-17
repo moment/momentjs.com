@@ -2,7 +2,7 @@
 title: Zone
 ---
 
-```
+```text
 moment().zone is deprecated,
 use moment().utcOffset instead.
 ```

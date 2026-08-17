@@ -2,7 +2,7 @@
 title: Browserify
 ---
 
-```
+```bash
 npm install moment
 ```
 

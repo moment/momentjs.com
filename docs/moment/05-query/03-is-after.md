@@ -23,7 +23,7 @@ moment('2010-10-20').isAfter('2009-12-31', 'year'); // true
 
 Like `moment#isSame` and `moment#isBefore`, any of the units of time that are supported for `moment#startOf` are supported for `moment#isAfter`.
 
-```
+```text
 year month week isoWeek day hour minute second
 ```
 

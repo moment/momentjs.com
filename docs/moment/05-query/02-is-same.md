@@ -30,7 +30,7 @@ moment('2010-01-01').isSame('2010-02-01', 'day');   // false, different month
 
 Like `moment#isAfter` and `moment#isBefore`, any of the units of time that are supported for `moment#startOf` are supported for `moment#isSame`.
 
-```
+```text
 year month week isoWeek day hour minute second
 ```
 

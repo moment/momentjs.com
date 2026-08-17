@@ -15,8 +15,8 @@ To add more than one zone, pass an array of packed data.
 
 ```js
 moment.tz.add([
-	'America/Los_Angeles|PST PDT|80 70|0101|1Lzm0 1zb0 Op0',
-	'America/New_York|EST EDT|50 40|0101|1Lz50 1zb0 Op0'
+ 'America/Los_Angeles|PST PDT|80 70|0101|1Lzm0 1zb0 Op0',
+ 'America/New_York|EST EDT|50 40|0101|1Lz50 1zb0 Op0'
 ]);
 ```
 

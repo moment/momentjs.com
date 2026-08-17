@@ -138,7 +138,7 @@ the country designation) and try again. However, if the next array
 element has the same or longer prefix as the one to be tried, the
 iteration continues. So for example if the array has the sequence
 
-```
+```text
 "AA-BB", "AA-CC", "XX-YY"
 ```
 
@@ -149,6 +149,6 @@ fails) it tries "AA", because "XX-YY" does not have "AA" as prefix. So
 in the end the following locales are tried in this order (assuming all
 fail so the next one is tried):
 
-```
+```text
 "AA-BB", "AA-CC", "AA", "XX-YY", "XX"
 ```

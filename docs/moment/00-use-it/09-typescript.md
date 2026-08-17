@@ -7,7 +7,7 @@ As of version **2.13.0**, Moment includes a typescript definition file.
 
 Install via NPM
 
-```
+```bash
 npm install moment
 ```
 
@@ -31,7 +31,7 @@ For _Typescript 1.x_ try adding `"allowSyntheticDefaultImports": true` in `compi
 import moment from 'moment';
 ```
 
-**Locale Import**
+#### Locale Import
 
 To use `moment.locale` you first need to import the language you are targeting.
 

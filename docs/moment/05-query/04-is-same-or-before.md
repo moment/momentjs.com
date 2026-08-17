@@ -26,6 +26,6 @@ moment('2010-10-20').isSameOrBefore('2011-01-01', 'year'); // true
 
 Like `moment#isAfter` and `moment#isSame`, any of the units of time that are supported for `moment#startOf` are supported for `moment#isSameOrBefore`:
 
-```
+```text
 year month week isoWeek day hour minute second
 ```

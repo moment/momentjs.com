@@ -4,7 +4,7 @@ title: Bower
 
 [bower](https://bower.io/)
 
-```
+```bash
 bower install --save moment
 ```
 

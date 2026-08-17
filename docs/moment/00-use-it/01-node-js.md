@@ -2,7 +2,7 @@
 title: Node.js
 ---
 
-```
+```bash
 npm install moment
 ```
 

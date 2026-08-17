@@ -2,7 +2,7 @@
 title: Add/Subtract
 ---
 
-```
+```text
 moment().add(period, number) is deprecated. Please use moment().add(number, period)
 moment().subtract(period, number) is deprecated. Please use moment().subtract(number, period)
 ```

@@ -40,7 +40,7 @@ grunt transpile:fr,it
 
 If you are using JSPM as plugin manager, you should add the locale in your lib.
 
-```
+```typescript
 import * as moment from 'moment';
 import 'moment/locale/fr';
 ```

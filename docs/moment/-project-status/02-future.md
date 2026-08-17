@@ -2,7 +2,7 @@
 title: The Future
 ---
 
-## **Temporal** - Better dates and times in the JavaScript language!
+## **Temporal** - Better dates and times in the JavaScript language
 
 One day soon, we hope there won't be a strong need for date and time libraries in JavaScript at all. Instead, we will be able to use capabilities of the JavaScript language itself.
 Though some capabilities are here today with [`Date`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date) and [`Intl`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl), we know from experience and data that there is significant room for improvement.

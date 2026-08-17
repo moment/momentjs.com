@@ -2,7 +2,7 @@
 title: Locale Not Found
 ---
 
-```
+```text
 Locale <key> not found. Did you forget to load it?
 ```
 

@@ -2,7 +2,7 @@
 title: Define Locale Override
 ---
 
-```
+```text
 Use moment.updateLocale(localeName, config) to change an existing locale.
 moment.defineLocale(localeName, config) should only be used for creating a new locale
 ```

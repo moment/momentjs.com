@@ -2,7 +2,7 @@
 title: JS Date Construction
 ---
 
-```
+```text
 Moment construction falls back to js Date.
 This is discouraged and will be removed in an upcoming major release.
 ```
