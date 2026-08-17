@@ -39,6 +39,5 @@ module.exports = {
 Alternatively, the [pre-built bundles](/timezone/) are also included in the `npm` package, and can
 be loaded directly. See the [Node.js section](#/use-it/node-js) for more details.
 
-Also see the primary [Moment.js Webpack documentation](/docs/#/use-it/webpack/) for an example of
-how to reduce Moment’s bundled locale data. Together these techniques can significantly reduce the
-final bundle size (by over 1 MB minified, or 85 KB minified + gzipped).
+For an older approach to reducing Moment's bundled locale data, see the
+[legacy Moment.js webpack tooling documentation](/docs/#/legacy/webpack-tooling/).
