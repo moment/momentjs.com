@@ -27,12 +27,11 @@
     "handlebars": "^4.7.9",
     "markdown-it": "^15.0.0",
     "markdownlint-cli2": "^0.23.2",
-    "moment": "file:libs/moment",
-    "moment-timezone": "file:libs/moment-timezone",
+    "moment": "2.30.1",
+    "moment-timezone": "0.6.3",
     "npm-run-all2": "^9.0.3",
     "postcss": "^8.5.26",
     "prettier": "^3.9.6",
-    "qunit": "^2.26.0",
     "sass": "^1.102.0"
   }
 }

@@ -1,6 +1,4 @@
 const crypto = require("node:crypto");
-const fs = require("node:fs");
-const path = require("node:path");
 
 const placeholders = {
   "%%MOMENT_CDNJS_URL%%": ["cdnjs", "url"],
@@ -18,14 +16,7 @@ function createIntegrity(content) {
 }
 
 function readMomentVersion() {
-  const packageFile = path.join(
-    __dirname,
-    "..",
-    "libs",
-    "moment",
-    "package.json"
-  );
-  const version = JSON.parse(fs.readFileSync(packageFile, "utf8")).version;
+  const version = require("moment/package.json").version;
 
   if (!/^\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?$/.test(version)) {
     throw new Error("Moment has an invalid package version: " + version);

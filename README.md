@@ -2,7 +2,7 @@
 
 This repository contains the source for [momentjs.com](https://momentjs.com),
 including the Moment.js and Moment Timezone documentation, guides, downloads,
-and browser test pages.
+and release files.
 
 ## Architecture
 
@@ -12,18 +12,15 @@ documentation and guides from Markdown fragments in `docs/` and `guides/`.
 Styles and browser scripts are built from `assets/`, and the complete
 site is written to `build/`.
 
-Moment and Moment Timezone are pinned as git submodules in `libs/`. They provide
-the release files, locale data, and browser test suites published by the site.
-pnpm installs the same checkouts as local packages for documentation tests, and
-the build verifies that their versions match.
+Moment and Moment Timezone are pinned npm dependencies. Their packages provide
+the release files, locale data, and runtime used by documentation tests.
 
 ## Local development
 
-Development requires Git, Node.js 24, and pnpm 11. Initialize the Moment and
-Moment Timezone submodules, install the tooling, and start the development server:
+Development requires Git, Node.js 24, and pnpm 11. Install the dependencies and
+start the development server:
 
 ```sh
-git submodule update --init
 pnpm install
 pnpm serve
 ```
@@ -47,15 +44,13 @@ configuration, or data to execute.
 
 ## How to update Moment dependencies
 
-Update each submodule to the desired release tag. For example, to use Moment
-`2.30.1` and Moment Timezone `0.6.3`:
+Update both packages to the desired release versions. For example:
 
 ```sh
-git -C libs/moment checkout 2.30.1
-git -C libs/moment-timezone checkout 0.6.3
+pnpm add --save-dev --save-exact moment@2.30.1 moment-timezone@0.6.3
 ```
 
-Then commit the updated submodule references.
+Commit the resulting `package.json` and `pnpm-lock.yaml` changes.
 
 ## Contributing
 

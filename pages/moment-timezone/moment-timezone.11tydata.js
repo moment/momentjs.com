@@ -8,7 +8,6 @@ module.exports = function () {
       { title: "Home", href: "/timezone/" },
       { title: "Docs", href: "/timezone/docs/" },
       { title: "Guides", href: "/timezone/guides/" },
-      { title: "Tests", href: "/timezone/tests/" },
     ],
     permalink: function (data) {
       return data.page.inputPath.endsWith("/index.hbs")

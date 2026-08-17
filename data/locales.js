@@ -3,7 +3,10 @@ const path = require("path");
 
 module.exports = function () {
   const locales = { en: "English (United States)" };
-  const directory = path.join("libs", "moment", "src", "locale");
+  const directory = path.join(
+    path.dirname(require.resolve("moment/package.json")),
+    "locale"
+  );
 
   for (const filename of fs.readdirSync(directory).sort()) {
     const source = fs.readFileSync(path.join(directory, filename), "utf8");
