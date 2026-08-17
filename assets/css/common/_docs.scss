@@ -181,6 +181,53 @@
   counter-reset: li 0;
 }
 
+.docs-tabs {
+  margin: 0 0 20px;
+}
+
+.docs-tabs-list {
+  display: flex;
+}
+
+.docs-tab {
+  @include font-body;
+  margin: 0 4px -1px 0;
+  padding: 7px 14px;
+  border: 1px solid mix($black, $white, 30%);
+  border-radius: 4px 4px 0 0;
+  background: mix($black, $white, 8%);
+  color: $black;
+  cursor: pointer;
+
+  &[aria-selected="true"] {
+    border-bottom-color: $white;
+    background: $white;
+
+    .is-moment & {
+      color: $color-moment;
+    }
+
+    .is-moment-timezone & {
+      color: $color-moment-timezone;
+    }
+  }
+
+  &:focus {
+    outline: 2px solid rgba($black, 0.5);
+    outline-offset: 2px;
+  }
+}
+
+.docs-tab-panel {
+  &[hidden] {
+    display: none;
+  }
+
+  pre {
+    margin: 0;
+  }
+}
+
 .docs-section {
   padding-top: 40px;
 }

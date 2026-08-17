@@ -2,11 +2,11 @@
 title: Using Moment
 ---
 
-Moment was designed to work both in the browser and in Node.js.
+Moment can be used in browsers and in Node.js.
 
-All code should work in both of these environments, and all unit tests are run in both of these environments.
+Moment is a legacy project in maintenance mode. For new applications, see the
+[project status and recommended alternatives](#/-project-status/).
 
-Currently, the following browsers are used for the ci system: Chrome on Windows XP, IE 8, 9, and 10 on Windows 7,
-IE 11 on Windows 10, latest Firefox on Linux, and latest Safari on OSX 10.8 and 10.11.
-
-If you want to try the sample codes below, just open your browser's console and enter them.
+This site loads Moment as the global `moment`, so browser-oriented examples can
+be tried in your browser's developer console. Examples that use Node.js, module
+loaders, or other setup must be run in the corresponding environment.

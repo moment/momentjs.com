@@ -1,8 +1,12 @@
 const loadDocs = require("../../data/docs");
+const { applyMomentCdn, loadMomentCdn } = require("../../data/moment-cdn");
 
-module.exports = function () {
+module.exports = async function () {
+  const docs = loadDocs("docs", "moment");
+  const momentCdn = await loadMomentCdn();
+
   return {
-    docs: loadDocs("docs", "moment"),
+    docs: applyMomentCdn(docs, momentCdn),
     guides: loadDocs("guides", "moment"),
     navigation: [
       { title: "Home", href: "/" },

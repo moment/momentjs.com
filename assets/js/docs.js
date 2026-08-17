@@ -133,5 +133,52 @@ $(function () {
     });
   };
 
+  $("[data-docs-tabs]").each(function () {
+    var $tabGroup = $(this);
+    var $tabs = $tabGroup.find('[role="tab"]');
+    var $panels = $tabGroup.find('[role="tabpanel"]');
+
+    function activate($tab, moveFocus) {
+      var panelId = $tab.attr("aria-controls");
+
+      $tabs.attr({
+        "aria-selected": "false",
+        tabindex: "-1",
+      });
+      $panels.attr("hidden", "hidden");
+
+      $tab.attr("aria-selected", "true").removeAttr("tabindex");
+      $tabGroup.find("#" + panelId).removeAttr("hidden");
+
+      if (moveFocus) {
+        $tab.focus();
+      }
+    }
+
+    $tabs.on("click", function () {
+      activate($(this), false);
+    });
+
+    $tabs.on("keydown", function (event) {
+      var index = $tabs.index(this);
+      var nextIndex;
+
+      if (event.which === 36) {
+        nextIndex = 0;
+      } else if (event.which === 35) {
+        nextIndex = $tabs.length - 1;
+      } else if (event.which === 37 || event.which === 38) {
+        nextIndex = (index - 1 + $tabs.length) % $tabs.length;
+      } else if (event.which === 39 || event.which === 40) {
+        nextIndex = (index + 1) % $tabs.length;
+      } else {
+        return;
+      }
+
+      event.preventDefault();
+      activate($tabs.eq(nextIndex), true);
+    });
+  });
+
   $(window).scrollspy();
 });

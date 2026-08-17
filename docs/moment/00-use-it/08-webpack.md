@@ -6,31 +6,48 @@ title: Webpack
 npm install moment
 ```
 
+<!-- skip-example -->
+
 ```javascript
-var moment = require('moment');
+import moment from 'moment';
+
 moment().format();
 ```
 
-**Note:** By default, webpack bundles _all_ Moment.js locales (in Moment.js 2.18.1, that’s 160 minified KBs). To strip unnecessary locales and bundle only the used ones, add [`moment-locales-webpack-plugin`](https://www.npmjs.com/package/moment-locales-webpack-plugin):
+CommonJS projects can use `const moment = require('moment')` instead.
+
+Moment uses a dynamic locale lookup, so webpack includes every Moment locale by
+default. If locales are not selected dynamically, use webpack's built-in
+`IgnorePlugin` to exclude that context:
 
 <!-- skip-example -->
 
 ```javascript
-// webpack.config.js
-const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
+// webpack.config.cjs
+const webpack = require('webpack');
 
 module.exports = {
-    plugins: [
-        // To strip all locales except “en”
-        new MomentLocalesPlugin(),
-
-        // Or: To strip all locales except “en”, “es-us” and “ru”
-        // (“en” is built into Moment and can’t be removed)
-        new MomentLocalesPlugin({
-            localesToKeep: ['es-us', 'ru'],
-        }),
-    ],
+  plugins: [
+    new webpack.IgnorePlugin({
+      resourceRegExp: /^\.\/locale$/,
+      contextRegExp: /moment$/,
+    }),
+  ],
 };
 ```
 
-There are other resources to optimize Moment.js with webpack, [for example this one](https://github.com/jmblog/how-to-optimize-momentjs-with-webpack).
+Import each locale the application uses explicitly:
+
+<!-- skip-example -->
+
+```javascript
+import moment from 'moment';
+import 'moment/locale/fr';
+
+moment.locale('fr');
+moment().format('LL');
+```
+
+For a runtime-selected locale allowlist, use webpack's
+[`ContextReplacementPlugin`](https://webpack.js.org/plugins/context-replacement-plugin/).
+Moment does not tree-shake effectively, so check the resulting bundle size.
