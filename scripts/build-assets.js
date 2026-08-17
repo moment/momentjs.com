@@ -41,6 +41,7 @@ module.exports = async function () {
   const scripts = {
     "core-home.js": ["assets/js/core-home.js"],
     "docs.js": ["assets/js/docs.js"],
+    "news.js": ["assets/js/news.js"],
     "timezone-home.js": ["assets/js/timezone-home.js"],
     "global.js": [
       libraryFile("moment", "moment.js"),

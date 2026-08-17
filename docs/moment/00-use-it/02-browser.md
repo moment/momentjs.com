@@ -13,6 +13,11 @@ Serve a downloaded copy of Moment from your application:
 
 The script exposes Moment as the global `moment`.
 
+Moment 2 aims to retain broad browser compatibility, including best-effort
+compatibility with Internet Explorer 8 and later. This is a compatibility goal,
+not a guarantee that every browser is continuously tested. Applications should
+test Moment in their required environments.
+
 Alternatively, Moment is available from [cdnjs](https://cdnjs.com/libraries/moment.js)
 and [jsDelivr](https://www.jsdelivr.com/package/npm/moment):
 

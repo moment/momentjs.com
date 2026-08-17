@@ -46,6 +46,16 @@
 			</div>
 		</nav>
 
+		{{#unless hideStatusBanner}}
+		<aside class="status-banner" aria-label="Project status announcement">
+			<div class="status-banner-inner">
+				<strong class="status-banner-label">Project status</strong>
+				<span>Moment.js is a legacy project in maintenance mode.</span>
+				<a href="/news/">Read the latest update</a>
+			</div>
+		</aside>
+		{{/unless}}
+
 		{{{ content }}}
 
 		<footer>

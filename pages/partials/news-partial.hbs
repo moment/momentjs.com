@@ -1,0 +1,33 @@
+<div class="news-layout">
+	<nav class="news-nav" aria-labelledby="news-contents-title">
+		<h2 id="news-contents-title">Announcements</h2>
+		{{#each news}}
+			<a href="/news/#{{this.slug}}" {{#if @first}}class="active"{{/if}}>
+				<span>{{title}}</span>
+				<time datetime="{{date}}">{{published}}</time>
+			</a>
+		{{/each}}
+	</nav>
+
+	<main class="news">
+		{{#each news}}
+			<article class="news-post" id="{{this.slug}}">
+				<header class="news-post-header">
+					<h2><a href="/news/#{{this.slug}}">{{title}}</a></h2>
+					<time datetime="{{date}}">{{published}}</time>
+				</header>
+				<details class="news-post-details" {{#if @first}}open{{/if}}>
+					<summary>
+						<span class="news-post-show">Show announcement</span>
+						<span class="news-post-hide">Hide announcement</span>
+					</summary>
+				<div class="news-post-prose">
+					{{#markdown breaks=false}}
+						{{{body}}}
+					{{/markdown}}
+				</div>
+				</details>
+			</article>
+		{{/each}}
+	</main>
+</div>

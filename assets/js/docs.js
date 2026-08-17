@@ -1,6 +1,19 @@
 $(function () {
   "use strict";
 
+  var projectStatusRedirects = {
+    "#/-project-status/": "/news/",
+    "#/-project-status/intro/": "/news/",
+    "#/-project-status/recommendations/": "/news/#2020-09-14-project-status",
+    "#/-project-status/future/": "/news/#2020-09-14-project-status",
+  };
+  var projectStatusRedirect = projectStatusRedirects[window.location.hash];
+
+  if (projectStatusRedirect) {
+    window.location.replace(projectStatusRedirect);
+    return;
+  }
+
   function ScrollSpy(element, options) {
     var process = $.proxy(this.process, this);
 
@@ -63,6 +76,7 @@ $(function () {
     var elScrollTop = this.$scrollElement.scrollTop();
     var scrollTop = elScrollTop + this.options.offset;
     var scrollHeight = this.getScrollHeight();
+    var targetTop = $(".docs").offset().top + 20;
     var maxScroll =
       this.options.offset + scrollHeight - this.$scrollElement.height();
     var offsets = this.offsets;
@@ -74,7 +88,10 @@ $(function () {
       this.refresh();
     }
 
-    this.$target.css("top", Math.min(130, Math.max(0, 130 - elScrollTop)));
+    this.$target.css(
+      "top",
+      Math.min(targetTop, Math.max(0, targetTop - elScrollTop))
+    );
 
     if (scrollTop >= maxScroll) {
       return (
