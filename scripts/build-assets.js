@@ -67,7 +67,7 @@ module.exports = async function () {
 			'assets/js/global.js'
 		],
 		'core-test.js': [
-			'bower_components/qunit/qunit/qunit.js',
+			'node_modules/qunit/qunit/qunit.js',
 			'assets/js/test-begin.js',
 			'libs/moment/min/moment-with-locales.js',
 			'libs/moment/min/tests.js',

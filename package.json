@@ -23,6 +23,7 @@
     "moment": "file:libs/moment",
     "moment-timezone": "file:libs/moment-timezone",
     "postcss": "^8.5.26",
+    "qunit": "^2.26.0",
     "sass": "^1.102.0",
     "qunit": "^2.26.0"
   }
