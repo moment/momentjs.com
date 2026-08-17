@@ -159,7 +159,7 @@ function runSnippet(snippet) {
 }
 
 const files = [
-  "readme.md",
+  "README.md",
   ...markdownFiles("docs"),
   ...markdownFiles("guides"),
 ].filter(function (file) {
