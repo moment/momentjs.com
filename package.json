@@ -5,13 +5,19 @@
   "homepage": "https://momentjs.com",
   "packageManager": "pnpm@11.22.0",
   "engines": {
-    "node": ">=24"
+    "node": ">=24.15.0"
   },
   "scripts": {
-    "build": "pnpm run clean && eleventy",
+    "build": "run-s clean build:eleventy",
+    "build:eleventy": "eleventy",
     "clean": "node scripts/clean.js",
     "doctest": "node --test --test-reporter=./scripts/doctest-reporter.js scripts/doctest.js",
-    "serve": "pnpm run clean && eleventy --serve"
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "run-s format:check lint:markdown",
+    "lint:markdown": "markdownlint-cli2 \"**/*.md\"",
+    "serve": "run-s clean serve:eleventy",
+    "serve:eleventy": "eleventy --serve"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.6",
@@ -20,9 +26,12 @@
     "gray-matter": "^4.0.3",
     "handlebars": "^4.7.9",
     "markdown-it": "^15.0.0",
+    "markdownlint-cli2": "^0.23.2",
     "moment": "file:libs/moment",
     "moment-timezone": "file:libs/moment-timezone",
+    "npm-run-all2": "^9.0.3",
     "postcss": "^8.5.26",
+    "prettier": "^3.9.6",
     "qunit": "^2.26.0",
     "sass": "^1.102.0"
   }
