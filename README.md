@@ -8,9 +8,9 @@ and release files.
 
 The site is statically generated with [Eleventy](https://www.11ty.dev/).
 [Handlebars](https://handlebarsjs.com/) templates in `pages/` render the
-documentation and guides from Markdown fragments in `docs/` and `guides/`.
-Styles and browser scripts are built from `assets/`, and the complete
-site is written to `build/`.
+documentation and guides from Markdown fragments in `docs/` and `guides/`, and
+dated News announcements from `news/`. Styles and browser scripts are built from
+`assets/`, and the complete site is written to `build/`.
 
 Moment and Moment Timezone are pinned npm dependencies. Their packages provide
 the release files, locale data, and runtime used by documentation tests.
@@ -31,8 +31,9 @@ documentation, styles, or scripts change.
 ## Test documentation examples
 
 `pnpm serve` automatically tests the JavaScript examples embedded in the
-Markdown documentation when the server starts and whenever documentation
-changes. To run the same checks once without starting the server, use:
+Markdown documentation and announcements when the server starts and whenever
+that content changes. To run the same checks once without starting the server,
+use:
 
 ```sh
 pnpm doctest

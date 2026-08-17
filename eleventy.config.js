@@ -71,6 +71,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget("assets");
   eleventyConfig.addWatchTarget("docs");
   eleventyConfig.addWatchTarget("guides");
+  eleventyConfig.addWatchTarget("news");
   eleventyConfig.on("eleventy.before", async function ({ runMode }) {
     await buildAssets();
 
@@ -86,7 +87,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.on("eleventy.beforeWatch", function (changedFiles) {
     if (
       changedFiles.some(function (file) {
-        return /(^|[/\\])(docs|guides)[/\\].+\.(md|markdown)$/i.test(file);
+        return /(^|[/\\])(docs|guides|news)[/\\].+\.(md|markdown)$/i.test(file);
       })
     ) {
       documentationChanged = true;
