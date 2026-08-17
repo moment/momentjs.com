@@ -9,7 +9,6 @@ signature: |
   moment.lang(String, Object);
 ---
 
-
 Loading locales in the browser just requires you to include the locale files. Be sure to specify the charset to prevent encoding issues.
 
 ```html

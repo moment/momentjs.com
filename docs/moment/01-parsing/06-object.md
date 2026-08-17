@@ -5,7 +5,6 @@ signature: |
   moment({unit: value, ...});
 ---
 
-
 ```javascript
 moment({ hour:15, minute:10 });
 moment({ y    :2010, M     :3, d   :5, h    :15, m      :10, s      :3, ms          :123});

@@ -13,7 +13,6 @@ signature: |
   moment.lang(String, Object);
 ---
 
-
 By default, Moment.js comes with English (United States) locale strings. If you need other locales, you can load them into Moment.js for later use.
 
 To load a locale, pass the key and the string values to `moment.locale`.
@@ -138,15 +137,18 @@ If that fails, the code normally tries to chop the last bit (normally
 the country designation) and try again. However, if the next array
 element has the same or longer prefix as the one to be tried, the
 iteration continues. So for example if the array has the sequence
+
 ```
 "AA-BB", "AA-CC", "XX-YY"
 ```
+
 then first "AA-BB" is tried, then a naive solution would try "AA", but
 this one instead checks to see that "AA-CC" is actually more concrete
 than "AA", so it tries "AA-CC" next, and only after it fails (if it
 fails) it tries "AA", because "XX-YY" does not have "AA" as prefix. So
 in the end the following locales are tried in this order (assuming all
 fail so the next one is tried):
+
 ```
 "AA-BB", "AA-CC", "AA", "XX-YY", "XX"
 ```

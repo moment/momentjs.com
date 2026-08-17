@@ -7,7 +7,7 @@ signature: |
 
 **Note:** This function has been **deprecated** in **2.7.0**. Consider [`moment.min`](/docs/#/get-set/min/) instead.
 
-------
+---
 
 Limits the moment to a maximum of another moment value. So `a.max(b)` is the same as `a = moment.min(a, b)` (note that `max` is converted to `min`).
 

@@ -9,7 +9,6 @@ signature: |
   moment.weekdaysMin()
 ---
 
-
 It is sometimes useful to get the list of months or weekdays in a locale, for example when populating a dropdown menu.
 
 ```javascript
@@ -49,7 +48,6 @@ moment.locale('ar');
 moment.weekdays(true); // lists weekdays Saturday-Friday in Arabic
 moment.weekdays(true, 2); //will result in Monday in Arabic
 ```
-
 
 **Note:** Absent the locale specific parameter, weekdays always have Sunday as index 0, regardless of the local first day of the week.
 

@@ -4,7 +4,6 @@ signature: |
   moment.tz.setDefault(String);
 ---
 
-
 By default, `moment` objects are created in the local time zone.
 The local time zone is determined by your JS environment such as a browser or server like Node.js.
 

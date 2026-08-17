@@ -6,7 +6,6 @@ signature: |
   moment.duration().asMilliseconds();
 ---
 
-
 To get the number of milliseconds in a duration, use `moment.duration().milliseconds()`.
 
 It will return a number between 0 and 999.

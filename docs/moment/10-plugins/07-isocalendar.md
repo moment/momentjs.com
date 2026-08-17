@@ -4,7 +4,6 @@ signature: |
   npm install moment-isocalendar
 ---
 
-
 If you are looking for a Python-like isocalendar method, you can use Rocky Meza's plugin
 
 `moment-isocalendar`
@@ -12,7 +11,6 @@ If you are looking for a Python-like isocalendar method, you can use Rocky Meza'
 Calling the isocalendar method on a moment will return an array like the following:
 
 `[year, week_of_year, day_of_week, minutes_since_midnight]`
-
 
 ```javascript
 moment().isocalendar(); // [2012, 8, 5, 870]

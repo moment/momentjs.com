@@ -9,7 +9,6 @@ signature: |
   moment.duration(String, String); // 2.25.0
 ---
 
-
 To create a duration, call `moment.duration()` with the length of time in milliseconds.
 
 ```javascript

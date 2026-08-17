@@ -5,7 +5,6 @@ signature: |
   moment().isDST();
 ---
 
-
 `moment#isDST` checks if the current moment is in daylight saving time.
 
 **NOTE**: This function is a HACK. moment has no way of knowing if a given time
@@ -27,4 +26,3 @@ moment([2011, 2, 12]).isDST(); // false, March 12 2011 is not DST
 moment([2011, 2, 14]).isDST(); // true, March 14 2011 is DST
 // This example is for "en" locale: https://www.timeanddate.com/time/dst/2011.html
 ```
-

@@ -5,7 +5,6 @@ signature: |
   moment.invalid(Object);
 ---
 
-
 You can create your own invalid Moment objects, which is useful in making your own parser.
 
 ```javascript
@@ -15,7 +14,7 @@ m.format();                       // 'Invalid date'
 m.parsingFlags().userInvalidated; // true
 ```
 
-`invalid` also accepts an object which specifies which parsing flags to set. This will *not* set the `userInvalidated` parsing flag unless it's one of the properties specified.
+`invalid` also accepts an object which specifies which parsing flags to set. This will _not_ set the `userInvalidated` parsing flag unless it's one of the properties specified.
 
 ```javascript
 var m = moment.invalid({invalidMonth: 'Actober'});

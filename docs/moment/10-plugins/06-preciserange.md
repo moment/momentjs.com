@@ -19,6 +19,6 @@ moment.preciseDiff("2014-01-01 12:00:00", "2014-04-20 12:00:00");
 To obtain the raw numeric values rather than a string, pass the value `true` as the third argument to the method:
 
 ```javascript
-moment.preciseDiff(m1, m2, true); 
+moment.preciseDiff(m1, m2, true);
 // {years : 0, months : 1, days : 2, hours : 3, minutes : 4, seconds : 5, firstDateWasLater : false}
 ```

@@ -6,7 +6,6 @@ signature: |
   moment.duration().asWeeks();
 ---
 
-
 As with the other getters for durations, `moment.duration().weeks()` gets the weeks (0 - 4).
 
 `moment.duration().asWeeks()` gets the length of the duration in weeks.

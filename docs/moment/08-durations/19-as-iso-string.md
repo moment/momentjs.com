@@ -11,7 +11,7 @@ Returns duration in string as specified by [ISO 8601 standard](https://en.wikipe
 moment.duration(1, 'd').toISOString() // "P1D"
 ```
 
-Format ``PnYnMnDTnHnMnS`` description:
+Format `PnYnMnDTnHnMnS` description:
 
 <table class="table table-striped table-bordered">
   <tbody>

@@ -21,7 +21,6 @@ signature: |
   });
 ---
 
-
 `Locale#isPM` should return true if the input string is past 12 noon. This is used in parsing the `a A` tokens.
 
 ```javascript

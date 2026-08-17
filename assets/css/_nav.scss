@@ -1,116 +1,128 @@
 .nav {
-	height: 60px;
-	background: $black;
-	padding: 0 20px;
-	@include font-display;
-	font-weight: 400;
+  height: 60px;
+  background: $black;
+  padding: 0 20px;
+  @include font-display;
+  font-weight: 400;
 }
 
 .nav-projects {
-	float: left;
+  float: left;
 }
 
 .nav-project {
-	display: block;
-	line-height: 30px;
-	padding: 15px 20px 15px 60px;
-	float: left;
-	position: relative;
-	text-decoration: none;
-	color: $white;
-	width: 155px;
-	font-size: 14px;
-	text-transform: uppercase;
-	text-shadow: 0 1px 1px rgba($black, 0.3);
+  display: block;
+  line-height: 30px;
+  padding: 15px 20px 15px 60px;
+  float: left;
+  position: relative;
+  text-decoration: none;
+  color: $white;
+  width: 155px;
+  font-size: 14px;
+  text-transform: uppercase;
+  text-shadow: 0 1px 1px rgba($black, 0.3);
 
-	svg {
-		position: absolute;
-		top: 10px;
-		left: 10px;
-		width: 40px;
-		height: 40px;
-	}
+  svg {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 40px;
+    height: 40px;
+  }
 }
 
 @mixin nav-project-color($color) {
-	ellipse { stroke : $color; }
-	path    { fill   : rgba($color, 0.6); }
-	color: $color;
+  ellipse {
+    stroke: $color;
+  }
+  path {
+    fill: rgba($color, 0.6);
+  }
+  color: $color;
 
-	&.active {
-		background: $color;
-		color: $white;
+  &.active {
+    background: $color;
+    color: $white;
 
-		ellipse { stroke : $white; }
-		path    { fill   : mix($color, $white, 50%); }
-	}
+    ellipse {
+      stroke: $white;
+    }
+    path {
+      fill: mix($color, $white, 50%);
+    }
+  }
 }
 
 .nav-project-moment {
-	@include nav-project-color($color-moment);
+  @include nav-project-color($color-moment);
 
-	// These are only needed while $color-moment is in BLM theme
-	color: $white;
-	ellipse { stroke : $white; }
-	path    { fill   : rgba($white, 0.6); }
+  // These are only needed while $color-moment is in BLM theme
+  color: $white;
+  ellipse {
+    stroke: $white;
+  }
+  path {
+    fill: rgba($white, 0.6);
+  }
 }
 
 .nav-project-moment-timezone {
-	line-height: 15px;
-	padding-top: 15px;
-	padding-bottom: 15px;
-	@include nav-project-color($color-moment-timezone);
+  line-height: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  @include nav-project-color($color-moment-timezone);
 }
 
 .nav-project-luxon {
-	@include nav-project-color($color-luxon);
+  @include nav-project-color($color-luxon);
 }
 
 .nav-pages {
-	float: right;
-	padding: 15px 0;
+  float: right;
+  padding: 15px 0;
 
-	a {
-		display: inline-block;
-		line-height: 30px;
-		padding: 0 10px;
-		float: left;
-		text-decoration: none;
-		color: #fff;
-		border-radius: 2px;
-		font-size: 14px;
-		margin: 0 2px;
+  a {
+    display: inline-block;
+    line-height: 30px;
+    padding: 0 10px;
+    float: left;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 2px;
+    font-size: 14px;
+    margin: 0 2px;
 
-		.is-moment & {
-			color: $color-moment;
+    .is-moment & {
+      color: $color-moment;
 
-			&:hover {
-				//color: $black;
-				background: rgba($color-moment, 0.2);
-			}
+      &:hover {
+        //color: $black;
+        background: rgba($color-moment, 0.2);
+      }
 
-			&:active,
-			&:focus,
-			&.active {
-				color: $black;
-				background: $color-moment;
-			}
-		}
+      &:active,
+      &:focus,
+      &.active {
+        color: $black;
+        background: $color-moment;
+      }
+    }
 
-		.is-moment-timezone & {
-			color: $color-moment-timezone;
+    .is-moment-timezone & {
+      color: $color-moment-timezone;
 
-			&:hover {
-				//color: $black;
-				background: rgba($color-moment-timezone, 0.2);
-			}
+      &:hover {
+        //color: $black;
+        background: rgba($color-moment-timezone, 0.2);
+      }
 
-			&:active,
-			&:focus,
-			&.active {
-				color: $black;
-				background: $color-moment-timezone;
-			}
-		}
-	}
+      &:active,
+      &:focus,
+      &.active {
+        color: $black;
+        background: $color-moment-timezone;
+      }
+    }
+  }
 }

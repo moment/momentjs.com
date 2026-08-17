@@ -2,7 +2,6 @@
 title: Troubleshooting
 ---
 
-
 If you are having any troubles, the first place to check is the [guides](/guides).
 
 If you don't find what you are looking for there, try asking a question on [Stack Overflow](https://stackoverflow.com/questions/tagged/momentjs) with the `momentjs` tag.
@@ -15,4 +14,3 @@ In addition, Moment has a [Gitter](https://gitter.im/moment/moment) where the in
 
 For general troubleshooting help, [Stack Overflow](https://stackoverflow.com/questions/tagged/momentjs) is the preferred forum.
 Moment's maintainers are very active on Stack Overflow, as are several other knowledgeable users. The fastest response will be there.
-

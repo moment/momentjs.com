@@ -26,7 +26,6 @@ signature: |
   });
 ---
 
-
 `Locale#weekdaysShort` should be an array of the weekdays abbreviations.
 
 ```javascript

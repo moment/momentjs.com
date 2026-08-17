@@ -6,7 +6,6 @@ signature: |
   +moment();
 ---
 
-
 `moment#valueOf` simply outputs the number of milliseconds since the Unix Epoch, just like `Date#valueOf`.
 
 ```javascript

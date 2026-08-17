@@ -9,7 +9,6 @@ signature: |
   moment.lang();
 ---
 
-
 If you are changing locales frequently, you may want to know what locale is currently being used. This is as simple as calling `moment.locale` without any parameters.
 
 ```javascript

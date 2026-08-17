@@ -4,7 +4,6 @@ signature: |
   npm install twix
 ---
 
-
 Another range plugin is Isaac Cambron's library `Twix`. It has many
 range-related features and excels at formatting ranges readably. For example,
 

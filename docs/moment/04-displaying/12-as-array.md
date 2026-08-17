@@ -5,7 +5,6 @@ signature: |
   moment().toArray();
 ---
 
-
 This returns an array that mirrors the parameters from `new Date()`.
 
 ```javascript

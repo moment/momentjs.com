@@ -14,15 +14,15 @@ For example, if the loaded data only covers 2012 to 2022, and a date is calculat
 Due to the structure of the [data format](/timezone/docs/#/data-formats/), the time zone rules at the boundaries of the data range are
 assumed to extended infinitely into the past and future. This produces the following behaviour:
 
-* For dates before the start of the data range, the first rule found in the data for that time zone is used.
-* For dates after the end of the data range, the last rule found in the data for that time zone is used.
+- For dates before the start of the data range, the first rule found in the data for that time zone is used.
+- For dates after the end of the data range, the last rule found in the data for that time zone is used.
 
 As an example, let's say a project is using a data file that covers only 2015 to 2025, and wants to calculate the time in Sydney, Australia some time in 2026.
 
-* The zone `Australia/Sydney` has a base (standard) offset of `UTC+10:00` from April to September each year.
+- The zone `Australia/Sydney` has a base (standard) offset of `UTC+10:00` from April to September each year.
   Daylight Saving Time (DST) in Sydney applies from October to March, putting the offset at `UTC+11:00`.
-* Since DST is active when a year ends, and therefore when the data range ends, the DST offset will be used for all future dates.
-* Therefore, calculating a date in 2026 from January to March will get an offset of `UTC+11:00`. This is correct, but only _by accident_.
+- Since DST is active when a year ends, and therefore when the data range ends, the DST offset will be used for all future dates.
+- Therefore, calculating a date in 2026 from January to March will get an offset of `UTC+11:00`. This is correct, but only _by accident_.
   Calculating a date after March in 2026 will still get an offset of `UTC+11:00`, even though the real value should be `UTC+10:00`.
   This is when bugs will start to appear.
 

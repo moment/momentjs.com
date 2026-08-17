@@ -39,7 +39,6 @@ signature: |
   });
 ---
 
-
 `Locale#months` should be an array of the month names.
 
 ```javascript

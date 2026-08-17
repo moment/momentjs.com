@@ -6,7 +6,6 @@ signature: |
   moment().isSame(Moment|String|Number|Date|Array, String);
 ---
 
-
 Check if a moment is the same as another moment. The first argument will be parsed as a moment, if not already so.
 
 ```javascript
@@ -43,7 +42,7 @@ moment.tz("2018-11-09T10:00:00", "Australia/Sydney").isSame(moment.tz("2018-11-0
 moment.tz("2018-11-08T12:00:00", "UTC").isSame(moment.tz("2018-11-09T10:00:00", "Australia/Sydney"), "day"); // true
 ```
 
-*NOTE*: `moment().isSame()` has undefined behavior and should not be used! If
+_NOTE_: `moment().isSame()` has undefined behavior and should not be used! If
 the code runs fast the initial created moment would be the same as the one
 created in isSame to perform the check, so the result would be `true`. But
 if the code runs slower it's possible that the moment created in isSame is

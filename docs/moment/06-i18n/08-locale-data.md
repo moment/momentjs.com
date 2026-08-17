@@ -33,7 +33,6 @@ signature: |
   localeData.firstDayOfYear()
 ---
 
-
 You can access the properties of the currently loaded locale through the
 `moment.localeData(key)` function. It returns the current locale or a locale
 with the given key:

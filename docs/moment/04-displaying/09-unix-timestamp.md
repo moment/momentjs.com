@@ -5,7 +5,6 @@ signature: |
   moment().unix();
 ---
 
-
 `moment#unix` outputs a Unix timestamp (the number of seconds since the Unix Epoch).
 
 ```javascript

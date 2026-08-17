@@ -1,6 +1,7 @@
 ---
 title: Locale Not Found
 ---
+
 ```
 Locale <key> not found. Did you forget to load it?
 ```

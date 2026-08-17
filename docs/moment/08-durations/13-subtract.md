@@ -8,7 +8,6 @@ signature: |
   moment.duration().subtract(Object);
 ---
 
-
 Mutates the original duration by subtracting time.
 
 The same keys and shorthands used to create durations can be used here as the second argument.

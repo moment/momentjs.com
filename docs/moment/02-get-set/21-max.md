@@ -9,6 +9,7 @@ signature: |
 Returns the maximum (most distant future) of the given moment instances.
 
 For example:
+
 ```javascript
 var a = moment().subtract(1, 'day');
 var b = moment().add(1, 'day');

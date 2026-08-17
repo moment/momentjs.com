@@ -5,7 +5,6 @@ signature: |
   moment.isDate(obj);
 ---
 
-
 To check if a variable is a native js Date object, use `moment.isDate()`.
 
 ```javascript

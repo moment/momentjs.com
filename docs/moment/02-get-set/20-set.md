@@ -6,7 +6,6 @@ signature: |
   moment().set(Object(String, Int));
 ---
 
-
 Generic setter, accepting unit as first argument, and value as second:
 
 ```javascript

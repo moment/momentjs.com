@@ -1,17 +1,17 @@
 body {
-	@include font-body;
-	font-size: 16px;
-	line-height: 1.6;
-	background: $white;
-	color: $black;
+  @include font-body;
+  font-size: 16px;
+  line-height: 1.6;
+  background: $white;
+  color: $black;
 }
 
 * {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 a {
-	color: $link-color;
+  color: $link-color;
 }
 
 h1,
@@ -20,87 +20,90 @@ h3,
 h4,
 h5,
 h6 {
-	@include font-display;
-	font-weight: 400;
+  @include font-display;
+  font-weight: 400;
 }
 
 h2 {
-	font-size: 30px;
+  font-size: 30px;
 }
 
 h3 {
-	font-size: 24px;
+  font-size: 24px;
 }
 
 h4 {
-	font-size: 20px;
+  font-size: 20px;
 }
 
-pre, code, kbd, samp {
-	font-family: Consolas, monaco, monospace;
+pre,
+code,
+kbd,
+samp {
+  font-family: Consolas, monaco, monospace;
 }
 
 pre {
-	border: 1px solid rgba($black, 0.2);
-	border-radius: 4px;
-	color: $black;
-	font-size: 14px;
-	padding: 5px 8px;
-	margin: 0 0 20px;
-	white-space: pre;
-	word-wrap: normal;
-	overflow-x: auto;
-	line-height: 24px;
-	background: rgba($black, 0.03);
-	font-weight: 100;
+  border: 1px solid rgba($black, 0.2);
+  border-radius: 4px;
+  color: $black;
+  font-size: 14px;
+  padding: 5px 8px;
+  margin: 0 0 20px;
+  white-space: pre;
+  word-wrap: normal;
+  overflow-x: auto;
+  line-height: 24px;
+  background: rgba($black, 0.03);
+  font-weight: 100;
 
-	a {
-		color: #666;
-	}
+  a {
+    color: #666;
+  }
 
-	.title,
-	.params {
-		font-style: italic;
-	}
+  .title,
+  .params {
+    font-style: italic;
+  }
 
-	.literal,
-	.type {
-		color: #A0B1E4;
-	}
+  .literal,
+  .type {
+    color: #a0b1e4;
+  }
 
-	.value,
-	.string {
-		color: #cc3344;
-	}
+  .value,
+  .string {
+    color: #cc3344;
+  }
 
-	.number {
-		color: #4baa8f;
-	}
+  .number {
+    color: #4baa8f;
+  }
 
-	.regexp {
-		color: #092;
-	}
+  .regexp {
+    color: #092;
+  }
 
-	.comment {
-		color: rgba($black, 0.5);
-	}
+  .comment {
+    color: rgba($black, 0.5);
+  }
 }
 
 code {
-	padding: 1px 4px;
-	background: rgba($black, 0.03);
-	border-radius: 3px;
-	border: 1px solid rgba($black, 0.1);
-	font-size: 14px;
+  padding: 1px 4px;
+  background: rgba($black, 0.03);
+  border-radius: 3px;
+  border: 1px solid rgba($black, 0.1);
+  font-size: 14px;
 }
 
 pre code {
-	padding: 0;
-	border: 0;
-	background: none;
+  padding: 0;
+  border: 0;
+  background: none;
 }
 
 .centered {
-	max-width: 940px;
-	margin: 0 auto;
+  max-width: 940px;
+  margin: 0 auto;
 }

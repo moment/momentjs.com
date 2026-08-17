@@ -1,17 +1,17 @@
 @mixin width-under($size) {
-	@media screen and (max-width: $size) {
-		@content;
-	}
+  @media screen and (max-width: $size) {
+    @content;
+  }
 }
 
 @mixin font-display {
-	font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 @mixin font-body {
-	font-family: "Helvetica Neue", Arial, sans-serif;
+  font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
 @mixin font-monospace {
-	font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }

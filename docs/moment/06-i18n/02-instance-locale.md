@@ -9,7 +9,6 @@ signature: |
   moment().lang(String|String[]|Boolean);
 ---
 
-
 A global locale configuration can be problematic when passing around moments that may need to be formatted into different locale.
 
 ```javascript

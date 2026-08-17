@@ -9,7 +9,6 @@ signature: |
   moment({});
 ---
 
-
 To get the current date and time, just call `moment()` with no parameters.
 
 ```javascript

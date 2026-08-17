@@ -4,12 +4,11 @@ signature: |
   npm install moment-round
 ---
 
-
 This plugin will round date/time to a given interval.
 
 For example,
 
-``` javascript
+```javascript
 require('moment-round');
 var m = new moment(); // 2015-06-18 15:30:19
 m.round(5, 'seconds'); // 2015-06-18 15:30:20

@@ -2,7 +2,7 @@
 title: Strict Mode
 ---
 
-Strict mode is the recommended mode for parsing dates. You should always use strict mode if your code base will allow it. 
+Strict mode is the recommended mode for parsing dates. You should always use strict mode if your code base will allow it.
 More than half of the parser issues seen on GitHub and Stack Overflow can be fixed by strict mode.
 
 In a later release, the parser will default to using strict mode.
@@ -15,7 +15,9 @@ moment('01/01/2016', 'MM/DD/YYYY', true).format()
 moment('01/01/2016 some text', 'MM/DD/YYYY', true).format()
 "Invalid date"
 ```
+
 Separator matching:
+
 ```js
 //forgiving mode
 moment('01-01-2016', 'MM/DD/YYYY', false).format()
@@ -26,6 +28,7 @@ moment('01-01-2016', 'MM/DD/YYYY', true).format()
 ```
 
 Scenarios fixed by strict mode:
+
 ```js
 //UUID matches YYYYDDD because it starts with 7 digits
 moment('5917238b-33ff-f849-cd63-80f4c9b37d0c', moment.ISO_8601).format()
@@ -34,6 +37,7 @@ moment('5917238b-33ff-f849-cd63-80f4c9b37d0c', moment.ISO_8601).format()
 moment('5917238b-33ff-f849-cd63-80f4c9b37d0c', moment.ISO_8601, true).format()
 "Invalid date"
 ```
+
 ```js
 //date has out of range value but is parsed anyways
 moment('100110/09/2015', 'MM/DD/YYYY').format()
@@ -42,6 +46,7 @@ moment('100110/09/2015', 'MM/DD/YYYY').format()
 moment('100110/09/2015', 'MM/DD/YYYY', true).format()
 "Invalid date"
 ```
+
 ```js
 //wrong date is parsed because non-strict mode ignores data after format
 moment('2016-12-31 11:32 PM').format('LT')

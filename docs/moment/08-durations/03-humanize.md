@@ -8,7 +8,6 @@ signature: |
   moment.duration().humanize(thresholds);             // from 2.25.0
 ---
 
-
 Sometimes, you want all the goodness of `moment#from` but you don't want to
 have to create two moments, you just want to display a length of time.
 

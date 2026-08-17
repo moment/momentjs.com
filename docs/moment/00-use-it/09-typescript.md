@@ -6,6 +6,7 @@ version: 2.13.0
 As of version **2.13.0**, Moment includes a typescript definition file.
 
 Install via NPM
+
 ```
 npm install moment
 ```
@@ -21,9 +22,9 @@ let now = moment().format('LLLL');
 
 **Note:** If you have trouble importing moment
 
-For _Typescript 2.x_ try adding ```"moduleResolution": "node"``` in ```compilerOptions``` in your ```tsconfig.json``` file
+For _Typescript 2.x_ try adding `"moduleResolution": "node"` in `compilerOptions` in your `tsconfig.json` file
 
-For _Typescript 1.x_ try adding ```"allowSyntheticDefaultImports": true``` in ```compilerOptions``` in your ```tsconfig.json``` file and then use the syntax
+For _Typescript 1.x_ try adding `"allowSyntheticDefaultImports": true` in `compilerOptions` in your `tsconfig.json` file and then use the syntax
 <!-- skip-example -->
 
 ```javascript

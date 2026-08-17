@@ -4,7 +4,6 @@ signature: |
   npm install moment-feiertage --save
 ---
 
-
 This (moment-feiertage) is a Moment.js plugin to determine if a date is a German holiday. Holidays are taken from Wikipedia (de). It's a bit complicated to determine if a date is a holiday, because religious holidays vary every year and differ within the 16 German states.
 
 Made by [DaniSchenk](https://github.com/DaniSchenk).

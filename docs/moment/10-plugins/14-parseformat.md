@@ -4,8 +4,7 @@ signature: |
   npm install moment-parseformat
 ---
 
-
-This plugin extracts the format of a date/time string. 
+This plugin extracts the format of a date/time string.
 
 ```javascript
 var format = moment.parseFormat('Thursday, February 6th, 2014 9:20pm');

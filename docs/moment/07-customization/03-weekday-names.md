@@ -42,7 +42,6 @@ signature: |
 
 ---
 
-
 `Locale#weekdays` should be an array of the weekdays names.
 
 ```javascript

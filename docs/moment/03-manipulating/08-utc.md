@@ -6,7 +6,6 @@ signature: |
   moment().utc(Boolean); // from 2.8.0
 ---
 
-
 Sets a flag on the original moment to use UTC to display a moment instead of the original moment's time.
 
 ```javascript

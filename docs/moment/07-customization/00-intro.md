@@ -2,7 +2,6 @@
 title: Customize
 ---
 
-
 Moment.js is very easy to customize. In general, you should create a locale setting with your customizations.
 
 ```javascript
@@ -29,6 +28,7 @@ moment.defineLocale('en-foo', {
   /* */
 });
 ```
+
 Properties that are not specified in the locale will be inherited from the parent locale.
 
 As of **2.16.0** it is possible to define a locale with a parent that hasn't itself been defined or loaded.
@@ -50,8 +50,9 @@ moment.updateLocale('en', {
 Any properties specified will be updated, while others will remain the same. This function does not affect moments that already exist. Note that calling `updateLocale` also changes the current global locale, to the locale that is updated; see [this GitHub issue](https://github.com/moment/moment/issues/5410) for more information.
 
 To revert an update use:
+
 ```javascript
 moment.updateLocale('en', null);
 ```
 
-**2.12.0** deprecated using ``moment.locale()`` to change an existing locale. Use ``moment.updateLocale()`` instead.
+**2.12.0** deprecated using `moment.locale()` to change an existing locale. Use `moment.updateLocale()` instead.

@@ -4,9 +4,7 @@ signature: |
   npm install moment-jdateformatparser
 ---
 
-
 If you want to work with the `java.text.DateFormat` you can use this plugin.
-
 
 For example,
 

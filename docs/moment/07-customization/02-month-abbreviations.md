@@ -39,7 +39,6 @@ signature: |
   });
 ---
 
-
 `Locale#monthsShort` should be an array of the month abbreviations.
 
 ```javascript

@@ -9,4 +9,3 @@ title: Videos
 <b><a href="https://www.pluralsight.com/courses/date-time-fundamentals" target="_blank">Date and Time Fundamentals</a></b>
 
 - Pluralsight, Matt Johnson, Moment.js core contributor
-

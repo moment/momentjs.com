@@ -8,7 +8,6 @@ signature: |
   moment().days(); // Number
 ---
 
-
 Gets or sets the day of the week.
 
 This method can be used to set the day of the week, with Sunday as 0 and Saturday as 6.

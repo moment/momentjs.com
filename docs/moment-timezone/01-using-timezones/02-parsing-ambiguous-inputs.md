@@ -2,8 +2,6 @@
 title: Parsing Ambiguities
 ---
 
-
-
 Due to daylight saving time, there is a possibility that a time either does
 not exist, or has existed twice.
 

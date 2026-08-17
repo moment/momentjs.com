@@ -4,10 +4,9 @@ signature: |
   npm install moment-recur
 ---
 
-
 If you need to work with recurring dates, you can use Casey Trimm's plugin `moment-recur`.
 
-This plugin will allow you to create length-based intervals (days, weeks, etc.) and calendar-based intervals (daysOfMonth, monthsOfYear, etc.). 
+This plugin will allow you to create length-based intervals (days, weeks, etc.) and calendar-based intervals (daysOfMonth, monthsOfYear, etc.).
 
 It provides a `matches` function to test whether a date recurs according to the rules set, as well as generator functions to get the next and previous dates in a series.
 

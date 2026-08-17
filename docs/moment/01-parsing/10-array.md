@@ -5,7 +5,6 @@ signature: |
   moment(Number[]);
 ---
 
-
 You can create a moment with an array of numbers that mirror the parameters passed to [new Date()](https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date)
 
 `[year, month, day, hour, minute, second, millisecond]`

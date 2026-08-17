@@ -5,7 +5,6 @@ signature: |
   moment().startOf(String);
 ---
 
-
 Mutates the original moment by setting it to the start of a unit of time.
 
 ```javascript

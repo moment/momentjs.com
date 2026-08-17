@@ -5,7 +5,6 @@ signature: |
   moment.isDuration(obj);
 ---
 
-
 To check if a variable is a moment duration object, use `moment.isDuration()`.
 
 ```javascript

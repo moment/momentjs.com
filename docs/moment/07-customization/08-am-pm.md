@@ -17,7 +17,6 @@ signature: |
   });
 ---
 
-
 If your locale uses 'am/pm', `Locale#meridiem` can be omitted, as those values are the defaults.
 
 If your locale needs any different computation for am/pm, `Locale#meridiem` should be a callback function that returns the correct string based on hour, minute, and upper/lowercase.
@@ -39,4 +38,3 @@ moment.updateLocale('zh-cn', {
     }
 });
 ```
-

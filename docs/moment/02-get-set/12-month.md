@@ -8,7 +8,6 @@ signature: |
   moment().months(); // Number
 ---
 
-
 Gets or sets the month.
 
 Accepts numbers from 0 to 11. If the range is exceeded, it will bubble up to the year.
@@ -33,4 +32,4 @@ moment([2012, 0, 31]).month(1).format("YYYY-MM-DD"); // 2012-03-02
 moment([2012, 0, 31]).month(1).format("YYYY-MM-DD"); // 2012-02-29
 ```
 
-**2.16.0** deprecated using ``moment().months()``. Use ``moment().month()`` instead.
+**2.16.0** deprecated using `moment().months()`. Use `moment().month()` instead.

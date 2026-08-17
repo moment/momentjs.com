@@ -6,7 +6,6 @@ signature: |
   moment().isBefore(Moment|String|Number|Date|Array, String);
 ---
 
-
 Check if a moment is before another moment. The first argument will be parsed as a moment, if not already so.
 
 ```javascript
@@ -30,7 +29,7 @@ year month week isoWeek day hour minute second
 
 If nothing is passed to `moment#isBefore`, it will default to the current time.
 
-*NOTE*: `moment().isBefore()` has undefined behavior and should not be used! If
+_NOTE_: `moment().isBefore()` has undefined behavior and should not be used! If
 the code runs fast the initial created moment would be the same as the one
 created in isBefore to perform the check, so the result would be `false`. But
 if the code runs slower it's possible that the moment created in isBefore is

@@ -6,7 +6,6 @@ signature: |
   moment().isSameOrAfter(Moment|String|Number|Date|Array, String);
 ---
 
-
 Check if a moment is after or the same as another moment. The first argument will be parsed as a moment, if not already so.
 
 ```javascript

@@ -1,1 +1,1 @@
-moment.locale('en');
+moment.locale("en");

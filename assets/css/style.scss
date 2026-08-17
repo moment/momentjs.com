@@ -1,16 +1,2 @@
-@import
-"normalize",
-"colors",
-"mixins",
-
-"global",
-"header",
-"nav",
-"builds",
-
-"common/docs",
-"common/test",
-
-"moment/index",
-
-"moment-timezone/index";
+@import "normalize", "colors", "mixins", "global", "header", "nav", "builds",
+  "common/docs", "common/test", "moment/index", "moment-timezone/index";

@@ -7,7 +7,6 @@ signature: |
   moment().diff(Moment|String|Number|Date|Array, String, Boolean);
 ---
 
-
 To get the difference in milliseconds, use `moment#diff` like you would use `moment#from`.
 
 ```javascript

@@ -16,7 +16,6 @@ signature: |
   moment.utc(Date);
 ---
 
-
 By default, moment parses and displays in local time.
 
 If you want to parse or display a moment in UTC, you can use `moment.utc()` instead of `moment()`.

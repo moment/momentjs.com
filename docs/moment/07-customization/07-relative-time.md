@@ -17,7 +17,6 @@ signature: |
   });
 ---
 
-
 `Locale#relativeTime` should be an object of the replacement strings for `moment#from`.
 
 ```javascript

@@ -8,9 +8,8 @@ signature: |
   moment().years(); // Number
 ---
 
-
 Gets or sets the year.
 
 Accepts numbers from -270,000 to 270,000.
 
-**2.6.0** deprecated using ``moment().years()``. Use ``moment().year()`` instead.
+**2.6.0** deprecated using `moment().years()`. Use `moment().year()` instead.

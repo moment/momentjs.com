@@ -5,7 +5,6 @@ signature: |
   moment().endOf(String);
 ---
 
-
 Mutates the original moment by setting it to the end of a unit of time.
 
 This is the same as `moment#startOf`, only instead of setting to the start of a unit of time, it sets to the end of a unit of time.

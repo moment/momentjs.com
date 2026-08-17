@@ -2,7 +2,6 @@
 title: MSDate
 ---
 
-
 If you are using OLE Automation dates in .NET check out Markit On Demand's `moment-msdate`. Using this plugin allows you to format OA dates into JavaScript dates and vice-versa.
 
 Convert a `moment` to an OA date:

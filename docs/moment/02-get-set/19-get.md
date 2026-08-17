@@ -12,7 +12,6 @@ signature: |
   moment().get('millisecond');
 ---
 
-
 String getter. In general
 
 ```javascript
