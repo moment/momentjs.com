@@ -22,8 +22,8 @@
   "devDependencies": {
     "@11ty/eleventy": "^3.1.6",
     "@11ty/eleventy-plugin-handlebars": "^1.0.0",
+    "@11ty/gray-matter": "^3.0.0",
     "autoprefixer": "^10.5.4",
-    "gray-matter": "^4.0.3",
     "handlebars": "^4.7.9",
     "markdown-it": "^15.0.0",
     "markdownlint-cli2": "^0.23.2",

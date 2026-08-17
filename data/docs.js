@@ -1,6 +1,6 @@
 var fs = require("fs"),
   path = require("path"),
-  matter = require("gray-matter");
+  matter = require("@11ty/gray-matter");
 
 function markdownFiles(directory) {
   return fs

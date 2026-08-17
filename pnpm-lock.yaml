@@ -17,12 +17,12 @@ importers:
       '@11ty/eleventy-plugin-handlebars':
         specifier: ^1.0.0
         version: 1.0.0
+      '@11ty/gray-matter':
+        specifier: ^3.0.0
+        version: 3.0.0
       autoprefixer:
         specifier: ^10.5.4
         version: 10.5.4(postcss@8.5.26)
-      gray-matter:
-        specifier: ^4.0.3
-        version: 4.0.3
       handlebars:
         specifier: ^4.7.9
         version: 4.7.9
@@ -87,6 +87,10 @@ packages:
     resolution: {integrity: sha512-ZlSiR1PLdS2lv7TelBgWAhcvMiLNZkPBlLEb+lh7kGYZ+Mk0bo9qcYgVsewvw9W7Em0RH3wd01h5fAstNDh0zA==}
     engines: {node: '>=18'}
     hasBin: true
+
+  '@11ty/gray-matter@3.0.0':
+    resolution: {integrity: sha512-mi6KB36DZCpCfCb9XP3NtDDNXe1N0jKtuFj9mTCZNy5H7vTabODyMgFmmOiGIGJKt+i8mJqEb/REtK+JTEzlpQ==}
+    engines: {node: '>=11'}
 
   '@11ty/lodash-custom@4.17.21':
     resolution: {integrity: sha512-Mqt6im1xpb1Ykn3nbcCovWXK3ggywRJa+IXIdoz4wIIK+cvozADH63lexcuPpGS/gJ6/m2JxyyXDyupkMr5DHw==}
@@ -1197,6 +1201,11 @@ snapshots:
       - bufferutil
       - supports-color
       - utf-8-validate
+
+  '@11ty/gray-matter@3.0.0':
+    dependencies:
+      js-yaml: 5.2.2
+      section-matter: 1.0.0
 
   '@11ty/lodash-custom@4.17.21': {}
 
