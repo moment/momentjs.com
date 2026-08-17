@@ -8,12 +8,14 @@ A common scenario where forgiving mode is useful is in situations where a third 
 Suppose that an API starts by sending dates in 'YYYY-MM-DD' format, and then later changes to 'MM/DD/YYYY' format.
 
 In strict mode, the following code results in 'Invalid Date' being displayed:
+
 ```js
 moment('01/12/2016', 'YYYY-MM-DD', true).format()
 "Invalid date"
 ```
 
 In forgiving mode using a format string, you get a wrong date:
+
 ```js
 moment('01/12/2016', 'YYYY-MM-DD').format()
 "2001-12-20T00:00:00-06:00"

@@ -2,7 +2,7 @@
 title: Webpack
 ---
 
-```
+```bash
 npm install moment
 ```
 

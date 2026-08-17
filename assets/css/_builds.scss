@@ -1,114 +1,114 @@
 .builds {
-	padding: 40px 20px;
-	overflow: hidden;
-	max-width: 800px;
-	margin: 0 auto;
+  padding: 40px 20px;
+  overflow: hidden;
+  max-width: 800px;
+  margin: 0 auto;
 
-	h3 {
-		margin: 0 0 10px;
-		text-align: center;
-	}
+  h3 {
+    margin: 0 0 10px;
+    text-align: center;
+  }
 
-	.is-moment-timezone & {
-		max-width: 1024px;
-	}
+  .is-moment-timezone & {
+    max-width: 1024px;
+  }
 }
 
 .builds-download {
-	width: 50%;
-	float: left;
-	padding-right: 10px;
+  width: 50%;
+  float: left;
+  padding-right: 10px;
 }
 
 .builds-packages {
-	margin-left: 50%;
-	padding-left: 10px;
+  margin-left: 50%;
+  padding-left: 10px;
 }
 
 .builds-button {
-	@include font-display;
-	display: block;
-	border: 1px solid rgba($black, 0.5);
-	text-decoration: none;
-	color: $black;
-	text-align: center;
-	background: url(../img/bg.png) 0 50%;
+  @include font-display;
+  display: block;
+  border: 1px solid rgba($black, 0.5);
+  text-decoration: none;
+  color: $black;
+  text-align: center;
+  background: url(../img/bg.png) 0 50%;
 
-	.filesize {
-		//float: right;
-		font-size: 14px;
-		color: rgba($black, 0.7);
-	}
+  .filesize {
+    //float: right;
+    font-size: 14px;
+    color: rgba($black, 0.7);
+  }
 }
 
 .builds-button-source {
-	border-radius: 4px 4px 0 0;
-	text-shadow: 1px 1px 2px rgba($black, 0.5);
-	padding: 10px 15px;
-	font-size: 20px;
-	font-weight: 700;
-	vertical-align: baseline;
-	line-height: 30px;
-	color: $white;
+  border-radius: 4px 4px 0 0;
+  text-shadow: 1px 1px 2px rgba($black, 0.5);
+  padding: 10px 15px;
+  font-size: 20px;
+  font-weight: 700;
+  vertical-align: baseline;
+  line-height: 30px;
+  color: $white;
 
-	.is-moment & {
-		background-color: $color-moment;
+  .is-moment & {
+    background-color: $color-moment;
 
-		&:hover {
-			background-color: mix($color-moment, $white, 90%);
-		}
+    &:hover {
+      background-color: mix($color-moment, $white, 90%);
+    }
 
-		&:active {
-			background-color: mix($color-moment, $black, 90%);
-		}
-	}
+    &:active {
+      background-color: mix($color-moment, $black, 90%);
+    }
+  }
 
-	.is-moment-timezone & {
-		background-color: $color-moment-timezone;
+  .is-moment-timezone & {
+    background-color: $color-moment-timezone;
 
-		&:hover {
-			background-color: mix($color-moment-timezone, $white, 90%);
-		}
+    &:hover {
+      background-color: mix($color-moment-timezone, $white, 90%);
+    }
 
-		&:active {
-			background-color: mix($color-moment-timezone, $black, 90%);
-		}
-	}
+    &:active {
+      background-color: mix($color-moment-timezone, $black, 90%);
+    }
+  }
 }
 
 .builds-button-gzipped {
-	border-radius: 0 0 4px 4px;
-	border-color: rgba($black, 0.3);
-	padding: 5px 15px;
-	font-size: 14px;
-	margin-bottom: 10px;
-	border-top: 0;
+  border-radius: 0 0 4px 4px;
+  border-color: rgba($black, 0.3);
+  padding: 5px 15px;
+  font-size: 14px;
+  margin-bottom: 10px;
+  border-top: 0;
 
-	.is-moment & {
-		background: rgba($color-moment, 0.2);
+  .is-moment & {
+    background: rgba($color-moment, 0.2);
 
-		&:hover {
-			background: rgba($color-moment, 0.1);
-		}
+    &:hover {
+      background: rgba($color-moment, 0.1);
+    }
 
-		&:active {
-			background: rgba($color-moment, 0.4);
-		}
-	}
+    &:active {
+      background: rgba($color-moment, 0.4);
+    }
+  }
 
-	.is-moment-timezone & {
-		background: rgba($color-moment-timezone, 0.2);
+  .is-moment-timezone & {
+    background: rgba($color-moment-timezone, 0.2);
 
-		&:hover {
-			background: rgba($color-moment-timezone, 0.1);
-		}
+    &:hover {
+      background: rgba($color-moment-timezone, 0.1);
+    }
 
-		&:active {
-			background: rgba($color-moment-timezone, 0.4);
-		}
-	}
+    &:active {
+      background: rgba($color-moment-timezone, 0.4);
+    }
+  }
 
-	.filesize:after {
-		content: " gz";
-	}
+  .filesize:after {
+    content: " gz";
+  }
 }

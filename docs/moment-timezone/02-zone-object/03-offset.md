@@ -25,4 +25,3 @@ moment().tz('Etc/GMT+1').format('YYYY-MM-DD HH:mm ZZ');
 moment().tz('Europe/Madrid').format('YYYY-MM-DD HH:mm ZZ');
 // '2014-12-18 13:22 +0100'
 ```
-

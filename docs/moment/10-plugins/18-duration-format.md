@@ -4,7 +4,6 @@ signature: |
   npm install moment-duration-format
 ---
 
-
 This is a plugin that will allow comprehensive formatting of Moment Durations.
 
 For example,

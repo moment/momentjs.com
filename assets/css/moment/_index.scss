@@ -1,49 +1,49 @@
 .page-moment-index {
-	max-width: 800px;
-	margin: 0 auto;
-	padding: 0 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
 
-	h3 {
-		margin: 10px 0;
-		text-align: center;
-	}
+  h3 {
+    margin: 10px 0;
+    text-align: center;
+  }
 }
 
 .global-warning {
-	background-color: #ED3E3E;
-	padding: 15px;
-	border-radius: 5px;
-	margin-bottom: 30px;
-	color: white;
-	font-size: larger;
-	border: 1px solid white;
+  background-color: #ed3e3e;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  color: white;
+  font-size: larger;
+  border: 1px solid white;
 }
 
 .locales {
-	margin-bottom: 20px;
+  margin-bottom: 20px;
 
-	h2 {
-		padding: 0 0 20px;
-		margin: 0;
-	}
+  h2 {
+    padding: 0 0 20px;
+    margin: 0;
+  }
 
-	.button {
-		display: inline-block;
-		padding: 5px 10px;
-		margin: 4px 2px;
-		background: #fff;
-		border-radius: 3px;
-		border: 1px solid #999;
-		cursor: pointer;
+  .button {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 4px 2px;
+    background: #fff;
+    border-radius: 3px;
+    border: 1px solid #999;
+    cursor: pointer;
 
-		&:hover {
-			box-shadow: 1px 0 5px rgba(0, 0, 0, .2);
-		}
+    &:hover {
+      box-shadow: 1px 0 5px rgba(0, 0, 0, 0.2);
+    }
 
-		&.active {
-			background: #333;
-			color: #ccc;
-			border-color: #000;
-		}
-	}
+    &.active {
+      background: #333;
+      color: #ccc;
+      border-color: #000;
+    }
+  }
 }

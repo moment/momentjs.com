@@ -2,13 +2,13 @@
 title: Node.js
 ---
 
-```
+```bash
 npm install moment
 ```
 
 ```javascript
 var moment = require('moment'); // require
-moment().format(); 
+moment().format();
 ```
 
 Or in ES6 syntax:

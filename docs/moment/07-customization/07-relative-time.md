@@ -17,7 +17,6 @@ signature: |
   });
 ---
 
-
 `Locale#relativeTime` should be an object of the replacement strings for `moment#from`.
 
 ```javascript
@@ -56,7 +55,7 @@ function (number, withoutSuffix, key, isFuture) {
 }
 ```
 
-The `key` argument refers to the replacement key in the `Locale#relativeTime ` object. (eg. `s m mm h`, etc.)
+The `key` argument refers to the replacement key in the `Locale#relativeTime` object. (eg. `s m mm h`, etc.)
 
 The `number` argument refers to the number of units for that key. For `m`, the number is the number of minutes, etc.
 

@@ -14,15 +14,14 @@ In order to save as many bytes as possible, we used a very compact format to sto
 
 The data is split into 6 sections separated by pipes.
 
-
-| # | Type                   | Example                       |
-|---|------------------------|-------------------------------|
-| 0 | Name                   | `America/Los_Angeles`
-| 1 | Abbr Map               | `PST PDT`
-| 2 | Offset Map             | `80 70`
-| 3 | Abbr/Offset&nbsp;Index | `01010101010`
-| 4 | Timestamp Diff         | `1Lzm0 1zb0 Op0 1zb0 Rd0 1zb0 Op0 1zb0 Op0 1zb0`
-| 5 | Population             | `15e6`
+| #   | Type                   | Example                                          |
+| --- | ---------------------- | ------------------------------------------------ |
+| 0   | Name                   | `America/Los_Angeles`                            |
+| 1   | Abbr Map               | `PST PDT`                                        |
+| 2   | Offset Map             | `80 70`                                          |
+| 3   | Abbr/Offset&nbsp;Index | `01010101010`                                    |
+| 4   | Timestamp Diff         | `1Lzm0 1zb0 Op0 1zb0 Rd0 1zb0 Op0 1zb0 Op0 1zb0` |
+| 5   | Population             | `15e6`                                           |
 
 **Name:** The canonical name of the time zone.
 

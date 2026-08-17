@@ -18,7 +18,6 @@ Then import it into your page.
  </script>
 ```
 
-
 If you need moment to be loaded as global, you can do this with the meta configuration:
 
 <!-- skip-example -->

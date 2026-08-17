@@ -4,7 +4,6 @@ signature: |
   moment.tz(..., String);
 ---
 
-
 The `moment.tz` constructor takes all the same arguments as the `moment`
 constructor, but uses the last argument as a [time zone identifier](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
 
@@ -66,10 +65,10 @@ moment.tz(date, "America/Los_Angeles").format();      // 2014-06-22T09:21:08-07:
 moment(date).tz("America/Los_Angeles").format();      // 2014-06-22T09:21:08-07:00
 ```
 
-Уou may specify a boolean right after format argument to use strict parsing. Strict parsing requires that the format and input match exactly, *including delimeters*.
+Уou may specify a boolean right after format argument to use strict parsing. Strict parsing requires that the format and input match exactly, _including delimeters_.
 
 ```javascript
-moment.tz('It is 2012-05-25', 'YYYY-MM-DD', "America/Toronto").isValid();       // true 
+moment.tz('It is 2012-05-25', 'YYYY-MM-DD', "America/Toronto").isValid();       // true
 moment.tz('It is 2012-05-25', 'YYYY-MM-DD', true, "America/Toronto").isValid(); // false
 moment.tz('2012-05-25', 'YYYY-MM-DD', true, "America/Toronto").isValid();       // true
 moment.tz('2012-05.25', 'YYYY-MM-DD', true, "America/Toronto").isValid();       // false

@@ -17,7 +17,6 @@ signature: |
   });
 ---
 
-
 `Locale#ordinal` should be a function that returns the ordinal for a given number.
 
 ```javascript

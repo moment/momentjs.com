@@ -6,7 +6,6 @@ signature: |
   moment.duration().asSeconds();
 ---
 
-
 To get the number of seconds in a duration, use `moment.duration().seconds()`.
 
 It will return a number between 0 and 59.

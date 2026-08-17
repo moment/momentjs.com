@@ -6,7 +6,6 @@ signature: |
   moment.tz(String).zoneName();    // PST
 ---
 
-
 In addition to including the `+00:00` formatting information, Moment Timezone also
 includes information for the abbreviated time zone name.
 

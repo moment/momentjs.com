@@ -8,7 +8,6 @@ signature: |
   moment().calendar(formats);  // from 2.25.0
 ---
 
-
 Calendar time displays time relative to a given `referenceDay` (defaults to the start of today), but does so slightly differently than `moment#fromNow`.
 
 `moment#calendar` will format a date with different strings depending on how close to `referenceDay`'s date (today by default) the date is.
@@ -55,6 +54,7 @@ moment().calendar(null, {
     sameElse: 'DD/MM/YYYY'
 });
 ```
+
 `sameElse` is used as the format when the moment is more than a week away from the `referenceDay`
 
 **Note:** From version **2.14.0** the formats argument to calendar can be

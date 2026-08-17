@@ -6,5 +6,4 @@ signature: |
   moment().isoWeekYear(); // Number
 ---
 
-
 Gets or sets the [ISO week-year](https://en.wikipedia.org/wiki/ISO_week_date).

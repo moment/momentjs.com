@@ -27,7 +27,6 @@ signature: |
   });
 ---
 
-
 `Locale#weekdaysMin` should be an array of two letter weekday abbreviations. The purpose of these is for things like calendar pickers, thus they should be as small as possible.
 
 ```javascript

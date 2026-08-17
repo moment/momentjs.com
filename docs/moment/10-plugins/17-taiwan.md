@@ -4,7 +4,6 @@ signature: |
   npm install moment-taiwan
 ---
 
-
 If you want to work with Taiwan calendar system , you can use Bradwoo8621's plugin `moment-taiwan`.
 
 When installed, it will wrap `moment` and moment will be able to format and parse Taiwan years. Here is a short example:

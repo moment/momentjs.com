@@ -5,7 +5,6 @@ signature: |
   moment.isMoment(obj);
 ---
 
-
 To check if a variable is a moment object, use `moment.isMoment()`.
 
 ```javascript

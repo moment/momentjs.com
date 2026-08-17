@@ -23,7 +23,7 @@ For consistent results parsing anything other than ISO 8601 strings, you should 
 
 An ISO 8601 string requires a date part.
 
-```
+```text
 2013-02-08  # A calendar date part
 2013-02     # A month date part
 2013-W06-5  # A week date part
@@ -39,7 +39,7 @@ An ISO 8601 string requires a date part.
 
 A time part can also be included, separated from the date part by a space or an uppercase T.
 
-```
+```text
 2013-02-08T09            # An hour time part separated by a T
 2013-02-08 09            # An hour time part separated by a space
 2013-02-08 09:30         # An hour and minute time part
@@ -56,7 +56,7 @@ A time part can also be included, separated from the date part by a space or an 
 
 Any of the date parts can have a time part.
 
-```
+```text
 2013-02-08 09  # A calendar date part and hour time part
 2013-W06-5 09  # A week date part and hour time part
 2013-039 09    # An ordinal date part and hour time part
@@ -64,7 +64,7 @@ Any of the date parts can have a time part.
 
 If a time part is included, an offset from UTC can also be included as `+-HH:mm`, `+-HHmm`, `+-HH` or `Z`.
 
-```
+```text
 2013-02-08 09+07:00            # +-HH:mm
 2013-02-08 09-0100             # +-HHmm
 2013-02-08 09Z                 # Z
@@ -86,7 +86,7 @@ Before parsing a RFC 2822 date time the string is cleansed to remove any comment
 
 After cleansing, the string is validated in the following space-separated sections, all using the English language:
 
-```
+```text
 6 Mar 17 21:22 UT
 6 Mar 17 21:22:23 UT
 6 Mar 2017 21:22:23 GMT
@@ -99,12 +99,12 @@ Mon, 06 Mar 2017 21:22:23 +0000
 2. Day of Month (1 or 2 digit), followed by a three-letter month and 2 or 4 digit year
 3. Two-digit hours and minutes separated by a colon (:), followed optionally by another colon and seconds in 2-digits
 4. Timezone or offset in one of the following formats:
-  1. UT : +0000
-  2. GMT : +0000
-  3. EST | CST | MST | PST | EDT | CDT | MDT | PDT : US time zones*
-  4. A - I | K - Z : Military time zones*
-  5. Time offset +/-9999
+   1. UT : +0000
+   2. GMT : +0000
+   3. EST | CST | MST | PST | EDT | CDT | MDT | PDT : US time zones*
+   4. A - I | K - Z : Military time zones*
+   5. Time offset +/-9999
 
- [*] See [section 4.3](https://tools.ietf.org/html/rfc2822#section-4.3) of the specification for details.
+   - [*] See [section 4.3](https://tools.ietf.org/html/rfc2822#section-4.3) of the specification for details.
 
 The parser also confirms that the day-of-week (when included) is consistent with the date.

@@ -6,7 +6,6 @@ signature: |
   moment().local(Boolean); // from 2.8.0
 ---
 
-
 Sets a flag on the original moment to use local time to display a moment instead of the original moment's time.
 
 ```javascript

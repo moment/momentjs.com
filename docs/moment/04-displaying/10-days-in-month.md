@@ -5,7 +5,6 @@ signature: |
   moment().daysInMonth();
 ---
 
-
 Get the number of days in the current month.
 
 ```javascript

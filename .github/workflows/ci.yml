@@ -1,4 +1,4 @@
-# This workflow compiles the site and tests Markdown examples for PRs.
+# This workflow lints and compiles the site and tests Markdown examples for PRs.
 name: CI
 
 on:
@@ -18,17 +18,17 @@ jobs:
         with:
           submodules: true
 
-      - name: Use pnpm
-        uses: pnpm/action-setup@v4
-
-      - name: Use Node.js
-        uses: actions/setup-node@v7
+      - name: Set up pnpm and Node.js
+        uses: pnpm/setup@v2
         with:
-          node-version: 24
-          cache: pnpm
+          runtime: node@24
+          cache: true
+
+      - name: Lint
+        run: pnpm lint
 
       - name: Compile
-        run: pnpm install --frozen-lockfile && pnpm build
+        run: pnpm build
 
       - name: Test docs examples
         run: pnpm doctest

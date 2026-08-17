@@ -18,11 +18,10 @@ b.format(); // 2013-11-18T11:55:00-05:00
 a.utc().format(); // 2013-11-18T03:55Z
 b.utc().format(); // 2013-11-18T16:55Z
 ```
+
 Note that created moments have different UTC time because these moments were created in different time zones.
 
-
 `moment().tz(String)` does _converting to provided time zone_
-
 
 ```js
 var a = moment.utc("2013-11-18 11:55").tz("Asia/Taipei");

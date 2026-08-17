@@ -5,7 +5,6 @@ signature: |
   moment().toObject();
 ---
 
-
 This returns an object containing year, month, day-of-month, hour, minute,
 seconds, milliseconds.
 
@@ -20,4 +19,3 @@ moment().toObject()  // {
                      //     milliseconds: 600
                      // }
 ```
-

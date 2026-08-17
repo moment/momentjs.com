@@ -14,14 +14,14 @@ signature: |
   // where moment-like is Moment|String|Number|Date|Array
 ---
 
-
 Check if a moment is between two other moments, optionally looking at unit
-scale (minutes, hours, days, etc).  The match is exclusive. The first two arguments will be parsed as moments, if not already so.
+scale (minutes, hours, days, etc). The match is exclusive. The first two arguments will be parsed as moments, if not already so.
 
 ```javascript
 moment('2010-10-20').isBetween('2010-10-19', '2010-10-25'); // true
 moment('2010-10-20').isBetween('2010-10-19', undefined); // true, since moment(undefined) evaluates as moment()
 ```
+
 Note that the order of the two arguments matter: the "smaller" date should be in the first argument.
 
 ```javascript
@@ -40,7 +40,7 @@ Like `moment#isSame`, `moment#isBefore`, `moment#isAfter` any of the units of
 time that are supported for `moment#startOf` are supported for
 `moment#isBetween`. Year, month, week, isoWeek, day, hour, minute, and second.
 
-Version **2.13.0** introduces inclusivity. A ``[`` indicates inclusion of a value. A ``(`` indicates exclusion.
+Version **2.13.0** introduces inclusivity. A `[` indicates inclusion of a value. A `(` indicates exclusion.
 If the inclusivity parameter is used, both indicators must be passed.
 
 ```javascript
@@ -51,10 +51,11 @@ moment('2016-10-30').isBetween('2016-01-01', '2016-10-30', undefined, '(]'); //t
 moment('2016-10-30').isBetween('2016-10-30', '2016-10-30', undefined, '[]'); //true
 ```
 
-Note that in the event that the ``from`` and ``to`` parameters are the same,
+Note that in the event that the `from` and `to` parameters are the same,
 but the inclusivity parameters are different, false will preside.
+
 ```javascript
 moment('2016-10-30').isBetween('2016-10-30', '2016-10-30', undefined, '(]'); //false
 ```
 
-If the inclusivity parameter is not specified, Moment will default to ``()``.
+If the inclusivity parameter is not specified, Moment will default to `()`.

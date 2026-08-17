@@ -5,7 +5,6 @@ signature: |
   moment.locale(String);
 ---
 
-
 Loading locales in NodeJS is super easy. If there is a locale file in `moment/locale/` named after that key, import it first, then call `moment.locale` to load it.
 
 <!-- skip-example -->

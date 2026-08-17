@@ -6,7 +6,6 @@ signature: |
   moment().weekYear(); // Number
 ---
 
-
 Gets or sets the week-year according to the locale.
 
 Because the first day of the first week does not always fall on the first day of the year, sometimes the week-year will differ from the month year.

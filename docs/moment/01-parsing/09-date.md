@@ -5,7 +5,6 @@ signature: |
   moment(Date);
 ---
 
-
 You can create a `Moment` with a pre-existing native Javascript `Date` object.
 
 ```javascript

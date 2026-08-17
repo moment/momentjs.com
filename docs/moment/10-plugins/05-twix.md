@@ -4,7 +4,6 @@ signature: |
   npm install twix
 ---
 
-
 Another range plugin is Isaac Cambron's library `Twix`. It has many
 range-related features and excels at formatting ranges readably. For example,
 
@@ -16,12 +15,12 @@ t.format();  // 'Jan 25, 1982, 9:30 AM - 1:30 PM'
 t.simpleFormat("h:m"); // '9:30 - 1:30'
 ```
 
-Full documentation of all the options and features is [here](http://icambron.github.io/twix.js).
+Full documentation of all the options and features is [available in the Twix documentation](http://icambron.github.io/twix.js).
 
 It's available on npm like so:
 
-```
+```bash
 npm install twix
 ```
 
-Or just grab the JS file from [here](https://raw.github.com/icambron/twix.js/master/dist/twix.js).
+Or just grab [the Twix JavaScript file](https://raw.github.com/icambron/twix.js/master/dist/twix.js).

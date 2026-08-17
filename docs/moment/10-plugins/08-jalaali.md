@@ -4,7 +4,6 @@ signature: |
   npm install moment-jalaali
 ---
 
-
 If you want to work with Jalaali calendar system (Jalali, Persian, Khorshidi or Shamsi), you can use Behrang Noruzi Niya's plugin `moment-jalaali`.
 
 When installed, it will wrap `moment` and moment will be able to format and parse Jalaali years and months. Here is a short example:

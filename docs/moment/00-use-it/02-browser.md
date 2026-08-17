@@ -2,11 +2,10 @@
 title: Browser
 ---
 
-
-```
+```html
 <script src="moment.js"></script>
 <script>
-	moment().format();
+ moment().format();
 </script>
 ```
 

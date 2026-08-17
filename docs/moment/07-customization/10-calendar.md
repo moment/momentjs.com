@@ -17,7 +17,6 @@ signature: |
   });
 ---
 
-
 `Locale#calendar` should have the following formatting strings.
 
 ```javascript

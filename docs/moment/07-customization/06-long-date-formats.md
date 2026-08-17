@@ -21,7 +21,6 @@ signature: |
   });
 ---
 
-
 `Locale#longDateFormat` should be an object containing a key/value pair for each long date format `L LL LLL LLLL LT LTS`. `LT` should be the time format, and is also used for `moment#calendar`.
 
 ```javascript

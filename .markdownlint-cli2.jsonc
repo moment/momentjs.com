@@ -1,0 +1,4 @@
+{
+  "gitignore": true,
+  "ignores": ["libs/**"],
+}

@@ -18,7 +18,7 @@ To add more than one link at a time, pass an array of link strings.
 
 ```js
 moment.tz.link([
-	'America/Los_Angeles|US/Pacific',
-	'America/New_York|US/Eastern'
+ 'America/Los_Angeles|US/Pacific',
+ 'America/New_York|US/Eastern'
 ]);
 ```

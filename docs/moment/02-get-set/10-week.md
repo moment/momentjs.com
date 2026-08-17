@@ -8,7 +8,6 @@ signature: |
   moment().weeks(); // Number
 ---
 
-
 Gets or sets the week of the year.
 
 Because different locales define week of year numbering differently, Moment.js added `moment#week` to get/set the localized week of the year.

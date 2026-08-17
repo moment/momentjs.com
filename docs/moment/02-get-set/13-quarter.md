@@ -8,7 +8,6 @@ signature: |
   moment().quarters(Number);
 ---
 
-
 Gets the quarter (1 to 4).
 
 ```javascript
@@ -23,6 +22,7 @@ moment('2014-01-01T00:00:00.000').subtract(1, 'ms').quarter() // 4
 ```
 
 Sets the quarter (1 to 4).
+
 ```javascript
 moment('2013-01-01T00:00:00.000').quarter(2) // '2013-04-01T00:00:00.000'
 moment('2013-02-05T05:06:07.000').quarter(2).format() // '2013-05-05T05:06:07-07:00'

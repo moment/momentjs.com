@@ -12,6 +12,7 @@ moment().subtract(5, 'hours').short();
 moment().add(5, 'hours').short();
 // in 5h
 ```
+
 You can also disable the use of the [relative time templates](#/customization/relative-time/)
 
 ```javascript

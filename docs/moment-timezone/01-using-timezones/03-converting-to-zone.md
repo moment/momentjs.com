@@ -5,7 +5,6 @@ signature: |
   moment().tz(String, Boolean);
 ---
 
-
 The `moment#tz` mutator will change the time zone and update the offset.
 
 ```javascript
@@ -26,8 +25,8 @@ m.startOf("day").format();      // 2013-11-18T00:00:00+01:00
 
 Without any argument, `moment#tz` returns:
 
-* the time zone name assigned to the moment instance or
-* `undefined` if a time zone has not been set.
+- the time zone name assigned to the moment instance or
+- `undefined` if a time zone has not been set.
 
 ```javascript
 var m = moment.tz("2013-11-18 11:55", "America/Toronto");
@@ -36,13 +35,11 @@ var m = moment.tz("2013-11-18 11:55");
 m.tz() === undefined;  // true
 ```
 
-On passing a second parameter as `true`, only the timezone (and offset) is updated, keeping the local time same. 
-Consequently, it will now point to a different point in time if the offset has changed. 
+On passing a second parameter as `true`, only the timezone (and offset) is updated, keeping the local time same.
+Consequently, it will now point to a different point in time if the offset has changed.
 
 ```javascript
 var m = moment.tz("2013-11-18 11:55", "America/Toronto");
 m.format();                           // 2013-11-18T11:55:00-05:00
 m.tz('Europe/Berlin', true).format()  // 2013-11-18T11:55:00+01:00
 ```
-
-

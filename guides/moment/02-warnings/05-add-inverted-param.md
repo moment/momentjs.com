@@ -1,7 +1,8 @@
 ---
 title: Add/Subtract
 ---
-```
+
+```text
 moment().add(period, number) is deprecated. Please use moment().add(number, period)
 moment().subtract(period, number) is deprecated. Please use moment().subtract(number, period)
 ```
@@ -9,11 +10,13 @@ moment().subtract(period, number) is deprecated. Please use moment().subtract(nu
 Moment deprecated ordering the parameters of add and subtract as (period, number). Invert your parameters.
 
 Bad:
+
 ```js
 moment().add('hours', 3);
 ```
 
 Good:
+
 ```js
 moment().add(3, 'hours');
 ```

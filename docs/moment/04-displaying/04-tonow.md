@@ -6,7 +6,6 @@ signature: |
   moment().toNow(Boolean);
 ---
 
-
 A common way of displaying time is handled by `moment#toNow`. This is sometimes called timeago or relative time.
 
 This is similar to [`moment.fromNow`](/docs/#/displaying/fromnow/), but gives

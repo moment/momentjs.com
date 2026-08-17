@@ -7,7 +7,6 @@ signature: |
   moment().add(Object);
 ---
 
-
 Mutates the original moment by adding time.
 
 This is a pretty robust function for adding time to an existing moment. To add time, pass the key of what time you want to add, and the amount you want to add.

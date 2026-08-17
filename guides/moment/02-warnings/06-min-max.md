@@ -1,7 +1,8 @@
 ---
 title: Min/Max
 ---
-```
+
+```text
 moment().min is deprecated, use moment.max
 moment().max is deprecated, use moment.min
 ```

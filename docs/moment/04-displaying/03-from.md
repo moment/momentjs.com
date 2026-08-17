@@ -6,7 +6,6 @@ signature: |
   moment().from(Moment|String|Number|Date|Array, Boolean);
 ---
 
-
 You may want to display a moment in relation to a time other than now. In that case, you can use `moment#from`.
 
 ```javascript

@@ -5,7 +5,6 @@ signature: |
   moment.normalizeUnits(String);
 ---
 
-
 Many of Moment's functions allow the caller to pass in aliases for unit enums. For example, all of the `get`s below are equivalent.
 
 ```javascript

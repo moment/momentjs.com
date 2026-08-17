@@ -35,19 +35,19 @@ with `moment/locale/de`.
 ```javascript
 // only needing core
 define(['moment'], function (moment) {
-	console.log(moment().format('LLLL'));  // 'Friday, June 24, 2016 1:42 AM'
+ console.log(moment().format('LLLL'));  // 'Friday, June 24, 2016 1:42 AM'
 });
 
 // core with single locale
 define(['moment', 'moment/locale/de'], function (moment) {
-	moment.locale('de');
-	console.log(moment().format('LLLL')); // 'Freitag, 24. Juni 2016 01:42'
+ moment.locale('de');
+ console.log(moment().format('LLLL')); // 'Freitag, 24. Juni 2016 01:42'
 });
 
 // core with all locales
 define(['moment/min/moment-with-locales'], function (moment) {
-	moment.locale('de');
-	console.log(moment().format('LLLL')); // 'Freitag, 24. Juni 2016 01:42'
+ moment.locale('de');
+ console.log(moment().format('LLLL')); // 'Freitag, 24. Juni 2016 01:42'
 });
 
 // async load locale
@@ -90,8 +90,8 @@ not AMD-compatible you may need to add [`wrapShim:
 true`](https://github.com/jrburke/r.js/blob/b8a6982d2923ae8389355edaa50d2b7f8065a01a/build/example.build.js#L68-L78)
 to your r.js config.
 
-__Note:__ To allow moment.js plugins to be loaded in requirejs environments, moment is created as a named module. Because of this, moment __must__ be loaded exactly as as `"moment"`, using `paths` to determine the directory. Requiring moment with a path like `"vendor\moment"` will return `undefined`.
+**Note:** To allow moment.js plugins to be loaded in requirejs environments, moment is created as a named module. Because of this, moment **must** be loaded exactly as as `"moment"`, using `paths` to determine the directory. Requiring moment with a path like `"vendor\moment"` will return `undefined`.
 
-__Note:__ From version **2.9.0** moment exports itself as an anonymous module,
+**Note:** From version **2.9.0** moment exports itself as an anonymous module,
 so if you're using only the core (no locales / plugins), then you don't need
 config if you put it on a non-standard location.

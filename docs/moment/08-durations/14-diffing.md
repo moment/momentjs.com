@@ -14,4 +14,4 @@ You can also use duration with `moment#diff` to get the duration between two mom
   // returns duration object with the duration between x and y
 ```
 
-See [here](#/displaying/difference/) for more information about `moment#diff`.
+See [the difference documentation](#/displaying/difference/) for more information about `moment#diff`.

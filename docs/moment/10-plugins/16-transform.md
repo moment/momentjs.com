@@ -19,4 +19,4 @@ moment().transform('+01MMYYYY', 'DD/MM/YYYY', false); // Tomorrow, same time
 moment().transform('+01MMYYYY', 'DD/MM/YYYY', true); // Invalid date
 ```
 
-You can see it live [there](https://a----.github.io/moment-transform/) while the repository is [here](https://github.com/A----/moment-transform).
+You can see it live [there](https://a----.github.io/moment-transform/) while the repository is [on GitHub](https://github.com/A----/moment-transform).

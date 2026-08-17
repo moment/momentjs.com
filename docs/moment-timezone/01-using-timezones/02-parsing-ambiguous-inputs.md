@@ -2,8 +2,6 @@
 title: Parsing Ambiguities
 ---
 
-
-
 Due to daylight saving time, there is a possibility that a time either does
 not exist, or has existed twice.
 
@@ -16,7 +14,7 @@ Moving the offset forward gives the illusion that an hour has disappeared. As th
 clock ticks, you can see it move from `1:58` to `1:59` to `3:00`. It is easier to
 see what is actually happening when you include the offset.
 
-```
+```text
 1:58 -5
 1:59 -5
 3:00 -4
@@ -43,7 +41,7 @@ moving backwards, only the offset is. In this case, the illusion is that an hour
 
 Again, it is easier to see what is actually happening when you include the offset.
 
-```
+```text
 1:58 -4
 1:59 -4
 1:00 -5
