@@ -4,7 +4,7 @@
 		<meta charset="utf-8" />
 
 		<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="/static/css/style.css" />
+		<link rel="stylesheet" href="{{assetUrl "static/css/style.css"}}" />
 		<link rel="shortcut icon" href="/static/img/{{repo}}-favicon.png" />
 
 		<title>{{#if isMoment}}Moment.js{{else}}Moment Timezone{{/if}} | {{title}}</title>
@@ -63,9 +63,9 @@
 		</footer>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-		<script src="/static/js/global.js"></script>
+		<script src="{{assetUrl "static/js/global.js"}}"></script>
 		{{#each scripts}}
-			<script src="/static/js/{{this}}.js"></script>
+			<script src="{{assetUrl "static/js/" this ".js"}}"></script>
 		{{/each}}
 	</body>
 </html>

@@ -2,6 +2,9 @@ const handlebars = require("handlebars");
 const handlebarsPlugin = require("@11ty/eleventy-plugin-handlebars");
 const MarkdownIt = require("markdown-it");
 const childProcess = require("node:child_process");
+const crypto = require("node:crypto");
+const fs = require("node:fs");
+const path = require("node:path");
 const buildAssets = require("./scripts/build-assets");
 const loadLocales = require("./data/locales");
 
@@ -26,6 +29,15 @@ handlebars.registerHelper("isnt", function (left, right, options) {
 
 handlebars.registerHelper("toKb", function (bytes) {
   return Number((bytes / 1024).toFixed(1)) + "k";
+});
+
+handlebars.registerHelper("assetUrl", function (...parts) {
+  parts.pop();
+  const url = "/" + parts.join("").replace(/^\/+/, "");
+  const content = fs.readFileSync(path.join("build", url.slice(1)));
+  const hash = crypto.createHash("sha256").update(content).digest("hex");
+
+  return new handlebars.SafeString(url + "?v=" + hash.slice(0, 12));
 });
 
 handlebars.registerHelper("versionDescription", function (version) {
