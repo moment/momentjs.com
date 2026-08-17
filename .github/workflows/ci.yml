@@ -1,11 +1,7 @@
 # This workflow compiles the site and tests Markdown examples for PRs.
-# On `master` branch, this also deploys the site to GitHub Pages.
 name: CI
 
 on:
-  push:
-    branches:
-      - master
   pull_request:
     branches:
       - master
@@ -16,9 +12,6 @@ permissions:
 jobs:
   compile:
     name: Compile and test
-    permissions:
-      contents: read
-      pages: read
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -39,33 +32,3 @@ jobs:
 
       - name: Test docs examples
         run: pnpm doctest
-
-      - name: Configure GitHub Pages
-        if: github.event_name == 'push'
-        uses: actions/configure-pages@v6
-
-      - name: Upload GitHub Pages artifact
-        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-        uses: actions/upload-pages-artifact@v5
-        with:
-          path: build
-          include-hidden-files: true
-
-  deploy:
-    name: Deploy to GitHub Pages
-    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-    needs: compile
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    concurrency:
-      group: github-pages
-      cancel-in-progress: false
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v5
