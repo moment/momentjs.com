@@ -139,6 +139,36 @@
   }
 }
 
+@include width-under(600px) {
+  .hero {
+    padding: 24px 20px;
+  }
+
+  .hero-title h1 {
+    font-size: 36px;
+    line-height: 1.2;
+
+    span {
+      display: block;
+      margin-top: 4px;
+    }
+  }
+
+  .hero-title h2 {
+    margin-top: 8px;
+    font-size: 20px;
+    line-height: 1.4;
+  }
+
+  .hero-oneline {
+    padding: 10px 20px;
+
+    h1 {
+      font-size: 28px;
+    }
+  }
+}
+
 .hero-centered {
   max-width: 1024px;
   margin: 0 auto;

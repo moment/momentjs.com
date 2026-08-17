@@ -338,3 +338,57 @@
     background: rgba($color-moment-timezone, 0.15);
   }
 }
+
+@include width-under(800px) {
+  .docs-nav {
+    position: static;
+    width: auto;
+    max-width: none;
+    margin-left: 0;
+    padding: 20px;
+  }
+
+  .docs-nav-links {
+    height: auto;
+    max-height: 16rem;
+  }
+
+  .docs-content {
+    margin-right: 0;
+    padding: 0 20px;
+  }
+
+  .docs-method-prose table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  .docs-section-title {
+    font-size: 36px;
+    line-height: 48px;
+  }
+
+  .docs-method-edit {
+    right: 0;
+    padding-right: 0;
+  }
+}
+
+@include width-under(480px) {
+  .docs-method-title {
+    padding-right: 2.5rem;
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .docs-method-edit {
+    line-height: 32px;
+  }
+
+  .docs-section-title {
+    padding: 8px 12px;
+    font-size: 30px;
+    line-height: 40px;
+  }
+}

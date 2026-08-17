@@ -126,3 +126,50 @@
     }
   }
 }
+
+@include width-under(800px) {
+  .nav {
+    height: auto;
+    padding: 0;
+  }
+
+  .nav-projects {
+    display: flex;
+    float: none;
+    justify-content: center;
+  }
+
+  .nav-project {
+    flex: 1;
+    float: none;
+    max-width: 155px;
+    min-width: 0;
+  }
+
+  .nav-pages {
+    display: flex;
+    float: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 5px 10px;
+    border-top: 1px solid rgba($white, 0.15);
+
+    a {
+      float: none;
+    }
+  }
+}
+
+@include width-under(480px) {
+  .nav-project {
+    padding-right: 8px;
+    padding-left: 45px;
+    font-size: 12px;
+
+    svg {
+      left: 5px;
+      width: 36px;
+      height: 36px;
+    }
+  }
+}

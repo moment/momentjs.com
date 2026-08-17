@@ -75,3 +75,28 @@
     transition: top 50ms ease-out;
   }
 }
+
+@include width-under(600px) {
+  .map {
+    padding: 30px 20px;
+  }
+
+  .map-label {
+    padding-bottom: 12px;
+    font-size: 20px;
+    line-height: 1.4;
+
+    .map-label-name {
+      width: auto;
+      float: none;
+      padding-right: 0;
+      text-align: center;
+    }
+
+    .map-label-time {
+      margin-left: 0;
+      padding-left: 0;
+      text-align: center;
+    }
+  }
+}

@@ -112,3 +112,24 @@
     content: " gz";
   }
 }
+
+@include width-under(600px) {
+  .builds {
+    padding: 30px 20px;
+  }
+
+  .builds-download {
+    width: auto;
+    float: none;
+    padding-right: 0;
+  }
+
+  .builds-packages {
+    margin: 30px 0 0;
+    padding-left: 0;
+  }
+
+  .builds-button-source {
+    overflow-wrap: anywhere;
+  }
+}
