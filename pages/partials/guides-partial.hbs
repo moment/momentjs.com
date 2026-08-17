@@ -2,10 +2,10 @@
 	<div class="docs-nav">
 		{{#each guides}}
 			<div class="docs-nav-section">
-				<a class="docs-nav-section-title" href='#/{{ slug }}/'>{{ title }}</a>
+				<a class="docs-nav-section-title" href='#/{{ this.slug }}/'>{{ title }}</a>
 				{{#each items }}
 					{{#isnt @index 0}}
-						<a class="docs-nav-item" href="#/{{ slug }}/">{{ title }}</a>
+						<a class="docs-nav-item" href="#/{{ this.slug }}/">{{ title }}</a>
 					{{/isnt}}
 				{{/each}}
 			</div>
@@ -15,15 +15,15 @@
 	<div class="docs-content docs-content-guides">
 		{{#each guides}}
 			<article class="docs-section">
-				<a class="docs-section-target" id="/{{ slug }}/" name="/{{ slug }}/"></a>
-				<h2 class="docs-section-title"><a href='#/{{ slug }}/'>{{ title }}</a></h2>
+				<a class="docs-section-target" id="/{{ this.slug }}/" name="/{{ this.slug }}/"></a>
+				<h2 class="docs-section-title"><a href='#/{{ this.slug }}/'>{{ title }}</a></h2>
 			</article>
 			{{#each items }}
 				<article class="docs-method">
-					<a class="docs-method-target" id="/{{ slug }}/"  name="/{{ slug }}/"></a>
+					<a class="docs-method-target" id="/{{ this.slug }}/"  name="/{{ this.slug }}/"></a>
 					{{#isnt @index 0}}
 						<h3 class="docs-method-title">
-							<a href='#/{{ slug }}/'>{{ title }}</a>
+							<a href='#/{{ this.slug }}/'>{{ title }}</a>
 							{{#if version}}
 								<span>{{ versionDescription version }}</span>
 							{{/if}}

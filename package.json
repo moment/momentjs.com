@@ -1,33 +1,30 @@
 {
   "private": true,
   "name": "momentjs.com",
-  "version": "1.0.0",
   "description": "Website for momentjs.com",
   "homepage": "https://momentjs.com",
-  "author": "Tim Wood <washwithcare@gmail.com> (http://timwoodcreates.com/)",
+  "packageManager": "pnpm@11.22.0",
+  "engines": {
+    "node": ">=24"
+  },
   "scripts": {
-    "doctest": "markdown-doctest"
+    "build": "pnpm run clean && eleventy",
+    "clean": "node scripts/clean.js",
+    "doctest": "node --test --test-reporter=./scripts/doctest-reporter.js scripts/doctest.js",
+    "serve": "pnpm run clean && eleventy --serve"
   },
   "devDependencies": {
-    "assemble": "^0.24.3",
-    "assemble-yaml": "^0.2.1",
-    "grunt": "^1.6.3",
-    "grunt-assemble": "^0.6.3",
-    "grunt-autoprefixer": "^3.0.4",
-    "grunt-cli": "^1.5.0",
-    "grunt-contrib-clean": "^2.0.1",
-    "grunt-contrib-concat": "2.1.0",
-    "grunt-contrib-connect": "^3.0.0",
-    "grunt-contrib-copy": "^1.0.0",
-    "grunt-contrib-uglify": "^5.2.2",
-    "grunt-contrib-watch": "^1.1.0",
-    "grunt-sass": "^3.1.0",
-    "gzip-size": "^6.0.0",
-    "load-grunt-tasks": "^5.1.0",
-    "markdown-doctest": "^1.1.0",
-    "moment": "2.30.1",
-    "moment-timezone": "0.6.3",
+    "@11ty/eleventy": "^3.1.6",
+    "@11ty/eleventy-plugin-handlebars": "^1.0.0",
+    "autoprefixer": "^10.5.4",
+    "gray-matter": "^4.0.3",
+    "handlebars": "^4.7.9",
+    "markdown-it": "^15.0.0",
+    "moment": "file:libs/moment",
+    "moment-timezone": "file:libs/moment-timezone",
+    "postcss": "^8.5.26",
+    "qunit": "^2.26.0",
     "sass": "^1.102.0",
-    "time-grunt": "^1.4.0"
+    "qunit": "^2.26.0"
   }
 }

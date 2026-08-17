@@ -1,6 +1,5 @@
 node_modules
 .DS_Store
-.sass-cache
 
 # Idea
 .idea
@@ -10,7 +9,3 @@ node_modules
 *.sublime-workspace
 
 build
-.grunt
-.temp
-libs/moment
-libs/moment-timezone
