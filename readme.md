@@ -6,9 +6,10 @@ and browser test pages.
 
 ## Architecture
 
-The site is statically generated with Eleventy. Handlebars templates in `pages/`
-render the documentation and guides from Markdown fragments in `docs/` and
-`guides/`. Styles and browser scripts are built from `assets/`, and the complete
+The site is statically generated with [Eleventy](https://www.11ty.dev/).
+[Handlebars](https://handlebarsjs.com/) templates in `pages/` render the
+documentation and guides from Markdown fragments in `docs/` and `guides/`.
+Styles and browser scripts are built from `assets/`, and the complete
 site is written to `build/`.
 
 Moment and Moment Timezone are pinned as git submodules in `libs/`. They provide
