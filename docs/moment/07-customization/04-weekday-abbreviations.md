@@ -9,6 +9,7 @@ signature: |
   moment.updateLocale('en', {
       weekdaysShort : Function
   });
+
   // From 2.8.1 to 2.11.2
   moment.locale('en', {
       weekdaysShort : String[]

@@ -16,7 +16,8 @@ signature: |
           isFormat : RegExp
       }
   });
-  // From version 2.11.0
+
+  // From version 2.11.0 to 2.11.2
   moment.locale('en', {
       weekdays : {
           standalone : String[],
@@ -24,6 +25,7 @@ signature: |
           isFormat : Boolean
       }
   });
+
   // From version 2.8.1 to 2.11.2
   moment.locale('en', {
       weekdays : String[]

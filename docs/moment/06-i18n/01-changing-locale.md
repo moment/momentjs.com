@@ -5,84 +5,26 @@ signature: |
   // From 2.8.1 onward
   moment.locale(String);
   moment.locale(String[]);
+
+  // Deprecated in 2.12.0
+  // Use moment.defineLocale to create a custom locale or
+  // moment.updateLocale to modify an existing locale.
   moment.locale(String, Object);
 
   // Deprecated in 2.8.1
+  // Use moment.locale instead.
   moment.lang(String);
   moment.lang(String[]);
+
+  // Deprecated in 2.8.1
+  // Use moment.defineLocale to create a custom locale or
+  // moment.updateLocale to modify an existing locale.
   moment.lang(String, Object);
 ---
 
-By default, Moment.js comes with English (United States) locale strings. If you need other locales, you can load them into Moment.js for later use.
+By default, Moment.js comes with English (United States) locale strings. If you need other locales, you can load them into Moment.js for later use. See the sections on loading locales in [Node.js](#/i18n/loading-into-nodejs/) and the [browser](#/i18n/loading-into-browser/).
 
-To load a locale, pass the key and the string values to `moment.locale`.
-
-More details on each of the parts of the locale bundle can be found in the [customization](#/customization/) section.
-
-```javascript
-moment.locale('fr', {
-    months : 'janvier_février_mars_avril_mai_juin_juillet_août_septembre_octobre_novembre_décembre'.split('_'),
-    monthsShort : 'janv._févr._mars_avr._mai_juin_juil._août_sept._oct._nov._déc.'.split('_'),
-    monthsParseExact : true,
-    weekdays : 'dimanche_lundi_mardi_mercredi_jeudi_vendredi_samedi'.split('_'),
-    weekdaysShort : 'dim._lun._mar._mer._jeu._ven._sam.'.split('_'),
-    weekdaysMin : 'Di_Lu_Ma_Me_Je_Ve_Sa'.split('_'),
-    weekdaysParseExact : true,
-    longDateFormat : {
-        LT : 'HH:mm',
-        LTS : 'HH:mm:ss',
-        L : 'DD/MM/YYYY',
-        LL : 'D MMMM YYYY',
-        LLL : 'D MMMM YYYY HH:mm',
-        LLLL : 'dddd D MMMM YYYY HH:mm'
-    },
-    calendar : {
-        sameDay : '[Aujourd’hui à] LT',
-        nextDay : '[Demain à] LT',
-        nextWeek : 'dddd [à] LT',
-        lastDay : '[Hier à] LT',
-        lastWeek : 'dddd [dernier à] LT',
-        sameElse : 'L'
-    },
-    relativeTime : {
-        future : 'dans %s',
-        past : 'il y a %s',
-        s : 'quelques secondes',
-        m : 'une minute',
-        mm : '%d minutes',
-        h : 'une heure',
-        hh : '%d heures',
-        d : 'un jour',
-        dd : '%d jours',
-        M : 'un mois',
-        MM : '%d mois',
-        y : 'un an',
-        yy : '%d ans'
-    },
-    dayOfMonthOrdinalParse : /\d{1,2}(er|e)/,
-    ordinal : function (number) {
-        return number + (number === 1 ? 'er' : 'e');
-    },
-    meridiemParse : /PD|MD/,
-    isPM : function (input) {
-        return input.charAt(0) === 'M';
-    },
-    // In case the meridiem units are not separated around 12, then implement
-    // this function (look at locale/id.js for an example).
-    // meridiemHour : function (hour, meridiem) {
-    //     return /* 0-23 hour, given meridiem token and hour 1-12 */ ;
-    // },
-    meridiem : function (hours, minutes, isLower) {
-        return hours < 12 ? 'PD' : 'MD';
-    },
-    week : {
-        dow : 1, // Monday is the first day of the week.
-        doy : 4  // Used to determine first week of the year.
-    }
-});
-```
-
-Details about `week.dow` and `week.doy` can be found in the [customization](#/customization/dow-doy/) section.
+To modify an existing locale definition, see the [customization](#/customization/) section. To create a custom locale, see [Creating a Custom Locale](#/customization/creating-a-custom-locale/).
 
 Once you load a locale, it becomes the active locale. To change active locales, simply call `moment.locale` with the key of a loaded locale.
 

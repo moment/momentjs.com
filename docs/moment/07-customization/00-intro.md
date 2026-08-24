@@ -2,44 +2,9 @@
 title: Customize
 ---
 
-Moment.js is very easy to customize. In general, you should create a locale setting with your customizations.
+Most users only need to load and select an existing locale. See [Changing locale globally](#/i18n/changing-locale/) for details.
 
-```javascript
-moment.locale('en-my-settings', {
-    // customizations.
-});
-```
-
-You can remove a previously defined locale by passing `null` as the second argument.
-The deleted locale will no longer be available for use.
-
-```javascript
-moment.locale('fr'); // 'fr'
-moment.locale('en'); // 'en'
-moment.locale('fr', null);
-moment.locale('fr'); // 'en'
-```
-
-As of **2.12.0** it is possible to create a locale that inherits from a parent locale.
-
-```javascript
-moment.defineLocale('en-foo', {
-  parentLocale: 'en',
-  /* */
-});
-```
-
-Properties that are not specified in the locale will be inherited from the parent locale.
-
-As of **2.16.0** it is possible to define a locale with a parent that hasn't itself been defined or loaded.
-
-```javascript
-moment.defineLocale('fakeLocale', {parentLocale:'xyz'})
-```
-
-As of **2.21.0** when attempting to create a moment with the newly defined locale, moment will attempt to lazy load the parent if it exists. Failing that it will default the parent to the global locale.
-
-As of **2.12.0** it is also possible to update a locale's properties.
+As of **2.12.0**, you can modify an existing locale with `moment.updateLocale`.
 
 ```javascript
 moment.updateLocale('en', {
@@ -47,7 +12,7 @@ moment.updateLocale('en', {
 });
 ```
 
-Any properties specified will be updated, while others will remain the same. This function does not affect moments that already exist. Note that calling `updateLocale` also changes the current global locale, to the locale that is updated; see [this GitHub issue](https://github.com/moment/moment/issues/5410) for more information.
+Any properties specified will be updated, while others will remain the same. This function does not affect moments that already exist. Calling `updateLocale` also changes the current global locale to the locale being updated, so new moments will use that locale.
 
 To revert an update use:
 
@@ -55,4 +20,12 @@ To revert an update use:
 moment.updateLocale('en', null);
 ```
 
-**2.12.0** deprecated using `moment.locale()` to change an existing locale. Use `moment.updateLocale()` instead.
+**2.12.0** deprecated passing a configuration object to `moment.locale()` to change an existing locale. To select a global locale, continue to use `moment.locale(localeName)`.
+
+To create a custom locale, use `moment.defineLocale`. See [Creating a Custom Locale](#/customization/creating-a-custom-locale/) for details.
+
+```javascript
+moment.defineLocale('en-my-settings', {
+    // customizations.
+});
+```

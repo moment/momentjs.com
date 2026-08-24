@@ -9,6 +9,7 @@ signature: |
           doy : Int
        }
   });
+
   // From 2.8.1 to 2.11.2
   moment.locale('en', {
       week : {
