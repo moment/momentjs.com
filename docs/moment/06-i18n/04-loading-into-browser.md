@@ -3,10 +3,10 @@ title: Loading locales in the browser
 version: 1.0.0
 signature: |
   // From 2.8.1 onward
-  moment.locale(String, Object);
+  moment.locale(String);
 
   // Deprecated in 2.8.1
-  moment.lang(String, Object);
+  moment.lang(String);
 ---
 
 Loading locales in the browser just requires you to include the locale files. Be sure to specify the charset to prevent encoding issues.

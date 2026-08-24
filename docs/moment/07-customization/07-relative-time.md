@@ -6,6 +6,7 @@ signature: |
   moment.updateLocale('en', {
       relativeTime : Object
   });
+
   // From 2.8.1 to 2.11.2
   moment.locale('en', {
       relativeTime : Object

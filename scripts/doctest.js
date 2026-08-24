@@ -14,7 +14,6 @@ const ignoredDirectory = path.normalize("docs/moment/10-plugins") + path.sep;
 const expectedWarnings = {
   "docs/moment-timezone/01-using-timezones/03-converting-to-zone.md:32":
     "Moment Timezone has no data for 2013-11-18 11:55.",
-  "docs/moment/07-customization/00-intro.md:17": "Locale fr not found.",
 };
 
 moment.suppressDeprecationWarnings = true;

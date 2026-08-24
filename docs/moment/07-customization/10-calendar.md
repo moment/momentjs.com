@@ -6,6 +6,7 @@ signature: |
   moment.updateLocale('en', {
       calendar : Object
   });
+
   // From 2.8.1 to 2.11.2
   moment.locale('en', {
       calendar : Object
@@ -20,7 +21,7 @@ signature: |
 `Locale#calendar` should have the following formatting strings.
 
 ```javascript
-moment.locale('en', {
+moment.updateLocale('en', {
     calendar : {
         lastDay : '[Yesterday at] LT',
         sameDay : '[Today at] LT',

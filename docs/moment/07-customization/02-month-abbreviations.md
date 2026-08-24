@@ -15,13 +15,15 @@ signature: |
           standalone : String[]
       }
   });
-  // From 2.11.0
+
+  // From 2.11.0 to 2.11.2
   moment.locale('en', {
       monthsShort : {
           format: String[],
           standalone : String[]
       }
   });
+
   // From 2.8.1 to 2.11.2
   moment.locale('en', {
       monthsShort : String[]

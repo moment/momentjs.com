@@ -4,6 +4,7 @@ version: 1.0.0
 signature: |
   moment();
   moment(undefined);
+
   // From 2.14.0 onward, also supported
   moment([]);
   moment({});
