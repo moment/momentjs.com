@@ -47,9 +47,6 @@ importers:
       sass:
         specifier: ^1.104.1
         version: 1.104.1
-      uglify-js:
-        specifier: 3.15.4
-        version: 3.15.4
 
 packages:
 
@@ -1033,11 +1030,6 @@ packages:
 
   uc.micro@3.0.0:
     resolution: {integrity: sha512-U3PppEkleoTnIfi8BozMx3yju3qc/L6SwqWo2Sw+54PX+PX0q9I+r1Um5HCmqD7n9VDX5/v3vQH/AjA6deDdtw==}
-
-  uglify-js@3.15.4:
-    resolution: {integrity: sha512-vMOPGDuvXecPs34V74qDKk4iJ/SN4vL3Ow/23ixafENYvtrNvtbcgUeugTcUGRGsOF/5fU8/NYSL5Hyb3l1OJA==}
-    engines: {node: '>=0.8.0'}
-    hasBin: true
 
   uglify-js@3.19.3:
     resolution: {integrity: sha512-v3Xu+yuwBXisp6QYTcH4UbH+xYJXqnq2m/LtQVWKWzYc1iehYnLixoQDN9FH6/j9/oybfd6W9Ghwkl8+UMKTKQ==}
@@ -2134,8 +2126,6 @@ snapshots:
   uc.micro@2.1.0: {}
 
   uc.micro@3.0.0: {}
-
-  uglify-js@3.15.4: {}
 
   uglify-js@3.19.3:
     optional: true

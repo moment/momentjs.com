@@ -31,6 +31,7 @@ and [jsDelivr](https://www.jsdelivr.com/package/npm/moment):
   src="%%MOMENT_CDNJS_URL%%"
   integrity="%%MOMENT_CDNJS_INTEGRITY%%"
   crossorigin="anonymous"
+  referrerpolicy="no-referrer"
 &gt;&lt;/script&gt;
 &lt;script&gt;
   moment().format();

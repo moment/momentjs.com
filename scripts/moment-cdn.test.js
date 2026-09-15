@@ -2,9 +2,8 @@ const assert = require("node:assert/strict");
 const test = require("node:test");
 const {
   applyMomentCdn,
+  createCdnjsAsset,
   createIntegrity,
-  createIntegrityCandidates,
-  minifyForCdnjs,
 } = require("../data/moment-cdn");
 
 test("createIntegrity returns a SHA-512 SRI value", function () {
@@ -14,27 +13,28 @@ test("createIntegrity returns a SHA-512 SRI value", function () {
   );
 });
 
-test("createIntegrityCandidates returns unique SRI alternatives", function () {
-  assert.equal(
-    createIntegrityCandidates([
-      Buffer.from("hello"),
-      Buffer.from("goodbye"),
-      Buffer.from("hello"),
-    ]),
-    "sha512-m3HSJL1i83hdltRq0+o9czGb+8KJDKra4t/3JRlnPKcjI8PZm6XBHXx6zG4UuMXaDEZjR1wuXDre9G9zvN7AQw== " +
-      "sha512-3iwDIM3/NycQSd+oy4Nf/VQgAhYlOh37rXWhrlG9MLtJnhTjf+mTui6le4Y/xWME3pQHPYgMnBjrCkac3iEdAg=="
-  );
+test("createCdnjsAsset uses the latest published metadata", function () {
+  const asset = createCdnjsAsset({
+    version: "2.30.1",
+    filename: "moment.min.js",
+    sri: "sha512-hUhvpC5f8cgc04OZb55j0KNGh4eh7dLxd/dPSJ5VyzqDWxsayYbojWyl5Tkcgrmb/RVKCRJI1jNlRbVP4WWC4w==",
+  });
+
+  assert.deepEqual(asset, {
+    url: "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js",
+    integrity:
+      "sha512-hUhvpC5f8cgc04OZb55j0KNGh4eh7dLxd/dPSJ5VyzqDWxsayYbojWyl5Tkcgrmb/RVKCRJI1jNlRbVP4WWC4w==",
+  });
 });
 
-test("minifyForCdnjs reproduces the cdnjs minifier settings", function () {
-  const source =
-    "function example(value) { " +
-    "if (value) { return true; } else { return false; } }";
-
-  assert.equal(
-    minifyForCdnjs(source).toString(),
-    "function example(e){return!!e}"
-  );
+test("createCdnjsAsset rejects invalid metadata", function () {
+  assert.throws(function () {
+    createCdnjsAsset({
+      version: "latest",
+      filename: "moment.min.js",
+      sri: "sha512-abc123==",
+    });
+  }, /invalid Moment metadata/);
 });
 
 test("applyMomentCdn replaces every CDN placeholder", function () {
