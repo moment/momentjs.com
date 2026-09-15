@@ -23,15 +23,16 @@
     "@11ty/eleventy": "^3.1.6",
     "@11ty/eleventy-plugin-handlebars": "^1.0.0",
     "@11ty/gray-matter": "^3.0.0",
-    "autoprefixer": "^10.5.4",
+    "autoprefixer": "^10.6.0",
     "handlebars": "^4.7.9",
-    "markdown-it": "^15.0.0",
+    "markdown-it": "^15.0.2",
     "markdownlint-cli2": "^0.23.2",
-    "moment": "2.30.1",
+    "moment": "2.31.0",
     "moment-timezone": "0.6.3",
     "npm-run-all2": "^9.0.3",
-    "postcss": "^8.5.26",
+    "postcss": "^8.5.28",
     "prettier": "^3.9.6",
-    "sass": "^1.102.0"
+    "sass": "^1.104.1",
+    "uglify-js": "3.15.4"
   }
 }
