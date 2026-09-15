@@ -3,6 +3,7 @@ const test = require("node:test");
 const {
   applyMomentCdn,
   createIntegrity,
+  createIntegrityCandidates,
   minifyForCdnjs,
 } = require("../data/moment-cdn");
 
@@ -10,6 +11,18 @@ test("createIntegrity returns a SHA-512 SRI value", function () {
   assert.equal(
     createIntegrity(Buffer.from("hello")),
     "sha512-m3HSJL1i83hdltRq0+o9czGb+8KJDKra4t/3JRlnPKcjI8PZm6XBHXx6zG4UuMXaDEZjR1wuXDre9G9zvN7AQw=="
+  );
+});
+
+test("createIntegrityCandidates returns unique SRI alternatives", function () {
+  assert.equal(
+    createIntegrityCandidates([
+      Buffer.from("hello"),
+      Buffer.from("goodbye"),
+      Buffer.from("hello"),
+    ]),
+    "sha512-m3HSJL1i83hdltRq0+o9czGb+8KJDKra4t/3JRlnPKcjI8PZm6XBHXx6zG4UuMXaDEZjR1wuXDre9G9zvN7AQw== " +
+      "sha512-3iwDIM3/NycQSd+oy4Nf/VQgAhYlOh37rXWhrlG9MLtJnhTjf+mTui6le4Y/xWME3pQHPYgMnBjrCkac3iEdAg=="
   );
 });
 

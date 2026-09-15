@@ -17,6 +17,10 @@ function createIntegrity(content) {
   );
 }
 
+function createIntegrityCandidates(contents) {
+  return Array.from(new Set(contents.map(createIntegrity))).join(" ");
+}
+
 function minifyForCdnjs(content) {
   // Match cdnjs/tools compress/js.go; the uglify-js dependency is pinned too.
   const result = UglifyJS.minify(content, {
@@ -41,7 +45,7 @@ function readMomentVersion() {
   return version;
 }
 
-async function fetchAsset(provider, url, version, notFoundFallback) {
+async function fetchAsset(provider, url, version, notFoundFallbacks) {
   let response;
 
   try {
@@ -56,10 +60,10 @@ async function fetchAsset(provider, url, version, notFoundFallback) {
   }
 
   if (!response.ok) {
-    if (response.status === 404 && notFoundFallback) {
+    if (response.status === 404 && notFoundFallbacks) {
       return {
         url: url,
-        integrity: createIntegrity(notFoundFallback),
+        integrity: createIntegrityCandidates(notFoundFallbacks),
       };
     }
 
@@ -99,9 +103,15 @@ async function fetchAsset(provider, url, version, notFoundFallback) {
 }
 
 function fetchMetadata(version) {
-  const cdnjsContent = minifyForCdnjs(
-    fs.readFileSync(require.resolve("moment/moment.js"), "utf8")
+  const momentSource = fs.readFileSync(
+    require.resolve("moment/moment.js"),
+    "utf8"
   );
+  // cdnjs processes these two inputs concurrently into the same output path.
+  const cdnjsCandidates = [
+    fs.readFileSync(require.resolve("moment/min/moment.min.js")),
+    minifyForCdnjs(momentSource),
+  ];
   const urls = {
     cdnjs:
       "https://cdnjs.cloudflare.com/ajax/libs/moment.js/" +
@@ -112,7 +122,7 @@ function fetchMetadata(version) {
   };
 
   return Promise.all([
-    fetchAsset("cdnjs", urls.cdnjs, version, cdnjsContent),
+    fetchAsset("cdnjs", urls.cdnjs, version, cdnjsCandidates),
     fetchAsset("jsDelivr", urls.jsdelivr, version),
   ]).then(function (assets) {
     return {
@@ -171,6 +181,7 @@ function applyMomentCdn(docs, metadata) {
 module.exports = {
   applyMomentCdn,
   createIntegrity,
+  createIntegrityCandidates,
   loadMomentCdn,
   minifyForCdnjs,
 };
