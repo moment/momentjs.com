@@ -2,3 +2,4 @@ allowBuilds:
   "@parcel/watcher": true
 minimumReleaseAgeExclude:
   - moment
+  - moment-timezone
