@@ -1,4 +1,6 @@
 const crypto = require("node:crypto");
+const fs = require("node:fs");
+const UglifyJS = require("uglify-js");
 
 const placeholders = {
   "%%MOMENT_CDNJS_URL%%": ["cdnjs", "url"],
@@ -15,6 +17,20 @@ function createIntegrity(content) {
   );
 }
 
+function minifyForCdnjs(content) {
+  // Match cdnjs/tools compress/js.go; the uglify-js dependency is pinned too.
+  const result = UglifyJS.minify(content, {
+    compress: { if_return: true },
+    mangle: true,
+  });
+
+  if (result.error) {
+    throw result.error;
+  }
+
+  return Buffer.from(result.code);
+}
+
 function readMomentVersion() {
   const version = require("moment/package.json").version;
 
@@ -25,7 +41,7 @@ function readMomentVersion() {
   return version;
 }
 
-async function fetchAsset(provider, url, version) {
+async function fetchAsset(provider, url, version, notFoundFallback) {
   let response;
 
   try {
@@ -40,6 +56,13 @@ async function fetchAsset(provider, url, version) {
   }
 
   if (!response.ok) {
+    if (response.status === 404 && notFoundFallback) {
+      return {
+        url: url,
+        integrity: createIntegrity(notFoundFallback),
+      };
+    }
+
     throw new Error(
       provider + " returned HTTP " + response.status + " for " + url
     );
@@ -76,6 +99,9 @@ async function fetchAsset(provider, url, version) {
 }
 
 function fetchMetadata(version) {
+  const cdnjsContent = minifyForCdnjs(
+    fs.readFileSync(require.resolve("moment/moment.js"), "utf8")
+  );
   const urls = {
     cdnjs:
       "https://cdnjs.cloudflare.com/ajax/libs/moment.js/" +
@@ -86,7 +112,7 @@ function fetchMetadata(version) {
   };
 
   return Promise.all([
-    fetchAsset("cdnjs", urls.cdnjs, version),
+    fetchAsset("cdnjs", urls.cdnjs, version, cdnjsContent),
     fetchAsset("jsDelivr", urls.jsdelivr, version),
   ]).then(function (assets) {
     return {
@@ -146,4 +172,5 @@ module.exports = {
   applyMomentCdn,
   createIntegrity,
   loadMomentCdn,
+  minifyForCdnjs,
 };

@@ -1,11 +1,26 @@
 const assert = require("node:assert/strict");
 const test = require("node:test");
-const { applyMomentCdn, createIntegrity } = require("../data/moment-cdn");
+const {
+  applyMomentCdn,
+  createIntegrity,
+  minifyForCdnjs,
+} = require("../data/moment-cdn");
 
 test("createIntegrity returns a SHA-512 SRI value", function () {
   assert.equal(
     createIntegrity(Buffer.from("hello")),
     "sha512-m3HSJL1i83hdltRq0+o9czGb+8KJDKra4t/3JRlnPKcjI8PZm6XBHXx6zG4UuMXaDEZjR1wuXDre9G9zvN7AQw=="
+  );
+});
+
+test("minifyForCdnjs reproduces the cdnjs minifier settings", function () {
+  const source =
+    "function example(value) { " +
+    "if (value) { return true; } else { return false; } }";
+
+  assert.equal(
+    minifyForCdnjs(source).toString(),
+    "function example(e){return!!e}"
   );
 });
 
